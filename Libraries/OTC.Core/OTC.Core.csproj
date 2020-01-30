@@ -1,0 +1,419 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6A159AB3-7D3D-4128-85C0-B65BDD73A68F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Rwm.Otc</RootNamespace>
+    <AssemblyName>otc.core</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <ApplicationIcon>Resources\favicon.ico</ApplicationIcon>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <SignAssembly>false</SignAssembly>
+    <NuGetPackageImportStamp>2f25ca3f</NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\Help\otc.core.xml</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>..\Help\otc.core.xml</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>..\Help\otc.core.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>..\Help\otc.core.xml</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>..\Help\otc.core.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.106.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Data.SQLite.Core.1.0.106.0\lib\net40\System.Data.SQLite.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.106.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Data.SQLite.EF6.1.0.106.0\lib\net40\System.Data.SQLite.EF6.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.106.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Data.SQLite.Linq.1.0.106.0\lib\net40\System.Data.SQLite.Linq.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\IXmlSettingsItem.cs" />
+    <Compile Include="Configuration\XmlSettingsItem.cs" />
+    <Compile Include="Configuration\XmlSettingsParseError.cs" />
+    <Compile Include="Configuration\XmlSettingsManager.cs" />
+    <Compile Include="Data\DatabaseChecker.cs" />
+    <Compile Include="Data\DataConsumer.cs" />
+    <Compile Include="Data\FileType.cs" />
+    <Compile Include="Data\ORM\ORMEntityMember.cs" />
+    <Compile Include="Data\ORM\ORMForeignCollection.cs" />
+    <Compile Include="Data\ORM\ORMIdentifiableEntity.cs" />
+    <Compile Include="Data\ORM\ORMPrimaryKey.cs" />
+    <Compile Include="Data\ORM\ORMSqliteDriver.cs" />
+    <Compile Include="Data\ORM\ORMSqlCommand.cs" />
+    <Compile Include="Data\ORM\ORMEntity.cs" />
+    <Compile Include="Data\ORM\ORMPropertyFile.cs" />
+    <Compile Include="Data\ORM\ORMProperty.cs" />
+    <Compile Include="Data\ORM\ORMSqliteDialect.cs" />
+    <Compile Include="Data\ORM\ORMTable.cs" />
+    <Compile Include="Data\ORM\ORMEntityStructure.cs" />
+    <Compile Include="Diagnostics\FileLogger.cs" />
+    <Compile Include="Diagnostics\ILogger.cs" />
+    <Compile Include="Diagnostics\LoggerSettingsManager.cs" />
+    <Compile Include="Diagnostics\WinLogger.cs" />
+    <Compile Include="Layout\AccessoryStatus.cs" />
+    <Compile Include="Layout\ElementAction.cs" />
+    <Compile Include="Layout\Element.cs" />
+    <Compile Include="Layout\ElementType.cs" />
+    <Compile Include="Layout\ElementEventArgs.cs" />
+    <Compile Include="Layout\DeviceConnectionMap.cs" />
+    <Compile Include="Layout\DeviceConnection.cs" />
+    <Compile Include="Layout\Device.cs" />
+    <Compile Include="Layout\LayoutConfigurationException.cs" />
+    <Compile Include="Layout\RouteActivationEventArgs.cs" />
+    <Compile Include="Project.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OTCContext.cs" />
+    <Compile Include="Layout\Route.cs" />
+    <Compile Include="Layout\RouteElement.cs" />
+    <Compile Include="Layout\Sound.cs" />
+    <Compile Include="Layout\Switchboard.cs" />
+    <Compile Include="Systems\AccessoryInformation.cs" />
+    <Compile Include="Systems\DigitalSystemInfo.cs" />
+    <Compile Include="Systems\AccessoryEventArgs.cs" />
+    <Compile Include="Systems\OccupationEventArgs.cs" />
+    <Compile Include="Systems\IDigitalSystem.cs" />
+    <Compile Include="Systems\DigitalSystemException.cs" />
+    <Compile Include="Systems\Protocol\ICommand.cs" />
+    <Compile Include="Systems\Protocol\SystemInfoCommand.cs" />
+    <Compile Include="Systems\Protocol\InterfaceInfoCommand.cs" />
+    <Compile Include="Systems\Protocol\IRequest.cs" />
+    <Compile Include="Systems\Protocol\IResponse.cs" />
+    <Compile Include="Systems\Protocol\SystemInformationRequest.cs" />
+    <Compile Include="Systems\Protocol\SystemInformationResponse.cs" />
+    <Compile Include="Systems\FeedbackEventArgs.cs" />
+    <Compile Include="Systems\SystemInfoEventArgs.cs" />
+    <Compile Include="Systems\SystemManager.cs" />
+    <Compile Include="Systems\TestSystem.cs" />
+    <Compile Include="Themes\ThemeManager.cs" />
+    <Compile Include="Themes\ITheme.cs" />
+    <Compile Include="Internationalization\OTCLanguage.cs" />
+    <Compile Include="Utils\NumericUtils.cs" />
+    <Compile Include="Help\OTCHelpIndex.cs" />
+    <Compile Include="TrainControl\Administration.cs" />
+    <Compile Include="TrainControl\Category.cs" />
+    <Compile Include="TrainControl\CollectionModel.cs" />
+    <Compile Include="TrainControl\Decoder.cs" />
+    <Compile Include="TrainControl\Manufacturer.cs" />
+    <Compile Include="TrainControl\ModelDigitalFunction.cs" />
+    <Compile Include="TrainControl\ModelFileAttachment.cs" />
+    <Compile Include="TrainControl\ModelRevision.cs" />
+    <Compile Include="TrainControl\Gauge.cs" />
+    <Compile Include="TrainControl\Store.cs" />
+    <Compile Include="Utils\ReflectionUtils.cs" />
+    <Compile Include="Utils\Coordinates.cs" />
+    <Compile Include="Utils\EnumItemImage.cs" />
+    <Compile Include="Utils\IOUtils.cs" />
+    <Compile Include="Utils\BinaryUtils.cs" />
+    <Compile Include="Net\EventArgs.cs" />
+    <Compile Include="Net\Exceptions.cs" />
+    <Compile Include="Net\OTCNetClient.cs" />
+    <Compile Include="Net\OTCNetMessage.cs" />
+    <Compile Include="Net\OTCNetMessageClient.cs" />
+    <Compile Include="Net\OTCNetServer.cs" />
+    <Compile Include="Net\OTCNetServerClient.cs" />
+    <Compile Include="Diagnostics\Logger.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\StringUtils.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Resources\about_base.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OTC_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yellow.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\none.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\turnout_none.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\turnout_stright.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\turnout_turned.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolbar.png" />
+    <None Include="Resources\TwoAspect.png" />
+    <None Include="Resources\ThreeAspect.png" />
+    <None Include="Resources\sound.png" />
+    <None Include="Resources\favicon.ico" />
+    <None Include="Resources\nav_refresh.gif" />
+    <None Include="Resources\arrow_nav_backward.gif" />
+    <None Include="Resources\arrow_nav_forward.gif" />
+    <None Include="Resources\home_nav.gif" />
+    <None Include="Resources\nav_print.gif" />
+    <None Include="Resources\delete.gif" />
+    <None Include="Resources\ico_system_package.gif" />
+    <None Include="Resources\ImageComboBox.bmp" />
+    <None Include="Resources\ImageComboBox.ico" />
+    <None Include="Resources\img_systems_class.gif" />
+    <None Include="Resources\img_actions_remove.gif" />
+    <None Include="Resources\img_actions_add.gif" />
+    <None Include="Resources\img_actions_config.gif" />
+    <None Include="Resources\img_system_selected.gif" />
+    <None Include="Resources\img_system_alone.gif" />
+    <None Include="Resources\header_bg.gif" />
+    <None Include="Resources\otc_wizard_icon.png" />
+    <None Include="Resources\folder_open.gif" />
+    <None Include="Resources\job_001_32.png" />
+    <None Include="Resources\job_001_24.png" />
+    <None Include="Resources\hardware_001_32.png" />
+    <None Include="Resources\objects_misc.png" />
+    <None Include="Resources\edit_clear2.gif" />
+    <None Include="Resources\edit_copy_001_16.png" />
+    <None Include="Resources\save_edit.gif" />
+    <None Include="Resources\bullet_001_16.png" />
+    <None Include="Resources\bullet_002_16.png" />
+    <None Include="Resources\messenger_bg.png" />
+    <None Include="Resources\mail_001_32.png" />
+    <None Include="Resources\aero_arrow_add.cur" />
+    <None Include="Resources\cmd_operation_stop_big.png" />
+    <None Include="Resources\search_001.png" />
+    <None Include="Resources\log_003.gif" />
+    <None Include="Resources\log_004.gif" />
+    <None Include="Resources\log_005.gif" />
+    <None Include="Resources\nav_go.gif" />
+    <None Include="Resources\nav_stop.gif" />
+    <None Include="Resources\direction_001.png" />
+    <None Include="Resources\direction_002.png" />
+    <None Include="Resources\direction_003.png" />
+    <None Include="Resources\direction_004.png" />
+    <None Include="Resources\control-record.png" />
+    <None Include="Resources\control-stop-square.png" />
+    <None Include="Resources\decoder_001.png" />
+    <None Include="Resources\document-text.png" />
+    <None Include="Resources\book.png" />
+    <None Include="Resources\keyboard.png" />
+    <None Include="Resources\processor.png" />
+    <None Include="Resources\processor--selected.png" />
+    <None Include="Resources\exclamation-shield.png" />
+    <None Include="Resources\information-shield.png" />
+    <None Include="Resources\cross-shield.png" />
+    <None Include="Resources\computer.png" />
+    <None Include="Resources\computer--arrow.png" />
+    <None Include="Resources\arrow-branch-stright.png" />
+    <None Include="Resources\arrow-branch-turned.png" />
+    <None Include="Resources\arrow-branch-090-grey.png" />
+    <None Include="Resources\aero_arrow_add1.cur" />
+    <None Include="Resources\cross.png" />
+    <None Include="Resources\B.001.ico" />
+    <None Include="Resources\B.002.ico" />
+    <None Include="Resources\B.003.ico" />
+    <None Include="Resources\B.004.ico" />
+    <None Include="Resources\B.101.ico" />
+    <None Include="Resources\B.102.ico" />
+    <None Include="Resources\B.103.ico" />
+    <None Include="Resources\B.104.ico" />
+    <None Include="Resources\B.201.ico" />
+    <None Include="Resources\B.202.ico" />
+    <None Include="Resources\B.301.ico" />
+    <None Include="Resources\B.105.ico" />
+    <None Include="Resources\B.106.ico" />
+    <None Include="Resources\shape_square_go.png" />
+    <None Include="Resources\arrow_switch_16.png" />
+    <None Include="Resources\cog_16.png" />
+    <None Include="Resources\B_302.ico" />
+    <None Include="Resources\PushButton_Blue.ico" />
+    <None Include="Resources\Design_Buffer.png" />
+    <None Include="Resources\Design_Curve.png" />
+    <None Include="Resources\Design_Stright.png" />
+    <None Include="Resources\Design_Switch_Blue.png" />
+    <None Include="Resources\Design_Switch_Green.png" />
+    <None Include="Resources\Design_Switch_Red.png" />
+    <None Include="Resources\Design_Switch_Yellow.png" />
+    <None Include="Resources\Design_Turnout_Left.png" />
+    <None Include="Resources\Design_Turnout_Right.png" />
+    <None Include="Resources\Design_Turnout_Triple.png" />
+    <None Include="Resources\Design_Turnout_Y.png" />
+    <None Include="Resources\Design_Stright_sensor.png" />
+    <None Include="Resources\Shunt.png" />
+    <None Include="Resources\Advanced.png" />
+    <None Include="Resources\delete_16.png" />
+    <None Include="Resources\drive_light_16.png" />
+    <None Include="Resources\drive_lightning_16.png" />
+    <Content Include="Resources\signal-hs-0[1].png" />
+    <Content Include="Resources\signal-hs-1[1].png" />
+    <Content Include="Resources\signal-hs-2[1].png" />
+    <None Include="Resources\traffic2-light-yellow.png" />
+    <None Include="Resources\traffic2-light-red.png" />
+    <None Include="Resources\traffic2-light-off.png" />
+    <None Include="Resources\traffic2-light-green-yellow.png" />
+    <None Include="Resources\traffic2-light-green.png" />
+    <None Include="Resources\switch--question.png" />
+    <None Include="Resources\switch--on.png" />
+    <None Include="Resources\switch.png" />
+    <None Include="Resources\zone--plus.png" />
+    <None Include="Resources\zone--pencil.png" />
+    <None Include="Resources\zone--minus.png" />
+    <None Include="Resources\zone.png" />
+    <None Include="Resources\trains_001.png" />
+    <None Include="Resources\user_016_16.png" />
+    <None Include="Resources\user_011_16.png" />
+    <None Include="Resources\signal_2s_connection2_16.png" />
+    <None Include="Resources\signal_2s_connection1_16.png" />
+    <None Include="Resources\signal_2s_connection2.png" />
+    <None Include="Resources\signal_2s_connection1.png" />
+    <None Include="Resources\switch_none.gif" />
+    <None Include="Resources\switch_on.gif" />
+    <None Include="Resources\switch_off.gif" />
+    <None Include="Resources\wizard_hardware.png" />
+    <None Include="Resources\topic.gif" />
+    <None Include="Resources\toc_closed.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <Error Condition="!Exists('..\..\packages\System.Data.SQLite.Core.1.0.106.0\build\net40\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\System.Data.SQLite.Core.1.0.106.0\build\net40\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <Import Project="..\..\packages\System.Data.SQLite.Core.1.0.106.0\build\net40\System.Data.SQLite.Core.targets" Condition="Exists('..\..\packages\System.Data.SQLite.Core.1.0.106.0\build\net40\System.Data.SQLite.Core.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{930BA765-EC32-47E2-985D-CBF987FDB049}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RailwayStudio.Common</RootNamespace>
+    <AssemblyName>RailwayStudio.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v15.1.UI, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v15.1.Extensions, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\ConsoleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ConsoleControl.Designer.cs">
+      <DependentUpon>ConsoleControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PluginManagementControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PluginManagementControl.Designer.cs">
+      <DependentUpon>PluginManagementControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TrainEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IContainerView.cs" />
+    <Compile Include="IPlugin.cs" />
+    <Compile Include="IPluginContainer.cs" />
+    <Compile Include="IPluginModule.cs" />
+    <Compile Include="Modules\Editors\TextEditorModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Editors\TextEditorModule.Designer.cs">
+      <DependentUpon>TextEditorModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Reports\ReportViewerModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Reports\ReportViewerModule.Designer.cs">
+      <DependentUpon>ReportViewerModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plugin.cs" />
+    <Compile Include="PluginManager.cs" />
+    <Compile Include="PluginModule.cs" />
+    <Compile Include="PrintRibbonControllerResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrintRibbonControllerResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="StudioContext.cs" />
+    <Compile Include="StudioContext.Find.cs" />
+    <Compile Include="StudioContext.UI.cs" />
+    <Compile Include="Views\PluginEditorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PluginEditorView.Designer.cs">
+      <DependentUpon>PluginEditorView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProjectEditorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ProjectEditorView.Designer.cs">
+      <DependentUpon>ProjectEditorView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FindTrainView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FindTrainView.Designer.cs">
+      <DependentUpon>FindTrainView.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\ConsoleControl.resx">
+      <DependentUpon>ConsoleControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PluginManagementControl.resx">
+      <DependentUpon>PluginManagementControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Editors\TextEditorModule.resx">
+      <DependentUpon>TextEditorModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Reports\ReportViewerModule.resx">
+      <DependentUpon>ReportViewerModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintRibbonControllerResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PrintRibbonControllerResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PluginEditorView.resx">
+      <DependentUpon>PluginEditorView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProjectEditorView.resx">
+      <DependentUpon>ProjectEditorView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FindTrainView.resx">
+      <DependentUpon>FindTrainView.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Libraries\OTC.Core\OTC.Core.csproj">
+      <Project>{6a159ab3-7d3d-4128-85c0-b65bdd73a68f}</Project>
+      <Name>OTC.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Themes\OTC.Theme.SpDrS60.SVG\OTC.Theme.SpDrS60SVG.csproj">
+      <Project>{2652304d-027b-4cca-91cb-8e4a596d5b20}</Project>
+      <Name>OTC.Theme.SpDrS60SVG</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_edit_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick_add_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick_delete_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diskette_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_as_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rwm_logo_black.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

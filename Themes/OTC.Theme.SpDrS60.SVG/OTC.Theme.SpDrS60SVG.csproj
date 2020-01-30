@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2652304D-027B-4CCA-91CB-8E4A596D5B20}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Rwm.Otc.Themes</RootNamespace>
+    <AssemblyName>Rwm.Otc.Themes.SpDrS60SVG</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\RailwayStudio\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Svg, Version=2.2.1.39233, Culture=neutral, PublicKeyToken=12a0bac221edeae2, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Svg.2.3.0\lib\net35\Svg.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Theme.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\OTC.Core\OTC.Core.csproj">
+      <Project>{6a159ab3-7d3d-4128-85c0-b65bdd73a68f}</Project>
+      <Name>OTC.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Resources\straight.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\straight-route.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\curve.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\curve-route.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buffer.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buffer-route.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+    <None Include="Resources\stdblock.svg" />
+    <None Include="Resources\dturnout-left-route-turned.svg" />
+    <None Include="Resources\dturnout-left-route-stright.svg" />
+    <None Include="Resources\dturnout-left-turned.svg" />
+    <None Include="Resources\dturnout-left-stright.svg" />
+    <None Include="Resources\semaphoredistant-2-r-route.svg" />
+    <None Include="Resources\semaphoredistant-2-y-route.svg" />
+    <None Include="Resources\semaphoredistant-2-g-route.svg" />
+    <None Include="Resources\semaphoredistant-2-r.svg" />
+    <None Include="Resources\semaphoredistant-2-y.svg" />
+    <None Include="Resources\semaphoredistant-g.svg" />
+    <None Include="Resources\semaphoredistant-2-r - copia.svg" />
+    <None Include="Resources\signalmain-w-route.svg" />
+    <None Include="Resources\semaphoremain-g-route.svg" />
+    <None Include="Resources\semaphoremain-r-route.svg" />
+    <None Include="Resources\signalmain-w.svg" />
+    <None Include="Resources\semaphoremain-g.svg" />
+    <None Include="Resources\semaphoremain-r.svg" />
+    <None Include="Resources\signalmain-w - copia.svg" />
+    <None Include="Resources\semaphoreshunting-2-w-route.svg" />
+    <None Include="Resources\semaphoreshunting-2-r-route.svg" />
+    <None Include="Resources\semaphoreshunting-2-w.svg" />
+    <None Include="Resources\semaphoreshunting-2-r.svg" />
+    <None Include="Resources\semaphoreshunting-2.svg" />
+    <None Include="Resources\semaphoremain-2-g-route.svg" />
+    <None Include="Resources\semaphoremain-2-r-route.svg" />
+    <None Include="Resources\semaphoremain-2-g.svg" />
+    <None Include="Resources\semaphoremain-2-g - copia.svg" />
+    <None Include="Resources\semaphoremain-2-r.svg" />
+    <None Include="Resources\straight_sensor_on.svg" />
+    <None Include="Resources\straight_sensor_off.svg" />
+    <None Include="Resources\straight_route_sensor_on.svg" />
+    <None Include="Resources\straight_route_sensor_off.svg" />
+    <None Include="Resources\button_blue_off11111.svg" />
+    <None Include="Resources\button_blue_off1112.svg" />
+    <None Include="Resources\button_blue_off112.svg" />
+    <None Include="Resources\button_blue_on211.svg" />
+    <None Include="Resources\button_blue_off1111.svg" />
+    <None Include="Resources\button_blue_on21.svg" />
+    <None Include="Resources\button_blue_off111.svg" />
+    <None Include="Resources\button_blue_on2.svg" />
+    <None Include="Resources\button_blue_off11.svg" />
+    <None Include="Resources\button_blue_off1.svg" />
+    <None Include="Resources\button_blue_on1.svg" />
+    <None Include="Resources\button_blue_on.svg" />
+    <None Include="Resources\button_blue_off.svg" />
+    <None Include="Resources\threeway-tl1.svg">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\threeway-tr1.svg">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\threeway1.svg">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\twoway-tl1.svg">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\twoway-tr1.svg">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\turnoutright-t1.svg">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\turnoutright1.svg">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\turnoutleft-t1.svg">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\turnoutleft-r1.svg">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\threeway-tl.svg" />
+    <None Include="Resources\threeway-tr.svg" />
+    <None Include="Resources\threeway.svg" />
+    <None Include="Resources\twoway-tr.svg" />
+    <None Include="Resources\twoway-tl.svg" />
+    <None Include="Resources\turnoutright-t.svg" />
+    <None Include="Resources\turnoutright.svg" />
+    <None Include="Resources\turnoutleft-t.svg">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\turnoutleft-r.svg">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\dcrossingright-sr-r_grey.svg" />
+    <None Include="Resources\threeway_gray.svg" />
+    <None Include="Resources\twoway_grey.svg" />
+    <None Include="Resources\turnoutright_grey.svg" />
+    <None Include="Resources\turnoutleft_grey.svg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

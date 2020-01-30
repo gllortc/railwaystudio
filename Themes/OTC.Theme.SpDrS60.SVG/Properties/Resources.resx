@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="B01_00_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\straight.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B01_00_00_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\straight-route.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B02_00_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\curve.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B02_00_00_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\curve-route.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B03_00_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buffer.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B03_00_00_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buffer-route.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B10_00_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\turnoutleft_grey.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B10_01_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\turnoutleft-r.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;iso-8859-1</value>
+  </data>
+  <data name="B10_01_00_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\turnoutleft-r1.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B10_02_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\turnoutleft-t.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;iso-8859-1</value>
+  </data>
+  <data name="B10_02_00_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\turnoutleft-t1.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B11_00_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\turnoutright_grey.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B11_01_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\turnoutright.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;iso-8859-1</value>
+  </data>
+  <data name="B11_01_00_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\turnoutright1.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B11_02_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\turnoutright-t.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;iso-8859-1</value>
+  </data>
+  <data name="B11_02_00_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\turnoutright-t1.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B12_00_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\twoway_grey.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B12_01_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\twoway-tr.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;iso-8859-1</value>
+  </data>
+  <data name="B12_01_00_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\twoway-tr1.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B12_02_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\twoway-tl.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;iso-8859-1</value>
+  </data>
+  <data name="B12_02_00_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\twoway-tl1.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B13_00_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\threeway_gray.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B13_01_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\threeway.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;iso-8859-1</value>
+  </data>
+  <data name="B13_01_00_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\threeway1.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B13_02_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\threeway-tr.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;iso-8859-1</value>
+  </data>
+  <data name="B13_02_00_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\threeway-tr1.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B13_03_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\threeway-tl.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;iso-8859-1</value>
+  </data>
+  <data name="B13_03_00_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\threeway-tl1.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B15_00_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dcrossingright-sr-r_grey.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B15_01_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dturnout-left-stright.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B15_01_00_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dturnout-left-route-stright.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B15_02_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dturnout-left-turned.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B15_02_00_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dturnout-left-route-turned.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B20_00_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\semaphoremain-2-g - copia.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B20_01_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\semaphoremain-2-r.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B20_01_00_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\semaphoremain-2-r-route.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B20_02_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\semaphoremain-2-g.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B20_02_00_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\semaphoremain-2-g-route.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B21_00_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\signalmain-w - copia.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B21_01_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\semaphoremain-r.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B21_01_00_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\semaphoremain-r-route.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B21_02_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\semaphoremain-g.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B21_02_00_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\semaphoremain-g-route.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B21_03_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\signalmain-w.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B21_03_00_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\signalmain-w-route.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B22_00_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\semaphoredistant-2-r - copia.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B22_01_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\semaphoredistant-g.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B22_01_00_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\semaphoredistant-2-g-route.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B22_02_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\semaphoredistant-2-y.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B22_02_00_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\semaphoredistant-2-y-route.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B22_03_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\semaphoredistant-2-r.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B22_03_00_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\semaphoredistant-2-r-route.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B23_00_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\semaphoreshunting-2.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="B23_01_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\semaphoreshunting-2-r.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B23_01_00_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\semaphoreshunting-2-r-route.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B23_02_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\semaphoreshunting-2-w.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B23_02_00_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\semaphoreshunting-2-w-route.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B30_00_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_blue_off.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;iso-8859-1</value>
+  </data>
+  <data name="B30_01_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_blue_off1.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;iso-8859-1</value>
+  </data>
+  <data name="B30_02_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_blue_on.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;iso-8859-1</value>
+  </data>
+  <data name="B31_00_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_blue_off112.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;iso-8859-1</value>
+  </data>
+  <data name="B31_01_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_blue_off11.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;iso-8859-1</value>
+  </data>
+  <data name="B31_02_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_blue_on2.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;iso-8859-1</value>
+  </data>
+  <data name="B32_00_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_blue_off1112.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;iso-8859-1</value>
+  </data>
+  <data name="B32_01_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_blue_off111.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;iso-8859-1</value>
+  </data>
+  <data name="B32_02_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_blue_on21.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;iso-8859-1</value>
+  </data>
+  <data name="B33_00_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_blue_off11111.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B33_01_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_blue_off1111.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;iso-8859-1</value>
+  </data>
+  <data name="B33_02_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_blue_on211.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;iso-8859-1</value>
+  </data>
+  <data name="B34_00_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\straight_sensor_off.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B34_00_00_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\straight_route_sensor_off.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B34_00_01_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\straight_sensor_on.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B34_00_01_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\straight_route_sensor_on.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="B40_00_00_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\stdblock.svg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ICO_IMAGE_ERROR_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>

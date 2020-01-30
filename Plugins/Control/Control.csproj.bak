@@ -1,0 +1,596 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F5ECFBAB-6237-42FD-89C3-1AD2CA020201}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Rwm.Studio.Plugins.Control</RootNamespace>
+    <AssemblyName>RailwayStudio.Control</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>2c02372f</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v15.2" />
+    <Reference Include="DevExpress.Data.v15.2" />
+    <Reference Include="DevExpress.Printing.v15.2.Core" />
+    <Reference Include="DevExpress.Utils.v15.2" />
+    <Reference Include="DevExpress.XtraBars.v15.2" />
+    <Reference Include="DevExpress.Sparkline.v15.2.Core" />
+    <Reference Include="DevExpress.XtraEditors.v15.2" />
+    <Reference Include="DevExpress.XtraGrid.v15.2, Version=15.2.17.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v15.2, Version=15.2.17.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v15.2, Version=15.2.17.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v15.2, Version=15.2.17.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.106.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Data.SQLite.Core.1.0.106.0\lib\net45\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.106.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Data.SQLite.EF6.1.0.106.0\lib\net45\System.Data.SQLite.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.106.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Data.SQLite.Linq.1.0.106.0\lib\net45\System.Data.SQLite.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\ActionManagerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ActionManagerControl.Designer.cs">
+      <DependentUpon>ActionManagerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AddressEditorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AddressEditorControl.Designer.cs">
+      <DependentUpon>AddressEditorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CellClickEventArgs.cs" />
+    <Compile Include="Controls\ConnectionStatus.cs" />
+    <Compile Include="Controls\DesignToolboxControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DesignToolboxControl.Designer.cs">
+      <DependentUpon>DesignToolboxControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ElementImageComboBoxEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\IActionParametersEditor.cs" />
+    <Compile Include="Controls\InputEditorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\InputEditorControl.Designer.cs">
+      <DependentUpon>InputEditorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ConnectionChangedEventArgs.cs" />
+    <Compile Include="Controls\MapChangedEventArgs.cs" />
+    <Compile Include="Controls\OutputStatusEditorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\OutputStatusEditorControl.Designer.cs">
+      <DependentUpon>OutputStatusEditorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RouteManualActivatorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\RouteManualActivatorControl.Designer.cs">
+      <DependentUpon>RouteManualActivatorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SetAccessoryStatusActionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SetAccessoryStatusActionControl.Designer.cs">
+      <DependentUpon>SetAccessoryStatusActionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PlaySoundActionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PlaySoundActionControl.Designer.cs">
+      <DependentUpon>PlaySoundActionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ActivateRouteActionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ActivateRouteActionControl.Designer.cs">
+      <DependentUpon>ActivateRouteActionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OutputEditorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\OutputEditorControl.Designer.cs">
+      <DependentUpon>OutputEditorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DeviceManagerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DeviceManagerControl.Designer.cs">
+      <DependentUpon>DeviceManagerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SettingsControl.Designer.cs">
+      <DependentUpon>SettingsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SoundManagerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SoundManagerControl.Designer.cs">
+      <DependentUpon>SoundManagerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RouteManagerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\RouteManagerControl.Designer.cs">
+      <DependentUpon>RouteManagerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SwitchboardControlBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\SwitchboardRouteEditorControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\SwitchboardRouteEditorControl.Designer.cs">
+      <DependentUpon>SwitchboardRouteEditorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SwitchboardCommandControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\SwitchboardCommandControl.Designer.cs">
+      <DependentUpon>SwitchboardCommandControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SwitchboardDesignControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\SwitchboardDesignControl.Designer.cs">
+      <DependentUpon>SwitchboardDesignControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ControlModule.Presenter.Designer.cs" />
+    <Compile Include="Modules\DesignModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DesignModule.Designer.cs">
+      <DependentUpon>DesignModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ControlModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\ControlModule.Designer.cs">
+      <DependentUpon>ControlModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DesignModule.Presenter.Designer.cs" />
+    <Compile Include="PanelControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PanelControl.Designer.cs">
+      <DependentUpon>PanelControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PluginData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\FrmActionEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmActionEditor.Designer.cs">
+      <DependentUpon>FrmActionEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmConnectionFinder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmConnectionFinder.Designer.cs">
+      <DependentUpon>FrmConnectionFinder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmSoundEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmSoundEditor.Designer.cs">
+      <DependentUpon>FrmSoundEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmSystemEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmSystemEditor.Designer.cs">
+      <DependentUpon>FrmSystemEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmRouteEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmRouteEditor.Designer.cs">
+      <DependentUpon>FrmRouteEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmBlockProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmBlockProperties.Designer.cs">
+      <DependentUpon>FrmBlockProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmSensorEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmSensorEditor.Designer.cs">
+      <DependentUpon>FrmSensorEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmAccessoryEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmAccessoryEditor.Designer.cs">
+      <DependentUpon>FrmAccessoryEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmPanelEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmPanelEditor.Designer.cs">
+      <DependentUpon>FrmPanelEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmSystemManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmSystemManager.Designer.cs">
+      <DependentUpon>FrmSystemManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmThemeManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmThemeManager.Designer.cs">
+      <DependentUpon>FrmThemeManager.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Controls\ActionManagerControl.resx">
+      <DependentUpon>ActionManagerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\AddressEditorControl.resx">
+      <DependentUpon>AddressEditorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DesignToolboxControl.resx">
+      <DependentUpon>DesignToolboxControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\InputEditorControl.resx">
+      <DependentUpon>InputEditorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\OutputStatusEditorControl.resx">
+      <DependentUpon>OutputStatusEditorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\RouteManualActivatorControl.resx">
+      <DependentUpon>RouteManualActivatorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SetAccessoryStatusActionControl.resx">
+      <DependentUpon>SetAccessoryStatusActionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PlaySoundActionControl.resx">
+      <DependentUpon>PlaySoundActionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ActivateRouteActionControl.resx">
+      <DependentUpon>ActivateRouteActionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\OutputEditorControl.resx">
+      <DependentUpon>OutputEditorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DeviceManagerControl.resx">
+      <DependentUpon>DeviceManagerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SettingsControl.resx">
+      <DependentUpon>SettingsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SoundManagerControl.resx">
+      <DependentUpon>SoundManagerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\RouteManagerControl.resx">
+      <DependentUpon>RouteManagerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SwitchboardControlBase.resx">
+      <DependentUpon>SwitchboardControlBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SwitchboardRouteEditorControl.resx">
+      <DependentUpon>SwitchboardRouteEditorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SwitchboardCommandControl.resx">
+      <DependentUpon>SwitchboardCommandControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SwitchboardDesignControl.resx">
+      <DependentUpon>SwitchboardDesignControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DesignModule.resx">
+      <DependentUpon>DesignModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ControlModule.resx">
+      <DependentUpon>ControlModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelControl.resx">
+      <DependentUpon>PanelControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Views\FrmActionEditor.resx">
+      <DependentUpon>FrmActionEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmConnectionFinder.resx">
+      <DependentUpon>FrmConnectionFinder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmSoundEditor.resx">
+      <DependentUpon>FrmSoundEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmSystemEditor.resx">
+      <DependentUpon>FrmSystemEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmRouteEditor.resx">
+      <DependentUpon>FrmRouteEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmBlockProperties.resx">
+      <DependentUpon>FrmBlockProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmSensorEditor.resx">
+      <DependentUpon>FrmSensorEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmAccessoryEditor.resx">
+      <DependentUpon>FrmAccessoryEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmPanelEditor.resx">
+      <DependentUpon>FrmPanelEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmSystemManager.resx">
+      <DependentUpon>FrmSystemManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmThemeManager.resx">
+      <DependentUpon>FrmThemeManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\train_design_32.png" />
+    <None Include="Resources\folder_train_32.png" />
+    <None Include="Resources\train_metro.png" />
+    <None Include="Resources\toolbar_add.png" />
+    <None Include="Resources\toolbar_delete.png" />
+    <None Include="Resources\toolbar_go.png" />
+    <None Include="Resources\table_heatmap_check.png" />
+    <None Include="Resources\table_heatmap_check_16.png" />
+    <None Include="Resources\server_go.png" />
+    <None Include="Resources\server_go_16.png" />
+    <None Include="Resources\processor_check_16.png" />
+    <None Include="Resources\prohibition_button.png" />
+    <None Include="Resources\table_heatmap_delete_16.png" />
+    <None Include="Resources\server_delete_16.png" />
+    <None Include="Resources\information_16.png" />
+    <None Include="Resources\table_export.png" />
+    <None Include="Resources\zoom.png" />
+    <None Include="Resources\sound_delete_16.png" />
+    <None Include="Resources\sound_add_16.png" />
+    <None Include="Resources\sound.png" />
+    <None Include="Resources\shape_square_go.png" />
+    <None Include="Resources\sound_delete_321.png" />
+    <None Include="Resources\sound_add_321.png" />
+    <None Include="Resources\sound_delete_32.png" />
+    <None Include="Resources\sound_add_32.png" />
+    <None Include="Resources\sound_folder_32.png" />
+    <None Include="Resources\sound_folder_16.png" />
+    <None Include="Resources\lightning_16.png" />
+    <None Include="Resources\lightbulb.png" />
+    <None Include="Resources\server_property.png" />
+    <None Include="Resources\server.png" />
+    <None Include="Resources\server_16.png" />
+    <None Include="Resources\folder_16.png" />
+    <None Include="Resources\table_heatmap_16.png" />
+    <None Include="Resources\table_heatmap.png" />
+    <None Include="Resources\servers.png" />
+    <None Include="Resources\servers_16.png" />
+    <None Include="Resources\setting_tools_16.png" />
+    <None Include="Resources\server_connect_16.png" />
+    <None Include="Resources\setting_tools.png" />
+    <None Include="Resources\server_connect.png" />
+    <None Include="Resources\shape_square_add_16.png" />
+    <None Include="Resources\shape_square_add.png" />
+    <None Include="Resources\shape_square_delete_16.png" />
+    <None Include="Resources\shape_rotate_clockwise_16.png" />
+    <None Include="Resources\shape_square_delete.png" />
+    <None Include="Resources\shape_rotate_clockwise.png" />
+    <None Include="Resources\printer.png" />
+    <None Include="Resources\printer_16.png" />
+    <None Include="Resources\factory_16.png" />
+    <None Include="Resources\box_open.png" />
+    <None Include="Resources\cursor_16.png" />
+    <None Include="Resources\cursor.png" />
+    <None Include="Resources\connect.png" />
+    <None Include="Resources\drive_bulb_32.png" />
+    <None Include="Resources\drive_light_32.png" />
+    <None Include="Resources\drive_add.png" />
+    <None Include="Resources\drive_delete.png" />
+    <None Include="Resources\drive_edit.png" />
+    <None Include="Resources\drive_16.png" />
+    <None Include="Resources\drive_add_16.png" />
+    <None Include="Resources\drive_delete_16.png" />
+    <None Include="Resources\drive_edit_16.png" />
+    <None Include="Resources\drive_network.png" />
+    <None Include="Resources\drive_network_16.png" />
+    <None Include="Resources\connect_16.png" />
+    <None Include="Resources\disconnect_16.png" />
+    <None Include="Resources\arrow_switch.png" />
+    <None Include="Resources\arrow_switch_16.png" />
+    <None Include="Resources\arrow_switch_add_16.png" />
+    <None Include="Resources\arrow_switch_delete_16.png" />
+    <None Include="Resources\arrow_switch_edit_16.png" />
+    <None Include="Resources\arrow_switch_add_32.png" />
+    <None Include="Resources\arrow_switch_delete_32.png" />
+    <None Include="Resources\arrow_switch_edit_32.png" />
+    <None Include="Resources\arrow_switch_stop_32.png" />
+    <None Include="Resources\arrow_switch_stop_16.png" />
+    <None Include="Resources\diskette_16.png" />
+    <None Include="Resources\cross.png" />
+    <None Include="Resources\cross1.png" />
+    <None Include="Resources\cross2.png" />
+    <None Include="Resources\cross3.png" />
+    <None Include="Resources\diskette.png" />
+    <None Include="Resources\diskette_161.png" />
+    <None Include="Resources\drive_light_16.png" />
+    <None Include="Resources\drive_lightning_16.png" />
+    <None Include="Resources\control_play_blue_32.png" />
+    <None Include="Resources\cog.png" />
+    <None Include="Resources\cog_add.png" />
+    <None Include="Resources\cog_delete.png" />
+    <None Include="Resources\cog_edit.png" />
+    <None Include="Resources\cog_16.png" />
+    <None Include="Resources\cog_add_16.png" />
+    <None Include="Resources\cog_delete_16.png" />
+    <None Include="Resources\cog_edit_16.png" />
+    <None Include="Resources\control_play_blue_16.png" />
+    <None Include="Resources\arrow_right_16.png" />
+    <None Include="Resources\arrow_right_occupied_16.png" />
+    <None Include="Resources\disconnect.png" />
+    <None Include="Resources\accept_button.png" />
+    <None Include="Resources\error.png" />
+    <None Include="Resources\disconnect_161.png" />
+    <None Include="Resources\connect_161.png" />
+    <None Include="Resources\arrow_switch_go_16.png" />
+    <None Include="Resources\arrow_switch_clear_16.png" />
+    <None Include="Resources\disconnect_162.png" />
+    <None Include="Resources\arrow_up.png" />
+    <None Include="Resources\arrow_down.png" />
+    <None Include="Resources\arrow_left.png" />
+    <None Include="Resources\arrow_right_161.png" />
+    <None Include="Resources\app.png" />
+    <None Include="Resources\app1.png" />
+    <Content Include="Resources\favicon.ico" />
+    <None Include="Resources\processor_error_16.png" />
+    <None Include="Resources\processor_edit_16.png" />
+    <None Include="Resources\processor_delete_16.png" />
+    <None Include="Resources\processor_add_16.png" />
+    <None Include="Resources\processor_16.png" />
+    <None Include="Resources\processor_error.png" />
+    <None Include="Resources\processor_edit.png" />
+    <None Include="Resources\processor_delete.png" />
+    <None Include="Resources\processor_add.png" />
+    <None Include="Resources\processor.png" />
+    <None Include="Resources\table.png" />
+    <None Include="Resources\table_16.png" />
+    <None Include="Resources\table_delete1.png" />
+    <None Include="Resources\table_delete.png" />
+    <None Include="Resources\table_edit1.png" />
+    <None Include="Resources\table_edit.png" />
+    <None Include="Resources\table_add1.png" />
+    <None Include="Resources\table_add.png" />
+    <None Include="Resources\form_design_16.png" />
+    <None Include="Resources\form_design.png" />
+    <None Include="Resources\traffic_lights_16.png" />
+    <None Include="Resources\traffic_lights.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\OTC.Core\OTC.Core.csproj">
+      <Project>{6a159ab3-7d3d-4128-85c0-b65bdd73a68f}</Project>
+      <Name>OTC.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RailwayStudio.Common\RailwayStudio.Common\RailwayStudio.Common.csproj">
+      <Project>{930ba765-ec32-47e2-985d-cbf987fdb049}</Project>
+      <Name>RailwayStudio.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Lib\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\..\packages\System.Data.SQLite.Core.1.0.106.0\build\net45\System.Data.SQLite.Core.targets" Condition="Exists('..\..\packages\System.Data.SQLite.Core.1.0.106.0\build\net45\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Habilite la restauración del paquete NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\System.Data.SQLite.Core.1.0.106.0\build\net45\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\System.Data.SQLite.Core.1.0.106.0\build\net45\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
