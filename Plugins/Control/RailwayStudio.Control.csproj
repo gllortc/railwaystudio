@@ -215,6 +215,12 @@
       <DependentUpon>RouteManagerControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\ControlModule.Presenter.Designer.cs" />
+    <Compile Include="Modules\RouteModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\RouteModule.Designer.cs">
+      <DependentUpon>RouteModule.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\DesignModule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +232,9 @@
     </Compile>
     <Compile Include="Modules\ControlModule.Designer.cs">
       <DependentUpon>ControlModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\RouteModule.Presenter.Designer.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modules\DesignModule.Presenter.Designer.cs" />
     <Compile Include="PanelControl.cs">
@@ -355,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\RouteManagerControl.resx">
       <DependentUpon>RouteManagerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\RouteModule.resx">
+      <DependentUpon>RouteModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\DesignModule.resx">
       <DependentUpon>DesignModule.cs</DependentUpon>

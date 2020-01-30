@@ -9,7 +9,7 @@ namespace Rwm.Studio.Plugins.Control
 
       #region Constants
 
-      private const string PLUGIN_GUID = "FC4A7DB6-AFA8-4FB5-9C4F-2942919B9FD1";
+      private const string PLUGIN_GUID = "45D142A0-CF2D-4FF4-B86F-6C8EC1C6C9F7";
 
       internal static string SETTINGS_KEY_SENSORS_MANUALACTIVATION = "control.sensors.manual-activation";
 

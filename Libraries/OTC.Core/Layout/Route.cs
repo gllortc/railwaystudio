@@ -80,8 +80,16 @@ namespace Rwm.Otc.Layout
       /// <summary>
       /// Gets or sets the element list.
       /// </summary>
-      // [ORMProperty(PropertyType.ForeignCollection, OnDeleteAction.DeleteInCascade)]
+      [ORMForeignCollection(ORMForeignCollection.OnDeleteActionTypes.DeleteInCascade)]
       public List<RouteElement> Elements { get; set; }
+
+      /// <summary>
+      /// Gets the number of elements contained in the current route.
+      /// </summary>
+      public int ElementsCount
+      {
+         get { return (this.Elements == null ? 0 : this.Elements.Count); }
+      }
 
       #endregion
 

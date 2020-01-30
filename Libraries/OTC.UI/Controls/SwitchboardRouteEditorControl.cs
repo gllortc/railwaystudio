@@ -31,7 +31,7 @@ namespace Rwm.Otc.UI.Controls
       /// </summary>
       /// <param name="switchboard">Switchboard to paint.</param>
       /// <param name="route">Route to edit in control.</param>
-      public SwitchboardRouteEditorControl(Switchboard switchboard, Route route)
+      public SwitchboardRouteEditorControl(Switchboard switchboard, Route route = null)
          : base(switchboard, false)
       {
          this.Initialize(route);
