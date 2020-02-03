@@ -1,4 +1,4 @@
 # RailwayStudio
 Digital model railway control software, from **Railwaymania** team.
 
-Visit [project wiki](home) for more information.
+Visit [project wiki](https://github.com/gllortc/railwaystudio/wiki) for more information.
