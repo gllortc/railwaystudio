@@ -1,7 +1,7 @@
-﻿using Rwm.Otc.Layout;
-using Rwm.Otc.Utils;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Windows.Forms;
+using Rwm.Otc.Layout;
+using Rwm.Otc.Utils;
 
 namespace Rwm.Otc.UI.Controls
 {
@@ -10,14 +10,6 @@ namespace Rwm.Otc.UI.Controls
    /// </summary>
    public partial class SwitchboardRouteEditorControl : SwitchboardControlBase
    {
-
-      #region Constants
-
-      private static Color COLOR_SELECTED = Color.LightSkyBlue;
-
-      private static Color COLOR_PANEL = Color.LightGray;
-
-      #endregion
 
       #region Constructors
 

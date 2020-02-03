@@ -171,11 +171,11 @@
     <Compile Include="Views\AdministrationEditorView.Designer.cs">
       <DependentUpon>AdministrationEditorView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ScaleEditorView.cs">
+    <Compile Include="Views\GaugeEditorView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\ScaleEditorView.Designer.cs">
-      <DependentUpon>ScaleEditorView.cs</DependentUpon>
+    <Compile Include="Views\GaugeEditorView.Designer.cs">
+      <DependentUpon>GaugeEditorView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\StoreEditorView.cs">
       <SubType>Form</SubType>
@@ -212,8 +212,8 @@
     <EmbeddedResource Include="Views\AdministrationEditorView.resx">
       <DependentUpon>AdministrationEditorView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ScaleEditorView.resx">
-      <DependentUpon>ScaleEditorView.cs</DependentUpon>
+    <EmbeddedResource Include="Views\GaugeEditorView.resx">
+      <DependentUpon>GaugeEditorView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\StoreEditorView.resx">
       <DependentUpon>StoreEditorView.cs</DependentUpon>

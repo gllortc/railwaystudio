@@ -31,16 +31,6 @@ namespace Rwm.Otc.UI.Controls
 
       #endregion
 
-      #region Constants
-
-      private static Color COLOR_SELECTED = Color.LightSkyBlue;
-
-      private static Color COLOR_ROUTE_SELECTED = Color.Salmon;
-
-      private static Color COLOR_PANEL = Color.LightGray;
-
-      #endregion
-
       #region Constructors
 
       /// <summary>

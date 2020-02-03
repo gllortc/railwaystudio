@@ -276,7 +276,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
          {
             item = new ImageComboBoxItem();
             item.Value = scale;
-            item.Description = scale.Name + " (" + scale.ScaleNotation + ")";
+            item.Description = scale.Name + " (" + scale.Notation + ")";
             item.ImageIndex = 3;
 
             cboScale.Properties.Items.Add(item);

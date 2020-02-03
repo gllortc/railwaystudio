@@ -60,7 +60,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
                   break;
 
                case FileType.Gauges:
-                  ScaleEditorView formScale = new ScaleEditorView();
+                  GaugeEditorView formScale = new GaugeEditorView();
                   formScale.ShowDialog();
                   break;
 
@@ -138,7 +138,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
                   Rwm.Otc.TrainControl.Gauge scale = Rwm.Otc.TrainControl.Gauge.Get(row.ID);
                   if (scale != null)
                   {
-                     ScaleEditorView formScale = new ScaleEditorView(scale);
+                     GaugeEditorView formScale = new GaugeEditorView(scale);
                      formScale.ShowDialog();
                   }
                   break;

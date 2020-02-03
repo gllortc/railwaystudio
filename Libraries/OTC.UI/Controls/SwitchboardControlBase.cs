@@ -1,9 +1,8 @@
-﻿using Rwm.Otc;
-using Rwm.Otc.Layout;
-using Rwm.Otc.Utils;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using Rwm.Otc.Layout;
+using Rwm.Otc.Utils;
 
 namespace Rwm.Otc.UI.Controls
 {
@@ -25,7 +24,7 @@ namespace Rwm.Otc.UI.Controls
          InitializeComponent();
 
          this.Initialize();
-         this.DesignMode = designMode;
+         this.Mode = designMode;
       }
 
       public SwitchboardControlBase(Switchboard sb, bool designMode)
@@ -35,7 +34,7 @@ namespace Rwm.Otc.UI.Controls
          this.Initialize();
 
          this.Switchboard = sb;
-         this.DesignMode = designMode;
+         this.Mode = designMode;
       }
 
       #endregion
@@ -59,7 +58,7 @@ namespace Rwm.Otc.UI.Controls
       /// <summary>
       /// Gets a value indicating if the switchboard is in design mode.
       /// </summary>
-      public bool DesignMode { get; private set; }
+      public bool Mode { get; private set; }
 
       #endregion
 
@@ -215,7 +214,7 @@ namespace Rwm.Otc.UI.Controls
       /// </summary>
       internal void DrawCellImage(Graphics g, Point point, Element element)
       {
-         g.DrawImage(element.GetImage(OTCContext.Project.Theme, this.DesignMode), point);
+         g.DrawImage(element.GetImage(OTCContext.Project.Theme, this.Mode), point);
       }
 
       internal Point GetElementPosition(Coordinates coords)

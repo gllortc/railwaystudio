@@ -1,40 +1,40 @@
-﻿using Rwm.Otc.TrainControl;
-using Rwm.Otc.Utils;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using Rwm.Otc.TrainControl;
+using Rwm.Otc.Utils;
 
 namespace Rwm.Studio.Plugins.Collection.Views
 {
-   public partial class ScaleEditorView : DevExpress.XtraEditors.XtraForm
+   public partial class GaugeEditorView : DevExpress.XtraEditors.XtraForm
    {
-      public ScaleEditorView()
+      public GaugeEditorView()
       {
          InitializeComponent();
 
-         this.Scale = new Gauge();
+         this.Gauge = new Gauge();
       }
 
-      public ScaleEditorView(Gauge scale)
+      public GaugeEditorView(Gauge gauge)
       {
          InitializeComponent();
 
-         this.Scale = scale;
+         this.Gauge = gauge;
 
-         txtName.Text = this.Scale.Name;
-         txtRatio.Text = this.Scale.ScaleNotation;
-         txtTrackWidth.Text = this.Scale.TrackWidthScale.ToString();
-         txtRealTrackWidth.Text = this.Scale.TrackWidthReal.ToString();
+         txtName.Text = this.Gauge.Name;
+         txtRatio.Text = this.Gauge.Notation;
+         txtTrackWidth.Text = this.Gauge.TrackWidthScale.ToString();
+         txtRealTrackWidth.Text = this.Gauge.TrackWidthReal.ToString();
       }
 
-      public Gauge Scale { get; private set; }
+      public Gauge Gauge { get; private set; }
 
-      private void cmdCancel_Click(object sender, EventArgs e)
+      private void CmdCancel_Click(object sender, EventArgs e)
       {
-         this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+         this.DialogResult = DialogResult.Cancel;
          this.Close();
       }
 
-      private void cmdAccept_Click(object sender, EventArgs e)
+      private void CmdAccept_Click(object sender, EventArgs e)
       {
          if (string.IsNullOrWhiteSpace(txtName.Text))
          {
@@ -51,16 +51,16 @@ namespace Rwm.Studio.Plugins.Collection.Views
             return;
          }
 
-         this.Scale.Name = txtName.Text.Trim();
-         this.Scale.ScaleNotation = txtRatio.Text.Trim();
-         this.Scale.TrackWidthScale = NumericUtils.ToInteger(txtTrackWidth.Text.Trim());
-         this.Scale.TrackWidthReal = NumericUtils.ToInteger(txtRealTrackWidth.Text.Trim());
+         this.Gauge.Name = txtName.Text.Trim();
+         this.Gauge.Notation = txtRatio.Text.Trim();
+         this.Gauge.TrackWidthScale = NumericUtils.ToInteger(txtTrackWidth.Text.Trim());
+         this.Gauge.TrackWidthReal = NumericUtils.ToInteger(txtRealTrackWidth.Text.Trim());
 
          try
          {
-            Rwm.Otc.TrainControl.Gauge.Save(this.Scale);
+            Gauge.Save(this.Gauge);
 
-            this.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.DialogResult = DialogResult.OK;
             this.Close();
          }
          catch (Exception ex)

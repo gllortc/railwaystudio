@@ -1,9 +1,5 @@
-﻿using System;
-using System.Drawing;
-using DevExpress.XtraBars.Docking;
+﻿using System.Drawing;
 using RailwayStudio.Common;
-using Rwm.Otc.UI.Controls;
-using Rwm.Studio.Plugins.Control.Controls;
 
 namespace Rwm.Studio.Plugins.Control.Modules
 {
@@ -23,10 +19,6 @@ namespace Rwm.Studio.Plugins.Control.Modules
       public RouteModule()
       {
          InitializeComponent();
-         RefreshRouteList();
-         CreateElementGallery();
-
-         chkBlockPointer_ItemClick(null, null);
       }
 
       #endregion
@@ -80,126 +72,61 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
       public void Initialize(params object[] args)
       {
-         this.ShowPanels();
+         this.RefreshRouteList();
       }
 
-      /// <summary>
-      /// Add docable panels to environment.
-      /// </summary>
-      public void CreatePanels()
-      {
-         DesignToolboxControl ctrl = new DesignToolboxControl(this, this.SelectedSwitchboardPanel);
-         ctrl.Refresh();
-
-         StudioContext.UI.AddDockPanel(DOCKPANEL_DESIGN,
-                                       "Automation toolbox",
-                                       ctrl,
-                                       global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_16,
-                                       DockingStyle.Right);
-      }
+      public void CreatePanels() { }
 
       /// <summary>
       /// Remove all dockable panels created when the module was loaded.
       /// </summary>
-      public void DestoryPanels()
-      {
-         StudioContext.UI.RemoveDockPanel(DOCKPANEL_DESIGN);
-      }
+      public void DestoryPanels() { }
 
       #endregion
 
       #region Event Handlers
 
-      private void cmdPanelAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void RouteModule_Load(object sender, System.EventArgs e)
       {
-         this.PanelAdd();
+         grdData.Dock = System.Windows.Forms.DockStyle.Fill;
+         tabPanels.Dock = System.Windows.Forms.DockStyle.Fill;
+
+         this.HasChanges = false;
       }
 
-      private void cmdPanelEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void GrdData_DoubleClick(object sender, System.EventArgs e)
       {
-         this.PanelEdit();
+         this.RouteEdit();
       }
 
-      private void cmdPanelThemes_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void CmdRouteAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
-         this.ThemesManager();
+         this.RouteAdd();
       }
 
-      private void cmdPrintDigitalReport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void CmdRouteEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
-         this.PrintDigitalReport();
+         this.RouteEdit();
       }
 
-      private void chkBlockPointer_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void CmdRouteDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
-         chkBlockPointer.Checked = true;
-         chkBlockRotate.Checked = false;
-         chkBlockDelete.Checked = false;
-         chkBlockAdd.Checked = false;
-
-         if (this.SelectedSwitchboardPanel != null)
-         {
-            this.SelectedSwitchboardPanel.SelectedDesignTool = SwitchboardDesignControl.DesignTools.Pointer;
-         }
+         this.RouteDelete();
       }
 
-      private void chkBlockRotate_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void CmdRouteProperties_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
-         chkBlockPointer.Checked = false;
-         chkBlockRotate.Checked = true;
-         chkBlockDelete.Checked = false;
-         chkBlockAdd.Checked = false;
-
-         if (this.SelectedSwitchboardPanel != null)
-         {
-            this.SelectedSwitchboardPanel.SelectedDesignTool = SwitchboardDesignControl.DesignTools.Rotate;
-         }
+         this.RouteProperties();
       }
 
-      private void chkBlockDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void CmdRouteSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
-         chkBlockPointer.Checked = false;
-         chkBlockRotate.Checked = false;
-         chkBlockDelete.Checked = true;
-         chkBlockAdd.Checked = false;
-
-         if (this.SelectedSwitchboardPanel != null)
-         {
-            this.SelectedSwitchboardPanel.SelectedDesignTool = SwitchboardDesignControl.DesignTools.Delete;
-         }
+         this.RouteSave();
       }
 
-      private void chkBlockAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void CmdRouteClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
-         chkBlockPointer.Checked = false;
-         chkBlockRotate.Checked = false;
-         chkBlockDelete.Checked = false;
-         chkBlockAdd.Checked = true;
-
-         if (this.SelectedSwitchboardPanel != null)
-         {
-            this.SelectedSwitchboardPanel.SelectedDesignTool = SwitchboardDesignControl.DesignTools.Add;
-         }
-      }
-
-      private void cmdMoveUp_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-      {
-         this.MoveUp();
-      }
-
-      private void cmdMoveDown_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-      {
-         this.MoveDown();
-      }
-
-      private void cmdMoveLeft_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-      {
-         this.MoveLeft();
-      }
-
-      private void cmdMoveRight_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-      {
-         this.MoveRight();
+         this.RouteClose();
       }
 
       #endregion

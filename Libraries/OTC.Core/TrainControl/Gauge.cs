@@ -33,7 +33,7 @@ namespace Rwm.Otc.TrainControl
       /// Notación de la escala (1:87, 1:160, etc).
       /// </summary>
       [ORMProperty("scscale")]
-      public string ScaleNotation { get; set; }
+      public string Notation { get; set; }
 
       /// <summary>
       /// Ancho de via a escala (en mm). 
