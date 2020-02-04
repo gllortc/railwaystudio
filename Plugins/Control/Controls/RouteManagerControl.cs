@@ -1,11 +1,11 @@
-﻿using DevExpress.XtraGrid.Columns;
+﻿using System;
+using System.Windows.Forms;
+using DevExpress.XtraGrid.Columns;
 using RailwayStudio.Common;
 using Rwm.Otc.Layout;
 using Rwm.Otc.UI.Controls;
 using Rwm.Studio.Plugins.Control.Modules;
 using Rwm.Studio.Plugins.Control.Views;
-using System;
-using System.Windows.Forms;
 
 namespace Rwm.Studio.Plugins.Control.Controls
 {
@@ -65,12 +65,12 @@ namespace Rwm.Studio.Plugins.Control.Controls
 
       #region Event Handlers
 
-      private void grdRouteView_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+      private void GrdRouteView_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
       {
          StudioContext.UI.DrawRowIcon(global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_16, e);
       }
 
-      private void cmdRouteNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void CmdRouteNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          // StartRecording();
 
@@ -83,7 +83,7 @@ namespace Rwm.Studio.Plugins.Control.Controls
          }
       }
 
-      private void cmdRouteEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void CmdRouteEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          if (grdRouteView.SelectedRowsCount <= 0)
          {
@@ -111,7 +111,7 @@ namespace Rwm.Studio.Plugins.Control.Controls
          }
       }
 
-      private void cmdRouteDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void CmdRouteDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          if (grdRouteView.SelectedRowsCount <= 0)
          {

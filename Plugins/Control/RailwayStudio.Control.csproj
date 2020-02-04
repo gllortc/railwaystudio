@@ -257,6 +257,12 @@
     <Compile Include="Views\ConnectionSearchView.Designer.cs">
       <DependentUpon>ConnectionSearchView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\RouteEditorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RouteEditorView.Designer.cs">
+      <DependentUpon>RouteEditorView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\SoundEditorView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -268,12 +274,6 @@
     </Compile>
     <Compile Include="Views\SystemEditorView.Designer.cs">
       <DependentUpon>SystemEditorView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\RouteEditorView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\RouteEditorView.Designer.cs">
-      <DependentUpon>RouteEditorView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\BlockPropertiesViews.cs">
       <SubType>Form</SubType>
@@ -388,14 +388,14 @@
     <EmbeddedResource Include="Views\ConnectionSearchView.resx">
       <DependentUpon>ConnectionSearchView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\RouteEditorView.resx">
+      <DependentUpon>RouteEditorView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\SoundEditorView.resx">
       <DependentUpon>SoundEditorView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SystemEditorView.resx">
       <DependentUpon>SystemEditorView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\RouteEditorView.resx">
-      <DependentUpon>RouteEditorView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\BlockPropertiesViews.resx">
       <DependentUpon>BlockPropertiesViews.cs</DependentUpon>
@@ -428,6 +428,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\save_as_16.png" />
     <None Include="Resources\preferences_16.png" />
     <None Include="Resources\preferences.png" />
     <None Include="Resources\lightning_go.png" />
@@ -552,6 +553,10 @@
     <None Include="Resources\calendar_delete.png" />
     <None Include="Resources\calendar_add_16.png" />
     <None Include="Resources\calendar_delete_16.png" />
+    <None Include="Resources\disk_close_32.png" />
+    <None Include="Resources\disk_back_16.png" />
+    <None Include="Resources\cross_16.png" />
+    <None Include="Resources\cross_32.png" />
     <Content Include="Resources\favicon.ico" />
     <None Include="Resources\processor_error_16.png" />
     <None Include="Resources\processor_edit_16.png" />

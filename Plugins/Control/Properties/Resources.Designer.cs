@@ -403,6 +403,26 @@ namespace Rwm.Studio.Plugins.Control.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ICO_CLOSE_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_CLOSE_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_CLOSE_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_CLOSE_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ICO_CONNECT_16 {
             get {
                 object obj = ResourceManager.GetObject("ICO_CONNECT_16", resourceCulture);
@@ -1076,6 +1096,26 @@ namespace Rwm.Studio.Plugins.Control.Properties {
         internal static System.Drawing.Bitmap ICO_SAVE_32 {
             get {
                 object obj = ResourceManager.GetObject("ICO_SAVE_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_SAVE_CLOSE_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_SAVE_CLOSE_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_SAVE_CLOSE_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_SAVE_CLOSE_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

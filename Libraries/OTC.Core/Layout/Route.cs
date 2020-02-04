@@ -24,10 +24,11 @@ namespace Rwm.Otc.Layout
       /// Returns a new instance of <see cref="Route"/>.
       /// </summary>
       /// <param name="name">Name of the route.</param>
-      public Route(string name)
+      public Route(Project project, string name = "")
       {
          Initialize();
 
+         this.Project = project;
          this.Name = name;
       }
 
@@ -58,6 +59,18 @@ namespace Rwm.Otc.Layout
       /// </summary>
       [ORMProperty("description")]
       public string Description { get; set; }
+
+      /// <summary>
+      /// Gets or sets a value indicating the time interval between accessory activations.
+      /// </summary>
+      [ORMProperty("switchTime")]
+      public int SwitchTime { get; set; }
+
+      /// <summary>
+      /// Gets or sets a value indicating if the route corresponds to a block.
+      /// </summary>
+      [ORMProperty("isBlock")]
+      public bool IsBlock { get; set; }
 
       /// <summary>
       /// Gets or sets the source block element.

@@ -117,82 +117,85 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="imageList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+  <metadata name="tabDecoder.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
-  <data name="imageList.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAS
-        DwAAAk1TRnQBSQFMAgEBBgEAAbgBAAG4AQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
-        AwABQAMAASADAAEBAQABCAYAAQgYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
-        AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
-        AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
-        AWYDAAGZAwABzAIAATMDAAIzAgABMwFmAgABMwGZAgABMwHMAgABMwH/AgABZgMAAWYBMwIAAmYCAAFm
-        AZkCAAFmAcwCAAFmAf8CAAGZAwABmQEzAgABmQFmAgACmQIAAZkBzAIAAZkB/wIAAcwDAAHMATMCAAHM
-        AWYCAAHMAZkCAALMAgABzAH/AgAB/wFmAgAB/wGZAgAB/wHMAQABMwH/AgAB/wEAATMBAAEzAQABZgEA
-        ATMBAAGZAQABMwEAAcwBAAEzAQAB/wEAAf8BMwIAAzMBAAIzAWYBAAIzAZkBAAIzAcwBAAIzAf8BAAEz
-        AWYCAAEzAWYBMwEAATMCZgEAATMBZgGZAQABMwFmAcwBAAEzAWYB/wEAATMBmQIAATMBmQEzAQABMwGZ
-        AWYBAAEzApkBAAEzAZkBzAEAATMBmQH/AQABMwHMAgABMwHMATMBAAEzAcwBZgEAATMBzAGZAQABMwLM
-        AQABMwHMAf8BAAEzAf8BMwEAATMB/wFmAQABMwH/AZkBAAEzAf8BzAEAATMC/wEAAWYDAAFmAQABMwEA
-        AWYBAAFmAQABZgEAAZkBAAFmAQABzAEAAWYBAAH/AQABZgEzAgABZgIzAQABZgEzAWYBAAFmATMBmQEA
-        AWYBMwHMAQABZgEzAf8BAAJmAgACZgEzAQADZgEAAmYBmQEAAmYBzAEAAWYBmQIAAWYBmQEzAQABZgGZ
-        AWYBAAFmApkBAAFmAZkBzAEAAWYBmQH/AQABZgHMAgABZgHMATMBAAFmAcwBmQEAAWYCzAEAAWYBzAH/
-        AQABZgH/AgABZgH/ATMBAAFmAf8BmQEAAWYB/wHMAQABzAEAAf8BAAH/AQABzAEAApkCAAGZATMBmQEA
-        AZkBAAGZAQABmQEAAcwBAAGZAwABmQIzAQABmQEAAWYBAAGZATMBzAEAAZkBAAH/AQABmQFmAgABmQFm
-        ATMBAAGZATMBZgEAAZkBZgGZAQABmQFmAcwBAAGZATMB/wEAApkBMwEAApkBZgEAA5kBAAKZAcwBAAKZ
-        Af8BAAGZAcwCAAGZAcwBMwEAAWYBzAFmAQABmQHMAZkBAAGZAswBAAGZAcwB/wEAAZkB/wIAAZkB/wEz
-        AQABmQHMAWYBAAGZAf8BmQEAAZkB/wHMAQABmQL/AQABzAMAAZkBAAEzAQABzAEAAWYBAAHMAQABmQEA
-        AcwBAAHMAQABmQEzAgABzAIzAQABzAEzAWYBAAHMATMBmQEAAcwBMwHMAQABzAEzAf8BAAHMAWYCAAHM
-        AWYBMwEAAZkCZgEAAcwBZgGZAQABzAFmAcwBAAGZAWYB/wEAAcwBmQIAAcwBmQEzAQABzAGZAWYBAAHM
-        ApkBAAHMAZkBzAEAAcwBmQH/AQACzAIAAswBMwEAAswBZgEAAswBmQEAA8wBAALMAf8BAAHMAf8CAAHM
-        Af8BMwEAAZkB/wFmAQABzAH/AZkBAAHMAf8BzAEAAcwC/wEAAcwBAAEzAQAB/wEAAWYBAAH/AQABmQEA
-        AcwBMwIAAf8CMwEAAf8BMwFmAQAB/wEzAZkBAAH/ATMBzAEAAf8BMwH/AQAB/wFmAgAB/wFmATMBAAHM
-        AmYBAAH/AWYBmQEAAf8BZgHMAQABzAFmAf8BAAH/AZkCAAH/AZkBMwEAAf8BmQFmAQAB/wKZAQAB/wGZ
-        AcwBAAH/AZkB/wEAAf8BzAIAAf8BzAEzAQAB/wHMAWYBAAH/AcwBmQEAAf8CzAEAAf8BzAH/AQAC/wEz
-        AQABzAH/AWYBAAL/AZkBAAL/AcwBAAJmAf8BAAFmAf8BZgEAAWYC/wEAAf8CZgEAAf8BZgH/AQAC/wFm
-        AQABIQEAAaUBAANfAQADdwEAA4YBAAOWAQADywEAA7IBAAPXAQAD3QEAA+MBAAPqAQAD8QEAA/gBAAHw
-        AfsB/wEAAaQCoAEAA4ADAAH/AgAB/wMAAv8BAAH/AwAB/wEAAf8BAAL/AgAD/wUAAfQF8wH0CQAB9AXz
-        AfQnAAH/AfMBkwVGAZMB8wH/BQAB/wHzAe8B7AP4AewB7wHzAf8kAAH/AbwBRgEXAeMDFgHjARcBRgG8
-        Af8DAAH/AfAB7AGSBe8BkgHsAfAB/yMAAbwBRgnjAUYBvAMAAfAB7AHvAfcB7QPsAe0B9wHvAewB8CIA
-        AfQBRgvjAUYB9AEAAfQB7AHvAZIB7AXbAewBkgHvAewB9CEAAZMBTAvjAUwBkwEAAQcC9wLsAdQDswHU
-        AuwC9wEHIQABRgMXB00DFwFGAQAB7QHvA+wFkQPsAe8B7SEAAUYB4wFNCf8BTQHjAUYBAAHtAe8B+AgS
-        ARMB+AHvAe0hAAFGAeMBRwn/AUcB4wFGAQAB7QEHAesB8gITAUYBJgMTAfIB6wEHAe0hAAFGAZQBRwn/
-        AUcBlAFGAQAB7QG8AesCFAFFASYBRgITARQBFQHrAbwB7SEAAUYBlAFNCUcBTQGUAUYBAAGSAfAB+AET
-        ARQBJgFEAxQBFQETAfgB8AGSIQABmQFvAZQDRwNNA0cBlAFvAZkBAAHwAQcB7gFtASUEFQFDAfIBbQIH
-        AfAiAAFGAZQBdQFHAUYDRwFGAUcBdQGUAUYDAAGSAfMB7wHqARQBEQHzAREBFQHqAe8B8wGSIwAB8wFG
-        ApQB4wFNAUYBTQHjApQBRgHzAwAB8wH3AfQB8AH4A+oB+AHwAfQB9wHzJAAB8wFGAW8BlAOaAZQBbwFG
-        AfMFAAHzAfcB8AX/AfAB9wHzJwABmQVGAZkJAAHwBfcB8CgAAfMBAAHzAf8B8wEAAfAC8wEAAfMCAAH0
-        DvMB9AYAAf8D8wH/FwAB9AF0AfMBdAHyAXQB8wJSAUsB8wF0AfQBAAFvDiQBbwQAAf8B8wG8AUsBUgFL
-        AbwB8wH/BgAC8wYAAvMEAAHzAfcB6gVtAUsCUgESAeoB9wHzASQO4wEkAgAB/wHzAbwBSwFSAXQBeQF0
-        AVIBSwG8AfMB/wMAAfMCRgHzBAAB8wJGAfMDAAF0AuoGEgF0AaABUgFKARIBdAEkARYMFwEWASQCAAG8
-        AVEBUgN0AXkDdAFSAVEBvAIAAfMBRgIWAUYB8wIAAfMBRgIWAUYB8wIAAfMB6gFtBRIBFAFKAXoBoAFS
-        AUsB8QEkARYKRgEXAUYBFgEkAgABSwF0BFIBeQRSAXQBSwIAAUYBFgLjARYBRgLzAUYBFgLjARYBRgIA
-        AXQB6gHrARIEEwJSAXkB5QGgAXkBUgEfARYE/wFGBP8DRgGUASQCAAFLAXkEUgF5BFIBeQFLAgABRgEW
-        A+MBFgJGARYD4wEWAUYCAAHyAeoB6wETAfEBBwH/AbwBUgGgAnoDUgEfBJQBmgElAZoClAGaA0YBlAEf
-        AgABSwGZAlIBUQFLAXoCSwJSAZkBSwMAAUYBFgMXAhYDFwEWAUYDAAF0AeoB7AETBBQBUgGaAnoBUgHq
-        AXQBJAEWAUwEJQEWAUYCJQFGA5QBJAIAAUsBmQRLAXoESwGZAUsEAAFGAZQGFwGUAUYEAAHzAeoB7AEU
-        AfECvAGSAUsBeQHDAVkBWAFSAfIBFAFtAZMBFgFMAUYBFQFtAZMBFgFMAUYDHwFFAQAB/wFLAXQCSwF0
-        AUsBdAFRAXQBUQFLAXMBSwH/BAABRgGUBBcBlAFGBQABdAHqAe0FFAFKAVIDoAJSAQAB8QETAW0BdAGU
-        AQAB8wHrAW0BkwGUAQACRgElAQABvAFLA1IBdAF5AUsBmQF0A1IBSwHvAwAB8wFGAZQEFwGUAUYB8wQA
-        AfMB6gGSARQB8QG8Ae8BvAEHAXQCUgN0AwAB8QIUAwAB9AHrARUBAAFvAb0BTAEAAVEBdAFSAXQBmQF0
-        A0sBdAGZAXkBUgJ0AgAB8wFGAZQGTQGUAUYB8wMAAXQB6gH3CRQB9wHqAXQNAAFvAb0BTAEAAfMBGgGZ
-        AXQHSwF0AZkBGgH0AQAB8wFGAZQDTQKUA00BlAFGAfMCAAHzAeoB7wEVCBQB7wHqAfMNAAElAUYBJQEA
-        AfMBUQGZAXQBUgVLAVIBdAGZAVIB9AEAAUYBmgNGAZoCRgGaA0YBmgFGAgABdAHqAe8B7AftAewB7wHq
-        AXQNAAFvAb0BTAEAAUsBdAFSBHQBUgR0AVIBdAEcAQABRgG9AkYBvQFGAgABRgG9AkYBvQFGAwAB7wvq
-        Ae8OAAFvAb0BTAEAAfEBdAVSARoFUgF0AfECAAFGAr0BRgQAAUYCvQFGBQABUgEAAVIBAAFSAQABUgEA
-        AVIBAAFSDwABJQFGASUDAAH/AZkBSwFRAf8BAAH/AVEBSwGZAf8FAAJGBgACRgMAAUIBTQE+BwABPgMA
-        ASgDAAFAAwABIAMAAQEBAAEBBgABARYAA/8BAAHwAR8B8AEfBAABwAEHAcABBwQAAYABAwGAAQMEAAGA
-        AQMBgAEDBQABAQEAAQEFAAEBAQABAQUAAQEBAAEBBQABAQEAAQEFAAEBAQABAQUAAQEBAAEBBQABAQEA
-        AQEFAAEBAQABAQQAAYABAwGAAQMEAAGAAQMBgAEDBAABwAEHAcABBwQAAfABHwHwAR8EAAHoAYsCAAH8
-        AR8C/wHAAQECAAHwAQcC5wGAAwABwAEBAsMBgAMAAcABAQKBAYADAAHAAQEBgAEBAYADAAHAAQEBgAEB
-        AYADAAHAAQEBwAEDAYADAAHAAQEB4AEHAYADAAGAAQAB8AEPAYABAAGCAQgBgAEAAeABBwGAAQAB4wGI
-        AYABAAHAAQMBgAEAAf8B+AGAAQABgAEBAYABAAH/AfgBgAEAAYABAQGAAQAB/wH4AYABAAKBAcABAQH/
-        AfgBgAEAAsMB6gGrAf8B+AHgAYMC5ws=
-</value>
-  </data>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>62</value>
+  <metadata name="tabRouteGeneral.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="grpGeneralProperties.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="lblSwitchTimeUnits.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="spnSwitchTime.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="lblSwitchTime.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="grpGeneral.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="lblName.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="txtName.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="tabRouteBlock.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="chkIsBlock.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="grpBlockBehaviour.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="cboAction.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="lblAction.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="grpBlockConnections.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="chkBidirectional.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="txtBlockTo.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="cboBlockTo.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="txtBlockFrom.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="cboBlockFrom.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="tabRouteConnections.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="grdConnect.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="tabRouteNotes.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="txtNotes.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="cmdCancel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="cmdOk.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
 </root>

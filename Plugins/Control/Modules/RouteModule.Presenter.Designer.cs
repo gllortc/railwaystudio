@@ -46,6 +46,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
                cmdRouteDelete.Enabled = false;
                cmdRouteProperties.Enabled = true;
                cmdRouteSave.Enabled = true;
+               cmdRouteSaveClose.Enabled = true;
                cmdRouteClose.Enabled = true;
             }
          }
@@ -83,6 +84,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
             cmdRouteDelete.Enabled = false;
             cmdRouteProperties.Enabled = true;
             cmdRouteSave.Enabled = true;
+            cmdRouteSaveClose.Enabled = true;
             cmdRouteClose.Enabled = true;
          }
          catch (Exception ex)
@@ -199,6 +201,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
             cmdRouteDelete.Enabled = true;
             cmdRouteProperties.Enabled = false;
             cmdRouteSave.Enabled = false;
+            cmdRouteSaveClose.Enabled = false;
             cmdRouteClose.Enabled = false;
 
             this.RefreshRouteList();
@@ -341,8 +344,9 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
          grdDataView.Columns.Clear();
          grdDataView.Columns.Add(new GridColumn() { Caption = "ID", Visible = false, FieldName = "ID" });
-         grdDataView.Columns.Add(new GridColumn() { Caption = "Name", Visible = true, FieldName = "Name" });
-         grdDataView.Columns.Add(new GridColumn() { Caption = "Elements", Visible = true, FieldName = "ElementsCount", Width = 100 });
+         grdDataView.Columns.Add(new GridColumn() { Caption = "Name", Visible = true, FieldName = "Name", Width = 300 });
+         grdDataView.Columns.Add(new GridColumn() { Caption = "Block", Visible = true, FieldName = "IsBlock", Width = 80 });
+         grdDataView.Columns.Add(new GridColumn() { Caption = "Elements", Visible = true, FieldName = "ElementsCount", Width = 80 });
 
          grdDataView.Columns["ElementsCount"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          grdDataView.Columns["ElementsCount"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;

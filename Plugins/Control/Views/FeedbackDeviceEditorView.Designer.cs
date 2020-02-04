@@ -38,6 +38,8 @@
          this.tabDecoder = new DevExpress.XtraTab.XtraTabControl();
          this.tabDecoderGeneral = new DevExpress.XtraTab.XtraTabPage();
          this.grpGeneral = new DevExpress.XtraEditors.GroupControl();
+         this.cboManufacturer = new DevExpress.XtraEditors.ImageComboBoxEdit();
+         this.imageList = new System.Windows.Forms.ImageList(this.components);
          this.cboModel = new DevExpress.XtraEditors.ComboBoxEdit();
          this.lblModel = new DevExpress.XtraEditors.LabelControl();
          this.lblManufacturer = new DevExpress.XtraEditors.LabelControl();
@@ -50,8 +52,6 @@
          this.grdConnect = new DevExpress.XtraGrid.GridControl();
          this.grdConnectView = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.tabDecoderNotes = new DevExpress.XtraTab.XtraTabPage();
-         this.imageList = new System.Windows.Forms.ImageList(this.components);
-         this.cboManufacturer = new DevExpress.XtraEditors.ImageComboBoxEdit();
          ((System.ComponentModel.ISupportInitialize)(this.txtNotes.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.tabDecoder)).BeginInit();
@@ -59,6 +59,7 @@
          this.tabDecoderGeneral.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.grpGeneral)).BeginInit();
          this.grpGeneral.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.cboManufacturer.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.cboModel.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.grpDigital)).BeginInit();
          this.grpDigital.SuspendLayout();
@@ -68,7 +69,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.grdConnect)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.grdConnectView)).BeginInit();
          this.tabDecoderNotes.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.cboManufacturer.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // txtNotes
@@ -157,6 +157,26 @@
          this.grpGeneral.Size = new System.Drawing.Size(345, 123);
          this.grpGeneral.TabIndex = 216;
          this.grpGeneral.Text = "General";
+         // 
+         // cboManufacturer
+         // 
+         this.cboManufacturer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.cboManufacturer.Location = new System.Drawing.Point(131, 61);
+         this.cboManufacturer.Name = "cboManufacturer";
+         this.cboManufacturer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.cboManufacturer.Properties.SmallImages = this.imageList;
+         this.cboManufacturer.Size = new System.Drawing.Size(194, 20);
+         this.cboManufacturer.TabIndex = 10;
+         // 
+         // imageList
+         // 
+         this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
+         this.imageList.TransparentColor = System.Drawing.Color.Transparent;
+         this.imageList.Images.SetKeyName(0, "ICO_OUTPUT");
+         this.imageList.Images.SetKeyName(1, "ICO_MANUFACTURER");
+         this.imageList.Images.SetKeyName(2, "ICO_MODEL");
          // 
          // cboModel
          // 
@@ -301,27 +321,7 @@
          this.tabDecoderNotes.Size = new System.Drawing.Size(371, 257);
          this.tabDecoderNotes.Text = "Notes";
          // 
-         // imageList
-         // 
-         this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
-         this.imageList.TransparentColor = System.Drawing.Color.Transparent;
-         this.imageList.Images.SetKeyName(0, "ICO_OUTPUT");
-         this.imageList.Images.SetKeyName(1, "ICO_MANUFACTURER");
-         this.imageList.Images.SetKeyName(2, "ICO_MODEL");
-         // 
-         // cboManufacturer
-         // 
-         this.cboManufacturer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.cboManufacturer.Location = new System.Drawing.Point(131, 61);
-         this.cboManufacturer.Name = "cboManufacturer";
-         this.cboManufacturer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.cboManufacturer.Properties.SmallImages = this.imageList;
-         this.cboManufacturer.Size = new System.Drawing.Size(194, 20);
-         this.cboManufacturer.TabIndex = 10;
-         // 
-         // FrmSensorEditor
+         // FeedbackDeviceEditorView
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -332,7 +332,7 @@
          this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
          this.MaximizeBox = false;
          this.MinimizeBox = false;
-         this.Name = "FrmSensorEditor";
+         this.Name = "FeedbackDeviceEditorView";
          this.ShowIcon = false;
          this.ShowInTaskbar = false;
          this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -346,6 +346,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.grpGeneral)).EndInit();
          this.grpGeneral.ResumeLayout(false);
          this.grpGeneral.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.cboManufacturer.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.cboModel.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.grpDigital)).EndInit();
          this.grpDigital.ResumeLayout(false);
@@ -356,7 +357,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.grdConnect)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.grdConnectView)).EndInit();
          this.tabDecoderNotes.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.cboManufacturer.Properties)).EndInit();
          this.ResumeLayout(false);
 
       }

@@ -28,16 +28,28 @@
       /// </summary>
       private void InitializeComponent()
       {
-         DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup3 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem9 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem10 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem11 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem12 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup4 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem13 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem14 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem15 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem16 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem1 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem2 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem3 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem4 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem5 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem6 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem7 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem8 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
          this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
          this.cmdRouteAdd = new DevExpress.XtraBars.BarButtonItem();
          this.cmdRouteEdit = new DevExpress.XtraBars.BarButtonItem();
@@ -49,8 +61,10 @@
          this.cmdRouteProperties = new DevExpress.XtraBars.BarButtonItem();
          this.cmdRouteSave = new DevExpress.XtraBars.BarButtonItem();
          this.cmdRouteClose = new DevExpress.XtraBars.BarButtonItem();
+         this.cmdRouteSaveClose = new DevExpress.XtraBars.BarButtonItem();
          this.rbpDesign = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.rpgRoutes = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+         this.rpgRoute = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
          this.tabPanels = new DevExpress.XtraTab.XtraTabControl();
          this.tabPanel1 = new DevExpress.XtraTab.XtraTabPage();
@@ -80,9 +94,10 @@
             this.barButtonGroup1,
             this.cmdRouteProperties,
             this.cmdRouteSave,
-            this.cmdRouteClose});
+            this.cmdRouteClose,
+            this.cmdRouteSaveClose});
          this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-         this.ribbonControl1.MaxItemId = 42;
+         this.ribbonControl1.MaxItemId = 43;
          this.ribbonControl1.Name = "ribbonControl1";
          this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpDesign});
@@ -125,29 +140,29 @@
          // 
          // 
          // 
-         galleryItemGroup3.Caption = "Group1";
-         galleryItem9.Caption = "Item5";
-         galleryItem10.Caption = "Item6";
-         galleryItem11.Caption = "Item7";
-         galleryItem12.Caption = "Item8";
-         galleryItemGroup3.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
-            galleryItem9,
-            galleryItem10,
-            galleryItem11,
-            galleryItem12});
-         galleryItemGroup4.Caption = "Group2";
-         galleryItem13.Caption = "Item1";
-         galleryItem14.Caption = "Item2";
-         galleryItem15.Caption = "Item3";
-         galleryItem16.Caption = "Item4";
-         galleryItemGroup4.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
-            galleryItem13,
-            galleryItem14,
-            galleryItem15,
-            galleryItem16});
+         galleryItemGroup1.Caption = "Group1";
+         galleryItem1.Caption = "Item5";
+         galleryItem2.Caption = "Item6";
+         galleryItem3.Caption = "Item7";
+         galleryItem4.Caption = "Item8";
+         galleryItemGroup1.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
+            galleryItem1,
+            galleryItem2,
+            galleryItem3,
+            galleryItem4});
+         galleryItemGroup2.Caption = "Group2";
+         galleryItem5.Caption = "Item1";
+         galleryItem6.Caption = "Item2";
+         galleryItem7.Caption = "Item3";
+         galleryItem8.Caption = "Item4";
+         galleryItemGroup2.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
+            galleryItem5,
+            galleryItem6,
+            galleryItem7,
+            galleryItem8});
          this.ribbonGalleryBarItem1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup3,
-            galleryItemGroup4});
+            galleryItemGroup1,
+            galleryItemGroup2});
          this.ribbonGalleryBarItem1.Id = 7;
          this.ribbonGalleryBarItem1.Name = "ribbonGalleryBarItem1";
          // 
@@ -179,6 +194,15 @@
          this.cmdRouteProperties.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_PROPERTIES_16;
          this.cmdRouteProperties.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_PROPERTIES_32;
          this.cmdRouteProperties.Name = "cmdRouteProperties";
+         toolTipTitleItem1.Appearance.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_PROPERTIES_16;
+         toolTipTitleItem1.Appearance.Options.UseImage = true;
+         toolTipTitleItem1.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_PROPERTIES_16;
+         toolTipTitleItem1.Text = "Properties";
+         toolTipItem1.LeftIndent = 6;
+         toolTipItem1.Text = "Show the current route or block properties dialog.";
+         superToolTip1.Items.Add(toolTipTitleItem1);
+         superToolTip1.Items.Add(toolTipItem1);
+         this.cmdRouteProperties.SuperTip = superToolTip1;
          this.cmdRouteProperties.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdRouteProperties_ItemClick);
          // 
          // cmdRouteSave
@@ -189,22 +213,64 @@
          this.cmdRouteSave.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SAVE_16;
          this.cmdRouteSave.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SAVE_32;
          this.cmdRouteSave.Name = "cmdRouteSave";
+         this.cmdRouteSave.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+         toolTipTitleItem2.Appearance.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SAVE_16;
+         toolTipTitleItem2.Appearance.Options.UseImage = true;
+         toolTipTitleItem2.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SAVE_16;
+         toolTipTitleItem2.Text = "Save";
+         toolTipItem2.LeftIndent = 6;
+         toolTipItem2.Text = "Save the route or block and continue editing (without closing the current route)." +
+    "";
+         superToolTip2.Items.Add(toolTipTitleItem2);
+         superToolTip2.Items.Add(toolTipItem2);
+         this.cmdRouteSave.SuperTip = superToolTip2;
          this.cmdRouteSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdRouteSave_ItemClick);
          // 
          // cmdRouteClose
          // 
-         this.cmdRouteClose.Caption = "Back to routes list";
+         this.cmdRouteClose.Caption = "Cancel / Close";
          this.cmdRouteClose.Enabled = false;
          this.cmdRouteClose.Id = 41;
-         this.cmdRouteClose.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_16;
-         this.cmdRouteClose.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_32;
+         this.cmdRouteClose.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_CLOSE_16;
+         this.cmdRouteClose.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_CLOSE_32;
          this.cmdRouteClose.Name = "cmdRouteClose";
+         this.cmdRouteClose.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+         toolTipTitleItem3.Appearance.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_CLOSE_16;
+         toolTipTitleItem3.Appearance.Options.UseImage = true;
+         toolTipTitleItem3.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_CLOSE_16;
+         toolTipTitleItem3.Text = "Cancel / Close";
+         toolTipItem3.LeftIndent = 6;
+         toolTipItem3.Text = "Close the current route or block and come back to the routes list. If current rou" +
+    "te have unsaved changes, prompt to save it.";
+         superToolTip3.Items.Add(toolTipTitleItem3);
+         superToolTip3.Items.Add(toolTipItem3);
+         this.cmdRouteClose.SuperTip = superToolTip3;
          this.cmdRouteClose.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdRouteClose_ItemClick);
+         // 
+         // cmdRouteSaveClose
+         // 
+         this.cmdRouteSaveClose.Caption = "Save and close";
+         this.cmdRouteSaveClose.Enabled = false;
+         this.cmdRouteSaveClose.Id = 42;
+         this.cmdRouteSaveClose.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SAVE_CLOSE_16;
+         this.cmdRouteSaveClose.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SAVE_CLOSE_32;
+         this.cmdRouteSaveClose.Name = "cmdRouteSaveClose";
+         this.cmdRouteSaveClose.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+         toolTipTitleItem4.Appearance.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SAVE_CLOSE_16;
+         toolTipTitleItem4.Appearance.Options.UseImage = true;
+         toolTipTitleItem4.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SAVE_CLOSE_16;
+         toolTipTitleItem4.Text = "Save and close";
+         toolTipItem4.LeftIndent = 6;
+         toolTipItem4.Text = "Save the current route or block, close it and return to the routes list.";
+         superToolTip4.Items.Add(toolTipTitleItem4);
+         superToolTip4.Items.Add(toolTipItem4);
+         this.cmdRouteSaveClose.SuperTip = superToolTip4;
          // 
          // rbpDesign
          // 
          this.rbpDesign.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rpgRoutes});
+            this.rpgRoutes,
+            this.rpgRoute});
          this.rbpDesign.Name = "rbpDesign";
          this.rbpDesign.Text = "Design";
          // 
@@ -213,12 +279,18 @@
          this.rpgRoutes.ItemLinks.Add(this.cmdRouteAdd);
          this.rpgRoutes.ItemLinks.Add(this.cmdRouteEdit, true);
          this.rpgRoutes.ItemLinks.Add(this.cmdRouteDelete);
-         this.rpgRoutes.ItemLinks.Add(this.cmdRouteProperties, true);
-         this.rpgRoutes.ItemLinks.Add(this.cmdRouteSave);
-         this.rpgRoutes.ItemLinks.Add(this.cmdRouteClose, true);
          this.rpgRoutes.Name = "rpgRoutes";
          this.rpgRoutes.ShowCaptionButton = false;
-         this.rpgRoutes.Text = "Routes";
+         this.rpgRoutes.Text = "Manage";
+         // 
+         // rpgRoute
+         // 
+         this.rpgRoute.ItemLinks.Add(this.cmdRouteProperties);
+         this.rpgRoute.ItemLinks.Add(this.cmdRouteSave);
+         this.rpgRoute.ItemLinks.Add(this.cmdRouteSaveClose);
+         this.rpgRoute.ItemLinks.Add(this.cmdRouteClose);
+         this.rpgRoute.Name = "rpgRoute";
+         this.rpgRoute.Text = "Route";
          // 
          // ribbonStatusBar
          // 
@@ -273,6 +345,7 @@
          // 
          this.grdDataView.GridControl = this.grdData;
          this.grdDataView.Name = "grdDataView";
+         this.grdDataView.OptionsBehavior.AutoPopulateColumns = false;
          this.grdDataView.OptionsBehavior.Editable = false;
          this.grdDataView.OptionsCustomization.AllowColumnMoving = false;
          this.grdDataView.OptionsCustomization.AllowFilter = false;
@@ -280,6 +353,7 @@
          this.grdDataView.OptionsDetail.AllowZoomDetail = false;
          this.grdDataView.OptionsDetail.EnableMasterViewMode = false;
          this.grdDataView.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.grdDataView.OptionsView.ColumnAutoWidth = false;
          this.grdDataView.OptionsView.ShowGroupPanel = false;
          // 
          // RouteModule
@@ -329,6 +403,8 @@
       private DevExpress.XtraBars.BarButtonItem cmdRouteProperties;
       private DevExpress.XtraBars.BarButtonItem cmdRouteSave;
       private DevExpress.XtraBars.BarButtonItem cmdRouteClose;
-   }
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgRoute;
+        private DevExpress.XtraBars.BarButtonItem cmdRouteSaveClose;
+    }
 }
 

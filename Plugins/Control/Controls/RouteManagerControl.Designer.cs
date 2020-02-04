@@ -67,7 +67,7 @@
          this.grdRouteView.OptionsSelection.EnableAppearanceFocusedCell = false;
          this.grdRouteView.OptionsView.ShowGroupPanel = false;
          this.grdRouteView.OptionsView.ShowIndicator = false;
-         this.grdRouteView.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.grdRouteView_CustomDrawCell);
+         this.grdRouteView.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.GrdRouteView_CustomDrawCell);
          // 
          // barManager
          // 
@@ -109,7 +109,7 @@
          this.cmdRouteNew.Id = 0;
          this.cmdRouteNew.LargeGlyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_ADD_32;
          this.cmdRouteNew.Name = "cmdRouteNew";
-         this.cmdRouteNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdRouteNew_ItemClick);
+         this.cmdRouteNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdRouteNew_ItemClick);
          // 
          // cmdRouteEdit
          // 
@@ -118,7 +118,7 @@
          this.cmdRouteEdit.Id = 4;
          this.cmdRouteEdit.LargeGlyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_EDIT_32;
          this.cmdRouteEdit.Name = "cmdRouteEdit";
-         this.cmdRouteEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdRouteEdit_ItemClick);
+         this.cmdRouteEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdRouteEdit_ItemClick);
          // 
          // cmdRouteDelete
          // 
@@ -127,7 +127,7 @@
          this.cmdRouteDelete.Id = 3;
          this.cmdRouteDelete.LargeGlyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_DELETE_32;
          this.cmdRouteDelete.Name = "cmdRouteDelete";
-         this.cmdRouteDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdRouteDelete_ItemClick);
+         this.cmdRouteDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdRouteDelete_ItemClick);
          // 
          // barDockControlTop
          // 

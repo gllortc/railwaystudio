@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Data;
 using System.Windows.Forms;
-using DevExpress.XtraEditors.Controls;
-using DevExpress.XtraTab;
-using RailwayStudio.Common;
 using Rwm.Otc;
 using Rwm.Otc.Layout;
-using Rwm.Otc.UI;
-using Rwm.Otc.UI.Controls;
 
 namespace Rwm.Studio.Plugins.Control.Views
 {
@@ -16,280 +10,88 @@ namespace Rwm.Studio.Plugins.Control.Views
 
       #region Constructors
 
-      /// <summary>
-      /// Returns a new instance of <see cref="RouteEditorView"/>.
-      /// </summary>
-      /// <param name="settings">Current application settings.</param>
       public RouteEditorView()
       {
-         InitializeComponent();
-
-         this.Route = new Route();
-         cboBlockFrom.RefreshElementsList();
-         cboBlockTo.RefreshElementsList();
-         this.ListActions();
-
-         tabDecoderOutputs.PageVisible = false;
-
-         this.ShowPanels();
+         this.SetData(new Route(OTCContext.Project));
       }
 
-      /// <summary>
-      /// Returns a new instance of <see cref="RouteEditorView"/>.
-      /// </summary>
-      /// <param name="settings">Current application settings.</param>
-      /// <param name="route">The decoder to edit in the editor dialogue.</param>
       public RouteEditorView(Route route)
       {
-         InitializeComponent();
-
-         this.Route = route;
-
-         txtName.Text = this.Route.Name;
-         txtNotes.Text = this.Route.Description;
-         chkBidirectional.Checked = this.Route.IsBidirectionl;
-         cboBlockFrom.SetSelectedElement(route.FromBlock);
-         cboBlockTo.SetSelectedElement(route.ToBlock);
-         this.ListActions(1);
-
-         this.ShowPanels();
+         this.SetData(route);
       }
 
       #endregion
 
       #region Properties
 
-      /// <summary>
-      /// Gets the route loaded in the editor.
-      /// </summary>
-      internal Route Route { get; private set; }
+      public Route Route { get; private set; }
 
       #endregion
 
       #region Event Handlers
 
-      private void FrmRouteEditor_Load(object sender, EventArgs e)
+      private void RouteEditorView_Shown(object sender, EventArgs e)
       {
          txtName.SelectAll();
          txtName.Focus();
       }
 
-      /// <summary>
-      /// Deactivate route in all switchboards
-      /// </summary>
-      private void FrmRouteEditor_FormClosed(object sender, FormClosedEventArgs e)
+      private void chkIsBlock_CheckedChanged(object sender, EventArgs e)
       {
-         foreach (Switchboard switchboard in Switchboard.FindAll())
-         {
-            switchboard.ClearRoute();
-         }
+         grpBlockConnections.Enabled = chkIsBlock.Checked;
+         grpBlockBehaviour.Enabled = chkIsBlock.Checked;
       }
 
-      private void grdConnectView_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+      private void CmdOk_Click(object sender, EventArgs e)
       {
-         StudioContext.UI.DrawRowIcon(Properties.Resources.ICO_CONNECTION_16, e);
+         if (!this.GetData()) return;
+
+         this.DialogResult = DialogResult.OK;
+         return;
       }
 
-      private void grdConnectView_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
+      private void CmdCancel_Click(object sender, EventArgs e)
       {
-         DataRowView drv = grdConnectView.GetRow(e.RowHandle) as DataRowView;
-         if (drv != null)
-         {
-            if ((Int64)drv[0] <= 0)
-            {
-               e.Appearance.BackColor = System.Drawing.Color.FromArgb(192, 255, 192);
-               e.Appearance.BackColor2 = System.Drawing.Color.FromArgb(192, 255, 192);
-            }
-         }
+         this.DialogResult = DialogResult.Cancel;
+         return;
       }
 
-      void spcPanel_CellClick(object sender, CellClickEventArgs e)
+      #endregion
+
+      #region Methods
+
+      private void SetData(Route route)
       {
-         if (e.Control == null) return;
-         e.Control.UnselectCell();
-         e.Control.SelectCell(e.X, e.Y);
+         this.InitializeComponent();
+
+         this.Route = route;
+
+         txtName.Text = this.Route.Name;
+         txtNotes.Text = this.Route.Description;
+         spnSwitchTime.EditValue = this.Route.SwitchTime;
+         chkIsBlock.Checked = this.Route.IsBlock;
+         chkBidirectional.Checked = this.Route.IsBidirectionl;
+
       }
 
-      void spcPanel_BlockClick(object sender, CellClickEventArgs e)
+      private bool GetData()
       {
-         if (e.Control == null) return;
-         e.Control.SelectCell(e.Element.Coordinates);
-      }
-
-      private void cmdOk_Click(object sender, EventArgs e)
-      {
-         if (string.IsNullOrWhiteSpace(txtName.Text))
+         if (string.IsNullOrEmpty(txtName.Text.Trim()))
          {
             MessageBox.Show("You must provide a valid name for the route.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             txtName.Focus();
-            return;
-         }
-         else if (this.Route.Elements.Count <= 0)
-         {
-            MessageBox.Show("Routes should have at least one activated element.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            return;
+            return false;
          }
 
-         Cursor.Current = Cursors.WaitCursor;
-
-         this.Route.Name = txtName.Text.Trim();
-         this.Route.Description = txtNotes.Text.Trim();
-         this.Route.FromBlock = cboBlockFrom.SelectedElement;
-         this.Route.ToBlock = cboBlockTo.SelectedElement;
+         this.Route.Name = txtName.Text;
+         this.Route.Description = txtNotes.Text;
+         this.Route.SwitchTime = (int)(decimal)spnSwitchTime.EditValue;
+         this.Route.IsBlock = chkIsBlock.Checked;
          this.Route.IsBidirectionl = chkBidirectional.Checked;
 
-         try
-         {
-            Route.Save(this.Route);
-
-            this.DialogResult = DialogResult.OK;
-            this.Close();
-         }
-         catch (Exception ex)
-         {
-            Cursor.Current = Cursors.Default;
-
-            MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-         }
-         finally
-         {
-            Cursor.Current = Cursors.Default;
-         }
+         return true;
       }
 
-      private void cmdCancel_Click(object sender, EventArgs e)
-      {
-         this.DialogResult = DialogResult.Cancel;
-         this.Close();
-      }
-
-      #endregion
-
-      #region Static Members
-
-      public static void ViewAddRoutePanel(Switchboard panel,
-                                           Route route,
-                                           XtraTabControl tabControl,
-                                           XtraTabPage tabPage,
-                                           SwitchboardRouteEditorControl.CellClickedEventHandler cellClickEvent,
-                                           SwitchboardRouteEditorControl.BlockClickedEventHandler blockClickEvent,
-                                           SwitchboardRouteEditorControl.BlockDoubleClickedEventHandler blockDoubleClickEvent)
-      {
-         XtraTabPage tabPanel;
-
-         tabControl.SuspendLayout();
-
-         // Generate the grid
-         SwitchboardRouteEditorControl spcPanel = new SwitchboardRouteEditorControl(panel, route);
-         spcPanel.Dock = DockStyle.Fill;
-         spcPanel.Location = new System.Drawing.Point(5, 5);
-         spcPanel.Name = "grdPanel" + panel.ID;
-         spcPanel.BorderStyle = BorderStyle.FixedSingle;
-
-         // Enable grid events
-         if (cellClickEvent != null) spcPanel.CellClick += cellClickEvent;
-         if (blockClickEvent != null) spcPanel.ElementClick += blockClickEvent;
-         if (blockDoubleClickEvent != null) spcPanel.ElementDoubleClick += blockDoubleClickEvent;
-
-         // Generate the tab page
-         if (tabPage == null)
-         {
-            tabPanel = new XtraTabPage();
-
-            // tabPanel.Controls.Add(grdPanel);
-            tabPanel.Name = "tabPanel" + panel.ID;
-            tabPanel.Padding = new Padding(5);
-            tabPanel.Text = panel.Name;
-            tabPanel.Image = Properties.Resources.ICO_PANEL_16;
-            tabPanel.Tag = panel;
-            tabPanel.Controls.Add(spcPanel);
-         }
-         else
-         {
-            // Clear all page contents
-            tabPage.Controls.Clear();
-
-            tabPanel = tabPage;
-         }
-
-         tabControl.TabPages.Add(tabPanel);
-
-         // Select the new panel
-         tabControl.SelectedTabPage = tabPanel;
-
-         tabControl.ResumeLayout(false);
-      }
-
-      #endregion
-
-      #region Private Members
-
-      /// <summary>
-      /// Create and paint all panels.
-      /// </summary>
-      private void ShowPanels()
-      {
-         Cursor.Current = Cursors.WaitCursor;
-
-         // Clear all previous panels
-         tabPanels.TabPages.Clear();
-
-         // Draw all panels
-         foreach (Switchboard sb in OTCContext.Project.Switchboards)
-         {
-            RouteEditorView.ViewAddRoutePanel(sb,
-                                             this.Route, 
-                                             tabPanels,
-                                             null,
-                                             spcPanel_CellClick,
-                                             spcPanel_BlockClick,
-                                             null);
-         }
-
-         // Select the first panel
-         if (tabPanels.TabPages.Count > 0)
-         {
-            tabPanels.SelectedTabPage = tabPanels.TabPages[0];
-         }
-
-         Cursor.Current = Cursors.Default;
-      }
-
-      private void ListActions()
-      {
-         this.ListActions(-1);
-      }
-
-      private void ListActions(int selectedValue)
-      {
-         ImageComboBoxItem item = null;
-
-         cboAction.Properties.Items.Clear();
-
-         item = new ImageComboBoxItem();
-         item.Description = "No action";
-         item.Value = 0;
-         item.ImageIndex = 3;
-         cboAction.Properties.Items.Add(item);
-
-         if (selectedValue == (int)item.Value) cboAction.SelectedItem = item;
-
-         item = new ImageComboBoxItem();
-         item.Description = "Stop train immediately";
-         item.Value = 1;
-         item.ImageIndex = 4;
-         cboAction.Properties.Items.Add(item);
-
-         if (selectedValue == (int)item.Value) cboAction.SelectedItem = item;
-
-         item = new ImageComboBoxItem();
-         item.Description = "Stop train using breaks";
-         item.Value = 0;
-         item.ImageIndex = 4;
-         cboAction.Properties.Items.Add(item);
-
-         if (selectedValue == (int)item.Value) cboAction.SelectedItem = item;
-      }
 
       #endregion
 
