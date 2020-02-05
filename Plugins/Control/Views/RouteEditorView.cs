@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Dynamic;
 using System.Windows.Forms;
+using DevExpress.XtraGrid.Columns;
 using Rwm.Otc;
 using Rwm.Otc.Layout;
 
@@ -72,6 +75,7 @@ namespace Rwm.Studio.Plugins.Control.Views
          chkIsBlock.Checked = this.Route.IsBlock;
          chkBidirectional.Checked = this.Route.IsBidirectionl;
 
+         this.RefreshConnectionsList();
       }
 
       private bool GetData()
@@ -92,6 +96,47 @@ namespace Rwm.Studio.Plugins.Control.Views
          return true;
       }
 
+      private void RefreshConnectionsList()
+      {
+         dynamic connection;
+
+         // Create the connections list
+         List<ExpandoObject> connections = new List<ExpandoObject>();
+         foreach (RouteElement routeElement in this.Route.Elements)
+         {
+            if (routeElement.Element != null)
+            {
+               foreach (DeviceConnection deviceConnection in routeElement.Element?.Connections)
+               {
+                  connection = new ExpandoObject();
+                  connection.ID = deviceConnection.ID;
+                  connection.Name = (deviceConnection.Element != null ? deviceConnection.Element?.ToString() : "Not connected");
+                  connection.Output = deviceConnection.Output;
+                  connection.Address = deviceConnection.Address;
+
+                  connections.Add(connection);
+               }
+            }
+         }
+
+         grdConnect.BeginUpdate();
+
+         grdConnectView.Columns.Clear();
+         grdConnectView.Columns.Add(new GridColumn() { Caption = "ID", Visible = false, FieldName = "ID" });
+         grdConnectView.Columns.Add(new GridColumn() { Caption = "Element", Visible = true, FieldName = "Name", Width = 300 });
+         grdConnectView.Columns.Add(new GridColumn() { Caption = "Output", Visible = true, FieldName = "Output", Width = 80 });
+         grdConnectView.Columns.Add(new GridColumn() { Caption = "Address", Visible = true, FieldName = "Address", Width = 80 });
+
+         grdConnectView.Columns["Output"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         grdConnectView.Columns["Output"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
+         grdConnectView.Columns["Address"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         grdConnectView.Columns["Address"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
+         grdConnect.DataSource = connections;
+
+         grdConnect.EndUpdate();
+      }
 
       #endregion
 
