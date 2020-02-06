@@ -429,6 +429,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\train_route_32.png" />
     <None Include="Resources\save_as_16.png" />
     <None Include="Resources\preferences_16.png" />
     <None Include="Resources\preferences.png" />

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Dynamic;
+using System.Linq;
 using System.Windows.Forms;
 using DevExpress.XtraGrid.Columns;
 using Rwm.Otc;
@@ -102,17 +103,33 @@ namespace Rwm.Studio.Plugins.Control.Views
 
          // Create the connections list
          List<ExpandoObject> connections = new List<ExpandoObject>();
-         foreach (RouteElement routeElement in this.Route.Elements)
+         foreach (RouteElement routeElement in this.Route.Elements.OrderBy(o=>o.Element.ToString()))
          {
-            if (routeElement.Element != null)
+            if (routeElement.Element != null && routeElement.Element.Properties.NumberOfAccessoryConnections > 0)
             {
-               foreach (DeviceConnection deviceConnection in routeElement.Element?.Connections)
+               for (int i=1; i<=routeElement.Element.Properties.NumberOfAccessoryConnections; i++)
                {
-                  connection = new ExpandoObject();
-                  connection.ID = deviceConnection.ID;
-                  connection.Name = (deviceConnection.Element != null ? deviceConnection.Element?.ToString() : "Not connected");
-                  connection.Output = deviceConnection.Output;
-                  connection.Address = deviceConnection.Address;
+                  DeviceConnection deviceConnection = DeviceConnection.GetByIndex(routeElement.Element, i, Device.DeviceType.AccessoryDecoder);
+                  if (deviceConnection != null)
+                  {
+                     connection = new ExpandoObject();
+                     connection.ID = deviceConnection.ID;
+                     connection.Name = (deviceConnection.Element != null ? deviceConnection.Element?.ToString() : "Bad connection!");
+                     connection.Device = (deviceConnection.Device != null ? deviceConnection.Device?.Name : "Bad connection!");
+                     connection.Output = deviceConnection.Output;
+                     connection.Address = deviceConnection.Address;
+                     connection.Status = routeElement.Element.Properties.GetStatusDescription(routeElement.AccessoryStatus);
+                  }
+                  else
+                  {
+                     connection = new ExpandoObject();
+                     connection.ID = 0;
+                     connection.Name = "Not connected";
+                     connection.Device = "-";
+                     connection.Output = "-";
+                     connection.Address = "-";
+                     connection.Status = "-";
+                  }
 
                   connections.Add(connection);
                }
@@ -123,9 +140,11 @@ namespace Rwm.Studio.Plugins.Control.Views
 
          grdConnectView.Columns.Clear();
          grdConnectView.Columns.Add(new GridColumn() { Caption = "ID", Visible = false, FieldName = "ID" });
-         grdConnectView.Columns.Add(new GridColumn() { Caption = "Element", Visible = true, FieldName = "Name", Width = 300 });
+         grdConnectView.Columns.Add(new GridColumn() { Caption = "Element", Visible = true, FieldName = "Name", Width = 200 });
+         grdConnectView.Columns.Add(new GridColumn() { Caption = "Device", Visible = true, FieldName = "Device", Width = 120 });
          grdConnectView.Columns.Add(new GridColumn() { Caption = "Output", Visible = true, FieldName = "Output", Width = 80 });
          grdConnectView.Columns.Add(new GridColumn() { Caption = "Address", Visible = true, FieldName = "Address", Width = 80 });
+         grdConnectView.Columns.Add(new GridColumn() { Caption = "Status", Visible = true, FieldName = "Status", Width = 120 });
 
          grdConnectView.Columns["Output"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          grdConnectView.Columns["Output"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;

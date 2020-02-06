@@ -119,7 +119,7 @@ namespace Rwm.Studio.Plugins.Control.Views
          // Create connection controls
          for (int i = 1; i <= this.Element.Properties.NumberOfAccessoryConnections; i++)
          {
-            connection = DeviceConnection.GetByIndex(this.Element, i, Device.DeviceType.AccessoryDecoder);
+            connection = DeviceConnection.GetByOutput(this.Element, i, Device.DeviceType.AccessoryDecoder);
 
             if (connection != null)
             {
@@ -162,7 +162,7 @@ namespace Rwm.Studio.Plugins.Control.Views
          // Create connection controls
          for (int i = 0; i < this.Element.Properties.NumberOfFeedbackConnections; i++)
          {
-            connection = DeviceConnection.GetByIndex(this.Element, i, Device.DeviceType.FeedbackModule);
+            connection = DeviceConnection.GetByOutput(this.Element, i, Device.DeviceType.FeedbackModule);
 
             if (connection != null)
             {

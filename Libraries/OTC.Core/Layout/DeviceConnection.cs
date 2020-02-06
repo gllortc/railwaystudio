@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Common;
 using Rwm.Otc.Data.ORM;
 using Rwm.Otc.Diagnostics;
 
@@ -81,10 +80,9 @@ namespace Rwm.Otc.Layout
       public override long ID { get; set; }
 
       /// <summary>
-      /// Gets or sets the connection index inside a element (to maintain its position).
+      /// Gets or sets the element connection index (to maintain its position).
       /// </summary>
       [ORMProperty("index")]
-      [Obsolete]
       public int Index { get; set; }
 
       /// <summary>
@@ -112,7 +110,7 @@ namespace Rwm.Otc.Layout
       public int Address { get; set; }
 
       /// <summary>
-      /// Gets or sets the output index (starting at 1) for sensor modules.
+      /// Gets or sets the device output where it is connected (starting at 1).
       /// </summary>
       [ORMProperty("output")]
       public int Output { get; set; }
@@ -152,6 +150,24 @@ namespace Rwm.Otc.Layout
       #endregion
 
       #region Static Members
+
+      /// <summary>
+      /// Get a <see cref="DeviceConnection"/> by its device output.
+      /// </summary>
+      /// <param name="element">Owner connection <see cref="Element"/>.</param>
+      /// <param name="output"><see cref="DeviceConnection"/> index.</param>
+      /// <param name="type"><see cref="DeviceConnection"/> type.</param>
+      /// <returns>The requested <see cref="DeviceConnection"/> or <c>null</c> if no <see cref="DeviceConnection"/> is used by the specified <see cref="Element"/> and index.</returns>
+      public static DeviceConnection GetByOutput(Element element, int output, Device.DeviceType type)
+      {
+         foreach (DeviceConnection connection in element?.Connections)
+         {
+            if (connection.Output == output && connection.Device?.Type == type)
+               return connection;
+         }
+
+         return null;
+      }
 
       /// <summary>
       /// Get a <see cref="DeviceConnection"/> by its index.

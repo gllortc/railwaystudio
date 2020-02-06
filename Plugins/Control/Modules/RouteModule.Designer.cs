@@ -109,8 +109,8 @@
          // 
          this.cmdRouteAdd.Caption = "New route";
          this.cmdRouteAdd.Id = 1;
-         this.cmdRouteAdd.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_PANEL_ADD_16;
-         this.cmdRouteAdd.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_PANEL_ADD_32;
+         this.cmdRouteAdd.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_ADD_16;
+         this.cmdRouteAdd.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_ADD_32;
          this.cmdRouteAdd.Name = "cmdRouteAdd";
          this.cmdRouteAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdRouteAdd_ItemClick);
          // 
@@ -118,8 +118,8 @@
          // 
          this.cmdRouteEdit.Caption = "Edit route";
          this.cmdRouteEdit.Id = 2;
-         this.cmdRouteEdit.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_PANEL_EDIT_16;
-         this.cmdRouteEdit.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_PANEL_EDIT_32;
+         this.cmdRouteEdit.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_EDIT_16;
+         this.cmdRouteEdit.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_EDIT_32;
          this.cmdRouteEdit.Name = "cmdRouteEdit";
          this.cmdRouteEdit.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
          this.cmdRouteEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdRouteEdit_ItemClick);
@@ -128,8 +128,8 @@
          // 
          this.cmdRouteDelete.Caption = "Delete route";
          this.cmdRouteDelete.Id = 3;
-         this.cmdRouteDelete.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_PANEL_DELETE_16;
-         this.cmdRouteDelete.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_PANEL_DELETE_32;
+         this.cmdRouteDelete.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_DELETE_16;
+         this.cmdRouteDelete.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_DELETE_32;
          this.cmdRouteDelete.Name = "cmdRouteDelete";
          this.cmdRouteDelete.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
          this.cmdRouteDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdRouteDelete_ItemClick);
