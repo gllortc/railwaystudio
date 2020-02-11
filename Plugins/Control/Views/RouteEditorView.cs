@@ -40,7 +40,20 @@ namespace Rwm.Studio.Plugins.Control.Views
          txtName.Focus();
       }
 
-      private void chkIsBlock_CheckedChanged(object sender, EventArgs e)
+      private void GrdConnectView_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
+      {
+         dynamic row = grdConnectView.GetRow(e.RowHandle) as ExpandoObject;
+         if (row != null)
+         {
+            if (!row.IsValid)
+            {
+               e.Appearance.BackColor = System.Drawing.Color.LightSalmon; 
+               e.Appearance.BackColor2 = System.Drawing.Color.LightSalmon;
+            }
+         }
+      }
+
+      private void ChkIsBlock_CheckedChanged(object sender, EventArgs e)
       {
          grpBlockConnections.Enabled = chkIsBlock.Checked;
          grpBlockBehaviour.Enabled = chkIsBlock.Checked;
@@ -103,20 +116,21 @@ namespace Rwm.Studio.Plugins.Control.Views
 
          // Create the connections list
          List<ExpandoObject> connections = new List<ExpandoObject>();
-         foreach (RouteElement routeElement in this.Route.Elements.OrderBy(o=>o.Element.ToString()))
+         foreach (RouteElement routeElement in this.Route.Elements.OrderBy(o=>o.Element?.ToString()))
          {
             if (routeElement.Element != null && routeElement.Element.Properties.NumberOfAccessoryConnections > 0)
             {
                for (int i=1; i<=routeElement.Element.Properties.NumberOfAccessoryConnections; i++)
                {
-                  DeviceConnection deviceConnection = DeviceConnection.GetByIndex(routeElement.Element, i, Device.DeviceType.AccessoryDecoder);
+                  AccessoryDecoderConnection deviceConnection = AccessoryDecoderConnection.GetByIndex(routeElement.Element, i);
                   if (deviceConnection != null)
                   {
                      connection = new ExpandoObject();
                      connection.ID = deviceConnection.ID;
+                     connection.IsValid = true;
                      connection.Name = (deviceConnection.Element != null ? deviceConnection.Element?.ToString() : "Bad connection!");
                      connection.Device = (deviceConnection.Device != null ? deviceConnection.Device?.Name : "Bad connection!");
-                     connection.Output = deviceConnection.Output;
+                     connection.Output = deviceConnection.DecoderOutput;
                      connection.Address = deviceConnection.Address;
                      connection.Status = routeElement.Element.Properties.GetStatusDescription(routeElement.AccessoryStatus);
                   }
@@ -124,11 +138,12 @@ namespace Rwm.Studio.Plugins.Control.Views
                   {
                      connection = new ExpandoObject();
                      connection.ID = 0;
-                     connection.Name = "Not connected";
+                     connection.IsValid = false;
+                     connection.Name = routeElement.Element.ToString();
                      connection.Device = "-";
                      connection.Output = "-";
                      connection.Address = "-";
-                     connection.Status = "-";
+                     connection.Status = routeElement.Element.Properties.GetStatusDescription(routeElement.AccessoryStatus);
                   }
 
                   connections.Add(connection);
@@ -141,13 +156,13 @@ namespace Rwm.Studio.Plugins.Control.Views
          grdConnectView.Columns.Clear();
          grdConnectView.Columns.Add(new GridColumn() { Caption = "ID", Visible = false, FieldName = "ID" });
          grdConnectView.Columns.Add(new GridColumn() { Caption = "Element", Visible = true, FieldName = "Name", Width = 200 });
-         grdConnectView.Columns.Add(new GridColumn() { Caption = "Device", Visible = true, FieldName = "Device", Width = 120 });
-         grdConnectView.Columns.Add(new GridColumn() { Caption = "Output", Visible = true, FieldName = "Output", Width = 80 });
-         grdConnectView.Columns.Add(new GridColumn() { Caption = "Address", Visible = true, FieldName = "Address", Width = 80 });
          grdConnectView.Columns.Add(new GridColumn() { Caption = "Status", Visible = true, FieldName = "Status", Width = 120 });
+         grdConnectView.Columns.Add(new GridColumn() { Caption = "Device", Visible = true, FieldName = "Device", Width = 120 });
+         grdConnectView.Columns.Add(new GridColumn() { Caption = "DecoderOutput", Visible = true, FieldName = "DecoderOutput", Width = 80 });
+         grdConnectView.Columns.Add(new GridColumn() { Caption = "Address", Visible = true, FieldName = "Address", Width = 80 });
 
-         grdConnectView.Columns["Output"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         grdConnectView.Columns["Output"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         grdConnectView.Columns["DecoderOutput"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         grdConnectView.Columns["DecoderOutput"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
 
          grdConnectView.Columns["Address"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          grdConnectView.Columns["Address"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;

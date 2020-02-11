@@ -261,7 +261,7 @@
          this.tabFeedbackConnections.Name = "tabFeedbackConnections";
          this.tabFeedbackConnections.Padding = new System.Windows.Forms.Padding(10);
          this.tabFeedbackConnections.Size = new System.Drawing.Size(441, 373);
-         this.tabFeedbackConnections.Text = "Sensor connections";
+         this.tabFeedbackConnections.Text = "Feedback connections";
          // 
          // tabBlockActions
          // 

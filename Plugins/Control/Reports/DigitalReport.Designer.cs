@@ -226,7 +226,7 @@
          this.xrLabel2.SizeF = new System.Drawing.SizeF(57.29175F, 20.20836F);
          this.xrLabel2.StylePriority.UseFont = false;
          this.xrLabel2.StylePriority.UseTextAlignment = false;
-         this.xrLabel2.Text = "Output";
+         this.xrLabel2.Text = "DecoderOutput";
          this.xrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
          // 
          // xrLabel1

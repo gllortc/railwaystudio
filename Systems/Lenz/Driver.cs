@@ -179,7 +179,7 @@ namespace Rwm.OTC.Systems.Lenz
       {
          AccessoryDecoderOperationCommand cmd = null;
 
-         foreach (DeviceConnection connection in element.Connections)
+         foreach (AccessoryDecoderConnection connection in element.AccessoryConnections)
          {
             // Wait for indicate time between activations
             Thread.Sleep(connection.SwitchTime);

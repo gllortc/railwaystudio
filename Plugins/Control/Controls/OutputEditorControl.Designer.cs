@@ -80,7 +80,7 @@
          this.txtOutput.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
          this.txtOutput.Size = new System.Drawing.Size(283, 22);
          this.txtOutput.TabIndex = 1;
-         this.txtOutput.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtOutput_ButtonClick);
+         this.txtOutput.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.TxtOutput_ButtonClick);
          // 
          // lblOutput
          // 

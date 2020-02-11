@@ -5,7 +5,7 @@ namespace Rwm.Otc.TrainControl
    /// <summary>
    /// Representa un comercio dónde se pueden adquirir modelos.
    /// </summary>
-   [ORMTable("stores")]
+   [ORMTable("STORES")]
    public class Store : ORMEntity<Store>
    {
 
@@ -20,25 +20,43 @@ namespace Rwm.Otc.TrainControl
       /// <summary>
       /// Gets or sets the object unique identifier.
       /// </summary>
-      [ORMPrimaryKey("storeid")]
+      [ORMPrimaryKey()]
       public override long ID { get; set; }
 
-      [ORMProperty("storename")]
+      /// <summary>
+      /// Gets or sets the store name.
+      /// </summary>
+      [ORMProperty("NAME")]
       public string Name { get; set; }
 
-      [ORMProperty("storedesc")]
+      /// <summary>
+      /// Gets or sets the store description/notes.
+      /// </summary>
+      [ORMProperty("DESCRIPTION")]
       public string Description { get; set; }
 
-      [ORMProperty("storeaddress")]
+      /// <summary>
+      /// Gets or sets the store address.
+      /// </summary>
+      [ORMProperty("ADDRESS")]
       public string Address { get; set; }
 
-      [ORMProperty("storephone")]
+      /// <summary>
+      /// Gets or sets the store phone.
+      /// </summary>
+      [ORMProperty("PHONE")]
       public string Phone { get; set; }
 
-      [ORMProperty("storemail")]
+      /// <summary>
+      /// Gets or sets the store contact mail.
+      /// </summary>
+      [ORMProperty("EMAIL")]
       public string Mail { get; set; }
 
-      [ORMProperty("storeurl")]
+      /// <summary>
+      /// Gets or sets the store website URL.
+      /// </summary>
+      [ORMProperty("WEB")]
       public string URL { get; set; }
 
       #endregion

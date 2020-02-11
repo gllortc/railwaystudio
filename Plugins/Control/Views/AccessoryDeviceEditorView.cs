@@ -22,7 +22,7 @@ namespace Rwm.Studio.Plugins.Control.Views
       {
          InitializeComponent();
 
-         this.Decoder = new Device(Device.DeviceType.AccessoryDecoder);
+         this.Decoder = new AccessoryDecoder();
 
          tabDecoderOutputs.PageVisible = false;
 
@@ -34,7 +34,7 @@ namespace Rwm.Studio.Plugins.Control.Views
       /// </summary>
       /// <param name="settings">Current application settings.</param>
       /// <param name="decoder">The decoder to edit in the editor dialogue.</param>
-      public AccessoryDeviceEditorView(Device decoder)
+      public AccessoryDeviceEditorView(AccessoryDecoder decoder)
       {
          InitializeComponent();
 
@@ -56,7 +56,7 @@ namespace Rwm.Studio.Plugins.Control.Views
 
       #region Properties
 
-      internal Device Decoder { get; private set; }
+      internal AccessoryDecoder Decoder { get; private set; }
 
       #endregion
 
@@ -75,7 +75,7 @@ namespace Rwm.Studio.Plugins.Control.Views
 
       private void GrdConnectView_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
       {
-         if (grdConnectView.GetRow(e.RowHandle) is DeviceConnection connection)
+         if (grdConnectView.GetRow(e.RowHandle) is AccessoryDecoderConnection connection)
          {
             if (connection.Element == null)
             {
@@ -109,11 +109,10 @@ namespace Rwm.Studio.Plugins.Control.Views
          this.Decoder.Model = cboModel.Text.Trim();
          this.Decoder.Outputs = int.Parse(txtOutputs.Text);
          this.Decoder.Notes = txtNotes.Text.Trim();
-         this.Decoder.Type = Device.DeviceType.AccessoryDecoder;
 
          try
          {
-            Device.Save(this.Decoder);
+            AccessoryDecoder.Save(this.Decoder);
 
             this.DialogResult = DialogResult.OK;
             this.Close();
@@ -157,7 +156,7 @@ namespace Rwm.Studio.Plugins.Control.Views
          }
 
          // Fill models list
-         foreach (Device device in Device.FindAll())
+         foreach (AccessoryDecoder device in AccessoryDecoder.FindAll())
          {
             if (!deviceModels.Contains(device.Name))
             {
@@ -173,15 +172,15 @@ namespace Rwm.Studio.Plugins.Control.Views
 
       private void ListOutputs()
       {
-         Dictionary<int, DeviceConnection> connections = new Dictionary<int, DeviceConnection>();
+         Dictionary<int, AccessoryDecoderConnection> connections = new Dictionary<int, AccessoryDecoderConnection>();
 
          // Create the non existing connections
-         foreach (DeviceConnection connection in this.Decoder.Connections)
-            connections.Add(connection.Output, connection);
+         foreach (AccessoryDecoderConnection connection in this.Decoder.Connections)
+            connections.Add(connection.DecoderOutput, connection);
 
          for (int output = 1; output <= this.Decoder.Outputs; output++)
             if (!connections.ContainsKey(output))
-               connections.Add(output, new DeviceConnection() { Output = output, Device = this.Decoder, Element = null });
+               connections.Add(output, new AccessoryDecoderConnection() { DecoderOutput = output, Device = this.Decoder, Element = null });
 
          grdConnect.BeginUpdate();
          grdConnect.DataSource = null;
@@ -189,15 +188,15 @@ namespace Rwm.Studio.Plugins.Control.Views
          grdConnectView.Columns.Clear();
          grdConnectView.OptionsBehavior.AutoPopulateColumns = false;
          grdConnectView.Columns.Add(new GridColumn() { Caption = "ID", Visible = false, FieldName = "ID" });
-         grdConnectView.Columns.Add(new GridColumn() { Caption = "Output", Visible = true, FieldName = "Output", Width = 50 });
+         grdConnectView.Columns.Add(new GridColumn() { Caption = "DecoderOutput", Visible = true, FieldName = "DecoderOutput", Width = 50 });
          grdConnectView.Columns.Add(new GridColumn() { Caption = "Element", Visible = true, FieldName = "Element.Name" });
          grdConnectView.Columns.Add(new GridColumn() { Caption = "Address", Visible = true, FieldName = "Address", Width = 60 });
-         grdConnectView.Columns.Add(new GridColumn() { Caption = "Switch time", Visible = true, FieldName = "SwitchTime", Width = 60 });
+         grdConnectView.Columns.Add(new GridColumn() { Caption = "Switch time", Visible = true, FieldName = "DelayTime", Width = 60 });
 
          grdConnect.DataSource = connections.Values;
 
-         grdConnectView.Columns["Output"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         grdConnectView.Columns["Output"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         grdConnectView.Columns["DecoderOutput"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         grdConnectView.Columns["DecoderOutput"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
 
          grdConnectView.Columns["Address"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          grdConnectView.Columns["Address"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -207,10 +206,10 @@ namespace Rwm.Studio.Plugins.Control.Views
          grdConnectView.Columns["Element.Name"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          grdConnectView.Columns["Element.Name"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
 
-         grdConnectView.Columns["SwitchTime"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         grdConnectView.Columns["SwitchTime"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         grdConnectView.Columns["SwitchTime"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-         grdConnectView.Columns["SwitchTime"].DisplayFormat.FormatString = "{0:d} ms";
+         grdConnectView.Columns["DelayTime"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         grdConnectView.Columns["DelayTime"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         grdConnectView.Columns["DelayTime"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         grdConnectView.Columns["DelayTime"].DisplayFormat.FormatString = "{0:d} ms";
 
          grdConnect.EndUpdate();
       }

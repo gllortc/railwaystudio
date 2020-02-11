@@ -13,7 +13,7 @@ namespace Rwm.Otc
    /// <summary>
    /// Project containing all OTC etities included.
    /// </summary>
-   [ORMTable("projects")]
+   [ORMTable("PROJECTS")]
    public class Project : ORMEntity<Project>
    {
 
@@ -111,25 +111,25 @@ namespace Rwm.Otc
       /// <summary>
       /// Gets or sets the object unique identifier.
       /// </summary>
-      [ORMPrimaryKey("id")]
+      [ORMPrimaryKey()]
       public override long ID { get; set; }
 
       /// <summary>
       /// Gets or sets the project name.
       /// </summary>
-      [ORMProperty("name")]
+      [ORMProperty("NAME")]
       public string Name { get; set; }
 
       /// <summary>
       /// Gets or sets the project description.
       /// </summary>
-      [ORMProperty("description")]
+      [ORMProperty("DESCRIPTION")]
       public string Description { get; set; }
 
       /// <summary>
       /// Gets or sets the project version.
       /// </summary>
-      [ORMProperty("version")]
+      [ORMProperty("VERSION")]
       public string Version { get; set; }
 
       /// <summary>
@@ -139,10 +139,16 @@ namespace Rwm.Otc
       public List<Switchboard> Switchboards { get; private set; }
 
       /// <summary>
-      /// Gets the control modules included in the project.
+      /// Gets the accessory decoders used in the project.
       /// </summary>
       [ORMForeignCollection(OnDeleteActionTypes.DeleteInCascade)]
-      public List<Device> Devices { get; private set; }
+      public List<AccessoryDecoder> AccessoryDecoders { get; private set; }
+
+      /// <summary>
+      /// Gets the feedback decoders used in the project.
+      /// </summary>
+      [ORMForeignCollection(OnDeleteActionTypes.DeleteInCascade)]
+      public List<FeedbackDecoder> FeedbackDecoders { get; private set; }
 
       /// <summary>
       /// Gets all routes in the project.
@@ -412,7 +418,7 @@ namespace Rwm.Otc
          this.Version = "1.0";
          this.ActiveRoute = null;
          this.Switchboards = null;
-         this.Devices = null;
+         this.AccessoryDecoders = null;
          this.Routes = null;
          this.Sounds = null;
       }

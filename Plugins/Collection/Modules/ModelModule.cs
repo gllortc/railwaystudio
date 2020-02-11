@@ -22,7 +22,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
       {
          InitializeComponent();
 
-         this.CurrentModel = new CollectionModel();
+         this.CurrentModel = new Train();
       }
 
       #endregion
@@ -83,7 +83,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
          // Load requested model
          if (args != null && args.Length >= 1 && args[0].GetType() == typeof(Int64))
          {
-            this.CurrentModel = CollectionModel.Get((Int64)args[0]); // OTCContext.Project.TrainManager.ModelDAO.GetByID((Int64)args[0]);
+            this.CurrentModel = Train.Get((Int64)args[0]); // OTCContext.Project.TrainManager.ModelDAO.GetByID((Int64)args[0]);
          }
          
          this.SetData();

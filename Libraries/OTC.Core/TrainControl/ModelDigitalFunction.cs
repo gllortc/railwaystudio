@@ -2,7 +2,7 @@
 
 namespace Rwm.Otc.TrainControl
 {
-   [ORMTable("modeldfunc")]
+   [ORMTable("TRAIN_DECODER_FUNCTIONS")]
    public class ModelDigitalFunction : ORMEntity<ModelDigitalFunction>
    {
 
@@ -26,8 +26,8 @@ namespace Rwm.Otc.TrainControl
       /// <summary>
       /// Gets or sets el identificador del modelo al que está asociado.
       /// </summary>
-      [ORMProperty("MODELID")]
-      public CollectionModel Model { get; set; }
+      [ORMProperty("TRAINID")]
+      public Train Model { get; set; }
 
       /// <summary>
       /// Gets or sets el número de la función.

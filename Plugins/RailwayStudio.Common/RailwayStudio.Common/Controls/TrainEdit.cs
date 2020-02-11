@@ -87,7 +87,7 @@ namespace RailwayStudio.Common.Controls
 
       public string FindDialogTitle { get; set; } 
 
-      public CollectionModel SelectedTrain { get; private set; }
+      public Train SelectedTrain { get; private set; }
 
       protected override void OnClickButton(EditorButtonObjectInfoArgs buttonInfo)
       {

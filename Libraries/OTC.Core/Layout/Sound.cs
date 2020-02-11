@@ -6,7 +6,7 @@ using Rwm.Otc.Utils;
 
 namespace Rwm.Otc.Layout
 {
-   [ORMTable("sounds")]
+   [ORMTable("SOUNDS")]
    public class Sound : ORMEntity<Sound>
    {
 
@@ -33,25 +33,25 @@ namespace Rwm.Otc.Layout
       /// <summary>
       /// Identificador único del elemento.
       /// </summary>
-      [ORMProperty("projectid")]
+      [ORMProperty("PROJECTID")]
       public Project Project { get; set; }
 
       /// <summary>
       /// Nombre descriptivo del bloque.
       /// </summary>
-      [ORMProperty("name")]
+      [ORMProperty("NAME")]
       public string Name { get; set; }
 
       /// <summary>
       /// Gets the icon of the type of the bloc.
       /// </summary>
-      [ORMProperty("filename")]
+      [ORMProperty("FILENAME")]
       public string Filename { get; set; }
 
       /// <summary>
       /// Gets the group of the type of the bloc.
       /// </summary>
-      
+      // [ORMProperty("FILEDATA")]
       public Stream SoundStream { get; set; }
 
       #endregion

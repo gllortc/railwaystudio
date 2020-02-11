@@ -204,7 +204,7 @@
          this.chkIsBlock.Properties.Caption = "This route corresponds to a block";
          this.chkIsBlock.Size = new System.Drawing.Size(353, 19);
          this.chkIsBlock.TabIndex = 6;
-         this.chkIsBlock.CheckedChanged += new System.EventHandler(this.chkIsBlock_CheckedChanged);
+         this.chkIsBlock.CheckedChanged += new System.EventHandler(this.ChkIsBlock_CheckedChanged);
          // 
          // grpBlockBehaviour
          // 
@@ -254,7 +254,7 @@
          this.grpBlockConnections.Padding = new System.Windows.Forms.Padding(10);
          this.grpBlockConnections.Size = new System.Drawing.Size(383, 159);
          this.grpBlockConnections.TabIndex = 217;
-         this.grpBlockConnections.Text = "Connections";
+         this.grpBlockConnections.Text = "AccessoryConnections";
          // 
          // chkBidirectional
          // 
@@ -312,7 +312,7 @@
          this.tabRouteConnections.Name = "tabRouteConnections";
          this.tabRouteConnections.Padding = new System.Windows.Forms.Padding(5);
          this.tabRouteConnections.Size = new System.Drawing.Size(407, 369);
-         this.tabRouteConnections.Text = "Connections";
+         this.tabRouteConnections.Text = "AccessoryConnections";
          // 
          // grdConnect
          // 
@@ -337,6 +337,7 @@
          this.grdConnectView.OptionsSelection.EnableAppearanceFocusedCell = false;
          this.grdConnectView.OptionsSelection.EnableAppearanceFocusedRow = false;
          this.grdConnectView.OptionsView.ShowGroupPanel = false;
+         this.grdConnectView.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.GrdConnectView_RowStyle);
          // 
          // tabRouteNotes
          // 

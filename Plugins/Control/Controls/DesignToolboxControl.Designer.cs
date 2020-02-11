@@ -29,9 +29,9 @@
       private void InitializeComponent()
       {
          this.tabControl = new DevExpress.XtraTab.XtraTabControl();
-         this.tabControlModules = new DevExpress.XtraTab.XtraTabPage();
-         this.tabControlRoute = new DevExpress.XtraTab.XtraTabPage();
+         this.tabControlAccessories = new DevExpress.XtraTab.XtraTabPage();
          this.tabControlSound = new DevExpress.XtraTab.XtraTabPage();
+         this.tabControlFeedback = new DevExpress.XtraTab.XtraTabPage();
          ((System.ComponentModel.ISupportInitialize)(this.tabControl)).BeginInit();
          this.tabControl.SuspendLayout();
          this.SuspendLayout();
@@ -42,31 +42,31 @@
          this.tabControl.HeaderLocation = DevExpress.XtraTab.TabHeaderLocation.Bottom;
          this.tabControl.Location = new System.Drawing.Point(0, 0);
          this.tabControl.Name = "tabControl";
-         this.tabControl.SelectedTabPage = this.tabControlModules;
+         this.tabControl.SelectedTabPage = this.tabControlAccessories;
          this.tabControl.Size = new System.Drawing.Size(311, 477);
          this.tabControl.TabIndex = 0;
          this.tabControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.tabControlModules,
-            this.tabControlRoute,
+            this.tabControlAccessories,
+            this.tabControlFeedback,
             this.tabControlSound});
          // 
          // tabControlModules
          // 
-         this.tabControlModules.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_MODULE_16;
-         this.tabControlModules.Name = "tabControlModules";
-         this.tabControlModules.Size = new System.Drawing.Size(305, 446);
-         // 
-         // tabControlRoute
-         // 
-         this.tabControlRoute.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_16;
-         this.tabControlRoute.Name = "tabControlRoute";
-         this.tabControlRoute.Size = new System.Drawing.Size(305, 446);
+         this.tabControlAccessories.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_MODULE_ACC_16;
+         this.tabControlAccessories.Name = "tabControlModules";
+         this.tabControlAccessories.Size = new System.Drawing.Size(305, 446);
          // 
          // tabControlSound
          // 
          this.tabControlSound.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SOUND_16;
          this.tabControlSound.Name = "tabControlSound";
          this.tabControlSound.Size = new System.Drawing.Size(305, 446);
+         // 
+         // tabControlFeedback
+         // 
+         this.tabControlFeedback.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_MODULE_SENSOR_16;
+         this.tabControlFeedback.Name = "tabControlFeedback";
+         this.tabControlFeedback.Size = new System.Drawing.Size(0, 0);
          // 
          // DesignToolboxControl
          // 
@@ -84,8 +84,8 @@
       #endregion
 
       private DevExpress.XtraTab.XtraTabControl tabControl;
-      private DevExpress.XtraTab.XtraTabPage tabControlModules;
-      private DevExpress.XtraTab.XtraTabPage tabControlRoute;
+      private DevExpress.XtraTab.XtraTabPage tabControlAccessories;
       private DevExpress.XtraTab.XtraTabPage tabControlSound;
-   }
+        private DevExpress.XtraTab.XtraTabPage tabControlFeedback;
+    }
 }

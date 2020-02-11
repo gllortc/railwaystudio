@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using DevExpress.XtraEditors.Controls;
-using Rwm.Otc;
 using Rwm.Otc.Layout;
 using Rwm.Studio.Plugins.Control.Views;
 
@@ -21,7 +20,6 @@ namespace Rwm.Studio.Plugins.Control.Controls
          InitializeComponent();
          Initialize();
 
-         this.ConnectionType = Device.DeviceType.AccessoryDecoder;
          this.FixedHeight = this.Height;
          this.SelectedOutput = null;
          this.SelectedDecoder = null;
@@ -34,12 +32,11 @@ namespace Rwm.Studio.Plugins.Control.Controls
       /// Returns a new instance of <see cref="OutputEditorControl"/>.
       /// </summary>
       /// <remarks>Constructor for design purposes. Don't use in runtime.</remarks>
-      public OutputEditorControl(DeviceConnection output)
+      public OutputEditorControl(AccessoryDecoderConnection output)
       {
          InitializeComponent();
          Initialize();
 
-         this.ConnectionType = Device.DeviceType.AccessoryDecoder;
          this.FixedHeight = this.Height;
          this.SelectedOutput = output;
          this.SelectedDecoder = output.Device;
@@ -60,11 +57,9 @@ namespace Rwm.Studio.Plugins.Control.Controls
 
       public int ConnectionIndex { get; set; }
 
-      public Device.DeviceType ConnectionType { get; private set; }
+      public AccessoryDecoderConnection SelectedOutput { get; private set; }
 
-      public DeviceConnection SelectedOutput { get; private set; }
-
-      public Device SelectedDecoder { get; private set; }
+      public AccessoryDecoder SelectedDecoder { get; private set; }
 
       public Element Element { get; private set; }
 
@@ -98,11 +93,11 @@ namespace Rwm.Studio.Plugins.Control.Controls
          this.Height = this.FixedHeight;
       }
 
-      private void txtOutput_ButtonClick(object sender, ButtonPressedEventArgs e)
+      private void TxtOutput_ButtonClick(object sender, ButtonPressedEventArgs e)
       {
          if (e.Button.Index == 0)
          {
-            ConnectionSearchView form = new ConnectionSearchView(Device.DeviceType.AccessoryDecoder, this.SelectedOutput);
+            AccesoryConnectionFindView form = new AccesoryConnectionFindView(this.SelectedOutput);
             form.ShowDialog(this);
 
             if (form.DialogResult == DialogResult.OK)
@@ -110,9 +105,9 @@ namespace Rwm.Studio.Plugins.Control.Controls
                this.SelectedOutput = form.SelectedConnection;
                this.SelectedDecoder = form.SelectedDecoder;
 
-               this.SelectedOutput.Index = this.ConnectionIndex;
+               this.SelectedOutput.ElementPinIndex = this.ConnectionIndex;
                this.SelectedOutput.Element = this.Element;
-               DeviceConnection.Save(this.SelectedOutput);
+               AccessoryDecoderConnection.Save(this.SelectedOutput);
 
                this.ConnectionChanged?.Invoke(this, new ConnectionChangedEventArgs(this.ConnectionIndex, this.SelectedOutput));
             }
@@ -126,7 +121,7 @@ namespace Rwm.Studio.Plugins.Control.Controls
                return;
             }
 
-            DeviceConnection.Delete(this.SelectedOutput.ID);
+            AccessoryDecoderConnection.Delete(this.SelectedOutput.ID);
 
             this.SelectedOutput = null;
             this.SelectedDecoder = null;

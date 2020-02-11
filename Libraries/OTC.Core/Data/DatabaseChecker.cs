@@ -130,7 +130,7 @@ namespace Rwm.Otc.Data
 
          this.CreateTable(Element.TableName, sql);
 
-         sql = @"CREATE TABLE " + Device.TableName + @" (
+         sql = @"CREATE TABLE " + AccessoryDecoder.TableName + @" (
                      id                INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                      name              TEXT,
                      manufacturer      TEXT,
@@ -141,12 +141,12 @@ namespace Rwm.Otc.Data
                      description       TEXT 
                  );";
 
-         this.CreateTable(Device.TableName, sql);
+         this.CreateTable(AccessoryDecoder.TableName, sql);
 
-         sql = @"CREATE TABLE " + DeviceConnection.TableName + @" (
+         sql = @"CREATE TABLE " + AccessoryDecoderConnection.TableName + @" (
                      id                INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
                      [index]           INTEGER NOT NULL DEFAULT 0, 
-                     decoderid         INTEGER NOT NULL REFERENCES " + Device.TableName + @" (id), 
+                     decoderid         INTEGER NOT NULL REFERENCES " + AccessoryDecoder.TableName + @" (id), 
                      blockid           INTEGER REFERENCES " + Element.TableName + @" (id), 
                      name              TEXT, 
                      address           INTEGER, 
@@ -156,7 +156,7 @@ namespace Rwm.Otc.Data
                      out2              INTEGER 
                  );";
 
-         this.CreateTable(DeviceConnection.TableName, sql);
+         this.CreateTable(AccessoryDecoderConnection.TableName, sql);
 
          sql = @"CREATE TABLE " + Route.TableName + @" (
                      id                INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
@@ -182,7 +182,7 @@ namespace Rwm.Otc.Data
          // MODEL TRAINS SCHEMA
          //----------------------------------------------
 
-         sql = @"CREATE TABLE " + Administration.TableName + @" (
+         sql = @"CREATE TABLE " + Company.TableName + @" (
                      adminid           INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                      adminname         TEXT,
                      admindesc         TEXT,
@@ -191,7 +191,7 @@ namespace Rwm.Otc.Data
                      adminimage        BLOB NULL 
                  );";
 
-         this.CreateTable(Administration.TableName, sql);
+         this.CreateTable(Company.TableName, sql);
 
          sql = @"CREATE TABLE " + Manufacturer.TableName + @" (
                      buildid           INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
@@ -203,7 +203,7 @@ namespace Rwm.Otc.Data
 
          this.CreateTable(Manufacturer.TableName, sql);
 
-         sql = @"CREATE TABLE " + Decoder.TableName + @" (
+         sql = @"CREATE TABLE " + TrainDecoder.TableName + @" (
                      decid             INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                      decname           TEXT,
                      decdesc           TEXT,
@@ -211,7 +211,7 @@ namespace Rwm.Otc.Data
                      decurl            TEXT 
                  );";
 
-         this.CreateTable(Decoder.TableName, sql);
+         this.CreateTable(TrainDecoder.TableName, sql);
 
          sql = @"CREATE TABLE " + Category.TableName + @" (
                      typeid            INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
@@ -244,9 +244,9 @@ namespace Rwm.Otc.Data
 
          this.CreateTable(Gauge.TableName, sql);
 
-         sql = @"CREATE TABLE " + CollectionModel.TableName + @" (
+         sql = @"CREATE TABLE " + Train.TableName + @" (
                      modid                INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-                     modadminid           INTEGER REFERENCES " + Administration.TableName + @" (adminid),
+                     modadminid           INTEGER REFERENCES " + Company.TableName + @" (adminid),
                      modstoreid           INTEGER REFERENCES " + Store.TableName + @" (storeid),
                      modtypeid            INTEGER NOT NULL REFERENCES " + Category.TableName + @" (typeid),
                      modname              TEXT NOT NULL,
@@ -279,7 +279,7 @@ namespace Rwm.Otc.Data
                      modpicturefilename   TEXT, 
                      modunits             INTEGER,
                      moddigitaladd        INTEGER,
-                     moddigitaldecoderid  INTEGER  REFERENCES " + Decoder.TableName + @" (decid),
+                     moddigitaldecoderid  INTEGER  REFERENCES " + TrainDecoder.TableName + @" (decid),
                      moddigitalconn       INTEGER,
                      modregnumber         TEXT,
                      modtype              TEXT,
@@ -289,7 +289,7 @@ namespace Rwm.Otc.Data
                      modsrvrevhours       INTEGER 
                  );";
 
-         this.CreateTable(CollectionModel.TableName, sql);
+         this.CreateTable(Train.TableName, sql);
 
          SetProperty(ControlDataEntity.SETTING_KEY_DB_SCHEMAVER, DB_VERSION_1_0);
 

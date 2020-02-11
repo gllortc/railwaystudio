@@ -1,8 +1,7 @@
-﻿using DevExpress.Utils;
-using Rwm.Otc;
-using Rwm.Otc.Layout;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
+using DevExpress.Utils;
+using Rwm.Otc.Layout;
 
 namespace Rwm.Studio.Plugins.Control.Controls
 {
@@ -62,16 +61,17 @@ namespace Rwm.Studio.Plugins.Control.Controls
 
       private void CheckAddress()
       {
-         string title = string.Empty;
-         string msg = string.Empty;
-         List<DeviceConnection> connections = null;
+         string title;
+         string msg;
+         List<AccessoryDecoderConnection> connections = null;
          SuperToolTip sttInfo = new SuperToolTip();
          ToolTipTitleItem sttTitle = new ToolTipTitleItem();
          ToolTipItem sttItem = new ToolTipItem();
 
          // Obtain all duplicated addresses
-         connections.AddRange(DeviceConnection.GetDuplicated());
+         connections.AddRange(AccessoryDecoderConnection.GetDuplicated());
 
+         
          if (this.Address <= 0)
          {
             title = "INFORMATION";

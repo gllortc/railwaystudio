@@ -11,7 +11,7 @@ namespace Rwm.Otc.Layout
    /// <summary>
    /// Implements a switchboard panel.
    /// </summary>
-   [ORMTable("switchboards")]
+   [ORMTable("SWITCHBOARDS")]
    public class Switchboard : ORMEntity<Switchboard>, IEquatable<Switchboard>
    {
 
@@ -51,26 +51,38 @@ namespace Rwm.Otc.Layout
       public override long ID { get; set; }
 
       /// <summary>
+      /// Gets or sets the owner's project.
+      /// </summary>
+      [ORMProperty("PROJECTID")]
+      public Project Project { get; set; }
+
+      /// <summary>
       /// Gets or sets the switchboard name.
       /// </summary>
-      [ORMProperty("name")]
+      [ORMProperty("NAME")]
       public string Name { get; set; }
 
       /// <summary>
-      /// Gets or sets the switchboard description.
+      /// Gets or sets the switchboard description/notes.
       /// </summary>
-      [ORMProperty("description")]
+      [ORMProperty("DESCRIPTION")]
       public string Description { get; set; }
 
-      [ORMProperty("width")]
+      /// <summary>
+      /// Gets or sets the number of elements in X axis.
+      /// </summary>
+      [ORMProperty("WIDTH")]
       public int Width { get; set; }
 
-      [ORMProperty("height")]
+      /// <summary>
+      /// Gets or sets the number of elements in Y axis.
+      /// </summary>
+      [ORMProperty("HEIGHT")]
       public int Height { get; set; }
 
-      [ORMProperty("panelid")]
-      public Project Project { get; set; }
-
+      /// <summary>
+      /// Gets or sets the list of elements contained in the current switchboard.
+      /// </summary>
       [ORMForeignCollection(OnDeleteActionTypes.DeleteInCascade)]
       public List<Element> Elements { get; set; }
 
@@ -89,7 +101,7 @@ namespace Rwm.Otc.Layout
 
          try
          {
-            // Index initialization
+            // ElementPinIndex initialization
             switch (direction)
             {
                case MoveDirection.Left:

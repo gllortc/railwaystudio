@@ -132,7 +132,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
       private void spcPanel_BlockAssignTrain(object sender, Element e)
       {
-         Rwm.Otc.TrainControl.CollectionModel train = StudioContext.Find.Train("Assign train to block");
+         Rwm.Otc.TrainControl.Train train = StudioContext.Find.Train("Assign train to block");
          if (train != null) e.Train = train;
       }
 

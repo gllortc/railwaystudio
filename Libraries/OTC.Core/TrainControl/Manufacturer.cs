@@ -5,7 +5,7 @@ namespace Rwm.Otc.TrainControl
    /// <summary>
    /// Represents a model manufacturer.
    /// </summary>
-   [ORMTable("builders")]
+   [ORMTable("MANUFACTURERS")]
    public class Manufacturer : ORMEntity<Manufacturer>
    {
 
@@ -26,19 +26,19 @@ namespace Rwm.Otc.TrainControl
       /// <summary>
       /// Gets or sets the object unique identifier.
       /// </summary>
-      [ORMPrimaryKey("buildid")]
+      [ORMPrimaryKey()]
       public override long ID { get; set; }
 
-      [ORMProperty("buildname")]
+      [ORMProperty("name")]
       public string Name { get; set; }
 
-      [ORMProperty("builddesc")]
+      [ORMProperty("description")]
       public string Description { get; set; }
 
-      [ORMProperty("buildaddress")]
+      [ORMProperty("address")]
       public string Address { get; set; }
 
-      [ORMProperty("buildurl")]
+      [ORMProperty("web")]
       public string URL { get; set; }
 
       #endregion

@@ -47,7 +47,7 @@
          this.lblAddress = new DevExpress.XtraEditors.LabelControl();
          this.nudAddress = new DevExpress.XtraEditors.SpinEdit();
          this.lblOutputs = new DevExpress.XtraEditors.LabelControl();
-         this.txtOutputs = new DevExpress.XtraEditors.SpinEdit();
+         this.txtInputs = new DevExpress.XtraEditors.SpinEdit();
          this.tabDecoderInputs = new DevExpress.XtraTab.XtraTabPage();
          this.grdConnect = new DevExpress.XtraGrid.GridControl();
          this.grdConnectView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -64,7 +64,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.grpDigital)).BeginInit();
          this.grpDigital.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.nudAddress.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.txtOutputs.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.txtInputs.Properties)).BeginInit();
          this.tabDecoderInputs.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.grdConnect)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.grdConnectView)).BeginInit();
@@ -213,7 +213,7 @@
          this.grpDigital.Controls.Add(this.lblAddress);
          this.grpDigital.Controls.Add(this.nudAddress);
          this.grpDigital.Controls.Add(this.lblOutputs);
-         this.grpDigital.Controls.Add(this.txtOutputs);
+         this.grpDigital.Controls.Add(this.txtInputs);
          this.grpDigital.Location = new System.Drawing.Point(13, 142);
          this.grpDigital.Name = "grpDigital";
          this.grpDigital.Padding = new System.Windows.Forms.Padding(15);
@@ -261,24 +261,24 @@
          // 
          // txtOutputs
          // 
-         this.txtOutputs.EditValue = new decimal(new int[] {
+         this.txtInputs.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-         this.txtOutputs.Location = new System.Drawing.Point(131, 64);
-         this.txtOutputs.Name = "txtOutputs";
-         this.txtOutputs.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+         this.txtInputs.Location = new System.Drawing.Point(131, 64);
+         this.txtInputs.Name = "txtOutputs";
+         this.txtInputs.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.txtOutputs.Properties.IsFloatValue = false;
-         this.txtOutputs.Properties.Mask.EditMask = "N00";
-         this.txtOutputs.Properties.MaxValue = new decimal(new int[] {
+         this.txtInputs.Properties.IsFloatValue = false;
+         this.txtInputs.Properties.Mask.EditMask = "N00";
+         this.txtInputs.Properties.MaxValue = new decimal(new int[] {
             999,
             0,
             0,
             0});
-         this.txtOutputs.Size = new System.Drawing.Size(71, 20);
-         this.txtOutputs.TabIndex = 9;
+         this.txtInputs.Size = new System.Drawing.Size(71, 20);
+         this.txtInputs.TabIndex = 9;
          // 
          // tabDecoderInputs
          // 
@@ -286,7 +286,7 @@
          this.tabDecoderInputs.Name = "tabDecoderInputs";
          this.tabDecoderInputs.Padding = new System.Windows.Forms.Padding(5);
          this.tabDecoderInputs.Size = new System.Drawing.Size(371, 257);
-         this.tabDecoderInputs.Text = "Connections";
+         this.tabDecoderInputs.Text = "AccessoryConnections";
          // 
          // grdConnect
          // 
@@ -352,7 +352,7 @@
          this.grpDigital.ResumeLayout(false);
          this.grpDigital.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.nudAddress.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.txtOutputs.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.txtInputs.Properties)).EndInit();
          this.tabDecoderInputs.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.grdConnect)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.grdConnectView)).EndInit();
@@ -374,7 +374,7 @@
       private DevExpress.XtraEditors.GroupControl grpGeneral;
       private DevExpress.XtraEditors.GroupControl grpDigital;
       private DevExpress.XtraEditors.LabelControl lblOutputs;
-      private DevExpress.XtraEditors.SpinEdit txtOutputs;
+      private DevExpress.XtraEditors.SpinEdit txtInputs;
       private System.Windows.Forms.ImageList imageList;
       private DevExpress.XtraTab.XtraTabPage tabDecoderInputs;
       private DevExpress.XtraGrid.GridControl grdConnect;

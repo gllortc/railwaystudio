@@ -5,12 +5,12 @@ namespace Rwm.Studio.Plugins.Control.Controls
    public class MapChangedEventArgs
    {
 
-      public MapChangedEventArgs(DeviceConnection connection)
+      public MapChangedEventArgs(AccessoryDecoderConnection connection)
       {
          this.Connection = connection;
       }
 
-      public DeviceConnection Connection { get; private set; }
+      public AccessoryDecoderConnection Connection { get; private set; }
 
    }
 }

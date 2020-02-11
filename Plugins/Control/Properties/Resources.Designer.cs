@@ -163,16 +163,6 @@ namespace Rwm.Studio.Plugins.Control.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap disconnect_16 {
-            get {
-                object obj = ResourceManager.GetObject("disconnect_16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap folder_train_32 {
             get {
                 object obj = ResourceManager.GetObject("folder_train_32", resourceCulture);
@@ -446,6 +436,16 @@ namespace Rwm.Studio.Plugins.Control.Properties {
         internal static System.Drawing.Bitmap ICO_CONNECTION_OCC_16 {
             get {
                 object obj = ResourceManager.GetObject("ICO_CONNECTION_OCC_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_CONNECTION_OFF_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_CONNECTION_OFF_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

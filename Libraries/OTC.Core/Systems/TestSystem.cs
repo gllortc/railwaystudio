@@ -175,18 +175,18 @@ namespace Rwm.OTC.Systems
       /// <summary>
       /// Set an accessory output.
       /// </summary>
-      /// <param name="address">Output address.</param>
+      /// <param name="address">DecoderOutput address.</param>
       /// <param name="status">Value to set.</param>
       public void SetAccessoryStatus(Element element)
       {
-         if (element.Connections?.Count <= 0)
+         if (element.AccessoryConnections?.Count <= 0)
          {
             this.SystemInformation?.Invoke(this, new SystemInfoEventArgs(SystemInfoEventArgs.MessageType.Warning,
                                                                          "Accessory {0} not connected: command discarded", element));
             return;
          }
 
-         foreach (DeviceConnection connection in element.Connections)
+         foreach (AccessoryDecoderConnection connection in element.AccessoryConnections)
          {
             if (connection != null)
             {
@@ -199,7 +199,7 @@ namespace Rwm.OTC.Systems
                                                                             connection.Address,
                                                                             connection.OutputMap.GetOutput(element.AccessoryStatus)));
             }
-            else if (connection.Device?.Type == Device.DeviceType.AccessoryDecoder)
+            else 
             {
                this.SystemInformation?.Invoke(this, new SystemInfoEventArgs(SystemInfoEventArgs.MessageType.Warning,
                                                                             "Accessory {0:0000} not connected: command discarded",
@@ -217,14 +217,14 @@ namespace Rwm.OTC.Systems
       /// <param name="status">Status.</param>
       public void SetSensorStatus(Element element, FeedbackStatus status)
       {
-         if (element.Connections?.Count <= 0)
+         if (element.AccessoryConnections?.Count <= 0)
          {
             this.SystemInformation?.Invoke(this, new SystemInfoEventArgs(SystemInfoEventArgs.MessageType.Warning,
                                                                          "Feedback sensor {0} not connected: command discarded", element));
             return;
          }
 
-         foreach (DeviceConnection connection in element.Connections)
+         foreach (FeedbackDecoderConnection connection in element.FeedbackConnections)
          {
             if (connection != null)
             {

@@ -16,7 +16,7 @@ namespace Rwm.Otc.Systems
       /// Returns a new instance of <see cref="OccupationEventArgs"/>.
       /// </summary>
       /// <param name="status">New status adopted by the sensor.</param>
-      public OccupationEventArgs(Element element, CollectionModel model)
+      public OccupationEventArgs(Element element, Train model)
       {
          this.Element = element;
          this.Model = model;
@@ -42,7 +42,7 @@ namespace Rwm.Otc.Systems
       /// <summary>
       /// Gets the output number for the specified module.
       /// </summary>
-      public CollectionModel Model { get; private set; }
+      public Train Model { get; private set; }
 
       #endregion
 

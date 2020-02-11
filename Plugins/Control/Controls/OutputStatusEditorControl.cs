@@ -75,7 +75,7 @@ namespace Rwm.Studio.Plugins.Control.Controls
          int blockStatus = -1;
          string[] nameParts = null;
          RadioGroup statusRadio = null;
-         DeviceConnection connection = null;
+         AccessoryDecoderConnection connection = null;
 
          statusRadio = sender as RadioGroup;
          if (statusRadio == null)
@@ -83,7 +83,7 @@ namespace Rwm.Studio.Plugins.Control.Controls
             return;
          }
 
-         connection = statusRadio.Tag as DeviceConnection;
+         connection = statusRadio.Tag as AccessoryDecoderConnection;
          if (connection == null)
          {
             return;
@@ -119,7 +119,7 @@ namespace Rwm.Studio.Plugins.Control.Controls
 
          // Configure output labels
          conIndex = 0;
-         foreach (DeviceConnection connection in this.Element.Connections)
+         foreach (AccessoryDecoderConnection connection in this.Element.AccessoryConnections)
          {
             statusLabel = new LabelControl();
             statusLabel.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));
@@ -129,7 +129,7 @@ namespace Rwm.Studio.Plugins.Control.Controls
             statusLabel.Location = new System.Drawing.Point(this.Width - 84 - 3 - (conIndex * (84 + 6)), 3);
             statusLabel.Name = "connectionLabel" + conIndex;
             statusLabel.Size = new System.Drawing.Size(84, 13);
-            statusLabel.Text = "Output " + (conIndex + 1);
+            statusLabel.Text = "DecoderOutput " + (conIndex + 1);
             this.Controls.Add(statusLabel);
 
             conIndex++;
@@ -158,7 +158,7 @@ namespace Rwm.Studio.Plugins.Control.Controls
                this.Controls.Add(statusLabel);
 
                conIndex = 0;
-               foreach (DeviceConnection connection in this.Element.Connections)
+               foreach (AccessoryDecoderConnection connection in this.Element.AccessoryConnections)
                {
                   statusRadio = new RadioGroup();
                   statusRadio.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right)));

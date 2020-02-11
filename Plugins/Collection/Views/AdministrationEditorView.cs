@@ -10,10 +10,10 @@ namespace Rwm.Studio.Plugins.Collection.Views
       {
          InitializeComponent();
 
-         this.Administration = new Administration();
+         this.Administration = new Company();
       }
 
-      public AdministrationEditorView(Administration admin)
+      public AdministrationEditorView(Company admin)
       {
          InitializeComponent();
 
@@ -24,7 +24,7 @@ namespace Rwm.Studio.Plugins.Collection.Views
          txtUrl.Text = this.Administration.URL;
       }
 
-      public Administration Administration { get; private set; }
+      public Company Administration { get; private set; }
 
       private void cmdCancel_Click(object sender, EventArgs e)
       {
@@ -48,15 +48,15 @@ namespace Rwm.Studio.Plugins.Collection.Views
 
          try
          {
-            Administration.Save(this.Administration);
+            Company.Save(this.Administration);
 
-            //if (this.Administration.ID <= 0)
+            //if (this.Company.ID <= 0)
             //{
-            //   OTCContext.Project.TrainManager.AdministrationDAO.Add(this.Administration);
+            //   OTCContext.Project.TrainManager.AdministrationDAO.Add(this.Company);
             //}
             //else
             //{
-            //   OTCContext.Project.TrainManager.AdministrationDAO.Update(this.Administration);
+            //   OTCContext.Project.TrainManager.AdministrationDAO.Update(this.Company);
             //}
 
             this.DialogResult = System.Windows.Forms.DialogResult.OK;

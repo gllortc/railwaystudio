@@ -20,7 +20,6 @@ namespace Rwm.Studio.Plugins.Control.Controls
          InitializeComponent();
          Initialize();
 
-         this.ConnectionType = Device.DeviceType.AccessoryDecoder;
          this.FixedHeight = this.Height;
          this.SelectedInput = null;
          this.SelectedDecoder = null;
@@ -33,12 +32,11 @@ namespace Rwm.Studio.Plugins.Control.Controls
       /// Returns a new instance of <see cref="OutputEditorControl"/>.
       /// </summary>
       /// <remarks>Constructor for design purposes. Don't use in runtime.</remarks>
-      public InputEditorControl(DeviceConnection output)
+      public InputEditorControl(FeedbackDecoderConnection output)
       {
          InitializeComponent();
          Initialize();
 
-         this.ConnectionType = Device.DeviceType.AccessoryDecoder;
          this.FixedHeight = this.Height;
          this.SelectedInput = output;
          this.SelectedDecoder = output.Device;
@@ -59,11 +57,9 @@ namespace Rwm.Studio.Plugins.Control.Controls
 
       public int ConnectionIndex { get; set; }
 
-      public Device.DeviceType ConnectionType { get; private set; }
+      public FeedbackDecoderConnection SelectedInput { get; private set; }
 
-      public DeviceConnection SelectedInput { get; private set; }
-
-      public Device SelectedDecoder { get; private set; }
+      public FeedbackDecoder SelectedDecoder { get; private set; }
 
       public Element Element { get; private set; }
 
@@ -91,7 +87,7 @@ namespace Rwm.Studio.Plugins.Control.Controls
       {
          if (e.Button.Index == 0)
          {
-            ConnectionSearchView form = new ConnectionSearchView(Device.DeviceType.FeedbackModule, this.SelectedInput);
+            FeedbackConnectionFindView form = new FeedbackConnectionFindView(this.SelectedInput);
             form.ShowDialog(this);
 
             if (form.DialogResult == DialogResult.OK)
@@ -101,7 +97,7 @@ namespace Rwm.Studio.Plugins.Control.Controls
 
                this.SelectedInput.Index = this.ConnectionIndex;
                this.SelectedInput.Element = this.Element;
-               DeviceConnection.Save(this.SelectedInput);
+               FeedbackDecoderConnection.Save(this.SelectedInput);
             }
          }
          else if (e.Button.Index == 1)
@@ -113,7 +109,7 @@ namespace Rwm.Studio.Plugins.Control.Controls
                return;
             }
 
-            DeviceConnection.Delete(this.SelectedInput.ID);
+            AccessoryDecoderConnection.Delete(this.SelectedInput.ID);
 
             this.SelectedInput = null;
             this.SelectedDecoder = null;
@@ -141,7 +137,7 @@ namespace Rwm.Studio.Plugins.Control.Controls
          {
             txtInput.Text = string.Format("<b>{0}</b> input <b>{1}</b> (address <b>{2}</b>)",
                                            this.SelectedDecoder.Name,
-                                           this.SelectedInput.Output,
+                                           this.SelectedInput.DecoderOutput,
                                            this.SelectedInput.Address);
          }
 

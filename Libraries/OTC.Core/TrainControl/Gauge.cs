@@ -5,7 +5,7 @@ namespace Rwm.Otc.TrainControl
    /// <summary>
    /// Representa una escala de modelismo ferroviario.
    /// </summary>
-   [ORMTable("scales")]
+   [ORMTable("GAUGES")]
    public class Gauge : ORMEntity<Gauge>
    {
 
@@ -20,31 +20,31 @@ namespace Rwm.Otc.TrainControl
       /// <summary>
       /// Gets or sets the object unique identifier.
       /// </summary>
-      [ORMPrimaryKey("scid")]
+      [ORMPrimaryKey()]
       public override long ID { get; set; }
 
       /// <summary>
-      /// Nombre de la escala (H0, N, etc).
+      /// Gets or sets the gauge name.
       /// </summary>
-      [ORMProperty("scname")]
+      [ORMProperty("NAME")]
       public string Name { get; set; }
 
       /// <summary>
-      /// Notación de la escala (1:87, 1:160, etc).
+      /// Gets or sets the gauge scale notation (1:87, 1:160, etc).
       /// </summary>
-      [ORMProperty("scscale")]
+      [ORMProperty("SCALE")]
       public string Notation { get; set; }
 
       /// <summary>
-      /// Ancho de via a escala (en mm). 
+      /// Gets or sets the scale model track width (in mm).
       /// </summary>
-      [ORMProperty("sctwidth")]
+      [ORMProperty("SCALE_TRACK_WIDTH")]
       public double TrackWidthScale { get; set; }
 
       /// <summary>
-      /// Ancho de via real (en mm).
+      /// Gets or sets the prototype track width (in mm).
       /// </summary>
-      [ORMProperty("scrtwidth")]
+      [ORMProperty("REAL_TRACK_WIDTH")]
       public double TrackWidthReal { get; set; }
 
       #endregion

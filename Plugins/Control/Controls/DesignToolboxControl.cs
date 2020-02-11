@@ -21,23 +21,23 @@ namespace Rwm.Studio.Plugins.Control.Controls
 
       private void Initialize()
       {
-         DeviceManagerControl mmc = new DeviceManagerControl();
-         mmc.BorderStyle = System.Windows.Forms.BorderStyle.None;
+         AccessoryDecoderManagerControl mmc = new AccessoryDecoderManagerControl();
+         mmc.BorderStyle = BorderStyle.None;
          mmc.Dock = DockStyle.Fill;
          mmc.Refresh();
 
-         RouteManagerControl rmc = new RouteManagerControl(this.OwnerView, this.SwitchboardPanel);
-         rmc.BorderStyle = System.Windows.Forms.BorderStyle.None;
-         rmc.Dock = DockStyle.Fill;
-         rmc.Refresh();
+         FeedbackDecoderManagerControl fmc = new FeedbackDecoderManagerControl();
+         fmc.BorderStyle = BorderStyle.None;
+         fmc.Dock = DockStyle.Fill;
+         fmc.Refresh();
 
          SoundManagerControl smc = new SoundManagerControl(this.OwnerView);
-         smc.BorderStyle = System.Windows.Forms.BorderStyle.None;
+         smc.BorderStyle = BorderStyle.None;
          smc.Dock = DockStyle.Fill;
          smc.Refresh();
 
-         tabControlModules.Controls.Add(mmc);
-         tabControlRoute.Controls.Add(rmc);
+         tabControlAccessories.Controls.Add(mmc);
+         tabControlFeedback.Controls.Add(fmc);
          tabControlSound.Controls.Add(smc);
       }
    }

@@ -10,10 +10,10 @@ namespace Rwm.Studio.Plugins.Collection.Views
       {
          InitializeComponent();
 
-         this.Decoder = new Decoder();
+         this.Decoder = new TrainDecoder();
       }
 
-      public DecoderEditorView(Decoder store)
+      public DecoderEditorView(TrainDecoder store)
       {
          InitializeComponent();
 
@@ -25,7 +25,7 @@ namespace Rwm.Studio.Plugins.Collection.Views
          txtManual.Text = ""; //this.Decoder.File;
       }
 
-      public Decoder Decoder { get; private set; }
+      public TrainDecoder Decoder { get; private set; }
 
       private void cmdCancel_Click(object sender, EventArgs e)
       {
@@ -50,7 +50,7 @@ namespace Rwm.Studio.Plugins.Collection.Views
 
          try
          {
-            Decoder.Save(this.Decoder);
+            TrainDecoder.Save(this.Decoder);
 
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Close();

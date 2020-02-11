@@ -129,7 +129,7 @@ namespace Rwm.Otc.Layout
       /// Gets the current element feedback status.
       /// </summary>
       [ORMProperty("modelid")]
-      public CollectionModel Train { get; set; }
+      public Train Train { get; set; }
 
       /// <summary>
       /// Gets or sets the list of event actions for the element.
@@ -146,15 +146,16 @@ namespace Rwm.Otc.Layout
       }
 
       /// <summary>
-      /// Gets or sets the list of output connections (accessories) for the element.
+      /// Gets or sets the list of output connections for the element.
       /// </summary>
       [ORMForeignCollection(OnDeleteActionTypes.DeleteInCascade)]
-      public List<DeviceConnection> Connections { get; set; }
+      public List<AccessoryDecoderConnection> AccessoryConnections { get; set; }
 
       /// <summary>
-      /// Gets or sets the list of input connections (sensors) for the element.
+      /// Gets or sets the list of feedback input connections for the element.
       /// </summary>
-      // public DeviceConnection[] FeedbackConnections { get; set; }
+      [ORMForeignCollection(OnDeleteActionTypes.DeleteInCascade)]
+      public List<FeedbackDecoderConnection> FeedbackConnections { get; set; }
 
       /// <summary>
       /// Gets the current element feedback status.
@@ -176,7 +177,7 @@ namespace Rwm.Otc.Layout
       /// </summary>
       public bool IsConnected
       {
-         get { return (this.Connections?.Count > 0); }
+         get { return (this.AccessoryConnections?.Count > 0); }
       }
 
       #endregion
@@ -432,7 +433,7 @@ namespace Rwm.Otc.Layout
       {
          foreach (Element element in Element.FindAll())
          {
-            foreach (DeviceConnection connection in element.Connections)
+            foreach (AccessoryDecoderConnection connection in element.AccessoryConnections)
             {
                if (connection.Address == address)
                   return element;

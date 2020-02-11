@@ -2,7 +2,7 @@
 
 namespace Rwm.Otc.Layout
 {
-   [ORMTable("accessorystatus")]
+   [ORMTable("ACC_STATUS")]
    public class AccessoryStatus : ORMEntity<AccessoryStatus>
    {
 

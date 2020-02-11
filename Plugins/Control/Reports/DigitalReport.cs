@@ -24,7 +24,7 @@ namespace Rwm.Studio.Plugins.Control.Reports
 
       private void DigitalReport_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
       {
-         this.ReportData = Device.FindByConnection();
+         this.ReportData = AccessoryDecoder.FindByConnection();
 
          this.DataSource = ReportData;
          this.DataMember = "Switchboards";
@@ -46,8 +46,8 @@ namespace Rwm.Studio.Plugins.Control.Reports
 
          // DigitalConnectionsGroup.GroupFields.Add(new GroupField("Name"));
 
-         DigitalConnectionsReport.DataSource = Device.FindBySwitchboard(i);
-         DigitalConnectionsReport.DataMember = "Connections";
+         DigitalConnectionsReport.DataSource = AccessoryDecoder.FindBySwitchboard(i);
+         DigitalConnectionsReport.DataMember = "AccessoryConnections";
       }
 
       #endregion
@@ -60,11 +60,11 @@ namespace Rwm.Studio.Plugins.Control.Reports
          lblSwitchboardId.DataBindings.Add(new XRBinding("Text", null, "Switchboards.SwitchboardID"));
          lblSwitchboardTitle.DataBindings.Add(new XRBinding("Text", null, "Switchboards.Switchboard"));
 
-         lblDecoderName.DataBindings.Add(new XRBinding("Text", null, "Connections.Name"));
-         lblDecoderModel.DataBindings.Add(new XRBinding("Text", null, "Connections.Decoder"));
-         lblDecoderOutput.DataBindings.Add(new XRBinding("Text", null, "Connections.Output"));
-         lblDecoderAddress.DataBindings.Add(new XRBinding("Text", null, "Connections.Address"));
-         lblConnectedTo.DataBindings.Add(new XRBinding("Text", null, "Connections.ConnectTo"));
+         lblDecoderName.DataBindings.Add(new XRBinding("Text", null, "AccessoryConnections.Name"));
+         lblDecoderModel.DataBindings.Add(new XRBinding("Text", null, "AccessoryConnections.Decoder"));
+         lblDecoderOutput.DataBindings.Add(new XRBinding("Text", null, "AccessoryConnections.DecoderOutput"));
+         lblDecoderAddress.DataBindings.Add(new XRBinding("Text", null, "AccessoryConnections.Address"));
+         lblConnectedTo.DataBindings.Add(new XRBinding("Text", null, "AccessoryConnections.ConnectTo"));
       }
 
       #endregion

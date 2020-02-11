@@ -770,7 +770,7 @@
          this.tabModelScale.Name = "tabModelScale";
          this.tabModelScale.Padding = new System.Windows.Forms.Padding(10);
          this.tabModelScale.Size = new System.Drawing.Size(845, 451);
-         this.tabModelScale.Text = "Scale";
+         this.tabModelScale.Text = "Gauge";
          // 
          // grpScaleProperties
          // 
@@ -1173,7 +1173,7 @@
          this.lblScale.Name = "lblScale";
          this.lblScale.Size = new System.Drawing.Size(25, 13);
          this.lblScale.TabIndex = 6;
-         this.lblScale.Text = "Scale";
+         this.lblScale.Text = "Gauge";
          // 
          // txtReference
          // 

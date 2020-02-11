@@ -49,7 +49,7 @@ namespace Rwm.Otc.TrainControl
       /// <returns></returns>
       public string GetFullFilename()
       {
-         return Path.Combine(Path.Combine(Decoder.FilesPath, this.Filename));
+         return Path.Combine(Path.Combine(TrainDecoder.FilesPath, this.Filename));
       }
 
       #endregion

@@ -1,9 +1,9 @@
-﻿using DevExpress.XtraBars.Docking;
-using DevExpress.XtraGrid.Views.Base;
-using DevExpress.XtraPrinting;
-using System.Data;
+﻿using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using DevExpress.XtraBars.Docking;
+using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraPrinting;
 
 namespace RailwayStudio.Common
 {

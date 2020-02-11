@@ -78,6 +78,9 @@ namespace Rwm.Otc.Data.ORM
       /// <summary>
       /// Save an instance into the database.
       /// </summary>
+      /// <remarks>
+      /// This method won't store the foreign collection values. It must be performed manually.
+      /// </remarks>
       /// <param name="instance">Instance to save.</param>
       public static long Save(T instance)
       {
@@ -90,6 +93,15 @@ namespace Rwm.Otc.Data.ORM
          else
             // Update the instance into DB
             return ORMEntity<T>.UpdateDatabaseRecord(instance);
+      }
+
+      /// <summary>
+      /// Delete an existing instance.
+      /// </summary>
+      /// <param name="instance">Instance to delete.</param>
+      public static int Delete(T instance)
+      {
+         return ORMEntity<T>.Delete((instance as ORMIdentifiableEntity).ID);
       }
 
       /// <summary>
@@ -223,6 +235,7 @@ namespace Rwm.Otc.Data.ORM
       /// <returns>The instance unique identifier.</returns>
       private static long UpdateDatabaseRecord(T instance)
       {
+         object value;
          ORMSqlCommand cmd = ORMEntity<T>.SqlDialect.GetUpdateCommand();
 
          // Connecto to database
@@ -232,7 +245,8 @@ namespace Rwm.Otc.Data.ORM
          ORMEntity<T>.SetParameter(cmd.PrimaryKeyName, cmd.PrimaryKeyName.GetValue(instance));
          foreach (ORMEntityMember param in cmd.Parameters)
          {
-            ORMEntity<T>.SetParameter(param, param.GetValue(instance));
+            value = param.GetValue(instance);
+            ORMEntity<T>.SetParameter(param, value is null ? DBNull.Value : value);
          }
 
          // Execute the SELECT sentence to retrieve the instance properties
@@ -251,7 +265,7 @@ namespace Rwm.Otc.Data.ORM
       /// <returns>The instance unique identifier.</returns>
       private static long InsertDatabaseRecord(T instance)
       {
-         long id = 0;
+         object value;
          ORMSqlCommand cmd = ORMEntity<T>.SqlDialect.GetInsertCommand();
 
          // Connecto to database
@@ -260,12 +274,13 @@ namespace Rwm.Otc.Data.ORM
          // Set command parameters
          foreach (ORMEntityMember param in cmd.Parameters)
          {
-            ORMEntity<T>.SetParameter(param, param.GetValue(instance));
+            value = param.GetValue(instance);
+            ORMEntity<T>.SetParameter(param, value is null ? DBNull.Value : value);
          }
 
          // Execute the SELECT sentence to retrieve the instance properties
          ORMEntity<T>.ExecuteNonQuery(cmd.SqlCommand);
-         id = ORMEntity<T>.ExecuteScalar(ORMEntity<T>.SqlDialect.GetNewIDCommand().SqlCommand);
+         long id = ExecuteScalar(SqlDialect.GetNewIDCommand().SqlCommand);
 
          // Set the generated new record unique identifier to the current instance
          ORMEntity<T>.ORMStructure.PrimaryKey.SetValue(instance, id);
@@ -285,7 +300,6 @@ namespace Rwm.Otc.Data.ORM
       /// <param name="instance">Instance unique identifier.</param>
       private static int DeleteDatabaseRecord(long id)
       {
-         int rowsAffected = 0;
          ORMSqlCommand cmd = ORMEntity<T>.SqlDialect.GetDeleteCommand();
 
          // Delete foreign records
@@ -298,7 +312,7 @@ namespace Rwm.Otc.Data.ORM
          ORMEntity<T>.SetParameter(cmd.PrimaryKeyName, id);
 
          // Execute the SQL command
-         rowsAffected = ORMEntity<T>.ExecuteNonQuery(cmd.SqlCommand);
+         int rowsAffected = ExecuteNonQuery(cmd.SqlCommand);
 
          // Close the connection to database
          ORMEntity<T>.Disconnect();
@@ -317,7 +331,8 @@ namespace Rwm.Otc.Data.ORM
       private static int DeleteDatabaseForeignRecords(long id)
       {
          int rowsAffected = 0;
-         T instance = default(T);
+         object dummy;
+         T instance = default;
          Type foreignType;
          MethodInfo deleteMethod;
 
@@ -338,7 +353,7 @@ namespace Rwm.Otc.Data.ORM
                foreach (long objId in ORMEntity<T>.GetForeignCollectionIdentifiers(instance, member))
                {
                   // Invoke the method
-                  object dummy = Activator.CreateInstance(foreignType);
+                  dummy = Activator.CreateInstance(foreignType);
                   rowsAffected += (int)deleteMethod.Invoke(dummy, new object[] { objId });
                }
             }
@@ -354,7 +369,6 @@ namespace Rwm.Otc.Data.ORM
       /// <returns>The specified instance.</returns>
       private static ICollection<T> ReadAllRecords()
       {
-         T instance = default(T);
          List<long> ids = new List<long>();
          List<T> list = new List<T>();
          ORMSqlCommand cmd = ORMEntity<T>.SqlDialect.GetSelectAllCommand();
@@ -376,7 +390,7 @@ namespace Rwm.Otc.Data.ORM
          {
             if (!ORMEntity<T>.InMemoryTable.ContainsKey(id))
             {
-               instance = ORMEntity<T>.Get(id);
+               T instance = ORMEntity<T>.Get(id);
                list.Add(instance);
             }
             else
@@ -395,7 +409,6 @@ namespace Rwm.Otc.Data.ORM
       /// <returns>The specified instance.</returns>
       private static ICollection<T> ReadRecords(string propertyName, object value, bool closeConnection = true)
       {
-         T instance = default(T);
          List<long> ids = new List<long>();
          List<T> list = new List<T>();
          ORMSqlCommand cmd = ORMEntity<T>.SqlDialect.GetSelectByFieldCommand(propertyName);
@@ -420,7 +433,7 @@ namespace Rwm.Otc.Data.ORM
          {
             if (!ORMEntity<T>.InMemoryTable.ContainsKey(id))
             {
-               instance = ORMEntity<T>.Get(id, closeConnection);
+               T instance = ORMEntity<T>.Get(id, closeConnection);
                list.Add(instance);
             }
             else
@@ -439,7 +452,6 @@ namespace Rwm.Otc.Data.ORM
       /// <returns>The specified instance.</returns>
       private static ICollection<T> ReadQueryRecords(string sql, bool closeConnection = true)
       {
-         T instance = default(T);
          List<long> ids = new List<long>();
          List<T> list = new List<T>();
          ORMSqlCommand cmd = ORMEntity<T>.SqlDialect.GetSelectByQuery(sql);
@@ -461,7 +473,7 @@ namespace Rwm.Otc.Data.ORM
          {
             if (!ORMEntity<T>.InMemoryTable.ContainsKey(id))
             {
-               instance = ORMEntity<T>.Get(id, closeConnection);
+               T instance = ORMEntity<T>.Get(id, closeConnection);
                list.Add(instance);
             }
             else
@@ -534,12 +546,11 @@ namespace Rwm.Otc.Data.ORM
       /// <returns>The requested list of attributes or an empty array if the table doesn't have any marked property as a foreign collection.</returns>
       private static List<Int64> GetForeignCollectionIdentifiers(object instance, ORMEntityMember member)
       {
-         object collectionValue = null;
          List<Int64> identifiers = new List<Int64>();
 
          if (member.Property != null)
          {
-            collectionValue = (IEnumerable<ORMIdentifiableEntity>)member.Property.GetValue(instance);
+            object collectionValue = (IEnumerable<ORMIdentifiableEntity>)member.Property.GetValue(instance);
             if (collectionValue != null)
             {
                foreach (var fValue in (IEnumerable<ORMIdentifiableEntity>)member.Property.GetValue(instance))

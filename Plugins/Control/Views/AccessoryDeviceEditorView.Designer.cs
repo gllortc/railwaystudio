@@ -249,7 +249,7 @@
          this.tabDecoderOutputs.Name = "tabDecoderOutputs";
          this.tabDecoderOutputs.Padding = new System.Windows.Forms.Padding(5);
          this.tabDecoderOutputs.Size = new System.Drawing.Size(371, 232);
-         this.tabDecoderOutputs.Text = "Connections";
+         this.tabDecoderOutputs.Text = "AccessoryConnections";
          // 
          // grdConnect
          // 

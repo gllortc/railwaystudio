@@ -38,7 +38,7 @@ namespace Rwm.Otc.Systems
       /// Returns a new instance of <see cref="FeedbackEventArgs"/>.
       /// </summary>
       /// <param name="address">Feedback module address.</param>
-      /// <param name="output">Output number.</param>
+      /// <param name="output">DecoderOutput number.</param>
       /// <param name="status">New status adopted by the sensor.</param>
       public FeedbackEventArgs(int address, int output, bool status)
       {

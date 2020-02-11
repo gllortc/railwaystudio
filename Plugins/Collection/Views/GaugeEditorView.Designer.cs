@@ -93,7 +93,7 @@
          this.lblTrackWidth.Name = "lblTrackWidth";
          this.lblTrackWidth.Size = new System.Drawing.Size(81, 13);
          this.lblTrackWidth.TabIndex = 4;
-         this.lblTrackWidth.Text = "Scale track witdh";
+         this.lblTrackWidth.Text = "Gauge track witdh";
          // 
          // txtRealTrackWidth
          // 
@@ -177,7 +177,7 @@
          this.ShowIcon = false;
          this.ShowInTaskbar = false;
          this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-         this.Text = "Scale editor";
+         this.Text = "Gauge editor";
          ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtRatio.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtTrackWidth.Properties)).EndInit();

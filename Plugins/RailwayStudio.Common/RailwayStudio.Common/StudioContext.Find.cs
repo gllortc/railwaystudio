@@ -12,7 +12,7 @@ namespace RailwayStudio.Common
       /// <param name="owner">Owner window.</param>
       /// <param name="title">Finder dialogue title.</param>
       /// <returns>The selected train or <c>null</c> if user cancel the search.</returns>
-      public CollectionModel Train(string title)
+      public Train Train(string title)
       {
          FindTrainView form = new FindTrainView();
          if (form.ShowDialog() == DialogResult.Cancel)
@@ -29,7 +29,7 @@ namespace RailwayStudio.Common
       /// <param name="owner">Owner window.</param>
       /// <param name="title">Finder dialogue title.</param>
       /// <returns>The selected train or <c>null</c> if user cancel the search.</returns>
-      public CollectionModel Train(IWin32Window owner, string title)
+      public Train Train(IWin32Window owner, string title)
       {
          FindTrainView form = new FindTrainView();
          if (form.ShowDialog(owner) == DialogResult.Cancel)

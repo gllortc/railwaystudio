@@ -159,7 +159,7 @@
          this.ShowIcon = false;
          this.ShowInTaskbar = false;
          this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-         this.Text = "Administration editor";
+         this.Text = "Company editor";
          ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtUrl.Properties)).EndInit();

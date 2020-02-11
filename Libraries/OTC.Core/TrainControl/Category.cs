@@ -2,7 +2,7 @@
 
 namespace Rwm.Otc.TrainControl
 {
-   [ORMTable("types")]
+   [ORMTable("TRAIN_CATEGORIES")]
    public class Category : ORMEntity<Category>
    {
 

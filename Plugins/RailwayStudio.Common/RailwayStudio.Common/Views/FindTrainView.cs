@@ -22,7 +22,7 @@ namespace RailwayStudio.Common.Views
 
       #region Properties
 
-      public CollectionModel SelectedTrain { get; private set; }
+      public Train SelectedTrain { get; private set; }
 
       #endregion
 
@@ -36,8 +36,7 @@ namespace RailwayStudio.Common.Views
 
       private void grdTrainView_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
       {
-         DataRowView drv = grdTrainView.GetRow(e.RowHandle) as DataRowView;
-         if (drv != null)
+         if (grdTrainView.GetRow(e.RowHandle) is DataRowView drv)
          {
             if (drv[1] is System.DBNull)
             {
@@ -64,7 +63,7 @@ namespace RailwayStudio.Common.Views
          DataRowView drv = grdTrainView.GetRow(grdTrainView.GetSelectedRows()[0]) as DataRowView;
          if (drv != null)
          {
-            this.SelectedTrain = CollectionModel.Get((Int64)drv[0]);
+            this.SelectedTrain = Train.Get((Int64)drv[0]);
          }
 
          this.DialogResult = System.Windows.Forms.DialogResult.OK;
@@ -96,7 +95,7 @@ namespace RailwayStudio.Common.Views
                                  Else e.Name 
                              End             As ""Block""
                           FROM 
-                             " + CollectionModel.TableName + @" m 
+                             " + Train.TableName + @" m 
                              Left Join " + "ElementModel" + @" em On (em.modelid = m.modid) 
                              Left Join " + Element.TableName + @"      e  On (e.id = em.elementid)
                           WHERE 
@@ -106,7 +105,7 @@ namespace RailwayStudio.Common.Views
 
             grdTrainView.BeginUpdate();
             grdTrain.DataSource = null;
-            grdTrain.DataSource = CollectionModel.ExecuteDataTable(sql);
+            grdTrain.DataSource = Train.ExecuteDataTable(sql);
             grdTrainView.Columns[0].Visible = false;
             grdTrainView.Columns[1].Visible = false;
 

@@ -60,24 +60,24 @@ namespace Rwm.Studio.Plugins.Control.Views
       void Connection_ConnectionChanged(object sender, ConnectionChangedEventArgs e)
       {
          // Update the connection info
-         this.Element.Connections[e.ConnectionIndex - 1] = e.Connection;
+         // this.Element.AccessoryConnections[e.ConnectionIndex - 1] = e.Connection;
 
          // Refresh the connection map information
-         this.StatusEditorControl.Refresh();
+         // this.StatusEditorControl.Refresh();
       }
 
       void StatusEditorControl_MapChanged(object sender, MapChangedEventArgs e)
       {
-         foreach (DeviceConnection connection in this.Element.Connections)
+         foreach (AccessoryDecoderConnection connection in this.Element.AccessoryConnections)
          {
             if (connection != null)
-               DeviceConnection.Save(connection);
+               AccessoryDecoderConnection.Save(connection);
          }
       }
 
       private void CmdCancel_Click(object sender, EventArgs e)
       {
-         this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+         this.DialogResult = DialogResult.Cancel;
          this.Close();
       }
 
@@ -91,7 +91,15 @@ namespace Rwm.Studio.Plugins.Control.Views
             // Store the element properties
             Element.Save(this.Element);
 
-            this.DialogResult = System.Windows.Forms.DialogResult.OK;
+            // Save the connections (inputs and outputs)
+            foreach (AccessoryDecoderConnection output in this.Element.AccessoryConnections)
+               AccessoryDecoderConnection.Save(output);
+
+            // Save the actions
+            foreach (ElementAction action in this.Element.Actions)
+               ElementAction.Save(action);
+
+            this.DialogResult = DialogResult.OK;
             this.Close();
          }
          catch (Exception ex)
@@ -108,7 +116,7 @@ namespace Rwm.Studio.Plugins.Control.Views
       private void ListAccessoryConnections()
       {
          OutputEditorControl control;
-         DeviceConnection connection;
+         AccessoryDecoderConnection connection;
 
          if (!this.Element.Properties.IsAccessory || this.Element.Properties.NumberOfAccessoryConnections <= 0)
          {
@@ -119,7 +127,7 @@ namespace Rwm.Studio.Plugins.Control.Views
          // Create connection controls
          for (int i = 1; i <= this.Element.Properties.NumberOfAccessoryConnections; i++)
          {
-            connection = DeviceConnection.GetByOutput(this.Element, i, Device.DeviceType.AccessoryDecoder);
+            connection = AccessoryDecoderConnection.GetByIndex(this.Element, i);
 
             if (connection != null)
             {
@@ -151,7 +159,7 @@ namespace Rwm.Studio.Plugins.Control.Views
       private void ListFeedbackConnections()
       {
          InputEditorControl control;
-         DeviceConnection connection;
+         FeedbackDecoderConnection connection;
 
          if (!this.Element.Properties.IsFeedback || this.Element.Properties.NumberOfFeedbackConnections <= 0)
          {
@@ -162,7 +170,7 @@ namespace Rwm.Studio.Plugins.Control.Views
          // Create connection controls
          for (int i = 0; i < this.Element.Properties.NumberOfFeedbackConnections; i++)
          {
-            connection = DeviceConnection.GetByOutput(this.Element, i, Device.DeviceType.FeedbackModule);
+            connection = FeedbackDecoderConnection.GetByOutput(this.Element, i);
 
             if (connection != null)
             {

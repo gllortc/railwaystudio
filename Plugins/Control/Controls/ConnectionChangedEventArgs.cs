@@ -5,7 +5,7 @@ namespace Rwm.Studio.Plugins.Control.Controls
    public class ConnectionChangedEventArgs
    {
 
-      public ConnectionChangedEventArgs(int connectionIndex, DeviceConnection connection)
+      public ConnectionChangedEventArgs(int connectionIndex, AccessoryDecoderConnection connection)
       {
          this.ConnectionIndex = connectionIndex;
          this.Connection = connection;
@@ -13,7 +13,7 @@ namespace Rwm.Studio.Plugins.Control.Controls
 
       public int ConnectionIndex { get; private set; }
 
-      public DeviceConnection Connection { get; private set; }
+      public AccessoryDecoderConnection Connection { get; private set; }
 
    }
 }

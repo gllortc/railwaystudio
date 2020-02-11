@@ -144,7 +144,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
                   break;
 
                case FileType.Decoders:
-                  Decoder decoder = Decoder.Get(row.ID);
+                  TrainDecoder decoder = TrainDecoder.Get(row.ID);
                   if (decoder != null)
                   {
                      DecoderEditorView formDecoder = new DecoderEditorView(decoder);
@@ -153,7 +153,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
                   break;
 
                case FileType.Administrations:
-                  Administration admin = Administration.Get(row.ID);
+                  Company admin = Company.Get(row.ID);
                   if (admin != null)
                   {
                      AdministrationEditorView formAdmin = new AdministrationEditorView(admin);
@@ -217,11 +217,11 @@ namespace Rwm.Studio.Plugins.Collection.Modules
                   break;
 
                case FileType.Decoders:
-                  Decoder.Delete(row.ID);
+                  TrainDecoder.Delete(row.ID);
                   break;
 
                case FileType.Administrations:
-                  Administration.Delete(row.ID);
+                  Company.Delete(row.ID);
                   break;
 
                default:
@@ -230,7 +230,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
          }
          else if (this.CurrentCategory != null)
          {
-            CollectionModel.Delete(row.ID);
+            Train.Delete(row.ID);
          }
 
          this.Refresh();
@@ -311,7 +311,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
                      grdDataView.Columns.Add(new GridColumn() { Caption = "ID", Visible = false, FieldName = "ID" });
                      grdDataView.Columns.Add(new GridColumn() { Caption = "Name", Visible = true, FieldName = "Name", Width = 250 });
                      grdDataView.Columns.Add(new GridColumn() { Caption = "URL", Visible = true, FieldName = "URL", Width = 350 });
-                     grdData.DataSource = Administration.FindAll();
+                     grdData.DataSource = Company.FindAll();
                      break;
 
                   case FileType.Decoders:
@@ -319,7 +319,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
                      grdDataView.Columns.Add(new GridColumn() { Caption = "ID", Visible = false, FieldName = "ID" });
                      grdDataView.Columns.Add(new GridColumn() { Caption = "Name", Visible = true, FieldName = "Name", Width = 250 });
                      grdDataView.Columns.Add(new GridColumn() { Caption = "URL", Visible = true, FieldName = "URL", Width = 350 });
-                     grdData.DataSource = Decoder.FindAll();
+                     grdData.DataSource = TrainDecoder.FindAll();
                      break;
                }
             }
@@ -337,9 +337,9 @@ namespace Rwm.Studio.Plugins.Collection.Modules
                grdDataView.Columns.Add(new GridColumn() { Caption = "Qty.", Visible = true, FieldName = "Units", Width = 40 });
 
                if (this.CurrentCategory.ID > 0)
-                  grdData.DataSource = CollectionModel.FindBy("Category", this.CurrentCategory);
+                  grdData.DataSource = Train.FindBy("Category", this.CurrentCategory);
                else
-                  grdData.DataSource = CollectionModel.FindAll();
+                  grdData.DataSource = Train.FindAll();
             }
          }
          catch (Exception ex)
