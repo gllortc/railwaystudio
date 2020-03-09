@@ -117,24 +117,34 @@ namespace Rwm.Studio.Plugins.Control.Modules
          Rwm.Otc.OTCContext.Settings.SaveSettings();
       }
 
-      private void cmdSystemManage_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void CmdSystemManage_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          this.SystemsManage();
       }
 
-      private void chkSystemConnect_CheckedChanged(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void CmdSystemConnect_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          this.SystemConnect();
       }
 
-      private void cmdSystemSettings_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void CmdSystemDisconnect_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      {
+         this.SystemDisconnect();
+      }
+
+      private void CmdSystemSettings_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          this.SystemSettings();
       }
 
-      private void cmdCtrlEmergencyStop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void CmdCtrlEmergencyStop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          this.EmergencyStop();
+      }
+
+      private void CmdUtilsDigitalAddressCalculator_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      {
+         StudioContext.Utils.ShowDigitalAddressCalculator();
       }
 
       #endregion

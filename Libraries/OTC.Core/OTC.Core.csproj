@@ -189,6 +189,7 @@
     <Compile Include="Themes\ThemeManager.cs" />
     <Compile Include="Themes\ITheme.cs" />
     <Compile Include="Internationalization\OTCLanguage.cs" />
+    <Compile Include="TrainControl\TrainDigitalAddress.cs" />
     <Compile Include="Utils\NumericUtils.cs" />
     <Compile Include="Help\OTCHelpIndex.cs" />
     <Compile Include="TrainControl\Company.cs" />

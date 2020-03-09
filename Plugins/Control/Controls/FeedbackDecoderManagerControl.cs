@@ -90,10 +90,8 @@ namespace Rwm.Studio.Plugins.Control.Controls
 
       private void AddModule()
       {
-         FeedbackDeviceEditorView form = new FeedbackDeviceEditorView();
-         form.ShowDialog(this);
-
-         if (form.DialogResult == DialogResult.OK)
+         FeedbackEncoderEditorView form = new FeedbackEncoderEditorView();
+         if (form.ShowDialog(this) == DialogResult.OK)
          {
             this.Refresh();
          }
@@ -112,10 +110,8 @@ namespace Rwm.Studio.Plugins.Control.Controls
             return;
          }
 
-         FeedbackDeviceEditorView form = new FeedbackDeviceEditorView(device);
-         form.ShowDialog(this);
-
-         if (form.DialogResult == DialogResult.OK)
+         FeedbackEncoderEditorView form = new FeedbackEncoderEditorView(device);
+         if (form.ShowDialog(this) == DialogResult.OK)
          {
             this.Refresh();
          }

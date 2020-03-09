@@ -62,7 +62,7 @@ namespace Rwm.Studio.Plugins.Control.Reports
 
          lblDecoderName.DataBindings.Add(new XRBinding("Text", null, "AccessoryConnections.Name"));
          lblDecoderModel.DataBindings.Add(new XRBinding("Text", null, "AccessoryConnections.Decoder"));
-         lblDecoderOutput.DataBindings.Add(new XRBinding("Text", null, "AccessoryConnections.DecoderOutput"));
+         lblDecoderOutput.DataBindings.Add(new XRBinding("Text", null, "AccessoryConnections.DecoderInput"));
          lblDecoderAddress.DataBindings.Add(new XRBinding("Text", null, "AccessoryConnections.Address"));
          lblConnectedTo.DataBindings.Add(new XRBinding("Text", null, "AccessoryConnections.ConnectTo"));
       }

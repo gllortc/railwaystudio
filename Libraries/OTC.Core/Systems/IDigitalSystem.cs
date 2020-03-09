@@ -70,18 +70,18 @@ namespace Rwm.Otc.Systems
       /// <summary>
       /// Initialize and connect the disigtal system.
       /// </summary>
-      void Connect();
+      bool Connect();
 
       /// <summary>
       /// Disconnect the digital system and release all resources.
       /// </summary>
-      void Disconnect();
+      bool Disconnect();
 
       /// <summary>
       /// Stop all locomotives.
       /// </summary>
       /// <param name="enabled">A value indicating if the status is enabled or disabled.</param>
-      void SetEmergencyStop(bool enabled);
+      bool SetEmergencyStop(bool enabled);
 
       /// <summary>
       /// Get the digital system information.
@@ -114,7 +114,7 @@ namespace Rwm.Otc.Systems
       /// </summary>
       /// <param name="settings">Current application settings.</param>
       /// <rereturns>A value indicating if the user has been changed the settings or not.</rereturns>
-      System.Windows.Forms.DialogResult ShowConfig(XmlSettingsManager settings);
+      System.Windows.Forms.DialogResult ShowSettingsDialog(XmlSettingsManager settings);
 
       #endregion
 

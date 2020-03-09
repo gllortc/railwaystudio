@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Xml;
 
 namespace Rwm.Otc.Configuration
@@ -102,15 +99,19 @@ namespace Rwm.Otc.Configuration
          this.Items.Add(value.Key, value);
       }
 
-      public XmlSettingsItem GetItem(string key)
+      public XmlSettingsItem GetItem(string key, bool createIfNotExists = false)
       {
          if (this.Items == null)
          {
-            return null;
+            this.Items = new Dictionary<string, XmlSettingsItem>();
          }
-         else if (!this.Items.ContainsKey(key))
+         
+         if (!this.Items.ContainsKey(key))
          {
-            return null;
+            if (createIfNotExists)
+               this.Items.Add(key, new XmlSettingsItem(key, null));
+            else
+               return null;
          }
 
          return this.Items[key];
@@ -142,10 +143,7 @@ namespace Rwm.Otc.Configuration
 
       public bool GetBoolean(string key, bool defaultValue)
       {
-         string value = string.Empty;
-
-         value = this.GetString(key, defaultValue.ToString()).Trim().ToLower();
-
+         string value = GetString(key, defaultValue.ToString()).Trim().ToLower();
          return (value.Equals("true") || value.Equals("t") || value.Equals("1"));
       }
 
@@ -156,9 +154,8 @@ namespace Rwm.Otc.Configuration
 
       public int GetInteger(string key, int defaultValue)
       {
-         int value = 0;
 
-         if (int.TryParse(GetString(key), out value))
+         if (int.TryParse(GetString(key), out int value))
          {
             return value;
          }

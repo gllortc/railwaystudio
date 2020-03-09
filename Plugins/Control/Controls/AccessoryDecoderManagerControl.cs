@@ -61,17 +61,17 @@ namespace Rwm.Studio.Plugins.Control.Controls
 
       private void CmdDecoderAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
-         this.AddModule();
+         this.AddDecoder();
       }
 
       private void CmdModuleEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
-         this.EditModule();
+         this.EditDecoder();
       }
 
       private void CmdModuleDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
-         this.DeleteModule();
+         this.DeleteDecoder();
       }
 
       private void GrdModuleView_DoubleClick(object sender, EventArgs e)
@@ -81,25 +81,23 @@ namespace Rwm.Studio.Plugins.Control.Controls
             return;
          }
 
-         this.EditModule();
+         this.EditDecoder();
       }
 
       #endregion
 
       #region Private Members
 
-      private void AddModule()
+      private void AddDecoder()
       {
-         AccessoryDeviceEditorView form = new AccessoryDeviceEditorView();
-         form.ShowDialog(this);
-
-         if (form.DialogResult == DialogResult.OK)
+         AccessoryDecoderEditorView form = new AccessoryDecoderEditorView();
+         if (form.ShowDialog(this) == DialogResult.OK)
          {
             this.Refresh();
          }
       }
 
-      private void EditModule()
+      private void EditDecoder()
       {
          if (grdModuleView.SelectedRowsCount <= 0)
          {
@@ -112,16 +110,14 @@ namespace Rwm.Studio.Plugins.Control.Controls
             return;
          }
 
-         AccessoryDeviceEditorView form = new AccessoryDeviceEditorView(decoder);
-         form.ShowDialog(this);
-
-         if (form.DialogResult == System.Windows.Forms.DialogResult.OK)
+         AccessoryDecoderEditorView form = new AccessoryDecoderEditorView(decoder);
+         if (form.ShowDialog(this) == DialogResult.OK)
          {
             this.Refresh();
          }
       }
 
-      public void DeleteModule()
+      public void DeleteDecoder()
       {
          if (grdModuleView.SelectedRowsCount <= 0)
          {

@@ -45,12 +45,21 @@ namespace Rwm.Studio.Plugins.Control.Views
 
       #region Event Handlers
 
-      private void chkShowUnused_CheckedChanged(object sender, System.EventArgs e)
+      private void ChkShowUnused_CheckedChanged(object sender, System.EventArgs e)
       {
          this.FilterUsedConnections(tvwConnections.Nodes[0], chkShowUnused.Checked);
       }
 
-      private void cmdOK_Click(object sender, System.EventArgs e)
+      private void CmdDecoderNew_Click(object sender, System.EventArgs e)
+      {
+         FeedbackEncoderEditorView form = new FeedbackEncoderEditorView();
+         if (form.ShowDialog() == DialogResult.OK)
+         {
+            this.ShowInputs(this.SelectedConnection);
+         }
+      }
+
+      private void CmdOK_Click(object sender, System.EventArgs e)
       {
          if (tvwConnections.FocusedNode == null)
          {
@@ -76,16 +85,16 @@ namespace Rwm.Studio.Plugins.Control.Views
          this.SelectedDecoder = tvwConnections.FocusedNode.ParentNode.Tag as FeedbackDecoder;
          this.SelectedConnection = tvwConnections.FocusedNode.Tag as FeedbackDecoderConnection;
 
-         this.DialogResult = System.Windows.Forms.DialogResult.OK;
+         this.DialogResult = DialogResult.OK;
          this.Close();
       }
 
-      private void cmdCancel_Click(object sender, System.EventArgs e)
+      private void CmdCancel_Click(object sender, System.EventArgs e)
       {
          this.SelectedDecoder = null;
          this.SelectedConnection = null;
 
-         this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+         this.DialogResult = DialogResult.Cancel;
          this.Close();
       }
 
@@ -107,8 +116,12 @@ namespace Rwm.Studio.Plugins.Control.Views
          Dictionary<int, FeedbackDecoderConnection> connections;
 
          tvwConnections.BeginUpdate();
+
+         tvwConnections.Nodes.Clear();
+         tvwConnections.Columns.Clear();
+
          col = tvwConnections.Columns.Add();
-         col.Caption = "Name";
+         col.Caption = "Decoder input";
          col.VisibleIndex = 0;
          col = tvwConnections.Columns.Add();
          col.Caption = "Address";
@@ -124,41 +137,44 @@ namespace Rwm.Studio.Plugins.Control.Views
          root.StateImageIndex = 4;
          root.Expanded = true;
 
-         foreach (FeedbackDecoder module in OTCContext.Project.FeedbackDecoders)
+         foreach (FeedbackDecoder decoder in OTCContext.Project.FeedbackDecoders)
          {
-               mod = tvwConnections.AppendNode(new object[] { module.Name, string.Empty, string.Empty }, root);
-               mod.StateImageIndex = 1;
-               mod.Tag = module;
+            mod = tvwConnections.AppendNode(new object[] { decoder.Name, string.Empty, string.Empty }, root);
+            mod.StateImageIndex = 1;
+            mod.Tag = decoder;
 
-               connections = new Dictionary<int, FeedbackDecoderConnection>();
+            connections = new Dictionary<int, FeedbackDecoderConnection>();
 
-               // Create the non existing connections
-               foreach (FeedbackDecoderConnection inputConn in module.Connections)
-                  connections.Add(inputConn.DecoderOutput, inputConn);
+            // Create the non existing connections
+            foreach (FeedbackDecoderConnection inputConn in decoder.Connections)
+               connections.Add(inputConn.DecoderInput, inputConn);
 
-               for (int inputidx = 1; inputidx <= module.Inputs; inputidx++)
-                  if (!connections.ContainsKey(inputidx))
-                     connections.Add(inputidx, new FeedbackDecoderConnection() { DecoderOutput = inputidx, 
-                                                                                 Address = module.StartAddress + inputidx - 1, 
-                                                                                 Device = module, 
-                                                                                 Element = null }) ;
-
-               foreach (FeedbackDecoderConnection con in connections.Values)
-               {
-                  if (con.IsNew || this.ShowUsedConnections)
+            for (int inputidx = 1; inputidx <= decoder.Inputs; inputidx++)
+               if (!connections.ContainsKey(inputidx))
+                  connections.Add(inputidx, new FeedbackDecoderConnection()
                   {
-                     output = tvwConnections.AppendNode(new object[] { con.DecoderOutput,
-                                                                       con.Address.ToString("D4"),
-                                                                       con.Element == null ? "<empty>" : con.Element.Name}, mod);
-                     output.StateImageIndex = (con.Element == null ? 2 : 3);
-                     output.Tag = con;
+                     DecoderInput = inputidx,
+                     Address = decoder.StartAddress + inputidx - 1,
+                     Device = decoder,
+                     Element = null
+                  });
 
-                     if (connection?.ID == con.ID)
-                     {
-                        tvwConnections.FocusedNode = output;
-                     }
+            foreach (FeedbackDecoderConnection con in connections.Values)
+            {
+               if (con.IsNew || this.ShowUsedConnections)
+               {
+                  output = tvwConnections.AppendNode(new object[] { con.DecoderInput,
+                                                                    con.Address.ToString("D4"),
+                                                                    con.Element == null ? "<empty>" : con.Element.Name}, mod);
+                  output.StateImageIndex = (con.Element == null ? 2 : 3);
+                  output.Tag = con;
+
+                  if (connection?.ID == con.ID)
+                  {
+                     tvwConnections.FocusedNode = output;
                   }
                }
+            }
          }
 
          if (tvwConnections.FocusedNode != null && tvwConnections.FocusedNode != root)

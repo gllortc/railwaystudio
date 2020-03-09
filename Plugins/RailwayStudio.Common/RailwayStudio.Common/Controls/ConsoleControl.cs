@@ -12,7 +12,7 @@ namespace RailwayStudio.Common.Controls
       public ConsoleControl()
       {
          InitializeComponent();
-         
+
          this.Initialize();
       }
 
@@ -34,20 +34,41 @@ namespace RailwayStudio.Common.Controls
 
       public void Information(string message)
       {
-         this.AppendText(this.MessageIndicator + " " + message,
-                         this.InformationForeColor);
+         if (recConsole.InvokeRequired)
+         {
+            recConsole.Invoke((Action)delegate
+            {
+               this.AppendText(this.MessageIndicator + " " + message, this.InformationForeColor);
+            });
+         }
+         else
+            this.AppendText(this.MessageIndicator + " " + message, this.InformationForeColor);
       }
 
       public void Warning(string message)
       {
-         this.AppendText(this.MessageIndicator + " WARN - " + message,
-                         this.WarningForeColor);
+         if (recConsole.InvokeRequired)
+         {
+            recConsole.Invoke((Action)delegate
+            {
+               this.AppendText(this.MessageIndicator + " WARN - " + message, this.WarningForeColor);
+            });
+         }
+         else
+            this.AppendText(this.MessageIndicator + " WARN - " + message, this.WarningForeColor);
       }
 
       public void Error(string message)
       {
-         this.AppendText(this.MessageIndicator + " ERROR - " + message,
-                         this.ErrorForeColor);
+         if (recConsole.InvokeRequired)
+         {
+            recConsole.Invoke((Action)delegate
+            {
+               this.AppendText(this.MessageIndicator + " ERROR - " + message, this.ErrorForeColor);
+            });
+         }
+         else
+            this.AppendText(this.MessageIndicator + " ERROR - " + message, this.ErrorForeColor);
       }
 
       #endregion

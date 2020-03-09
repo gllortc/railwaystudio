@@ -129,7 +129,7 @@ namespace Rwm.Studio.Plugins.Control.Controls
             statusLabel.Location = new System.Drawing.Point(this.Width - 84 - 3 - (conIndex * (84 + 6)), 3);
             statusLabel.Name = "connectionLabel" + conIndex;
             statusLabel.Size = new System.Drawing.Size(84, 13);
-            statusLabel.Text = "DecoderOutput " + (conIndex + 1);
+            statusLabel.Text = "DecoderInput " + (conIndex + 1);
             this.Controls.Add(statusLabel);
 
             conIndex++;

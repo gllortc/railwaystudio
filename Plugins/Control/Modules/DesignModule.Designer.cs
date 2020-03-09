@@ -255,7 +255,7 @@
          // cmdMoveUp
          // 
          this.cmdMoveUp.Caption = "Up";
-         this.cmdMoveUp.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.arrow_up;
+         this.cmdMoveUp.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_MOVE_UP_16;
          this.cmdMoveUp.Id = 32;
          this.cmdMoveUp.Name = "cmdMoveUp";
          this.cmdMoveUp.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdMoveUp_ItemClick);
@@ -263,7 +263,7 @@
          // cmdMoveDown
          // 
          this.cmdMoveDown.Caption = "Down";
-         this.cmdMoveDown.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.arrow_down;
+         this.cmdMoveDown.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_MOVE_DOWN_16;
          this.cmdMoveDown.Id = 33;
          this.cmdMoveDown.Name = "cmdMoveDown";
          this.cmdMoveDown.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdMoveDown_ItemClick);
@@ -271,7 +271,7 @@
          // cmdMoveLeft
          // 
          this.cmdMoveLeft.Caption = "Left";
-         this.cmdMoveLeft.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.arrow_left;
+         this.cmdMoveLeft.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_MOVE_LEFT_16;
          this.cmdMoveLeft.Id = 34;
          this.cmdMoveLeft.Name = "cmdMoveLeft";
          this.cmdMoveLeft.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdMoveLeft_ItemClick);
@@ -290,7 +290,7 @@
          // 
          this.cmdMoveRight.Caption = "Right";
          this.cmdMoveRight.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.cmdMoveRight.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.arrow_right_16;
+         this.cmdMoveRight.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_MOVE_RIGHT_16;
          this.cmdMoveRight.Id = 36;
          this.cmdMoveRight.Name = "cmdMoveRight";
          this.cmdMoveRight.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdMoveRight_ItemClick);

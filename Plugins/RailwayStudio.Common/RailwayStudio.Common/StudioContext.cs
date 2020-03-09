@@ -21,6 +21,7 @@ namespace RailwayStudio.Common
 
       private static UI sUI = null;
       private static Find sFind = null;
+      private static Utils sUtils = null;
 
       #endregion
 
@@ -41,6 +42,15 @@ namespace RailwayStudio.Common
          {
             if (StudioContext.sFind == null) StudioContext.sFind = new Find();
             return StudioContext.sFind;
+         }
+      }
+
+      public static Utils Utils
+      {
+         get
+         {
+            if (StudioContext.sUtils == null) StudioContext.sUtils = new Utils();
+            return StudioContext.sUtils;
          }
       }
 

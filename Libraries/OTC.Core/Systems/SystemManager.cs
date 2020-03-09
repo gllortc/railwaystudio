@@ -1,10 +1,10 @@
-﻿using Rwm.Otc.Configuration;
-using Rwm.Otc.Diagnostics;
-using Rwm.Otc.Utils;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Reflection;
+using Rwm.Otc.Configuration;
+using Rwm.Otc.Diagnostics;
+using Rwm.Otc.Utils;
 
 namespace Rwm.Otc.Systems
 {
@@ -97,7 +97,10 @@ namespace Rwm.Otc.Systems
             if (item != null)
             {
                Assembly assembly = Assembly.LoadFrom(item.GetString(SystemManager.SETTINGS_SYSTEM_PATH));
+               if (assembly == null) return null;
+
                Type type = assembly.GetType(item.GetString(SystemManager.SETTINGS_SYSTEM_CLASS));
+               if (type == null) return null;
 
                system = (IDigitalSystem)Activator.CreateInstance(type);
             }

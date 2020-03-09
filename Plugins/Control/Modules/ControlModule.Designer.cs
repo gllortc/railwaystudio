@@ -37,16 +37,19 @@
          this.chkOptionsManualSensorAllowed = new DevExpress.XtraBars.BarCheckItem();
          this.chkOptionsExecuteActions = new DevExpress.XtraBars.BarCheckItem();
          this.cmdCtrlEmergencyStop = new DevExpress.XtraBars.BarButtonItem();
-         this.chkSystemConnect = new DevExpress.XtraBars.BarCheckItem();
          this.bbgOptions = new DevExpress.XtraBars.BarButtonGroup();
+         this.cmdUtilsDigitalAddressCalculator = new DevExpress.XtraBars.BarButtonItem();
+         this.cmdSystemDisconnect = new DevExpress.XtraBars.BarButtonItem();
          this.rptControl = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.rpgSystem = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.rpgControl = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+         this.rpgUtils = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.repositoryItemImageComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
          this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
          this.pnlContainer = new DevExpress.XtraEditors.PanelControl();
          this.tabPanels = new DevExpress.XtraTab.XtraTabControl();
          this.tabPanel1 = new DevExpress.XtraTab.XtraTabPage();
+         this.cmdSystemConnect = new DevExpress.XtraBars.BarButtonItem();
          ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.pnlContainer)).BeginInit();
@@ -67,10 +70,12 @@
             this.chkOptionsManualSensorAllowed,
             this.chkOptionsExecuteActions,
             this.cmdCtrlEmergencyStop,
-            this.chkSystemConnect,
-            this.bbgOptions});
+            this.bbgOptions,
+            this.cmdUtilsDigitalAddressCalculator,
+            this.cmdSystemDisconnect,
+            this.cmdSystemConnect});
          this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-         this.ribbonControl.MaxItemId = 17;
+         this.ribbonControl.MaxItemId = 20;
          this.ribbonControl.Name = "ribbonControl";
          this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rptControl});
@@ -83,71 +88,60 @@
          // cmdSystemSettings
          // 
          this.cmdSystemSettings.Caption = "Settings";
-         this.cmdSystemSettings.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_SETUP_16;
          this.cmdSystemSettings.Id = 2;
-         this.cmdSystemSettings.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("cmdSystemSettings.LargeGlyph")));
+         this.cmdSystemSettings.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_SETUP_16;
+         this.cmdSystemSettings.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("cmdSystemSettings.ImageOptions.LargeImage")));
          this.cmdSystemSettings.Name = "cmdSystemSettings";
-         this.cmdSystemSettings.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdSystemSettings_ItemClick);
+         this.cmdSystemSettings.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdSystemSettings_ItemClick);
          // 
          // cmdSystemManage
          // 
          this.cmdSystemManage.Caption = "Manage systems";
-         this.cmdSystemManage.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEMS_16;
          this.cmdSystemManage.Id = 4;
-         this.cmdSystemManage.LargeGlyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEMS_32;
+         this.cmdSystemManage.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEMS_16;
+         this.cmdSystemManage.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEMS_32;
          this.cmdSystemManage.Name = "cmdSystemManage";
-         this.cmdSystemManage.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdSystemManage_ItemClick);
+         this.cmdSystemManage.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdSystemManage_ItemClick);
          // 
          // bsiTheme
          // 
          this.bsiTheme.Caption = "<no theme>";
-         this.bsiTheme.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_THEME_16;
          this.bsiTheme.Id = 5;
+         this.bsiTheme.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_THEME_16;
          this.bsiTheme.Name = "bsiTheme";
-         this.bsiTheme.TextAlignment = System.Drawing.StringAlignment.Near;
          // 
          // bsiSystem
          // 
          this.bsiSystem.Caption = "<no system>";
-         this.bsiSystem.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_16;
          this.bsiSystem.Id = 6;
-         this.bsiSystem.LargeGlyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_32;
+         this.bsiSystem.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_16;
+         this.bsiSystem.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_32;
          this.bsiSystem.Name = "bsiSystem";
-         this.bsiSystem.TextAlignment = System.Drawing.StringAlignment.Near;
          // 
          // chkOptionsManualSensorAllowed
          // 
          this.chkOptionsManualSensorAllowed.Caption = "Manual sensor activation";
-         this.chkOptionsManualSensorAllowed.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.lightning_go_16;
          this.chkOptionsManualSensorAllowed.Id = 11;
-         this.chkOptionsManualSensorAllowed.LargeGlyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.lightning_go;
+         this.chkOptionsManualSensorAllowed.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.lightning_go_16;
+         this.chkOptionsManualSensorAllowed.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.lightning_go;
          this.chkOptionsManualSensorAllowed.Name = "chkOptionsManualSensorAllowed";
          // 
-         // chkExecuteActions
+         // chkOptionsExecuteActions
          // 
          this.chkOptionsExecuteActions.Caption = "Activate block actions";
-         this.chkOptionsExecuteActions.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.cog_go_16;
          this.chkOptionsExecuteActions.Id = 12;
-         this.chkOptionsExecuteActions.LargeGlyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.cog_go;
-         this.chkOptionsExecuteActions.Name = "chkExecuteActions";
+         this.chkOptionsExecuteActions.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ACTION_RUN_16;
+         this.chkOptionsExecuteActions.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ACTION_RUN_32;
+         this.chkOptionsExecuteActions.Name = "chkOptionsExecuteActions";
          // 
          // cmdCtrlEmergencyStop
          // 
          this.cmdCtrlEmergencyStop.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
          this.cmdCtrlEmergencyStop.Caption = "Emergency stop";
          this.cmdCtrlEmergencyStop.Id = 13;
-         this.cmdCtrlEmergencyStop.LargeGlyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_EMERGENCY_STOP_32;
+         this.cmdCtrlEmergencyStop.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_EMERGENCY_STOP_32;
          this.cmdCtrlEmergencyStop.Name = "cmdCtrlEmergencyStop";
-         this.cmdCtrlEmergencyStop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdCtrlEmergencyStop_ItemClick);
-         // 
-         // chkSystemConnect
-         // 
-         this.chkSystemConnect.Caption = "Connect";
-         this.chkSystemConnect.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_CONNECT_16;
-         this.chkSystemConnect.Id = 14;
-         this.chkSystemConnect.LargeGlyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_CONNECT_32;
-         this.chkSystemConnect.Name = "chkSystemConnect";
-         this.chkSystemConnect.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.chkSystemConnect_CheckedChanged);
+         this.cmdCtrlEmergencyStop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdCtrlEmergencyStop_ItemClick);
          // 
          // bbgOptions
          // 
@@ -158,19 +152,41 @@
          this.bbgOptions.ItemLinks.Add(this.chkOptionsExecuteActions);
          this.bbgOptions.Name = "bbgOptions";
          // 
+         // cmdUtilsDigitalAddressCalculator
+         // 
+         this.cmdUtilsDigitalAddressCalculator.Caption = "Digital address calculator";
+         this.cmdUtilsDigitalAddressCalculator.Id = 17;
+         this.cmdUtilsDigitalAddressCalculator.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_CALCULATOR_16;
+         this.cmdUtilsDigitalAddressCalculator.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_CALCULATOR_32;
+         this.cmdUtilsDigitalAddressCalculator.Name = "cmdUtilsDigitalAddressCalculator";
+         this.cmdUtilsDigitalAddressCalculator.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
+         this.cmdUtilsDigitalAddressCalculator.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdUtilsDigitalAddressCalculator_ItemClick);
+         // 
+         // cmdSystemDisconnect
+         // 
+         this.cmdSystemDisconnect.Caption = "Disconnect";
+         this.cmdSystemDisconnect.Enabled = false;
+         this.cmdSystemDisconnect.Id = 18;
+         this.cmdSystemDisconnect.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEMS_UNSELECTED_16;
+         this.cmdSystemDisconnect.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.server_delete_32;
+         this.cmdSystemDisconnect.Name = "cmdSystemDisconnect";
+         this.cmdSystemDisconnect.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdSystemDisconnect_ItemClick);
+         // 
          // rptControl
          // 
          this.rptControl.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpgSystem,
-            this.rpgControl});
+            this.rpgControl,
+            this.rpgUtils});
          this.rptControl.Name = "rptControl";
          this.rptControl.Text = "Control";
          // 
          // rpgSystem
          // 
          this.rpgSystem.ItemLinks.Add(this.cmdSystemManage, true);
-         this.rpgSystem.ItemLinks.Add(this.chkSystemConnect, true);
          this.rpgSystem.ItemLinks.Add(this.cmdSystemSettings);
+         this.rpgSystem.ItemLinks.Add(this.cmdSystemConnect);
+         this.rpgSystem.ItemLinks.Add(this.cmdSystemDisconnect);
          this.rpgSystem.Name = "rpgSystem";
          this.rpgSystem.ShowCaptionButton = false;
          this.rpgSystem.Text = "Digital system";
@@ -183,6 +199,13 @@
          this.rpgControl.Name = "rpgControl";
          this.rpgControl.ShowCaptionButton = false;
          this.rpgControl.Text = "Control";
+         // 
+         // rpgUtils
+         // 
+         this.rpgUtils.ItemLinks.Add(this.cmdUtilsDigitalAddressCalculator);
+         this.rpgUtils.Name = "rpgUtils";
+         this.rpgUtils.ShowCaptionButton = false;
+         this.rpgUtils.Text = "Tools";
          // 
          // repositoryItemImageComboBox1
          // 
@@ -229,6 +252,15 @@
          this.tabPanel1.Size = new System.Drawing.Size(821, 285);
          this.tabPanel1.Text = "Page1";
          // 
+         // cmdSystemConnect
+         // 
+         this.cmdSystemConnect.Caption = "Connect";
+         this.cmdSystemConnect.Id = 19;
+         this.cmdSystemConnect.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_CONNECT_16;
+         this.cmdSystemConnect.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_CONNECT_32;
+         this.cmdSystemConnect.Name = "cmdSystemConnect";
+         this.cmdSystemConnect.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdSystemConnect_ItemClick);
+         // 
          // ControlModule
          // 
          this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -272,8 +304,11 @@
       private DevExpress.XtraBars.BarCheckItem chkOptionsManualSensorAllowed;
       private DevExpress.XtraBars.BarCheckItem chkOptionsExecuteActions;
       private DevExpress.XtraBars.BarButtonItem cmdCtrlEmergencyStop;
-      private DevExpress.XtraBars.BarCheckItem chkSystemConnect;
       private DevExpress.XtraBars.BarButtonGroup bbgOptions;
-   }
+        private DevExpress.XtraBars.BarButtonItem cmdUtilsDigitalAddressCalculator;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgUtils;
+        private DevExpress.XtraBars.BarButtonItem cmdSystemDisconnect;
+        private DevExpress.XtraBars.BarButtonItem cmdSystemConnect;
+    }
 }
 

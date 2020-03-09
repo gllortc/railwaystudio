@@ -39,7 +39,7 @@ namespace Rwm.Studio.Plugins.Control.Controls
 
          this.FixedHeight = this.Height;
          this.SelectedOutput = output;
-         this.SelectedDecoder = output.Device;
+         this.SelectedDecoder = output.Decoder;
          this.Element = output.Element;
 
          ShowSelectedOutput();
@@ -151,7 +151,7 @@ namespace Rwm.Studio.Plugins.Control.Controls
          {
             txtOutput.Text = string.Format("<b>{0}</b> output <b>{1}</b> (address <b>{2}</b>)",
                                            this.SelectedDecoder.Name,
-                                           this.SelectedOutput.Name,
+                                           this.SelectedOutput.DecoderOutput,
                                            this.SelectedOutput.Address.ToString("D4"));
          }
 

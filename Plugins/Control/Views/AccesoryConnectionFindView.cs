@@ -1,4 +1,8 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Columns;
 using DevExpress.XtraTreeList.Nodes;
 using Rwm.Otc;
@@ -11,80 +15,108 @@ namespace Rwm.Studio.Plugins.Control.Views
 
       #region Constructors
 
-      public AccesoryConnectionFindView()
+      public AccesoryConnectionFindView(AccessoryDecoderConnection connection = null)
       {
          InitializeComponent();
-         ShowOutputs();
 
-         chkShowUnused.Checked = true;
-      }
+         this.SelectedDecoder = connection?.Decoder;
+         this.SelectedConnection = connection;
 
-      public AccesoryConnectionFindView(AccessoryDecoderConnection connection)
-      {
-         InitializeComponent();
-         ShowOutputs(connection);
-
-         chkShowUnused.Checked = true;
+         this.RefreshListDecoders();
       }
 
       #endregion
 
       #region Properties
 
-      public AccessoryDecoderConnection SelectedConnection { get; private set; }
+      public AccessoryDecoderConnection SelectedConnection { get; private set; } = null;
 
-      public AccessoryDecoder SelectedDecoder { get; private set; }
-
-      public bool ShowUsedConnections
-      {
-         get { return !chkShowUnused.Checked; }
-      }
+      public AccessoryDecoder SelectedDecoder { get; private set; } = null;
 
       #endregion
 
       #region Event Handlers
 
-      private void ChkShowUnused_CheckedChanged(object sender, System.EventArgs e)
+      private void TvwConnections_FocusedNodeChanged(object sender, FocusedNodeChangedEventArgs e)
       {
-         this.FilterUsedOutputs(tvwConnections.Nodes[0], chkShowUnused.Checked);
+         if (e.Node.HasChildren)
+         {
+            txtAddress.EditValue = 0;
+            txtSwitchTime.EditValue = 0;
+            grpDigital.Enabled = false;
+            cmdOK.Enabled = false;
+            return;
+         }
+
+         if (e.Node.Tag == null)
+         {
+            txtAddress.EditValue = Int32.Parse(e.Node.ParentNode[1].ToString()) + Int32.Parse(e.Node[0].ToString());
+            txtSwitchTime.EditValue = 0;
+         }
+         else
+         {
+            AccessoryDecoderConnection connection = e.Node.Tag as AccessoryDecoderConnection;
+            txtAddress.EditValue = connection.Address;
+            txtSwitchTime.EditValue = connection.SwitchTime;
+         }
+
+         grpDigital.Enabled = true;
+         cmdOK.Enabled = true;
       }
 
-      private void CmdOK_Click(object sender, System.EventArgs e)
+      private void GrdDecodersView_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
       {
-         if (tvwConnections.FocusedNode == null)
+         this.SelectedDecoder = grdDecodersView.GetRow(e.RowHandle) as AccessoryDecoder;
+         this.RefreshDecoderOutputs();
+
+         this.SelectedDecoder = null;
+         txtAddress.EditValue = String.Empty;
+         txtSwitchTime.EditValue = String.Empty;
+         cmdOK.Enabled = false;
+         grpDigital.Enabled = false;
+      }
+
+      private void GrdOutputsView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+      {
+         this.SelectedConnection = grdOutputsView.GetRow(e.FocusedRowHandle) as AccessoryDecoderConnection;
+
+         if (this.SelectedConnection != null)
+         {
+            txtAddress.EditValue = this.SelectedConnection.Address;
+            txtSwitchTime.EditValue = this.SelectedConnection.SwitchTime;
+
+            cmdOK.Enabled = true;
+            grpDigital.Enabled = true;
+         }
+      }
+
+      private void CmdOK_Click(object sender, EventArgs e)
+      {
+         if (this.SelectedConnection == null)
          {
             MessageBox.Show("You must select the control module output you want to connect the element.",
                             Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return;
          }
-         else if (tvwConnections.FocusedNode.StateImageIndex == 1 || tvwConnections.FocusedNode.StateImageIndex == 4)
-         {
-            MessageBox.Show("The selected node is not a control module output.",
-                            Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            return;
-         }
-         else if (tvwConnections.FocusedNode.StateImageIndex == 3)
-         {
-            if (MessageBox.Show("The selected output is used by another element. Really you want to share this output?",
-                                Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.No)
-            {
-               return;
-            }
-         }
+         //else if (tvwConnections.FocusedNode.StateImageIndex == 3)
+         //{
+         //   if (MessageBox.Show("The selected output is used by another element. Really you want to share this output?",
+         //                       Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.No)
+         //   {
+         //      return;
+         //   }
+         //}
 
-         this.SelectedDecoder = tvwConnections.FocusedNode.ParentNode.Tag as AccessoryDecoder;
-         this.SelectedConnection = tvwConnections.FocusedNode.Tag as AccessoryDecoderConnection;
-
-         this.DialogResult = System.Windows.Forms.DialogResult.OK;
+         this.DialogResult = DialogResult.OK;
          this.Close();
       }
 
-      private void CmdCancel_Click(object sender, System.EventArgs e)
+      private void CmdCancel_Click(object sender, EventArgs e)
       {
          this.SelectedDecoder = null;
          this.SelectedConnection = null;
 
-         this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+         this.DialogResult = DialogResult.Cancel;
          this.Close();
       }
 
@@ -92,83 +124,110 @@ namespace Rwm.Studio.Plugins.Control.Views
 
       #region Private Members
 
-      private void ShowOutputs()
+      private void RefreshListDecoders()
       {
-         this.ShowOutputs(null);
-      }
+         grdDecoders.BeginUpdate();
+         grdDecodersView.OptionsBehavior.AutoPopulateColumns = false;
+         grdDecoders.DataSource = null;
 
-      private void ShowOutputs(AccessoryDecoderConnection connection)
-      {
-         TreeListNode root;
-         TreeListNode mod;
-         TreeListNode output;
-         TreeListColumn col;
-
-         tvwConnections.BeginUpdate();
-         col = tvwConnections.Columns.Add();
-         col.Caption = "Name";
-         col.VisibleIndex = 0;
-         col = tvwConnections.Columns.Add();
-         col.Caption = "Address";
-         col.VisibleIndex = 1;
-         col = tvwConnections.Columns.Add();
-         col.Caption = "Element";
-         col.VisibleIndex = 2;
-         tvwConnections.EndUpdate();
-
-         tvwConnections.BeginUnboundLoad();
-
-         root = tvwConnections.AppendNode(new object[] { "Modules", string.Empty, string.Empty }, null);
-         root.StateImageIndex = 4;
-         root.Expanded = true;
-
-         foreach (AccessoryDecoder module in OTCContext.Project.AccessoryDecoders)
+         if (grdDecodersView.Columns.Count <= 0)
          {
-            mod = tvwConnections.AppendNode(new object[] { module.Name, string.Empty, string.Empty }, root);
-            mod.StateImageIndex = 1;
-            mod.Tag = module;
+            grdDecodersView.Columns.Clear();
+            grdDecodersView.OptionsBehavior.AutoPopulateColumns = false;
+            grdDecodersView.Columns.Add(new GridColumn() { Caption = "ID", Visible = false, FieldName = "ID" });
+            grdDecodersView.Columns.Add(new GridColumn() { Caption = "Name", Visible = true, FieldName = "Name" });
+            grdDecodersView.Columns.Add(new GridColumn() { Caption = "Outputs", Visible = true, FieldName = "Outputs", Width = 30 });
+            grdDecodersView.Columns.Add(new GridColumn() { Caption = "Used", Visible = true, FieldName = "ConnectionsCount", Width = 30 });
 
-            foreach (AccessoryDecoderConnection con in AccessoryDecoderConnection.FindBy("Device", module))
-            {
-               output = tvwConnections.AppendNode(new object[] { con.Name,
-                                                                 con.Address.ToString("D4"),
-                                                                 con.Element == null ? "<empty>" : con.Element.Name}, mod);
-               output.StateImageIndex = (con.Element == null ? 2 : 3);
-               output.Tag = con;
+            grdDecodersView.Columns["Outputs"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            grdDecodersView.Columns["Outputs"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
 
-               if (connection?.ID == con.ID)
-               {
-                  tvwConnections.FocusedNode = output;
-               }
-            }
+            grdDecodersView.Columns["ConnectionsCount"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            grdDecodersView.Columns["ConnectionsCount"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          }
 
-         if (tvwConnections.FocusedNode != null && tvwConnections.FocusedNode != root)
+         grdDecoders.DataSource = OTCContext.Project.AccessoryDecoders;
+         grdDecoders.EndUpdate();
+
+         // Preselect a decoder if connection is selected
+         if (this.SelectedConnection != null)
          {
-            tvwConnections.MakeNodeVisible(tvwConnections.FocusedNode);
+            int rowHandle = grdDecodersView.LocateByValue("ID", this.SelectedConnection.Decoder.ID);
+            if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
+            {
+               this.SelectedDecoder = this.SelectedConnection.Decoder;
+               grdDecodersView.FocusedRowHandle = rowHandle;
+            }
          }
          else
-         {
-            root.Expanded = true;
-         }
-
-         tvwConnections.EndUnboundLoad();
+            grdDecodersView.ClearSelection();
       }
 
-      private void FilterUsedOutputs(TreeListNode root, bool unusedOnly)
+      private void RefreshDecoderOutputs()
       {
-         foreach (TreeListNode node in root.Nodes)
+         int currentAddress;
+         Dictionary<int, AccessoryDecoderConnection> connections = new Dictionary<int, AccessoryDecoderConnection>();
+
+         if (this.SelectedDecoder == null)
+            return;
+
+         // Create the non existing connections
+         foreach (AccessoryDecoderConnection connection in this.SelectedDecoder.Connections)
+            connections.Add(connection.DecoderOutput, connection);
+
+         currentAddress = this.SelectedDecoder.StartAddress;
+         for (int output = 1; output <= this.SelectedDecoder.Outputs; output++)
          {
-            if (node.HasChildren)
+            if (!connections.ContainsKey(output))
             {
-               FilterUsedOutputs(node, unusedOnly);
-            }
-            else
-            {
-               AccessoryDecoderConnection output = node.Tag as AccessoryDecoderConnection;
-               node.Visible = !unusedOnly || (output?.Element == null);
+               connections.Add(output, new AccessoryDecoderConnection() { DecoderOutput = output, Decoder = this.SelectedDecoder, Element = null, SwitchTime = 0 });
+               currentAddress++;
             }
          }
+
+         grdOutputs.BeginUpdate();
+         grdOutputsView.OptionsBehavior.AutoPopulateColumns = false;
+         grdOutputs.DataSource = null;
+
+         if (grdOutputsView.Columns.Count <= 0)
+         {
+            grdOutputsView.Columns.Clear();
+            grdOutputsView.Columns.Add(new GridColumn() { Caption = "ID", Visible = false, FieldName = "ID" });
+            grdOutputsView.Columns.Add(new GridColumn() { Caption = "Output", Visible = true, FieldName = "DecoderOutput", Width = 35 });
+            grdOutputsView.Columns.Add(new GridColumn() { Caption = "Address", Visible = true, FieldName = "Address", Width = 50 });
+            grdOutputsView.Columns.Add(new GridColumn() { Caption = "Element", Visible = true, FieldName = "Element.DisplayName" });
+            grdOutputsView.Columns.Add(new GridColumn() { Caption = "Pin", Visible = true, FieldName = "ElementPinIndex", Width = 35 });
+            grdOutputsView.Columns.Add(new GridColumn() { Caption = "Switch time", Visible = true, FieldName = "SwitchTime", Width = 40 });
+
+            grdOutputsView.Columns["DecoderOutput"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            grdOutputsView.Columns["DecoderOutput"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            grdOutputsView.Columns["DecoderOutput"].OptionsColumn.AllowEdit = false;
+
+            grdOutputsView.Columns["Address"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            grdOutputsView.Columns["Address"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            grdOutputsView.Columns["Address"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            grdOutputsView.Columns["Address"].DisplayFormat.FormatString = "{0:d4}";
+            grdOutputsView.Columns["Address"].OptionsColumn.AllowEdit = true;
+
+            grdOutputsView.Columns["Element.DisplayName"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            grdOutputsView.Columns["Element.DisplayName"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            grdOutputsView.Columns["Element.DisplayName"].OptionsColumn.AllowEdit = false;
+
+            grdOutputsView.Columns["ElementPinIndex"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            grdOutputsView.Columns["ElementPinIndex"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            grdOutputsView.Columns["ElementPinIndex"].OptionsColumn.AllowEdit = false;
+
+            grdOutputsView.Columns["SwitchTime"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            grdOutputsView.Columns["SwitchTime"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            grdOutputsView.Columns["SwitchTime"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            grdOutputsView.Columns["SwitchTime"].DisplayFormat.FormatString = "{0:d} ms";
+            grdOutputsView.Columns["SwitchTime"].OptionsColumn.AllowEdit = true;
+         }
+
+         grdOutputsView.ViewCaption = this.SelectedDecoder.Name + " outputs";
+
+         grdOutputs.DataSource = connections.Values;
+         grdOutputs.EndUpdate();
       }
 
       #endregion

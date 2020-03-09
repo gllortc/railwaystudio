@@ -97,6 +97,12 @@ namespace Rwm.Otc.Layout
       public int StartAddress { get; set; }
 
       /// <summary>
+      /// Gets or sets the name of the owner's module (or layout part) that contains the decoder.
+      /// </summary>
+      [ORMProperty("MODULE")]
+      public string Module { get; set; }
+
+      /// <summary>
       /// Gets or sets the list of connections for the device.
       /// </summary>
       [ORMForeignCollection(OnDeleteActionTypes.DeleteInCascade)]
@@ -153,7 +159,7 @@ namespace Rwm.Otc.Layout
                         s.name                           as ""Switchboard"",
                         d.name                           as ""Name"", 
                         d.manufacturer || ' ' || d.model as ""Decoder"",
-                        dc.name                          as ""DecoderOutput"",
+                        dc.name                          as ""DecoderInput"",
                         dc.address                       as ""Address"",
                         e.name                           as ""ConnectTo"" 
                     FROM 
@@ -208,7 +214,7 @@ namespace Rwm.Otc.Layout
                         s.name                           as ""Switchboard"",
                         d.name                           as ""Name"", 
                         d.manufacturer || ' ' || d.model as ""Decoder"",
-                        dc.name                          as ""DecoderOutput"",
+                        dc.name                          as ""DecoderInput"",
                         dc.address                       as ""Address"",
                         CASE 
                            WHEN (e.name <> '') THEN e.name

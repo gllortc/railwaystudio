@@ -287,17 +287,17 @@
     <Compile Include="Views\BlockPropertiesViews.Designer.cs">
       <DependentUpon>BlockPropertiesViews.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FeedbackDeviceEditorView.cs">
+    <Compile Include="Views\FeedbackEncoderEditorView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FeedbackDeviceEditorView.Designer.cs">
-      <DependentUpon>FeedbackDeviceEditorView.cs</DependentUpon>
+    <Compile Include="Views\FeedbackEncoderEditorView.Designer.cs">
+      <DependentUpon>FeedbackEncoderEditorView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\AccessoryDeviceEditorView.cs">
+    <Compile Include="Views\AccessoryDecoderEditorView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\AccessoryDeviceEditorView.Designer.cs">
-      <DependentUpon>AccessoryDeviceEditorView.cs</DependentUpon>
+    <Compile Include="Views\AccessoryDecoderEditorView.Designer.cs">
+      <DependentUpon>AccessoryDecoderEditorView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\PanelEditorView.cs">
       <SubType>Form</SubType>
@@ -409,11 +409,11 @@
     <EmbeddedResource Include="Views\BlockPropertiesViews.resx">
       <DependentUpon>BlockPropertiesViews.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FeedbackDeviceEditorView.resx">
-      <DependentUpon>FeedbackDeviceEditorView.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FeedbackEncoderEditorView.resx">
+      <DependentUpon>FeedbackEncoderEditorView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\AccessoryDeviceEditorView.resx">
-      <DependentUpon>AccessoryDeviceEditorView.cs</DependentUpon>
+    <EmbeddedResource Include="Views\AccessoryDecoderEditorView.resx">
+      <DependentUpon>AccessoryDecoderEditorView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PanelEditorView.resx">
       <DependentUpon>PanelEditorView.cs</DependentUpon>
@@ -437,6 +437,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\server_delete_32.png" />
+    <None Include="Resources\processor_check_32.png" />
     <None Include="Resources\train_route_32.png" />
     <None Include="Resources\save_as_16.png" />
     <None Include="Resources\preferences_16.png" />
@@ -567,6 +569,8 @@
     <None Include="Resources\disk_back_16.png" />
     <None Include="Resources\cross_16.png" />
     <None Include="Resources\cross_32.png" />
+    <None Include="Resources\calculator_16.png" />
+    <None Include="Resources\calculator_32.png" />
     <Content Include="Resources\favicon.ico" />
     <None Include="Resources\processor_error_16.png" />
     <None Include="Resources\processor_edit_16.png" />

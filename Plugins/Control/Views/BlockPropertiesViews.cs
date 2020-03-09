@@ -138,8 +138,8 @@ namespace Rwm.Studio.Plugins.Control.Views
                control = new OutputEditorControl(this.Element);
             }
 
-            control.ConnectionIndex = i + 1;
-            control.Text = string.Format("Accessory connection {0}", i + 1);
+            control.ConnectionIndex = i;
+            control.Text = string.Format("Accessory connection {0}", i);
             control.Dock = DockStyle.Top;
             control.ConnectionChanged += Connection_ConnectionChanged;
 
@@ -168,9 +168,9 @@ namespace Rwm.Studio.Plugins.Control.Views
          }
 
          // Create connection controls
-         for (int i = 0; i < this.Element.Properties.NumberOfFeedbackConnections; i++)
+         for (int i = 1; i <= this.Element.Properties.NumberOfFeedbackConnections; i++)
          {
-            connection = FeedbackDecoderConnection.GetByOutput(this.Element, i);
+            connection = FeedbackDecoderConnection.GetByIndex(this.Element, i);
 
             if (connection != null)
             {
@@ -181,8 +181,8 @@ namespace Rwm.Studio.Plugins.Control.Views
                control = new InputEditorControl(this.Element);
             }
 
-            control.ConnectionIndex = i + 1;
-            control.Text = string.Format("Sensor connection {0}", i + 1);
+            control.ConnectionIndex = i;
+            control.Text = string.Format("Sensor connection {0}", i);
             control.Dock = DockStyle.Top;
 
             tabFeedbackConnections.Controls.Add(control);

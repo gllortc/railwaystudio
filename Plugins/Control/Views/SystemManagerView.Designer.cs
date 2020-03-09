@@ -28,10 +28,9 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
-         this.barManager = new DevExpress.XtraBars.BarManager(this.components);
+         this.barManager = new DevExpress.XtraBars.BarManager();
          this.barSystems = new DevExpress.XtraBars.Bar();
-         this.cmdSystemAdd = new DevExpress.XtraBars.BarButtonItem();
+         this.cmdSystemSelect = new DevExpress.XtraBars.BarButtonItem();
          this.cmdSystemRemove = new DevExpress.XtraBars.BarButtonItem();
          this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
          this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -54,7 +53,7 @@
          this.barManager.DockControls.Add(this.barDockControlRight);
          this.barManager.Form = this;
          this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.cmdSystemAdd,
+            this.cmdSystemSelect,
             this.cmdSystemRemove});
          this.barManager.MaxItemId = 2;
          // 
@@ -65,27 +64,27 @@
          this.barSystems.DockRow = 0;
          this.barSystems.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
          this.barSystems.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.cmdSystemAdd),
-            new DevExpress.XtraBars.LinkPersistInfo(this.cmdSystemRemove)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.cmdSystemSelect)});
          this.barSystems.OptionsBar.AllowQuickCustomization = false;
          this.barSystems.OptionsBar.DisableClose = true;
          this.barSystems.OptionsBar.DisableCustomization = true;
          this.barSystems.OptionsBar.DrawDragBorder = false;
          this.barSystems.OptionsBar.UseWholeRow = true;
-         this.barSystems.Text = "Herramientas";
+         this.barSystems.Text = "Systems";
          // 
-         // cmdSystemAdd
+         // cmdSystemSelect
          // 
-         this.cmdSystemAdd.Caption = "Add system";
-         this.cmdSystemAdd.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_DECODER_ADD_32;
-         this.cmdSystemAdd.Id = 0;
-         this.cmdSystemAdd.Name = "cmdSystemAdd";
+         this.cmdSystemSelect.Caption = "Add system";
+         this.cmdSystemSelect.Id = 0;
+         this.cmdSystemSelect.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.SYSTEM_SELECT_32;
+         this.cmdSystemSelect.Name = "cmdSystemSelect";
+         this.cmdSystemSelect.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdSystemSelect_ItemClick);
          // 
          // cmdSystemRemove
          // 
          this.cmdSystemRemove.Caption = "Remove system";
-         this.cmdSystemRemove.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_DECODER_DELETE_32;
          this.cmdSystemRemove.Id = 1;
+         this.cmdSystemRemove.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_DECODER_DELETE_32;
          this.cmdSystemRemove.Name = "cmdSystemRemove";
          // 
          // barDockControlTop
@@ -93,6 +92,7 @@
          this.barDockControlTop.CausesValidation = false;
          this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
          this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+         this.barDockControlTop.Manager = this.barManager;
          this.barDockControlTop.Size = new System.Drawing.Size(537, 47);
          // 
          // barDockControlBottom
@@ -100,6 +100,7 @@
          this.barDockControlBottom.CausesValidation = false;
          this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
          this.barDockControlBottom.Location = new System.Drawing.Point(0, 416);
+         this.barDockControlBottom.Manager = this.barManager;
          this.barDockControlBottom.Size = new System.Drawing.Size(537, 0);
          // 
          // barDockControlLeft
@@ -107,6 +108,7 @@
          this.barDockControlLeft.CausesValidation = false;
          this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
          this.barDockControlLeft.Location = new System.Drawing.Point(0, 47);
+         this.barDockControlLeft.Manager = this.barManager;
          this.barDockControlLeft.Size = new System.Drawing.Size(0, 369);
          // 
          // barDockControlRight
@@ -114,6 +116,7 @@
          this.barDockControlRight.CausesValidation = false;
          this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
          this.barDockControlRight.Location = new System.Drawing.Point(537, 47);
+         this.barDockControlRight.Manager = this.barManager;
          this.barDockControlRight.Size = new System.Drawing.Size(0, 369);
          // 
          // grdSystems
@@ -139,9 +142,9 @@
          this.grdSystemsView.OptionsCustomization.AllowColumnMoving = false;
          this.grdSystemsView.OptionsSelection.EnableAppearanceFocusedCell = false;
          this.grdSystemsView.OptionsView.ShowGroupPanel = false;
-         this.grdSystemsView.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.grdSystemsView_CustomDrawCell);
+         this.grdSystemsView.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.GrdSystemsView_CustomDrawCell);
          // 
-         // FrmSystemManager
+         // SystemManagerView
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -154,7 +157,7 @@
          this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
          this.MaximizeBox = false;
          this.MinimizeBox = false;
-         this.Name = "FrmSystemManager";
+         this.Name = "SystemManagerView";
          this.ShowIcon = false;
          this.ShowInTaskbar = false;
          this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -175,7 +178,7 @@
       private DevExpress.XtraBars.BarDockControl barDockControlBottom;
       private DevExpress.XtraBars.BarDockControl barDockControlLeft;
       private DevExpress.XtraBars.BarDockControl barDockControlRight;
-      private DevExpress.XtraBars.BarButtonItem cmdSystemAdd;
+      private DevExpress.XtraBars.BarButtonItem cmdSystemSelect;
       private DevExpress.XtraBars.BarButtonItem cmdSystemRemove;
       private DevExpress.XtraGrid.GridControl grdSystems;
       private DevExpress.XtraGrid.Views.Grid.GridView grdSystemsView;

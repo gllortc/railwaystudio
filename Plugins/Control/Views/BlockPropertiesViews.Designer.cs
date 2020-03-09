@@ -89,7 +89,7 @@
          this.tabBlockGeneral.Controls.Add(this.grpProperties);
          this.tabBlockGeneral.Name = "tabBlockGeneral";
          this.tabBlockGeneral.Padding = new System.Windows.Forms.Padding(10);
-         this.tabBlockGeneral.Size = new System.Drawing.Size(441, 373);
+         this.tabBlockGeneral.Size = new System.Drawing.Size(441, 370);
          this.tabBlockGeneral.Text = "General";
          // 
          // grpInfo
@@ -107,7 +107,7 @@
          this.grpInfo.Location = new System.Drawing.Point(10, 96);
          this.grpInfo.Name = "grpInfo";
          this.grpInfo.Padding = new System.Windows.Forms.Padding(10);
-         this.grpInfo.Size = new System.Drawing.Size(421, 267);
+         this.grpInfo.Size = new System.Drawing.Size(421, 264);
          this.grpInfo.TabIndex = 2;
          this.grpInfo.Text = "Information";
          // 
@@ -225,10 +225,11 @@
          // tabAccessoryConnections
          // 
          this.tabAccessoryConnections.Controls.Add(this.tabAccessory);
+         this.tabAccessoryConnections.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ACCESSORIES_16;
          this.tabAccessoryConnections.Name = "tabAccessoryConnections";
          this.tabAccessoryConnections.Padding = new System.Windows.Forms.Padding(10);
-         this.tabAccessoryConnections.Size = new System.Drawing.Size(441, 373);
-         this.tabAccessoryConnections.Text = "Accessory connections";
+         this.tabAccessoryConnections.Size = new System.Drawing.Size(441, 370);
+         this.tabAccessoryConnections.Text = "Accessory";
          // 
          // tabAccessory
          // 
@@ -236,7 +237,7 @@
          this.tabAccessory.Location = new System.Drawing.Point(10, 10);
          this.tabAccessory.Name = "tabAccessory";
          this.tabAccessory.SelectedTabPage = this.tabAccessoryInputs;
-         this.tabAccessory.Size = new System.Drawing.Size(421, 353);
+         this.tabAccessory.Size = new System.Drawing.Size(421, 350);
          this.tabAccessory.TabIndex = 1;
          this.tabAccessory.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabAccessoryInputs,
@@ -246,7 +247,7 @@
          // 
          this.tabAccessoryInputs.Name = "tabAccessoryInputs";
          this.tabAccessoryInputs.Padding = new System.Windows.Forms.Padding(10);
-         this.tabAccessoryInputs.Size = new System.Drawing.Size(415, 325);
+         this.tabAccessoryInputs.Size = new System.Drawing.Size(415, 322);
          this.tabAccessoryInputs.Text = "Module connections";
          // 
          // tabAccessoryMap
@@ -258,16 +259,18 @@
          // 
          // tabFeedbackConnections
          // 
+         this.tabFeedbackConnections.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SENSORS_16;
          this.tabFeedbackConnections.Name = "tabFeedbackConnections";
          this.tabFeedbackConnections.Padding = new System.Windows.Forms.Padding(10);
-         this.tabFeedbackConnections.Size = new System.Drawing.Size(441, 373);
-         this.tabFeedbackConnections.Text = "Feedback connections";
+         this.tabFeedbackConnections.Size = new System.Drawing.Size(441, 370);
+         this.tabFeedbackConnections.Text = "Feedback";
          // 
          // tabBlockActions
          // 
+         this.tabBlockActions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ACTION_16;
          this.tabBlockActions.Name = "tabBlockActions";
          this.tabBlockActions.Padding = new System.Windows.Forms.Padding(5);
-         this.tabBlockActions.Size = new System.Drawing.Size(441, 373);
+         this.tabBlockActions.Size = new System.Drawing.Size(441, 370);
          this.tabBlockActions.Text = "Actions";
          // 
          // cmdCancel

@@ -39,36 +39,6 @@ namespace Rwm.Otc.Layout
          Initialize();
       }
 
-      /// <summary>
-      /// Returns a new instance of <see cref="AccessoryDecoderConnection"/>.
-      /// </summary>
-      /// <param name="name">Name of the connection.</param>
-      /// <param name="device">Control module associated.</param>
-      public AccessoryDecoderConnection(string name, AccessoryDecoder device)
-      {
-         Initialize();
-
-         this.Name = name.Trim();
-         this.Device = device;
-      }
-
-      /// <summary>
-      /// Returns a new instance of <see cref="AccessoryDecoderConnection"/>.
-      /// </summary>
-      /// <param name="name">Conetion name.</param>
-      /// <param name="device">Control module associated.</param>
-      /// <param name="address">Digital address.</param>
-      /// <param name="output">DecoderOutput index (starting by 1).</param>
-      public AccessoryDecoderConnection(string name, AccessoryDecoder device, int address, int output)
-      {
-         Initialize();
-
-         this.Name = name.Trim();
-         this.Device = device;
-         this.Address = address;
-         this.DecoderOutput = output;
-      }
-
       #endregion
 
       #region Properties
@@ -89,19 +59,13 @@ namespace Rwm.Otc.Layout
       /// Gets or sets the related accessory module.
       /// </summary>
       [ORMProperty("DECODERID")]
-      public AccessoryDecoder Device { get; set; }
+      public AccessoryDecoder Decoder { get; set; }
 
       /// <summary>
       /// Gets or sets the related element.
       /// </summary>
       [ORMProperty("ELEMENTID")]
       public Element Element { get; set; }
-
-      /// <summary>
-      /// Gets or sets the output name.
-      /// </summary>
-      [ORMProperty("NAME")]
-      public string Name { get; set; }
 
       /// <summary>
       /// Gets or sets the output digital address.
@@ -144,7 +108,7 @@ namespace Rwm.Otc.Layout
       /// <returns>An integer indicating if the two instances are equals or not.</returns>
       public int CompareTo(AccessoryDecoderConnection other)
       {
-         return this.Name.CompareTo(other.Name);
+         return this.ElementPinIndex.CompareTo(other.ElementPinIndex);
       }
 
       #endregion
@@ -160,6 +124,23 @@ namespace Rwm.Otc.Layout
       public static AccessoryDecoderConnection GetByOutput(Element element, int output)
       {
          foreach (AccessoryDecoderConnection connection in element?.AccessoryConnections)
+         {
+            if (connection.DecoderOutput == output)
+               return connection;
+         }
+
+         return null;
+      }
+
+      /// <summary>
+      /// Get a <see cref="AccessoryDecoderConnection"/> by its device output.
+      /// </summary>
+      /// <param name="element">Owner connection <see cref="Element"/>.</param>
+      /// <param name="output"><see cref="AccessoryDecoderConnection"/> index.</param>
+      /// <returns>The requested <see cref="AccessoryDecoderConnection"/> or <c>null</c> if no <see cref="AccessoryDecoderConnection"/> is used by the specified <see cref="Element"/> and index.</returns>
+      public static AccessoryDecoderConnection GetByOutput(AccessoryDecoder decoder, int output)
+      {
+         foreach (AccessoryDecoderConnection connection in decoder?.Connections)
          {
             if (connection.DecoderOutput == output)
                return connection;
@@ -231,9 +212,8 @@ namespace Rwm.Otc.Layout
       {
          this.ID = 0;
          this.ElementPinIndex = 0;
-         this.Device = null;
+         this.Decoder = null;
          this.Element = null;
-         this.Name = string.Empty;
          this.Address = 0;
          this.DecoderOutput = 0;
          this.OutputMap = new DeviceConnectionMap();

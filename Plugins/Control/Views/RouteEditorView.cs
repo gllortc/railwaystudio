@@ -129,7 +129,7 @@ namespace Rwm.Studio.Plugins.Control.Views
                      connection.ID = deviceConnection.ID;
                      connection.IsValid = true;
                      connection.Name = (deviceConnection.Element != null ? deviceConnection.Element?.ToString() : "Bad connection!");
-                     connection.Device = (deviceConnection.Device != null ? deviceConnection.Device?.Name : "Bad connection!");
+                     connection.Device = (deviceConnection.Decoder != null ? deviceConnection.Decoder?.Name : "Bad connection!");
                      connection.Output = deviceConnection.DecoderOutput;
                      connection.Address = deviceConnection.Address;
                      connection.Status = routeElement.Element.Properties.GetStatusDescription(routeElement.AccessoryStatus);
@@ -158,11 +158,11 @@ namespace Rwm.Studio.Plugins.Control.Views
          grdConnectView.Columns.Add(new GridColumn() { Caption = "Element", Visible = true, FieldName = "Name", Width = 200 });
          grdConnectView.Columns.Add(new GridColumn() { Caption = "Status", Visible = true, FieldName = "Status", Width = 120 });
          grdConnectView.Columns.Add(new GridColumn() { Caption = "Device", Visible = true, FieldName = "Device", Width = 120 });
-         grdConnectView.Columns.Add(new GridColumn() { Caption = "DecoderOutput", Visible = true, FieldName = "DecoderOutput", Width = 80 });
+         grdConnectView.Columns.Add(new GridColumn() { Caption = "DecoderInput", Visible = true, FieldName = "DecoderInput", Width = 80 });
          grdConnectView.Columns.Add(new GridColumn() { Caption = "Address", Visible = true, FieldName = "Address", Width = 80 });
 
-         grdConnectView.Columns["DecoderOutput"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         grdConnectView.Columns["DecoderOutput"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         grdConnectView.Columns["DecoderInput"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         grdConnectView.Columns["DecoderInput"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
 
          grdConnectView.Columns["Address"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          grdConnectView.Columns["Address"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;

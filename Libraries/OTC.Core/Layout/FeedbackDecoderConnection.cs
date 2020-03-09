@@ -37,36 +37,6 @@ namespace Rwm.Otc.Layout
          Initialize();
       }
 
-      /// <summary>
-      /// Returns a new instance of <see cref="AccessoryDecoderConnection"/>.
-      /// </summary>
-      /// <param name="name">Name of the connection.</param>
-      /// <param name="device">Control module associated.</param>
-      public FeedbackDecoderConnection(string name, FeedbackDecoder device)
-      {
-         Initialize();
-
-         this.Name = name.Trim();
-         this.Device = device;
-      }
-
-      /// <summary>
-      /// Returns a new instance of <see cref="AccessoryDecoderConnection"/>.
-      /// </summary>
-      /// <param name="name">Conetion name.</param>
-      /// <param name="device">Control module associated.</param>
-      /// <param name="address">Digital address.</param>
-      /// <param name="output">DecoderOutput index (starting by 1).</param>
-      public FeedbackDecoderConnection(string name, FeedbackDecoder device, int address, int output)
-      {
-         Initialize();
-
-         this.Name = name.Trim();
-         this.Device = device;
-         this.Address = address;
-         this.DecoderOutput = output;
-      }
-
       #endregion
 
       #region Properties
@@ -80,8 +50,8 @@ namespace Rwm.Otc.Layout
       /// <summary>
       /// Gets or sets the element connection index (to maintain its position).
       /// </summary>
-      [ORMProperty("index")]
-      public int Index { get; set; }
+      [ORMProperty("INDEX")]
+      public int ElementPinIndex { get; set; }
 
       /// <summary>
       /// Gets or sets the related feedback decoder.
@@ -96,22 +66,16 @@ namespace Rwm.Otc.Layout
       public Element Element { get; set; }
 
       /// <summary>
-      /// Gets or sets the output name.
-      /// </summary>
-      [ORMProperty("NAME")]
-      public string Name { get; set; }
-
-      /// <summary>
       /// Gets or sets the output digital address.
       /// </summary>
       [ORMProperty("ADDRESS")]
       public int Address { get; set; }
 
       /// <summary>
-      /// Gets or sets the device output where it is connected (starting at 1).
+      /// Gets or sets the decoder input where it is connected (starting at 1).
       /// </summary>
-      [ORMProperty("OUTPUT")]
-      public int DecoderOutput { get; set; }
+      [ORMProperty("INPUT")]
+      public int DecoderInput { get; set; }
 
       /// <summary>
       /// Gets or sets the time (in milliseconds) to switch.
@@ -120,12 +84,14 @@ namespace Rwm.Otc.Layout
       public int DelayTime { get; set; }
 
       /// <summary>
-      /// Gets a value indicating if the connection is used by an element.
+      /// Gets the sensor address (reported by digital system).
       /// </summary>
-      public bool IsUsed
+      public int SensorAddress
       {
-         get { return (this.Element != null); }
+         get { return ((this.Address - 1) * this.Device.Inputs) + this.DecoderInput; }
       }
+
+
 
       #endregion
 
@@ -138,7 +104,7 @@ namespace Rwm.Otc.Layout
       /// <returns>An integer indicating if the two instances are equals or not.</returns>
       public int CompareTo(FeedbackDecoderConnection other)
       {
-         return this.Name.CompareTo(other.Name);
+         return this.ElementPinIndex.CompareTo(other.ElementPinIndex);
       }
 
       #endregion
@@ -151,11 +117,11 @@ namespace Rwm.Otc.Layout
       /// <param name="element">Owner connection <see cref="Element"/>.</param>
       /// <param name="output"><see cref="FeedbackDecoderConnection"/> index.</param>
       /// <returns>The requested <see cref="FeedbackDecoderConnection"/> or <c>null</c> if no <see cref="FeedbackDecoderConnection"/> is used by the specified <see cref="Element"/> and index.</returns>
-      public static FeedbackDecoderConnection GetByOutput(Element element, int output)
+      public static FeedbackDecoderConnection GetByInput(Element element, int output)
       {
          foreach (FeedbackDecoderConnection connection in element?.FeedbackConnections)
          {
-            if (connection.DecoderOutput == output)
+            if (connection.DecoderInput == output)
                return connection;
          }
 
@@ -172,7 +138,7 @@ namespace Rwm.Otc.Layout
       {
          foreach (FeedbackDecoderConnection connection in element?.FeedbackConnections)
          {
-            if (connection.Index == index)
+            if (connection.ElementPinIndex == index)
                return connection;
          }
 
@@ -189,12 +155,11 @@ namespace Rwm.Otc.Layout
       private void Initialize()
       {
          this.ID = 0;
-         this.Index = 0;
+         this.ElementPinIndex = 0;
          this.Device = null;
          this.Element = null;
-         this.Name = string.Empty;
          this.Address = 0;
-         this.DecoderOutput = 0;
+         this.DecoderInput = 0;
          this.DelayTime = 0;
       }
 

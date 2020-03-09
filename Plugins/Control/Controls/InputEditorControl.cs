@@ -95,7 +95,7 @@ namespace Rwm.Studio.Plugins.Control.Controls
                this.SelectedInput = form.SelectedConnection;
                this.SelectedDecoder = form.SelectedDecoder;
 
-               this.SelectedInput.Index = this.ConnectionIndex;
+               this.SelectedInput.ElementPinIndex = this.ConnectionIndex;
                this.SelectedInput.Element = this.Element;
                FeedbackDecoderConnection.Save(this.SelectedInput);
             }
@@ -137,7 +137,7 @@ namespace Rwm.Studio.Plugins.Control.Controls
          {
             txtInput.Text = string.Format("<b>{0}</b> input <b>{1}</b> (address <b>{2}</b>)",
                                            this.SelectedDecoder.Name,
-                                           this.SelectedInput.DecoderOutput,
+                                           this.SelectedInput.DecoderInput,
                                            this.SelectedInput.Address);
          }
 

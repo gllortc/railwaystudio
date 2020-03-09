@@ -184,7 +184,7 @@
          // 
          // chkViewConsole
          // 
-         this.chkViewConsole.Caption = "DecoderOutput";
+         this.chkViewConsole.Caption = "DecoderInput";
          this.chkViewConsole.Glyph = global::Rwm.Studio.Properties.Resources.ICO_CONSOLE_16;
          this.chkViewConsole.Id = 15;
          this.chkViewConsole.LargeGlyph = global::Rwm.Studio.Properties.Resources.ICO_CONSOLE_32;

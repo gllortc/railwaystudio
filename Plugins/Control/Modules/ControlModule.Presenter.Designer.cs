@@ -41,24 +41,28 @@ namespace Rwm.Studio.Plugins.Control.Modules
       {
          Cursor.Current = Cursors.WaitCursor;
 
-         if (!chkSystemConnect.Checked)
+         try
          {
-            OTCContext.Project.DigitalSystem?.Disconnect();
+            OTCContext.Project.DigitalSystem?.Connect();
          }
-         else
+         catch
          {
-            try
-            {
-               OTCContext.Project.DigitalSystem?.Connect();
-            }
-            catch (Exception ex)
-            {
-               Cursor.Current = Cursors.Default;
+            // Discard exceptions (informed via events)
+         }
 
-               MessageBox.Show("ERROR connecting to digital system:" + Environment.NewLine + Environment.NewLine + ex.Message,
-                               Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-         }
+         this.RefreshStatus();
+
+         Cursor.Current = Cursors.Default;
+      }
+
+      /// <summary>
+      /// Connect/disconnect the digital system.
+      /// </summary>
+      internal void SystemDisconnect()
+      {
+         Cursor.Current = Cursors.WaitCursor;
+
+         OTCContext.Project.DigitalSystem?.Disconnect();
 
          this.RefreshStatus();
 
@@ -70,15 +74,15 @@ namespace Rwm.Studio.Plugins.Control.Modules
       /// </summary>
       internal void SystemSettings()
       {
-         OTCContext.Project.DigitalSystem.ShowConfig(OTCContext.Settings);
+         OTCContext.Project.DigitalSystem.ShowSettingsDialog(OTCContext.Settings);
       }
 
       /// <summary>
       /// Show the selected system settings dialogue.
       /// </summary>
-      internal void EmergencyStop()
+      internal bool EmergencyStop()
       {
-         OTCContext.Project.DigitalSystem.SetEmergencyStop(cmdCtrlEmergencyStop.Down);
+         return OTCContext.Project.DigitalSystem.SetEmergencyStop(cmdCtrlEmergencyStop.Down);
       }
 
       /// <summary>
@@ -97,9 +101,10 @@ namespace Rwm.Studio.Plugins.Control.Modules
          bsiSystem.Glyph = (OTCContext.Project.DigitalSystem == null ? Control.Properties.Resources.ICO_SYSTEMS_UNSELECTED_16 : Control.Properties.Resources.ICO_SYSTEM_16);
 
          // Update system controls
-         chkSystemConnect.Enabled = (OTCContext.Project.DigitalSystem != null);
          cmdSystemSettings.Enabled = (OTCContext.Project.DigitalSystem != null);
          rpgControl.Enabled = !(OTCContext.Project.DigitalSystem == null || OTCContext.Project.DigitalSystem.Status != SystemStatus.Connected);
+         cmdSystemConnect.Enabled = (OTCContext.Project.DigitalSystem != null && OTCContext.Project.DigitalSystem.Status != SystemStatus.Connected);
+         cmdSystemDisconnect.Enabled = !cmdSystemConnect.Enabled;
 
          // Update the switchboard status
 

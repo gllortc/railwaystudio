@@ -15,7 +15,7 @@ namespace Rwm.OTC.Systems
 
       private const string SYSTEM_GUID = "A88107DA-C8C4-408E-98E7-CC7D30C9F15F";
 
-      private const int SENSOR_OUTPUTS_ADDRESS = 4;
+      private const int SENSOR_OUTPUTS_ADDRESS = 8;   // Like Lenz systems
 
       #endregion
 
@@ -98,7 +98,7 @@ namespace Rwm.OTC.Systems
 
       #region Methods
 
-      public void Connect()
+      public bool Connect()
       {
          this.Status = SystemStatus.Connecting;
 
@@ -112,12 +112,14 @@ namespace Rwm.OTC.Systems
          this.Status = SystemStatus.Connected;
 
          System.Windows.Forms.Application.DoEvents();
+
+         return true;
       }
 
       /// <summary>
       /// Disconnect the digital system and release all resources.
       /// </summary>
-      public void Disconnect()
+      public bool Disconnect()
       {
          if (this.SystemInformation != null)
          {
@@ -127,12 +129,14 @@ namespace Rwm.OTC.Systems
          this.Status = SystemStatus.Disconnected;
 
          System.Windows.Forms.Application.DoEvents();
+
+         return true;
       }
 
       /// <summary>
       /// Stop all locomotives.
       /// </summary>
-      public void SetEmergencyStop(bool enabled)
+      public bool SetEmergencyStop(bool enabled)
       {
          this.EmergencyStopEnabled = enabled;
 
@@ -151,6 +155,8 @@ namespace Rwm.OTC.Systems
          }
 
          System.Windows.Forms.Application.DoEvents();
+
+         return true;
       }
 
       /// <summary>
@@ -175,7 +181,7 @@ namespace Rwm.OTC.Systems
       /// <summary>
       /// Set an accessory output.
       /// </summary>
-      /// <param name="address">DecoderOutput address.</param>
+      /// <param name="address">DecoderInput address.</param>
       /// <param name="status">Value to set.</param>
       public void SetAccessoryStatus(Element element)
       {
@@ -250,7 +256,7 @@ namespace Rwm.OTC.Systems
       /// </summary>
       /// <param name="settings">Current application settings.</param>
       /// <rereturns>A value indicating if the user has been changed the settings or not.</rereturns>
-      public System.Windows.Forms.DialogResult ShowConfig(Rwm.Otc.Configuration.XmlSettingsManager settings)
+      public System.Windows.Forms.DialogResult ShowSettingsDialog(Rwm.Otc.Configuration.XmlSettingsManager settings)
       {
          System.Windows.Forms.MessageBox.Show("This digital system doesn't have any configuration.",
                                               System.Windows.Forms.Application.ProductName,

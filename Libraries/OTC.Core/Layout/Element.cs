@@ -180,6 +180,14 @@ namespace Rwm.Otc.Layout
          get { return (this.AccessoryConnections?.Count > 0); }
       }
 
+      /// <summary>
+      /// Gets a <see cref="System.String"/> representing the name of the element.
+      /// </summary>
+      public string DisplayName
+      {
+         get { return (!string.IsNullOrWhiteSpace(this.Name) ? this.Name : this.Coordinates.ToString()); }
+      }
+
       #endregion
 
       #region Methods
@@ -386,7 +394,7 @@ namespace Rwm.Otc.Layout
       /// <returns>The name of the element.</returns>
       public override string ToString()
       {
-         return (!string.IsNullOrWhiteSpace(this.Name) ? this.Name : this.Coordinates.ToString());
+         return this.DisplayName;
       }
 
       #endregion
