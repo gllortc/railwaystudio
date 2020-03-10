@@ -38,7 +38,7 @@ namespace Rwm.OTC.Systems.XpressNet.Views
 
       private void CmdOK_Click(object sender, EventArgs e)
       {
-         this.DigitalSystem.Port = (string)cboPort.EditValue;
+         this.DigitalSystem.PortName = (string)cboPort.EditValue;
          this.DigitalSystem.BaudRate = (int)cboBaudRate.EditValue;
          this.DigitalSystem.Parity = (Parity)cboParity.EditValue;
          this.DigitalSystem.StopBits = (StopBits)cboStopBits.EditValue;
@@ -99,7 +99,7 @@ namespace Rwm.OTC.Systems.XpressNet.Views
 
       private void InitializeData()
       {
-         cboPort.EditValue = this.DigitalSystem.Port;
+         cboPort.EditValue = this.DigitalSystem.PortName;
          cboBaudRate.EditValue = this.DigitalSystem.BaudRate;
          cboParity.EditValue = this.DigitalSystem.Parity;
          cboStopBits.EditValue = this.DigitalSystem.StopBits;
