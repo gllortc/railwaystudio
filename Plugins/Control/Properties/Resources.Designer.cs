@@ -103,6 +103,46 @@ namespace Rwm.Studio.Plugins.Control.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap control_play_blue_16 {
+            get {
+                object obj = ResourceManager.GetObject("control_play_blue_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap control_play_blue_32 {
+            get {
+                object obj = ResourceManager.GetObject("control_play_blue_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap exclamation {
+            get {
+                object obj = ResourceManager.GetObject("exclamation", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap exclamation_16 {
+            get {
+                object obj = ResourceManager.GetObject("exclamation_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap folder_train_32 {
             get {
                 object obj = ResourceManager.GetObject("folder_train_32", resourceCulture);
@@ -1406,6 +1446,16 @@ namespace Rwm.Studio.Plugins.Control.Properties {
         internal static System.Drawing.Bitmap lightning_go_16 {
             get {
                 object obj = ResourceManager.GetObject("lightning_go_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap prohibition_button_16 {
+            get {
+                object obj = ResourceManager.GetObject("prohibition_button_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

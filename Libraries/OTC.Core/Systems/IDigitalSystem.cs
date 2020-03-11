@@ -1,5 +1,6 @@
 ﻿using Rwm.Otc.Configuration;
 using Rwm.Otc.Layout;
+using Rwm.Otc.Systems.Protocol;
 using System;
 
 namespace Rwm.Otc.Systems
@@ -80,14 +81,13 @@ namespace Rwm.Otc.Systems
       /// <summary>
       /// Stop all locomotives.
       /// </summary>
-      /// <param name="enabled">A value indicating if the status is enabled or disabled.</param>
-      bool SetEmergencyStop(bool enabled);
+      void EmergencyStop();
 
       /// <summary>
       /// Get the digital system information.
       /// </summary>
       /// <returns>A <see cref="System.String"/> containing information about the digital system.</returns>
-      DigitalSystemInfo GetSystemInformation();
+      ISystemInformation GetSystemInformation();
 
       /// <summary>
       /// Gets an accessory status information.
@@ -120,20 +120,25 @@ namespace Rwm.Otc.Systems
 
       #region Events
 
-      /// <summary>
-      /// Event raised when a sensor is activated.
-      /// </summary>
-      event EventHandler<FeedbackEventArgs> SensorStatusChanged;
+      ///// <summary>
+      ///// Event raised when a sensor is activated.
+      ///// </summary>
+      //event EventHandler<FeedbackEventArgs> SensorStatusChanged;
 
-      /// <summary>
-      /// Event raised when a sensor is activated.
-      /// </summary>
-      event EventHandler<AccessoryEventArgs> AccessoryStatusChanged;
+      ///// <summary>
+      ///// Event raised when a sensor is activated.
+      ///// </summary>
+      //event EventHandler<AccessoryEventArgs> AccessoryStatusChanged;
 
       /// <summary>
       /// Event raised when any operation is requested or received by the digital system.
       /// </summary>
-      event EventHandler<SystemInfoEventArgs> SystemInformation;
+      event EventHandler<SystemConsoleEventArgs> SystemInformation;
+
+      /// <summary>
+      /// Event raised when any operation is requested or received by the digital system.
+      /// </summary>
+      event EventHandler<SystemCommandEventArgs> CommandReceived;
 
       #endregion
 

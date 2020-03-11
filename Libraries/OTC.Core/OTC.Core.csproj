@@ -170,12 +170,14 @@
     <Compile Include="Layout\Sound.cs" />
     <Compile Include="Layout\Switchboard.cs" />
     <Compile Include="Systems\AccessoryInformation.cs" />
-    <Compile Include="Systems\DigitalSystemInfo.cs" />
+    <Compile Include="Systems\SystemCommandEventArgs.cs" />
+    <Compile Include="Systems\Test\TestSystemInformation.cs" />
     <Compile Include="Systems\AccessoryEventArgs.cs" />
     <Compile Include="Systems\OccupationEventArgs.cs" />
     <Compile Include="Systems\IDigitalSystem.cs" />
     <Compile Include="Systems\DigitalSystemException.cs" />
     <Compile Include="Systems\Protocol\ICommand.cs" />
+    <Compile Include="Systems\Protocol\ISystemInformation.cs" />
     <Compile Include="Systems\Protocol\SystemInfoCommand.cs" />
     <Compile Include="Systems\Protocol\InterfaceInfoCommand.cs" />
     <Compile Include="Systems\Protocol\IRequest.cs" />
@@ -183,9 +185,9 @@
     <Compile Include="Systems\Protocol\SystemInformationRequest.cs" />
     <Compile Include="Systems\Protocol\SystemInformationResponse.cs" />
     <Compile Include="Systems\FeedbackEventArgs.cs" />
-    <Compile Include="Systems\SystemInfoEventArgs.cs" />
+    <Compile Include="Systems\SystemConsoleEventArgs.cs" />
     <Compile Include="Systems\SystemManager.cs" />
-    <Compile Include="Systems\TestSystem.cs" />
+    <Compile Include="Systems\Test\TestSystem.cs" />
     <Compile Include="Themes\ThemeManager.cs" />
     <Compile Include="Themes\ITheme.cs" />
     <Compile Include="Internationalization\OTCLanguage.cs" />

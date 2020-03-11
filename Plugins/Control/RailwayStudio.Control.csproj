@@ -437,6 +437,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\prohibition_button_16.png" />
     <None Include="Resources\server_delete_32.png" />
     <None Include="Resources\processor_check_32.png" />
     <None Include="Resources\train_route_32.png" />
@@ -571,6 +572,10 @@
     <None Include="Resources\cross_32.png" />
     <None Include="Resources\calculator_16.png" />
     <None Include="Resources\calculator_32.png" />
+    <None Include="Resources\exclamation_16.png" />
+    <None Include="Resources\exclamation.png" />
+    <None Include="Resources\control_play_blue_161.png" />
+    <None Include="Resources\control_play_blue_321.png" />
     <Content Include="Resources\favicon.ico" />
     <None Include="Resources\processor_error_16.png" />
     <None Include="Resources\processor_edit_16.png" />

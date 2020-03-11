@@ -305,7 +305,7 @@ namespace Rwm.Otc.Layout
 
          // Raise project events
          OTCContext.Project.ElementImageChanged(this);
-         OTCContext.Project.AccessoryStatusChanged(this);
+         // OTCContext.Project.AccessoryStatusChanged(this);
       }
 
       /// <summary>
@@ -361,7 +361,7 @@ namespace Rwm.Otc.Layout
 
          // Raise project events
          OTCContext.Project.ElementImageChanged(this);
-         OTCContext.Project.FeedbackStatusChanged(this);
+         // OTCContext.Project.DigitalSystem.FeedbackStatusChanged(this);
       }
 
       /// <summary>

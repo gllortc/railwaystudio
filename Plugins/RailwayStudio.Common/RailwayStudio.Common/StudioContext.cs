@@ -76,7 +76,7 @@ namespace RailwayStudio.Common
             OTCContext.Settings.SaveSettings();
 
             // Link the digital system to the output console
-            OTCContext.Project.OnDigitalSystemInfo += DigitalSystem_SystemInformation;
+            // OTCContext.Project.OnDigitalSystemInfo += DigitalSystem_SystemInformation;
          }
       }
 
@@ -92,7 +92,7 @@ namespace RailwayStudio.Common
             OTCContext.OpenProject(form.FileName);
 
             // Register listeners
-            OTCContext.Project.DigitalSystem.SystemInformation += DigitalSystem_SystemInformation;
+            // OTCContext.Project.DigitalSystem.SystemInformation += DigitalSystem_SystemInformation;
 
             OTCContext.Settings.AddSetting(StudioContext.SETUP_KEY_PROJECT_LASTOPEN, form.FileName);
             OTCContext.Settings.SaveSettings();
@@ -120,7 +120,7 @@ namespace RailwayStudio.Common
          OTCContext.OpenProject(lastFile);
 
          // Register listeners
-         OTCContext.Project.DigitalSystem.SystemInformation += DigitalSystem_SystemInformation;
+         // OTCContext.Project.DigitalSystem.SystemInformation += DigitalSystem_SystemInformation;
 
          // Show information in console
          StudioContext.LogInformation("Project {0} loaded (from {1})",
@@ -162,15 +162,15 @@ namespace RailwayStudio.Common
 
       #region Event Handlers
 
-      static void DigitalSystem_SystemInformation(object sender, SystemInfoEventArgs e)
+      static void DigitalSystem_SystemInformation(object sender, SystemConsoleEventArgs e)
       {
          switch (e.Type)
          {
-            case SystemInfoEventArgs.MessageType.Error:
+            case SystemConsoleEventArgs.MessageType.Error:
                StudioContext.LogError(e.Message);
                break;
 
-            case SystemInfoEventArgs.MessageType.Warning:
+            case SystemConsoleEventArgs.MessageType.Warning:
                StudioContext.LogWarning(e.Message);
                break;
 

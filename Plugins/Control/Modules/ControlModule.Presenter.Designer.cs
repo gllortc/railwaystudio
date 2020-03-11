@@ -5,9 +5,11 @@ using RailwayStudio.Common;
 using Rwm.Otc;
 using Rwm.Otc.Layout;
 using Rwm.Otc.Systems;
+using Rwm.Otc.Systems.Protocol;
 using Rwm.Otc.UI;
 using Rwm.Otc.UI.Controls;
 using Rwm.Studio.Plugins.Control.Views;
+using static Rwm.Otc.Systems.SystemConsoleEventArgs;
 
 namespace Rwm.Studio.Plugins.Control.Modules
 {
@@ -80,9 +82,9 @@ namespace Rwm.Studio.Plugins.Control.Modules
       /// <summary>
       /// Show the selected system settings dialogue.
       /// </summary>
-      internal bool EmergencyStop()
+      internal void EmergencyStop()
       {
-         return OTCContext.Project.DigitalSystem.SetEmergencyStop(cmdCtrlEmergencyStop.Down);
+         OTCContext.Project.DigitalSystem.EmergencyStop();
       }
 
       /// <summary>
@@ -122,6 +124,38 @@ namespace Rwm.Studio.Plugins.Control.Modules
       #endregion
 
       #region Event Handlers
+
+      private void DigitalSystem_SystemInformation(object sender, Otc.Systems.SystemConsoleEventArgs e)
+      {
+         switch (e.Type)
+         {
+            case SystemConsoleEventArgs.MessageType.Error:
+               StudioContext.LogError(e.Message);
+               break;
+
+            case SystemConsoleEventArgs.MessageType.Warning:
+               StudioContext.LogWarning(e.Message);
+               break;
+
+            default:
+               StudioContext.LogInformation(e.Message);
+               break;
+         }
+      }
+
+      private void DigitalSystem_CommandReceived(object sender, Otc.Systems.SystemCommandEventArgs e)
+      {
+         if (e.CommandReceived == null)
+         {
+            return;
+         }
+         else if (e.CommandReceived is ISystemInformation)
+         {
+            StudioContext.LogInformation("Connected to {0} ver {1}",
+                                         ((ISystemInformation)e.CommandReceived).SystemName,
+                                         ((ISystemInformation)e.CommandReceived).SystemVersion);
+         }
+      }
 
       void spcPanel_SensorManuallyActivated(object sender, CellClickEventArgs e, bool status)
       {

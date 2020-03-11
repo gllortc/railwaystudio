@@ -1,25 +1,27 @@
-﻿namespace Rwm.Otc.Systems
+﻿using Rwm.Otc.Systems.Protocol;
+
+namespace Rwm.Otc.Systems.Test
 {
 
    /// <summary>
    /// Contains the digital system information obtained directly using the protocol.
    /// </summary>
-   public class DigitalSystemInfo
+   public class TestSystemInformation : ISystemInformation
    {
 
-      public DigitalSystemInfo()
+      public TestSystemInformation()
       {
          Initialize();
       }
 
-      public DigitalSystemInfo(string sysName)
+      public TestSystemInformation(string sysName)
       {
          Initialize();
 
          this.SystemName = sysName;
       }
 
-      public DigitalSystemInfo(string sysName, string sysVersion)
+      public TestSystemInformation(string sysName, string sysVersion)
       {
          Initialize();
 
@@ -27,7 +29,7 @@
          this.SystemVersion = sysVersion;
       }
 
-      public DigitalSystemInfo(string sysName, string sysVersion, string ifName, string ifVersion)
+      public TestSystemInformation(string sysName, string sysVersion, string ifName, string ifVersion)
       {
          Initialize();
 

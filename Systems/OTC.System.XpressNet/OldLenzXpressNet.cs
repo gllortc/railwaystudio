@@ -235,9 +235,9 @@ namespace Rwm.OTC.Systems
       /// Get the digital system information.
       /// </summary>
       /// <returns>A <see cref="System.String"/> containing information about the digital system.</returns>
-      public DigitalSystemInfo GetSystemInformation()
+      public TestSystemInformation GetSystemInformation()
       {
-         return new DigitalSystemInfo(this.GetType().Name);
+         return new TestSystemInformation(this.GetType().Name);
       }
 
       /// <summary>

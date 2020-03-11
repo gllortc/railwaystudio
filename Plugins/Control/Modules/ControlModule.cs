@@ -81,6 +81,10 @@ namespace Rwm.Studio.Plugins.Control.Modules
          chkOptionsExecuteActions.Checked = OTCContext.Project.ExecuteBlockActions;
          chkOptionsManualSensorAllowed.Checked = OTCContext.Project.AllowManualSensorActivation;
 
+         // Register project events
+         OTCContext.Project.DigitalSystem.SystemInformation += DigitalSystem_SystemInformation;
+         OTCContext.Project.DigitalSystem.CommandReceived += DigitalSystem_CommandReceived;
+
          // Show module information
          StudioContext.LogInformation("{0} v{1} loaded", this.ModuleName, Application.ProductVersion);
       }

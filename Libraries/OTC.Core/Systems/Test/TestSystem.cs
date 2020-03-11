@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading;
 using Rwm.Otc.Layout;
-using Rwm.Otc.Systems;
+using Rwm.Otc.Systems.Protocol;
 
-namespace Rwm.OTC.Systems
+namespace Rwm.Otc.Systems.Test
 {
    /// <summary>
    /// Implementation of a dummy digital system.
@@ -79,20 +79,25 @@ namespace Rwm.OTC.Systems
 
       #region Events
 
-      /// <summary>
-      /// Event raised when a sensor is activated or deactivated.
-      /// </summary>
-      public event EventHandler<FeedbackEventArgs> SensorStatusChanged;
+      /////// <summary>
+      /////// Event raised when a sensor is activated or deactivated.
+      /////// </summary>
+      ////public event EventHandler<FeedbackEventArgs> SensorStatusChanged;
 
-      /// <summary>
-      /// Event raised when an accessory is set outside the OTC context.
-      /// </summary>
-      public event EventHandler<AccessoryEventArgs> AccessoryStatusChanged;
+      /////// <summary>
+      /////// Event raised when an accessory is set outside the OTC context.
+      /////// </summary>
+      ////public event EventHandler<AccessoryEventArgs> AccessoryStatusChanged;
 
       /// <summary>
       /// Event raised when any operation is requested or received by the digital system.
       /// </summary>
-      public event EventHandler<SystemInfoEventArgs> SystemInformation;
+      public event EventHandler<SystemConsoleEventArgs> SystemInformation;
+
+      /// <summary>
+      /// Event raised when any operation is requested or received by the digital system.
+      /// </summary>
+      public event EventHandler<SystemCommandEventArgs> CommandReceived;
 
       #endregion
 
@@ -104,8 +109,8 @@ namespace Rwm.OTC.Systems
 
          if (this.SystemInformation != null)
          {
-            this.SystemInformation(this, new SystemInfoEventArgs("{0} connected", this.Name));
-            this.SystemInformation(this, new SystemInfoEventArgs(SystemInfoEventArgs.MessageType.Warning,
+            this.SystemInformation(this, new SystemConsoleEventArgs("{0} connected", this.Name));
+            this.SystemInformation(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Warning,
                                                                  "System is not connected to any physical system and must be used for testing purposes only"));
          }
 
@@ -123,7 +128,7 @@ namespace Rwm.OTC.Systems
       {
          if (this.SystemInformation != null)
          {
-            this.SystemInformation(this, new SystemInfoEventArgs("Digital system disconnected"));
+            this.SystemInformation(this, new SystemConsoleEventArgs("Digital system disconnected"));
          }
 
          this.Status = SystemStatus.Disconnected;
@@ -136,36 +141,23 @@ namespace Rwm.OTC.Systems
       /// <summary>
       /// Stop all locomotives.
       /// </summary>
-      public bool SetEmergencyStop(bool enabled)
+      public void EmergencyStop()
       {
-         this.EmergencyStopEnabled = enabled;
+         this.EmergencyStopEnabled = true;
 
-         if (this.SystemInformation != null)
-         {
-            if (enabled)
-            {
-               this.SystemInformation(this, new SystemInfoEventArgs(SystemInfoEventArgs.MessageType.Warning, 
-                                                                    "Emergency stop: all locomotives stopped!"));
-            }
-            else
-            {
-               this.SystemInformation(this, new SystemInfoEventArgs(SystemInfoEventArgs.MessageType.Information,
-                                                                    "Emergency stop revoqued: all locomotive decoders active again"));
-            }
-         }
+         this.SystemInformation?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Warning,
+                                                                      "Emergency stop: all locomotives stopped!"));
 
          System.Windows.Forms.Application.DoEvents();
-
-         return true;
       }
 
       /// <summary>
       /// Get the digital system information.
       /// </summary>
       /// <returns>A <see cref="System.String"/> containing information about the digital system.</returns>
-      public DigitalSystemInfo GetSystemInformation()
+      public ISystemInformation GetSystemInformation()
       {
-         return new DigitalSystemInfo(this.GetType().Name);
+         return new TestSystemInformation(this.GetType().Name);
       }
 
       /// <summary>
@@ -187,7 +179,7 @@ namespace Rwm.OTC.Systems
       {
          if (element.AccessoryConnections?.Count <= 0)
          {
-            this.SystemInformation?.Invoke(this, new SystemInfoEventArgs(SystemInfoEventArgs.MessageType.Warning,
+            this.SystemInformation?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Warning,
                                                                          "Accessory {0} not connected: command discarded", element));
             return;
          }
@@ -200,14 +192,14 @@ namespace Rwm.OTC.Systems
                Thread.Sleep(connection.SwitchTime);
 
                // Execute the command to set the accessory
-               this.SystemInformation?.Invoke(this, new SystemInfoEventArgs(SystemInfoEventArgs.MessageType.Information,
+               this.SystemInformation?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Information,
                                                                             "SetAccessoryStatus: {0:0000} → T:{1}",
                                                                             connection.Address,
                                                                             connection.OutputMap.GetOutput(element.AccessoryStatus)));
             }
             else 
             {
-               this.SystemInformation?.Invoke(this, new SystemInfoEventArgs(SystemInfoEventArgs.MessageType.Warning,
+               this.SystemInformation?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Warning,
                                                                             "Accessory {0:0000} not connected: command discarded",
                                                                             element.ToString()));
             }
@@ -225,7 +217,7 @@ namespace Rwm.OTC.Systems
       {
          if (element.AccessoryConnections?.Count <= 0)
          {
-            this.SystemInformation?.Invoke(this, new SystemInfoEventArgs(SystemInfoEventArgs.MessageType.Warning,
+            this.SystemInformation?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Warning,
                                                                          "Feedback sensor {0} not connected: command discarded", element));
             return;
          }
@@ -235,14 +227,14 @@ namespace Rwm.OTC.Systems
             if (connection != null)
             {
                // Execute the command to set the accessory
-               this.SystemInformation(this, new SystemInfoEventArgs(SystemInfoEventArgs.MessageType.Information,
+               this.SystemInformation(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Information,
                                                                     "SetSensorStatus: {0:0000} → T:{1}",
                                                                     connection.Address,
                                                                     status));
             }
             else
             {
-               this.SystemInformation(this, new SystemInfoEventArgs(SystemInfoEventArgs.MessageType.Warning,
+               this.SystemInformation(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Warning,
                                                                     "Sensor {0:0000} not connected: signal discarded",
                                                                     element.ToString()));
             }

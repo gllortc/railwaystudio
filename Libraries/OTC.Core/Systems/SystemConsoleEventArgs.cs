@@ -5,7 +5,7 @@ namespace Rwm.Otc.Systems
    /// <summary>
    /// Class to store the information emitted from the disigtal system to bring to console.
    /// </summary>
-   public class SystemInfoEventArgs : EventArgs
+   public class SystemConsoleEventArgs : EventArgs
    {
       
       #region Enumerations
@@ -21,25 +21,25 @@ namespace Rwm.Otc.Systems
 
       #region Constructors
 
-      public SystemInfoEventArgs(string message)
+      public SystemConsoleEventArgs(string message)
       {
          this.Message = message;
          this.Type = MessageType.Information;
       }
 
-      public SystemInfoEventArgs(string message, params object[] args)
+      public SystemConsoleEventArgs(string message, params object[] args)
       {
          this.Message = string.Format(message, args);
          this.Type = MessageType.Information;
       }
 
-      public SystemInfoEventArgs(MessageType type, string message)
+      public SystemConsoleEventArgs(MessageType type, string message)
       {
          this.Message = message;
          this.Type = type;
       }
 
-      public SystemInfoEventArgs(MessageType type, string message, params object[] args)
+      public SystemConsoleEventArgs(MessageType type, string message, params object[] args)
       {
          this.Message = string.Format(message, args);
          this.Type = type;

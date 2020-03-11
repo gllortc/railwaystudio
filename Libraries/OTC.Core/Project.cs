@@ -4,9 +4,10 @@ using Rwm.Otc.Data.ORM;
 using Rwm.Otc.Diagnostics;
 using Rwm.Otc.Layout;
 using Rwm.Otc.Systems;
+using Rwm.Otc.Systems.Protocol;
 using Rwm.Otc.Themes;
 using static Rwm.Otc.Data.ORM.ORMForeignCollection;
-using static Rwm.Otc.Systems.SystemInfoEventArgs;
+using static Rwm.Otc.Systems.SystemConsoleEventArgs;
 
 namespace Rwm.Otc
 {
@@ -206,12 +207,8 @@ namespace Rwm.Otc
             // If no system is configured, load the test system
             if (this.DigitalSystem == null)
             {
-               this.DigitalSystem = new Rwm.OTC.Systems.TestSystem();
+               this.DigitalSystem = new Systems.Test.TestSystem();
             }
-
-            // Register the system events
-            this.DigitalSystem.SystemInformation += DigitalSystem_SystemInformation;
-            this.DigitalSystem.SensorStatusChanged += DigitalSystem_SensorStatusChanged;
          }
          catch (Exception ex)
          {
@@ -277,30 +274,30 @@ namespace Rwm.Otc
          this.OnElementImageChanged?.Invoke(element, new ElementEventArgs(element));
       }
 
-      /// <summary>
-      /// Force to raise the event <c>OnAccessoryStatusChanged</c>. Used by <see cref="Element"/> instances.
-      /// </summary>
-      /// <param name="element"><see cref="Element"/> that have been changed.</param>
-      public void AccessoryStatusChanged(Element element)
-      {
-         this.OnAccessoryStatusChanged?.Invoke(element, new AccessoryEventArgs(element.AccessoryStatus));
-      }
+      ///// <summary>
+      ///// Force to raise the event <c>OnAccessoryStatusChanged</c>. Used by <see cref="Element"/> instances.
+      ///// </summary>
+      ///// <param name="element"><see cref="Element"/> that have been changed.</param>
+      //public void AccessoryStatusChanged(Element element)
+      //{
+      //   this.OnAccessoryStatusChanged?.Invoke(element, new AccessoryEventArgs(element.AccessoryStatus));
+      //}
 
-      /// <summary>
-      /// Force to raise the event <see cref="Project.OnFeedbackStatusChanged"/>. Used by <see cref="Element"/> instances.
-      /// </summary>
-      public void FeedbackStatusChanged(Element element)
-      {
-         this.OnFeedbackStatusChanged?.Invoke(element, new FeedbackEventArgs(element.FeedbackStatus));
-      }
+      ///// <summary>
+      ///// Force to raise the event <see cref="Project.OnFeedbackStatusChanged"/>. Used by <see cref="Element"/> instances.
+      ///// </summary>
+      //public void FeedbackStatusChanged(Element element)
+      //{
+      //   this.OnFeedbackStatusChanged?.Invoke(element, new FeedbackEventArgs(element.FeedbackStatus));
+      //}
 
-      /// <summary>
-      /// Handler for the <c>AccessoryStatusChanged</c> event.
-      /// </summary>
-      void DigitalSystemInfo(MessageType type, string message, params object[] args)
-      {
-         this.OnDigitalSystemInfo?.Invoke(OTCContext.Project.DigitalSystem, new SystemInfoEventArgs(type, message, args));
-      }
+      ///// <summary>
+      ///// Handler for the <c>AccessoryStatusChanged</c> event.
+      ///// </summary>
+      //void DigitalSystemInfo(MessageType type, string message, params object[] args)
+      //{
+      //   this.OnDigitalSystemInfo?.Invoke(OTCContext.Project.DigitalSystem, new SystemConsoleEventArgs(type, message, args));
+      //}
 
       #endregion
 
@@ -316,74 +313,61 @@ namespace Rwm.Otc
       /// </summary>
       public delegate void OnElementImageChangedEventHandler(object sender, ElementEventArgs e);
 
-      /// <summary>
-      /// Event raised when an <see cref="Element"/> should be repainted.
-      /// </summary>
-      public event OnAccessoryStatusChangedEventHandler OnAccessoryStatusChanged;
+      ///// <summary>
+      ///// Event raised when an <see cref="Element"/> should be repainted.
+      ///// </summary>
+      //public event OnAccessoryStatusChangedEventHandler OnAccessoryStatusChanged;
 
-      /// <summary>
-      /// Delegate for the event <see cref="OnAccessoryStatusChanged"/>.
-      /// </summary>
-      public delegate void OnAccessoryStatusChangedEventHandler(object sender, AccessoryEventArgs e);
+      ///// <summary>
+      ///// Delegate for the event <see cref="OnAccessoryStatusChanged"/>.
+      ///// </summary>
+      //public delegate void OnAccessoryStatusChangedEventHandler(object sender, AccessoryEventArgs e);
 
-      /// <summary>
-      /// Event raised when an <see cref="Element"/> should be repainted.
-      /// </summary>
-      public event OnFeedbackStatusChangedEventHandler OnFeedbackStatusChanged;
+      ///// <summary>
+      ///// Event raised when an <see cref="Element"/> should be repainted.
+      ///// </summary>
+      //public event OnFeedbackStatusChangedEventHandler OnFeedbackStatusChanged;
 
-      /// <summary>
-      /// Delegate for the event <see cref="OnFeedbackStatusChanged"/>.
-      /// </summary>
-      public delegate void OnFeedbackStatusChangedEventHandler(object sender, FeedbackEventArgs e);
+      ///// <summary>
+      ///// Delegate for the event <see cref="OnFeedbackStatusChanged"/>.
+      ///// </summary>
+      //public delegate void OnFeedbackStatusChangedEventHandler(object sender, FeedbackEventArgs e);
 
-      /// <summary>
-      /// Event raised when an <see cref="Element"/> should be repainted.
-      /// </summary>
-      public event OnDigitalSystemInfoEventHandler OnDigitalSystemInfo;
-
-      /// <summary>
-      /// Delegate for the event <see cref="OnFeedbackStatusChanged"/>.
-      /// </summary>
-      public delegate void OnDigitalSystemInfoEventHandler(object sender, SystemInfoEventArgs e);
+      ///// <summary>
+      ///// Event raised when an <see cref="Element"/> should be repainted.
+      ///// </summary>
+      //public event EventHandler<SystemConsoleEventArgs> OnDigitalSystemInfo;
 
       #endregion
 
       #region Event Handlers
 
-      /// <summary>
-      /// Handle all information events received from the digital system.
-      /// </summary>
-      private void DigitalSystem_SystemInformation(object sender, SystemInfoEventArgs e)
-      {
-         this.OnDigitalSystemInfo?.Invoke(sender, e);
-      }
+      ///// <summary>
+      ///// Handle all feedback events received from the digital system.
+      ///// </summary>
+      //private void DigitalSystem_SensorStatusChanged(object sender, FeedbackEventArgs e)
+      //{
+      //   Element element = Element.GetByConnectionAddress(e.Address);
 
-      /// <summary>
-      /// Handle all feedback events received from the digital system.
-      /// </summary>
-      private void DigitalSystem_SensorStatusChanged(object sender, FeedbackEventArgs e)
-      {
-         Element element = Element.GetByConnectionAddress(e.Address);
+      //   // Check element
+      //   if (element == null)
+      //   {
+      //      this.DigitalSystemInfo(MessageType.Warning, 
+      //                             "Received feedback signal for address {0} output {1} (status: {2}) but is not assigned in current project. Signal discarded!",
+      //                             e.Address, e.Output, e.NewStatus);
+      //      return;
+      //   }
+      //   else if (!element.Properties.IsFeedback)
+      //   {
+      //      this.DigitalSystemInfo(MessageType.Warning,
+      //                             "Received feedback signal for address {0} output {1} (status: {2}) but associated element not accepting feedback. Signal discarded!",
+      //                             e.Address, e.Output, e.NewStatus);
+      //      return;
+      //   }
 
-         // Check element
-         if (element == null)
-         {
-            this.DigitalSystemInfo(MessageType.Warning, 
-                                   "Received feedback signal for address {0} output {1} (status: {2}) but is not assigned in current project. Signal discarded!",
-                                   e.Address, e.Output, e.NewStatus);
-            return;
-         }
-         else if (!element.Properties.IsFeedback)
-         {
-            this.DigitalSystemInfo(MessageType.Warning,
-                                   "Received feedback signal for address {0} output {1} (status: {2}) but associated element not accepting feedback. Signal discarded!",
-                                   e.Address, e.Output, e.NewStatus);
-            return;
-         }
-
-         // Change the feedback status
-         element.SetFeedbackStatus(e.NewStatus);
-      }
+      //   // Change the feedback status
+      //   element.SetFeedbackStatus(e.NewStatus);
+      //}
 
       /// <summary>
       /// Handler for the event <c>OccupationChanged</c>.
