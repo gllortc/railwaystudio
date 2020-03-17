@@ -50,13 +50,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LenzXpressNet.cs" />
-    <Compile Include="LenzResponse.cs" />
-    <Compile Include="Protocol\CommandBase.cs" />
-    <Compile Include="Protocol\ILenzRequest.cs" />
-    <Compile Include="Protocol\ILenzResponse.cs" />
-    <Compile Include="Protocol\LenzSystemInformationRequest.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Protocol\LenzFeedbackStatusChanged.cs" />
+    <Compile Include="Protocol\LenzAccessoryOperation.cs" />
+    <Compile Include="Protocol\LenzResumeOperations.cs" />
+    <Compile Include="XpnBufferManager.cs" />
+    <Compile Include="Protocol\LenzEmergencyStop.cs" />
+    <Compile Include="Protocol\LenzEmergencyOff.cs" />
     <Compile Include="Protocol\LenzSystemInformation.cs" />
-    <Compile Include="Protocol\SystemInformationCommand.cs" />
     <Compile Include="Views\SettingsView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,9 +69,6 @@
       <DependentUpon>SettingsView.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="XpnInputCommandEventArgs.cs" />
-    <Compile Include="XpnEventArgs.cs" />
-    <Compile Include="XpnProtocolException.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Libraries\OTC.Core\OTC.Core.csproj">
@@ -76,12 +78,19 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\SettingsView.resx">
       <DependentUpon>SettingsView.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\SettingsHeader.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

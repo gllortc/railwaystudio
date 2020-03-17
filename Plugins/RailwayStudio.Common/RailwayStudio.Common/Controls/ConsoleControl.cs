@@ -1,6 +1,6 @@
-﻿using DevExpress.XtraRichEdit.API.Native;
-using System;
+﻿using System;
 using System.Drawing;
+using DevExpress.XtraRichEdit.API.Native;
 
 namespace RailwayStudio.Common.Controls
 {
@@ -13,20 +13,22 @@ namespace RailwayStudio.Common.Controls
       {
          InitializeComponent();
 
-         this.Initialize();
+         recConsole.Text = string.Empty;
       }
 
       #endregion
 
       #region Properties
 
-      public string MessageIndicator { get; set; }
+      public string MessageIndicator { get; set; } = ">";
 
-      public Color InformationForeColor { get; set; }
+      public Color InformationForeColor { get; set; } = Color.White;
 
-      public Color WarningForeColor { get; set; }
+      public Color WarningForeColor { get; set; } = Color.LightYellow;
 
-      public Color ErrorForeColor { get; set; }
+      public Color ErrorForeColor { get; set; } = Color.OrangeRed;
+
+      public Color DebugForeColor { get; set; } = Color.LimeGreen;
 
       #endregion
 
@@ -71,20 +73,22 @@ namespace RailwayStudio.Common.Controls
             this.AppendText(this.MessageIndicator + " ERROR - " + message, this.ErrorForeColor);
       }
 
+      public void Debug(string message)
+      {
+         if (recConsole.InvokeRequired)
+         {
+            recConsole.Invoke((Action)delegate
+            {
+               this.AppendText(this.MessageIndicator + " DEBUG - " + message, this.DebugForeColor);
+            });
+         }
+         else
+            this.AppendText(this.MessageIndicator + " DEBUG - " + message, this.DebugForeColor);
+      }
+
       #endregion
 
       #region Private Members
-
-      private void Initialize()
-      {
-         recConsole.Text = string.Empty;
-
-         this.MessageIndicator = ">";
-
-         this.InformationForeColor = Color.White;
-         this.WarningForeColor = Color.LightYellow;
-         this.ErrorForeColor = Color.Salmon;
-      }
 
       private void AppendText(string message, Color color)
       {

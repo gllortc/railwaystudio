@@ -300,7 +300,7 @@ namespace Rwm.Otc.Layout
          // Send the command to the digital system
          if (sendToSystem)
          {
-            OTCContext.Project.DigitalSystem.SetAccessoryStatus(this);
+            // OTCContext.Project.DigitalSystem.SetAccessoryStatus(this);
          }
 
          // Raise project events
@@ -309,21 +309,33 @@ namespace Rwm.Otc.Layout
       }
 
       /// <summary>
-      /// Set next status for the element.
+      /// Send a request to the digital system to acquire next status.
       /// </summary>
-      /// <param name="sendToSystem">A value indicating if the new status must be sent to digital system.</param>
-      /// <returns>The new status adopted by the element.</returns>
-      public int SetAccessoryNextStatus(bool sendToSystem)
+      /// <returns>The requested status for the element.</returns>
+      public int RequestAccessoryNextStatus()
       {
          if (!this.Properties.IsAccessory)
             return Element.STATUS_UNDEFINED;
 
+         // Get status to acquire
+         int newStatus = Element.STATUS_UNDEFINED;
          if (this.AccessoryStatus <= Element.STATUS_UNDEFINED)
-            this.SetAccessoryStatus(1);
+            newStatus = 1;
          else if (this.AccessoryStatus == this.Properties.AccessoryMaxStats)
-            this.SetAccessoryStatus(1);
+            newStatus = 1;
          else
-            this.SetAccessoryStatus(this.AccessoryStatus + 1);
+            newStatus = this.AccessoryStatus + 1;
+
+         // Transform status into a requests
+         if (this.Properties.NumberOfAccessoryConnections == 1)
+         {
+            if (this.AccessoryConnections.Count > 0)
+               OTCContext.Project.DigitalSystem.OperateAccessory(this.AccessoryConnections[0].Address, newStatus);
+         }
+         else if (this.Properties.NumberOfAccessoryConnections == 2)
+         {
+
+         }
 
          return this.AccessoryStatus;
       }

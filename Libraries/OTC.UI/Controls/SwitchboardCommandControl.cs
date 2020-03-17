@@ -108,7 +108,7 @@ namespace Rwm.Otc.UI.Controls
          if (element.Properties.IsAccessory)
          {
             // Update the element status
-            element.SetAccessoryNextStatus(true);
+            element.RequestAccessoryNextStatus();
 
             // Store the new status
             Element.Save(element);

@@ -1,9 +1,9 @@
-﻿using RailwayStudio.Common.Views;
-using Rwm.Otc;
-using Rwm.Otc.Data;
-using Rwm.Otc.Systems;
-using System.IO;
+﻿using System.IO;
 using System.Windows.Forms;
+using RailwayStudio.Common.Views;
+using Rwm.Otc;
+using Rwm.Otc.Data.ORM;
+using Rwm.Otc.Systems;
 
 namespace RailwayStudio.Common
 {
@@ -74,9 +74,6 @@ namespace RailwayStudio.Common
          {
             OTCContext.Settings.AddSetting(StudioContext.SETUP_KEY_PROJECT_LASTOPEN, OTCContext.Project.Filename);
             OTCContext.Settings.SaveSettings();
-
-            // Link the digital system to the output console
-            // OTCContext.Project.OnDigitalSystemInfo += DigitalSystem_SystemInformation;
          }
       }
 
@@ -90,9 +87,6 @@ namespace RailwayStudio.Common
          {
             // Load project
             OTCContext.OpenProject(form.FileName);
-
-            // Register listeners
-            // OTCContext.Project.DigitalSystem.SystemInformation += DigitalSystem_SystemInformation;
 
             OTCContext.Settings.AddSetting(StudioContext.SETUP_KEY_PROJECT_LASTOPEN, form.FileName);
             OTCContext.Settings.SaveSettings();
@@ -114,13 +108,10 @@ namespace RailwayStudio.Common
             return;
          }
 
-         OTCContext.Settings.AddSetting(DataConsumer.SETTINGS_DB_CURRENT, lastFile);
+         OTCContext.Settings.AddSetting(ORMSqliteDriver.SETTINGS_DB_CURRENT, lastFile);
 
          // Load project
          OTCContext.OpenProject(lastFile);
-
-         // Register listeners
-         // OTCContext.Project.DigitalSystem.SystemInformation += DigitalSystem_SystemInformation;
 
          // Show information in console
          StudioContext.LogInformation("Project {0} loaded (from {1})",
@@ -158,6 +149,16 @@ namespace RailwayStudio.Common
          StudioContext.MainView.LogConsole.Error(string.Format(message, args));
       }
 
+      public static void LogDebug(string message)
+      {
+         StudioContext.MainView.LogConsole.Debug(message);
+      }
+
+      public static void LogDebug(string message, params object[] args)
+      {
+         StudioContext.MainView.LogConsole.Debug(string.Format(message, args));
+      }
+
       #endregion
 
       #region Event Handlers
@@ -172,6 +173,10 @@ namespace RailwayStudio.Common
 
             case SystemConsoleEventArgs.MessageType.Warning:
                StudioContext.LogWarning(e.Message);
+               break;
+
+            case SystemConsoleEventArgs.MessageType.Debug:
+               StudioContext.LogDebug(e.Message);
                break;
 
             default:

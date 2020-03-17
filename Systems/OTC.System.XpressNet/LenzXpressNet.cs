@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
 using RJCP.IO.Ports;
@@ -70,13 +69,7 @@ namespace Rwm.OTC.Systems.XpressNet
 
       private XmlSettingsItem SystemSettingsNode { get; set; }
 
-      private static List<byte> ResponseBuffer { get; set; } = new List<byte>();
-
-      private static bool ResponseAvailable { get; set; } = false;
-
-      private static bool WaitingForRresponse { get; set; } = false;
-
-      private bool TimeoutReached { get; set; } = false;
+      //private static List<byte> ResponseBuffer { get; set; } = new List<byte>();
 
       public string ID
       {
@@ -183,8 +176,6 @@ namespace Rwm.OTC.Systems.XpressNet
          }
       }
 
-      private bool debugMode = false;
-
       #endregion
 
       #region Methods
@@ -196,7 +187,7 @@ namespace Rwm.OTC.Systems.XpressNet
       {
          try
          {
-            debugMode = this.DebugMode;
+            XpnBufferManager.Clear();
 
             this.SerialPort = new SerialPortStream(this.PortName, this.BaudRate, 8, Parity.None, StopBits.One);
             //this.SerialPort.Parity = Parity.None;
@@ -210,19 +201,14 @@ namespace Rwm.OTC.Systems.XpressNet
 
             if (this.SerialPort != null && !this.SerialPort.IsOpen)
             {
-               this.SerialPort.Open();
                this.SerialPort.DataReceived += SerialPort_DataReceived;
+               this.SerialPort.Open();
 
                // Send information 
-               this.SystemInformation?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Information, "{0} connected", this.Name));
+               this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Information, "{0} connected", this.Name));
 
-               this.GetSystemInformation();
-
-               //LenzSystemInformation info = this.GetSystemInformation() as LenzSystemInformation;
-               //if (info != null)
-               //   this.SystemInformation?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Information, "{0} ver {1}", info.SystemName, info.SystemVersion));
-               //else
-               //   this.SystemInformation?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Warning, "Cannot recover system information: command timeout"));
+               // Send a system information request to verify communication and to show system info as well
+               this.SystemInformation();
 
                this.Status = SystemStatus.Connected;
 
@@ -237,7 +223,7 @@ namespace Rwm.OTC.Systems.XpressNet
          {
             Logger.LogError(this, ex);
 
-            this.SystemInformation?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Error, ex.Message));
+            this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Error, ex.Message));
 
             this.SerialPort.Dispose();
 
@@ -255,8 +241,8 @@ namespace Rwm.OTC.Systems.XpressNet
             if (this.SerialPort != null && this.SerialPort.IsOpen)
             {
                this.SerialPort.DataReceived -= SerialPort_DataReceived;
-
                this.SerialPort.Close();
+
                return true;
             }
             else
@@ -270,6 +256,8 @@ namespace Rwm.OTC.Systems.XpressNet
          }
          finally
          {
+            this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Information, "System disconnected"));
+
             this.Status = SystemStatus.Disconnected;
          }
       }
@@ -286,24 +274,15 @@ namespace Rwm.OTC.Systems.XpressNet
       }
 
       /// <summary>
-      /// Get the digital system information.
+      /// Request the system information.
       /// </summary>
-      /// <returns>An instance of <see cref="TestSystemInformation"/> containing information about the digital system.</returns>
-      public ISystemInformation GetSystemInformation()
+      public void SystemInformation()
       {
          this.CheckPortStatus();
 
          try
          {
             this.Execute(new byte[] { 0x21, 0x21 });
-
-            //byte[] responseData = this.Execute(new byte[] { 0x21, 0x21 }, true);
-            //if (responseData != null)
-            //{
-            //   return new LenzSystemInformation(responseData);
-            //}
-
-            return null;
          }
          catch (Exception ex)
          {
@@ -312,13 +291,34 @@ namespace Rwm.OTC.Systems.XpressNet
          }
       }
 
+      /// <summary>
+      /// Request power off the layout.
+      /// </summary>
+      public void EmergencyOff()
+      {
+         this.CheckPortStatus();
+
+         try
+         {
+            this.Execute(new byte[] { 0x21, 0x80 });
+         }
+         catch (Exception ex)
+         {
+            Logger.LogError(this, ex);
+            throw new Exception("Command error: " + ex.Message, ex);
+         }
+      }
+
+      /// <summary>
+      /// Request stopping all locomotives.
+      /// </summary>
       public void EmergencyStop()
       {
          this.CheckPortStatus();
 
          try
          {
-            this.Execute(new byte[] { 0x80, 0x80 }, false);
+            this.Execute(new byte[] { 0x80, 0x80 });
          }
          catch (Exception ex)
          {
@@ -327,44 +327,61 @@ namespace Rwm.OTC.Systems.XpressNet
          }
       }
 
-      public bool ResumeOperation()
+      /// <summary>
+      /// Request cancelling emergency off/stop and go to normal operation status.
+      /// </summary>
+      public void ResumeOperations()
       {
          this.CheckPortStatus();
-         this.ClearBuffer();
 
-         this.SerialPort.Write(new byte[3] { (byte)33, (byte)129, (byte)160 }, 0, 3);
-
-         DateTime now = DateTime.Now;
-         TimeSpan timeSpan = new TimeSpan(0, 0, 0, 0, this.CommandTimeout);
-         DateTime dateTime = now.Add(timeSpan);
-
-         while (!LenzXpressNet.ResponseAvailable || !this.TimeoutReached)
+         try
          {
-            if (dateTime >= now)
-               this.TimeoutReached = true;
-            now = DateTime.Now;
+            this.Execute(new byte[] { 0x21, 0x81, 0xA0 });
          }
-
-         if (LenzXpressNet.ResponseAvailable)
+         catch (Exception ex)
          {
-            if (LenzXpressNet.ResponseBuffer[0] == (byte)97 && LenzXpressNet.ResponseBuffer[1] == (byte)1 && LenzXpressNet.ResponseBuffer[2] == (byte)96)
-            {
-               this.ClearBuffer();
-               return true;
-            }
-
-            this.ClearBuffer();
-            return false;
+            Logger.LogError(this, ex);
+            throw new Exception("Command error: " + ex.Message, ex);
          }
+      }
 
-         this.ClearBuffer();
-         return false;
+      /// <summary>
+      /// Repuest accessory operation.
+      /// </summary>
+      /// <param name="address">Accessory address.</param>
+      /// <param name="activatePin">Pin to activate (1/2).</param>
+      public void OperateAccessory(int address, int activatePin)
+      {
+         this.CheckPortStatus();
+
+         try
+         {
+            byte addr = (byte)(address / 4);
+
+            byte byteB = 0x00;
+            byte byteD = 0x00;
+            byteB = (byte)(((address % 4) & 0x01) << 1);
+            byteB += (byte)(((address % 4) & 0x02) << 1);
+            byteD = (byte)(true ? 0x08 : 0x00);
+            byteD += (byte)((activatePin - 1) == 1 ? 0x01 : 0x00);
+            byte data = (byte)(byteB + byteD + 0x80);
+
+            this.Execute(new byte[] { 0x52, addr, 0x80 }, false);
+
+            Thread.Sleep(500);
+
+            this.Execute(new byte[] { 0x52, addr, 0x81 }, false);
+         }
+         catch (Exception ex)
+         {
+            Logger.LogError(this, ex);
+            throw new Exception("Command error: " + ex.Message, ex);
+         }
       }
 
       public AccessoryInformation AccessoryOperate(int address, bool turned, bool activate)
       {
          this.CheckPortStatus();
-         this.ClearBuffer();
 
          --address;
 
@@ -394,7 +411,6 @@ namespace Rwm.OTC.Systems.XpressNet
          Thread.Sleep(1000);
          byte[] cmdData3 = { 0xFF, 0xFD, 0x42, 0x00, 0x01, 0x43 };
          this.SerialPort.Write(cmdData3, 0, cmdData3.Length);
-
 
          //DateTime now = DateTime.Now;
          //TimeSpan timeSpan = new TimeSpan(0, 0, 0, 0, this.CommandTimeout);
@@ -434,8 +450,7 @@ namespace Rwm.OTC.Systems.XpressNet
       /// Gets an accessory status information.
       /// </summary>
       /// <param name="address">Accessory address.</param>
-      /// <returns>An instance of <see cref="AccessoryInformation"/> filled with the information requested, otherwise returns <c>null</c>.</returns>
-      public AccessoryInformation GetAccessoryStatus(int address)
+      public void GetAccessoryStatus(int address)
       {
          throw new NotImplementedException();
       }
@@ -444,9 +459,36 @@ namespace Rwm.OTC.Systems.XpressNet
       /// Set an accessory output.
       /// </summary>
       /// <param name="element">Element.</param>
-      public void SetAccessoryStatus(Element element)
+      public void SetAccessoryStatus(int address, bool turned, bool activate)
       {
-         throw new NotImplementedException();
+         this.CheckPortStatus();
+
+         try
+         {
+            --address;
+
+            byte byteAddy = 0x00;
+            byte byteB = 0x00;
+            byte byteD = 0x00;
+
+            byteAddy = (byte)(address / 4);
+            byteB = (byte)(((address % 4) & 0x01) << 1);
+            byteB += (byte)(((address % 4) & 0x02) << 1);
+            byteD = (byte)(activate ? 0x08 : 0x00);
+            byteD += (byte)(turned ? 0x01 : 0x00);
+
+            byte[] cmdData = { 0x52, 0x00, 0x00, 0x00 };
+            cmdData[1] = byteAddy;
+            cmdData[2] = (byte)(byteB + byteD + 0x80);
+            cmdData[3] = (byte)BinaryUtils.Xor(cmdData, 2, 3);
+
+            this.Execute(cmdData);
+         }
+         catch (Exception ex)
+         {
+            Logger.LogError(this, ex);
+            throw new Exception("Command error: " + ex.Message, ex);
+         }
       }
 
       /// <summary>
@@ -463,25 +505,15 @@ namespace Rwm.OTC.Systems.XpressNet
 
       #region Events
 
-      ///// <summary>
-      ///// Event raised when a sensor is activated.
-      ///// </summary>
-      //public event EventHandler<FeedbackEventArgs> SensorStatusChanged;
-
-      ///// <summary>
-      ///// Event raised when an accessory is changed outside OTC.
-      ///// </summary>
-      //public event EventHandler<AccessoryEventArgs> AccessoryStatusChanged;
+      /// <summary>
+      /// Event raised when any operation is requested or received by the digital system.
+      /// </summary>
+      public event EventHandler<SystemConsoleEventArgs> OnInformationReceived;
 
       /// <summary>
       /// Event raised when any operation is requested or received by the digital system.
       /// </summary>
-      public event EventHandler<SystemConsoleEventArgs> SystemInformation;
-
-      /// <summary>
-      /// Event raised when any operation is requested or received by the digital system.
-      /// </summary>
-      public event EventHandler<SystemCommandEventArgs> CommandReceived;
+      public event EventHandler<SystemCommandEventArgs> OnCommandReceived;
 
       #endregion
 
@@ -489,40 +521,29 @@ namespace Rwm.OTC.Systems.XpressNet
 
       private void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
       {
-         LenzXpressNet.ResponseAvailable = false;
+         IResponse response;
 
          SerialPortStream xpressnetSerialPort = (SerialPortStream)sender;
          if (xpressnetSerialPort.BytesToRead <= 0) return;
 
-         if (LenzXpressNet.ResponseBuffer.Count == 0)
-            LenzXpressNet.ResponseAvailable = false;
+         List<byte> rxBytes = new List<byte>();
+         rxBytes.AddRange(System.Text.Encoding.ASCII.GetBytes(xpressnetSerialPort.ReadExisting()));
 
-         LenzXpressNet.ResponseBuffer.AddRange(System.Text.Encoding.ASCII.GetBytes(xpressnetSerialPort.ReadExisting()));
-         LenzXpressNet.ResponseAvailable = LenzXpressNet.IsResponseComplete();
-
-         if (LenzXpressNet.ResponseAvailable)
+         foreach (List<byte> command in XpnBufferManager.DataReceived(rxBytes))
          {
-            if (debugMode)
+            if (this.DebugMode)
             {
                string debugMessage = "RX -> ";
-               foreach (byte rxByte in LenzXpressNet.ResponseBuffer)
+               foreach (byte rxByte in command)
                   debugMessage += String.Format("0x{0:X} ", rxByte);
 
                // Send information to LOG console
-               this.SystemInformation?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Information, debugMessage));
+               this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Debug, debugMessage));
             }
 
-            // Check unrequested responses
-            if (!LenzXpressNet.WaitingForRresponse)
-            {
-               IResponse response = this.GetResponse(LenzXpressNet.ResponseBuffer.ToArray());
-               if (response != null)
-               {
-                  this.CommandReceived?.Invoke(this, new SystemCommandEventArgs(response));
-               }
-            }
-
-            this.ClearBuffer();
+            response = this.GetResponse(command);
+            if (response != null)
+               this.OnCommandReceived?.Invoke(this, new SystemCommandEventArgs(response));
          }
       }
 
@@ -535,7 +556,7 @@ namespace Rwm.OTC.Systems.XpressNet
       /// </summary>
       private void Initialize()
       {
-         this.ClearBuffer();
+         // this.ClearBuffer();
          XmlSettingsItem systems = OTCContext.Settings.GetItem(SystemManager.SETTINGS_SYSTEMS_KEY, true);
          this.SystemSettingsNode = systems.GetItem(this.ID, true);
          this.Status = SystemStatus.Disconnected;
@@ -550,97 +571,36 @@ namespace Rwm.OTC.Systems.XpressNet
             throw new Exception("La conexión al puerto se encuentra cerrada. No es posible enviar o recibir datos del interface Lenz.");
       }
 
-      private void ClearBuffer()
-      {
-         this.SerialPort?.DiscardOutBuffer();
-         this.SerialPort?.DiscardInBuffer();
-
-         LenzXpressNet.ResponseBuffer.Clear();
-         LenzXpressNet.ResponseAvailable = false;
-
-         this.TimeoutReached = false;
-      }
-
       /// <summary>
       /// Send a request command to the digital system.
       /// </summary>
       /// <param name="commandBytes">Command bytes (without header & xor).</param>
       /// <param name="waitForResponse">Tells if the command must wait for a response.</param>
       /// <returns></returns>
-      internal byte[] Execute(byte[] commandBytes, bool waitForResponse = false)
+      internal byte[] Execute(byte[] commandBytes, bool addHeaders = true)
       {
-         this.ClearBuffer();
-
          // Send the command request
-         byte[] bytes = this.GetRequestBytes(commandBytes);
+         byte[] bytes = this.GetRequestBytes(commandBytes, addHeaders);
          this.SerialPort.Write(bytes, 0, bytes.Length);
-
-         // Wait for response
-         if (waitForResponse)
-         {
-            LenzXpressNet.WaitingForRresponse = true;
-
-            bool wait = true;
-            Stopwatch watch = Stopwatch.StartNew();
-            do
-            {
-               if (LenzXpressNet.ResponseAvailable)                        // Check response available
-               {
-                  LenzXpressNet.WaitingForRresponse = false;
-                  this.ClearBuffer();
-                  wait = false;
-               }
-               else if (watch.ElapsedMilliseconds > this.CommandTimeout)   // Check timeout
-               {
-                  LenzXpressNet.WaitingForRresponse = false;
-                  bytes = null;
-                  wait = false;
-               }
-
-               Thread.Sleep(10);
-            }
-            while (wait);
-            watch.Stop();
-         }
 
          return bytes;
       }
 
       /// <summary>
-      /// Realiza la operación XOR sobre un array de bytes.
-      /// </summary>
-      /// <param name="values">Array de bytes.</param>
-      /// <param name="start">Índice del elemento inicial.</param>
-      /// <param name="length">Número de elementos para los que se desea realizar la operación empezando por el elemento apuntado por <code>start</code>.</param>
-      private static bool IsResponseComplete()
-      {
-         short value = 0;
-
-         if (LenzXpressNet.ResponseBuffer.Count <= 2) return false;
-
-         for (int i = 2; i < LenzXpressNet.ResponseBuffer.Count - 1; i++)
-         {
-            value ^= LenzXpressNet.ResponseBuffer[i];
-         }
-
-         return (value == LenzXpressNet.ResponseBuffer[LenzXpressNet.ResponseBuffer.Count - 1]);
-      }
-
-      /// <summary>
       /// Get the command bytes to send to the digital system.
       /// </summary>
-      private byte[] GetRequestBytes(byte[] commandBytes)
+      private byte[] GetRequestBytes(byte[] commandBytes, bool addHeaders)
       {
          if (commandBytes.Length <= 0)
             return new byte[0];
 
          try
          {
-            byte[] bytes = new byte[2 + commandBytes.Length + 1];
-            bytes[0] = 0xFF;
-            bytes[1] = 0xFE;
-            for (int idx = 0; idx < commandBytes.Length; idx++) bytes[2 + idx] = commandBytes[idx];
-            bytes[bytes.Length - 1] = (byte)BinaryUtils.Xor(bytes, 2, commandBytes.Length);
+            byte[] bytes = new byte[(addHeaders ? 2 : 0) + commandBytes.Length + 1];
+            if (addHeaders) bytes[0] = 0xFF;
+            if (addHeaders) bytes[1] = 0xFE;
+            for (int idx = 0; idx < commandBytes.Length; idx++) bytes[(addHeaders ? 2 : 0) + idx] = commandBytes[idx];
+            bytes[bytes.Length - 1] = (byte)BinaryUtils.Xor(bytes, (addHeaders ? 2 : 0), commandBytes.Length);
 
             return bytes;
          }
@@ -651,18 +611,248 @@ namespace Rwm.OTC.Systems.XpressNet
          }
       }
 
-      private IResponse GetResponse(byte[] receivedBytes)
+      /// <summary>
+      /// Get the appropriate <see cref="IResponse"/> instance.
+      /// </summary>
+      private IResponse GetResponse(List<byte> commandBytes)
       {
-         if (receivedBytes[0] != 0x3F || receivedBytes[1] != 0x3F)
-            return null;
-
-         if (receivedBytes[2] == 0x63 || receivedBytes[3] == 0x21)
+         if (LenzAccessoryOperation.IsTypeOf(commandBytes))
          {
-            return new LenzSystemInformation(receivedBytes);
+            return new LenzAccessoryOperation(commandBytes.ToArray());
+         }
+         else if (LenzFeedbackStatusChanged.IsTypeOf(commandBytes))
+         {
+            return new LenzFeedbackStatusChanged(commandBytes.ToArray());
+         }
+         else if (LenzEmergencyOff.IsTypeOf(commandBytes))
+         {
+            return new LenzEmergencyOff(commandBytes.ToArray());
+         }
+         else if (LenzEmergencyStop.IsTypeOf(commandBytes))
+         {
+            return new LenzEmergencyStop(commandBytes.ToArray());
+         }
+         else if (LenzResumeOperations.IsTypeOf(commandBytes))
+         {
+            return new LenzResumeOperations(commandBytes.ToArray());
+         }
+         else if (LenzSystemInformation.IsTypeOf(commandBytes))
+         {
+            return new LenzSystemInformation(commandBytes.ToArray());
          }
 
          return null;
       }
+
+      #endregion
+
+      #region Unused code
+
+      //private void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
+      //{
+      //   IResponse response;
+
+      //   SerialPortStream xpressnetSerialPort = (SerialPortStream)sender;
+      //   if (xpressnetSerialPort.BytesToRead <= 0) return;
+
+      //   List<byte> rxBytes = new List<byte>();
+      //   rxBytes.AddRange(System.Text.Encoding.ASCII.GetBytes(xpressnetSerialPort.ReadExisting()));
+
+      //   foreach (List<byte> command in XpnBufferManager.DataReceived(rxBytes))
+      //   {
+      //      if (this.DebugMode)
+      //      {
+      //         string debugMessage = "RX -> ";
+      //         foreach (byte rxByte in command)
+      //            debugMessage += String.Format("0x{0:X} ", rxByte);
+
+      //         // Send information to LOG console
+      //         this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Debug, debugMessage));
+      //      }
+
+      //      response = this.GetResponse(command);
+      //      if (response != null)
+      //         this.OnCommandReceived?.Invoke(this, new SystemCommandEventArgs(response));
+      //   }
+
+      //   // ORIGINAL (WORKING)
+      //   //LenzXpressNet.ResponseAvailable = false;
+
+      //   //SerialPortStream xpressnetSerialPort = (SerialPortStream)sender;
+      //   //if (xpressnetSerialPort.BytesToRead <= 0) return;
+
+      //   //if (LenzXpressNet.ResponseBuffer.Count == 0)
+      //   //   LenzXpressNet.ResponseAvailable = false;
+
+      //   //LenzXpressNet.ResponseBuffer.AddRange(System.Text.Encoding.ASCII.GetBytes(xpressnetSerialPort.ReadExisting()));
+      //   //LenzXpressNet.ResponseAvailable = LenzXpressNet.IsResponseComplete();
+
+      //   //if (LenzXpressNet.ResponseAvailable)
+      //   //{
+      //   //   if (debugMode)
+      //   //   {
+      //   //      string debugMessage = "RX -> ";
+      //   //      foreach (byte rxByte in LenzXpressNet.ResponseBuffer)
+      //   //         debugMessage += String.Format("0x{0:X} ", rxByte);
+
+      //   //      // Send information to LOG console
+      //   //      this.SystemInformation?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Information, debugMessage));
+      //   //   }
+
+      //   //   // Check unrequested responses
+      //   //   if (!LenzXpressNet.WaitingForRresponse)
+      //   //   {
+      //   //      IResponse response = this.GetResponse(LenzXpressNet.ResponseBuffer.ToArray());
+      //   //      if (response != null)
+      //   //      {
+      //   //         this.CommandReceived?.Invoke(this, new SystemCommandEventArgs(response));
+      //   //      }
+      //   //   }
+
+      //   //   this.ClearBuffer();
+      //   //}
+      //}
+
+      ///// <summary>
+      ///// Send a request command to the digital system.
+      ///// </summary>
+      ///// <param name="commandBytes">Command bytes (without header & xor).</param>
+      ///// <param name="waitForResponse">Tells if the command must wait for a response.</param>
+      ///// <returns></returns>
+      //internal byte[] Execute(byte[] commandBytes) //, bool waitForResponse = false)
+      //{
+      //   // Send the command request
+      //   byte[] bytes = this.GetRequestBytes(commandBytes);
+      //   this.SerialPort.Write(bytes, 0, bytes.Length);
+
+      //   //// Wait for response
+      //   //if (waitForResponse)
+      //   //{
+      //   //   LenzXpressNet.WaitingForRresponse = true;
+
+      //   //   bool wait = true;
+      //   //   Stopwatch watch = Stopwatch.StartNew();
+      //   //   do
+      //   //   {
+      //   //      if (LenzXpressNet.ResponseAvailable)                        // Check response available
+      //   //      {
+      //   //         LenzXpressNet.WaitingForRresponse = false;
+      //   //         this.ClearBuffer();
+      //   //         wait = false;
+      //   //      }
+      //   //      else if (watch.ElapsedMilliseconds > this.CommandTimeout)   // Check timeout
+      //   //      {
+      //   //         LenzXpressNet.WaitingForRresponse = false;
+      //   //         bytes = null;
+      //   //         wait = false;
+      //   //      }
+
+      //   //      Thread.Sleep(10);
+      //   //   }
+      //   //   while (wait);
+      //   //   watch.Stop();
+      //   //}
+
+      //   return bytes;
+      //}
+
+      //private List<IResponse> GetResponseCommands(List<byte> rxBytes)
+      //{
+      //   if (rxBytes == null || rxBytes.Count <= 2)
+      //      return null;
+
+      //   byte[] cmdArray;
+      //   List<byte> currentCmd = null;
+      //   IResponse response;
+      //   List<IResponse> responses = null;
+
+      //   for (int i = 0; i < rxBytes.Count; i++)
+      //   {
+      //      if (i < rxBytes.Count - 1 && rxBytes[i] == 0x3F && rxBytes[i+1] == 0x3F)
+      //      {
+      //         // Header detected!
+
+      //         // Finish current command
+      //         if (currentCmd != null)
+      //         {
+      //            cmdArray = currentCmd.ToArray();
+      //            if (this.IsResponseComplete(cmdArray))
+      //            {
+      //               response = this.GetResponse(cmdArray);
+      //               if (response != null)
+      //               {
+      //                  if (responses == null) responses = new List<IResponse>();
+      //                  responses.Add(response);
+      //               }
+      //            }
+      //         }
+
+      //         // Start new command
+      //         currentCmd = new List<byte>();
+      //         i++; // jump header remaining byte
+      //      }
+      //      else if (currentCmd != null)
+      //      {
+      //         currentCmd.Add(rxBytes[i]);
+      //      }
+      //   }
+
+      //   if (currentCmd != null && currentCmd.Count > 0)
+      //   {
+      //      cmdArray = currentCmd.ToArray();
+      //      if (this.IsResponseComplete(cmdArray))
+      //      {
+      //         response = this.GetResponse(cmdArray);
+      //         if (response != null)
+      //         {
+      //            if (responses == null) responses = new List<IResponse>();
+      //            responses.Add(response);
+      //         }
+      //      }
+      //   }
+
+      //   return responses;
+      //}
+
+      ///// <summary>
+      ///// Check if the current command is a complete command:
+      ///// XOR(DATABYTE[1], DATABYTE[2],...,DATABYTE[n-1]) = DATABYTE[n]
+      ///// </summary>
+      ///// <param name="rxBytes">Candidate received package.</param>
+      ///// <returns>A value indicating if the bytes are corresponding to a complete command.</returns>
+      //private bool IsResponseComplete(byte[] rxBytes)
+      //{
+      //   short value = 0;
+
+      //   if (rxBytes.Length < 2) return false; // Minimum 1 data byte and xor byte -> 2 bytes
+
+      //   for (int i = 0; i < rxBytes.Length - 1; i++)
+      //   {
+      //      value ^= rxBytes[i];
+      //   }
+
+      //   return (value == rxBytes[rxBytes.Length - 1]);
+      //}
+
+      ///// <summary>
+      ///// Realiza la operación XOR sobre un array de bytes.
+      ///// </summary>
+      ///// <param name="values">Array de bytes.</param>
+      ///// <param name="start">Índice del elemento inicial.</param>
+      ///// <param name="length">Número de elementos para los que se desea realizar la operación empezando por el elemento apuntado por <code>start</code>.</param>
+      //private static bool IsResponseComplete()
+      //{
+      //   short value = 0;
+
+      //   if (LenzXpressNet.ResponseBuffer.Count <= 2) return false;
+
+      //   for (int i = 2; i < LenzXpressNet.ResponseBuffer.Count - 1; i++)
+      //   {
+      //      value ^= LenzXpressNet.ResponseBuffer[i];
+      //   }
+
+      //   return (value == LenzXpressNet.ResponseBuffer[LenzXpressNet.ResponseBuffer.Count - 1]);
+      //}
 
       #endregion
 

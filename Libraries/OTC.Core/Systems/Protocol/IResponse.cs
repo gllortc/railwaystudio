@@ -5,6 +5,5 @@
 
       bool IsValidResponse { get; }
 
-
    }
 }

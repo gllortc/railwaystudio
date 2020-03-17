@@ -41,7 +41,6 @@
          this.cmdUtilsDigitalAddressCalculator = new DevExpress.XtraBars.BarButtonItem();
          this.cmdSystemDisconnect = new DevExpress.XtraBars.BarButtonItem();
          this.cmdSystemConnect = new DevExpress.XtraBars.BarButtonItem();
-         this.cmdCtrlEmergencyOff = new DevExpress.XtraBars.BarButtonItem();
          this.cmdCtrlResumeOps = new DevExpress.XtraBars.BarButtonItem();
          this.rptControl = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.rpgSystem = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -76,7 +75,6 @@
             this.cmdUtilsDigitalAddressCalculator,
             this.cmdSystemDisconnect,
             this.cmdSystemConnect,
-            this.cmdCtrlEmergencyOff,
             this.cmdCtrlResumeOps});
          this.ribbonControl.Location = new System.Drawing.Point(0, 0);
          this.ribbonControl.MaxItemId = 22;
@@ -143,7 +141,8 @@
          this.cmdCtrlEmergencyStop.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
          this.cmdCtrlEmergencyStop.Caption = "Stop trains";
          this.cmdCtrlEmergencyStop.Id = 13;
-         this.cmdCtrlEmergencyStop.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_EMERGENCY_STOP_32;
+         this.cmdCtrlEmergencyStop.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.exclamation_16;
+         this.cmdCtrlEmergencyStop.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.exclamation;
          this.cmdCtrlEmergencyStop.Name = "cmdCtrlEmergencyStop";
          this.cmdCtrlEmergencyStop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdCtrlEmergencyStop_ItemClick);
          // 
@@ -185,21 +184,15 @@
          this.cmdSystemConnect.Name = "cmdSystemConnect";
          this.cmdSystemConnect.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdSystemConnect_ItemClick);
          // 
-         // cmdCtrlEmergencyOff
-         // 
-         this.cmdCtrlEmergencyOff.Caption = "Emergency off";
-         this.cmdCtrlEmergencyOff.Id = 20;
-         this.cmdCtrlEmergencyOff.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.exclamation_16;
-         this.cmdCtrlEmergencyOff.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.exclamation;
-         this.cmdCtrlEmergencyOff.Name = "cmdCtrlEmergencyOff";
-         // 
          // cmdCtrlResumeOps
          // 
          this.cmdCtrlResumeOps.Caption = "Resume operations";
+         this.cmdCtrlResumeOps.Enabled = false;
          this.cmdCtrlResumeOps.Id = 21;
          this.cmdCtrlResumeOps.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.control_play_blue_16;
          this.cmdCtrlResumeOps.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.control_play_blue_32;
          this.cmdCtrlResumeOps.Name = "cmdCtrlResumeOps";
+         this.cmdCtrlResumeOps.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdCtrlResumeOps_ItemClick);
          // 
          // rptControl
          // 
@@ -223,7 +216,6 @@
          // rpgControl
          // 
          this.rpgControl.Enabled = false;
-         this.rpgControl.ItemLinks.Add(this.cmdCtrlEmergencyOff);
          this.rpgControl.ItemLinks.Add(this.cmdCtrlEmergencyStop);
          this.rpgControl.ItemLinks.Add(this.cmdCtrlResumeOps);
          this.rpgControl.ItemLinks.Add(this.bbgOptions, true);
@@ -331,7 +323,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgUtils;
         private DevExpress.XtraBars.BarButtonItem cmdSystemDisconnect;
         private DevExpress.XtraBars.BarButtonItem cmdSystemConnect;
-        private DevExpress.XtraBars.BarButtonItem cmdCtrlEmergencyOff;
         private DevExpress.XtraBars.BarButtonItem cmdCtrlResumeOps;
     }
 }

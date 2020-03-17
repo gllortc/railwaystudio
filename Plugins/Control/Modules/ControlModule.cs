@@ -82,8 +82,8 @@ namespace Rwm.Studio.Plugins.Control.Modules
          chkOptionsManualSensorAllowed.Checked = OTCContext.Project.AllowManualSensorActivation;
 
          // Register project events
-         OTCContext.Project.DigitalSystem.SystemInformation += DigitalSystem_SystemInformation;
-         OTCContext.Project.DigitalSystem.CommandReceived += DigitalSystem_CommandReceived;
+         OTCContext.Project.DigitalSystem.OnInformationReceived += DigitalSystem_OnInformationReceived;
+         OTCContext.Project.DigitalSystem.OnCommandReceived += DigitalSystem_OnCommandReceived;
 
          // Show module information
          StudioContext.LogInformation("{0} v{1} loaded", this.ModuleName, Application.ProductVersion);
@@ -143,7 +143,12 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
       private void CmdCtrlEmergencyStop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
-         this.EmergencyStop();
+         this.EmergencyStopRequest();
+      }
+
+      private void CmdCtrlResumeOps_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      {
+         this.ResumeOperationsRequest();
       }
 
       private void CmdUtilsDigitalAddressCalculator_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

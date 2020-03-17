@@ -4,10 +4,8 @@ using Rwm.Otc.Data.ORM;
 using Rwm.Otc.Diagnostics;
 using Rwm.Otc.Layout;
 using Rwm.Otc.Systems;
-using Rwm.Otc.Systems.Protocol;
 using Rwm.Otc.Themes;
 using static Rwm.Otc.Data.ORM.ORMForeignCollection;
-using static Rwm.Otc.Systems.SystemConsoleEventArgs;
 
 namespace Rwm.Otc
 {
@@ -207,7 +205,7 @@ namespace Rwm.Otc
             // If no system is configured, load the test system
             if (this.DigitalSystem == null)
             {
-               this.DigitalSystem = new Systems.Test.TestSystem();
+               this.DigitalSystem = new Systems.Dummy.DummySystem();
             }
          }
          catch (Exception ex)

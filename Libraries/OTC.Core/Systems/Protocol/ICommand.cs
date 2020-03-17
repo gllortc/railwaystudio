@@ -11,7 +11,7 @@ namespace Rwm.Otc.Systems.Protocol
       /// <summary>
       /// Parse received data from the digital system.
       /// </summary>
-      bool ParseCommandData(object data);
+      bool ParseCommandData(byte[] data);
 
    }
 }

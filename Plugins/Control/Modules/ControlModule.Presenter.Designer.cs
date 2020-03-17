@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using DevExpress.XtraTab;
 using RailwayStudio.Common;
 using Rwm.Otc;
@@ -9,7 +8,6 @@ using Rwm.Otc.Systems.Protocol;
 using Rwm.Otc.UI;
 using Rwm.Otc.UI.Controls;
 using Rwm.Studio.Plugins.Control.Views;
-using static Rwm.Otc.Systems.SystemConsoleEventArgs;
 
 namespace Rwm.Studio.Plugins.Control.Modules
 {
@@ -80,11 +78,27 @@ namespace Rwm.Studio.Plugins.Control.Modules
       }
 
       /// <summary>
-      /// Show the selected system settings dialogue.
+      /// Request an emergency stop to the command station.
       /// </summary>
-      internal void EmergencyStop()
+      internal void EmergencyStopRequest()
       {
          OTCContext.Project.DigitalSystem.EmergencyStop();
+      }
+
+      /// <summary>
+      /// Request an emergency off to the command station.
+      /// </summary>
+      internal void EmergencyOffRequest()
+      {
+         OTCContext.Project.DigitalSystem.EmergencyOff();
+      }
+
+      /// <summary>
+      /// Request a resume operations to the command station.
+      /// </summary>
+      internal void ResumeOperationsRequest()
+      {
+         OTCContext.Project.DigitalSystem.ResumeOperations();
       }
 
       /// <summary>
@@ -125,7 +139,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
       #region Event Handlers
 
-      private void DigitalSystem_SystemInformation(object sender, Otc.Systems.SystemConsoleEventArgs e)
+      private void DigitalSystem_OnInformationReceived(object sender, Otc.Systems.SystemConsoleEventArgs e)
       {
          switch (e.Type)
          {
@@ -137,23 +151,41 @@ namespace Rwm.Studio.Plugins.Control.Modules
                StudioContext.LogWarning(e.Message);
                break;
 
+            case SystemConsoleEventArgs.MessageType.Debug:
+               StudioContext.LogDebug(e.Message);
+               break;
+
             default:
                StudioContext.LogInformation(e.Message);
                break;
          }
       }
 
-      private void DigitalSystem_CommandReceived(object sender, Otc.Systems.SystemCommandEventArgs e)
+      private void DigitalSystem_OnCommandReceived(object sender, Otc.Systems.SystemCommandEventArgs e)
       {
          if (e.CommandReceived == null)
          {
             return;
          }
+         else if (e.CommandReceived is IAccessoryOperation)
+         {
+            this.AccessoryOperationCommandReceived((IAccessoryOperation)e.CommandReceived);
+         }
+         else if (e.CommandReceived is IEmergencyOff)
+         {
+            this.EmergencyStopCommandReceived();
+         }
+         else if (e.CommandReceived is IEmergencyStop)
+         {
+            this.EmergencyStopCommandReceived();
+         }
+         else if (e.CommandReceived is IResumeOperations)
+         {
+            this.ResumeOperationsCommandReceived();
+         }
          else if (e.CommandReceived is ISystemInformation)
          {
-            StudioContext.LogInformation("Connected to {0} ver {1}",
-                                         ((ISystemInformation)e.CommandReceived).SystemName,
-                                         ((ISystemInformation)e.CommandReceived).SystemVersion);
+            this.SystemInformationCommandReceived((ISystemInformation)e.CommandReceived);
          }
       }
 
@@ -267,6 +299,42 @@ namespace Rwm.Studio.Plugins.Control.Modules
          }
 
          Cursor.Current = Cursors.Default;
+      }
+
+      private void AccessoryOperationCommandReceived(IAccessoryOperation command)
+      {
+         Element element = Element.GetByConnectionAddress(command.Address);
+         if (element != null)
+         {
+            element.SetAccessoryStatus(command.Status, false);
+
+            StudioContext.LogInformation("Accessory {0:D4} changed to status #{1}", command.Address, command.Status);
+         }
+         else
+            StudioContext.LogWarning("Accessory {0:D4} changed to status #{1}: Address not used in current layout", command.Address, command.Status);
+      }
+
+      private void SystemInformationCommandReceived(ISystemInformation command)
+      {
+         StudioContext.LogInformation("Connected to {0} ver {1}", command.SystemName, command.SystemVersion);
+      }
+
+      private void EmergencyStopCommandReceived()
+      {
+         cmdCtrlEmergencyStop.Down = true;
+         cmdCtrlEmergencyStop.Enabled = false;
+         cmdCtrlResumeOps.Enabled = true;
+
+         StudioContext.LogWarning("EMERGENCY stop all locomotoves activated");
+      }
+
+      private void ResumeOperationsCommandReceived()
+      {
+         cmdCtrlEmergencyStop.Down = false;
+         cmdCtrlEmergencyStop.Enabled = true;
+         cmdCtrlResumeOps.Enabled = false;
+
+         StudioContext.LogWarning("RESUME OPERATIONS: normal operation stablished");
       }
 
       #endregion

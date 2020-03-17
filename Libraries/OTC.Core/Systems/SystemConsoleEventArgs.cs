@@ -14,7 +14,8 @@ namespace Rwm.Otc.Systems
       {
          Information,
          Warning,
-         Error
+         Error,
+         Debug
       }
 
       #endregion

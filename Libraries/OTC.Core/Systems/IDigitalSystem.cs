@@ -1,7 +1,6 @@
-﻿using Rwm.Otc.Configuration;
+﻿using System;
+using Rwm.Otc.Configuration;
 using Rwm.Otc.Layout;
-using Rwm.Otc.Systems.Protocol;
-using System;
 
 namespace Rwm.Otc.Systems
 {
@@ -79,28 +78,43 @@ namespace Rwm.Otc.Systems
       bool Disconnect();
 
       /// <summary>
-      /// Stop all locomotives.
+      /// Request the system information.
+      /// </summary>
+      void SystemInformation();
+
+      /// <summary>
+      /// Request power off the layout.
+      /// </summary>
+      void EmergencyOff();
+
+      /// <summary>
+      /// Request stopping all locomotives.
       /// </summary>
       void EmergencyStop();
 
       /// <summary>
-      /// Get the digital system information.
+      /// Request cancelling emergency off/stop and go to normal operation status.
       /// </summary>
-      /// <returns>A <see cref="System.String"/> containing information about the digital system.</returns>
-      ISystemInformation GetSystemInformation();
+      void ResumeOperations();
+
+      /// <summary>
+      /// Repuest accessory operation.
+      /// </summary>
+      /// <param name="address">Accessory address.</param>
+      /// <param name="activatePin">Pin to activate (1/2).</param>
+      void OperateAccessory(int address, int activatePin);
 
       /// <summary>
       /// Gets an accessory status information.
       /// </summary>
       /// <param name="address">Accessory address.</param>
-      /// <returns>An instance of <see cref="AccessoryInformation"/> filled with the information requested, otherwise returns <c>null</c>.</returns>
-      AccessoryInformation GetAccessoryStatus(int address);
+      void GetAccessoryStatus(int address);
 
       /// <summary>
       /// Set an accessory output.
       /// </summary>
       /// <param name="element">Element.</param>
-      void SetAccessoryStatus(Element element);
+      void SetAccessoryStatus(int address, bool turned, bool activate);
 
       /// <summary>
       /// Allows set a sensor (for manual activation).
@@ -120,25 +134,15 @@ namespace Rwm.Otc.Systems
 
       #region Events
 
-      ///// <summary>
-      ///// Event raised when a sensor is activated.
-      ///// </summary>
-      //event EventHandler<FeedbackEventArgs> SensorStatusChanged;
-
-      ///// <summary>
-      ///// Event raised when a sensor is activated.
-      ///// </summary>
-      //event EventHandler<AccessoryEventArgs> AccessoryStatusChanged;
+      /// <summary>
+      /// Event raised when any operation is requested or received by the digital system.
+      /// </summary>
+      event EventHandler<SystemConsoleEventArgs> OnInformationReceived;
 
       /// <summary>
       /// Event raised when any operation is requested or received by the digital system.
       /// </summary>
-      event EventHandler<SystemConsoleEventArgs> SystemInformation;
-
-      /// <summary>
-      /// Event raised when any operation is requested or received by the digital system.
-      /// </summary>
-      event EventHandler<SystemCommandEventArgs> CommandReceived;
+      event EventHandler<SystemCommandEventArgs> OnCommandReceived;
 
       #endregion
 
