@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 
@@ -62,7 +63,7 @@ namespace Rwm.Otc.Utils
       {
          short value = 0;
 
-         for (int i = start; i < length - 1; i++)
+         for (int i = start; i < length; i++)
          {
             value ^= values[i];
          }
@@ -137,6 +138,19 @@ namespace Rwm.Otc.Utils
             ms.Write(imageBytes, 0, imageBytes.Length);
             return new Bitmap(ms);
          }
+      }
+
+      public static string ToString(List<byte> bytes)
+      {
+         return BinaryUtils.ToString(bytes.ToArray());
+      }
+
+      public static string ToString(byte[] bytes)
+      {
+         string debugMessage = string.Empty;
+         foreach (byte rxByte in bytes)
+            debugMessage += String.Format("0x{0:X} ", rxByte);
+         return debugMessage;
       }
    }
 }

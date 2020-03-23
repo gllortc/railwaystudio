@@ -24,7 +24,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
          InitializeComponent();
          CreateElementGallery();
 
-         chkBlockPointer_ItemClick(null, null);
+         ChkBlockPointer_ItemClick(null, null);
       }
 
       #endregion
@@ -108,27 +108,27 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
       #region Event Handlers
 
-      private void cmdPanelAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void CmdPanelAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          this.PanelAdd();
       }
 
-      private void cmdPanelEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void CmdPanelEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          this.PanelEdit();
       }
 
-      private void cmdPanelThemes_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void CmdPanelThemes_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          this.ThemesManager();
       }
 
-      private void cmdPrintDigitalReport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void CmdPrintDigitalReport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          this.PrintDigitalReport();
       }
 
-      private void chkBlockPointer_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void ChkBlockPointer_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          chkBlockPointer.Checked = true;
          chkBlockRotate.Checked = false;
@@ -141,7 +141,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
          }
       }
 
-      private void chkBlockRotate_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void ChkBlockRotate_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          chkBlockPointer.Checked = false;
          chkBlockRotate.Checked = true;
@@ -154,7 +154,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
          }
       }
 
-      private void chkBlockDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void ChkBlockDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          chkBlockPointer.Checked = false;
          chkBlockRotate.Checked = false;
@@ -167,7 +167,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
          }
       }
 
-      private void chkBlockAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void ChkBlockAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          chkBlockPointer.Checked = false;
          chkBlockRotate.Checked = false;
@@ -180,22 +180,22 @@ namespace Rwm.Studio.Plugins.Control.Modules
          }
       }
 
-      private void cmdMoveUp_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void CmdMoveUp_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          this.MoveUp();
       }
 
-      private void cmdMoveDown_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void CmdMoveDown_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          this.MoveDown();
       }
 
-      private void cmdMoveLeft_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void CmdMoveLeft_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          this.MoveLeft();
       }
 
-      private void cmdMoveRight_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void CmdMoveRight_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          this.MoveRight();
       }

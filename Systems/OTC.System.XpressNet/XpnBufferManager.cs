@@ -23,7 +23,7 @@ namespace Rwm.OTC.Systems.XpressNet
 
       #region Properties
 
-      private static List<byte> RxBuffer { get; set; }
+      internal static List<byte> RxBuffer { get; set; }
 
       #endregion
 
@@ -81,10 +81,16 @@ namespace Rwm.OTC.Systems.XpressNet
                if (currentCommand != null)
                {
                   currentCommand.Add(XpnBufferManager.RxBuffer[i]);
-                  if (IsValidCommand(currentCommand))
+                  if (XpnBufferManager.IsValidCommand(currentCommand) || XpnBufferManager.IsInterfaceCommand(currentCommand))
                   {
                      remWindowEnd = i;
                      commands.Add(currentCommand);
+                     discard = true;
+                     reading = false;
+                  }
+                  else if (XpnBufferManager.IsDiscardableResponse(currentCommand))
+                  {
+                     remWindowEnd = i;
                      discard = true;
                      reading = false;
                   }
@@ -117,6 +123,73 @@ namespace Rwm.OTC.Systems.XpressNet
          }
 
          return (value == rxBytes[rxBytes.Count - 1]);
+      }
+
+      /// <summary>
+      /// Check if the current command is an interface response
+      /// </summary>
+      /// <param name="rxBytes">Candidate received package.</param>
+      /// <returns>A value indicating if the bytes are corresponding to an interface response.</returns>
+      private static bool IsInterfaceCommand(List<byte> rxBytes)
+      {
+         if (rxBytes.Count == 3 && rxBytes[0] == 0x01)
+         {
+            if (rxBytes[1] == 0x01 && rxBytes[2] == 0x00)
+            {
+               return true;
+            }
+            else if (rxBytes[1] == 0x02 && rxBytes[2] == 0x03)
+            {
+               return true;
+            }
+            else if (rxBytes[1] == 0x03 && rxBytes[2] == 0x02)
+            {
+               return true;
+            }
+            else if (rxBytes[1] == 0x04 && rxBytes[2] == 0x05)
+            {
+               return true;
+            }
+            else if (rxBytes[1] == 0x05 && rxBytes[2] == 0x04)
+            {
+               return true;
+            }
+            else if (rxBytes[1] == 0x06 && rxBytes[2] == 0x07)
+            {
+               return true;
+            }
+            else if (rxBytes[1] == 0x07 && rxBytes[2] == 0x06)
+            {
+               return true;
+            }
+            else if (rxBytes[1] == 0x08 && rxBytes[2] == 0x09)
+            {
+               return true;
+            }
+            else if (rxBytes[1] == 0x09 && rxBytes[2] == 0x08)
+            {
+               return true;
+            }
+            else if (rxBytes[1] == 0x10 && rxBytes[2] == 0x11)
+            {
+               return true;
+            }
+         }
+
+         return false;
+      }
+
+      private static bool IsDiscardableResponse(List<byte> rxBytes)
+      {
+         if (rxBytes.Count == 3)
+         {
+            if (rxBytes[0] == 0x61 && rxBytes[1] == 0x3F && rxBytes[2] == 0x3F)
+            {
+               return true;
+            }
+         }
+
+         return false;
       }
 
       #endregion

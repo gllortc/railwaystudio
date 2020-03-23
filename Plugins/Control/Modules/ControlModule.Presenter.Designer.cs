@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using DevExpress.XtraTab;
 using RailwayStudio.Common;
 using Rwm.Otc;
@@ -25,6 +26,12 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
       #region Methods
 
+      internal void ThemesManage()
+      {
+         ThemeManagerView form = new ThemeManagerView();
+         form.ShowDialog(this);
+      }
+
       /// <summary>
       /// Open the systems manager dialogue.
       /// </summary>
@@ -45,9 +52,9 @@ namespace Rwm.Studio.Plugins.Control.Modules
          {
             OTCContext.Project.DigitalSystem?.Connect();
          }
-         catch
+         catch (Exception ex)
          {
-            // Discard exceptions (informed via events)
+            StudioContext.LogError(ex.Message);
          }
 
          this.RefreshStatus();
@@ -74,7 +81,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
       /// </summary>
       internal void SystemSettings()
       {
-         OTCContext.Project.DigitalSystem.ShowSettingsDialog(OTCContext.Settings);
+         OTCContext.Project.DigitalSystem.ShowSettingsDialog();
       }
 
       /// <summary>
@@ -109,12 +116,12 @@ namespace Rwm.Studio.Plugins.Control.Modules
          SwitchboardCommandControl ctrl = null;
 
          // Show theme information
-         bsiTheme.Caption = (OTCContext.Project.Theme == null ? "[No theme]" : OTCContext.Project.Theme.Name);
-         bsiTheme.Glyph = (OTCContext.Project.Theme == null ? Control.Properties.Resources.ICO_THEME_UNSELECTED_16 : Control.Properties.Resources.ICO_THEME_16);
+         bbtnThemesManage.Caption = (OTCContext.Project.Theme == null ? "[No theme]" : OTCContext.Project.Theme.Name);
+         bbtnThemesManage.Glyph = (OTCContext.Project.Theme == null ? Control.Properties.Resources.ICO_THEME_UNSELECTED_16 : Control.Properties.Resources.ICO_THEME_16);
 
          // Show system information
-         bsiSystem.Caption = (OTCContext.Project.DigitalSystem == null ? "[No system]" : OTCContext.Project.DigitalSystem.Name);
-         bsiSystem.Glyph = (OTCContext.Project.DigitalSystem == null ? Control.Properties.Resources.ICO_SYSTEMS_UNSELECTED_16 : Control.Properties.Resources.ICO_SYSTEM_16);
+         bbtnSystemsManage.Caption = (OTCContext.Project.DigitalSystem == null ? "[No system]" : OTCContext.Project.DigitalSystem.Name);
+         bbtnSystemsManage.Glyph = (OTCContext.Project.DigitalSystem == null ? Control.Properties.Resources.ICO_SYSTEMS_UNSELECTED_16 : Control.Properties.Resources.ICO_SYSTEM_16);
 
          // Update system controls
          cmdSystemSettings.Enabled = (OTCContext.Project.DigitalSystem != null);
@@ -186,6 +193,10 @@ namespace Rwm.Studio.Plugins.Control.Modules
          else if (e.CommandReceived is ISystemInformation)
          {
             this.SystemInformationCommandReceived((ISystemInformation)e.CommandReceived);
+         }
+         else if (e.CommandReceived is IInterfaceInformation)
+         {
+            this.InterfaceInformationCommandReceived((IInterfaceInformation)e.CommandReceived);
          }
       }
 
@@ -306,7 +317,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
          Element element = Element.GetByConnectionAddress(command.Address);
          if (element != null)
          {
-            element.SetAccessoryStatus(command.Status, false);
+            element.SetAccessoryStatus(command.Status);
 
             StudioContext.LogInformation("Accessory {0:D4} changed to status #{1}", command.Address, command.Status);
          }
@@ -316,7 +327,12 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
       private void SystemInformationCommandReceived(ISystemInformation command)
       {
-         StudioContext.LogInformation("Connected to {0} ver {1}", command.SystemName, command.SystemVersion);
+         StudioContext.LogInformation("Command station {0} ver {1}", command.SystemName, command.SystemVersion);
+      }
+
+      private void InterfaceInformationCommandReceived(IInterfaceInformation command)
+      {
+         StudioContext.LogInformation("USB Interface v{0}.0 (software ver {1}.0)", command.HardwareVersion, command.SoftwareVersion);
       }
 
       private void EmergencyStopCommandReceived()

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Reflection;
 
 namespace Rwm.Otc.Utils
@@ -73,6 +74,12 @@ namespace Rwm.Otc.Utils
          string codeBase = type.Assembly.CodeBase;
          UriBuilder uri = new UriBuilder(codeBase);
          return Uri.UnescapeDataString(uri.Path);
+      }
+
+      public static string GetAssemblyVersion(Type type)
+      {
+         FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(type.Assembly.Location);
+         return fvi.FileVersion;
       }
 
    }

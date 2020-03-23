@@ -73,8 +73,7 @@ namespace Rwm.Otc.Diagnostics
             // If no loggers are appended, a FileLogger with ERROR level will be appended to ensure LOG all application exceptions
             if (Logger.ModuleManager.LoggerModules.Count <= 0)
             {
-               XmlSettingsItem module = new XmlSettingsItem("File", "File");
-               module.AddSetting(Logger.SETTING_LOG_ASSEMBLY_CLASS, typeof(FileLogger).FullName);
+               XmlSettingsItem module = new XmlSettingsItem("FileLogger", typeof(FileLogger).FullName);
                module.AddSetting(Logger.SETTING_LOG_LEVEL, LogLevel.Error.ToString());
                Logger.ModuleManager.LoggerModules.Add(module);
             }

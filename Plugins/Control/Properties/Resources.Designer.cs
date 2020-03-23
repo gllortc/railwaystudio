@@ -1423,6 +1423,16 @@ namespace Rwm.Studio.Plugins.Control.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ICO_THEME_SELECTED_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_THEME_SELECTED_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ICO_THEME_UNSELECTED_16 {
             get {
                 object obj = ResourceManager.GetObject("ICO_THEME_UNSELECTED_16", resourceCulture);
@@ -1446,6 +1456,16 @@ namespace Rwm.Studio.Plugins.Control.Properties {
         internal static System.Drawing.Bitmap lightning_go_16 {
             get {
                 object obj = ResourceManager.GetObject("lightning_go_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap processor_settings_32 {
+            get {
+                object obj = ResourceManager.GetObject("processor_settings_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -64,6 +64,8 @@ namespace Rwm.Otc
 
          // Load theme
          OTCContext.Project = null;
+
+         Logger.LogDebug("OTCContext.Initialize()");
       }
 
       /// <summary>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
 using System.Reflection;
+using Rwm.Otc.Diagnostics;
 using static Rwm.Otc.Data.ORM.ORMForeignCollection;
 
 namespace Rwm.Otc.Data.ORM
@@ -203,7 +204,7 @@ namespace Rwm.Otc.Data.ORM
       /// <returns>The specified instance.</returns>
       private static T ReadFromDatabase(long id, bool closeConnection = true)
       {
-         T instance = default(T);
+         T instance = default;
          ORMSqlCommand cmd = ORMEntity<T>.SqlDialect.GetSelectCommand();
 
          // Connecto to database
@@ -492,36 +493,44 @@ namespace Rwm.Otc.Data.ORM
       {
          object value;
 
-         // Create the new instance
-         T instance = (T)Activator.CreateInstance(typeof(T), new object[] { });
-
-         // Add primary key
-         ORMEntity<T>.ORMStructure.PrimaryKey.SetValue(instance, reader);
-
-         // After object is identified, add it to the memory table
-         ORMEntity<T>.AddInMemoryTable(((ORMIdentifiableEntity)instance).ID, instance);
-
-         foreach (ORMEntityMember member in ORMEntity<T>.ORMStructure)
+         try
          {
-            value = null;
+            // Create the new instance
+            T instance = (T)Activator.CreateInstance(typeof(T), new object[] { });
 
-            if (member.IsForeignField)
+            // Add primary key
+            ORMEntity<T>.ORMStructure.PrimaryKey.SetValue(instance, reader);
+
+            // After object is identified, add it to the memory table
+            ORMEntity<T>.AddInMemoryTable(((ORMIdentifiableEntity)instance).ID, instance);
+
+            foreach (ORMEntityMember member in ORMEntity<T>.ORMStructure)
             {
-               value = member.GetReaderValue(instance, reader);
-               member.SetValue(instance, value);
+               value = null;
+
+               if (member.IsForeignField)
+               {
+                  value = member.GetReaderValue(instance, reader);
+                  member.SetValue(instance, value);
+               }
+               else if (member.IsForeignCollection)
+               {
+                  value = ORMEntity<T>.GetORMForeignCollection(member, instance);
+                  member.SetValue(instance, value);
+               }
+               else
+               {
+                  member.SetValue(instance, reader);
+               }
             }
-            else if (member.IsForeignCollection)
-            {
-               value = ORMEntity<T>.GetORMForeignCollection(member, instance);
-               member.SetValue(instance, value);
-            }
-            else
-            {
-               member.SetValue(instance, reader);
-            }
+
+            return instance;
          }
-
-         return instance;
+         catch (Exception ex)
+         {
+            Logger.LogError(ex);
+            throw ex;
+         }
       }
 
       private static object GetORMForeignCollection(ORMEntityMember member, object instance)

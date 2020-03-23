@@ -19,7 +19,7 @@ namespace Rwm.Otc.Themes.Properties {
     // a través de una herramienta como ResGen o Visual Studio.
     // Para agregar o quitar un miembro, edite el archivo .ResX y, a continuación, vuelva a ejecutar ResGen
     // con la opción /str o recompile su proyecto de VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -848,7 +848,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
-        ///  &lt;!-- Ausleuchtung gelb --&gt;
+        ///  &lt;!-- Ausleuchtung grau --&gt;
         ///    &lt;path stroke=&quot;rgb(255,255,0)&quot; fill=&quot;rgb(255,255,0)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- signal --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 1,5 L 4,2 L 22,2 L 25,5 L 25,6 L 22,9 L 4,9 L 1,6 z &quot; /&gt;
@@ -1328,14 +1328,10 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;55&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;svg width=&quot;64&quot; height=&quot;32&quot;&gt;
         ///  &lt;g&gt;
-        ///    &lt;!-- Block --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;none&quot; d=&quot;M 0,3 L 55,3 L 55,28 L 0,28 z &quot; /&gt;
-        ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(255,255,255)&quot; d=&quot;M 1,4 L 54,4 L 54,27 L 1,27 z &quot; /&gt;
-        ///    &lt;!--path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;black&quot; d=&quot;M 1,24 L 14,24 L 14,27 L 1,27 z &quot; /--&gt;
-        ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;none&quot; d=&quot;M 3,23 L 7,23 z &quot; /&gt;
-        ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;none&quot; d=&quot;M 5,21 L 5,25 z &quot; /&gt;
+        ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;none&quot; d=&quot;M 0,4 L 64,4 L 64,28 L 0,28 z &quot; /&gt;
+        ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(255,255,255)&quot; d=&quot;M 1,5 L 62,5 L 62,27 L 1,27 z &quot; /&gt;
         ///  &lt;/g&gt;
         ///&lt;/svg&gt;
         ///.

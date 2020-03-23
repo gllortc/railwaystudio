@@ -1,10 +1,10 @@
-﻿using Rwm.Otc.Configuration;
-using Rwm.Otc.Diagnostics;
-using Rwm.Otc.Utils;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Reflection;
+using Rwm.Otc.Configuration;
+using Rwm.Otc.Diagnostics;
+using Rwm.Otc.Utils;
 
 namespace Rwm.Otc.Themes
 {
@@ -64,6 +64,14 @@ namespace Rwm.Otc.Themes
       #endregion
 
       #region Methods
+
+      /// <summary>
+      /// Sets the theme used to render the switchboard panels.
+      /// </summary>
+      public void SetTheme(ITheme theme)
+      {
+         this.SetTheme(theme.GetType());
+      }
 
       /// <summary>
       /// Sets the theme used to render the switchboard panels.

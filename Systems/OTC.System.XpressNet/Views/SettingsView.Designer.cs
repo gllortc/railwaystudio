@@ -34,8 +34,9 @@
          this.imlIcons = new System.Windows.Forms.ImageList(this.components);
          this.lblPort = new DevExpress.XtraEditors.LabelControl();
          this.grpCommunications = new DevExpress.XtraEditors.GroupControl();
+         this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
          this.chkDebugMode = new DevExpress.XtraEditors.CheckEdit();
-         this.spnTimeout = new DevExpress.XtraEditors.SpinEdit();
+         this.spnKeepaliveInterval = new DevExpress.XtraEditors.SpinEdit();
          this.lblTimeout = new DevExpress.XtraEditors.LabelControl();
          this.spnDataBits = new DevExpress.XtraEditors.SpinEdit();
          this.cboBaudRate = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -49,32 +50,34 @@
          this.lblBaudRate = new DevExpress.XtraEditors.LabelControl();
          this.cmdCancel = new DevExpress.XtraEditors.SimpleButton();
          this.cmdOK = new DevExpress.XtraEditors.SimpleButton();
-         this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
          this.pictureBox1 = new System.Windows.Forms.PictureBox();
+         this.spnRWTimeout = new DevExpress.XtraEditors.SpinEdit();
+         this.lblRWTimeout = new DevExpress.XtraEditors.LabelControl();
          ((System.ComponentModel.ISupportInitialize)(this.cboPort.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.grpCommunications)).BeginInit();
          this.grpCommunications.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.chkDebugMode.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.spnTimeout.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.spnKeepaliveInterval.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.spnDataBits.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.cboBaudRate.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.cboHandshake.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.cboStopBits.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.cboParity.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.spnRWTimeout.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // cboPort
          // 
          this.cboPort.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.cboPort.Location = new System.Drawing.Point(121, 33);
+         this.cboPort.Location = new System.Drawing.Point(143, 33);
          this.cboPort.Name = "cboPort";
          this.cboPort.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
          this.cboPort.Properties.SmallImages = this.imlIcons;
-         this.cboPort.Size = new System.Drawing.Size(160, 20);
+         this.cboPort.Size = new System.Drawing.Size(138, 20);
          this.cboPort.TabIndex = 1;
          // 
          // imlIcons
@@ -96,9 +99,11 @@
          this.grpCommunications.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+         this.grpCommunications.Controls.Add(this.spnRWTimeout);
+         this.grpCommunications.Controls.Add(this.lblRWTimeout);
          this.grpCommunications.Controls.Add(this.separatorControl1);
          this.grpCommunications.Controls.Add(this.chkDebugMode);
-         this.grpCommunications.Controls.Add(this.spnTimeout);
+         this.grpCommunications.Controls.Add(this.spnKeepaliveInterval);
          this.grpCommunications.Controls.Add(this.lblTimeout);
          this.grpCommunications.Controls.Add(this.spnDataBits);
          this.grpCommunications.Controls.Add(this.cboBaudRate);
@@ -115,46 +120,53 @@
          this.grpCommunications.Location = new System.Drawing.Point(12, 71);
          this.grpCommunications.Name = "grpCommunications";
          this.grpCommunications.Padding = new System.Windows.Forms.Padding(10);
-         this.grpCommunications.Size = new System.Drawing.Size(296, 281);
+         this.grpCommunications.Size = new System.Drawing.Size(296, 303);
          this.grpCommunications.TabIndex = 2;
          this.grpCommunications.Text = "Communications";
+         // 
+         // separatorControl1
+         // 
+         this.separatorControl1.Location = new System.Drawing.Point(15, 241);
+         this.separatorControl1.Name = "separatorControl1";
+         this.separatorControl1.Size = new System.Drawing.Size(266, 23);
+         this.separatorControl1.TabIndex = 11;
          // 
          // chkDebugMode
          // 
          this.chkDebugMode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.chkDebugMode.Location = new System.Drawing.Point(15, 244);
+         this.chkDebugMode.Location = new System.Drawing.Point(15, 270);
          this.chkDebugMode.Name = "chkDebugMode";
          this.chkDebugMode.Properties.Caption = "Mode debugger (use only to verify communication)";
          this.chkDebugMode.Size = new System.Drawing.Size(266, 19);
          this.chkDebugMode.TabIndex = 14;
          // 
-         // spnTimeout
+         // spnKeepaliveInterval
          // 
-         this.spnTimeout.EditValue = new decimal(new int[] {
-            500,
+         this.spnKeepaliveInterval.EditValue = new decimal(new int[] {
+            3000,
             0,
             0,
             0});
-         this.spnTimeout.Location = new System.Drawing.Point(121, 189);
-         this.spnTimeout.Name = "spnTimeout";
-         this.spnTimeout.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+         this.spnKeepaliveInterval.Location = new System.Drawing.Point(143, 189);
+         this.spnKeepaliveInterval.Name = "spnKeepaliveInterval";
+         this.spnKeepaliveInterval.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.spnTimeout.Properties.MaxValue = new decimal(new int[] {
+         this.spnKeepaliveInterval.Properties.MaxValue = new decimal(new int[] {
             9999,
             0,
             0,
             0});
-         this.spnTimeout.Size = new System.Drawing.Size(62, 20);
-         this.spnTimeout.TabIndex = 13;
+         this.spnKeepaliveInterval.Size = new System.Drawing.Size(62, 20);
+         this.spnKeepaliveInterval.TabIndex = 13;
          // 
          // lblTimeout
          // 
          this.lblTimeout.Location = new System.Drawing.Point(15, 192);
          this.lblTimeout.Name = "lblTimeout";
-         this.lblTimeout.Size = new System.Drawing.Size(86, 13);
+         this.lblTimeout.Size = new System.Drawing.Size(115, 13);
          this.lblTimeout.TabIndex = 12;
-         this.lblTimeout.Text = "Command timeout";
+         this.lblTimeout.Text = "Keepalive signal interval";
          // 
          // spnDataBits
          // 
@@ -164,7 +176,7 @@
             0,
             0});
          this.spnDataBits.Enabled = false;
-         this.spnDataBits.Location = new System.Drawing.Point(121, 137);
+         this.spnDataBits.Location = new System.Drawing.Point(143, 137);
          this.spnDataBits.Name = "spnDataBits";
          this.spnDataBits.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -175,12 +187,12 @@
          // 
          this.cboBaudRate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.cboBaudRate.Location = new System.Drawing.Point(121, 59);
+         this.cboBaudRate.Location = new System.Drawing.Point(143, 59);
          this.cboBaudRate.Name = "cboBaudRate";
          this.cboBaudRate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
          this.cboBaudRate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-         this.cboBaudRate.Size = new System.Drawing.Size(160, 20);
+         this.cboBaudRate.Size = new System.Drawing.Size(138, 20);
          this.cboBaudRate.TabIndex = 3;
          // 
          // lblDataBits
@@ -220,12 +232,12 @@
          this.cboHandshake.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.cboHandshake.Enabled = false;
-         this.cboHandshake.Location = new System.Drawing.Point(121, 163);
+         this.cboHandshake.Location = new System.Drawing.Point(143, 163);
          this.cboHandshake.Name = "cboHandshake";
          this.cboHandshake.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
          this.cboHandshake.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-         this.cboHandshake.Size = new System.Drawing.Size(160, 20);
+         this.cboHandshake.Size = new System.Drawing.Size(138, 20);
          this.cboHandshake.TabIndex = 11;
          // 
          // cboStopBits
@@ -233,12 +245,12 @@
          this.cboStopBits.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.cboStopBits.Enabled = false;
-         this.cboStopBits.Location = new System.Drawing.Point(121, 111);
+         this.cboStopBits.Location = new System.Drawing.Point(143, 111);
          this.cboStopBits.Name = "cboStopBits";
          this.cboStopBits.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
          this.cboStopBits.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-         this.cboStopBits.Size = new System.Drawing.Size(160, 20);
+         this.cboStopBits.Size = new System.Drawing.Size(138, 20);
          this.cboStopBits.TabIndex = 7;
          // 
          // cboParity
@@ -246,12 +258,12 @@
          this.cboParity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.cboParity.Enabled = false;
-         this.cboParity.Location = new System.Drawing.Point(121, 85);
+         this.cboParity.Location = new System.Drawing.Point(143, 85);
          this.cboParity.Name = "cboParity";
          this.cboParity.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
          this.cboParity.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-         this.cboParity.Size = new System.Drawing.Size(160, 20);
+         this.cboParity.Size = new System.Drawing.Size(138, 20);
          this.cboParity.TabIndex = 5;
          // 
          // lblBaudRate
@@ -266,7 +278,7 @@
          // 
          this.cmdCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-         this.cmdCancel.Location = new System.Drawing.Point(233, 358);
+         this.cmdCancel.Location = new System.Drawing.Point(233, 380);
          this.cmdCancel.Name = "cmdCancel";
          this.cmdCancel.Size = new System.Drawing.Size(75, 23);
          this.cmdCancel.TabIndex = 200;
@@ -276,19 +288,12 @@
          // cmdOK
          // 
          this.cmdOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.cmdOK.Location = new System.Drawing.Point(152, 358);
+         this.cmdOK.Location = new System.Drawing.Point(152, 380);
          this.cmdOK.Name = "cmdOK";
          this.cmdOK.Size = new System.Drawing.Size(75, 23);
          this.cmdOK.TabIndex = 100;
          this.cmdOK.Text = "OK";
          this.cmdOK.Click += new System.EventHandler(this.CmdOK_Click);
-         // 
-         // separatorControl1
-         // 
-         this.separatorControl1.Location = new System.Drawing.Point(15, 215);
-         this.separatorControl1.Name = "separatorControl1";
-         this.separatorControl1.Size = new System.Drawing.Size(266, 23);
-         this.separatorControl1.TabIndex = 11;
          // 
          // pictureBox1
          // 
@@ -300,13 +305,40 @@
          this.pictureBox1.TabIndex = 5;
          this.pictureBox1.TabStop = false;
          // 
+         // spnRWTimeout
+         // 
+         this.spnRWTimeout.EditValue = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+         this.spnRWTimeout.Location = new System.Drawing.Point(143, 215);
+         this.spnRWTimeout.Name = "spnRWTimeout";
+         this.spnRWTimeout.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.spnRWTimeout.Properties.MaxValue = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+         this.spnRWTimeout.Size = new System.Drawing.Size(62, 20);
+         this.spnRWTimeout.TabIndex = 16;
+         // 
+         // lblRWTimeout
+         // 
+         this.lblRWTimeout.Location = new System.Drawing.Point(15, 218);
+         this.lblRWTimeout.Name = "lblRWTimeout";
+         this.lblRWTimeout.Size = new System.Drawing.Size(94, 13);
+         this.lblRWTimeout.TabIndex = 15;
+         this.lblRWTimeout.Text = "Read/Write timeout";
+         // 
          // SettingsView
          // 
          this.AcceptButton = this.cmdOK;
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.CancelButton = this.cmdCancel;
-         this.ClientSize = new System.Drawing.Size(320, 393);
+         this.ClientSize = new System.Drawing.Size(320, 415);
          this.Controls.Add(this.pictureBox1);
          this.Controls.Add(this.cmdOK);
          this.Controls.Add(this.cmdCancel);
@@ -323,15 +355,16 @@
          ((System.ComponentModel.ISupportInitialize)(this.grpCommunications)).EndInit();
          this.grpCommunications.ResumeLayout(false);
          this.grpCommunications.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.chkDebugMode.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.spnTimeout.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.spnKeepaliveInterval.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.spnDataBits.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.cboBaudRate.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.cboHandshake.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.cboStopBits.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.cboParity.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.spnRWTimeout.Properties)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -354,10 +387,12 @@
         private DevExpress.XtraEditors.LabelControl lblHandshake;
         private DevExpress.XtraEditors.ComboBoxEdit cboHandshake;
         private System.Windows.Forms.ImageList imlIcons;
-        private DevExpress.XtraEditors.SpinEdit spnTimeout;
+        private DevExpress.XtraEditors.SpinEdit spnKeepaliveInterval;
         private DevExpress.XtraEditors.LabelControl lblTimeout;
         private DevExpress.XtraEditors.CheckEdit chkDebugMode;
         private DevExpress.XtraEditors.SeparatorControl separatorControl1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private DevExpress.XtraEditors.SpinEdit spnRWTimeout;
+        private DevExpress.XtraEditors.LabelControl lblRWTimeout;
     }
 }

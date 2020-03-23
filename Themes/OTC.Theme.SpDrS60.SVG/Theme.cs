@@ -1,13 +1,13 @@
-﻿using Rwm.Otc.Diagnostics;
-using Rwm.Otc.Layout;
-using Svg;
-using Svg.Transforms;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Reflection;
 using System.Resources;
 using System.Xml;
+using Rwm.Otc.Diagnostics;
+using Rwm.Otc.Layout;
+using Svg;
+using Svg.Transforms;
 
 namespace Rwm.Otc.Themes
 {
@@ -56,7 +56,15 @@ namespace Rwm.Otc.Themes
       /// </summary>
       public string Description 
       {
-         get { return "Siemens SpDrS60 OTC theme"; }
+         get { return "Theme inspired on Siemens SpDrS60 switchboards"; }
+      }
+
+      /// <summary>
+      /// Gets the current implementation version.
+      /// </summary>
+      public string Version
+      {
+         get { return Rwm.Otc.Utils.ReflectionUtils.GetAssemblyVersion(this.GetType()); }
       }
 
       /// <summary>
@@ -98,18 +106,12 @@ namespace Rwm.Otc.Themes
       /// <returns>An image representing the element and all his properties.</returns>
       public Image GetElementImage(Element element, bool designImage)
       {
-         string xmlSource = string.Empty;
-         string imgKey = null;
-         string cacheKey = null;
-         Image image = null;
-
          try
          {
-            imgKey = this.GetResourceName(element, designImage);
-            cacheKey = string.Format("{0}_{1}",
-                                     imgKey,
-                                     (int)element.Rotation);
+            string imgKey = this.GetResourceName(element, designImage);
+            string cacheKey = string.Format("{0}_{1}", imgKey, (int)element.Rotation);
 
+            Image image;
             if (this.ImageCache.ContainsKey(cacheKey))
             {
                image = this.ImageCache[cacheKey];
@@ -118,7 +120,7 @@ namespace Rwm.Otc.Themes
             {
                ResourceManager rm = new ResourceManager("Rwm.Otc.Themes.Properties.Resources",
                                                         Assembly.GetExecutingAssembly());
-               xmlSource = rm.GetString(imgKey);
+               string xmlSource = rm.GetString(imgKey);
                if (xmlSource == null)
                {
                   Logger.LogWarning(this, "THEME WARNING: {0} key not supported in current theme {1}", imgKey, this.Name);
@@ -142,9 +144,9 @@ namespace Rwm.Otc.Themes
 
                image = (Image)svg.Draw();
 
-               if (!this.ImageCache.ContainsKey(cacheKey)) 
+               if (!this.ImageCache.ContainsKey(cacheKey))
                   this.ImageCache.Add(cacheKey, image);
-               else 
+               else
                   this.ImageCache[cacheKey] = image;
             }
 

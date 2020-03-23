@@ -1,13 +1,13 @@
-﻿using DevExpress.XtraBars.Ribbon;
-using DevExpress.XtraNavBar;
-using RailwayStudio.Common;
-using Rwm.Otc;
-using Rwm.Otc.Diagnostics;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
+using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraNavBar;
+using RailwayStudio.Common;
+using Rwm.Otc;
+using Rwm.Otc.Diagnostics;
 
 namespace Rwm.Studio.Views.Controllers
 {
@@ -55,8 +55,7 @@ namespace Rwm.Studio.Views.Controllers
       /// </summary>
       void PluginModule_FormClosing(object sender, FormClosingEventArgs e)
       {
-         IPluginModule module = sender as IPluginModule;
-         if (module != null)
+         if (sender is IPluginModule module)
          {
             module.DestoryPanels();
          }
@@ -83,6 +82,8 @@ namespace Rwm.Studio.Views.Controllers
          }
          catch (Exception ex)
          {
+            Logger.LogError(this, ex);
+
             MessageBox.Show("ERROR loading project: " + Environment.NewLine + Environment.NewLine + ex.Message,
                             Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -99,6 +100,8 @@ namespace Rwm.Studio.Views.Controllers
          }
          catch (Exception ex)
          {
+            Logger.LogError(this, ex);
+
             MessageBox.Show("ERROR creating project: " + Environment.NewLine + Environment.NewLine + ex.Message,
                             Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -188,6 +191,8 @@ namespace Rwm.Studio.Views.Controllers
 
       public void OpenPluginModule(string className, params object[] args)
       {
+         Logger.LogDebug(this, "[CLASS].OpenPluginModule('{0}', {1})", className, args);
+
          foreach (PluginModule module in this.Modules)
          {
             if (module.Class.Equals(className) || module.ID.Equals(className))
@@ -222,8 +227,7 @@ namespace Rwm.Studio.Views.Controllers
             Type type = lib.GetType(plugin.Class);
             IPluginModule moduleInstance = Activator.CreateInstance(type) as IPluginModule;
 
-            Form form = moduleInstance as Form;
-            if (form != null)
+            if (moduleInstance is Form form)
             {
                // Show the main form of the plugin module
                form.MdiParent = this.MainView.ParentForm;

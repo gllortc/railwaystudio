@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Data;
 using System.Windows.Forms;
+using DevExpress.XtraGrid.Columns;
 using RailwayStudio.Common;
 using Rwm.Otc;
+using Rwm.Otc.Systems;
 
 namespace Rwm.Studio.Plugins.Control.Views
 {
@@ -24,7 +25,12 @@ namespace Rwm.Studio.Plugins.Control.Views
 
       private void GrdSystemsView_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
       {
-         StudioContext.UI.DrawRowIcon(Properties.Resources.ICO_SYSTEM_16, e);
+         IDigitalSystem system = grdSystemsView.GetRow(e.RowHandle) as IDigitalSystem;
+
+         if (system == null || !system.ID.Equals(OTCContext.Project.DigitalSystem.ID))
+            StudioContext.UI.DrawRowIcon(Properties.Resources.ICO_SYSTEM_16, e);
+         else
+            StudioContext.UI.DrawRowIcon(Properties.Resources.ICO_SYSTEM_SELECTED_16, e);
       }
 
       private void CmdSystemSelect_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -37,14 +43,41 @@ namespace Rwm.Studio.Plugins.Control.Views
 
          try
          {
-            if (!(grdSystemsView.GetRow(grdSystemsView.GetSelectedRows()[0]) is DataRowView drv)) return;
+            int[] selRows = grdSystemsView.GetSelectedRows();
+            IDigitalSystem system = grdSystemsView.GetRow(selRows[0]) as IDigitalSystem;
 
-            OTCContext.Project.SystemManager.SetSystem(drv["Type"] as Type);
+            OTCContext.Project.SystemManager.SetSystem(system);
          }
          catch (Exception ex)
          {
             MessageBox.Show("Error configuring the selected digital system: " + ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
          }
+      }
+
+      private void CmdSystemSetup_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      {
+         if (grdSystemsView.SelectedRowsCount <= 0)
+         {
+            MessageBox.Show("No digital system has been selected from list.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return;
+         }
+
+         try
+         {
+            int[] selRows = grdSystemsView.GetSelectedRows();
+            IDigitalSystem system = grdSystemsView.GetRow(selRows[0]) as IDigitalSystem;
+
+            system.ShowSettingsDialog();
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show("Error accessing system settings: " + ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+         }
+      }
+
+      private void CmdClose_Click(object sender, EventArgs e)
+      {
+         this.Close();
       }
 
       #endregion
@@ -56,9 +89,14 @@ namespace Rwm.Studio.Plugins.Control.Views
          try
          {
             grdSystems.BeginUpdate();
-            grdSystems.DataSource = OTCContext.Project.SystemManager.Find();
-            grdSystemsView.Columns[0].Visible = false;
-            grdSystemsView.Columns[3].Visible = false;
+
+            grdSystemsView.OptionsBehavior.AutoPopulateColumns = false;
+            grdSystemsView.Columns.Add(new GridColumn() { Caption = "ID", Visible = false, FieldName = "ID" });
+            grdSystemsView.Columns.Add(new GridColumn() { Caption = "Name", Visible = true, FieldName = "Name" });
+            grdSystemsView.Columns.Add(new GridColumn() { Caption = "Description", Visible = true, FieldName = "Description", Width = 165 });
+            grdSystemsView.Columns.Add(new GridColumn() { Caption = "Version", Visible = true, FieldName = "Version", Width = 45 });
+            grdSystems.DataSource = OTCContext.Project.SystemManager.GetAll();
+
             grdSystems.EndUpdate();
          }
          catch (Exception ex)
@@ -68,7 +106,7 @@ namespace Rwm.Studio.Plugins.Control.Views
          }
       }
 
-        #endregion
+      #endregion
 
-    }
+   }
 }

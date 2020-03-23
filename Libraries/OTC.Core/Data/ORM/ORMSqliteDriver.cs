@@ -157,28 +157,36 @@ namespace Rwm.Otc.Data.ORM
       {
          SQLiteParameter sqlParam;
 
-         if (value is Image)
+         try
          {
-            Image img = value as Image;
-            sqlParam = new SQLiteParameter(member.Attribute.FieldName, DbType.Binary);
-            sqlParam.Value = (byte[])BinaryUtils.ImageToByteArray(img);
-         }
-         else if (value is byte[])
-         {
-            sqlParam = new SQLiteParameter(member.Attribute.FieldName, DbType.Binary, ((byte[])value).Length);
-            sqlParam.Value = value;
-         }
-         else if (ReflectionUtils.IsSubclassOfRawGeneric(typeof(ORMEntity<>), value.GetType()))
-         {
-            // Get primary key value of the ORMEntity instance
-            sqlParam = new SQLiteParameter(member.Attribute.FieldName, ORMSqliteDriver.GetPrimaryKeyValue(value));
-         }
-         else
-         {
-            sqlParam = new SQLiteParameter(member.Attribute.FieldName, value);
-         }
+            if (value is Image)
+            {
+               Image img = value as Image;
+               sqlParam = new SQLiteParameter(member.Attribute.FieldName, DbType.Binary);
+               sqlParam.Value = (byte[])BinaryUtils.ImageToByteArray(img);
+            }
+            else if (value is byte[])
+            {
+               sqlParam = new SQLiteParameter(member.Attribute.FieldName, DbType.Binary, ((byte[])value).Length);
+               sqlParam.Value = value;
+            }
+            else if (ReflectionUtils.IsSubclassOfRawGeneric(typeof(ORMEntity<>), value.GetType()))
+            {
+               // Get primary key value of the ORMEntity instance
+               sqlParam = new SQLiteParameter(member.Attribute.FieldName, ORMSqliteDriver.GetPrimaryKeyValue(value));
+            }
+            else
+            {
+               sqlParam = new SQLiteParameter(member.Attribute.FieldName, value);
+            }
 
-         ORMSqliteDriver.parameters.Add(sqlParam);
+            ORMSqliteDriver.parameters.Add(sqlParam);
+         }
+         catch (Exception ex)
+         {
+            Logger.LogError(ex);
+            throw ex;
+         }
       }
 
       /// <summary>
@@ -244,13 +252,11 @@ namespace Rwm.Otc.Data.ORM
       /// <returns>The resulting <see cref="Int64"/> value.</returns>
       public static long ExecuteScalar(string sql, long defaultValue)
       {
-         object res = null;
-
          using (SQLiteCommand cmd = new SQLiteCommand(sql, ORMSqliteDriver.Connection))
          {
             ORMSqliteDriver.SetCommandParameters(cmd);
 
-            res = cmd.ExecuteScalar();
+            object res = cmd.ExecuteScalar();
             if (res == null)
             {
                return defaultValue;
@@ -290,13 +296,11 @@ namespace Rwm.Otc.Data.ORM
       /// <returns>The resulting <see cref="String"/> value.</returns>
       public static string ExecuteString(string sql, string defaultValue)
       {
-         object res = null;
-
          using (SQLiteCommand cmd = new SQLiteCommand(sql, ORMSqliteDriver.Connection))
          {
             ORMSqliteDriver.SetCommandParameters(cmd);
 
-            res = cmd.ExecuteScalar();
+            object res = cmd.ExecuteScalar();
             if (res == null)
             {
                return defaultValue;
@@ -347,19 +351,17 @@ namespace Rwm.Otc.Data.ORM
       public void SetProperty(string key, string value)
       {
          Int64 nRows;
-         string sql = string.Empty;
 
          try
          {
             Connect();
 
-            sql = @"SELECT 
-                        Count(*) 
-                    FROM 
-                        " + ORMSqliteDriver.SQL_REGISTRY_TABLE + @" 
-                    WHERE
-                        key = @key";
-
+            string sql = @"SELECT 
+                               Count(*) 
+                           FROM 
+                               " + ORMSqliteDriver.SQL_REGISTRY_TABLE + @" 
+                           WHERE
+                               key = @key";
             parameters.Add(new SQLiteParameter("key", key));
             nRows = ExecuteScalar(sql);
 
@@ -413,24 +415,20 @@ namespace Rwm.Otc.Data.ORM
       /// <returns>The value associated to the specified key.</returns>
       public string GetPropertyString(string key, string defaultValue)
       {
-         string sql = string.Empty;
-         string value = string.Empty;
-
          try
          {
             Connect();
 
-            sql = @"SELECT 
-                        value 
-                    FROM 
-                        " + ORMSqliteDriver.SQL_REGISTRY_TABLE + @" 
-                    WHERE
-                        key = @key";
+            string sql = @"SELECT 
+                               value 
+                           FROM 
+                               " + ORMSqliteDriver.SQL_REGISTRY_TABLE + @" 
+                           WHERE
+                               key = @key";
 
             parameters.Add(new SQLiteParameter("key", key));
 
-            value = ExecuteString(sql);
-
+            string value = ExecuteString(sql);
             return (string.IsNullOrWhiteSpace(value) ? defaultValue : value);
          }
          catch
@@ -445,10 +443,9 @@ namespace Rwm.Otc.Data.ORM
 
       public int GetPropertyInteger(string key, int defaultValue)
       {
-         int result;
          string value = GetPropertyString(key);
 
-         if (int.TryParse(value, out result))
+         if (int.TryParse(value, out int result))
          {
             return result;
          }
@@ -465,20 +462,17 @@ namespace Rwm.Otc.Data.ORM
       /// <param name="sql">SQL sentence to create the table.</param>
       public void CreateTable(string tableName, string ddl)
       {
-         string sql = string.Empty;
-
          try
          {
             Connect();
 
-            sql = @"SELECT 
-                        Count(name)
-                    FROM 
-                        sqlite_master 
-                    WHERE 
-                        type = 'table' And 
-                        name = @name;";
-
+            string sql = @"SELECT 
+                               Count(name)
+                           FROM 
+                               sqlite_master 
+                           WHERE 
+                               type = 'table' And 
+                               name = @name;";
             parameters.Add(new SQLiteParameter("name", tableName));
 
             if (ExecuteScalar(sql) <= 0)

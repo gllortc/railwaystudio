@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Ports;
 using System.Threading;
 using System.Windows.Forms;
-using RJCP.IO.Ports;
 using Rwm.Otc;
 using Rwm.Otc.Configuration;
 using Rwm.Otc.Diagnostics;
@@ -27,7 +27,8 @@ namespace Rwm.OTC.Systems.XpressNet
       private const string SETTINGS_KEY_STOPBITS = "xpn.stop-bits";
       private const string SETTINGS_KEY_DATABITS = "xpn.data-bits";
       private const string SETTINGS_KEY_HANDSHAKE = "xpn.handshake";
-      private const string SETTINGS_KEY_CMD_TIMEOUT = "xpn.cmd.timeout";
+      private const string SETTINGS_KEY_RWTIMEOUT = "xpn.rwtimeout";
+      private const string SETTINGS_KEY_KEEPALIVE_INTERVAL = "xpn.keepalive.interval";
       private const string SETTINGS_KEY_DEBUG_ENABLED = "xpn.debug.enabled";
 
       private const int SENSOR_OUTPUTS_ADDRESS = 4;
@@ -65,11 +66,11 @@ namespace Rwm.OTC.Systems.XpressNet
 
       #region Properties
 
-      private SerialPortStream SerialPort { get; set; } = null;
+      private SerialPort SerialPort { get; set; } = null;
 
       private XmlSettingsItem SystemSettingsNode { get; set; }
 
-      //private static List<byte> ResponseBuffer { get; set; } = new List<byte>();
+      private System.Timers.Timer AcknowledgementTimer { get; set; } = null;
 
       public string ID
       {
@@ -78,12 +79,20 @@ namespace Rwm.OTC.Systems.XpressNet
 
       public string Name
       {
-         get { return "Lenz XpressNet DCC"; }
+         get { return "Lenz XpressNet USB"; }
       }
 
       public string Description
       {
-         get { return "Lenz XpressNet DCC"; }
+         get { return "Lenz XpressNet implementation using USB connected interface"; }
+      }
+
+      /// <summary>
+      /// Gets the current implementation version.
+      /// </summary>
+      public string Version 
+      {
+         get { return ReflectionUtils.GetAssemblyVersion(this.GetType()); } 
       }
 
       /// <summary>
@@ -166,12 +175,22 @@ namespace Rwm.OTC.Systems.XpressNet
          }
       }
 
-      public int CommandTimeout
+      public int KeepaliveSignalInterval
       {
-         get { return this.SystemSettingsNode.GetInteger(SETTINGS_KEY_CMD_TIMEOUT, 500); }
+         get { return this.SystemSettingsNode.GetInteger(SETTINGS_KEY_KEEPALIVE_INTERVAL, 3000); }
          set
          {
-            this.SystemSettingsNode.AddSetting(SETTINGS_KEY_CMD_TIMEOUT, value.ToString());
+            this.SystemSettingsNode.AddSetting(SETTINGS_KEY_KEEPALIVE_INTERVAL, value.ToString());
+            OTCContext.Settings.SaveSettings();
+         }
+      }
+
+      public int ReadWriteTimeout
+      {
+         get { return this.SystemSettingsNode.GetInteger(SETTINGS_KEY_RWTIMEOUT, 500); }
+         set
+         {
+            this.SystemSettingsNode.AddSetting(SETTINGS_KEY_RWTIMEOUT, value.ToString());
             OTCContext.Settings.SaveSettings();
          }
       }
@@ -185,19 +204,22 @@ namespace Rwm.OTC.Systems.XpressNet
       /// </summary>
       public bool Connect()
       {
+         Logger.LogDebug(this, "[CLASS].Connect()");
+
          try
          {
             XpnBufferManager.Clear();
 
-            this.SerialPort = new SerialPortStream(this.PortName, this.BaudRate, 8, Parity.None, StopBits.One);
+            this.SerialPort = new SerialPort(this.PortName, this.BaudRate, Parity.None, 8, StopBits.One);
             //this.SerialPort.Parity = Parity.None;
-            //this.SerialPort.Handshake = Handshake.None;
+            this.SerialPort.Handshake = Handshake.None;
             //this.SerialPort.DataBits = 8;
             //this.SerialPort.StopBits = StopBits.One;
-            //this.SerialPort.RtsEnable = true;
-            //this.SerialPort.DtrEnable = true;
-            this.SerialPort.WriteTimeout = this.CommandTimeout;
-            this.SerialPort.ReadTimeout = this.CommandTimeout;
+            this.SerialPort.RtsEnable = false;
+            this.SerialPort.DtrEnable = false;
+            this.SerialPort.WriteTimeout = this.ReadWriteTimeout;
+            this.SerialPort.ReadTimeout = this.ReadWriteTimeout;
+            this.SerialPort.ReadBufferSize = 1024;
 
             if (this.SerialPort != null && !this.SerialPort.IsOpen)
             {
@@ -207,8 +229,18 @@ namespace Rwm.OTC.Systems.XpressNet
                // Send information 
                this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Information, "{0} connected", this.Name));
 
-               // Send a system information request to verify communication and to show system info as well
+               // Send a system & interface information request to verify communication and to show system info as well
                this.SystemInformation();
+               Thread.Sleep(250);
+               this.InterfaceInformation();
+
+               // Start the acknowledgement signal timer
+               if (this.KeepaliveSignalInterval > 0)
+               {
+                  this.AcknowledgementTimer = new System.Timers.Timer(this.KeepaliveSignalInterval);
+                  this.AcknowledgementTimer.Elapsed += AcknowledgementTimer_Elapsed;
+                  this.AcknowledgementTimer.Start();
+               }
 
                this.Status = SystemStatus.Connected;
 
@@ -236,12 +268,26 @@ namespace Rwm.OTC.Systems.XpressNet
       /// </summary>
       public bool Disconnect()
       {
+         Logger.LogDebug(this, "[CLASS].Disconnect()");
+
          try
          {
+            // Stop the acknowledgement signal timer
+            if (this.AcknowledgementTimer != null && this.KeepaliveSignalInterval > 0)
+            {
+               this.AcknowledgementTimer.Stop();
+               this.AcknowledgementTimer.Elapsed -= AcknowledgementTimer_Elapsed;
+               this.AcknowledgementTimer.Dispose();
+               this.AcknowledgementTimer = null;
+            }
+
+            // Close the serial port connection
             if (this.SerialPort != null && this.SerialPort.IsOpen)
             {
                this.SerialPort.DataReceived -= SerialPort_DataReceived;
                this.SerialPort.Close();
+               this.SerialPort.Dispose();
+               this.SerialPort = null;
 
                return true;
             }
@@ -250,8 +296,10 @@ namespace Rwm.OTC.Systems.XpressNet
                return false;
             }
          }
-         catch
+         catch (Exception ex)
          {
+            Logger.LogError(this, ex);
+
             return false;
          }
          finally
@@ -265,9 +313,8 @@ namespace Rwm.OTC.Systems.XpressNet
       /// <summary>
       /// Show the configuration dialogue of the implemented system.
       /// </summary>
-      /// <param name="settings">Settings item containing the digital system settings.</param>
       /// <rereturns>A value indicating if the user has been accepted the settings or not.</rereturns>
-      public DialogResult ShowSettingsDialog(XmlSettingsManager settings)
+      public DialogResult ShowSettingsDialog()
       {
          SettingsView view = new SettingsView(this);
          return view.ShowDialog();
@@ -283,6 +330,24 @@ namespace Rwm.OTC.Systems.XpressNet
          try
          {
             this.Execute(new byte[] { 0x21, 0x21 });
+         }
+         catch (Exception ex)
+         {
+            Logger.LogError(this, ex);
+            throw new Exception("Command error: " + ex.Message, ex);
+         }
+      }
+
+      /// <summary>
+      /// Request the system information.
+      /// </summary>
+      public void InterfaceInformation()
+      {
+         this.CheckPortStatus();
+
+         try
+         {
+            this.Execute(new byte[] { 0xf0, 0xf0 }, false);
          }
          catch (Exception ex)
          {
@@ -349,28 +414,48 @@ namespace Rwm.OTC.Systems.XpressNet
       /// Repuest accessory operation.
       /// </summary>
       /// <param name="address">Accessory address.</param>
-      /// <param name="activatePin">Pin to activate (1/2).</param>
-      public void OperateAccessory(int address, int activatePin)
+      /// <param name="activeOutput">Pin to activate (1/2).</param>
+      public void OperateAccessory(int address, int activeOutput)
       {
          this.CheckPortStatus();
 
          try
          {
+
+            //byte byteB = 0x00;
+            //byte byteD = 0x00;
+            //byteB = (byte)(((address % 4) & 0x01) << 1);
+            //byteB += (byte)(((address % 4) & 0x02) << 1);
+            //byteD = (byte)(true ? 0x08 : 0x00);
+            //byteD += (byte)((activatePin - 1) == 1 ? 0x01 : 0x00);
+
+            //byte addr = (byte)(address / 4);
+            //byte data = (byte)(byteB + byteD + 0x80);
+            //byte header = (byte)((Convert.ToByte(5) << 4) | 2);  // 0x52
+
+            // byte[] command = new byte[3];
+            // command[0] = 0x52; //  (byte)((Convert.ToByte(5) << 4) | 2);  // 0x52 -> 0d82
+            // command[1] = (byte)((address - 1) / 4);
+
+            // command[2] = 0x80; // (byte)(((address - 1) - command[0] * 4) << 1);
+
+            //int i = (address - (command[1] * 4)) + (activatePin - 1);
+            //command[2] |= 0x80; //Set the MSB to high
+            //command[2] |= (byte)(activatePin == 2 ? 0x01 : 0x00); //Set the LSB to high
+
+            // this.Execute(new byte[] { header, addr, 0x80 }, false);
+            // this.Execute(command);
+
             byte addr = (byte)(address / 4);
+            byte disconnect = (byte)(0x88 + (activeOutput - 1));
+            byte connect = (byte)(0x80 + (activeOutput - 1));
 
-            byte byteB = 0x00;
-            byte byteD = 0x00;
-            byteB = (byte)(((address % 4) & 0x01) << 1);
-            byteB += (byte)(((address % 4) & 0x02) << 1);
-            byteD = (byte)(true ? 0x08 : 0x00);
-            byteD += (byte)((activatePin - 1) == 1 ? 0x01 : 0x00);
-            byte data = (byte)(byteB + byteD + 0x80);
+            this.Execute(new byte[] { 0x52, addr, disconnect });
 
-            this.Execute(new byte[] { 0x52, addr, 0x80 }, false);
+            System.Windows.Forms.Application.DoEvents();
 
-            Thread.Sleep(500);
+            this.Execute(new byte[] { 0x52, addr, connect });
 
-            this.Execute(new byte[] { 0x52, addr, 0x81 }, false);
          }
          catch (Exception ex)
          {
@@ -523,27 +608,41 @@ namespace Rwm.OTC.Systems.XpressNet
       {
          IResponse response;
 
-         SerialPortStream xpressnetSerialPort = (SerialPortStream)sender;
-         if (xpressnetSerialPort.BytesToRead <= 0) return;
+         //SerialPort xpressnetSerialPort = (SerialPort)sender;
+         if (this.SerialPort.BytesToRead <= 0) return;
+
+         // this.SerialPort.ReadBufferSize = 1024;
 
          List<byte> rxBytes = new List<byte>();
-         rxBytes.AddRange(System.Text.Encoding.ASCII.GetBytes(xpressnetSerialPort.ReadExisting()));
+         rxBytes.AddRange(System.Text.Encoding.ASCII.GetBytes(this.SerialPort.ReadExisting()));
+
+         if (this.DebugMode)
+         {
+            this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Debug,
+                                                                                "RX -> {0}",
+                                                                                BinaryUtils.ToString(rxBytes)));
+         }
 
          foreach (List<byte> command in XpnBufferManager.DataReceived(rxBytes))
          {
-            if (this.DebugMode)
-            {
-               string debugMessage = "RX -> ";
-               foreach (byte rxByte in command)
-                  debugMessage += String.Format("0x{0:X} ", rxByte);
-
-               // Send information to LOG console
-               this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Debug, debugMessage));
-            }
-
             response = this.GetResponse(command);
             if (response != null)
                this.OnCommandReceived?.Invoke(this, new SystemCommandEventArgs(response));
+         }
+
+         if (this.DebugMode)
+         {
+            this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Debug, 
+                                                                                "BUFFER -> {0}", 
+                                                                                BinaryUtils.ToString(XpnBufferManager.RxBuffer)));
+         }
+      }
+
+      private void AcknowledgementTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+      {
+         if (this.CheckPortStatus())
+         {
+            this.Execute(new byte[] { 0x21, 0x24, 0x05 });
          }
       }
 
@@ -565,42 +664,77 @@ namespace Rwm.OTC.Systems.XpressNet
       /// <summary>
       /// Check if serial port is in correct status to TX/RX.
       /// </summary>
-      private void CheckPortStatus()
+      private bool CheckPortStatus(bool raiseException = true)
       {
-         if (!this.SerialPort.IsOpen)
-            throw new Exception("La conexión al puerto se encuentra cerrada. No es posible enviar o recibir datos del interface Lenz.");
+         if (this.SerialPort == null || !this.SerialPort.IsOpen)
+         {
+            if (raiseException)
+               throw new Exception("Connection closed: it is not possible to send/receive information from/to command station");
+            else
+               return false;
+         }
+
+         return true;
       }
 
       /// <summary>
       /// Send a request command to the digital system.
       /// </summary>
       /// <param name="commandBytes">Command bytes (without header & xor).</param>
-      /// <param name="waitForResponse">Tells if the command must wait for a response.</param>
       /// <returns></returns>
-      internal byte[] Execute(byte[] commandBytes, bool addHeaders = true)
+      internal void Execute(byte[] commandBytes, bool addXorByte = true)
       {
          // Send the command request
-         byte[] bytes = this.GetRequestBytes(commandBytes, addHeaders);
+         byte[] bytes = this.GetRequestBytes(commandBytes, addXorByte);
          this.SerialPort.Write(bytes, 0, bytes.Length);
 
-         return bytes;
+         if (this.DebugMode)
+         {
+            this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Debug,
+                                                                                "TX -> {0}",
+                                                                                BinaryUtils.ToString(bytes)));
+         }
+
+         //-----------------------------------------
+         //byte[] buffer = new byte[blockLimit];
+         //Action kickoffRead = null;
+         //kickoffRead = delegate {
+         //   this.SerialPort.BaseStream.BeginRead(buffer, 0, buffer.Length, delegate (IAsyncResult ar) {
+         //      try
+         //      {
+         //         int actualLength = port.BaseStream.EndRead(ar);
+         //         byte[] received = new byte[actualLength];
+         //         Buffer.BlockCopy(buffer, 0, received, 0, actualLength);
+         //         raiseAppSerialDataEvent(received);
+         //      }
+         //      catch (IOException exc)
+         //      {
+         //         handleAppSerialError(exc);
+         //      }
+         //      kickoffRead();
+         //   }, null);
+         //};
+         //kickoffRead();
+         //-----------------------------------------
+
+         // return bytes;
       }
 
       /// <summary>
       /// Get the command bytes to send to the digital system.
       /// </summary>
-      private byte[] GetRequestBytes(byte[] commandBytes, bool addHeaders)
+      private byte[] GetRequestBytes(byte[] commandBytes, bool addXorByte)
       {
          if (commandBytes.Length <= 0)
             return new byte[0];
 
          try
          {
-            byte[] bytes = new byte[(addHeaders ? 2 : 0) + commandBytes.Length + 1];
-            if (addHeaders) bytes[0] = 0xFF;
-            if (addHeaders) bytes[1] = 0xFE;
-            for (int idx = 0; idx < commandBytes.Length; idx++) bytes[(addHeaders ? 2 : 0) + idx] = commandBytes[idx];
-            bytes[bytes.Length - 1] = (byte)BinaryUtils.Xor(bytes, (addHeaders ? 2 : 0), commandBytes.Length);
+            byte[] bytes = new byte[2 + commandBytes.Length + (addXorByte ? 1 : 0)];
+            bytes[0] = 0xFF;
+            bytes[1] = 0xFE;
+            for (int idx = 0; idx < commandBytes.Length; idx++) bytes[2 + idx] = commandBytes[idx];
+            if (addXorByte) bytes[bytes.Length - 1] = (byte)BinaryUtils.Xor(commandBytes); 
 
             return bytes;
          }
@@ -639,6 +773,10 @@ namespace Rwm.OTC.Systems.XpressNet
          else if (LenzSystemInformation.IsTypeOf(commandBytes))
          {
             return new LenzSystemInformation(commandBytes.ToArray());
+         }
+         else if (LenzInterfaceInformation.IsTypeOf(commandBytes))
+         {
+            return new LenzInterfaceInformation(commandBytes.ToArray());
          }
 
          return null;

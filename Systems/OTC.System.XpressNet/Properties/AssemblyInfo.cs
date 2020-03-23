@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("OTC.System.XpressNet")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Railwaymania.com")]
 [assembly: AssemblyProduct("OTC.System.XpressNet")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCopyright("Copyright © 2016-2020 Railwaymania.com")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

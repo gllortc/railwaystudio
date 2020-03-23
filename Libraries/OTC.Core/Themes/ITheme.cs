@@ -26,6 +26,11 @@ namespace Rwm.Otc.Themes
       string Description { get; }
 
       /// <summary>
+      /// Gets the assembly version.
+      /// </summary>
+      string Version { get; }
+
+      /// <summary>
       /// Gets the element size in pixels.
       /// </summary>
       Size ElementSize { get; }

@@ -1,5 +1,4 @@
 ﻿using System;
-using Rwm.Otc.Configuration;
 using Rwm.Otc.Layout;
 
 namespace Rwm.Otc.Systems
@@ -52,6 +51,11 @@ namespace Rwm.Otc.Systems
       /// Gets a brief description of the system.
       /// </summary>
       string Description { get; }
+
+      /// <summary>
+      /// Gets the current implementation version.
+      /// </summary>
+      string Version { get; }
 
       /// <summary>
       /// Gets the number of associated outputs by sensor address.
@@ -126,9 +130,8 @@ namespace Rwm.Otc.Systems
       /// <summary>
       /// Show the configuration dialogue of the implemented system.
       /// </summary>
-      /// <param name="settings">Current application settings.</param>
       /// <rereturns>A value indicating if the user has been changed the settings or not.</rereturns>
-      System.Windows.Forms.DialogResult ShowSettingsDialog(XmlSettingsManager settings);
+      System.Windows.Forms.DialogResult ShowSettingsDialog();
 
       #endregion
 

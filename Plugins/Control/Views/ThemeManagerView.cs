@@ -1,12 +1,17 @@
-﻿using Rwm.Otc;
-using System;
-using System.Data;
+﻿using System;
 using System.Windows.Forms;
+using DevExpress.XtraGrid.Columns;
+using RailwayStudio.Common;
+using Rwm.Otc;
+using Rwm.Otc.Themes;
 
 namespace Rwm.Studio.Plugins.Control.Views
 {
    public partial class ThemeManagerView : DevExpress.XtraEditors.XtraForm
    {
+
+      #region Constructors
+
       public ThemeManagerView()
       {
          InitializeComponent();
@@ -14,7 +19,21 @@ namespace Rwm.Studio.Plugins.Control.Views
          ListThemes();
       }
 
-      private void cmdThemeSet_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      #endregion
+
+      #region Event Handlers
+
+      private void GrdThemesView_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+      {
+         ITheme theme = grdThemesView.GetRow(e.RowHandle) as ITheme;
+
+         if (theme == null || !theme.ID.Equals(OTCContext.Project.Theme.ID))
+            StudioContext.UI.DrawRowIcon(Properties.Resources.ICO_THEME_16, e);
+         else
+            StudioContext.UI.DrawRowIcon(Properties.Resources.ICO_THEME_SELECTED_16, e);
+      }
+
+      private void CmdThemeSet_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          if (grdThemesView.SelectedRowsCount <= 0)
          {
@@ -25,10 +44,10 @@ namespace Rwm.Studio.Plugins.Control.Views
 
          try
          {
-            DataRowView drv = grdThemesView.GetRow(grdThemesView.GetSelectedRows()[0]) as DataRowView;
-            if (drv != null)
+            int[] selRows = grdThemesView.GetSelectedRows();
+            if (grdThemesView.GetRow(selRows[0]) is ITheme theme)
             {
-               OTCContext.Project.ThemeManager.SetTheme((Type)drv[3]);
+               OTCContext.Project.ThemeManager.SetTheme(theme);
             }
          }
          catch (Exception ex)
@@ -38,14 +57,28 @@ namespace Rwm.Studio.Plugins.Control.Views
          }
       }
 
+      private void CmdClose_Click(object sender, EventArgs e)
+      {
+         this.Close();
+      }
+
+      #endregion
+
+      #region Private Members
+
       private void ListThemes()
       {
          try
          {
             grdThemes.BeginUpdate();
-            grdThemes.DataSource = OTCContext.Project.ThemeManager.Find();
-            grdThemesView.Columns[0].Visible = false;
-            grdThemesView.Columns[3].Visible = false;
+
+            grdThemesView.OptionsBehavior.AutoPopulateColumns = false;
+            grdThemesView.Columns.Add(new GridColumn() { Caption = "ID", Visible = false, FieldName = "ID" });
+            grdThemesView.Columns.Add(new GridColumn() { Caption = "Name", Visible = true, FieldName = "Name" });
+            grdThemesView.Columns.Add(new GridColumn() { Caption = "Description", Visible = true, FieldName = "Description", Width = 120 });
+            grdThemesView.Columns.Add(new GridColumn() { Caption = "Version", Visible = true, FieldName = "Version", Width = 45 });
+            grdThemes.DataSource = OTCContext.Project.ThemeManager.GetAll();
+
             grdThemes.EndUpdate();
          }
          catch (Exception ex)
@@ -54,5 +87,8 @@ namespace Rwm.Studio.Plugins.Control.Views
                             Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
          }
       }
+
+      #endregion
+
    }
 }

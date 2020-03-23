@@ -12,8 +12,8 @@ namespace RailwayStudio.Common
 
       #region Constants
 
-      public const string SETUP_KEY_PROJECT_LASTLOAD = "rwm.studio.projects.last-load";
-      public const string SETUP_KEY_PROJECT_LASTOPEN = "rwm.studio.projects.last-open";
+      public const string SETUP_KEY_PROJECT_LASTLOAD = "rwm.studio.projects.last.reload";
+      public const string SETUP_KEY_PROJECT_LASTOPEN = "rwm.studio.projects.last.path";
 
       #endregion
 
@@ -95,14 +95,12 @@ namespace RailwayStudio.Common
 
       public static void LoadLastProject()
       {
-         string lastFile = string.Empty;
-
          if (!OTCContext.Settings.GetBoolean(StudioContext.SETUP_KEY_PROJECT_LASTLOAD))
          {
             return;
          }
 
-         lastFile = OTCContext.Settings.GetString(StudioContext.SETUP_KEY_PROJECT_LASTOPEN, "<nofile>");
+         string lastFile = OTCContext.Settings.GetString(StudioContext.SETUP_KEY_PROJECT_LASTOPEN, "<nofile>");
          if (!File.Exists(lastFile))
          {
             return;

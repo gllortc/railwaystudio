@@ -124,7 +124,7 @@
          this.cmdFileSettings.Id = 3;
          this.cmdFileSettings.LargeGlyph = global::Rwm.Studio.Properties.Resources.ICO_CONFIG_32;
          this.cmdFileSettings.Name = "cmdFileSettings";
-         this.cmdFileSettings.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdFileSettings_ItemClick);
+         this.cmdFileSettings.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdFileSettings_ItemClick);
          // 
          // cmdFileExit
          // 
@@ -134,7 +134,7 @@
          this.cmdFileExit.Id = 2;
          this.cmdFileExit.LargeGlyph = global::Rwm.Studio.Properties.Resources.ICO_EXIT_32;
          this.cmdFileExit.Name = "cmdFileExit";
-         this.cmdFileExit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdFileExit_ItemClick);
+         this.cmdFileExit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdFileExit_ItemClick);
          // 
          // cmdProjectsAdd
          // 
@@ -143,7 +143,7 @@
          this.cmdProjectsAdd.Id = 4;
          this.cmdProjectsAdd.LargeGlyph = global::Rwm.Studio.Properties.Resources.ICO_PROJECT_ADD_32;
          this.cmdProjectsAdd.Name = "cmdProjectsAdd";
-         this.cmdProjectsAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdProjectsAdd_ItemClick);
+         this.cmdProjectsAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdProjectsAdd_ItemClick);
          // 
          // cmdProjectsOpen
          // 
@@ -152,7 +152,7 @@
          this.cmdProjectsOpen.Id = 8;
          this.cmdProjectsOpen.LargeGlyph = global::Rwm.Studio.Properties.Resources.ICO_PROJECT_OPEN_32;
          this.cmdProjectsOpen.Name = "cmdProjectsOpen";
-         this.cmdProjectsOpen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdProjectsOpen_ItemClick);
+         this.cmdProjectsOpen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdProjectsOpen_ItemClick);
          // 
          // bsiProjectInfo
          // 
@@ -180,7 +180,7 @@
          this.chkViewToolbox.LargeGlyph = global::Rwm.Studio.Properties.Resources.ICO_SETTINGS_32;
          this.chkViewToolbox.Name = "chkViewToolbox";
          this.chkViewToolbox.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-         this.chkViewToolbox.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.chkViewToolbox_CheckedChanged);
+         this.chkViewToolbox.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.ChkViewToolbox_CheckedChanged);
          // 
          // chkViewConsole
          // 
@@ -190,7 +190,7 @@
          this.chkViewConsole.LargeGlyph = global::Rwm.Studio.Properties.Resources.ICO_CONSOLE_32;
          this.chkViewConsole.Name = "chkViewConsole";
          this.chkViewConsole.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-         this.chkViewConsole.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.chkViewConsole_CheckedChanged);
+         this.chkViewConsole.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.ChkViewConsole_CheckedChanged);
          // 
          // cmdFileAbout
          // 
@@ -200,7 +200,7 @@
          this.cmdFileAbout.Id = 16;
          this.cmdFileAbout.LargeGlyph = global::Rwm.Studio.Properties.Resources.ICO_INFO_32;
          this.cmdFileAbout.Name = "cmdFileAbout";
-         this.cmdFileAbout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdFileAbout_ItemClick);
+         this.cmdFileAbout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdFileAbout_ItemClick);
          // 
          // rbpMain
          // 
@@ -296,8 +296,8 @@
          this.dockPanelConsole.Size = new System.Drawing.Size(618, 200);
          this.dockPanelConsole.Text = "Console";
          this.dockPanelConsole.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
-         this.dockPanelConsole.ClosedPanel += new DevExpress.XtraBars.Docking.DockPanelEventHandler(this.dockPanelConsole_ClosedPanel);
-         this.dockPanelConsole.Collapsed += new DevExpress.XtraBars.Docking.DockPanelEventHandler(this.dockPanelConsole_ClosedPanel);
+         this.dockPanelConsole.ClosedPanel += new DevExpress.XtraBars.Docking.DockPanelEventHandler(this.DockPanelConsole_ClosedPanel);
+         this.dockPanelConsole.Collapsed += new DevExpress.XtraBars.Docking.DockPanelEventHandler(this.DockPanelConsole_ClosedPanel);
          // 
          // dockPanel2_Container
          // 
@@ -330,8 +330,8 @@
          this.dpToolbox.OriginalSize = new System.Drawing.Size(148, 200);
          this.dpToolbox.Size = new System.Drawing.Size(148, 359);
          this.dpToolbox.Text = "Toolbox";
-         this.dpToolbox.ClosedPanel += new DevExpress.XtraBars.Docking.DockPanelEventHandler(this.dpToolbox_ClosedPanel);
-         this.dpToolbox.Collapsed += new DevExpress.XtraBars.Docking.DockPanelEventHandler(this.dpToolbox_ClosedPanel);
+         this.dpToolbox.ClosedPanel += new DevExpress.XtraBars.Docking.DockPanelEventHandler(this.DpToolbox_ClosedPanel);
+         this.dpToolbox.Collapsed += new DevExpress.XtraBars.Docking.DockPanelEventHandler(this.DpToolbox_ClosedPanel);
          // 
          // dockPanel1_Container
          // 
@@ -361,7 +361,7 @@
          this.docManager.View = this.tabbedView1;
          this.docManager.ViewCollection.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseView[] {
             this.tabbedView1});
-         this.docManager.DocumentActivate += new DevExpress.XtraBars.Docking2010.Views.DocumentEventHandler(this.docManager_DocumentActivate);
+         this.docManager.DocumentActivate += new DevExpress.XtraBars.Docking2010.Views.DocumentEventHandler(this.DocManager_DocumentActivate);
          // 
          // tabbedView1
          // 
@@ -416,7 +416,6 @@
       private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
       private DevExpress.XtraBars.Docking.DockPanel dockPanelConsole;
       private DevExpress.XtraBars.Docking.ControlContainer dockPanel2_Container;
-      private RailwayStudio.Common.Controls.ConsoleControl consoleControl;
       private DevExpress.XtraBars.Docking.DockPanel dpToolbox;
       private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
       private DevExpress.XtraNavBar.NavBarControl nbcPlugins;

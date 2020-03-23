@@ -32,8 +32,6 @@
          this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
          this.cmdSystemSettings = new DevExpress.XtraBars.BarButtonItem();
          this.cmdSystemManage = new DevExpress.XtraBars.BarButtonItem();
-         this.bsiTheme = new DevExpress.XtraBars.BarStaticItem();
-         this.bsiSystem = new DevExpress.XtraBars.BarStaticItem();
          this.chkOptionsManualSensorAllowed = new DevExpress.XtraBars.BarCheckItem();
          this.chkOptionsExecuteActions = new DevExpress.XtraBars.BarCheckItem();
          this.cmdCtrlEmergencyStop = new DevExpress.XtraBars.BarButtonItem();
@@ -46,13 +44,13 @@
          this.rpgSystem = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.rpgControl = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.rpgUtils = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.repositoryItemImageComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
          this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
          this.pnlContainer = new DevExpress.XtraEditors.PanelControl();
          this.tabPanels = new DevExpress.XtraTab.XtraTabControl();
          this.tabPanel1 = new DevExpress.XtraTab.XtraTabPage();
+         this.bbtnSystemsManage = new DevExpress.XtraBars.BarButtonItem();
+         this.bbtnThemesManage = new DevExpress.XtraBars.BarButtonItem();
          ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.pnlContainer)).BeginInit();
          this.pnlContainer.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.tabPanels)).BeginInit();
@@ -66,8 +64,6 @@
             this.ribbonControl.ExpandCollapseItem,
             this.cmdSystemSettings,
             this.cmdSystemManage,
-            this.bsiTheme,
-            this.bsiSystem,
             this.chkOptionsManualSensorAllowed,
             this.chkOptionsExecuteActions,
             this.cmdCtrlEmergencyStop,
@@ -75,14 +71,14 @@
             this.cmdUtilsDigitalAddressCalculator,
             this.cmdSystemDisconnect,
             this.cmdSystemConnect,
-            this.cmdCtrlResumeOps});
+            this.cmdCtrlResumeOps,
+            this.bbtnSystemsManage,
+            this.bbtnThemesManage});
          this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-         this.ribbonControl.MaxItemId = 22;
+         this.ribbonControl.MaxItemId = 24;
          this.ribbonControl.Name = "ribbonControl";
          this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rptControl});
-         this.ribbonControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemImageComboBox1});
          this.ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
          this.ribbonControl.Size = new System.Drawing.Size(837, 143);
          this.ribbonControl.StatusBar = this.ribbonStatusBar;
@@ -104,21 +100,6 @@
          this.cmdSystemManage.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEMS_32;
          this.cmdSystemManage.Name = "cmdSystemManage";
          this.cmdSystemManage.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdSystemManage_ItemClick);
-         // 
-         // bsiTheme
-         // 
-         this.bsiTheme.Caption = "<no theme>";
-         this.bsiTheme.Id = 5;
-         this.bsiTheme.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_THEME_16;
-         this.bsiTheme.Name = "bsiTheme";
-         // 
-         // bsiSystem
-         // 
-         this.bsiSystem.Caption = "<no system>";
-         this.bsiSystem.Id = 6;
-         this.bsiSystem.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_16;
-         this.bsiSystem.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_32;
-         this.bsiSystem.Name = "bsiSystem";
          // 
          // chkOptionsManualSensorAllowed
          // 
@@ -230,17 +211,10 @@
          this.rpgUtils.ShowCaptionButton = false;
          this.rpgUtils.Text = "Tools";
          // 
-         // repositoryItemImageComboBox1
-         // 
-         this.repositoryItemImageComboBox1.AutoHeight = false;
-         this.repositoryItemImageComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.repositoryItemImageComboBox1.Name = "repositoryItemImageComboBox1";
-         // 
          // ribbonStatusBar
          // 
-         this.ribbonStatusBar.ItemLinks.Add(this.bsiSystem);
-         this.ribbonStatusBar.ItemLinks.Add(this.bsiTheme);
+         this.ribbonStatusBar.ItemLinks.Add(this.bbtnSystemsManage);
+         this.ribbonStatusBar.ItemLinks.Add(this.bbtnThemesManage);
          this.ribbonStatusBar.Location = new System.Drawing.Point(0, 466);
          this.ribbonStatusBar.Name = "ribbonStatusBar";
          this.ribbonStatusBar.Ribbon = this.ribbonControl;
@@ -275,6 +249,22 @@
          this.tabPanel1.Size = new System.Drawing.Size(821, 285);
          this.tabPanel1.Text = "Page1";
          // 
+         // bbtnSystemsManage
+         // 
+         this.bbtnSystemsManage.Caption = "<no system>";
+         this.bbtnSystemsManage.Id = 22;
+         this.bbtnSystemsManage.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_16;
+         this.bbtnSystemsManage.Name = "bbtnSystemsManage";
+         this.bbtnSystemsManage.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdSystemManage_ItemClick);
+         // 
+         // bbtnThemesManage
+         // 
+         this.bbtnThemesManage.Caption = "<no theme>";
+         this.bbtnThemesManage.Id = 23;
+         this.bbtnThemesManage.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_THEME_16;
+         this.bbtnThemesManage.Name = "bbtnThemesManage";
+         this.bbtnThemesManage.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BbtnThemesManage_ItemClick);
+         // 
          // ControlModule
          // 
          this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -290,7 +280,6 @@
          this.Text = "Layout control";
          this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ControlModule_FormClosed);
          ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.pnlContainer)).EndInit();
          this.pnlContainer.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.tabPanels)).EndInit();
@@ -309,21 +298,21 @@
       private DevExpress.XtraEditors.PanelControl pnlContainer;
       private DevExpress.XtraTab.XtraTabControl tabPanels;
       private DevExpress.XtraTab.XtraTabPage tabPanel1;
-      private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox repositoryItemImageComboBox1;
+      // private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox repositoryItemImageComboBox1;
       private DevExpress.XtraBars.BarButtonItem cmdSystemSettings;
       private DevExpress.XtraBars.BarButtonItem cmdSystemManage;
-      private DevExpress.XtraBars.BarStaticItem bsiTheme;
-      private DevExpress.XtraBars.BarStaticItem bsiSystem;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgControl;
       private DevExpress.XtraBars.BarCheckItem chkOptionsManualSensorAllowed;
       private DevExpress.XtraBars.BarCheckItem chkOptionsExecuteActions;
       private DevExpress.XtraBars.BarButtonItem cmdCtrlEmergencyStop;
       private DevExpress.XtraBars.BarButtonGroup bbgOptions;
-        private DevExpress.XtraBars.BarButtonItem cmdUtilsDigitalAddressCalculator;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgUtils;
-        private DevExpress.XtraBars.BarButtonItem cmdSystemDisconnect;
-        private DevExpress.XtraBars.BarButtonItem cmdSystemConnect;
-        private DevExpress.XtraBars.BarButtonItem cmdCtrlResumeOps;
-    }
+      private DevExpress.XtraBars.BarButtonItem cmdUtilsDigitalAddressCalculator;
+      private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgUtils;
+      private DevExpress.XtraBars.BarButtonItem cmdSystemDisconnect;
+      private DevExpress.XtraBars.BarButtonItem cmdSystemConnect;
+      private DevExpress.XtraBars.BarButtonItem cmdCtrlResumeOps;
+      private DevExpress.XtraBars.BarButtonItem bbtnSystemsManage;
+      private DevExpress.XtraBars.BarButtonItem bbtnThemesManage;
+   }
 }
 

@@ -13,7 +13,7 @@ namespace Rwm.Otc.TrainControl
       /// <summary>
       /// Devuelve una instancia de RCDecoder.
       /// </summary>
-      public TrainDecoder() : base()
+      public TrainDecoder() 
       {
          this.ID = 0;
          this.Name = string.Empty;
@@ -35,7 +35,7 @@ namespace Rwm.Otc.TrainControl
       /// <summary>
       /// Gets or sets the owner project.
       /// </summary>
-      [ORMPrimaryKey("projectid")]
+      [ORMProperty("projectid")]
       public Project Project { get; set; }
 
       /// <summary>

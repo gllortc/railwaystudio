@@ -1,8 +1,8 @@
-﻿using RailwayStudio.Common;
+﻿using System.Drawing;
+using System.Windows.Forms;
+using RailwayStudio.Common;
 using Rwm.Otc;
 using Rwm.Studio.Plugins.Control.Controls;
-using System.Drawing;
-using System.Windows.Forms;
 
 namespace Rwm.Studio.Plugins.Control.Modules
 {
@@ -45,7 +45,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
       public string ModuleName
       {
-         get { return "Control"; }
+         get { return "Layout Control"; }
       }
 
       public string DocumentName
@@ -154,6 +154,11 @@ namespace Rwm.Studio.Plugins.Control.Modules
       private void CmdUtilsDigitalAddressCalculator_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          StudioContext.Utils.ShowDigitalAddressCalculator();
+      }
+
+      private void BbtnThemesManage_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      {
+         this.ThemesManage();
       }
 
       #endregion

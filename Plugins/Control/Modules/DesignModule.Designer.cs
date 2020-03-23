@@ -51,13 +51,13 @@
          this.chkBlockDelete = new DevExpress.XtraBars.BarCheckItem();
          this.chkBlockAdd = new DevExpress.XtraBars.BarCheckItem();
          this.cmdPanelThemes = new DevExpress.XtraBars.BarButtonItem();
-         this.bsiTheme = new DevExpress.XtraBars.BarStaticItem();
          this.cmdMoveUp = new DevExpress.XtraBars.BarButtonItem();
          this.cmdMoveDown = new DevExpress.XtraBars.BarButtonItem();
          this.cmdMoveLeft = new DevExpress.XtraBars.BarButtonItem();
          this.barBtnGroupMove = new DevExpress.XtraBars.BarButtonGroup();
          this.cmdMoveRight = new DevExpress.XtraBars.BarButtonItem();
          this.barButtonGroup1 = new DevExpress.XtraBars.BarButtonGroup();
+         this.bbtnThemesManage = new DevExpress.XtraBars.BarButtonItem();
          this.rbpDesign = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.rpgPanels = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.rpgBlocks = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -90,15 +90,15 @@
             this.chkBlockDelete,
             this.chkBlockAdd,
             this.cmdPanelThemes,
-            this.bsiTheme,
             this.cmdMoveUp,
             this.cmdMoveDown,
             this.cmdMoveLeft,
             this.barBtnGroupMove,
             this.cmdMoveRight,
-            this.barButtonGroup1});
+            this.barButtonGroup1,
+            this.bbtnThemesManage});
          this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-         this.ribbonControl1.MaxItemId = 38;
+         this.ribbonControl1.MaxItemId = 39;
          this.ribbonControl1.Name = "ribbonControl1";
          this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpDesign});
@@ -108,29 +108,29 @@
          // 
          // cmdPanelAdd
          // 
-         this.cmdPanelAdd.Caption = "New panel";
-         this.cmdPanelAdd.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_PANEL_ADD_16;
+         this.cmdPanelAdd.Caption = "New switchboard";
          this.cmdPanelAdd.Id = 1;
-         this.cmdPanelAdd.LargeGlyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_PANEL_ADD_32;
+         this.cmdPanelAdd.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_PANEL_ADD_16;
+         this.cmdPanelAdd.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_PANEL_ADD_32;
          this.cmdPanelAdd.Name = "cmdPanelAdd";
-         this.cmdPanelAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdPanelAdd_ItemClick);
+         this.cmdPanelAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdPanelAdd_ItemClick);
          // 
          // cmdPanelEdit
          // 
-         this.cmdPanelEdit.Caption = "Edit panel";
-         this.cmdPanelEdit.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_PANEL_EDIT_16;
+         this.cmdPanelEdit.Caption = "Edit switchboard";
          this.cmdPanelEdit.Id = 2;
-         this.cmdPanelEdit.LargeGlyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_PANEL_EDIT_32;
+         this.cmdPanelEdit.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_PANEL_EDIT_16;
+         this.cmdPanelEdit.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_PANEL_EDIT_32;
          this.cmdPanelEdit.Name = "cmdPanelEdit";
          this.cmdPanelEdit.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-         this.cmdPanelEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdPanelEdit_ItemClick);
+         this.cmdPanelEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdPanelEdit_ItemClick);
          // 
          // cmdPanelDelete
          // 
-         this.cmdPanelDelete.Caption = "Delete panel";
-         this.cmdPanelDelete.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_PANEL_DELETE_16;
+         this.cmdPanelDelete.Caption = "Delete switchboard";
          this.cmdPanelDelete.Id = 3;
-         this.cmdPanelDelete.LargeGlyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_PANEL_DELETE_32;
+         this.cmdPanelDelete.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_PANEL_DELETE_16;
+         this.cmdPanelDelete.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_PANEL_DELETE_32;
          this.cmdPanelDelete.Name = "cmdPanelDelete";
          this.cmdPanelDelete.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
          // 
@@ -179,11 +179,11 @@
          // cmdPrintDigitalReport
          // 
          this.cmdPrintDigitalReport.Caption = "Digital report";
-         this.cmdPrintDigitalReport.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_REPORT_PRINT_16;
          this.cmdPrintDigitalReport.Id = 8;
-         this.cmdPrintDigitalReport.LargeGlyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_REPORT_PRINT_32;
+         this.cmdPrintDigitalReport.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_REPORT_PRINT_16;
+         this.cmdPrintDigitalReport.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_REPORT_PRINT_32;
          this.cmdPrintDigitalReport.Name = "cmdPrintDigitalReport";
-         this.cmdPrintDigitalReport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdPrintDigitalReport_ItemClick);
+         this.cmdPrintDigitalReport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdPrintDigitalReport_ItemClick);
          // 
          // bbgBlockEditStatus
          // 
@@ -195,86 +195,78 @@
          // chkBlockPointer
          // 
          this.chkBlockPointer.Caption = "Pointer";
-         this.chkBlockPointer.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_CURSOR_16;
          this.chkBlockPointer.Id = 16;
-         this.chkBlockPointer.LargeGlyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_CURSOR_32;
+         this.chkBlockPointer.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_CURSOR_16;
+         this.chkBlockPointer.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_CURSOR_32;
          this.chkBlockPointer.Name = "chkBlockPointer";
          this.chkBlockPointer.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-         this.chkBlockPointer.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.chkBlockPointer_ItemClick);
+         this.chkBlockPointer.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ChkBlockPointer_ItemClick);
          // 
          // chkBlockRotate
          // 
          this.chkBlockRotate.Caption = "Rotate";
          this.chkBlockRotate.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.chkBlockRotate.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_BLOCK_ROTATE_16;
          this.chkBlockRotate.Id = 17;
-         this.chkBlockRotate.LargeGlyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_BLOCK_ROTATE_32;
+         this.chkBlockRotate.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_BLOCK_ROTATE_16;
+         this.chkBlockRotate.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_BLOCK_ROTATE_32;
          this.chkBlockRotate.Name = "chkBlockRotate";
          this.chkBlockRotate.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-         this.chkBlockRotate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.chkBlockRotate_ItemClick);
+         this.chkBlockRotate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ChkBlockRotate_ItemClick);
          // 
          // chkBlockDelete
          // 
          this.chkBlockDelete.Caption = "Delete";
          this.chkBlockDelete.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.chkBlockDelete.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_BLOCK_DELETE_16;
          this.chkBlockDelete.Id = 18;
-         this.chkBlockDelete.LargeGlyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_BLOCK_DELETE_32;
+         this.chkBlockDelete.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_BLOCK_DELETE_16;
+         this.chkBlockDelete.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_BLOCK_DELETE_32;
          this.chkBlockDelete.Name = "chkBlockDelete";
          this.chkBlockDelete.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-         this.chkBlockDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.chkBlockDelete_ItemClick);
+         this.chkBlockDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ChkBlockDelete_ItemClick);
          // 
          // chkBlockAdd
          // 
          this.chkBlockAdd.Caption = "Add";
-         this.chkBlockAdd.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_BLOCK_ADD_16;
          this.chkBlockAdd.Id = 20;
-         this.chkBlockAdd.LargeGlyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_BLOCK_ADD_32;
+         this.chkBlockAdd.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_BLOCK_ADD_16;
+         this.chkBlockAdd.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_BLOCK_ADD_32;
          this.chkBlockAdd.Name = "chkBlockAdd";
          this.chkBlockAdd.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-         this.chkBlockAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.chkBlockAdd_ItemClick);
+         this.chkBlockAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ChkBlockAdd_ItemClick);
          // 
          // cmdPanelThemes
          // 
-         this.cmdPanelThemes.Caption = "Themes";
-         this.cmdPanelThemes.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_THEME_16;
+         this.cmdPanelThemes.Caption = "Manage themes";
          this.cmdPanelThemes.Id = 21;
-         this.cmdPanelThemes.LargeGlyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_THEME_32;
+         this.cmdPanelThemes.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_THEME_16;
+         this.cmdPanelThemes.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_THEME_32;
          this.cmdPanelThemes.Name = "cmdPanelThemes";
          this.cmdPanelThemes.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-         this.cmdPanelThemes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdPanelThemes_ItemClick);
-         // 
-         // bsiTheme
-         // 
-         this.bsiTheme.Caption = "<no theme>";
-         this.bsiTheme.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_THEME_16;
-         this.bsiTheme.Id = 22;
-         this.bsiTheme.Name = "bsiTheme";
-         this.bsiTheme.TextAlignment = System.Drawing.StringAlignment.Near;
+         this.cmdPanelThemes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdPanelThemes_ItemClick);
          // 
          // cmdMoveUp
          // 
          this.cmdMoveUp.Caption = "Up";
-         this.cmdMoveUp.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_MOVE_UP_16;
          this.cmdMoveUp.Id = 32;
+         this.cmdMoveUp.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_MOVE_UP_16;
          this.cmdMoveUp.Name = "cmdMoveUp";
-         this.cmdMoveUp.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdMoveUp_ItemClick);
+         this.cmdMoveUp.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdMoveUp_ItemClick);
          // 
          // cmdMoveDown
          // 
          this.cmdMoveDown.Caption = "Down";
-         this.cmdMoveDown.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_MOVE_DOWN_16;
          this.cmdMoveDown.Id = 33;
+         this.cmdMoveDown.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_MOVE_DOWN_16;
          this.cmdMoveDown.Name = "cmdMoveDown";
-         this.cmdMoveDown.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdMoveDown_ItemClick);
+         this.cmdMoveDown.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdMoveDown_ItemClick);
          // 
          // cmdMoveLeft
          // 
          this.cmdMoveLeft.Caption = "Left";
-         this.cmdMoveLeft.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_MOVE_LEFT_16;
          this.cmdMoveLeft.Id = 34;
+         this.cmdMoveLeft.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_MOVE_LEFT_16;
          this.cmdMoveLeft.Name = "cmdMoveLeft";
-         this.cmdMoveLeft.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdMoveLeft_ItemClick);
+         this.cmdMoveLeft.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdMoveLeft_ItemClick);
          // 
          // barBtnGroupMove
          // 
@@ -290,10 +282,10 @@
          // 
          this.cmdMoveRight.Caption = "Right";
          this.cmdMoveRight.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.cmdMoveRight.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_MOVE_RIGHT_16;
          this.cmdMoveRight.Id = 36;
+         this.cmdMoveRight.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_MOVE_RIGHT_16;
          this.cmdMoveRight.Name = "cmdMoveRight";
-         this.cmdMoveRight.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdMoveRight_ItemClick);
+         this.cmdMoveRight.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdMoveRight_ItemClick);
          // 
          // barButtonGroup1
          // 
@@ -304,6 +296,14 @@
          this.barButtonGroup1.ItemLinks.Add(this.chkBlockDelete);
          this.barButtonGroup1.ItemLinks.Add(this.chkBlockRotate);
          this.barButtonGroup1.Name = "barButtonGroup1";
+         // 
+         // bbtnThemesManage
+         // 
+         this.bbtnThemesManage.Caption = "<no theme>";
+         this.bbtnThemesManage.Id = 38;
+         this.bbtnThemesManage.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_THEME_16;
+         this.bbtnThemesManage.Name = "bbtnThemesManage";
+         this.bbtnThemesManage.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdPanelThemes_ItemClick);
          // 
          // rbpDesign
          // 
@@ -322,7 +322,7 @@
          this.rpgPanels.ItemLinks.Add(this.cmdPanelThemes);
          this.rpgPanels.Name = "rpgPanels";
          this.rpgPanels.ShowCaptionButton = false;
-         this.rpgPanels.Text = "Panels";
+         this.rpgPanels.Text = "Switchboards";
          // 
          // rpgBlocks
          // 
@@ -339,11 +339,11 @@
          this.rpgPrint.ItemLinks.Add(this.cmdPrintDigitalReport);
          this.rpgPrint.Name = "rpgPrint";
          this.rpgPrint.ShowCaptionButton = false;
-         this.rpgPrint.Text = "Print";
+         this.rpgPrint.Text = "Documentation";
          // 
          // ribbonStatusBar
          // 
-         this.ribbonStatusBar.ItemLinks.Add(this.bsiTheme);
+         this.ribbonStatusBar.ItemLinks.Add(this.bbtnThemesManage);
          this.ribbonStatusBar.Location = new System.Drawing.Point(0, 594);
          this.ribbonStatusBar.Name = "ribbonStatusBar";
          this.ribbonStatusBar.Ribbon = this.ribbonControl1;
@@ -424,13 +424,13 @@
       private DevExpress.XtraBars.BarCheckItem chkBlockDelete;
       private DevExpress.XtraBars.BarCheckItem chkBlockAdd;
       private DevExpress.XtraBars.BarButtonItem cmdPanelThemes;
-      private DevExpress.XtraBars.BarStaticItem bsiTheme;
       private DevExpress.XtraBars.BarButtonItem cmdMoveUp;
       private DevExpress.XtraBars.BarButtonItem cmdMoveDown;
       private DevExpress.XtraBars.BarButtonItem cmdMoveLeft;
       private DevExpress.XtraBars.BarButtonGroup barBtnGroupMove;
       private DevExpress.XtraBars.BarButtonItem cmdMoveRight;
       private DevExpress.XtraBars.BarButtonGroup barButtonGroup1;
-   }
+        private DevExpress.XtraBars.BarButtonItem bbtnThemesManage;
+    }
 }
 

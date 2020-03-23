@@ -39,6 +39,7 @@
          this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
          this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
          this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+         this.cmdClose = new DevExpress.XtraEditors.SimpleButton();
          ((System.ComponentModel.ISupportInitialize)(this.grdThemes)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.grdThemesView)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
@@ -46,11 +47,10 @@
          // 
          // grdThemes
          // 
-         this.grdThemes.Dock = System.Windows.Forms.DockStyle.Fill;
          this.grdThemes.Location = new System.Drawing.Point(0, 47);
          this.grdThemes.MainView = this.grdThemesView;
          this.grdThemes.Name = "grdThemes";
-         this.grdThemes.Size = new System.Drawing.Size(537, 369);
+         this.grdThemes.Size = new System.Drawing.Size(537, 366);
          this.grdThemes.TabIndex = 5;
          this.grdThemes.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdThemesView});
@@ -64,8 +64,16 @@
          this.grdThemesView.OptionsBehavior.Editable = false;
          this.grdThemesView.OptionsBehavior.ReadOnly = true;
          this.grdThemesView.OptionsCustomization.AllowColumnMoving = false;
+         this.grdThemesView.OptionsCustomization.AllowColumnResizing = false;
+         this.grdThemesView.OptionsCustomization.AllowFilter = false;
+         this.grdThemesView.OptionsCustomization.AllowSort = false;
+         this.grdThemesView.OptionsFilter.AllowColumnMRUFilterList = false;
+         this.grdThemesView.OptionsFilter.AllowFilterEditor = false;
+         this.grdThemesView.OptionsFind.AllowFindPanel = false;
          this.grdThemesView.OptionsSelection.EnableAppearanceFocusedCell = false;
          this.grdThemesView.OptionsView.ShowGroupPanel = false;
+         this.grdThemesView.OptionsView.ShowIndicator = false;
+         this.grdThemesView.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.GrdThemesView_CustomDrawCell);
          // 
          // barDecoders
          // 
@@ -107,24 +115,26 @@
          // cmdThemeSet
          // 
          this.cmdThemeSet.Caption = "Set theme";
-         this.cmdThemeSet.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.table_heatmap_check;
          this.cmdThemeSet.Id = 0;
-         this.cmdThemeSet.LargeGlyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.table_heatmap_check;
+         this.cmdThemeSet.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.table_heatmap_check;
+         this.cmdThemeSet.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.table_heatmap_check;
          this.cmdThemeSet.Name = "cmdThemeSet";
-         this.cmdThemeSet.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdThemeSet_ItemClick);
+         this.cmdThemeSet.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdThemeSet_ItemClick);
          // 
          // barDockControlTop
          // 
          this.barDockControlTop.CausesValidation = false;
          this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
          this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+         this.barDockControlTop.Manager = this.barManager;
          this.barDockControlTop.Size = new System.Drawing.Size(537, 47);
          // 
          // barDockControlBottom
          // 
          this.barDockControlBottom.CausesValidation = false;
          this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-         this.barDockControlBottom.Location = new System.Drawing.Point(0, 416);
+         this.barDockControlBottom.Location = new System.Drawing.Point(0, 459);
+         this.barDockControlBottom.Manager = this.barManager;
          this.barDockControlBottom.Size = new System.Drawing.Size(537, 0);
          // 
          // barDockControlLeft
@@ -132,20 +142,34 @@
          this.barDockControlLeft.CausesValidation = false;
          this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
          this.barDockControlLeft.Location = new System.Drawing.Point(0, 47);
-         this.barDockControlLeft.Size = new System.Drawing.Size(0, 369);
+         this.barDockControlLeft.Manager = this.barManager;
+         this.barDockControlLeft.Size = new System.Drawing.Size(0, 412);
          // 
          // barDockControlRight
          // 
          this.barDockControlRight.CausesValidation = false;
          this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
          this.barDockControlRight.Location = new System.Drawing.Point(537, 47);
-         this.barDockControlRight.Size = new System.Drawing.Size(0, 369);
+         this.barDockControlRight.Manager = this.barManager;
+         this.barDockControlRight.Size = new System.Drawing.Size(0, 412);
          // 
-         // FrmThemeManager
+         // cmdClose
+         // 
+         this.cmdClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+         this.cmdClose.Location = new System.Drawing.Point(450, 424);
+         this.cmdClose.Name = "cmdClose";
+         this.cmdClose.Size = new System.Drawing.Size(75, 23);
+         this.cmdClose.TabIndex = 11;
+         this.cmdClose.Text = "Close";
+         this.cmdClose.Click += new System.EventHandler(this.CmdClose_Click);
+         // 
+         // ThemeManagerView
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.ClientSize = new System.Drawing.Size(537, 416);
+         this.CancelButton = this.cmdClose;
+         this.ClientSize = new System.Drawing.Size(537, 459);
+         this.Controls.Add(this.cmdClose);
          this.Controls.Add(this.grdThemes);
          this.Controls.Add(this.barDockControlLeft);
          this.Controls.Add(this.barDockControlRight);
@@ -154,11 +178,11 @@
          this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
          this.MaximizeBox = false;
          this.MinimizeBox = false;
-         this.Name = "FrmThemeManager";
+         this.Name = "ThemeManagerView";
          this.ShowIcon = false;
          this.ShowInTaskbar = false;
          this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-         this.Text = "Theme manager";
+         this.Text = "Manage themes";
          ((System.ComponentModel.ISupportInitialize)(this.grdThemes)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.grdThemesView)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
@@ -179,5 +203,6 @@
       private DevExpress.XtraBars.BarDockControl barDockControlBottom;
       private DevExpress.XtraBars.BarDockControl barDockControlLeft;
       private DevExpress.XtraBars.BarDockControl barDockControlRight;
-   }
+        private DevExpress.XtraEditors.SimpleButton cmdClose;
+    }
 }

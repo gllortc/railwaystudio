@@ -140,7 +140,10 @@ namespace Rwm.Otc.Layout
          try
          {
             Element element = Element.Get(this.IntegerParameter1);
-            element.SetAccessoryStatus((int)this.IntegerParameter2);
+            if (element != null && this.IntegerParameter2 != Element.STATUS_UNDEFINED)
+            {
+               element.SetAccessoryStatus((int)this.IntegerParameter2);
+            }
          }
          catch (Exception ex)
          {

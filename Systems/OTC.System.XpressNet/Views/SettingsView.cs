@@ -1,7 +1,8 @@
 ﻿using System;
+using System.IO.Ports;
 using System.Windows.Forms;
 using DevExpress.XtraEditors.Controls;
-using RJCP.IO.Ports;
+//using RJCP.IO.Ports;
 
 namespace Rwm.OTC.Systems.XpressNet.Views
 {
@@ -44,7 +45,8 @@ namespace Rwm.OTC.Systems.XpressNet.Views
          this.DigitalSystem.StopBits = (StopBits)cboStopBits.EditValue;
          this.DigitalSystem.DataBits = (int)(decimal)spnDataBits.EditValue;
          this.DigitalSystem.Handshake = (Handshake)cboHandshake.EditValue;
-         this.DigitalSystem.CommandTimeout = (int)(decimal)spnTimeout.EditValue;
+         this.DigitalSystem.ReadWriteTimeout = (int)(decimal)spnRWTimeout.EditValue;
+         this.DigitalSystem.KeepaliveSignalInterval = (int)(decimal)spnKeepaliveInterval.EditValue;
          this.DigitalSystem.DebugMode = chkDebugMode.Checked;
 
          this.DialogResult = DialogResult.OK;
@@ -105,7 +107,8 @@ namespace Rwm.OTC.Systems.XpressNet.Views
          cboStopBits.EditValue = this.DigitalSystem.StopBits;
          spnDataBits.EditValue = this.DigitalSystem.DataBits;
          cboHandshake.EditValue = this.DigitalSystem.Handshake;
-         spnTimeout.EditValue = this.DigitalSystem.CommandTimeout;
+         spnRWTimeout.EditValue = this.DigitalSystem.ReadWriteTimeout;
+         spnKeepaliveInterval.EditValue = this.DigitalSystem.KeepaliveSignalInterval;
          chkDebugMode.Checked = this.DigitalSystem.DebugMode;
       }
 

@@ -1,10 +1,10 @@
-﻿using DevExpress.Utils;
+﻿using System;
+using System.Windows.Forms;
+using DevExpress.Utils;
 using DevExpress.XtraBars;
 using RailwayStudio.Common;
 using Rwm.Otc;
 using Rwm.Studio.Views.Controllers;
-using System;
-using System.Windows.Forms;
 
 namespace Rwm.Studio.Views
 {
@@ -126,14 +126,13 @@ namespace Rwm.Studio.Views
       /// <summary>
       /// Select the appropriate ribbon tab page for the active module.
       /// </summary>
-      private void docManager_DocumentActivate(object sender, DevExpress.XtraBars.Docking2010.Views.DocumentEventArgs e)
+      private void DocManager_DocumentActivate(object sender, DevExpress.XtraBars.Docking2010.Views.DocumentEventArgs e)
       {
          try
          {
             if (e.Document != null)
             {
-               IPluginModule module = e.Document.Control as IPluginModule;
-               if (module != null)
+               if (e.Document.Control is IPluginModule module)
                {
                   e.Document.Image = module.SmallIcon;
                   ribbon.SelectedPage = (DevExpress.XtraBars.Ribbon.RibbonPage)module.StartupRibbonPage;
@@ -152,22 +151,22 @@ namespace Rwm.Studio.Views
          }
       }
 
-      private void cmdFileExit_ItemClick(object sender, ItemClickEventArgs e)
+      private void CmdFileExit_ItemClick(object sender, ItemClickEventArgs e)
       {
          this.Controller.Exit();
       }
 
-      private void cmdFileSettings_ItemClick(object sender, ItemClickEventArgs e)
+      private void CmdFileSettings_ItemClick(object sender, ItemClickEventArgs e)
       {
          this.Controller.Configure();
       }
 
-      private void cmdFileAbout_ItemClick(object sender, ItemClickEventArgs e)
+      private void CmdFileAbout_ItemClick(object sender, ItemClickEventArgs e)
       {
          this.Controller.About();
       }
 
-      private void cmdProjectsOpen_ItemClick(object sender, ItemClickEventArgs e)
+      private void CmdProjectsOpen_ItemClick(object sender, ItemClickEventArgs e)
       {
          if (this.Controller.OpenProject())
          {
@@ -176,7 +175,7 @@ namespace Rwm.Studio.Views
          }
       }
 
-      private void cmdProjectsAdd_ItemClick(object sender, ItemClickEventArgs e)
+      private void CmdProjectsAdd_ItemClick(object sender, ItemClickEventArgs e)
       {
          if (this.Controller.CreateProject())
          {
@@ -185,17 +184,17 @@ namespace Rwm.Studio.Views
          }
       }
 
-      private void dpToolbox_ClosedPanel(object sender, DevExpress.XtraBars.Docking.DockPanelEventArgs e)
+      private void DpToolbox_ClosedPanel(object sender, DevExpress.XtraBars.Docking.DockPanelEventArgs e)
       {
          chkViewToolbox.Checked = false;
       }
 
-      private void dockPanelConsole_ClosedPanel(object sender, DevExpress.XtraBars.Docking.DockPanelEventArgs e)
+      private void DockPanelConsole_ClosedPanel(object sender, DevExpress.XtraBars.Docking.DockPanelEventArgs e)
       {
          chkViewConsole.Checked = false;
       }
 
-      private void chkViewToolbox_CheckedChanged(object sender, ItemClickEventArgs e)
+      private void ChkViewToolbox_CheckedChanged(object sender, ItemClickEventArgs e)
       {
          if (((BarCheckItem)e.Item).Checked)
          {
@@ -203,7 +202,7 @@ namespace Rwm.Studio.Views
          }
       }
 
-      private void chkViewConsole_CheckedChanged(object sender, ItemClickEventArgs e)
+      private void ChkViewConsole_CheckedChanged(object sender, ItemClickEventArgs e)
       {
          if (((BarCheckItem)e.Item).Checked)
          {

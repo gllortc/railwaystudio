@@ -188,6 +188,11 @@ namespace Rwm.Otc.Layout
          get { return (!string.IsNullOrWhiteSpace(this.Name) ? this.Name : this.Coordinates.ToString()); }
       }
 
+      /// <summary>
+      /// Gets a <see cref="Boolean"/> value indicating if the status has been confirmed from the command station.
+      /// </summary>
+      internal bool Statusconfirmed { get; private set; } = false;
+
       #endregion
 
       #region Methods
@@ -286,26 +291,17 @@ namespace Rwm.Otc.Layout
       /// <param name="status">New feedback status to be adopted by the element.</param>
       public void SetAccessoryStatus(int status)
       {
-         this.SetAccessoryStatus(status, true);
-      }
+         if (!this.Properties.IsAccessory) 
+            return;
 
-      /// <summary>
-      /// Set feedback status for the element.
-      /// </summary>
-      /// <param name="status">New feedback status to be adopted by the element.</param>
-      public void SetAccessoryStatus(int status, bool sendToSystem)
-      {
+         // Set the new status
          this.AccessoryStatus = status;
 
-         // Send the command to the digital system
-         if (sendToSystem)
-         {
-            // OTCContext.Project.DigitalSystem.SetAccessoryStatus(this);
-         }
+         // Save the element with new status
+         Element.Save(this);
 
          // Raise project events
          OTCContext.Project.ElementImageChanged(this);
-         // OTCContext.Project.AccessoryStatusChanged(this);
       }
 
       /// <summary>
@@ -314,11 +310,12 @@ namespace Rwm.Otc.Layout
       /// <returns>The requested status for the element.</returns>
       public int RequestAccessoryNextStatus()
       {
+         int newStatus;
+
          if (!this.Properties.IsAccessory)
             return Element.STATUS_UNDEFINED;
 
          // Get status to acquire
-         int newStatus = Element.STATUS_UNDEFINED;
          if (this.AccessoryStatus <= Element.STATUS_UNDEFINED)
             newStatus = 1;
          else if (this.AccessoryStatus == this.Properties.AccessoryMaxStats)
@@ -373,7 +370,6 @@ namespace Rwm.Otc.Layout
 
          // Raise project events
          OTCContext.Project.ElementImageChanged(this);
-         // OTCContext.Project.DigitalSystem.FeedbackStatusChanged(this);
       }
 
       /// <summary>

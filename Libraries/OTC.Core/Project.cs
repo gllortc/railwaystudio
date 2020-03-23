@@ -198,6 +198,8 @@ namespace Rwm.Otc
       /// </summary>
       internal void LoadSystem()
       {
+         Logger.LogDebug(this, "[CLASS].LoadSystem()");
+
          try
          {
             this.DigitalSystem = this.SystemManager.GetSystem();
@@ -212,7 +214,7 @@ namespace Rwm.Otc
          {
             Logger.LogError(this, ex);
 
-            throw;
+            throw ex;
          }
       }
 
@@ -221,6 +223,8 @@ namespace Rwm.Otc
       /// </summary>
       internal void LoadTheme()
       {
+         Logger.LogDebug(this, "[CLASS].LoadTheme()");
+
          try
          {
             this.Theme = this.ThemeManager.GetTheme();
@@ -235,7 +239,7 @@ namespace Rwm.Otc
          {
             Logger.LogError(this, ex);
 
-            throw;
+            throw ex;
          }
       }
 
@@ -246,6 +250,8 @@ namespace Rwm.Otc
       /// <returns>The requested list of destination block elements.</returns>
       public List<Route> GetDestinations(Element fromElement)
       {
+         Logger.LogDebug(this, "[CLASS].GetDestinations([{0}])", fromElement);
+
          List<Route> routes = new List<Route>();
 
          foreach (Route route in this.Routes)

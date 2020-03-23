@@ -60,6 +60,14 @@ namespace Rwm.Otc.Systems
       /// <summary>
       /// Sets the theme used to render the switchboard panels.
       /// </summary>
+      public void SetSystem(IDigitalSystem system)
+      {
+         this.SetSystem(system.GetType());
+      }
+
+      /// <summary>
+      /// Sets the theme used to render the switchboard panels.
+      /// </summary>
       public void SetSystem(Type type)
       {
          Logger.LogDebug(this, "[CLASS].SetSystem([{0}])", type.FullName);
@@ -153,42 +161,6 @@ namespace Rwm.Otc.Systems
             }
             
             return systems;
-         }
-         catch (Exception ex)
-         {
-            Logger.LogError(this, ex);
-
-            throw;
-         }
-      }
-
-      /// <summary>
-      /// Gets all themes in an instance of <see cref="DataTable"/>.
-      /// </summary>
-      /// <returns>The requested instance of <see cref="DataTable"/>.</returns>
-      public DataTable Find()
-      {
-         DataTable dt;
-
-         Logger.LogDebug(this, "[CLASS].GetAllAsDataTable()");
-
-         try
-         {
-            dt = new DataTable("Systems");
-            dt.Columns.Add("GUID", typeof(string));
-            dt.Columns.Add("Name", typeof(string));
-            dt.Columns.Add("Description", typeof(string));
-            dt.Columns.Add("Type", typeof(Type));
-
-            foreach (IDigitalSystem item in this.GetAll())
-            {
-               dt.Rows.Add(new object[] { item.ID,
-                                          item.Name,
-                                          item.Description,
-                                          item.GetType() });
-            }
-
-            return dt;
          }
          catch (Exception ex)
          {

@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // conjunto de atributos. Cambie estos atributos para modificar la información
 // asociada con un ensamblado.
 [assembly: AssemblyTitle("OTC.Theme.SpDrS60")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Theme for the RailwayStudio software")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Railwaymania.com")]
 [assembly: AssemblyProduct("OTC.Theme.SpDrS60")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCopyright("Copyright © 2016 - 2010 Railwaymania.com")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -1,4 +1,5 @@
-﻿using Rwm.Otc.Layout;
+﻿using Rwm.Otc.Diagnostics;
+using Rwm.Otc.Layout;
 using Rwm.Otc.Systems;
 using Rwm.Otc.Utils;
 using System;
@@ -77,62 +78,76 @@ namespace Rwm.Otc.UI.Controls
 
       protected override void OnMouseDown(MouseEventArgs e)
       {
-         Coordinates coords = new Coordinates((e.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
+         try
+         {
+            Coordinates coords = new Coordinates((e.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
                                               (e.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
 
-         // Get the affected element
-         Element element = this.Switchboard.GetBlock(coords);
-         if (element == null) return;
+            // Get the affected element
+            Element element = this.Switchboard.GetBlock(coords);
+            if (element == null) return;
 
-         if (OTCContext.Project.AllowManualSensorActivation && element.Properties.IsFeedback && !element.Properties.IsBlock)
+            if (OTCContext.Project.AllowManualSensorActivation && element.Properties.IsFeedback && !element.Properties.IsBlock)
+            {
+               element.SetFeedbackStatus(true);
+
+               this.ExecuteActions(element,
+                                   Rwm.Otc.Layout.ElementAction.EventType.OnSensorStatusChange,
+                                   (int)FeedbackStatus.Activated);
+            }
+         }
+         catch (Exception ex)
          {
-            element.SetFeedbackStatus(true);
-
-            this.ExecuteActions(element,
-                                Rwm.Otc.Layout.ElementAction.EventType.OnSensorStatusChange,
-                                (int)FeedbackStatus.Activated);
+            Logger.LogError(this, ex);
          }
       }
 
       protected override void OnMouseUp(MouseEventArgs e)
       {
-         // Adapt click coordinates to an element click
-         Coordinates coords = new Coordinates((e.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
-                                              (e.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
-
-         // Get the clicked element
-         Element element = this.Switchboard.GetBlock(coords);
-         if (element == null) return;
-
-         // Accessory element clicked
-         if (element.Properties.IsAccessory)
+         try
          {
-            // Update the element status
-            element.RequestAccessoryNextStatus();
+            // Adapt click coordinates to an element click
+            Coordinates coords = new Coordinates((e.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
+                                                 (e.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
 
-            // Store the new status
-            Element.Save(element);
+            // Get the clicked element
+            Element element = this.Switchboard.GetBlock(coords);
+            if (element == null) return;
 
-            // Execute element associated actions
-            this.ExecuteActions(element,
-                                Rwm.Otc.Layout.ElementAction.EventType.OnAccessoryStatusChange,
-                                element.AccessoryStatus);
+            // Accessory element clicked
+            if (element.Properties.IsAccessory)
+            {
+               // Request the next status to the command station
+               element.RequestAccessoryNextStatus();
+
+               // Store the new status
+               Element.Save(element);
+
+               // Execute element associated actions
+               this.ExecuteActions(element,
+                                   Rwm.Otc.Layout.ElementAction.EventType.OnAccessoryStatusChange,
+                                   element.AccessoryStatus);
+            }
+
+            // Feedback element clicked (manual activation)
+            if (OTCContext.Project.AllowManualSensorActivation && element.Properties.IsFeedback && !element.Properties.IsBlock)
+            {
+               element.SetFeedbackStatus(false);
+
+               this.ExecuteActions(element,
+                                   Rwm.Otc.Layout.ElementAction.EventType.OnSensorStatusChange,
+                                   (int)FeedbackStatus.Deactivated);
+            }
+
+            // Block element clicked
+            if (element.Properties.IsBlock)
+            {
+               this.ShowBlockMenu(element);
+            }
          }
-
-         // Feedback element clicked (manual activation)
-         if (OTCContext.Project.AllowManualSensorActivation && element.Properties.IsFeedback && !element.Properties.IsBlock)
+         catch (Exception ex)
          {
-            element.SetFeedbackStatus(false);
-
-            this.ExecuteActions(element,
-                                Rwm.Otc.Layout.ElementAction.EventType.OnSensorStatusChange,
-                                (int)FeedbackStatus.Deactivated);
-         }
-
-         // Block element clicked
-         if (element.Properties.IsBlock)
-         {
-            this.ShowBlockMenu(element);
+            Logger.LogError(this, ex);
          }
       }
 
@@ -160,48 +175,43 @@ namespace Rwm.Otc.UI.Controls
          }
       }
 
-      void cmdBlockAssign_ItemClick(object sender, EventArgs e)
+      void CmdBlockAssign_ItemClick(object sender, EventArgs e)
       {
          if (this.BlockAssignTrain != null)
          {
-            Element blockElement = ((ToolStripItem)sender).Tag as Element;
-            if (blockElement != null)
+            if (((ToolStripItem)sender).Tag is Element blockElement)
             {
                this.BlockAssignTrain(this, blockElement);
             }
          }
       }
 
-      void cmdBlockUnassign_ItemClick(object sender, EventArgs e)
+      void CmdBlockUnassign_ItemClick(object sender, EventArgs e)
       {
          if (this.BlockUnassignTrain != null)
          {
-            Element blockElement = ((ToolStripItem)sender).Tag as Element;
-            if (blockElement != null)
+            if (((ToolStripItem)sender).Tag is Element blockElement)
             {
                this.BlockUnassignTrain(this, blockElement);
             }
          }
       }
 
-      void cmdBlockRouteAssign_ItemClick(object sender, EventArgs e)
+      void CmdBlockRouteAssign_ItemClick(object sender, EventArgs e)
       {
          // Get the toolstrip
-         ToolStripMenuItem item = sender as ToolStripMenuItem;
-         if (item == null) return;
+         if (!(sender is ToolStripMenuItem item)) return;
 
          // Get the route to activate
-         Route route = item.Tag as Route;
-         if (route == null) return;
+         if (!(item.Tag is Route route)) return;
 
          // Activate the route
          route.Activate();
       }
 
-      void cmdBlockSensorActivated_ItemClick(object sender, EventArgs e)
+      void CmdBlockSensorActivated_ItemClick(object sender, EventArgs e)
       {
-         Element element = ((ToolStripItem)sender).Tag as Element;
-         if (element != null)
+         if (((ToolStripItem)sender).Tag is Element element)
          {
             // Simulate a feedback impulse
             OTCContext.Project.DigitalSystem.SetSensorStatus(element, FeedbackStatus.Activated);
@@ -251,11 +261,11 @@ namespace Rwm.Otc.UI.Controls
          if (this.BlockMenu == null)
          {
             this.BlockMenu = new ContextMenuStrip();
-            this.BlockMenu.Items.Add("&Assign train...", Properties.Resources.ICO_BLOCK_ASSIGN_16, new EventHandler(cmdBlockAssign_ItemClick));
-            this.BlockMenu.Items.Add("&Unassign train (remove)", Properties.Resources.ICO_BLOCK_CLEAR_16, new EventHandler(cmdBlockUnassign_ItemClick));
+            this.BlockMenu.Items.Add("&Assign train...", Properties.Resources.ICO_BLOCK_ASSIGN_16, new EventHandler(CmdBlockAssign_ItemClick));
+            this.BlockMenu.Items.Add("&Unassign train (remove)", Properties.Resources.ICO_BLOCK_CLEAR_16, new EventHandler(CmdBlockUnassign_ItemClick));
             this.BlockMenu.Items.Add("Set &destination", Properties.Resources.ICO_BLOCK_GO_16);
             this.BlockMenu.Items.Add("-");
-            this.BlockMenu.Items.Add("Activate &sensor", Properties.Resources.ICO_SENSORS_16, new EventHandler(cmdBlockSensorActivated_ItemClick));
+            this.BlockMenu.Items.Add("Activate &sensor", Properties.Resources.ICO_SENSORS_16, new EventHandler(CmdBlockSensorActivated_ItemClick));
          }
       }
 
@@ -283,12 +293,12 @@ namespace Rwm.Otc.UI.Controls
          {
             if (dest.FromBlock.ID != blockElement.ID)
             {
-               destItem.DropDownItems.Add(string.Format("{0} (route {1})", dest.FromBlock, dest), null, new EventHandler(cmdBlockRouteAssign_ItemClick));
+               destItem.DropDownItems.Add(string.Format("{0} (route {1})", dest.FromBlock, dest), null, new EventHandler(CmdBlockRouteAssign_ItemClick));
                destItem.DropDownItems[destItem.DropDownItems.Count - 1].Tag = dest;
             }
             else if (dest.ToBlock.ID != blockElement.ID)
             {
-               destItem.DropDownItems.Add(string.Format("{0} (route {1})", dest.ToBlock.Name, dest), null, new EventHandler(cmdBlockRouteAssign_ItemClick));
+               destItem.DropDownItems.Add(string.Format("{0} (route {1})", dest.ToBlock.Name, dest), null, new EventHandler(CmdBlockRouteAssign_ItemClick));
                destItem.DropDownItems[destItem.DropDownItems.Count - 1].Tag = dest;
             }
          }

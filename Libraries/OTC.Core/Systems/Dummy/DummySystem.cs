@@ -52,7 +52,15 @@ namespace Rwm.Otc.Systems.Dummy
       /// </summary>
       public string Description
       {
-         get { return "Dummy system to test layout without connection to real system."; }
+         get { return "Dummy system to test layout without any connection."; }
+      }
+
+      /// <summary>
+      /// Gets the current implementation version.
+      /// </summary>
+      public string Version
+      {
+         get { return Rwm.Otc.Utils.ReflectionUtils.GetAssemblyVersion(this.GetType()); }
       }
 
       /// <summary>
@@ -153,9 +161,6 @@ namespace Rwm.Otc.Systems.Dummy
       {
          this.EmergencyStopEnabled = true;
 
-         this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Warning,
-                                                                            "Emergency off: power off activated!"));
-
          DummyEmergencyOff command = new DummyEmergencyOff();
          this.OnCommandReceived?.Invoke(this, new SystemCommandEventArgs(command));
 
@@ -169,9 +174,6 @@ namespace Rwm.Otc.Systems.Dummy
       {
          this.EmergencyStopEnabled = true;
 
-         this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Warning,
-                                                                             "Emergency stop: all locomotives stopped!"));
-
          DummyEmergencyStop command = new DummyEmergencyStop();
          this.OnCommandReceived?.Invoke(this, new SystemCommandEventArgs(command));
 
@@ -184,9 +186,6 @@ namespace Rwm.Otc.Systems.Dummy
       public void ResumeOperations()
       {
          this.EmergencyStopEnabled = false;
-
-         this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Warning,
-                                                                             "Resume all operations"));
 
          DummyResumeOperations command = new DummyResumeOperations();
          this.OnCommandReceived?.Invoke(this, new SystemCommandEventArgs(command));
@@ -202,9 +201,6 @@ namespace Rwm.Otc.Systems.Dummy
       public void OperateAccessory(int address, int activatePin)
       {
          this.EmergencyStopEnabled = false;
-
-         this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Information,
-                                                                             "Accessory {0:D4} activate pin {1}", address, activatePin));
 
          DummyAccessoryOperation command = new DummyAccessoryOperation(address, activatePin);
          this.OnCommandReceived?.Invoke(this, new SystemCommandEventArgs(command));
@@ -229,9 +225,6 @@ namespace Rwm.Otc.Systems.Dummy
       /// <param name="status">Value to set.</param>
       public void SetAccessoryStatus(int address, bool turned, bool activate)
       {
-         this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Warning,
-                                                                             "Accessory operation ADDR{0}", address));
-
          DummyEmergencyStop command = new DummyEmergencyStop();
          this.OnCommandReceived?.Invoke(this, new SystemCommandEventArgs(command));
 
@@ -276,9 +269,8 @@ namespace Rwm.Otc.Systems.Dummy
       /// <summary>
       /// Show the configuration dialogue of the implemented system.
       /// </summary>
-      /// <param name="settings">Current application settings.</param>
       /// <rereturns>A value indicating if the user has been changed the settings or not.</rereturns>
-      public System.Windows.Forms.DialogResult ShowSettingsDialog(Rwm.Otc.Configuration.XmlSettingsManager settings)
+      public System.Windows.Forms.DialogResult ShowSettingsDialog()
       {
          System.Windows.Forms.MessageBox.Show("This digital system doesn't have any configuration.",
                                               System.Windows.Forms.Application.ProductName,
