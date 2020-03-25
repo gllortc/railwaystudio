@@ -51,9 +51,9 @@
          this.labelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.labelControl1.Location = new System.Drawing.Point(23, 286);
          this.labelControl1.Name = "labelControl1";
-         this.labelControl1.Size = new System.Drawing.Size(115, 13);
+         this.labelControl1.Size = new System.Drawing.Size(183, 13);
          this.labelControl1.TabIndex = 6;
-         this.labelControl1.Text = "Copyright © 1998-2013";
+         this.labelControl1.Text = "Copyright © 1998-2020 Railwaymania";
          // 
          // labelControl2
          // 
@@ -65,6 +65,7 @@
          // 
          // pictureEdit2
          // 
+         this.pictureEdit2.Cursor = System.Windows.Forms.Cursors.Default;
          this.pictureEdit2.EditValue = global::Rwm.Studio.Properties.Resources._1__16_2;
          this.pictureEdit2.Location = new System.Drawing.Point(12, 12);
          this.pictureEdit2.Name = "pictureEdit2";
@@ -73,11 +74,13 @@
          this.pictureEdit2.Properties.Appearance.Options.UseBackColor = true;
          this.pictureEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.pictureEdit2.Properties.ShowMenu = false;
+         this.pictureEdit2.Properties.ZoomAccelerationFactor = 1D;
          this.pictureEdit2.Size = new System.Drawing.Size(426, 183);
          this.pictureEdit2.TabIndex = 9;
          // 
          // pictureEdit1
          // 
+         this.pictureEdit1.Cursor = System.Windows.Forms.Cursors.Default;
          this.pictureEdit1.EditValue = global::Rwm.Studio.Properties.Resources.rwm_2;
          this.pictureEdit1.Location = new System.Drawing.Point(222, 253);
          this.pictureEdit1.Name = "pictureEdit1";
@@ -86,6 +89,7 @@
          this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
          this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.pictureEdit1.Properties.ShowMenu = false;
+         this.pictureEdit1.Properties.ZoomAccelerationFactor = 1D;
          this.pictureEdit1.Size = new System.Drawing.Size(216, 61);
          this.pictureEdit1.TabIndex = 8;
          // 

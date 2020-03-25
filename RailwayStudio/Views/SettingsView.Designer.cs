@@ -288,7 +288,7 @@
          this.cmdAccept.Size = new System.Drawing.Size(75, 23);
          this.cmdAccept.TabIndex = 1;
          this.cmdAccept.Text = "Accept";
-         this.cmdAccept.Click += new System.EventHandler(this.cmdAccept_Click);
+         this.cmdAccept.Click += new System.EventHandler(this.CmdAccept_Click);
          // 
          // cmdCancel
          // 
@@ -299,7 +299,7 @@
          this.cmdCancel.Size = new System.Drawing.Size(75, 23);
          this.cmdCancel.TabIndex = 2;
          this.cmdCancel.Text = "Cancel";
-         this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
+         this.cmdCancel.Click += new System.EventHandler(this.CmdCancel_Click);
          // 
          // FrmSettings
          // 

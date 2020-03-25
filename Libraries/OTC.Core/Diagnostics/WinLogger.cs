@@ -78,7 +78,7 @@ namespace Rwm.Otc.Diagnostics
                EventLog.CreateEventSource(source, name);
             }
          }
-         catch (Exception ex)
+         catch 
          {
             Application.DoEvents();
          }

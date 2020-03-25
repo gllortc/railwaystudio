@@ -1,10 +1,9 @@
-﻿using Rwm.Otc.Configuration;
-using Rwm.Studio.Plugins.Control.Controls;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using Rwm.Otc.Utils;
 
 namespace Rwm.Studio.Plugins.Control
 {
-   public class PluginData : RailwayStudio.Common.IPlugin
+   public class PluginData : RailwayStudio.Common.IPluginPackage
    {
 
       #region Constants
@@ -39,22 +38,12 @@ namespace Rwm.Studio.Plugins.Control
 
       public string Version
       {
-         get { return Application.ProductVersion; }
+         get { return ReflectionUtils.GetAssemblyVersion(this.GetType()); }
       }
 
       public string Description
       {
-         get { return string.Empty; }
-      }
-
-      public bool IsConfigurable
-      {
-         get { return true; }
-      }
-
-      public UserControl CreateSettingsControl(XmlSettingsManager settings)
-      {
-         return new SettingsControl(settings);
+         get { return "Package containing all layout control tools"; }
       }
 
       #endregion

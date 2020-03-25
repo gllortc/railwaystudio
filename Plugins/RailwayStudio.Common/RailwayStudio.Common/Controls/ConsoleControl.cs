@@ -88,6 +88,15 @@ namespace RailwayStudio.Common.Controls
 
       #endregion
 
+      #region Event Handlers
+
+      private void CmdClear_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      {
+         recConsole.Text = String.Empty;
+      }
+
+      #endregion
+
       #region Private Members
 
       private void AppendText(string message, Color color)
@@ -105,7 +114,7 @@ namespace RailwayStudio.Common.Controls
          recConsole.ScrollToCaret();
       }
 
-      #endregion
+        #endregion
 
-   }
+    }
 }

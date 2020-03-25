@@ -124,28 +124,22 @@
   <data name="ICO_PLUGIN_DELETE_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick_delete_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="printer_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\printer_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ICO_PLUGIN_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_PLUGIN_ADD_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick_add_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="printer_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\printer_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ICO_TEXTEDITOR_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\page_white_edit_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="diskette_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ICO_SAVE_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\diskette_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="save_as_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ICO_SAVEAS_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\save_as_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="page_white_copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ICO_COPY_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\page_white_copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_FIND_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -159,5 +153,8 @@
   </data>
   <data name="IMG_LOGO_PRINT" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\rwm_logo_black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICO_CLEAN_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\draw_eraser_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -12,6 +12,21 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -29,6 +44,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -80,7 +98,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="IContainerView.cs" />
-    <Compile Include="IPlugin.cs" />
+    <Compile Include="IPluginPackage.cs" />
     <Compile Include="IPluginContainer.cs" />
     <Compile Include="IPluginModule.cs" />
     <Compile Include="Modules\Editors\TextEditorModule.cs">
@@ -119,12 +137,6 @@
     <Compile Include="Views\PluginEditorView.Designer.cs">
       <DependentUpon>PluginEditorView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ProjectEditorView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\ProjectEditorView.Designer.cs">
-      <DependentUpon>ProjectEditorView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\FindTrainView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,9 +174,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PluginEditorView.resx">
       <DependentUpon>PluginEditorView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\ProjectEditorView.resx">
-      <DependentUpon>ProjectEditorView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FindTrainView.resx">
       <DependentUpon>FindTrainView.cs</DependentUpon>
@@ -220,6 +229,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\rwm_logo_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+    <None Include="Resources\draw_eraser_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

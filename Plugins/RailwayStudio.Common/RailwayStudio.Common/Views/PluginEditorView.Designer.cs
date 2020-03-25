@@ -59,7 +59,7 @@
          this.cmdOK.Size = new System.Drawing.Size(75, 23);
          this.cmdOK.TabIndex = 1;
          this.cmdOK.Text = "Install";
-         this.cmdOK.Click += new System.EventHandler(this.cmdOK_Click);
+         this.cmdOK.Click += new System.EventHandler(this.CmdOK_Click);
          // 
          // lblName
          // 

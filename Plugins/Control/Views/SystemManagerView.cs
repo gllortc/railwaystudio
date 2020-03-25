@@ -47,6 +47,8 @@ namespace Rwm.Studio.Plugins.Control.Views
             IDigitalSystem system = grdSystemsView.GetRow(selRows[0]) as IDigitalSystem;
 
             OTCContext.Project.SystemManager.SetSystem(system);
+
+            this.ListSystems();
          }
          catch (Exception ex)
          {

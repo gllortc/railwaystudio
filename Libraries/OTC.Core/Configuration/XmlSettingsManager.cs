@@ -54,7 +54,7 @@ namespace Rwm.Otc.Configuration
             // Read all items
             foreach (XmlNode xmlItem in doc.SelectNodes("OTCSettings/Value")) // .GetElementsByTagName("Value", "OTCSettings"))
             {
-               AddSetting(new XmlSettingsItem((XmlElement)xmlItem));
+               this.AddSetting(new XmlSettingsItem((XmlElement)xmlItem));
             }
          }
          catch (Exception ex)
@@ -71,7 +71,7 @@ namespace Rwm.Otc.Configuration
       /// </remarks>
       public void SaveSettings()
       {
-         SaveSettings(Path.Combine(GetAssemblyPath(), FILE_NAME));
+         this.SaveSettings(Path.Combine(GetAssemblyPath(), FILE_NAME));
       }
 
       /// <summary>

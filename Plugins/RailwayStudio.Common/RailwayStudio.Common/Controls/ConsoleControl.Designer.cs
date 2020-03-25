@@ -28,16 +28,12 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          this.recConsole = new DevExpress.XtraRichEdit.RichEditControl();
-         this.barManager = new DevExpress.XtraBars.BarManager(this.components);
+         this.barManager = new DevExpress.XtraBars.BarManager();
          this.commonBar1 = new DevExpress.XtraRichEdit.UI.CommonBar();
-         this.fileSaveItem1 = new DevExpress.XtraRichEdit.UI.FileSaveItem();
-         this.fileSaveAsItem1 = new DevExpress.XtraRichEdit.UI.FileSaveAsItem();
-         this.quickPrintItem1 = new DevExpress.XtraRichEdit.UI.QuickPrintItem();
-         this.printItem1 = new DevExpress.XtraRichEdit.UI.PrintItem();
-         this.printPreviewItem1 = new DevExpress.XtraRichEdit.UI.PrintPreviewItem();
+         this.cmdClear = new DevExpress.XtraBars.BarButtonItem();
          this.copyItem1 = new DevExpress.XtraRichEdit.UI.CopyItem();
+         this.fileSaveAsItem1 = new DevExpress.XtraRichEdit.UI.FileSaveAsItem();
          this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
          this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
          this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -93,6 +89,7 @@
          this.repositoryItemRichEditStyleEdit1 = new DevExpress.XtraRichEdit.Design.RepositoryItemRichEditStyleEdit();
          this.showEditStyleFormItem1 = new DevExpress.XtraRichEdit.UI.ShowEditStyleFormItem();
          this.replaceItem1 = new DevExpress.XtraRichEdit.UI.ReplaceItem();
+         this.showDocumentPropertiesFormItem1 = new DevExpress.XtraRichEdit.UI.ShowDocumentPropertiesFormItem();
          this.richEditBarController = new DevExpress.XtraRichEdit.UI.RichEditBarController();
          this.stylesBar1 = new DevExpress.XtraRichEdit.UI.StylesBar();
          this.findItem1 = new DevExpress.XtraRichEdit.UI.FindItem();
@@ -113,8 +110,7 @@
          this.recConsole.Appearance.Text.Options.UseBackColor = true;
          this.recConsole.Appearance.Text.Options.UseFont = true;
          this.recConsole.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.recConsole.EnableToolTips = true;
-         this.recConsole.Location = new System.Drawing.Point(0, 31);
+         this.recConsole.Location = new System.Drawing.Point(0, 0);
          this.recConsole.MenuManager = this.barManager;
          this.recConsole.Name = "recConsole";
          this.recConsole.Options.AutoCorrect.ReplaceTextAsYouType = false;
@@ -124,7 +120,6 @@
          this.recConsole.Options.Behavior.Drop = DevExpress.XtraRichEdit.DocumentCapability.Disabled;
          this.recConsole.Options.Behavior.Open = DevExpress.XtraRichEdit.DocumentCapability.Disabled;
          this.recConsole.Options.Behavior.Paste = DevExpress.XtraRichEdit.DocumentCapability.Disabled;
-         this.recConsole.Options.Bookmarks.AllowNameResolution = false;
          this.recConsole.Options.DocumentCapabilities.Bookmarks = DevExpress.XtraRichEdit.DocumentCapability.Disabled;
          this.recConsole.Options.DocumentCapabilities.Comments = DevExpress.XtraRichEdit.DocumentCapability.Disabled;
          this.recConsole.Options.DocumentCapabilities.EndNotes = DevExpress.XtraRichEdit.DocumentCapability.Disabled;
@@ -144,7 +139,7 @@
          this.recConsole.Options.VerticalRuler.Visibility = DevExpress.XtraRichEdit.RichEditRulerVisibility.Hidden;
          this.recConsole.ReadOnly = true;
          this.recConsole.ShowCaretInReadOnly = false;
-         this.recConsole.Size = new System.Drawing.Size(598, 322);
+         this.recConsole.Size = new System.Drawing.Size(567, 353);
          this.recConsole.TabIndex = 0;
          this.recConsole.Text = "hhhhh oiayd gaiygf iaygdsfliaygsdfliyag sdfyigasdfiygalsidy gfaliysdg fayisgd fya" +
     "g sdlfiy galsdyf gasdiy gf";
@@ -153,6 +148,9 @@
          // 
          // barManager
          // 
+         this.barManager.AllowCustomization = false;
+         this.barManager.AllowMoveBarOnToolbar = false;
+         this.barManager.AllowQuickCustomization = false;
          this.barManager.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
             this.commonBar1});
          this.barManager.DockControls.Add(this.barDockControlTop);
@@ -161,11 +159,6 @@
          this.barManager.DockControls.Add(this.barDockControlRight);
          this.barManager.Form = this;
          this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.fileSaveItem1,
-            this.fileSaveAsItem1,
-            this.quickPrintItem1,
-            this.printItem1,
-            this.printPreviewItem1,
             this.pasteItem1,
             this.cutItem1,
             this.copyItem1,
@@ -214,8 +207,11 @@
             this.showParagraphFormItem1,
             this.changeStyleItem1,
             this.showEditStyleFormItem1,
-            this.replaceItem1});
-         this.barManager.MaxItemId = 59;
+            this.replaceItem1,
+            this.cmdClear,
+            this.fileSaveAsItem1,
+            this.showDocumentPropertiesFormItem1});
+         this.barManager.MaxItemId = 69;
          this.barManager.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemFontEdit1,
             this.repositoryItemRichEditFontSizeEdit1,
@@ -223,83 +219,69 @@
          // 
          // commonBar1
          // 
-         this.commonBar1.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Top;
+         this.commonBar1.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Right;
          this.commonBar1.Control = this.recConsole;
          this.commonBar1.DockCol = 0;
          this.commonBar1.DockRow = 0;
-         this.commonBar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+         this.commonBar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Right;
          this.commonBar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.fileSaveItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.fileSaveAsItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.quickPrintItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.printItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.printPreviewItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.copyItem1, true)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.cmdClear),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.KeyTip, this.copyItem1, "", false, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.Standard, "C", ""),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.KeyTip, this.fileSaveAsItem1, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.Standard, "A", "")});
          this.commonBar1.OptionsBar.DisableClose = true;
          this.commonBar1.OptionsBar.UseWholeRow = true;
          // 
-         // fileSaveItem1
+         // cmdClear
          // 
-         this.fileSaveItem1.Glyph = global::RailwayStudio.Common.Properties.Resources.diskette_16;
-         this.fileSaveItem1.Id = 4;
-         this.fileSaveItem1.Name = "fileSaveItem1";
-         // 
-         // fileSaveAsItem1
-         // 
-         this.fileSaveAsItem1.Glyph = global::RailwayStudio.Common.Properties.Resources.save_as_16;
-         this.fileSaveAsItem1.Id = 5;
-         this.fileSaveAsItem1.Name = "fileSaveAsItem1";
-         // 
-         // quickPrintItem1
-         // 
-         this.quickPrintItem1.Glyph = global::RailwayStudio.Common.Properties.Resources.printer_16;
-         this.quickPrintItem1.Id = 6;
-         this.quickPrintItem1.Name = "quickPrintItem1";
-         // 
-         // printItem1
-         // 
-         this.printItem1.Glyph = global::RailwayStudio.Common.Properties.Resources.printer_add;
-         this.printItem1.Id = 7;
-         this.printItem1.Name = "printItem1";
-         // 
-         // printPreviewItem1
-         // 
-         this.printPreviewItem1.Id = 8;
-         this.printPreviewItem1.Name = "printPreviewItem1";
+         this.cmdClear.Caption = "Clear all";
+         this.cmdClear.Id = 59;
+         this.cmdClear.ImageOptions.Image = global::RailwayStudio.Common.Properties.Resources.ICO_CLEAN_16;
+         this.cmdClear.Name = "cmdClear";
+         this.cmdClear.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdClear_ItemClick);
          // 
          // copyItem1
          // 
-         this.copyItem1.Glyph = global::RailwayStudio.Common.Properties.Resources.page_white_copy;
          this.copyItem1.Id = 9;
+         this.copyItem1.ImageOptions.Image = global::RailwayStudio.Common.Properties.Resources.ICO_COPY_16;
          this.copyItem1.Name = "copyItem1";
+         // 
+         // fileSaveAsItem1
+         // 
+         this.fileSaveAsItem1.Id = 67;
+         this.fileSaveAsItem1.ImageOptions.Image = global::RailwayStudio.Common.Properties.Resources.ICO_SAVE_16;
+         this.fileSaveAsItem1.Name = "fileSaveAsItem1";
          // 
          // barDockControlTop
          // 
          this.barDockControlTop.CausesValidation = false;
          this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
          this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-         this.barDockControlTop.Size = new System.Drawing.Size(598, 31);
+         this.barDockControlTop.Manager = this.barManager;
+         this.barDockControlTop.Size = new System.Drawing.Size(598, 0);
          // 
          // barDockControlBottom
          // 
          this.barDockControlBottom.CausesValidation = false;
          this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
          this.barDockControlBottom.Location = new System.Drawing.Point(0, 353);
+         this.barDockControlBottom.Manager = this.barManager;
          this.barDockControlBottom.Size = new System.Drawing.Size(598, 0);
          // 
          // barDockControlLeft
          // 
          this.barDockControlLeft.CausesValidation = false;
          this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-         this.barDockControlLeft.Location = new System.Drawing.Point(0, 31);
-         this.barDockControlLeft.Size = new System.Drawing.Size(0, 322);
+         this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
+         this.barDockControlLeft.Manager = this.barManager;
+         this.barDockControlLeft.Size = new System.Drawing.Size(0, 353);
          // 
          // barDockControlRight
          // 
          this.barDockControlRight.CausesValidation = false;
          this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-         this.barDockControlRight.Location = new System.Drawing.Point(598, 31);
-         this.barDockControlRight.Size = new System.Drawing.Size(0, 322);
+         this.barDockControlRight.Location = new System.Drawing.Point(567, 0);
+         this.barDockControlRight.Manager = this.barManager;
+         this.barDockControlRight.Size = new System.Drawing.Size(31, 353);
          // 
          // pasteItem1
          // 
@@ -501,7 +483,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.setSesquialteralParagraphSpacingItem1),
             new DevExpress.XtraBars.LinkPersistInfo(this.setDoubleParagraphSpacingItem1),
             new DevExpress.XtraBars.LinkPersistInfo(this.showLineSpacingFormItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.addSpacingBeforeParagraphItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.KeyTip, this.addSpacingBeforeParagraphItem1, "", false, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.Standard, "B", ""),
             new DevExpress.XtraBars.LinkPersistInfo(this.removeSpacingBeforeParagraphItem1),
             new DevExpress.XtraBars.LinkPersistInfo(this.addSpacingAfterParagraphItem1),
             new DevExpress.XtraBars.LinkPersistInfo(this.removeSpacingAfterParagraphItem1)});
@@ -581,13 +563,13 @@
          this.replaceItem1.Id = 58;
          this.replaceItem1.Name = "replaceItem1";
          // 
+         // showDocumentPropertiesFormItem1
+         // 
+         this.showDocumentPropertiesFormItem1.Id = 68;
+         this.showDocumentPropertiesFormItem1.Name = "showDocumentPropertiesFormItem1";
+         // 
          // richEditBarController
          // 
-         this.richEditBarController.BarItems.Add(this.fileSaveItem1);
-         this.richEditBarController.BarItems.Add(this.fileSaveAsItem1);
-         this.richEditBarController.BarItems.Add(this.quickPrintItem1);
-         this.richEditBarController.BarItems.Add(this.printItem1);
-         this.richEditBarController.BarItems.Add(this.printPreviewItem1);
          this.richEditBarController.BarItems.Add(this.pasteItem1);
          this.richEditBarController.BarItems.Add(this.cutItem1);
          this.richEditBarController.BarItems.Add(this.copyItem1);
@@ -637,6 +619,8 @@
          this.richEditBarController.BarItems.Add(this.changeStyleItem1);
          this.richEditBarController.BarItems.Add(this.showEditStyleFormItem1);
          this.richEditBarController.BarItems.Add(this.replaceItem1);
+         this.richEditBarController.BarItems.Add(this.fileSaveAsItem1);
+         this.richEditBarController.BarItems.Add(this.showDocumentPropertiesFormItem1);
          this.richEditBarController.Control = this.recConsole;
          // 
          // stylesBar1
@@ -684,11 +668,6 @@
       private DevExpress.XtraRichEdit.RichEditControl recConsole;
       private DevExpress.XtraBars.BarManager barManager;
       private DevExpress.XtraRichEdit.UI.CommonBar commonBar1;
-      private DevExpress.XtraRichEdit.UI.FileSaveItem fileSaveItem1;
-      private DevExpress.XtraRichEdit.UI.FileSaveAsItem fileSaveAsItem1;
-      private DevExpress.XtraRichEdit.UI.QuickPrintItem quickPrintItem1;
-      private DevExpress.XtraRichEdit.UI.PrintItem printItem1;
-      private DevExpress.XtraRichEdit.UI.PrintPreviewItem printPreviewItem1;
       private DevExpress.XtraRichEdit.UI.CopyItem copyItem1;
       private DevExpress.XtraBars.BarDockControl barDockControlTop;
       private DevExpress.XtraBars.BarDockControl barDockControlBottom;
@@ -749,5 +728,8 @@
       private DevExpress.XtraRichEdit.UI.StylesBar stylesBar1;
       private DevExpress.XtraRichEdit.UI.FindItem findItem1;
       private DevExpress.XtraRichEdit.UI.FileOpenItem fileOpenItem1;
-   }
+        private DevExpress.XtraBars.BarButtonItem cmdClear;
+        private DevExpress.XtraRichEdit.UI.FileSaveAsItem fileSaveAsItem1;
+        private DevExpress.XtraRichEdit.UI.ShowDocumentPropertiesFormItem showDocumentPropertiesFormItem1;
+    }
 }

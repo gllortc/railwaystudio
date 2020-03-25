@@ -48,7 +48,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
       public string ModuleName
       {
-         get { return "Designer"; }
+         get { return "Layout designer"; }
       }
 
       public string DocumentName

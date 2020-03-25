@@ -80,6 +80,9 @@ namespace Rwm.Otc.Systems
 
             this.Settings.AddSetting(item);
             this.Settings.SaveSettings();
+
+            // Force ti reload the digital system according to the selection
+            OTCContext.Project.LoadSystem();
          }
          catch (Exception ex)
          {

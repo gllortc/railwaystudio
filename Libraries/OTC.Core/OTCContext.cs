@@ -73,7 +73,7 @@ namespace Rwm.Otc
       /// </summary>
       /// <param name="path">Filename (and path) for the new project file.</param>
       /// <param name="project">Initialized project (only with basic data).</param>
-      public static void CreateProject(string path, string name, string description, string version)
+      public static void CreateProject(string path, Project project)
       {
          if (string.IsNullOrWhiteSpace(path))
          {
@@ -97,10 +97,7 @@ namespace Rwm.Otc
             cde.CheckDatabase();
 
             // Create new project instance
-            OTCContext.Project = new Otc.Project();
-            OTCContext.Project.Name = name.Trim();
-            OTCContext.Project.Description = description.Trim();
-            OTCContext.Project.Version = version.Trim();
+            OTCContext.Project = project;
 
             // Store the project into the database
             Project.Save(OTCContext.Project);
@@ -149,8 +146,7 @@ namespace Rwm.Otc
          catch (Exception ex)
          {
             Logger.LogError(ex);
-
-            throw;
+            throw ex;
          }
       }
 

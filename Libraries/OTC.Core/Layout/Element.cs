@@ -53,10 +53,10 @@ namespace Rwm.Otc.Layout
 
       #region Events
 
-      /// <summary>
-      /// An event that clients can use to be notified whenever the elements of the list change.
-      /// </summary>
-      internal event EventHandler<ElementEventArgs> ImageChanged;
+      ///// <summary>
+      ///// An event that clients can use to be notified whenever the elements of the list change.
+      ///// </summary>
+      //internal event EventHandler<ElementEventArgs> ImageChanged;
 
       /// <summary>
       /// Event raised when a train enter or leaves the element.

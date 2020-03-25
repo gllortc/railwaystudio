@@ -1,9 +1,4 @@
-﻿using System.IO;
-using System.Windows.Forms;
-using RailwayStudio.Common.Views;
-using Rwm.Otc;
-using Rwm.Otc.Data.ORM;
-using Rwm.Otc.Systems;
+﻿using Rwm.Otc;
 
 namespace RailwayStudio.Common
 {
@@ -12,8 +7,9 @@ namespace RailwayStudio.Common
 
       #region Constants
 
-      public const string SETUP_KEY_PROJECT_LASTLOAD = "rwm.studio.projects.last.reload";
-      public const string SETUP_KEY_PROJECT_LASTOPEN = "rwm.studio.projects.last.path";
+      const string SETUP_KEY_UI_SKIN = "rwm.studio.ui.skin-name";
+      const string SETUP_KEY_PROJECT_LASTLOAD = "rwm.studio.projects.last.reload";
+      const string SETUP_KEY_PROJECT_LASTOPEN = "rwm.studio.projects.last.path";
 
       #endregion
 
@@ -54,7 +50,27 @@ namespace RailwayStudio.Common
          }
       }
 
-      public static IContainerView MainView { get; set; }
+      public static PluginManager PluginManager { get; private set; } = null;
+
+      public static IContainerView MainView { get; set; } = null;
+
+      public static string SkinName
+      {
+         get { return OTCContext.Settings.GetString(StudioContext.SETUP_KEY_UI_SKIN, "DevExpress Style"); }
+         set { OTCContext.Settings.AddSetting(StudioContext.SETUP_KEY_UI_SKIN, value); }
+      }
+
+      public static bool OpenLastProject
+      {
+         get { return OTCContext.Settings.GetBoolean(StudioContext.SETUP_KEY_PROJECT_LASTLOAD); }
+         set { OTCContext.Settings.AddSetting(StudioContext.SETUP_KEY_PROJECT_LASTLOAD, value); }
+      }
+
+      public static string LastOpenedProjectFile
+      {
+         get { return OTCContext.Settings.GetString(StudioContext.SETUP_KEY_PROJECT_LASTOPEN, string.Empty); }
+         set { OTCContext.Settings.AddSetting(StudioContext.SETUP_KEY_PROJECT_LASTOPEN, value); }
+      }
 
       #endregion
 
@@ -63,58 +79,12 @@ namespace RailwayStudio.Common
       public static void Initialize(IContainerView mainView)
       {
          StudioContext.MainView = mainView;
+         StudioContext.PluginManager = new PluginManager();
       }
 
-      public static void CreateProject(IWin32Window owner)
+      public static void SaveSettings()
       {
-         ProjectEditorView form = new ProjectEditorView();
-         form.ShowDialog(owner);
-
-         if (form.DialogResult == DialogResult.OK)
-         {
-            OTCContext.Settings.AddSetting(StudioContext.SETUP_KEY_PROJECT_LASTOPEN, OTCContext.Project.Filename);
-            OTCContext.Settings.SaveSettings();
-         }
-      }
-
-      public static void OpenProject(IWin32Window owner)
-      {
-         OpenFileDialog form = new OpenFileDialog();
-         form.CheckFileExists = true;
-         form.Filter = "OTC projects|*.otc|All files|*.*";
-
-         if (form.ShowDialog(owner) == System.Windows.Forms.DialogResult.OK)
-         {
-            // Load project
-            OTCContext.OpenProject(form.FileName);
-
-            OTCContext.Settings.AddSetting(StudioContext.SETUP_KEY_PROJECT_LASTOPEN, form.FileName);
-            OTCContext.Settings.SaveSettings();
-         }
-      }
-
-      public static void LoadLastProject()
-      {
-         if (!OTCContext.Settings.GetBoolean(StudioContext.SETUP_KEY_PROJECT_LASTLOAD))
-         {
-            return;
-         }
-
-         string lastFile = OTCContext.Settings.GetString(StudioContext.SETUP_KEY_PROJECT_LASTOPEN, "<nofile>");
-         if (!File.Exists(lastFile))
-         {
-            return;
-         }
-
-         OTCContext.Settings.AddSetting(ORMSqliteDriver.SETTINGS_DB_CURRENT, lastFile);
-
-         // Load project
-         OTCContext.OpenProject(lastFile);
-
-         // Show information in console
-         StudioContext.LogInformation("Project {0} loaded (from {1})",
-                                      Path.GetFileName(lastFile),
-                                      Path.GetFullPath(lastFile));
+         OTCContext.Settings.SaveSettings();
       }
 
       public static void LogInformation(string message)
@@ -155,32 +125,6 @@ namespace RailwayStudio.Common
       public static void LogDebug(string message, params object[] args)
       {
          StudioContext.MainView.LogConsole.Debug(string.Format(message, args));
-      }
-
-      #endregion
-
-      #region Event Handlers
-
-      static void DigitalSystem_SystemInformation(object sender, SystemConsoleEventArgs e)
-      {
-         switch (e.Type)
-         {
-            case SystemConsoleEventArgs.MessageType.Error:
-               StudioContext.LogError(e.Message);
-               break;
-
-            case SystemConsoleEventArgs.MessageType.Warning:
-               StudioContext.LogWarning(e.Message);
-               break;
-
-            case SystemConsoleEventArgs.MessageType.Debug:
-               StudioContext.LogDebug(e.Message);
-               break;
-
-            default:
-               StudioContext.LogInformation(e.Message);
-               break;
-         }
       }
 
       #endregion

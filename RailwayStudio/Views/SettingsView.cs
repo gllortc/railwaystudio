@@ -1,28 +1,34 @@
-﻿using DevExpress.Skins;
-using DevExpress.XtraEditors.Controls;
-using RailwayStudio.Common.Controls;
-using Rwm.Otc;
-using Rwm.Otc.Diagnostics;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using DevExpress.Skins;
+using DevExpress.XtraEditors.Controls;
+using RailwayStudio.Common;
+using RailwayStudio.Common.Controls;
+using Rwm.Otc.Diagnostics;
 
 namespace Rwm.Studio.Views
 {
    public partial class SettingsView : DevExpress.XtraEditors.XtraForm
    {
+
+      #region Constructors
+
       public SettingsView()
       {
          InitializeComponent();
 
-
-         chkProjectsLoadLast.Checked = OTCContext.Settings.GetBoolean(Program.SETUP_KEY_PROJECT_LASTLOAD);
+         chkProjectsLoadLast.Checked = StudioContext.OpenLastProject;
 
          ListSkins();
          LoadPlugins();
          LoadLoggers();
       }
 
-      private void cmdAccept_Click(object sender, EventArgs e)
+      #endregion
+
+      #region Event Handlers
+
+      private void CmdAccept_Click(object sender, EventArgs e)
       {
          if (cboSkin.SelectedItem == null)
          {
@@ -31,33 +37,33 @@ namespace Rwm.Studio.Views
             return;
          }
 
+         // Change the current skin
          SkinContainer skin = ((ImageComboBoxItem)cboSkin.SelectedItem).Value as SkinContainer;
-         OTCContext.Settings.AddSetting(Program.SETUP_KEY_UI_SKIN, skin.SkinName);
-         OTCContext.Settings.AddSetting(Program.SETUP_KEY_PROJECT_LASTLOAD, chkProjectsLoadLast.Checked);
-
-         // Enable application visual styles
-         DevExpress.Skins.SkinManager.EnableFormSkins();
+         SkinManager.EnableFormSkins();
          DevExpress.LookAndFeel.UserLookAndFeel.Default.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Skin;
-         DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = OTCContext.Settings.GetString(Program.SETUP_KEY_UI_SKIN, "DevExpress Style");
+         DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = skin.SkinName;
 
-         OTCContext.Settings.SaveSettings();
+         StudioContext.SkinName = skin.SkinName;
+         StudioContext.OpenLastProject = chkProjectsLoadLast.Checked;
+         StudioContext.SaveSettings();
 
-         this.DialogResult = System.Windows.Forms.DialogResult.OK;
+         this.DialogResult = DialogResult.OK;
          this.Close();
       }
 
-      private void cmdCancel_Click(object sender, EventArgs e)
+      private void CmdCancel_Click(object sender, EventArgs e)
       {
-         this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+         this.DialogResult = DialogResult.Cancel;
          this.Close();
       }
+
+      #endregion
+
+      #region Private Members
 
       private void ListSkins()
       {
          int idx = 0;
-         string skName = string.Empty;
-         System.Drawing.Image img = null;
-         ImageComboBoxItem item = null;
          ImageComboBoxItem selectedItem = null;
 
          ImageList imlSkinIcons = new ImageList();
@@ -68,17 +74,17 @@ namespace Rwm.Studio.Views
          SkinContainerCollection skins = SkinManager.Default.Skins;
          for (int i = 0; i < skins.Count; i++)
          {
-            skName = skins[i].SkinName;
+            string skName = skins[i].SkinName;
 
-            img = SkinCollectionHelper.GetSkinIcon(skName, SkinIconsSize.Small);
+            System.Drawing.Image img = SkinCollectionHelper.GetSkinIcon(skName, SkinIconsSize.Small);
             imlSkinIcons.Images.Add(img);
 
-            item = new ImageComboBoxItem();
+            ImageComboBoxItem item = new ImageComboBoxItem();
             item.Value = skins[i];
             item.Description = skName;
             item.ImageIndex = idx;
 
-            if (skName == OTCContext.Settings.GetString(Program.SETUP_KEY_UI_SKIN))
+            if (skName.Equals(StudioContext.SkinName))
             {
                selectedItem = item;
             }
@@ -106,9 +112,7 @@ namespace Rwm.Studio.Views
 
       private void LoadLoggers()
       {
-         ImageComboBoxItem item = null;
-
-         item = new ImageComboBoxItem();
+         ImageComboBoxItem item = new ImageComboBoxItem();
          item.Description = "Disabled";
          item.Value = null;
          item.ImageIndex = 6;
@@ -148,5 +152,8 @@ namespace Rwm.Studio.Views
          cboLogFileLevel.Properties.Items.Add(item);
          cboLogWindowsLevel.Properties.Items.Add(item);
       }
+
+      #endregion
+
    }
 }

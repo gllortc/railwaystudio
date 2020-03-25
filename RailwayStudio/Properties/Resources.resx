@@ -127,8 +127,8 @@
   <data name="ICO_FOLDER_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\folder_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="IMG_ABOUT" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\about.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="report_edit_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\report_edit_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_CONSOLE_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\application_osx_terminal_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,6 +163,9 @@
   <data name="ICO_PROJECT_ADD_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\report_add_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="report_key_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\report_key_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ICO_PROJECT_ADD_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\report_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -177,6 +180,9 @@
   </data>
   <data name="ICO_PLUGIN_ADD_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="report_edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\report_edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_PLUGIN_EDIT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick_edit_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -196,6 +202,9 @@
   <data name="ICO_PROPERTIES_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\preferences.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="IMG_ABOUT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\about.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ICO_PROJECT_OPEN_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\folder_reports.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -204,6 +213,9 @@
   </data>
   <data name="ICO_PLUGIN_EDIT_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brick_edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1__16_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1__16_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_PROJECT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\report.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -235,7 +247,7 @@
   <data name="ICO_CONFIG_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wrench_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1__16_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1__16_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="report_key" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\report_key.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

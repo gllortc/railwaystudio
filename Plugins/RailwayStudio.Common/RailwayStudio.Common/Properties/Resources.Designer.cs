@@ -63,9 +63,19 @@ namespace RailwayStudio.Common.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap diskette_16 {
+        internal static System.Drawing.Bitmap ICO_CLEAN_16 {
             get {
-                object obj = ResourceManager.GetObject("diskette_16", resourceCulture);
+                object obj = ResourceManager.GetObject("ICO_CLEAN_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_COPY_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_COPY_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,6 +143,26 @@ namespace RailwayStudio.Common.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ICO_SAVE_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_SAVE_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_SAVEAS_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_SAVEAS_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ICO_TEXTEDITOR_16 {
             get {
                 object obj = ResourceManager.GetObject("ICO_TEXTEDITOR_16", resourceCulture);
@@ -156,46 +186,6 @@ namespace RailwayStudio.Common.Properties {
         internal static System.Drawing.Bitmap IMG_LOGO_PRINT {
             get {
                 object obj = ResourceManager.GetObject("IMG_LOGO_PRINT", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap page_white_copy {
-            get {
-                object obj = ResourceManager.GetObject("page_white_copy", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap printer_16 {
-            get {
-                object obj = ResourceManager.GetObject("printer_16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap printer_add {
-            get {
-                object obj = ResourceManager.GetObject("printer_add", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap save_as_16 {
-            get {
-                object obj = ResourceManager.GetObject("save_as_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

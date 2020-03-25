@@ -128,13 +128,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\Controllers\MainController.cs" />
     <Compile Include="Views\AboutView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\AboutView.Designer.cs">
       <DependentUpon>AboutView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\MainView.Controller.Designer.cs" />
     <Compile Include="Views\MainView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +143,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\ProjectEditorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ProjectEditorView.Designer.cs">
+      <DependentUpon>ProjectEditorView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\SettingsView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\ProjectEditorView.resx">
+      <DependentUpon>ProjectEditorView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\SettingsView.resx">
       <DependentUpon>SettingsView.cs</DependentUpon>
     </EmbeddedResource>
@@ -297,6 +306,10 @@
     <None Include="Resources\pencil.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\report_key.png" />
+    <None Include="Resources\report_key_16.png" />
+    <None Include="Resources\report_edit.png" />
+    <None Include="Resources\report_edit_16.png" />
     <None Include="Resources\rwm_2.png" />
     <None Include="Resources\Windows_Metro_16.png" />
     <None Include="Resources\plugin-manager[1].png" />

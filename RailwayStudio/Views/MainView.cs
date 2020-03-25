@@ -1,10 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using DevExpress.Utils;
 using DevExpress.XtraBars;
 using RailwayStudio.Common;
 using Rwm.Otc;
-using Rwm.Studio.Views.Controllers;
 
 namespace Rwm.Studio.Views
 {
@@ -30,9 +30,12 @@ namespace Rwm.Studio.Views
             MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
          }
 
-         // Create main controller
-         this.Controller = new MainController(this);
-         this.Controller.LoadToolbox(nbcPlugins);
+         // Enable application visual styles
+         DevExpress.Skins.SkinManager.EnableFormSkins();
+         DevExpress.LookAndFeel.UserLookAndFeel.Default.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Skin;
+         DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = StudioContext.SkinName;
+
+         this.LoadToolbox(nbcPlugins);
 
          // Set the form title
          this.Text = Application.ProductName + " " + Application.ProductVersion;
@@ -43,8 +46,6 @@ namespace Rwm.Studio.Views
       #endregion
 
       #region Properties
-
-      internal MainController Controller { get; private set; }
 
       public new DevExpress.XtraBars.Ribbon.RibbonForm ParentForm
       {
@@ -73,20 +74,11 @@ namespace Rwm.Studio.Views
 
       #endregion
 
-      #region Methods
-
-      public void OpenPluginModule(string className, params object[] args)
-      {
-         this.Controller.OpenPluginModule(className, args);
-      }
-
-      #endregion
-
       #region Event Handlers
 
       private void FrmMain_Load(object sender, System.EventArgs e)
       {
-         StudioContext.LoadLastProject();
+         this.ProjectOpenLast();
 
          if (OTCContext.Project != null)
          {
@@ -107,14 +99,14 @@ namespace Rwm.Studio.Views
             stp.Items.Add(ttti);
             stp.Items.Add(tti);
 
-            bsiProjectInfo.SuperTip = stp;
-            bsiProjectInfo.Caption = OTCContext.Project.Name;
+            cmdBarButtonProject.SuperTip = stp;
+            cmdBarButtonProject.Caption = OTCContext.Project.Name;
 
             nbcPlugins.Enabled = true;
          }
          else
          {
-            bsiProjectInfo.Caption = "<no project>";
+            cmdBarButtonProject.Caption = "<no project>";
          }
       }
 
@@ -151,39 +143,6 @@ namespace Rwm.Studio.Views
          }
       }
 
-      private void CmdFileExit_ItemClick(object sender, ItemClickEventArgs e)
-      {
-         this.Controller.Exit();
-      }
-
-      private void CmdFileSettings_ItemClick(object sender, ItemClickEventArgs e)
-      {
-         this.Controller.Configure();
-      }
-
-      private void CmdFileAbout_ItemClick(object sender, ItemClickEventArgs e)
-      {
-         this.Controller.About();
-      }
-
-      private void CmdProjectsOpen_ItemClick(object sender, ItemClickEventArgs e)
-      {
-         if (this.Controller.OpenProject())
-         {
-            bsiProjectInfo.Caption = OTCContext.Project.Name;
-            nbcPlugins.Enabled = true;
-         }
-      }
-
-      private void CmdProjectsAdd_ItemClick(object sender, ItemClickEventArgs e)
-      {
-         if (this.Controller.CreateProject())
-         {
-            bsiProjectInfo.Caption = OTCContext.Project.Name;
-            nbcPlugins.Enabled = true;
-         }
-      }
-
       private void DpToolbox_ClosedPanel(object sender, DevExpress.XtraBars.Docking.DockPanelEventArgs e)
       {
          chkViewToolbox.Checked = false;
@@ -194,11 +153,46 @@ namespace Rwm.Studio.Views
          chkViewConsole.Checked = false;
       }
 
+      private void CmdFileExit_ItemClick(object sender, ItemClickEventArgs e)
+      {
+         this.Exit();
+      }
+
+      private void CmdFileSettings_ItemClick(object sender, ItemClickEventArgs e)
+      {
+         this.Settings();
+      }
+
+      private void CmdFileAbout_ItemClick(object sender, ItemClickEventArgs e)
+      {
+         this.About();
+      }
+
+      private void CmdProjectsOpen_ItemClick(object sender, ItemClickEventArgs e)
+      {
+         this.ProjectOpen();
+      }
+
+      private void CmdProjectsAdd_ItemClick(object sender, ItemClickEventArgs e)
+      {
+         this.ProjectCreate();
+      }
+
+      private void CmdProjectEdit_ItemClick(object sender, ItemClickEventArgs e)
+      {
+         this.ProjectEdit();
+      }
+
+      private void CmdProjectClose_ItemClick(object sender, ItemClickEventArgs e)
+      {
+         this.ProjectClose();
+      }
+
       private void ChkViewToolbox_CheckedChanged(object sender, ItemClickEventArgs e)
       {
          if (((BarCheckItem)e.Item).Checked)
          {
-            dpToolbox.Show();
+            dockPanelToolbox.Show();
          }
       }
 
@@ -219,7 +213,7 @@ namespace Rwm.Studio.Views
       /// </summary>
       private void Initialize()
       {
-         this.Controller = null;
+         this.Modules = new List<PluginModule>();
 
          nbcPlugins.Enabled = false;
          chkViewToolbox.Checked = true;

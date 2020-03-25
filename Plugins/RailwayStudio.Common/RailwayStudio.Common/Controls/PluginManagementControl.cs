@@ -1,7 +1,7 @@
-﻿using RailwayStudio.Common.Views;
-using System;
-using System.Data;
+﻿using System;
 using System.Windows.Forms;
+using DevExpress.XtraGrid.Columns;
+using RailwayStudio.Common.Views;
 
 namespace RailwayStudio.Common.Controls
 {
@@ -21,19 +21,8 @@ namespace RailwayStudio.Common.Controls
       {
          InitializeComponent();
 
-         this.PluginManager = new PluginManager();
-
          this.Refresh();
       }
-
-      #endregion
-
-      #region Properties
-
-      /// <summary>
-      /// Gets the manager used to manage the installed plugins.
-      /// </summary>
-      public PluginManager PluginManager { get; private set; }
 
       #endregion
 
@@ -41,18 +30,23 @@ namespace RailwayStudio.Common.Controls
 
       public override void Refresh()
       {
-         DataTable dt = new DataTable();
-         dt.Columns.Add("ID", typeof(string));
-         dt.Columns.Add("Name", typeof(string));
-
-         foreach (Plugin plugin in this.PluginManager.GetAll())
+         try
          {
-            dt.Rows.Add(plugin.ID, plugin.Name);
-         }
+            grdPlugins.BeginUpdate();
 
-         grdPlugins.BeginUpdate();
-         grdPlugins.DataSource = dt;
-         grdPlugins.EndUpdate();
+            grdPluginsView.OptionsBehavior.AutoPopulateColumns = false;
+            grdPluginsView.Columns.Add(new GridColumn() { Caption = "ID", Visible = false, FieldName = "ID" });
+            grdPluginsView.Columns.Add(new GridColumn() { Caption = "Name", Visible = true, FieldName = "Name" });
+            grdPluginsView.Columns.Add(new GridColumn() { Caption = "Description", Visible = true, FieldName = "Description", Width = 165 });
+            grdPluginsView.Columns.Add(new GridColumn() { Caption = "Version", Visible = true, FieldName = "Version", Width = 45 });
+            grdPlugins.DataSource = StudioContext.PluginManager.GetAll();
+
+            grdPlugins.EndUpdate();
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+         }
 
          base.Refresh();
       }
@@ -61,7 +55,7 @@ namespace RailwayStudio.Common.Controls
 
       #region Event Handlers
 
-      private void cmdPluginAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void CmdPluginAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          OpenFileDialog fileForm = new OpenFileDialog();
          fileForm.Title = "Select package file to install";
@@ -82,12 +76,11 @@ namespace RailwayStudio.Common.Controls
 
          try
          {
-            this.PluginManager.Add(form.Plugin, fileForm.FileName);
+            StudioContext.PluginManager.Add(form.Plugin, fileForm.FileName);
          }
          catch (Exception ex)
          {
-            MessageBox.Show("ERROR installing plugin: " + ex.Message,
-                            Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
          }
 
          this.Refresh();

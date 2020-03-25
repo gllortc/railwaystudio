@@ -1,9 +1,8 @@
-﻿using Rwm.Otc.Configuration;
-using System.Windows.Forms;
+﻿using Rwm.Otc.Utils;
 
 namespace Rwm.Studio.Plugins.Collection
 {
-   public class PluginData : RailwayStudio.Common.IPlugin
+   public class PluginData : RailwayStudio.Common.IPluginPackage
    {
 
       #region Constants
@@ -36,22 +35,12 @@ namespace Rwm.Studio.Plugins.Collection
 
       public string Version
       {
-         get { return Application.ProductVersion; }
+         get { return ReflectionUtils.GetAssemblyVersion(this.GetType()); }
       }
 
       public string Description
       {
-         get { return string.Empty; }
-      }
-
-      public bool IsConfigurable
-      {
-         get { return false; }
-      }
-
-      public UserControl CreateSettingsControl(XmlSettingsManager settings)
-      {
-         return null;
+         get { return "Package containing all train collection tools"; }
       }
 
       #endregion

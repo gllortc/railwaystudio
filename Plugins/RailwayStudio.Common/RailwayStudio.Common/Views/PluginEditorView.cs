@@ -19,7 +19,6 @@ namespace RailwayStudio.Common.Views
       {
          InitializeComponent();
 
-         this.Manager = new PluginManager();
          this.Plugin = null;
          this.PluginPath = path;
 
@@ -29,35 +28,13 @@ namespace RailwayStudio.Common.Views
          this.ListClasses(this.PluginPath);
       }
 
-      ///// <summary>
-      ///// Gets a new instance of <see cref="FrmPluginEditor"/>.
-      ///// </summary>
-      ///// <param name="settings">The current application settings.</param>
-      ///// <param name="plugin">The plugin to edit.</param>
-      //public FrmPluginEditor(XmlSettingsManager settings, IPlugin plugin)
-      //{
-      //   InitializeComponent();
-
-      //   this.Manager = new PluginManager(settings);
-      //   this.Settings = settings;
-      //   this.Plugin = plugin;
-
-      //   this.Text = "Plugin properties";
-      //   this.cmdOK.Text = "OK";
-      //   this.lblName.Text = this.Plugin.Name;
-
-      //   this.ListClasses(this.PluginPath);
-      //}
-
       #endregion
 
       #region Properties
 
       public string PluginPath { get; private set; }
 
-      public IPlugin Plugin { get; private set; }
-
-      public PluginManager Manager { get; private set; }
+      public IPluginPackage Plugin { get; private set; }
 
       #endregion
 
@@ -81,15 +58,15 @@ namespace RailwayStudio.Common.Views
          e.Handled = true;
       }
 
-      private void cmdOK_Click(object sender, EventArgs e)
+      private void CmdOK_Click(object sender, EventArgs e)
       {
-         this.DialogResult = System.Windows.Forms.DialogResult.OK;
+         this.DialogResult = DialogResult.OK;
          this.Close();
       }
 
       private void cmdCancel_Click(object sender, EventArgs e)
       {
-         this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+         this.DialogResult = DialogResult.Cancel;
          this.Close();
       }
 
@@ -102,7 +79,7 @@ namespace RailwayStudio.Common.Views
          PluginModule plugin;
          List<PluginModule> plugins = new List<PluginModule>();
          IPluginModule instance;
-         IPlugin pInstance;
+         IPluginPackage pInstance;
 
          try
          {
@@ -110,15 +87,15 @@ namespace RailwayStudio.Common.Views
 
             ImageList imlIcons = new ImageList();
             imlIcons.ImageSize = new Size(16, 16);
-            imlIcons.Images.Add("ICO_PLIGIN", global::RailwayStudio.Common.Properties.Resources.ICO_PLUGIN_16);
+            imlIcons.Images.Add("ICO_PLIGIN", Properties.Resources.ICO_PLUGIN_16);
 
             Assembly lib = Assembly.LoadFile(file);
             foreach (Type type in lib.GetExportedTypes())
             {
-               if (typeof(IPlugin).IsAssignableFrom(type))
+               if (typeof(IPluginPackage).IsAssignableFrom(type))
                {
-                  pInstance = Activator.CreateInstance(type) as IPlugin;
-                  this.Plugin = pInstance as IPlugin;
+                  pInstance = Activator.CreateInstance(type) as IPluginPackage;
+                  this.Plugin = pInstance as IPluginPackage;
 
                   lblName.Text = pInstance.Name;
                   picIcon.Image = pInstance.LargeIcon;
@@ -149,9 +126,7 @@ namespace RailwayStudio.Common.Views
          {
             Cursor.Current = Cursors.Default;
 
-            MessageBox.Show("ERROR loading plugin modules:" +
-                            Environment.NewLine + Environment.NewLine +
-                            ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
          }
          finally
          {

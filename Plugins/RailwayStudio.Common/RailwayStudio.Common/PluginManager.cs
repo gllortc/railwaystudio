@@ -1,9 +1,8 @@
-﻿using Rwm.Otc;
+﻿using System;
+using System.Collections.Generic;
+using Rwm.Otc;
 using Rwm.Otc.Configuration;
 using Rwm.Otc.Diagnostics;
-using System;
-using System.Collections.Generic;
-using System.Data;
 
 namespace RailwayStudio.Common
 {
@@ -27,7 +26,7 @@ namespace RailwayStudio.Common
       /// <summary>
       /// Gets a new instance of <see cref="PluginManager"/>.
       /// </summary>
-      public PluginManager() { }
+      internal PluginManager() { }
 
       #endregion
 
@@ -38,7 +37,7 @@ namespace RailwayStudio.Common
       /// </summary>
       /// <param name="plugin">Plugin declaration.</param>
       /// <param name="path">Path (with filename) to the assembly file containing the plugin.</param>
-      public void Add(IPlugin plugin, string path)
+      public void Add(IPluginPackage plugin, string path)
       {
          Logger.LogDebug(this, "[CLASS].Add([{0}])", plugin);
 
@@ -63,8 +62,7 @@ namespace RailwayStudio.Common
          catch (Exception ex)
          {
             Logger.LogError(this, ex);
-
-            throw;
+            throw ex;
          }
       }
 
@@ -84,8 +82,7 @@ namespace RailwayStudio.Common
          catch (Exception ex)
          {
             Logger.LogError(this, ex);
-
-            throw;
+            throw ex;
          }
       }
 
@@ -106,8 +103,7 @@ namespace RailwayStudio.Common
          catch (Exception ex)
          {
             Logger.LogError(this, ex);
-
-            throw;
+            throw ex;
          }
       }
 
@@ -130,60 +126,12 @@ namespace RailwayStudio.Common
                }
             }
 
-            // Add buil-in common plug-ins 
-            plugin = new Plugin();
-            plugin.ID = "RailwayStudio.Common";
-            plugin.Name = "Utilities";
-            plugin.File = this.GetType().Assembly.Location.ToString();
-
-            plugins.Add(plugin);
-
             return plugins;
          }
          catch (Exception ex)
          {
             Logger.LogError(this, ex);
-
-            throw;
-         }
-      }
-
-      public DataTable Find()
-      {
-         Logger.LogDebug(this, "[CLASS].GetAllAsDataTable()");
-
-         try
-         {
-            DataRow row;
-
-            DataTable dt = new DataTable();
-            dt.TableName = "Plugins";
-            dt.Columns.Add("ID", typeof(string));
-            dt.Columns.Add("Name", typeof(string));
-            dt.Columns.Add("File", typeof(string));
-            dt.Columns.Add("Driver", typeof(string));
-
-            XmlSettingsItem pluginSection = OTCContext.Settings.GetItem(PluginManager.SETTINGS_KEY_PLUGINS);
-            if (pluginSection != null)
-            {
-               foreach (XmlSettingsItem xmlPlugin in pluginSection.Items.Values)
-               {
-                  row = dt.NewRow();
-                  row["ID"] = xmlPlugin.Key;
-                  row["Name"] = xmlPlugin.Value;
-                  row["File"] = xmlPlugin.GetString("assembly-file");
-                  row["Driver"] = xmlPlugin.GetString("class");
-                  dt.Rows.Add(row);
-               }
-            }
-
-            return dt;
-         }
-         catch (Exception ex)
-         {
-            Logger.LogError(this, ex);
-
-            throw;
+            throw ex;
          }
       }
 

@@ -209,12 +209,6 @@
     <Compile Include="Controls\AccessoryDecoderManagerControl.Designer.cs">
       <DependentUpon>AccessoryDecoderManagerControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\SettingsControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\SettingsControl.Designer.cs">
-      <DependentUpon>SettingsControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controls\SoundManagerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -371,9 +365,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\AccessoryDecoderManagerControl.resx">
       <DependentUpon>AccessoryDecoderManagerControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\SettingsControl.resx">
-      <DependentUpon>SettingsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\SoundManagerControl.resx">
       <DependentUpon>SoundManagerControl.cs</DependentUpon>
