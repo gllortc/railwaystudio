@@ -8,7 +8,6 @@ namespace Rwm.Otc.Utils
 {
    public class ReflectionUtils
    {
-
       /// <summary>
       /// Devuelve el texto asociado al atributo DescriptionAttribute para un elemento de enumeración.
       /// </summary>
@@ -80,6 +79,15 @@ namespace Rwm.Otc.Utils
       {
          FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(type.Assembly.Location);
          return fvi.FileVersion;
+      }
+
+      /// <summary>
+      /// Devuelve el texto asociado al atributo DescriptionAttribute para un elemento de enumeración.
+      /// </summary>
+      /// <param name="value">Elemento de enumeración para el que se desea obtener la descripción.</param>
+      public static FileVersionInfo GetAssemblyInfo(Type type)
+      {
+         return FileVersionInfo.GetVersionInfo(type.Assembly.Location);
       }
 
    }

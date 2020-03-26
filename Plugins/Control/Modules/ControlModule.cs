@@ -38,12 +38,12 @@ namespace Rwm.Studio.Plugins.Control.Modules
          get { return Properties.Resources.ICO_APP_16; }
       }
 
-      public string ModuleID
+      public string ID
       {
          get { return MODULE_GUID; }
       }
 
-      public string ModuleName
+      public string Caption
       {
          get { return "Layout Control"; }
       }
@@ -86,7 +86,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
          OTCContext.Project.DigitalSystem.OnCommandReceived += DigitalSystem_OnCommandReceived;
 
          // Show module information
-         StudioContext.LogInformation("{0} v{1} loaded", this.ModuleName, Application.ProductVersion);
+         StudioContext.LogInformation("{0} v{1} loaded", this.Caption, Application.ProductVersion);
       }
 
       /// <summary>

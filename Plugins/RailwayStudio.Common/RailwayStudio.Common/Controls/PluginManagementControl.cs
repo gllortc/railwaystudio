@@ -39,7 +39,7 @@ namespace RailwayStudio.Common.Controls
             grdPluginsView.Columns.Add(new GridColumn() { Caption = "Name", Visible = true, FieldName = "Name" });
             grdPluginsView.Columns.Add(new GridColumn() { Caption = "Description", Visible = true, FieldName = "Description", Width = 165 });
             grdPluginsView.Columns.Add(new GridColumn() { Caption = "Version", Visible = true, FieldName = "Version", Width = 45 });
-            grdPlugins.DataSource = StudioContext.PluginManager.GetAll();
+            grdPlugins.DataSource = StudioContext.PluginManager.InstalledPackages;
 
             grdPlugins.EndUpdate();
          }
@@ -76,7 +76,7 @@ namespace RailwayStudio.Common.Controls
 
          try
          {
-            StudioContext.PluginManager.Add(form.Plugin, fileForm.FileName);
+            StudioContext.PluginManager.Add(form.PluginPackage, fileForm.FileName);
          }
          catch (Exception ex)
          {

@@ -99,7 +99,6 @@
     </Compile>
     <Compile Include="IContainerView.cs" />
     <Compile Include="IPluginPackage.cs" />
-    <Compile Include="IPluginContainer.cs" />
     <Compile Include="IPluginModule.cs" />
     <Compile Include="Modules\Editors\TextEditorModule.cs">
       <SubType>Form</SubType>
@@ -113,9 +112,8 @@
     <Compile Include="Modules\Reports\ReportViewerModule.Designer.cs">
       <DependentUpon>ReportViewerModule.cs</DependentUpon>
     </Compile>
-    <Compile Include="Plugin.cs" />
     <Compile Include="PluginManager.cs" />
-    <Compile Include="PluginModule.cs" />
+    <Compile Include="PluginPackageBase.cs" />
     <Compile Include="PrintRibbonControllerResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -183,12 +181,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Libraries\OTC.Core\OTC.Core.csproj">
-      <Project>{6a159ab3-7d3d-4128-85c0-b65bdd73a68f}</Project>
-      <Name>OTC.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\page_white_edit.png" />
   </ItemGroup>
   <ItemGroup>
@@ -232,6 +224,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+    <None Include="Resources\brick.png" />
+    <None Include="Resources\application_16.png" />
     <None Include="Resources\draw_eraser_16.png" />
   </ItemGroup>
   <ItemGroup>
@@ -245,6 +239,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Libraries\OTC.Core\OTC.Core.csproj">
+      <Project>{6a159ab3-7d3d-4128-85c0-b65bdd73a68f}</Project>
+      <Name>OTC.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -42,6 +42,7 @@ namespace Rwm.Studio.Plugins.Control.Views
 
       private void GrdConnectView_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
       {
+         // TODO: Don't use ExpandoObjects
          dynamic row = grdConnectView.GetRow(e.RowHandle) as ExpandoObject;
          if (row != null)
          {

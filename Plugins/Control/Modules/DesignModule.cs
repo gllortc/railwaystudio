@@ -41,19 +41,19 @@ namespace Rwm.Studio.Plugins.Control.Modules
          get { return global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_DESIGN_16; }
       }
 
-      public string ModuleID
+      public string ID
       {
          get { return MODULE_GUID; }
       }
 
-      public string ModuleName
+      public string Caption
       {
          get { return "Layout designer"; }
       }
 
       public string DocumentName
       {
-         get { return this.ModuleName; }
+         get { return this.Caption; }
       }
 
       public bool IsMultiInstance

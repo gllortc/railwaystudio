@@ -25,7 +25,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
 
       #region IPluginModule Implementation
 
-      public string ModuleID
+      public string ID
       {
          get { return MODULE_GUID; }
       }
@@ -50,7 +50,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
          get { return Properties.Resources.ICO_DATAMANAGER_16; }
       }
 
-      public string ModuleName
+      public string Caption
       {
          get { return "Collection Explorer"; }
       }

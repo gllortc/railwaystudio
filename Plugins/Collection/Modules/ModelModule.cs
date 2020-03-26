@@ -1,9 +1,8 @@
-﻿using DevExpress.XtraBars;
-using RailwayStudio.Common;
-using Rwm.Otc;
-using Rwm.Otc.TrainControl;
-using System;
+﻿using System;
 using System.Drawing;
+using DevExpress.XtraBars;
+using RailwayStudio.Common;
+using Rwm.Otc.TrainControl;
 
 namespace Rwm.Studio.Plugins.Collection.Modules
 {
@@ -29,12 +28,12 @@ namespace Rwm.Studio.Plugins.Collection.Modules
 
       #region IPluginModule Implementation
 
-      public string ModuleID
+      public string ID
       {
          get { return ModelModule.MODULE_GUID; }
       }
 
-      public string ModuleName
+      public string Caption
       {
          get { return "Model editor"; }
       }

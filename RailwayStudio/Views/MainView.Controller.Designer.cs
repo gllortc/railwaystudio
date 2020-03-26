@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
 using System.Windows.Forms;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraNavBar;
@@ -15,8 +13,6 @@ namespace Rwm.Studio.Views
    {
 
       #region Properties
-
-      internal List<PluginModule> Modules { get; private set; }
 
       public bool IsProjectLoaded
       {
@@ -111,7 +107,7 @@ namespace Rwm.Studio.Views
             ProjectEditorView form = new ProjectEditorView();
             if (form.ShowDialog(this) == DialogResult.OK)
             {
-               
+
             }
 
             this.RefreshViewStatus();
@@ -179,61 +175,56 @@ namespace Rwm.Studio.Views
          nbcPlugins.Enabled = this.IsProjectLoaded;
       }
 
-      public void OpenPluginModule(string className, params object[] args)
+      public void OpenPluginModule(string moduleID, params object[] args)
       {
-         Logger.LogDebug(this, "[CLASS].OpenPluginModule('{0}', {1})", className, args);
+         Logger.LogDebug(this, "[CLASS].OpenPluginModule('{0}', {1})", moduleID, args);
 
-         foreach (PluginModule module in this.Modules)
+         IPluginModule module = StudioContext.PluginManager.GetModuleByID(moduleID);
+         if (module != null)
          {
-            if (module.Class.Equals(className) || module.ID.Equals(className))
-            {
-               this.LoadPlugin(module, args);
-            }
+            this.LoadPlugin(module, args);
          }
       }
 
-      private void LoadPlugin(PluginModule plugin)
+      private void LoadPlugin(IPluginModule plugin)
       {
          this.LoadPlugin(plugin, null);
       }
 
-      private void LoadPlugin(PluginModule plugin, params object[] args)
+      private void LoadPlugin(IPluginModule module, params object[] args)
       {
          try
          {
-            Assembly lib = Assembly.LoadFile(plugin.Filename);
-            Type type = lib.GetType(plugin.Class);
-            IPluginModule moduleInstance = Activator.CreateInstance(type) as IPluginModule;
-
-            if (moduleInstance is Form form)
+            if (module is Form form)
             {
                // Show the main form of the plugin module
                form.MdiParent = this.ParentForm;
-               form.Tag = moduleInstance;
+               form.Tag = module;
                form.FormClosing += PluginModule_FormClosing;
                form.Show();
 
                // Select the default ribbon page for the plugin module
-               if (moduleInstance.StartupRibbonPage != null && moduleInstance.StartupRibbonPage is RibbonPage)
+               if (module.StartupRibbonPage != null && module.StartupRibbonPage is RibbonPage)
                {
-                  this.RibbonControl.SelectedPage = moduleInstance.StartupRibbonPage as RibbonPage;
+                  this.RibbonControl.SelectedPage = module.StartupRibbonPage as RibbonPage;
                }
 
                // Initialize the module
-               moduleInstance.Initialize(args);
-               moduleInstance.CreatePanels();
+               module.Initialize(args);
+               module.CreatePanels();
 
                // Merge status bar (not merged by default)
-               if (moduleInstance.RibbonStatusBar != null)
+               if (module.RibbonStatusBar != null)
                {
-                  this.RibbonControl.StatusBar.MergeStatusBar((RibbonStatusBar)moduleInstance.RibbonStatusBar);
+                  this.RibbonControl.StatusBar.MergeStatusBar((RibbonStatusBar)module.RibbonStatusBar);
                }
             }
             else
             {
                MessageBox.Show("ERROR loading plugin module:" +
                                Environment.NewLine + Environment.NewLine +
-                               "The specified class " + plugin.GetType().Name + " is not a plugin module implementation.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                               "The specified class " + module.GetType().Name + " is not a plugin module implementation.", 
+                               Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
          }
          catch (Exception ex)
@@ -250,60 +241,31 @@ namespace Rwm.Studio.Views
       {
          NavBarGroup group;
          NavBarItem item;
-         PluginModule module;
-         IPluginPackage pluginInstance;
-         IPluginModule moduleInstance;
 
-         this.Modules = new List<PluginModule>();
-
-         foreach (Plugin plugin in StudioContext.PluginManager.GetAll())
+         foreach (IPluginPackage package in StudioContext.PluginManager.InstalledPackages)
          {
-            if (File.Exists(plugin.File))
+            //if (File.Exists(plugin.File))
+            //{
+            group = new NavBarGroup();
+            group.Name = "rpgPlugins";
+            group.Caption = package.Name;
+            group.Expanded = true;
+            group.GroupStyle = NavBarGroupStyle.LargeIconsList;
+            group.Tag = package;
+
+            foreach (IPluginModule module in package.Modules)
             {
-               group = new NavBarGroup();
-               group.Name = "rpgPlugins";
-               group.Caption = plugin.Name;
-               group.Expanded = true;
-               group.GroupStyle = NavBarGroupStyle.LargeIconsList;
+               item = new NavBarItem();
+               item.Tag = module;
+               item.Caption = module.Caption;
+               item.SmallImage = module.SmallIcon;
+               item.LargeImage = module.LargeIcon;
+               item.LinkClicked += PluginItem_LinkClicked;
 
-               Assembly lib = Assembly.LoadFile(plugin.File);
-               foreach (Type type in lib.GetExportedTypes())
-               {
-                  module = new PluginModule();
-                  module.ID = string.Empty;
-                  module.Filename = plugin.File;
-                  module.Class = type.FullName;
-
-                  if (type.IsClass && typeof(IPluginPackage).IsAssignableFrom(type))
-                  {
-                     pluginInstance = Activator.CreateInstance(type) as IPluginPackage;
-                     group.Name = pluginInstance.Name;
-                     group.SmallImage = pluginInstance.SmallIcon;
-                     group.LargeImage = pluginInstance.LargeIcon;
-                  }
-                  else if (type.IsClass && typeof(IPluginModule).IsAssignableFrom(type))
-                  {
-                     moduleInstance = Activator.CreateInstance(type) as IPluginModule;
-                     if (moduleInstance != null)
-                     {
-                        module.ID = moduleInstance.ModuleID;
-
-                        item = new NavBarItem();
-                        item.Tag = module;
-                        item.Caption = moduleInstance.ModuleName;
-                        item.SmallImage = moduleInstance.SmallIcon;
-                        item.LargeImage = moduleInstance.LargeIcon;
-                        item.LinkClicked += PluginItem_LinkClicked;
-
-                        group.ItemLinks.Add(item);
-
-                        this.Modules.Add(module);
-                     }
-                  }
-               }
-
-               navBar.Groups.Add(group);
+               group.ItemLinks.Add(item);
             }
+
+            navBar.Groups.Add(group);
          }
       }
 
@@ -327,7 +289,7 @@ namespace Rwm.Studio.Views
       /// </summary>
       void PluginItem_LinkClicked(object sender, NavBarLinkEventArgs e)
       {
-         this.LoadPlugin(e.Link.Item.Tag as PluginModule);
+         this.LoadPlugin(e.Link.Item.Tag as IPluginModule);
       }
 
       #endregion

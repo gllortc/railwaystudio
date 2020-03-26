@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using Rwm.Otc;
 using Rwm.Otc.Configuration;
 using Rwm.Otc.Diagnostics;
@@ -15,9 +17,10 @@ namespace RailwayStudio.Common
       #region Constants
 
       public const string SETTINGS_KEY_PLUGINS = "rwm.studio.plugins";
+      private const string SETTING_KEY_FILE = "assembly-file";
 
-      public const string PLUGIN_TEXTEDITOR = RailwayStudio.Common.Modules.Editors.TextEditorModule.MODULE_GUID;
-      public const string PLUGIN_REPORTVIEWER = RailwayStudio.Common.Modules.Reports.ReportViewerModule.MODULE_GUID;
+      public const string PLUGIN_TEXTEDITOR = Modules.Editors.TextEditorModule.MODULE_GUID;
+      public const string PLUGIN_REPORTVIEWER = Modules.Reports.ReportViewerModule.MODULE_GUID;
 
       #endregion
 
@@ -27,6 +30,15 @@ namespace RailwayStudio.Common
       /// Gets a new instance of <see cref="PluginManager"/>.
       /// </summary>
       internal PluginManager() { }
+
+      #endregion
+
+      #region Properties
+
+      /// <summary>
+      /// Gets the list of installed packages.
+      /// </summary>
+      public List<IPluginPackage> InstalledPackages { get; private set; } = new List<IPluginPackage>();
 
       #endregion
 
@@ -72,12 +84,9 @@ namespace RailwayStudio.Common
 
          try
          {
-            XmlSettingsItem pluginSection = OTCContext.Settings.GetItem(PluginManager.SETTINGS_KEY_PLUGINS);
-            if (pluginSection != null)
-            {
-               pluginSection.Remove(key);
-               OTCContext.Settings.SaveSettings();
-            }
+            XmlSettingsItem pluginSection = this.GetPluginsSection();
+            pluginSection.Remove(key);
+            OTCContext.Settings.SaveSettings();
          }
          catch (Exception ex)
          {
@@ -86,16 +95,18 @@ namespace RailwayStudio.Common
          }
       }
 
-      public Plugin Get(string pluginId)
+      public IPluginPackage Get(string pluginId)
       {
          Logger.LogDebug(this, "[CLASS].Get('{0}')", pluginId);
 
          try
          {
-            XmlSettingsItem pluginSection = OTCContext.Settings.GetItem(PluginManager.SETTINGS_KEY_PLUGINS);
-            if (pluginSection != null)
+            foreach (IPluginPackage package in this.InstalledPackages)
             {
-               return new Plugin(pluginSection.GetItem(pluginId));
+               if (package.ID.Equals(pluginId))
+               {
+                  return package;
+               }
             }
 
             return null;
@@ -107,32 +118,69 @@ namespace RailwayStudio.Common
          }
       }
 
-      public List<Plugin> GetAll()
+      /// <summary>
+      /// Load all installed packages.
+      /// </summary>
+      public void LoadPackages()
       {
-         Plugin plugin = null;
-         List<Plugin> plugins = new List<Plugin>();
-
-         Logger.LogDebug(this, "[CLASS].GetAll()");
+         Logger.LogDebug(this, "[CLASS].LoadPackages()");
 
          try
          {
+            this.InstalledPackages = new List<IPluginPackage>();
+
             XmlSettingsItem pluginSection = OTCContext.Settings.GetItem(PluginManager.SETTINGS_KEY_PLUGINS);
             if (pluginSection != null)
             {
                foreach (XmlSettingsItem item in pluginSection.Items.Values)
                {
-                  plugin = new Plugin(pluginSection.GetItem(item.Key));
-                  if (plugin != null) plugins.Add(plugin);
+                  string assemblyFile = item.GetString(PluginManager.SETTING_KEY_FILE);
+
+                  if (File.Exists(assemblyFile))
+                  {
+                     // Find the package descriptor type
+                     Assembly assembly = Assembly.LoadFile(item.GetString(PluginManager.SETTING_KEY_FILE));
+                     foreach (Type type in assembly.GetExportedTypes())
+                     {
+                        if (typeof(IPluginPackage).IsAssignableFrom(type))
+                        {
+                           IPluginPackage package = Activator.CreateInstance(type) as IPluginPackage;
+                           package.LoadModules(type);
+
+                           this.InstalledPackages.Add(package);
+
+                           break;
+                        }
+                     }
+                  }
+                  else
+                  {
+                     Logger.LogWarning(this, "Cannot load plug-in package: file not found : {0}", assemblyFile);
+                  }
                }
             }
-
-            return plugins;
          }
          catch (Exception ex)
          {
             Logger.LogError(this, ex);
             throw ex;
          }
+      }
+
+      public IPluginModule GetModuleByID(string moduleID)
+      {
+         foreach (IPluginPackage package in this.InstalledPackages)
+         {
+            foreach (IPluginModule module in package.Modules)
+            {
+               if (module.ID.Equals(moduleID))
+               {
+                  return module;
+               }
+            }
+         }
+
+         return null;
       }
 
       #endregion

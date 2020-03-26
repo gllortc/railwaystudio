@@ -1,8 +1,8 @@
-﻿using Rwm.Otc.Utils;
+﻿using RailwayStudio.Common;
 
 namespace Rwm.Studio.Plugins.Collection
 {
-   public class PluginData : RailwayStudio.Common.IPluginPackage
+   public class PluginData : PluginPackageBase
    {
 
       #region Constants
@@ -13,32 +13,27 @@ namespace Rwm.Studio.Plugins.Collection
 
       #region IPlugin Implementation
 
-      public string ID
+      public override string ID
       {
          get { return PLUGIN_GUID; }
       }
 
-      public System.Drawing.Image SmallIcon
+      public override System.Drawing.Image SmallIcon
       {
          get { return Properties.Resources.ICO_APP_16; }
       }
 
-      public System.Drawing.Image LargeIcon
+      public override System.Drawing.Image LargeIcon
       {
          get { return Properties.Resources.ICO_APP_32; }
       }
 
-      public string Name
+      public override string Name
       {
          get { return "Collection"; }
       }
 
-      public string Version
-      {
-         get { return ReflectionUtils.GetAssemblyVersion(this.GetType()); }
-      }
-
-      public string Description
+      public override string Description
       {
          get { return "Package containing all train collection tools"; }
       }

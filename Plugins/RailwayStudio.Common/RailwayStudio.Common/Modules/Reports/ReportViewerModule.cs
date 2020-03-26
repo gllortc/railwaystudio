@@ -36,12 +36,12 @@ namespace RailwayStudio.Common.Modules.Reports
          get { return Properties.Resources.ICO_REPORT_16; }
       }
 
-      public string ModuleID
+      public string ID
       {
          get { return MODULE_GUID; }
       }
 
-      public string ModuleName
+      public string Caption
       {
          get { return "Report Viewer"; }
       }

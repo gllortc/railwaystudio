@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
-using System.Reflection;
 using System.Windows.Forms;
+using DevExpress.XtraBars.Utils;
+using DevExpress.XtraGrid.Columns;
 
 namespace RailwayStudio.Common.Views
 {
@@ -19,13 +20,13 @@ namespace RailwayStudio.Common.Views
       {
          InitializeComponent();
 
-         this.Plugin = null;
+         this.PluginPackage = null;
          this.PluginPath = path;
 
          this.Text = "Install new plugin";
          this.cmdOK.Text = "Install";
 
-         this.ListClasses(this.PluginPath);
+         this.ListModules(this.PluginPath);
       }
 
       #endregion
@@ -34,28 +35,18 @@ namespace RailwayStudio.Common.Views
 
       public string PluginPath { get; private set; }
 
-      public IPluginPackage Plugin { get; private set; }
+      public IPluginPackage PluginPackage { get; private set; }
 
       #endregion
 
       #region Event Handlers
 
-      private void grdModulesView_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+      private void GrdModulesView_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
       {
-         // calculate the indentation of the icon based on the grid cell size
-         Image image = global::RailwayStudio.Common.Properties.Resources.ICO_PLUGIN_16;
-         int iconYIndent = (e.Bounds.Height - image.Height) / 2;
-         e.Graphics.DrawImageUnscaled(image, e.Bounds.X + 1, e.Bounds.Y + iconYIndent);
-
-
-         // always indent the text even if no icon for this cell - so all columns are aligned
-         Rectangle bounds = e.Bounds;
-         bounds.Width -= 20;
-         bounds.X += 20;
-
-         // TODO: this doesn't handle long text values getting truncated - should show '...' at the end
-         e.Appearance.DrawString(e.Cache, e.DisplayText, bounds);
-         e.Handled = true;
+         if (!(grdModulesView.GetRow(e.RowHandle) is IPluginModule module))
+            StudioContext.UI.DrawRowIcon(Properties.Resources.ICO_PLUGIN_16, e);
+         else
+            StudioContext.UI.DrawRowIcon(module.SmallIcon, e);
       }
 
       private void CmdOK_Click(object sender, EventArgs e)
@@ -64,7 +55,7 @@ namespace RailwayStudio.Common.Views
          this.Close();
       }
 
-      private void cmdCancel_Click(object sender, EventArgs e)
+      private void CmdCancel_Click(object sender, EventArgs e)
       {
          this.DialogResult = DialogResult.Cancel;
          this.Close();
@@ -74,53 +65,40 @@ namespace RailwayStudio.Common.Views
 
       #region Private Members
 
-      private void ListClasses(string file)
+      private void ListModules(string path)
       {
-         PluginModule plugin;
-         List<PluginModule> plugins = new List<PluginModule>();
-         IPluginModule instance;
-         IPluginPackage pInstance;
-
          try
          {
             Cursor.Current = Cursors.WaitCursor;
 
-            ImageList imlIcons = new ImageList();
-            imlIcons.ImageSize = new Size(16, 16);
-            imlIcons.Images.Add("ICO_PLIGIN", Properties.Resources.ICO_PLUGIN_16);
-
-            Assembly lib = Assembly.LoadFile(file);
-            foreach (Type type in lib.GetExportedTypes())
+            IPluginPackage package = PluginPackageBase.LoadFromFile(path);
+            if (package != null)
             {
-               if (typeof(IPluginPackage).IsAssignableFrom(type))
-               {
-                  pInstance = Activator.CreateInstance(type) as IPluginPackage;
-                  this.Plugin = pInstance as IPluginPackage;
+               
 
-                  lblName.Text = pInstance.Name;
-                  picIcon.Image = pInstance.LargeIcon;
-               }
-               else if (typeof(IPluginModule).IsAssignableFrom(type))
-               {
-                  instance = Activator.CreateInstance(type) as IPluginModule;
-                  if (instance != null)
-                  {
-                     plugin = new PluginModule();
-                     plugin.ID = instance.ModuleID;
-                     plugin.Name = instance.ModuleName;
-                     plugin.Filename = file;
-                     plugin.Class = type.FullName;
+               lblName.Text = package.Name;
+               lblVersion.Text = "Version " + package.Version;
+               picIcon.Image = package.LargeIcon;
 
-                     plugins.Add(plugin);
-                  }
-               }
+               FileVersionInfo info = Rwm.Otc.Utils.ReflectionUtils.GetAssemblyInfo(package.GetType());
+               lblDeveloper.Text = info.CompanyName;
+               lblCopyright.Text = info.LegalCopyright;
+
+               // Load the package modules
+               package.LoadModules(package.GetType());
+
+               grdModules.BeginUpdate();
+               grdModulesView.OptionsBehavior.AutoPopulateColumns = false;
+               grdModulesView.Columns.Add(new GridColumn() { Caption = "ID", Visible = false, FieldName = "ID" });
+               grdModulesView.Columns.Add(new GridColumn() { Caption = "Name", Visible = true, FieldName = "Caption" });
+               grdModules.DataSource = package.Modules;
+               grdModules.EndUpdate();
             }
-
-            grdModules.DataSource = plugins;
-
-            grdModulesView.Columns["ID"].Visible = false;
-            grdModulesView.Columns["Filename"].Visible = false;
-            grdModulesView.Columns["Class"].Visible = false;
+            else
+            {
+               MessageBox.Show("The specified file not correspond to a RailwayStudio plug-in package.", 
+                               Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
          }
          catch (Exception ex)
          {
@@ -130,8 +108,6 @@ namespace RailwayStudio.Common.Views
          }
          finally
          {
-            instance = null;
-
             Cursor.Current = Cursors.Default;
          }
       }

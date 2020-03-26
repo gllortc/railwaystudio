@@ -5,6 +5,10 @@ using System.Reflection;
 
 namespace RailwayStudio.Common
 {
+
+   /// <summary>
+   /// Implements a pluguin module.
+   /// </summary>
    public class Plugin
    {
 

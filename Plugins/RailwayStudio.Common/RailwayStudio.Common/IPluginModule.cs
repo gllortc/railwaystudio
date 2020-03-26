@@ -3,6 +3,8 @@
    public interface IPluginModule
    {
 
+      #region Properties
+
       /// <summary>
       /// Gets an image that represents the large icon for the module.
       /// </summary>
@@ -16,12 +18,12 @@
       /// <summary>
       /// Gets the unique identifier for the plugin module.
       /// </summary>
-      string ModuleID { get; }
+      string ID { get; }
 
       /// <summary>
       /// Gets the name of the module.
       /// </summary>
-      string ModuleName { get; }
+      string Caption { get; }
 
       /// <summary>
       /// Gets the name of the loaded document.
@@ -50,6 +52,10 @@
       /// </summary>
       object RibbonStatusBar { get; }
 
+      #endregion
+
+      #region Methods
+
       /// <summary>
       /// Initialize the contents of the module.
       /// </summary>
@@ -65,6 +71,8 @@
       /// Remove all dockable panels created when the module was loaded.
       /// </summary>
       void DestoryPanels();
+
+      #endregion
 
    }
 }

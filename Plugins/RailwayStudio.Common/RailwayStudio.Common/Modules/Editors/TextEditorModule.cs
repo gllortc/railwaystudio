@@ -22,7 +22,7 @@ namespace RailwayStudio.Common.Modules.Editors
 
       #region IPluginModule Implementation
 
-      public string ModuleID
+      public string ID
       {
          get { return TextEditorModule.MODULE_GUID; }
       }
@@ -45,7 +45,7 @@ namespace RailwayStudio.Common.Modules.Editors
          get { return global::RailwayStudio.Common.Properties.Resources.ICO_TEXTEDITOR_16; }
       }
 
-      public string ModuleName
+      public string Caption
       {
          get { return "Text editor"; }
       }

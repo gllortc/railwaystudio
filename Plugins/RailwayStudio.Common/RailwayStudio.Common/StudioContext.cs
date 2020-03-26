@@ -79,7 +79,10 @@ namespace RailwayStudio.Common
       public static void Initialize(IContainerView mainView)
       {
          StudioContext.MainView = mainView;
+
+         // Load installed packages
          StudioContext.PluginManager = new PluginManager();
+         StudioContext.PluginManager.LoadPackages();
       }
 
       public static void SaveSettings()

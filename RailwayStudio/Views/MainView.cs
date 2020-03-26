@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using DevExpress.Utils;
 using DevExpress.XtraBars;
@@ -213,7 +212,7 @@ namespace Rwm.Studio.Views
       /// </summary>
       private void Initialize()
       {
-         this.Modules = new List<PluginModule>();
+         //this.Modules = new List<PluginModule>();
 
          nbcPlugins.Enabled = false;
          chkViewToolbox.Checked = true;
