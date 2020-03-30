@@ -1,4 +1,4 @@
-﻿namespace RailwayStudio.Common
+﻿namespace Rwm.Studio.Plugins.Common
 {
    public interface IPluginModule
    {

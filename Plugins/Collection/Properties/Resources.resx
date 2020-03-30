@@ -124,17 +124,11 @@
   <data name="PICTO_LIGHTS_FRONT6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\picto_29.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="processor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ICO_DECODER_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\processor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_SAVE_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\diskette_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="picto_limited" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\picto_limited.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ICO_SCALE_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\measure_crop_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_DATA_EDIT_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pencil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,6 +160,9 @@
   <data name="PICTO_FRAME_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\B_31.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ICO_MODEL_EDIT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\train_metro_1611.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ICO_EPOCH_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\E5.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -184,11 +181,14 @@
   <data name="PICTO_EPOCHE_II_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bahn_epoche_II.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PICTO_LIGHTS_FRONT4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\picto_24.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ICO_DATA_DELETE_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PICTO_DIGITALCONN_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\picto_nem652.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ICO_SCALE_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\measure_crop_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_DATA_ADD_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -265,17 +265,14 @@
   <data name="ICO_SAVE_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\diskette.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PICTO_LIGHTS_FRONT4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\picto_24.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ICO_EPOCH_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\E1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PICTO_FRAME_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\picto_6.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_EPOCH_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\E2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ICO_EPOCH_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\E1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PICTO_EPOCHE_I_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bahn_epoche_I.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -316,7 +313,10 @@
   <data name="PICTO_DIGITALCONN_21" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\picto_21pin.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="printer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ICO_PRINT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\printer_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICO_PRINT_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\printer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_ADMIN_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -334,6 +334,9 @@
   <data name="ICO_COUPLER_SHORT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\link_go.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PICTO_DIGITALCONN_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\picto_nem652.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ICO_EPOCH_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\E4.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -343,10 +346,13 @@
   <data name="ICO_COUPLER_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\link.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_MODEL_EDIT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\train_metro_1611.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="picto_limited" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\picto_limited.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="printer_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\printer_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ICO_REPORT_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\report_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICO_REPORT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\report_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

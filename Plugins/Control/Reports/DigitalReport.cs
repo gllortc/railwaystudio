@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using DevExpress.XtraReports.UI;
+using Rwm.Otc;
 using Rwm.Otc.Layout;
 using Rwm.Otc.Utils;
 
@@ -56,6 +57,8 @@ namespace Rwm.Studio.Plugins.Control.Reports
 
       private void Initialize()
       {
+         lblProjectName.Text = OTCContext.Project.Name;
+
          // Data bindings
          lblSwitchboardId.DataBindings.Add(new XRBinding("Text", null, "Switchboards.SwitchboardID"));
          lblSwitchboardTitle.DataBindings.Add(new XRBinding("Text", null, "Switchboards.Switchboard"));

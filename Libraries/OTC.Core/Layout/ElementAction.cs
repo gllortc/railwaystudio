@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Drawing;
-using Rwm.Otc.Data.ORM;
+using Rwm.Otc.Data;
 using Rwm.Otc.Diagnostics;
 
 namespace Rwm.Otc.Layout

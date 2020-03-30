@@ -1,5 +1,5 @@
 ﻿using System.Drawing;
-using RailwayStudio.Common;
+using Rwm.Studio.Plugins.Common;
 
 namespace Rwm.Studio.Plugins.Control.Modules
 {

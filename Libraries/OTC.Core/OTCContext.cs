@@ -1,7 +1,6 @@
 ﻿using System;
 using Rwm.Otc.Configuration;
 using Rwm.Otc.Data;
-using Rwm.Otc.Data.ORM;
 using Rwm.Otc.Diagnostics;
 
 namespace Rwm.Otc

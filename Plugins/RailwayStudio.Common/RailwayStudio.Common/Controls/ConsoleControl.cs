@@ -2,7 +2,7 @@
 using System.Drawing;
 using DevExpress.XtraRichEdit.API.Native;
 
-namespace RailwayStudio.Common.Controls
+namespace Rwm.Studio.Plugins.Common.Controls
 {
    public partial class ConsoleControl : DevExpress.XtraEditors.XtraUserControl
    {

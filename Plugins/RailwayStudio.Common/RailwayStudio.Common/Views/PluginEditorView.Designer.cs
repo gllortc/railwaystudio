@@ -1,4 +1,4 @@
-﻿namespace RailwayStudio.Common.Views
+﻿namespace Rwm.Studio.Plugins.Common.Views
 {
    partial class PluginEditorView
    {

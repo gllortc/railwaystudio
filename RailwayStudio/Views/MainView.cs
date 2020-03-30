@@ -2,8 +2,8 @@
 using System.Windows.Forms;
 using DevExpress.Utils;
 using DevExpress.XtraBars;
-using RailwayStudio.Common;
 using Rwm.Otc;
+using Rwm.Studio.Plugins.Common;
 
 namespace Rwm.Studio.Views
 {
@@ -61,7 +61,7 @@ namespace Rwm.Studio.Views
          get { return ribbon; }
       }
 
-      public RailwayStudio.Common.Controls.ConsoleControl LogConsole
+      public Plugins.Common.Controls.ConsoleControl LogConsole
       {
          get { return logConsole; }
       }

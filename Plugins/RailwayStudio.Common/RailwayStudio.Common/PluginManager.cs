@@ -6,7 +6,7 @@ using Rwm.Otc;
 using Rwm.Otc.Configuration;
 using Rwm.Otc.Diagnostics;
 
-namespace RailwayStudio.Common
+namespace Rwm.Studio.Plugins.Common
 {
    /// <summary>
    /// Allows manage all application plugins.
@@ -17,10 +17,9 @@ namespace RailwayStudio.Common
       #region Constants
 
       public const string SETTINGS_KEY_PLUGINS = "rwm.studio.plugins";
-      private const string SETTING_KEY_FILE = "assembly-file";
 
-      public const string PLUGIN_TEXTEDITOR = Modules.Editors.TextEditorModule.MODULE_GUID;
-      public const string PLUGIN_REPORTVIEWER = Modules.Reports.ReportViewerModule.MODULE_GUID;
+      public const string PLUGIN_TEXTEDITOR = Modules.TextEditorModule.MODULE_GUID;
+      public const string PLUGIN_REPORTVIEWER = Modules.ReportViewerModule.MODULE_GUID;
 
       #endregion
 
@@ -45,15 +44,15 @@ namespace RailwayStudio.Common
       #region Methods
 
       /// <summary>
-      /// Adds a new plugin declaration into the plugins section in settings.
+      /// Install new plug-in package into current instance.
       /// </summary>
-      /// <param name="plugin">Plugin declaration.</param>
+      /// <param name="package">Plug-in package to install.</param>
       /// <param name="path">Path (with filename) to the assembly file containing the plugin.</param>
-      public void Add(IPluginPackage plugin, string path)
+      public void Add(IPluginPackage package)
       {
-         Logger.LogDebug(this, "[CLASS].Add([{0}])", plugin);
+         Logger.LogDebug(this, "[CLASS].Add([{0}])", package);
 
-         if (plugin == null)
+         if (package == null)
          {
             return;
          }
@@ -61,15 +60,16 @@ namespace RailwayStudio.Common
          try
          {
             XmlSettingsItem xmlPlugin = new XmlSettingsItem();
-            xmlPlugin.Key = plugin.ID;
-            xmlPlugin.Value = plugin.Name;
-            xmlPlugin.AddSetting("assembly-file", path);
+            xmlPlugin.Key = package.ID;
+            xmlPlugin.Value = package.GetType().Assembly.Location;
 
             XmlSettingsItem pluginSection = this.GetPluginsSection();
             pluginSection.AddSetting(xmlPlugin);
 
-            OTCContext.Settings.AddSetting(pluginSection);
             OTCContext.Settings.SaveSettings();
+
+            // Add to current instance
+            this.InstalledPackages.Add(package);
          }
          catch (Exception ex)
          {
@@ -78,15 +78,23 @@ namespace RailwayStudio.Common
          }
       }
 
-      public void Remove(string key)
+      /// <summary>
+      /// Remove the specified plug-in package from the settings and also unload the package from the current application instance.
+      /// </summary>
+      /// <param name="packageId">Plug-in package unique identifier.</param>
+      public void Remove(string packageId)
       {
-         Logger.LogDebug(this, "[CLASS].Remove('{0}')", key);
+         Logger.LogDebug(this, "[CLASS].Remove('{0}')", packageId);
 
          try
          {
+            // Remove from the settings
             XmlSettingsItem pluginSection = this.GetPluginsSection();
-            pluginSection.Remove(key);
+            pluginSection.Remove(packageId);
             OTCContext.Settings.SaveSettings();
+
+            // Remove from current instance
+            this.InstalledPackages.Remove(this.GetPluguinPackage(packageId));
          }
          catch (Exception ex)
          {
@@ -95,15 +103,20 @@ namespace RailwayStudio.Common
          }
       }
 
-      public IPluginPackage Get(string pluginId)
+      /// <summary>
+      /// Gets the specified plug-in package by its ID.
+      /// </summary>
+      /// <param name="packageId">Plug-in package unique identifier.</param>
+      /// <returns>The requested <see cref="IPluginPackage"/> or <c>null</c> if the identifier doesn't exist.</returns>
+      public IPluginPackage GetPluguinPackage(string packageId)
       {
-         Logger.LogDebug(this, "[CLASS].Get('{0}')", pluginId);
+         Logger.LogDebug(this, "[CLASS].Get('{0}')", packageId);
 
          try
          {
             foreach (IPluginPackage package in this.InstalledPackages)
             {
-               if (package.ID.Equals(pluginId))
+               if (package.ID.Equals(packageId))
                {
                   return package;
                }
@@ -119,6 +132,27 @@ namespace RailwayStudio.Common
       }
 
       /// <summary>
+      /// Gets the specified plug-in module by its ID.
+      /// </summary>
+      /// <param name="moduleID">Plug-in module unique identifier.</param>
+      /// <returns>The requested <see cref="IPluginModule"/> or <c>null</c> if the identifier doesn't exist.</returns>
+      public IPluginModule GetPluginModule(string moduleID)
+      {
+         foreach (IPluginPackage package in this.InstalledPackages)
+         {
+            foreach (IPluginModule module in package.Modules)
+            {
+               if (module.ID.Equals(moduleID))
+               {
+                  return module;
+               }
+            }
+         }
+
+         return null;
+      }
+
+      /// <summary>
       /// Load all installed packages.
       /// </summary>
       public void LoadPackages()
@@ -129,20 +163,19 @@ namespace RailwayStudio.Common
          {
             this.InstalledPackages = new List<IPluginPackage>();
 
-            XmlSettingsItem pluginSection = OTCContext.Settings.GetItem(PluginManager.SETTINGS_KEY_PLUGINS);
+            XmlSettingsItem pluginSection = this.GetPluginsSection();
             if (pluginSection != null)
             {
                foreach (XmlSettingsItem item in pluginSection.Items.Values)
                {
-                  string assemblyFile = item.GetString(PluginManager.SETTING_KEY_FILE);
-
-                  if (File.Exists(assemblyFile))
+                  string assemblyFile = this.FindAssemblyFile(item.Value);
+                  if (assemblyFile != null)
                   {
                      // Find the package descriptor type
-                     Assembly assembly = Assembly.LoadFile(item.GetString(PluginManager.SETTING_KEY_FILE));
+                     Assembly assembly = Assembly.LoadFile(assemblyFile);
                      foreach (Type type in assembly.GetExportedTypes())
                      {
-                        if (typeof(IPluginPackage).IsAssignableFrom(type))
+                        if (typeof(IPluginPackage).IsAssignableFrom(type) && type.IsClass)
                         {
                            IPluginPackage package = Activator.CreateInstance(type) as IPluginPackage;
                            package.LoadModules(type);
@@ -159,28 +192,26 @@ namespace RailwayStudio.Common
                   }
                }
             }
+
+            // Add the RaiilwayStudio Common Tools plug-in
+            foreach (Type type in this.GetType().Assembly.GetExportedTypes())
+            {
+               if (typeof(IPluginPackage).IsAssignableFrom(type) && type.IsClass)
+               {
+                  IPluginPackage package = Activator.CreateInstance(type) as IPluginPackage;
+                  package.LoadModules(type);
+
+                  this.InstalledPackages.Add(package);
+
+                  break;
+               }
+            }
          }
          catch (Exception ex)
          {
             Logger.LogError(this, ex);
             throw ex;
          }
-      }
-
-      public IPluginModule GetModuleByID(string moduleID)
-      {
-         foreach (IPluginPackage package in this.InstalledPackages)
-         {
-            foreach (IPluginModule module in package.Modules)
-            {
-               if (module.ID.Equals(moduleID))
-               {
-                  return module;
-               }
-            }
-         }
-
-         return null;
       }
 
       #endregion
@@ -198,6 +229,40 @@ namespace RailwayStudio.Common
          }
 
          return section;
+      }
+
+      /// <summary>
+      /// Find an assembly file from a path (complete or single filename).
+      /// - Check if file exists. 
+      ///   - If exists, return same path.
+      ///   - If not exists, find the filename into the application folder.
+      /// </summary>
+      /// <param name="initialPath">Path stored in the settings item.</param>
+      /// <returns>The path found or an <code>null</code> string if no file has been found.</returns>
+      private string FindAssemblyFile(string initialPath)
+      {
+         if (File.Exists(initialPath))
+         {
+            // This trick resolve the existing single filenames (without path)
+            FileInfo fi = new FileInfo(initialPath);
+            return fi.FullName;
+         }
+         else
+         {
+            // Get the file name without path
+            FileInfo fi = new FileInfo(initialPath);
+
+            // Get the installation path (where setting are stored)
+            FileInfo settingsfi = new FileInfo(OTCContext.Settings.Filename);
+
+            string path = Path.Combine(settingsfi.DirectoryName, fi.Name);
+            if (File.Exists(path))
+            {
+               return path;
+            }
+         }
+
+         return null;
       }
 
       #endregion

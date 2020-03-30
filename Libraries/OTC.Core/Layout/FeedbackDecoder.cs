@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
-using Rwm.Otc.Data.ORM;
+using Rwm.Otc.Data;
 using Rwm.Otc.Diagnostics;
-using Rwm.Otc.TrainControl;
-using static Rwm.Otc.Data.ORM.ORMForeignCollection;
+using Rwm.Otc.Trains;
+using static Rwm.Otc.Data.ORMForeignCollection;
 
 namespace Rwm.Otc.Layout
 {

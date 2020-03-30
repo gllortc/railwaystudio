@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Drawing;
 using System.Windows.Forms;
-using DevExpress.XtraBars.Utils;
 using DevExpress.XtraGrid.Columns;
 
-namespace RailwayStudio.Common.Views
+namespace Rwm.Studio.Plugins.Common.Views
 {
    public partial class PluginEditorView : DevExpress.XtraEditors.XtraForm
    {
@@ -71,27 +69,25 @@ namespace RailwayStudio.Common.Views
          {
             Cursor.Current = Cursors.WaitCursor;
 
-            IPluginPackage package = PluginPackageBase.LoadFromFile(path);
-            if (package != null)
+            this.PluginPackage = PluginPackageBase.LoadFromFile(path);
+            if (this.PluginPackage != null)
             {
-               
+               lblName.Text = this.PluginPackage.Name;
+               lblVersion.Text = "Version " + this.PluginPackage.Version;
+               picIcon.Image = this.PluginPackage.LargeIcon;
 
-               lblName.Text = package.Name;
-               lblVersion.Text = "Version " + package.Version;
-               picIcon.Image = package.LargeIcon;
-
-               FileVersionInfo info = Rwm.Otc.Utils.ReflectionUtils.GetAssemblyInfo(package.GetType());
+               FileVersionInfo info = Rwm.Otc.Utils.ReflectionUtils.GetAssemblyInfo(this.PluginPackage.GetType());
                lblDeveloper.Text = info.CompanyName;
                lblCopyright.Text = info.LegalCopyright;
 
                // Load the package modules
-               package.LoadModules(package.GetType());
+               this.PluginPackage.LoadModules(this.PluginPackage.GetType());
 
                grdModules.BeginUpdate();
                grdModulesView.OptionsBehavior.AutoPopulateColumns = false;
                grdModulesView.Columns.Add(new GridColumn() { Caption = "ID", Visible = false, FieldName = "ID" });
                grdModulesView.Columns.Add(new GridColumn() { Caption = "Name", Visible = true, FieldName = "Caption" });
-               grdModules.DataSource = package.Modules;
+               grdModules.DataSource = this.PluginPackage.Modules;
                grdModules.EndUpdate();
             }
             else

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using Rwm.Otc.Data.ORM;
+using Rwm.Otc.Data;
 using Rwm.Otc.Properties;
-using static Rwm.Otc.Data.ORM.ORMForeignCollection;
+using static Rwm.Otc.Data.ORMForeignCollection;
 
 namespace Rwm.Otc.Layout
 {

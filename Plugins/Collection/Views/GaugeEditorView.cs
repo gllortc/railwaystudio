@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using Rwm.Otc.TrainControl;
+using Rwm.Otc.Trains;
 using Rwm.Otc.Utils;
 
 namespace Rwm.Studio.Plugins.Collection.Views

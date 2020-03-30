@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RailwayStudio.Common {
+namespace Rwm.Studio.Plugins.Common {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace RailwayStudio.Common {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("RailwayStudio.Common.PrintRibbonControllerResources", typeof(PrintRibbonControllerResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Rwm.Studio.Plugins.Common.PrintRibbonControllerResources", typeof(PrintRibbonControllerResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

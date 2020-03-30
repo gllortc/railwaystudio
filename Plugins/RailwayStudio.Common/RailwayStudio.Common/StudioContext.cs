@@ -1,6 +1,6 @@
 ﻿using Rwm.Otc;
 
-namespace RailwayStudio.Common
+namespace Rwm.Studio.Plugins.Common
 {
    public static class StudioContext
    {
@@ -83,11 +83,6 @@ namespace RailwayStudio.Common
          // Load installed packages
          StudioContext.PluginManager = new PluginManager();
          StudioContext.PluginManager.LoadPackages();
-      }
-
-      public static void SaveSettings()
-      {
-         OTCContext.Settings.SaveSettings();
       }
 
       public static void LogInformation(string message)

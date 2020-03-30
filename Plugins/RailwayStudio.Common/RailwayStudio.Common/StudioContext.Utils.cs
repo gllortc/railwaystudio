@@ -1,6 +1,6 @@
-﻿using RailwayStudio.Common.Views;
+﻿using Rwm.Studio.Plugins.Common.Views;
 
-namespace RailwayStudio.Common
+namespace Rwm.Studio.Plugins.Common
 {
    public class Utils
    {

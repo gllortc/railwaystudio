@@ -132,18 +132,18 @@
     <Compile Include="Data\DatabaseChecker.cs" />
     <Compile Include="Data\DataConsumer.cs" />
     <Compile Include="Data\FileType.cs" />
-    <Compile Include="Data\ORM\ORMEntityMember.cs" />
-    <Compile Include="Data\ORM\ORMForeignCollection.cs" />
-    <Compile Include="Data\ORM\ORMIdentifiableEntity.cs" />
-    <Compile Include="Data\ORM\ORMPrimaryKey.cs" />
-    <Compile Include="Data\ORM\ORMSqliteDriver.cs" />
-    <Compile Include="Data\ORM\ORMSqlCommand.cs" />
-    <Compile Include="Data\ORM\ORMEntity.cs" />
-    <Compile Include="Data\ORM\ORMPropertyFile.cs" />
-    <Compile Include="Data\ORM\ORMProperty.cs" />
-    <Compile Include="Data\ORM\ORMSqliteDialect.cs" />
-    <Compile Include="Data\ORM\ORMTable.cs" />
-    <Compile Include="Data\ORM\ORMEntityStructure.cs" />
+    <Compile Include="Data\ORMEntityMember.cs" />
+    <Compile Include="Data\ORMForeignCollection.cs" />
+    <Compile Include="Data\ORMIdentifiableEntity.cs" />
+    <Compile Include="Data\ORMPrimaryKey.cs" />
+    <Compile Include="Data\ORMSqliteDriver.cs" />
+    <Compile Include="Data\ORMSqlCommand.cs" />
+    <Compile Include="Data\ORMEntity.cs" />
+    <Compile Include="Data\ORMPropertyFile.cs" />
+    <Compile Include="Data\ORMProperty.cs" />
+    <Compile Include="Data\ORMSqliteDialect.cs" />
+    <Compile Include="Data\ORMTable.cs" />
+    <Compile Include="Data\ORMEntityStructure.cs" />
     <Compile Include="Diagnostics\FileLogger.cs" />
     <Compile Include="Diagnostics\ILogger.cs" />
     <Compile Include="Diagnostics\LoggerSettingsManager.cs" />
@@ -194,19 +194,19 @@
     <Compile Include="Themes\ThemeManager.cs" />
     <Compile Include="Themes\ITheme.cs" />
     <Compile Include="Internationalization\OTCLanguage.cs" />
-    <Compile Include="TrainControl\TrainDigitalAddress.cs" />
+    <Compile Include="Trains\TrainDigitalAddress.cs" />
     <Compile Include="Utils\NumericUtils.cs" />
     <Compile Include="Help\OTCHelpIndex.cs" />
-    <Compile Include="TrainControl\Company.cs" />
-    <Compile Include="TrainControl\Category.cs" />
-    <Compile Include="TrainControl\Train.cs" />
-    <Compile Include="TrainControl\TrainDecoder.cs" />
-    <Compile Include="TrainControl\Manufacturer.cs" />
-    <Compile Include="TrainControl\ModelDigitalFunction.cs" />
-    <Compile Include="TrainControl\ModelFileAttachment.cs" />
-    <Compile Include="TrainControl\ModelRevision.cs" />
-    <Compile Include="TrainControl\Gauge.cs" />
-    <Compile Include="TrainControl\Store.cs" />
+    <Compile Include="Trains\Company.cs" />
+    <Compile Include="Trains\Category.cs" />
+    <Compile Include="Trains\Train.cs" />
+    <Compile Include="Trains\TrainDecoder.cs" />
+    <Compile Include="Trains\Manufacturer.cs" />
+    <Compile Include="Trains\ModelDigitalFunction.cs" />
+    <Compile Include="Trains\ModelFileAttachment.cs" />
+    <Compile Include="Trains\ModelRevision.cs" />
+    <Compile Include="Trains\Gauge.cs" />
+    <Compile Include="Trains\Store.cs" />
     <Compile Include="Utils\ReflectionUtils.cs" />
     <Compile Include="Utils\Coordinates.cs" />
     <Compile Include="Utils\EnumItemImage.cs" />
@@ -411,7 +411,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Data\ORM\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

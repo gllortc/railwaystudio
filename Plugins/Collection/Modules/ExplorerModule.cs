@@ -1,7 +1,7 @@
-﻿using DevExpress.XtraBars;
-using RailwayStudio.Common;
-using System;
+﻿using System;
 using System.Drawing;
+using DevExpress.XtraBars;
+using Rwm.Studio.Plugins.Common;
 
 namespace Rwm.Studio.Plugins.Collection.Modules
 {
@@ -100,32 +100,37 @@ namespace Rwm.Studio.Plugins.Collection.Modules
 
       #region Event Handlers
 
-      private void tlsFolders_Click(object sender, EventArgs e)
+      private void TlsFolders_Click(object sender, EventArgs e)
       {
          this.Refresh();
       }
 
-      private void cmdDataAdd_ItemClick(object sender, ItemClickEventArgs e)
+      private void CmdDataAdd_ItemClick(object sender, ItemClickEventArgs e)
       {
          this.AddItem();
       }
 
-      private void cmdDataEdit_ItemClick(object sender, ItemClickEventArgs e)
+      private void CmdDataEdit_ItemClick(object sender, ItemClickEventArgs e)
       {
          this.EditItem();
       }
 
-      private void cmdDataDelete_ItemClick(object sender, ItemClickEventArgs e)
+      private void CmdDataDelete_ItemClick(object sender, ItemClickEventArgs e)
       {
          this.DeleteItem();
       }
 
-      private void cmdPrintPreview_ItemClick(object sender, ItemClickEventArgs e)
+      private void CmdReportsDigitalAddresses_ItemClick(object sender, ItemClickEventArgs e)
+      {
+         this.ReportsDigitalAddresses();
+      }
+
+      private void CmdPrintPreview_ItemClick(object sender, ItemClickEventArgs e)
       {
          this.Print();
       }
 
-      private void grdDataView_DoubleClick(object sender, EventArgs e)
+      private void GrdDataView_DoubleClick(object sender, EventArgs e)
       {
          if (grdDataView.SelectedRowsCount > 0)
          {
@@ -133,7 +138,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
          }
       }
 
-      #endregion
+        #endregion
 
-   }
+    }
 }

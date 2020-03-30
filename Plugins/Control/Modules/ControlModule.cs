@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
-using RailwayStudio.Common;
 using Rwm.Otc;
+using Rwm.Studio.Plugins.Common;
 using Rwm.Studio.Plugins.Control.Controls;
 
 namespace Rwm.Studio.Plugins.Control.Modules

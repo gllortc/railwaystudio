@@ -1,8 +1,7 @@
 ﻿using System;
-using Rwm.Otc.Data.ORM;
 using Rwm.Otc.Diagnostics;
 using Rwm.Otc.Layout;
-using Rwm.Otc.TrainControl;
+using Rwm.Otc.Trains;
 
 namespace Rwm.Otc.Data
 {

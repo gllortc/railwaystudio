@@ -8,9 +8,6 @@ namespace Rwm.Otc.Configuration
 {
    public class XmlSettingsManager : XmlSettingsItem
    {
-      // Internal data declarations
-      private string fileName;
-      // private Dictionary<string, IXmlSettingsItem> dictionary;
 
       /// <summary>Default name for settings file.</summary>
       private const string FILE_NAME = "settings.xml";
@@ -18,12 +15,18 @@ namespace Rwm.Otc.Configuration
       /// <summary>XML settings version used by this assembly.</summary>
       public const string SETTINGS_FORMAT_VERSION = "1.0";
 
+      #region Properties
+
+      /// <summary>
+      /// Gets the filename and path where the settings are stored.
+      /// </summary>
+      public string Filename { get; private set; } = string.Empty;
+
+      #endregion
+
       #region Constructors
 
-      public XmlSettingsManager()
-      {
-         Initialize();
-      }
+      public XmlSettingsManager() { }
 
       #endregion
 
@@ -87,7 +90,7 @@ namespace Rwm.Otc.Configuration
 
          try
          {
-            this.fileName = fileName;
+            this.Filename = fileName;
 
             XmlWriterSettings settings = new XmlWriterSettings
             {
@@ -121,15 +124,6 @@ namespace Rwm.Otc.Configuration
       #endregion
 
       #region Private Members
-
-      /// <summary>
-      /// Initializes the instance data.
-      /// </summary>
-      private void Initialize()
-      {
-         fileName = string.Empty;
-         this.Items = null;
-      }
 
       private string GetAssemblyPath()
       {

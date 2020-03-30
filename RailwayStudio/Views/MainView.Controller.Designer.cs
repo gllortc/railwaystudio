@@ -3,9 +3,9 @@ using System.IO;
 using System.Windows.Forms;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraNavBar;
-using RailwayStudio.Common;
 using Rwm.Otc;
 using Rwm.Otc.Diagnostics;
+using Rwm.Studio.Plugins.Common;
 
 namespace Rwm.Studio.Views
 {
@@ -36,6 +36,9 @@ namespace Rwm.Studio.Views
 
          if (config.DialogResult == DialogResult.OK)
          {
+            if (config.RefreshPluginsBar)
+               this.LoadToolbox(nbcPlugins);
+
             this.RefreshViewStatus();
          }
       }
@@ -62,7 +65,7 @@ namespace Rwm.Studio.Views
                OTCContext.OpenProject(form.FileName);
 
                StudioContext.LastOpenedProjectFile = form.FileName;
-               StudioContext.SaveSettings();
+               OTCContext.Settings.SaveSettings();
             }
 
             this.RefreshViewStatus();
@@ -148,7 +151,7 @@ namespace Rwm.Studio.Views
             if (this.IsProjectLoaded)
             {
                StudioContext.LastOpenedProjectFile = OTCContext.Project.Filename;
-               StudioContext.SaveSettings();
+               OTCContext.Settings.SaveSettings();
 
                OTCContext.Initialize();
             }
@@ -179,7 +182,7 @@ namespace Rwm.Studio.Views
       {
          Logger.LogDebug(this, "[CLASS].OpenPluginModule('{0}', {1})", moduleID, args);
 
-         IPluginModule module = StudioContext.PluginManager.GetModuleByID(moduleID);
+         IPluginModule module = StudioContext.PluginManager.GetPluginModule(moduleID);
          if (module != null)
          {
             this.LoadPlugin(module, args);
@@ -242,10 +245,12 @@ namespace Rwm.Studio.Views
          NavBarGroup group;
          NavBarItem item;
 
+         // Clear navigation bar
+         navBar.Items.Clear();
+         navBar.Groups.Clear();
+
          foreach (IPluginPackage package in StudioContext.PluginManager.InstalledPackages)
          {
-            //if (File.Exists(plugin.File))
-            //{
             group = new NavBarGroup();
             group.Name = "rpgPlugins";
             group.Caption = package.Name;

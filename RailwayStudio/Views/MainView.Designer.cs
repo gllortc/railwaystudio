@@ -55,7 +55,7 @@
          this.hideContainerBottom = new DevExpress.XtraBars.Docking.AutoHideContainer();
          this.dockPanelConsole = new DevExpress.XtraBars.Docking.DockPanel();
          this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-         this.logConsole = new RailwayStudio.Common.Controls.ConsoleControl();
+         this.logConsole = new Plugins.Common.Controls.ConsoleControl();
          this.dockPanelToolbox = new DevExpress.XtraBars.Docking.DockPanel();
          this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
          this.nbcPlugins = new DevExpress.XtraNavBar.NavBarControl();
@@ -476,7 +476,7 @@
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgView;
       private DevExpress.XtraBars.BarButtonItem cmdFileAbout;
       internal DevExpress.XtraBars.Docking.DockManager dockManager;
-      private RailwayStudio.Common.Controls.ConsoleControl logConsole;
+      private Plugins.Common.Controls.ConsoleControl logConsole;
       private DevExpress.XtraBars.Docking.AutoHideContainer hideContainerBottom;
         private DevExpress.XtraBars.BarButtonItem cmdFileNew;
         private DevExpress.XtraBars.BarButtonItem cmdFileOpen;

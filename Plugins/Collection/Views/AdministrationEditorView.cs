@@ -1,6 +1,6 @@
-﻿using Rwm.Otc.TrainControl;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using Rwm.Otc.Trains;
 
 namespace Rwm.Studio.Plugins.Collection.Views
 {
@@ -26,13 +26,13 @@ namespace Rwm.Studio.Plugins.Collection.Views
 
       public Company Administration { get; private set; }
 
-      private void cmdCancel_Click(object sender, EventArgs e)
+      private void CmdCancel_Click(object sender, EventArgs e)
       {
          this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
          this.Close();
       }
 
-      private void cmdAccept_Click(object sender, EventArgs e)
+      private void CmdAccept_Click(object sender, EventArgs e)
       {
          if (string.IsNullOrWhiteSpace(txtName.Text))
          {

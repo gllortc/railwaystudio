@@ -35,9 +35,11 @@
          this.cmdDataEdit = new DevExpress.XtraBars.BarButtonItem();
          this.cmdDataDelete = new DevExpress.XtraBars.BarButtonItem();
          this.cmdPrintPreview = new DevExpress.XtraBars.BarButtonItem();
+         this.cmdReportsDigitalAddresses = new DevExpress.XtraBars.BarButtonItem();
          this.rbpData = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.rpgData = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.rpgPrint = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+         this.rpgReports = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
          this.imlIcons = new System.Windows.Forms.ImageList(this.components);
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -60,9 +62,10 @@
             this.cmdDataAdd,
             this.cmdDataEdit,
             this.cmdDataDelete,
-            this.cmdPrintPreview});
+            this.cmdPrintPreview,
+            this.cmdReportsDigitalAddresses});
          this.ribbon.Location = new System.Drawing.Point(0, 0);
-         this.ribbon.MaxItemId = 23;
+         this.ribbon.MaxItemId = 24;
          this.ribbon.Name = "ribbon";
          this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpData});
@@ -72,43 +75,53 @@
          // cmdDataAdd
          // 
          this.cmdDataAdd.Caption = "Add new";
-         this.cmdDataAdd.Glyph = global::Rwm.Studio.Plugins.Collection.Properties.Resources.ICO_DATA_ADD_16;
          this.cmdDataAdd.Id = 15;
-         this.cmdDataAdd.LargeGlyph = global::Rwm.Studio.Plugins.Collection.Properties.Resources.ICO_DATA_ADD_32;
+         this.cmdDataAdd.ImageOptions.Image = global::Rwm.Studio.Plugins.Collection.Properties.Resources.ICO_DATA_ADD_16;
+         this.cmdDataAdd.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Collection.Properties.Resources.ICO_DATA_ADD_32;
          this.cmdDataAdd.Name = "cmdDataAdd";
-         this.cmdDataAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdDataAdd_ItemClick);
+         this.cmdDataAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdDataAdd_ItemClick);
          // 
          // cmdDataEdit
          // 
          this.cmdDataEdit.Caption = "Edit";
-         this.cmdDataEdit.Glyph = global::Rwm.Studio.Plugins.Collection.Properties.Resources.ICO_DATA_EDIT_16;
          this.cmdDataEdit.Id = 16;
-         this.cmdDataEdit.LargeGlyph = global::Rwm.Studio.Plugins.Collection.Properties.Resources.ICO_DATA_EDIT_32;
+         this.cmdDataEdit.ImageOptions.Image = global::Rwm.Studio.Plugins.Collection.Properties.Resources.ICO_DATA_EDIT_16;
+         this.cmdDataEdit.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Collection.Properties.Resources.ICO_DATA_EDIT_32;
          this.cmdDataEdit.Name = "cmdDataEdit";
-         this.cmdDataEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdDataEdit_ItemClick);
+         this.cmdDataEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdDataEdit_ItemClick);
          // 
          // cmdDataDelete
          // 
          this.cmdDataDelete.Caption = "Delete";
-         this.cmdDataDelete.Glyph = global::Rwm.Studio.Plugins.Collection.Properties.Resources.ICO_DATA_DELETE_16;
          this.cmdDataDelete.Id = 17;
-         this.cmdDataDelete.LargeGlyph = global::Rwm.Studio.Plugins.Collection.Properties.Resources.ICO_DATA_DELETE_32;
+         this.cmdDataDelete.ImageOptions.Image = global::Rwm.Studio.Plugins.Collection.Properties.Resources.ICO_DATA_DELETE_16;
+         this.cmdDataDelete.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Collection.Properties.Resources.ICO_DATA_DELETE_32;
          this.cmdDataDelete.Name = "cmdDataDelete";
-         this.cmdDataDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdDataDelete_ItemClick);
+         this.cmdDataDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdDataDelete_ItemClick);
          // 
          // cmdPrintPreview
          // 
          this.cmdPrintPreview.Caption = "Export / Print";
-         this.cmdPrintPreview.Glyph = global::Rwm.Studio.Plugins.Collection.Properties.Resources.printer_16;
          this.cmdPrintPreview.Id = 22;
-         this.cmdPrintPreview.LargeGlyph = global::Rwm.Studio.Plugins.Collection.Properties.Resources.printer;
+         this.cmdPrintPreview.ImageOptions.Image = global::Rwm.Studio.Plugins.Collection.Properties.Resources.ICO_PRINT_16;
+         this.cmdPrintPreview.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Collection.Properties.Resources.ICO_PRINT_32;
          this.cmdPrintPreview.Name = "cmdPrintPreview";
-         this.cmdPrintPreview.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdPrintPreview_ItemClick);
+         this.cmdPrintPreview.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdPrintPreview_ItemClick);
+         // 
+         // cmdReportsDigitalAddresses
+         // 
+         this.cmdReportsDigitalAddresses.Caption = "Digital addresses";
+         this.cmdReportsDigitalAddresses.Id = 23;
+         this.cmdReportsDigitalAddresses.ImageOptions.Image = global::Rwm.Studio.Plugins.Collection.Properties.Resources.ICO_REPORT_16;
+         this.cmdReportsDigitalAddresses.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Collection.Properties.Resources.ICO_REPORT_32;
+         this.cmdReportsDigitalAddresses.Name = "cmdReportsDigitalAddresses";
+         this.cmdReportsDigitalAddresses.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdReportsDigitalAddresses_ItemClick);
          // 
          // rbpData
          // 
          this.rbpData.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpgData,
+            this.rpgReports,
             this.rpgPrint});
          this.rbpData.Name = "rbpData";
          this.rbpData.Text = "Data";
@@ -128,6 +141,13 @@
          this.rpgPrint.Name = "rpgPrint";
          this.rpgPrint.ShowCaptionButton = false;
          this.rpgPrint.Text = "Print";
+         // 
+         // rpgReports
+         // 
+         this.rpgReports.ItemLinks.Add(this.cmdReportsDigitalAddresses);
+         this.rpgReports.Name = "rpgReports";
+         this.rpgReports.ShowCaptionButton = false;
+         this.rpgReports.Text = "Reports";
          // 
          // ribbonStatusBar
          // 
@@ -181,7 +201,7 @@
          this.tlsFolders.Size = new System.Drawing.Size(246, 390);
          this.tlsFolders.StateImageList = this.imlIcons;
          this.tlsFolders.TabIndex = 0;
-         this.tlsFolders.Click += new System.EventHandler(this.tlsFolders_Click);
+         this.tlsFolders.Click += new System.EventHandler(this.TlsFolders_Click);
          // 
          // grdData
          // 
@@ -212,7 +232,7 @@
          this.grdDataView.OptionsView.ColumnAutoWidth = false;
          this.grdDataView.OptionsView.ShowGroupPanel = false;
          this.grdDataView.OptionsView.ShowIndicator = false;
-         this.grdDataView.DoubleClick += new System.EventHandler(this.grdDataView_DoubleClick);
+         this.grdDataView.DoubleClick += new System.EventHandler(this.GrdDataView_DoubleClick);
          // 
          // ExplorerModule
          // 
@@ -253,5 +273,7 @@
       private DevExpress.XtraGrid.Views.Grid.GridView grdDataView;
       private DevExpress.XtraBars.BarButtonItem cmdPrintPreview;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgPrint;
-   }
+        private DevExpress.XtraBars.BarButtonItem cmdReportsDigitalAddresses;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgReports;
+    }
 }

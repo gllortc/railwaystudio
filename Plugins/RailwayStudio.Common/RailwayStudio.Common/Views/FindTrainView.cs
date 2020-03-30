@@ -2,9 +2,9 @@
 using System.Data;
 using System.Windows.Forms;
 using Rwm.Otc.Layout;
-using Rwm.Otc.TrainControl;
+using Rwm.Otc.Trains;
 
-namespace RailwayStudio.Common.Views
+namespace Rwm.Studio.Plugins.Common.Views
 {
    public partial class FindTrainView : DevExpress.XtraEditors.XtraForm
    {

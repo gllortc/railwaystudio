@@ -1,4 +1,4 @@
-﻿namespace RailwayStudio.Common.Controls
+﻿namespace Rwm.Studio.Plugins.Common.Controls
 {
    partial class PluginManagementControl
    {
@@ -28,10 +28,11 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.barManager = new DevExpress.XtraBars.BarManager();
+         this.components = new System.ComponentModel.Container();
+         this.barManager = new DevExpress.XtraBars.BarManager(this.components);
          this.bar1 = new DevExpress.XtraBars.Bar();
          this.cmdPluginAdd = new DevExpress.XtraBars.BarButtonItem();
-         this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+         this.cmdPluginRemove = new DevExpress.XtraBars.BarButtonItem();
          this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
          this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
          this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -54,7 +55,7 @@
          this.barManager.Form = this;
          this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.cmdPluginAdd,
-            this.barButtonItem2});
+            this.cmdPluginRemove});
          this.barManager.MaxItemId = 2;
          // 
          // bar1
@@ -65,7 +66,7 @@
          this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
          this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.cmdPluginAdd),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem2)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.cmdPluginRemove)});
          this.bar1.OptionsBar.AllowQuickCustomization = false;
          this.bar1.OptionsBar.DisableClose = true;
          this.bar1.OptionsBar.DisableCustomization = true;
@@ -77,18 +78,19 @@
          // 
          this.cmdPluginAdd.Caption = "Install";
          this.cmdPluginAdd.Id = 0;
-         this.cmdPluginAdd.ImageOptions.Image = global::RailwayStudio.Common.Properties.Resources.ICO_PLUGIN_ADD_16;
+         this.cmdPluginAdd.ImageOptions.Image = Rwm.Studio.Plugins.Common.Properties.Resources.ICO_PLUGIN_ADD_16;
          this.cmdPluginAdd.Name = "cmdPluginAdd";
          this.cmdPluginAdd.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
          this.cmdPluginAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdPluginAdd_ItemClick);
          // 
-         // barButtonItem2
+         // cmdPluginRemove
          // 
-         this.barButtonItem2.Caption = "Remove";
-         this.barButtonItem2.Id = 1;
-         this.barButtonItem2.ImageOptions.Image = global::RailwayStudio.Common.Properties.Resources.ICO_PLUGIN_DELETE_16;
-         this.barButtonItem2.Name = "barButtonItem2";
-         this.barButtonItem2.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+         this.cmdPluginRemove.Caption = "Uninstall";
+         this.cmdPluginRemove.Id = 1;
+         this.cmdPluginRemove.ImageOptions.Image = Rwm.Studio.Plugins.Common.Properties.Resources.ICO_PLUGIN_DELETE_16;
+         this.cmdPluginRemove.Name = "cmdPluginRemove";
+         this.cmdPluginRemove.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+         this.cmdPluginRemove.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdPluginRemove_ItemClick);
          // 
          // barDockControlTop
          // 
@@ -96,7 +98,7 @@
          this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
          this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
          this.barDockControlTop.Manager = this.barManager;
-         this.barDockControlTop.Size = new System.Drawing.Size(546, 29);
+         this.barDockControlTop.Size = new System.Drawing.Size(546, 31);
          // 
          // barDockControlBottom
          // 
@@ -110,26 +112,26 @@
          // 
          this.barDockControlLeft.CausesValidation = false;
          this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-         this.barDockControlLeft.Location = new System.Drawing.Point(0, 29);
+         this.barDockControlLeft.Location = new System.Drawing.Point(0, 31);
          this.barDockControlLeft.Manager = this.barManager;
-         this.barDockControlLeft.Size = new System.Drawing.Size(0, 308);
+         this.barDockControlLeft.Size = new System.Drawing.Size(0, 306);
          // 
          // barDockControlRight
          // 
          this.barDockControlRight.CausesValidation = false;
          this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-         this.barDockControlRight.Location = new System.Drawing.Point(546, 29);
+         this.barDockControlRight.Location = new System.Drawing.Point(546, 31);
          this.barDockControlRight.Manager = this.barManager;
-         this.barDockControlRight.Size = new System.Drawing.Size(0, 308);
+         this.barDockControlRight.Size = new System.Drawing.Size(0, 306);
          // 
          // grdPlugins
          // 
          this.grdPlugins.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.grdPlugins.Location = new System.Drawing.Point(0, 29);
+         this.grdPlugins.Location = new System.Drawing.Point(0, 31);
          this.grdPlugins.MainView = this.grdPluginsView;
          this.grdPlugins.MenuManager = this.barManager;
          this.grdPlugins.Name = "grdPlugins";
-         this.grdPlugins.Size = new System.Drawing.Size(546, 308);
+         this.grdPlugins.Size = new System.Drawing.Size(546, 306);
          this.grdPlugins.TabIndex = 4;
          this.grdPlugins.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdPluginsView});
@@ -140,7 +142,12 @@
          this.grdPluginsView.Name = "grdPluginsView";
          this.grdPluginsView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
          this.grdPluginsView.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
+         this.grdPluginsView.OptionsBehavior.AllowFixedGroups = DevExpress.Utils.DefaultBoolean.False;
+         this.grdPluginsView.OptionsBehavior.AllowGroupExpandAnimation = DevExpress.Utils.DefaultBoolean.False;
+         this.grdPluginsView.OptionsBehavior.AllowPartialGroups = DevExpress.Utils.DefaultBoolean.False;
+         this.grdPluginsView.OptionsBehavior.AllowPartialRedrawOnScrolling = false;
          this.grdPluginsView.OptionsBehavior.AutoPopulateColumns = false;
+         this.grdPluginsView.OptionsBehavior.AutoUpdateTotalSummary = false;
          this.grdPluginsView.OptionsBehavior.Editable = false;
          this.grdPluginsView.OptionsBehavior.ReadOnly = true;
          this.grdPluginsView.OptionsCustomization.AllowColumnMoving = false;
@@ -148,6 +155,11 @@
          this.grdPluginsView.OptionsCustomization.AllowFilter = false;
          this.grdPluginsView.OptionsCustomization.AllowGroup = false;
          this.grdPluginsView.OptionsCustomization.AllowSort = false;
+         this.grdPluginsView.OptionsDetail.AllowZoomDetail = false;
+         this.grdPluginsView.OptionsDetail.EnableMasterViewMode = false;
+         this.grdPluginsView.OptionsDetail.ShowDetailTabs = false;
+         this.grdPluginsView.OptionsDetail.ShowEmbeddedDetailIndent = DevExpress.Utils.DefaultBoolean.False;
+         this.grdPluginsView.OptionsDetail.SmartDetailExpand = false;
          this.grdPluginsView.OptionsFilter.AllowColumnMRUFilterList = false;
          this.grdPluginsView.OptionsFilter.AllowFilterEditor = false;
          this.grdPluginsView.OptionsFind.AllowFindPanel = false;
@@ -155,8 +167,12 @@
          this.grdPluginsView.OptionsMenu.EnableFooterMenu = false;
          this.grdPluginsView.OptionsMenu.EnableGroupPanelMenu = false;
          this.grdPluginsView.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.grdPluginsView.OptionsView.ShowDetailButtons = false;
+         this.grdPluginsView.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
+         this.grdPluginsView.OptionsView.ShowGroupExpandCollapseButtons = false;
          this.grdPluginsView.OptionsView.ShowGroupPanel = false;
          this.grdPluginsView.OptionsView.ShowIndicator = false;
+         this.grdPluginsView.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.GrdPluginsView_CustomDrawCell);
          // 
          // PluginManagementControl
          // 
@@ -182,7 +198,7 @@
       private DevExpress.XtraBars.BarManager barManager;
       private DevExpress.XtraBars.Bar bar1;
       private DevExpress.XtraBars.BarButtonItem cmdPluginAdd;
-      private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+      private DevExpress.XtraBars.BarButtonItem cmdPluginRemove;
       private DevExpress.XtraBars.BarDockControl barDockControlTop;
       private DevExpress.XtraBars.BarDockControl barDockControlBottom;
       private DevExpress.XtraBars.BarDockControl barDockControlLeft;

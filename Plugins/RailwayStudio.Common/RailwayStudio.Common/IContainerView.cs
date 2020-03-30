@@ -1,9 +1,9 @@
 ﻿using DevExpress.XtraBars.Docking;
 using DevExpress.XtraBars.Ribbon;
-using RailwayStudio.Common.Controls;
+using Rwm.Studio.Plugins.Common.Controls;
 using System.Windows.Forms;
 
-namespace RailwayStudio.Common
+namespace Rwm.Studio.Plugins.Common
 {
    public interface IContainerView
    {

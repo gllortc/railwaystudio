@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using Rwm.Otc.Utils;
 
-namespace RailwayStudio.Common
+namespace Rwm.Studio.Plugins.Common
 {
    public abstract class PluginPackageBase : IPluginPackage
    {
@@ -16,24 +16,27 @@ namespace RailwayStudio.Common
       public abstract string ID { get; }
 
       /// <summary>
-      /// Gets the name of the plugin package.
+      /// Gets the name of the product.
       /// </summary>
-      public abstract string Name { get; }
-
-      /// <summary>
-      /// Gets the version of the plugin package.
-      /// </summary>
-      public string Version
+      public virtual string Name
       {
-         get { return ReflectionUtils.GetAssemblyVersion(this.GetType()); }
+         get { return ReflectionUtils.GetAssemblyInfo(this.GetType()).ProductName; }
       }
 
       /// <summary>
       /// Gets the description of the plugin package.
       /// </summary>
-      public virtual string Description 
+      public virtual string Description
       {
-         get { return string.Empty; } 
+         get { return ReflectionUtils.GetAssemblyInfo(this.GetType()).Comments; }
+      }
+
+      /// <summary>
+      /// Gets the version of the plugin package.
+      /// </summary>
+      public virtual string Version
+      {
+         get { return ReflectionUtils.GetAssemblyVersion(this.GetType()); }
       }
 
       /// <summary>
@@ -70,7 +73,7 @@ namespace RailwayStudio.Common
          // Get all modules
          foreach (Type type in ownerType.Assembly.GetExportedTypes())
          {
-            if (typeof(IPluginModule).IsAssignableFrom(type))
+            if (typeof(IPluginModule).IsAssignableFrom(type) && type.IsClass)
             {
                IPluginModule module = Activator.CreateInstance(type) as IPluginModule;
                this.Modules.Add(module);

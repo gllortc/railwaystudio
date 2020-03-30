@@ -1,13 +1,13 @@
-﻿using DevExpress.XtraEditors;
+﻿using System.ComponentModel;
+using System.Drawing;
+using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Drawing;
 using DevExpress.XtraEditors.Registrator;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraEditors.ViewInfo;
-using Rwm.Otc.TrainControl;
-using System.ComponentModel;
-using System.Drawing;
+using Rwm.Otc.Trains;
 
-namespace RailwayStudio.Common.Controls
+namespace Rwm.Studio.Plugins.Common.Controls
 {
    [UserRepositoryItem("RegisterTrainEdit")]
    public class RepositoryItemTrainEdit : RepositoryItemButtonEdit
@@ -80,7 +80,7 @@ namespace RailwayStudio.Common.Controls
       {
          this.ReadOnly = true;
          this.Properties.Buttons.Clear();
-         this.Properties.Buttons.Add(new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, global::RailwayStudio.Common.Properties.Resources.ICO_FIND_16, null));
+         this.Properties.Buttons.Add(new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, Common.Properties.Resources.ICO_FIND_16, null));
 
          base.OnLoaded();
       }

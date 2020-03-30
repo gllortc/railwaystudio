@@ -1,8 +1,8 @@
-﻿using RailwayStudio.Common.Views;
-using Rwm.Otc.TrainControl;
+﻿using Rwm.Studio.Plugins.Common.Views;
+using Rwm.Otc.Trains;
 using System.Windows.Forms;
 
-namespace RailwayStudio.Common
+namespace Rwm.Studio.Plugins.Common
 {
    public class Find
    {

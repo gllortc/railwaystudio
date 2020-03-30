@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using Rwm.Otc.Data.ORM;
+using Rwm.Otc.Data;
 using Rwm.Otc.Diagnostics;
 using Rwm.Otc.Systems;
 using Rwm.Otc.Themes;
-using Rwm.Otc.TrainControl;
+using Rwm.Otc.Trains;
 using Rwm.Otc.Utils;
-using static Rwm.Otc.Data.ORM.ORMForeignCollection;
+using static Rwm.Otc.Data.ORMForeignCollection;
 
 namespace Rwm.Otc.Layout
 {

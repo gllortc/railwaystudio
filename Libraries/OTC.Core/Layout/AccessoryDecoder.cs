@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
-using Rwm.Otc.Data.ORM;
+using Rwm.Otc.Data;
 using Rwm.Otc.Diagnostics;
-using Rwm.Otc.TrainControl;
-using static Rwm.Otc.Data.ORM.ORMForeignCollection;
+using Rwm.Otc.Trains;
+using static Rwm.Otc.Data.ORMForeignCollection;
 
 namespace Rwm.Otc.Layout
 {
@@ -120,7 +120,7 @@ namespace Rwm.Otc.Layout
          string sql = string.Empty;
          DataSet ds = new DataSet();
 
-         Logger.LogDebug("Rwm.Otc.Layout.Device.FindByConnection()");
+         Logger.LogDebug("Rwm.Otc.Layout.AccessoryDecoder.FindByConnection()");
 
          try
          {
@@ -141,19 +141,20 @@ namespace Rwm.Otc.Layout
                         s.id                             as ""SwitchboardID"",
                         s.name                           as ""Switchboard"",
                         d.name                           as ""Name"", 
-                        d.manufacturer || ' ' || d.model as ""Decoder"",
-                        dc.name                          as ""DecoderInput"",
+                        m.name || ' ' || d.model         as ""Decoder"",
+                        dc.decoderoutput                 as ""DecoderInput"",
                         dc.address                       as ""Address"",
                         e.name                           as ""ConnectTo"" 
                     FROM 
                         " + Switchboard.TableName + @" s
-                        Inner Join " + Element.TableName + @" e           On (e.switchboardid = s.id)
+                        Inner Join " + Element.TableName + @" e                     On (e.switchboardid = s.id)
                         Inner Join " + AccessoryDecoderConnection.TableName + @" dc On (e.id = dc.elementid)
-                        Inner Join " + AccessoryDecoder.TableName + @" d            On (d.id = dc.deviceid)
+                        Inner Join " + AccessoryDecoder.TableName + @" d            On (d.id = dc.decoderid)
+                        Left join  " + Manufacturer.TableName + @" m                On (m.id = d.MANUFACTURERID)
                     ORDER BY 
                         s.name  Asc,
                         d.name  Asc,
-                        dc.name Asc";
+                        dc.decoderoutput Asc";
 
             ds.Tables.Add(AccessoryDecoder.ExecuteDataTable(sql));
             ds.Tables[1].TableName = "AccessoryConnections";
@@ -196,8 +197,8 @@ namespace Rwm.Otc.Layout
                         s.id                             as ""SwitchboardID"",
                         s.name                           as ""Switchboard"",
                         d.name                           as ""Name"", 
-                        d.manufacturer || ' ' || d.model as ""Decoder"",
-                        dc.name                          as ""DecoderInput"",
+                        m.name || ' ' || d.model         as ""Decoder"",
+                        dc.DECODEROUTPUT                 as ""DecoderInput"",
                         dc.address                       as ""Address"",
                         CASE 
                            WHEN (e.name <> '') THEN e.name
@@ -205,15 +206,16 @@ namespace Rwm.Otc.Layout
                         END                              as ""ConnectTo"" 
                     FROM 
                         " + Switchboard.TableName + @" s
-                        Inner Join " + Element.TableName + @" e           On (e.switchboardid = s.id)
+                        Inner Join " + Element.TableName + @" e                     On (e.switchboardid = s.id)
                         Inner Join " + AccessoryDecoderConnection.TableName + @" dc On (e.id = dc.elementid)
-                        Inner Join " + AccessoryDecoder.TableName + @" d            On (d.id = dc.deviceid) 
+                        Inner Join " + AccessoryDecoder.TableName + @" d            On (d.id = dc.decoderid) 
+                        Left  join " + Manufacturer.TableName + @" m                On (m.id = d.MANUFACTURERID) 
                     WHERE 
                         s.id = @sbid
                     ORDER BY 
                         s.name  Asc,
                         d.name  Asc,
-                        dc.name Asc";
+                        dc.DECODEROUTPUT Asc";
 
             AccessoryDecoder.SetParameter("sbid", switchboardId);
 

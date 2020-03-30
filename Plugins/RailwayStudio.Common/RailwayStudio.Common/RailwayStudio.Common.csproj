@@ -7,7 +7,7 @@
     <ProjectGuid>{930BA765-EC32-47E2-985D-CBF987FDB049}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RailwayStudio.Common</RootNamespace>
+    <RootNamespace>Rwm.Studio.Plugins.Common</RootNamespace>
     <AssemblyName>RailwayStudio.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -100,18 +100,20 @@
     <Compile Include="IContainerView.cs" />
     <Compile Include="IPluginPackage.cs" />
     <Compile Include="IPluginModule.cs" />
-    <Compile Include="Modules\Editors\TextEditorModule.cs">
+    <Compile Include="Modules\ReportViewerModule.Controller.Designer.cs" />
+    <Compile Include="Modules\TextEditorModule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modules\Editors\TextEditorModule.Designer.cs">
+    <Compile Include="Modules\TextEditorModule.Designer.cs">
       <DependentUpon>TextEditorModule.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modules\Reports\ReportViewerModule.cs">
+    <Compile Include="Modules\ReportViewerModule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modules\Reports\ReportViewerModule.Designer.cs">
+    <Compile Include="Modules\ReportViewerModule.Designer.cs">
       <DependentUpon>ReportViewerModule.cs</DependentUpon>
     </Compile>
+    <Compile Include="PluginData.cs" />
     <Compile Include="PluginManager.cs" />
     <Compile Include="PluginPackageBase.cs" />
     <Compile Include="PrintRibbonControllerResources.Designer.cs">
@@ -124,6 +126,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CoverReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CoverReport.Designer.cs">
+      <DependentUpon>CoverReport.cs</DependentUpon>
     </Compile>
     <Compile Include="StudioContext.cs" />
     <Compile Include="StudioContext.Find.cs" />
@@ -155,10 +163,10 @@
     <EmbeddedResource Include="Controls\PluginManagementControl.resx">
       <DependentUpon>PluginManagementControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Editors\TextEditorModule.resx">
+    <EmbeddedResource Include="Modules\TextEditorModule.resx">
       <DependentUpon>TextEditorModule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Reports\ReportViewerModule.resx">
+    <EmbeddedResource Include="Modules\ReportViewerModule.resx">
       <DependentUpon>ReportViewerModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PrintRibbonControllerResources.resx">
@@ -169,6 +177,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CoverReport.resx">
+      <DependentUpon>CoverReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PluginEditorView.resx">
       <DependentUpon>PluginEditorView.cs</DependentUpon>
@@ -246,6 +257,7 @@
       <Name>OTC.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

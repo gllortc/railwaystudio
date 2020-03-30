@@ -109,6 +109,7 @@
     <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraNavBar.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraRichEdit.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraRichEdit.v17.1.Extensions, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraTreeList.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -154,6 +155,12 @@
     <Compile Include="Modules\ModelModule.Presenter.Designer.cs" />
     <Compile Include="PluginData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\DigitalReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\DigitalReport.Designer.cs">
+      <DependentUpon>DigitalReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\DecoderEditorView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +214,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\DigitalReport.resx">
+      <DependentUpon>DigitalReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\DecoderEditorView.resx">
       <DependentUpon>DecoderEditorView.cs</DependentUpon>
     </EmbeddedResource>
@@ -265,6 +275,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\report_16.png" />
+    <None Include="Resources\report_32.png" />
     <None Include="Resources\printer_16.png" />
     <None Include="Resources\printer.png" />
     <None Include="Resources\train_metro_1611.png" />
@@ -361,6 +373,7 @@
     <None Include="Resources\bahn_epoche_II.png" />
     <None Include="Resources\bahn_epoche_I.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

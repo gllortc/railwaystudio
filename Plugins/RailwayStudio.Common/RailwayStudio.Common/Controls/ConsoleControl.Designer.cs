@@ -1,4 +1,4 @@
-﻿namespace RailwayStudio.Common.Controls
+﻿namespace Rwm.Studio.Plugins.Common.Controls
 {
    partial class ConsoleControl
    {
@@ -235,20 +235,20 @@
          // 
          this.cmdClear.Caption = "Clear all";
          this.cmdClear.Id = 59;
-         this.cmdClear.ImageOptions.Image = global::RailwayStudio.Common.Properties.Resources.ICO_CLEAN_16;
+         this.cmdClear.ImageOptions.Image = Properties.Resources.ICO_CLEAN_16;
          this.cmdClear.Name = "cmdClear";
          this.cmdClear.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdClear_ItemClick);
          // 
          // copyItem1
          // 
          this.copyItem1.Id = 9;
-         this.copyItem1.ImageOptions.Image = global::RailwayStudio.Common.Properties.Resources.ICO_COPY_16;
+         this.copyItem1.ImageOptions.Image = Properties.Resources.ICO_COPY_16;
          this.copyItem1.Name = "copyItem1";
          // 
          // fileSaveAsItem1
          // 
          this.fileSaveAsItem1.Id = 67;
-         this.fileSaveAsItem1.ImageOptions.Image = global::RailwayStudio.Common.Properties.Resources.ICO_SAVE_16;
+         this.fileSaveAsItem1.ImageOptions.Image = Properties.Resources.ICO_SAVE_16;
          this.fileSaveAsItem1.Name = "fileSaveAsItem1";
          // 
          // barDockControlTop

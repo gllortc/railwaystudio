@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using DevExpress.XtraBars;
-using RailwayStudio.Common;
-using Rwm.Otc.TrainControl;
+using Rwm.Otc.Trains;
+using Rwm.Studio.Plugins.Common;
 
 namespace Rwm.Studio.Plugins.Collection.Modules
 {

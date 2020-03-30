@@ -1,7 +1,7 @@
 ﻿using System;
-using Rwm.Otc.TrainControl;
+using Rwm.Otc.Trains;
 
-namespace RailwayStudio.Common.Views
+namespace Rwm.Studio.Plugins.Common.Views
 {
    public partial class TrainAddressView : DevExpress.XtraEditors.XtraForm
    {

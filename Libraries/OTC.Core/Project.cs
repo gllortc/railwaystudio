@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Rwm.Otc.Data.ORM;
+using Rwm.Otc.Data;
 using Rwm.Otc.Diagnostics;
 using Rwm.Otc.Layout;
 using Rwm.Otc.Systems;
 using Rwm.Otc.Themes;
-using static Rwm.Otc.Data.ORM.ORMForeignCollection;
+using static Rwm.Otc.Data.ORMForeignCollection;
 
 namespace Rwm.Otc
 {

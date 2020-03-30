@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace RailwayStudio.Common
+namespace Rwm.Studio.Plugins.Common
 {
    public interface IPluginPackage
    {

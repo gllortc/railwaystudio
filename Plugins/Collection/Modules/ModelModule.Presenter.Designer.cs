@@ -5,8 +5,8 @@ using System.Reflection;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
-using Rwm.Otc.Data.ORM;
-using Rwm.Otc.TrainControl;
+using Rwm.Otc.Data;
+using Rwm.Otc.Trains;
 using Rwm.Studio.Plugins.Collection.Controls;
 
 namespace Rwm.Studio.Plugins.Collection.Modules
@@ -272,7 +272,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
 
          // Fill scales list
          cboScale.Properties.Items.BeginUpdate();
-         foreach (Gauge scale in Rwm.Otc.TrainControl.Gauge.FindAll()) // OTCContext.Project.TrainManager.ScaleDAO.GetAll())
+         foreach (Gauge scale in Rwm.Otc.Trains.Gauge.FindAll()) // OTCContext.Project.TrainManager.ScaleDAO.GetAll())
          {
             item = new ImageComboBoxItem();
             item.Value = scale;

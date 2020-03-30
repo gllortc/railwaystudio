@@ -3,10 +3,12 @@ using System.Windows.Forms;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraTreeList.Columns;
 using DevExpress.XtraTreeList.Nodes;
-using RailwayStudio.Common;
-using Rwm.Otc.Data.ORM;
-using Rwm.Otc.TrainControl;
+using Rwm.Otc.Data;
+using Rwm.Otc.Trains;
+using Rwm.Studio.Plugins.Collection.Reports;
 using Rwm.Studio.Plugins.Collection.Views;
+using Rwm.Studio.Plugins.Common;
+using Rwm.Studio.Plugins.Common.Reports;
 
 namespace Rwm.Studio.Plugins.Collection.Modules
 {
@@ -135,7 +137,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
                   break;
 
                case FileType.Gauges:
-                  Rwm.Otc.TrainControl.Gauge scale = Rwm.Otc.TrainControl.Gauge.Get(row.ID);
+                  Rwm.Otc.Trains.Gauge scale = Rwm.Otc.Trains.Gauge.Get(row.ID);
                   if (scale != null)
                   {
                      GaugeEditorView formScale = new GaugeEditorView(scale);
@@ -236,6 +238,24 @@ namespace Rwm.Studio.Plugins.Collection.Modules
          this.Refresh();
       }
 
+      internal void ReportsDigitalAddresses()
+      {
+         // Generate the report
+         DigitalReport rpt = new DigitalReport();
+         rpt.DisplayName = "Rolling Stock Addresses";
+         rpt.CreateDocument();
+
+         // Generate the cover
+         CoverReport cover = new CoverReport(rpt.DisplayName);
+         cover.CreateDocument();
+
+         // Merge the documents
+         rpt.Pages.Insert(0, cover.Pages[0]);
+
+         // Open the document into the repport viewer plug-in
+         StudioContext.MainView.OpenPluginModule(PluginManager.PLUGIN_REPORTVIEWER, rpt);
+      }
+
       internal void Print()
       {
          StudioContext.MainView.OpenPluginModule(PluginManager.PLUGIN_REPORTVIEWER, 
@@ -303,7 +323,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
                      grdDataView.Columns.Add(new GridColumn() { Caption = "ID", Visible = false, FieldName = "ID" });
                      grdDataView.Columns.Add(new GridColumn() { Caption = "Name", Visible = true, FieldName = "Name", Width = 100 });
                      grdDataView.Columns.Add(new GridColumn() { Caption = "Notation", Visible = true, FieldName = "ScaleNotation", Width = 100 });
-                     grdData.DataSource = Rwm.Otc.TrainControl.Gauge.FindAll();
+                     grdData.DataSource = Rwm.Otc.Trains.Gauge.FindAll();
                      break;
 
                   case FileType.Administrations:

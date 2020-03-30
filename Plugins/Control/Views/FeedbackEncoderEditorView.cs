@@ -5,7 +5,7 @@ using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid.Columns;
 using Rwm.Otc;
 using Rwm.Otc.Layout;
-using Rwm.Otc.TrainControl;
+using Rwm.Otc.Trains;
 
 namespace Rwm.Studio.Plugins.Control.Views
 {

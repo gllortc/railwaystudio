@@ -2,9 +2,10 @@
 using System.Windows.Forms;
 using DevExpress.Skins;
 using DevExpress.XtraEditors.Controls;
-using RailwayStudio.Common;
-using RailwayStudio.Common.Controls;
+using Rwm.Otc;
 using Rwm.Otc.Diagnostics;
+using Rwm.Studio.Plugins.Common;
+using Rwm.Studio.Plugins.Common.Controls;
 
 namespace Rwm.Studio.Views
 {
@@ -23,6 +24,14 @@ namespace Rwm.Studio.Views
          LoadPlugins();
          LoadLoggers();
       }
+
+      #endregion
+
+      #region Properties
+
+      private PluginManagementControl PluginsControl { get; set; } = null;
+
+      public bool RefreshPluginsBar { get; private set; } = false;
 
       #endregion
 
@@ -45,7 +54,9 @@ namespace Rwm.Studio.Views
 
          StudioContext.SkinName = skin.SkinName;
          StudioContext.OpenLastProject = chkProjectsLoadLast.Checked;
-         StudioContext.SaveSettings();
+         OTCContext.Settings.SaveSettings();
+
+         this.RefreshPluginsBar = this.PluginsControl.PluginsChanged;
 
          this.DialogResult = DialogResult.OK;
          this.Close();
@@ -103,11 +114,11 @@ namespace Rwm.Studio.Views
 
       private void LoadPlugins()
       {
-         PluginManagementControl ctrl = new PluginManagementControl();
-         ctrl.Dock = DockStyle.Fill;
+         this.PluginsControl = new PluginManagementControl();
+         this.PluginsControl.Dock = DockStyle.Fill;
 
          tabSettingsPlugins.Controls.Clear();
-         tabSettingsPlugins.Controls.Add(ctrl);
+         tabSettingsPlugins.Controls.Add(this.PluginsControl);
       }
 
       private void LoadLoggers()

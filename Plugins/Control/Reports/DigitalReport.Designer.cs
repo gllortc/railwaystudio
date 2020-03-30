@@ -34,6 +34,7 @@
          this.imgSwitchboardImage = new DevExpress.XtraReports.UI.XRPictureBox();
          this.lblSwitchboardId = new DevExpress.XtraReports.UI.XRLabel();
          this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
+         this.imgLogo = new DevExpress.XtraReports.UI.XRPictureBox();
          this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
          this.SwitchboardHeader = new DevExpress.XtraReports.UI.GroupHeaderBand();
          this.DigitalConnectionsReport = new DevExpress.XtraReports.UI.DetailReportBand();
@@ -49,7 +50,7 @@
          this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
          this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
          this.xrControlStyle2 = new DevExpress.XtraReports.UI.XRControlStyle();
-         this.imgLogo = new DevExpress.XtraReports.UI.XRPictureBox();
+         this.lblProjectName = new DevExpress.XtraReports.UI.XRLabel();
          ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
          // 
          // Detail
@@ -97,11 +98,20 @@
          // TopMargin
          // 
          this.TopMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.lblProjectName,
             this.imgLogo});
          this.TopMargin.HeightF = 101.0417F;
          this.TopMargin.Name = "TopMargin";
          this.TopMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
          this.TopMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+         // 
+         // imgLogo
+         // 
+         this.imgLogo.Image = ((System.Drawing.Image)(resources.GetObject("imgLogo.Image")));
+         this.imgLogo.LocationFloat = new DevExpress.Utils.PointFloat(1F, 49.37F);
+         this.imgLogo.Name = "imgLogo";
+         this.imgLogo.SizeF = new System.Drawing.SizeF(208.3624F, 23.96168F);
+         this.imgLogo.Sizing = DevExpress.XtraPrinting.ImageSizeMode.AutoSize;
          // 
          // BottomMargin
          // 
@@ -202,7 +212,7 @@
          this.xrLabel4.SizeF = new System.Drawing.SizeF(93.75006F, 20.20836F);
          this.xrLabel4.StylePriority.UseFont = false;
          this.xrLabel4.StylePriority.UseTextAlignment = false;
-         this.xrLabel4.Text = "Connected to";
+         this.xrLabel4.Text = "Used by";
          this.xrLabel4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
          // 
          // xrLabel3
@@ -226,7 +236,7 @@
          this.xrLabel2.SizeF = new System.Drawing.SizeF(57.29175F, 20.20836F);
          this.xrLabel2.StylePriority.UseFont = false;
          this.xrLabel2.StylePriority.UseTextAlignment = false;
-         this.xrLabel2.Text = "DecoderInput";
+         this.xrLabel2.Text = "Output";
          this.xrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
          // 
          // xrLabel1
@@ -245,13 +255,22 @@
          this.xrControlStyle2.Name = "xrControlStyle2";
          this.xrControlStyle2.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
          // 
-         // imgLogo
+         // lblProjectName
          // 
-         this.imgLogo.Image = ((System.Drawing.Image)(resources.GetObject("imgLogo.Image")));
-         this.imgLogo.LocationFloat = new DevExpress.Utils.PointFloat(418.6668F, 49.95834F);
-         this.imgLogo.Name = "imgLogo";
-         this.imgLogo.SizeF = new System.Drawing.SizeF(208.3333F, 23.95833F);
-         this.imgLogo.Sizing = DevExpress.XtraPrinting.ImageSizeMode.AutoSize;
+         this.lblProjectName.AnchorHorizontal = DevExpress.XtraReports.UI.HorizontalAnchorStyles.Right;
+         this.lblProjectName.Borders = DevExpress.XtraPrinting.BorderSide.None;
+         this.lblProjectName.BorderWidth = 2F;
+         this.lblProjectName.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.lblProjectName.LocationFloat = new DevExpress.Utils.PointFloat(222.9167F, 49.37F);
+         this.lblProjectName.Name = "lblProjectName";
+         this.lblProjectName.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+         this.lblProjectName.SizeF = new System.Drawing.SizeF(404.0833F, 23.96167F);
+         this.lblProjectName.StylePriority.UseBorders = false;
+         this.lblProjectName.StylePriority.UseBorderWidth = false;
+         this.lblProjectName.StylePriority.UseFont = false;
+         this.lblProjectName.StylePriority.UseTextAlignment = false;
+         this.lblProjectName.Text = "lblProjectName";
+         this.lblProjectName.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
          // 
          // DigitalReport
          // 
@@ -269,7 +288,7 @@
          this.PaperKind = System.Drawing.Printing.PaperKind.A4;
          this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.xrControlStyle2});
-         this.Version = "15.1";
+         this.Version = "17.1";
          this.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.DigitalReport_BeforePrint);
          ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
@@ -298,5 +317,6 @@
       private DevExpress.XtraReports.UI.XRLabel xrLabel3;
       private DevExpress.XtraReports.UI.XRLabel xrLabel2;
       private DevExpress.XtraReports.UI.XRPictureBox imgLogo;
-   }
+        private DevExpress.XtraReports.UI.XRLabel lblProjectName;
+    }
 }

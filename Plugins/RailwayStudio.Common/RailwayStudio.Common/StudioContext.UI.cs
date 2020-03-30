@@ -5,7 +5,7 @@ using DevExpress.XtraBars.Docking;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraPrinting;
 
-namespace RailwayStudio.Common
+namespace Rwm.Studio.Plugins.Common
 {
    public class UI
    {

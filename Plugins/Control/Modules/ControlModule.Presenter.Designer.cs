@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Windows.Forms;
 using DevExpress.XtraTab;
-using RailwayStudio.Common;
 using Rwm.Otc;
 using Rwm.Otc.Layout;
 using Rwm.Otc.Systems;
 using Rwm.Otc.Systems.Protocol;
+using Rwm.Otc.Trains;
 using Rwm.Otc.UI;
 using Rwm.Otc.UI.Controls;
+using Rwm.Studio.Plugins.Common;
 using Rwm.Studio.Plugins.Control.Views;
 
 namespace Rwm.Studio.Plugins.Control.Modules
@@ -214,7 +215,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
       private void spcPanel_BlockAssignTrain(object sender, Element e)
       {
-         Rwm.Otc.TrainControl.Train train = StudioContext.Find.Train("Assign train to block");
+         Train train = StudioContext.Find.Train("Assign train to block");
          if (train != null) e.Train = train;
       }
 

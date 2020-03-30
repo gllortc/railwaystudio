@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid.Columns;
-using RailwayStudio.Common;
 using Rwm.Otc;
 using Rwm.Otc.Layout;
-using Rwm.Otc.TrainControl;
+using Rwm.Otc.Trains;
+using Rwm.Studio.Plugins.Common;
 
 namespace Rwm.Studio.Plugins.Control.Views
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Rwm.Otc.Data.ORM;
+using Rwm.Otc.Data;
 using Rwm.Otc.Diagnostics;
 
 namespace Rwm.Otc.Layout
@@ -174,7 +174,7 @@ namespace Rwm.Otc.Layout
       {
          string sql = string.Empty;
 
-         Logger.LogDebug("Rwm.Otc.Layout.DeviceConnection.GetDuplicated()");
+         Logger.LogDebug("Rwm.Otc.Layout.AccessoryDecoderConnection.GetDuplicated()");
 
          try
          {

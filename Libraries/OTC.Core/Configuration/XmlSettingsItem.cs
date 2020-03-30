@@ -8,15 +8,10 @@ namespace Rwm.Otc.Configuration
 
       #region Constructors
 
-      public XmlSettingsItem()
-      {
-         Initialize();
-      }
+      public XmlSettingsItem() { }
 
       public XmlSettingsItem(string key, string value)
       {
-         Initialize();
-
          this.Key = key;
          this.Value = value;
       }
@@ -24,8 +19,6 @@ namespace Rwm.Otc.Configuration
       public XmlSettingsItem(XmlElement node)
       {
          XmlSettingsItem subitem;
-
-         Initialize();
 
          this.Key = node.GetAttribute("key");
          this.Value = node.GetAttribute("value");
@@ -48,17 +41,17 @@ namespace Rwm.Otc.Configuration
       /// <summary>
       /// Gets or sets the unique key for the item.
       /// </summary>
-      public string Key { get; set; }
+      public string Key { get; set; } = string.Empty;
 
       /// <summary>
       /// Gets or sets the value of the item.
       /// </summary>
-      public string Value { get; set; }
+      public string Value { get; set; } = string.Empty;
 
       /// <summary>
       /// Gets or sets the list of subitems contained in the item.
       /// </summary>
-      public Dictionary<string, XmlSettingsItem> Items { get; set; }
+      public Dictionary<string, XmlSettingsItem> Items { get; set; } = new Dictionary<string, XmlSettingsItem>();
 
       #endregion
 
@@ -198,20 +191,6 @@ namespace Rwm.Otc.Configuration
          }
 
          writer.WriteEndElement();
-      }
-
-      #endregion
-
-      #region Private Members
-
-      /// <summary>
-      /// Initializes the instance data.
-      /// </summary>
-      private void Initialize()
-      {
-         this.Key = string.Empty;
-         this.Value = string.Empty;
-         this.Items = new Dictionary<string, XmlSettingsItem>();
       }
 
       #endregion
