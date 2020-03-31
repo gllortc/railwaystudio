@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Dynamic;
+using System.Linq;
 using System.Windows.Forms;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraTab;
@@ -7,7 +10,6 @@ using Rwm.Otc.Diagnostics;
 using Rwm.Otc.Layout;
 using Rwm.Otc.UI;
 using Rwm.Otc.UI.Controls;
-using Rwm.Studio.Plugins.Control.Views;
 
 namespace Rwm.Studio.Plugins.Control.Modules
 {
@@ -20,6 +22,11 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
       private bool HasChanges { get; set; } = false;
 
+      internal bool IsRouteLoaded
+      {
+         get { return (this.Route != null); }
+      }
+
       #endregion
 
       #region Methods
@@ -29,26 +36,15 @@ namespace Rwm.Studio.Plugins.Control.Modules
       /// </summary>
       internal void RouteAdd()
       {
+         if (this.IsRouteLoaded)
+            return;
+
          try
          {
-            RouteEditorView form = new RouteEditorView();
-            form.ShowDialog(this);
+            this.Route = new Route(OTCContext.Project);
 
-            if (form.DialogResult == DialogResult.OK)
-            {
-               this.Route = form.Route;
-               if (this.Route == null) return;
-
-               this.ShowSwitchboards();
-
-               cmdRouteAdd.Enabled = false;
-               cmdRouteEdit.Enabled = false;
-               cmdRouteDelete.Enabled = false;
-               cmdRouteProperties.Enabled = true;
-               cmdRouteSave.Enabled = true;
-               cmdRouteSaveClose.Enabled = true;
-               cmdRouteClose.Enabled = true;
-            }
+            this.MapEntityToView();
+            this.ShowSwitchboards();
          }
          catch (Exception ex)
          {
@@ -61,7 +57,11 @@ namespace Rwm.Studio.Plugins.Control.Modules
       /// </summary>
       internal void RouteEdit()
       {
-         if (tabPanels.TabPages.Count <= 0)
+         if (this.IsRouteLoaded)
+         {
+            return;
+         }
+         else if (OTCContext.Project.Switchboards.Count <= 0)
          {
             MessageBox.Show("There are no switchboards created in the current project.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return;
@@ -77,15 +77,8 @@ namespace Rwm.Studio.Plugins.Control.Modules
             this.Route = grdDataView.GetRow(grdDataView.GetSelectedRows()[0]) as Route;
             if (this.Route == null) return;
 
+            this.MapEntityToView();
             this.ShowSwitchboards();
-
-            cmdRouteAdd.Enabled = false;
-            cmdRouteEdit.Enabled = false;
-            cmdRouteDelete.Enabled = false;
-            cmdRouteProperties.Enabled = true;
-            cmdRouteSave.Enabled = true;
-            cmdRouteSaveClose.Enabled = true;
-            cmdRouteClose.Enabled = true;
          }
          catch (Exception ex)
          {
@@ -126,35 +119,35 @@ namespace Rwm.Studio.Plugins.Control.Modules
          }
       }
 
-      /// <summary>
-      /// Open the selected route for edit.
-      /// </summary>
-      internal void RouteProperties()
-      {
-         if (tabPanels.TabPages.Count <= 0)
-         {
-            MessageBox.Show("There are no switchboards created in the current project.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            return;
-         }
-         else if (grdDataView.SelectedRowsCount <= 0)
-         {
-            MessageBox.Show("You must select the route to edit.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            return;
-         }
+      ///// <summary>
+      ///// Open the selected route for edit.
+      ///// </summary>
+      //internal void RouteProperties()
+      //{
+      //   if (tabPanels.TabPages.Count <= 0)
+      //   {
+      //      MessageBox.Show("There are no switchboards created in the current project.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+      //      return;
+      //   }
+      //   else if (grdDataView.SelectedRowsCount <= 0)
+      //   {
+      //      MessageBox.Show("You must select the route to edit.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+      //      return;
+      //   }
 
-         try
-         {
-            this.Route = grdDataView.GetRow(grdDataView.GetSelectedRows()[0]) as Route;
-            if (this.Route == null) return;
+      //   try
+      //   {
+      //      this.Route = grdDataView.GetRow(grdDataView.GetSelectedRows()[0]) as Route;
+      //      if (this.Route == null) return;
 
-            RouteEditorView form = new RouteEditorView(this.Route);
-            form.ShowDialog(this);
-         }
-         catch (Exception ex)
-         {
-            MessageBox.Show(Logger.LogError(this, ex), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-         }
-      }
+      //      RouteEditorView form = new RouteEditorView(this.Route);
+      //      form.ShowDialog(this);
+      //   }
+      //   catch (Exception ex)
+      //   {
+      //      MessageBox.Show(Logger.LogError(this, ex), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+      //   }
+      //}
 
       internal bool RouteSave()
       {
@@ -196,14 +189,6 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
          try
          {
-            cmdRouteAdd.Enabled = true;
-            cmdRouteEdit.Enabled = true;
-            cmdRouteDelete.Enabled = true;
-            cmdRouteProperties.Enabled = false;
-            cmdRouteSave.Enabled = false;
-            cmdRouteSaveClose.Enabled = false;
-            cmdRouteClose.Enabled = false;
-
             this.RefreshRouteList();
          }
          catch (Exception ex)
@@ -239,7 +224,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
             tabPanels.SelectedTabPage = tabPanels.TabPages[0];
          }
 
-         tabPanels.Visible = true;
+         splitRoute.Visible = true;
          grdData.Visible = false;
 
          Cursor.Current = Cursors.Default;
@@ -255,10 +240,16 @@ namespace Rwm.Studio.Plugins.Control.Modules
          // Clear all previous panels
          tabPanels.TabPages.Clear();
 
-         tabPanels.Visible = false;
+         splitRoute.Visible = false;
          grdData.Visible = true;
 
          Cursor.Current = Cursors.Default;
+      }
+
+      internal void RefreshViewStatus()
+      {
+         rpgRoutes.Enabled = !this.IsRouteLoaded;
+         rpgRoute.Enabled = this.IsRouteLoaded;
       }
 
       #endregion
@@ -284,6 +275,35 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
       #region Private Members
 
+      private void MapEntityToView()
+      {
+         txtName.Text = this.Route.Name;
+         txtNotes.Text = this.Route.Description;
+         spnSwitchTime.EditValue = this.Route.SwitchTime;
+         chkIsBlock.Checked = this.Route.IsBlock;
+         chkBidirectional.Checked = this.Route.IsBidirectionl;
+
+         this.RefreshConnectionsList();
+      }
+
+      private bool MapViewToEntity()
+      {
+         if (string.IsNullOrEmpty(txtName.Text.Trim()))
+         {
+            MessageBox.Show("You must provide a valid name for the route.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            txtName.Focus();
+            return false;
+         }
+
+         this.Route.Name = txtName.Text;
+         this.Route.Description = txtNotes.Text;
+         this.Route.SwitchTime = (int)(decimal)spnSwitchTime.EditValue;
+         this.Route.IsBlock = chkIsBlock.Checked;
+         this.Route.IsBidirectionl = chkBidirectional.Checked;
+
+         return true;
+      }
+
       private void ViewRoutePanel(Switchboard panel,
                                   Route route,
                                   XtraTabControl tabControl,
@@ -301,6 +321,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
          spcPanel.Location = new System.Drawing.Point(5, 5);
          spcPanel.Name = "grdPanel" + panel.ID;
          spcPanel.BorderStyle = BorderStyle.FixedSingle;
+         spcPanel.DesignModeEnabled = true;
 
          // Enable grid events
          if (cellClickEvent != null) spcPanel.CellClick += cellClickEvent;
@@ -357,6 +378,68 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
          grdData.Dock = DockStyle.Fill;
          grdData.Visible = true;
+      }
+
+      private void RefreshConnectionsList()
+      {
+         dynamic connection;
+
+         // Create the connections list
+         List<ExpandoObject> connections = new List<ExpandoObject>();
+         foreach (RouteElement routeElement in this.Route.Elements.OrderBy(o => o.Element?.ToString()))
+         {
+            if (routeElement.Element != null && routeElement.Element.Properties.NumberOfAccessoryConnections > 0)
+            {
+               for (int i = 1; i <= routeElement.Element.Properties.NumberOfAccessoryConnections; i++)
+               {
+                  AccessoryDecoderConnection deviceConnection = AccessoryDecoderConnection.GetByIndex(routeElement.Element, i);
+                  if (deviceConnection != null)
+                  {
+                     connection = new ExpandoObject();
+                     connection.ID = deviceConnection.ID;
+                     connection.IsValid = true;
+                     connection.Name = (deviceConnection.Element != null ? deviceConnection.Element?.ToString() : "Bad connection!");
+                     connection.Device = (deviceConnection.Decoder != null ? deviceConnection.Decoder?.Name : "Bad connection!");
+                     connection.Output = deviceConnection.DecoderOutput;
+                     connection.Address = deviceConnection.Address;
+                     connection.Status = routeElement.Element.Properties.GetStatusDescription(routeElement.AccessoryStatus);
+                  }
+                  else
+                  {
+                     connection = new ExpandoObject();
+                     connection.ID = 0;
+                     connection.IsValid = false;
+                     connection.Name = routeElement.Element.ToString();
+                     connection.Device = "-";
+                     connection.Output = "-";
+                     connection.Address = "-";
+                     connection.Status = routeElement.Element.Properties.GetStatusDescription(routeElement.AccessoryStatus);
+                  }
+
+                  connections.Add(connection);
+               }
+            }
+         }
+
+         grdConnect.BeginUpdate();
+
+         grdConnectView.Columns.Clear();
+         grdConnectView.Columns.Add(new GridColumn() { Caption = "ID", Visible = false, FieldName = "ID" });
+         grdConnectView.Columns.Add(new GridColumn() { Caption = "Element", Visible = true, FieldName = "Name", Width = 200 });
+         grdConnectView.Columns.Add(new GridColumn() { Caption = "Status", Visible = true, FieldName = "Status", Width = 120 });
+         grdConnectView.Columns.Add(new GridColumn() { Caption = "Device", Visible = true, FieldName = "Device", Width = 120 });
+         grdConnectView.Columns.Add(new GridColumn() { Caption = "DecoderInput", Visible = true, FieldName = "DecoderInput", Width = 80 });
+         grdConnectView.Columns.Add(new GridColumn() { Caption = "Address", Visible = true, FieldName = "Address", Width = 80 });
+
+         grdConnectView.Columns["DecoderInput"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         grdConnectView.Columns["DecoderInput"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
+         grdConnectView.Columns["Address"].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         grdConnectView.Columns["Address"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
+         grdConnect.DataSource = connections;
+
+         grdConnect.EndUpdate();
       }
 
       #endregion

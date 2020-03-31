@@ -44,10 +44,10 @@ namespace Rwm.Otc.Layout
 
       #region Constructors
 
-      public Element()
-      {
-         this.Initialize();
-      }
+      /// <summary>
+      /// Return a new instance of <see cref="Element"/>.
+      /// </summary>
+      public Element() { }
 
       #endregion
 
@@ -120,10 +120,15 @@ namespace Rwm.Otc.Layout
       public string Name { get; set; }
 
       /// <summary>
-      /// Gets the current element feedback status.
+      /// Gets the current element status as an accessory element.
       /// </summary>
       [ORMProperty("status")]
-      public int AccessoryStatus { get; private set; }
+      public int AccessoryStatus { get; private set; } = Element.STATUS_UNDEFINED;
+
+      /// <summary>
+      /// Gets the route element activated in the element.
+      /// </summary>
+      public RouteElement RouteElement { get; set; }
 
       /// <summary>
       /// Gets the current element feedback status.
@@ -168,11 +173,6 @@ namespace Rwm.Otc.Layout
       public bool IsBlockOccupied { get; private set; }
 
       /// <summary>
-      /// Gets or sets a value indicating if the block is activated in currect active route.
-      /// </summary>
-      public bool IsActivatedInRoute { get; private set; }
-
-      /// <summary>
       /// Gets a value indicating if the element have one or more digital connections.
       /// </summary>
       public bool IsConnected
@@ -200,6 +200,7 @@ namespace Rwm.Otc.Layout
       /// <summary>
       /// Returns the image to show in switchboard panel.
       /// </summary>
+      /// <param name="designMode">Indicate if the switchboard is in design mode.</param>
       /// <returns>The requested image.</returns>
       public Image GetImage(ITheme theme, bool designMode)
       {
@@ -308,20 +309,13 @@ namespace Rwm.Otc.Layout
       /// Send a request to the digital system to acquire next status.
       /// </summary>
       /// <returns>The requested status for the element.</returns>
-      public int RequestAccessoryNextStatus()
+      public void RequestAccessoryNextStatus()
       {
-         int newStatus;
-
          if (!this.Properties.IsAccessory)
-            return Element.STATUS_UNDEFINED;
+            return;
 
          // Get status to acquire
-         if (this.AccessoryStatus <= Element.STATUS_UNDEFINED)
-            newStatus = 1;
-         else if (this.AccessoryStatus == this.Properties.AccessoryMaxStats)
-            newStatus = 1;
-         else
-            newStatus = this.AccessoryStatus + 1;
+         int newStatus = this.GetAccessoryNextStatus(this.AccessoryStatus);
 
          // Transform status into a requests
          if (this.Properties.NumberOfAccessoryConnections == 1)
@@ -333,8 +327,6 @@ namespace Rwm.Otc.Layout
          {
 
          }
-
-         return this.AccessoryStatus;
       }
 
       /// <summary>
@@ -366,35 +358,45 @@ namespace Rwm.Otc.Layout
       /// <param name="status">New feedback status to be adopted by the element.</param>
       public void SetFeedbackStatus(bool status)
       {
+         if (!this.Properties.IsFeedback)
+            return;
+
          this.FeedbackStatus = status;
 
          // Raise project events
          OTCContext.Project.ElementImageChanged(this);
       }
 
-      /// <summary>
-      /// Set next status for the element.
-      /// </summary>
-      /// <returns>A value indicating if the element must be repainted.</returns>
-      public void SetRouteNextStatus()
-      {
-         this.SetInRoute(!this.IsActivatedInRoute);
-      }
+      ///// <summary>
+      ///// Set route next status for the element.
+      ///// </summary>
+      ///// <returns>A value indicating if the element must be repainted.</returns>
+      //public void SetRouteNextStatus()
+      //{
+      //   if (!this.Properties.IsRouteable) 
+      //      return;
 
-      /// <summary>
-      /// Activate/deactivate the element in a route). 
-      /// </summary>
-      /// <param name="activated">A value indicating if the element will be activated or deactivated.</param>
-      public void SetInRoute(bool activated)
-      {
-         if (!this.Properties.IsRouteable)
-            return;
+      //   int newStatus = this.GetAccessoryNextStatus(this.RouteStatus);
+      //   if (newStatus <= 1) this.IsActivatedInRoute = !this.IsActivatedInRoute;
 
-         this.IsActivatedInRoute = activated;
+      //   // Raise project events
+      //   OTCContext.Project.ElementImageChanged(this);
+      //}
 
-         // Raise project events
-         OTCContext.Project.ElementImageChanged(this);
-      }
+      ///// <summary>
+      ///// Activate/deactivate the element in a route). 
+      ///// </summary>
+      ///// <param name="activated">A value indicating if the element will be activated or deactivated.</param>
+      //public void SetInRoute(bool activated)
+      //{
+      //   if (!this.Properties.IsRouteable)
+      //      return;
+
+      //   this.IsActivatedInRoute = activated;
+
+      //   // Raise project events
+      //   OTCContext.Project.ElementImageChanged(this);
+      //}
 
       /// <summary>
       /// Return a <see cref="System.String"/> representing the name of the element.
@@ -506,9 +508,22 @@ namespace Rwm.Otc.Layout
 
       #region Private Members
 
-      private void Initialize()
+      /// <summary>
+      /// Gets the next status for the specified current status.
+      /// </summary>
+      private int GetAccessoryNextStatus(int currentStatus = Element.STATUS_UNDEFINED)
       {
-         this.AccessoryStatus = Element.STATUS_UNDEFINED;
+         int newStatus;
+
+         // Get status to acquire
+         if (currentStatus <= Element.STATUS_UNDEFINED)
+            newStatus = 1;
+         else if (this.AccessoryStatus == this.Properties.AccessoryMaxStats)
+            newStatus = 1;
+         else
+            newStatus = currentStatus + 1;
+
+         return newStatus;
       }
 
       #endregion

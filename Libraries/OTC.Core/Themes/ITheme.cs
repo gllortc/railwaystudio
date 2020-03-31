@@ -10,6 +10,8 @@ namespace Rwm.Otc.Themes
    public interface ITheme
    {
 
+      #region Properties
+
       /// <summary>
       /// Gets the theme unique identifier (GUID).
       /// </summary>
@@ -35,6 +37,10 @@ namespace Rwm.Otc.Themes
       /// </summary>
       Size ElementSize { get; }
 
+      #endregion
+
+      #region Methods
+
       /// <summary>
       /// Gets the element image in function of his status.
       /// </summary>
@@ -54,8 +60,11 @@ namespace Rwm.Otc.Themes
       /// Gets the element image in function of his status.
       /// </summary>
       /// <param name="element">Element.</param>
-      /// <param name="status">Ther status to be represented.</param>
+      /// <param name="status">The status to be represented.</param>
       /// <returns>An image representing the element and all his properties.</returns>
       Image GetElementImage(Element element, int status);
+
+      #endregion
+
    }
 }

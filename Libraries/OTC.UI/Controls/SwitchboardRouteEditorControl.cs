@@ -1,4 +1,4 @@
-﻿using System.Drawing;
+﻿using System;
 using System.Windows.Forms;
 using Rwm.Otc.Layout;
 using Rwm.Otc.Utils;
@@ -16,17 +16,12 @@ namespace Rwm.Otc.UI.Controls
       /// <summary>
       /// Returns a new instance of <see cref="SwitchboardRouteEditorControl"/>.
       /// </summary>
-      public SwitchboardRouteEditorControl() : base(false) { }
-
-      /// <summary>
-      /// Returns a new instance of <see cref="SwitchboardRouteEditorControl"/>.
-      /// </summary>
       /// <param name="switchboard">Switchboard to paint.</param>
       /// <param name="route">Route to edit in control.</param>
       public SwitchboardRouteEditorControl(Switchboard switchboard, Route route = null)
          : base(switchboard, false)
       {
-         this.Initialize(route);
+         this.Route = route;
       }
 
       #endregion
@@ -36,152 +31,7 @@ namespace Rwm.Otc.UI.Controls
       /// <summary>
       /// Gets the route that is shown in the control.
       /// </summary>
-      public Route Route { get; private set; }
-
-      ///// <summary>
-      ///// Gets the panel shown in the control.
-      ///// </summary>
-      //public Switchboard Switchboard { get; private set; }
-
-      //public Color SelectedCellColor { get; set; }
-
-      //public Color SwitchboardPanelBackgroundColor { get; set; }
-
-      ///// <summary>
-      ///// Gets the coordinates of the current selected cell.
-      ///// </summary>
-      //public Coordinates SelectedCell { get; private set; }
-
-      #endregion
-
-      #region Methods
-
-      //public void Draw()
-      //{
-      //   this.SwitchboardPanelControl_Paint(this, new PaintEventArgs(this.CreateGraphics(), new Rectangle()));
-      //}
-
-      //public void RepaintElement(Coordinates coords)
-      //{
-      //   ElementBase element;
-      //   Rectangle rect = new Rectangle(this.GetElementPosition(coords), OTCContext.Project.Theme.ElementSize);
-
-      //   using (Graphics g = this.CreateGraphics())
-      //   {
-      //      // Delete cell drawings
-      //      this.RemoveCellImage(g, rect);
-
-      //      // If the cell have a element, redraw the element
-      //      element = OTCContext.Project.Elements.Get(this.Switchboard, coords);
-      //      if (element != null)
-      //      {
-      //         this.DrawCellImage(g, rect.Location, element);
-      //      }
-
-      //      // Draw a cell highlight layer
-      //      if (this.SelectedCell != null)
-      //      {
-      //         if (this.SelectedCell.Equals(coords))
-      //         {
-      //            this.DrawCellHighlight(g, rect);
-      //         }
-      //      }
-      //   }
-      //}
-
-      //public void SelectCell(int col, int row)
-      //{
-      //   this.SelectCell(new Coordinates(col, row));
-      //}
-
-      //public void SelectCell(Coordinates coords)
-      //{
-      //   ElementBase element;
-      //   Rectangle rect = new Rectangle(this.GetElementPosition(coords), OTCContext.Project.Theme.ElementSize);
-
-      //   using (Graphics g = this.CreateGraphics())
-      //   {
-      //      if (this.SelectedCell != null)
-      //      {
-      //         Rectangle selrect = new Rectangle(GetElementPosition(this.SelectedCell), OTCContext.Project.Theme.ElementSize);
-
-      //         // Delete cell drawings
-      //         this.RemoveCellImage(g, selrect);
-
-      //         // If the cell have a element, redraw the element
-      //         element = OTCContext.Project.Elements.Get(this.Switchboard, this.SelectedCell);
-      //         if (element != null)
-      //         {
-      //            this.DrawCellImage(g, selrect.Location, element);
-      //         }
-      //      }
-
-      //      // Draw a cell highlight layer
-      //      this.DrawCellHighlight(g, rect);
-      //   }
-
-      //   // Save the current selected cell position
-      //   this.SelectedCell = coords;
-      //}
-
-      //public void UnselectCell(Coordinates coords)
-      //{
-      //   ElementBase element;
-      //   Rectangle rect = new Rectangle(GetElementPosition(coords), OTCContext.Project.Theme.ElementSize);
-
-      //   using (Graphics g = this.CreateGraphics())
-      //   {
-      //      // Delete cell drawings
-      //      this.RemoveCellImage(g, rect);
-
-      //      // If the cell have a element, redraw the element
-      //      element = OTCContext.Project.Elements.Get(this.Switchboard, coords);
-      //      if (element != null)
-      //      {
-      //         this.DrawCellImage(g, rect.Location, element);
-      //      }
-      //   }
-
-      //   this.SelectedCell = null;
-      //}
-
-      //public void UnselectCell()
-      //{
-      //   if (this.SelectedCell != null)
-      //   {
-      //      this.UnselectCell(this.SelectedCell);
-      //   }
-      //}
-
-      public void SetRouteCell(Coordinates coords)
-      {
-         Element element;
-         Rectangle rect = new Rectangle(this.GetElementPosition(coords), OTCContext.Project.Theme.ElementSize);
-
-         using (Graphics g = this.CreateGraphics())
-         {
-            if (this.SelectedCell != null)
-            {
-               Rectangle selrect = new Rectangle(this.GetElementPosition(this.SelectedCell), OTCContext.Project.Theme.ElementSize);
-
-               // Delete cell drawings
-               this.RemoveCellImage(g, selrect);
-
-               // If the cell have a element, redraw the element
-               element = this.Switchboard.GetBlock(this.SelectedCell);
-               if (element != null)
-               {
-                  this.DrawCellImage(g, selrect.Location, element);
-               }
-            }
-
-            // Draw a cell highlight layer
-            this.DrawCellHighlight(g, rect);
-         }
-
-         // Save the current selected cell position
-         this.SelectedCell = coords;
-      }
+      public Route Route { get; private set; } = null;
 
       #endregion
 
@@ -250,14 +100,55 @@ namespace Rwm.Otc.UI.Controls
          }
       }
 
+      protected void OnRouteElementRemovedChanged(object sender, EventArgs e)
+      {
+         ElementEventArgs args = null;
+         if (sender is ToolStripMenuItem item) args = item.Tag as ElementEventArgs;
+
+         if (args != null && args.Element.RouteElement != null)
+         {
+            this.Route.RemoveByElement(args.Element);
+            args.Element.RouteElement = null;
+
+            this.RepaintCoordinates(args.Element.Coordinates);
+         }
+      }
+
+      protected void OnAccessoryStatusChanged(object sender, EventArgs e)
+      {
+         ElementEventArgs args = null;
+         if (sender is ToolStripMenuItem item) args = item.Tag as ElementEventArgs;
+
+         if (args != null)
+         {
+            if (args.Element.RouteElement == null)
+            {
+               args.Element.RouteElement = new RouteElement(this.Route, args.Element);
+               this.Route.Elements.Add(args.Element.RouteElement);
+            }
+
+            args.Element.RouteElement.AccessoryStatus = args.NewAccessoryStatus;
+
+            this.RepaintCoordinates(args.Element.Coordinates);
+         }
+      }
+
+      protected void OnElementActivatedChanged(object sender, EventArgs e)
+      {
+         ElementEventArgs args = null;
+         if (sender is ToolStripMenuItem item) args = item.Tag as ElementEventArgs;
+
+         if (args != null && args.Element.RouteElement != null)
+         {
+            args.Element.RouteElement.Activated = !args.Element.RouteElement.Activated;
+
+            this.RepaintCoordinates(args.Element.Coordinates);
+         }
+      }
+
       #endregion
 
       #region Private Members
-
-      private void Initialize(Route route)
-      {
-         this.Route = route;
-      }
 
       internal override void BeforePaint()
       {
@@ -269,39 +160,77 @@ namespace Rwm.Otc.UI.Controls
 
       private void DesignRouteClickDispatcher(Element element)
       {
-         RouteElement re = null;
-
          // Avoid add no routebale elements to the route
-         if (element == null) return;
+         if (element == null || !element.Properties.IsRouteable) 
+            return;
 
-         // Set next route status
-         element.SetRouteNextStatus();
-
-         if (!element.IsActivatedInRoute)
+         if (element.Properties.IsAccessory)
          {
-            this.Route.RemoveByElement(element);
+            this.ShowAccessoryMenu(element);
          }
          else
          {
-            re = this.Route.GetByElement(element);
-            if (re == null)
+            // Get the corresponding route element
+            RouteElement routeElement = this.Route.GetByElement(element);
+            if (routeElement == null)
             {
-               re = new RouteElement();
-               re.ID = element.ID;
-               re.Element = element;
-               re.Route = this.Route;
+               routeElement = new RouteElement(this.Route, element);
+               this.Route.Add(routeElement);
+               element.RouteElement = routeElement;
+               // RouteElement.Save(routeElement);
             }
-            re.AccessoryStatus = element.AccessoryStatus;
 
-            this.Route.Add(re);
+            routeElement.SetNextStatus();
+
+            if (!routeElement.IsValid)
+            {
+               this.Route.RemoveByElement(element);
+               // RouteElement.Delete(routeElement);
+               element.RouteElement = null;
+            }
+
+            this.RepaintCoordinates(element.Coordinates);
          }
-
-         this.RepaintCoordinates(element.Coordinates);
       }
 
-      private void ClearRoute()
+      private void ShowAccessoryMenu(Element element)
       {
-         //this.CurrentRoute = new List<BlockBase>();
+         if (element == null) return;
+
+         ToolStripMenuItem item;
+         ContextMenuStrip menu = new ContextMenuStrip();
+
+         item = new ToolStripMenuItem("Remove from route", 
+                        Properties.Resources.ICO_REMOVE_16,
+                        new EventHandler(OnRouteElementRemovedChanged));
+         item.Enabled = (element.RouteElement != null);
+         item.Tag = new ElementEventArgs(element);
+         menu.Items.Add(item);
+
+         menu.Items.Add("-");
+
+         foreach (int status in element.GetAllAccessoryStatusValues())
+         {
+            item = new ToolStripMenuItem(element.Properties.GetStatusDescription(status), 
+                                         element.GetImage(OTCContext.Project.Theme, false),
+                                         new EventHandler(OnAccessoryStatusChanged));
+            item.Tag = new ElementEventArgs(element, status);
+            item.CheckOnClick = true;
+            item.Checked = (element.RouteElement == null ? false : (element.RouteElement.AccessoryStatus == status));
+
+            menu.Items.Add(item);
+         }
+
+         menu.Items.Add("-");
+
+         item = new ToolStripMenuItem("Show activated in route", null, new EventHandler(OnElementActivatedChanged));
+         item.Tag = new ElementEventArgs(element);
+         item.CheckOnClick = true;
+         item.Checked = (element.RouteElement != null ? element.RouteElement.Activated : false);
+         item.Enabled = (element.RouteElement != null);
+         menu.Items.Add(item);
+
+         menu.Show(Cursor.Position);
       }
 
       #endregion

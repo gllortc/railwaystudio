@@ -1,9 +1,9 @@
-﻿using Rwm.Otc.Diagnostics;
+﻿using System;
+using System.Windows.Forms;
+using Rwm.Otc.Diagnostics;
 using Rwm.Otc.Layout;
 using Rwm.Otc.Systems;
 using Rwm.Otc.Utils;
-using System;
-using System.Windows.Forms;
 
 namespace Rwm.Otc.UI.Controls
 {
@@ -14,11 +14,6 @@ namespace Rwm.Otc.UI.Controls
    {
 
       #region Constructors
-
-      /// <summary>
-      /// Returns a new instance of <see cref="SwitchboardCommandControl"/>.
-      /// </summary>
-      public SwitchboardCommandControl() : base(false) { }
 
       /// <summary>
       /// Returns a new instance of <see cref="SwitchboardCommandControl"/>.

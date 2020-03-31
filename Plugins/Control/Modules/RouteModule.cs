@@ -89,9 +89,16 @@ namespace Rwm.Studio.Plugins.Control.Modules
       private void RouteModule_Load(object sender, System.EventArgs e)
       {
          grdData.Dock = System.Windows.Forms.DockStyle.Fill;
-         tabPanels.Dock = System.Windows.Forms.DockStyle.Fill;
+         splitRoute.Dock = System.Windows.Forms.DockStyle.Fill;
 
          this.HasChanges = false;
+
+         this.HideSwitchboards();
+      }
+
+      private void GrdDataView_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+      {
+         StudioContext.UI.DrawRowIcon(Properties.Resources.ICO_ROUTE_16, e);
       }
 
       private void GrdData_DoubleClick(object sender, System.EventArgs e)
@@ -114,11 +121,6 @@ namespace Rwm.Studio.Plugins.Control.Modules
          this.RouteDelete();
       }
 
-      private void CmdRouteProperties_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-      {
-         this.RouteProperties();
-      }
-
       private void CmdRouteSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          this.RouteSave();
@@ -129,7 +131,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
          this.RouteClose();
       }
 
-      #endregion
+        #endregion
 
-   }
+    }
 }

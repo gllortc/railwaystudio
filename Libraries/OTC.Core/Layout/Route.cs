@@ -183,13 +183,13 @@ namespace Rwm.Otc.Layout
             {
                if (element.Properties.IsRouteable)
                {
-                  element.SetInRoute(false);
+                  element.RouteElement = null;
 
                   foreach (RouteElement routeElem in this.Project.ActiveRoute.Elements)
                   {
                      if (routeElem.Element == element)
                      {
-                        element.SetInRoute(true);
+                        element.RouteElement = routeElem;
 
                         if (element.Properties.IsAccessory)
                         {

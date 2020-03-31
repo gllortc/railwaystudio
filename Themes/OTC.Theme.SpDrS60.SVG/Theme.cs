@@ -265,23 +265,26 @@ namespace Rwm.Otc.Themes
       /// B[block_type_number]_[acc_status]_[fb_status]_[route_active].svg
       /// 
       /// </remarks>
-      private string GetResourceName(Element block, bool designMode)
+      private string GetResourceName(Element element, bool designMode)
       {
-         if (designMode)
+         if (designMode && element.RouteElement == null)
          {
             return string.Format("B{0}_{1}_{2}_{3}",
-                                 ((int)block.Properties.ID).ToString("00"),        // Main element type
-                                 Element.STATUS_UNDEFINED.ToString("00"),     // Accessory status
-                                 Element.STATUS_UNDEFINED.ToString("00"),     // Feedback status
-                                 (block.IsActivatedInRoute ? "1" : "0"));           // Activated in route
+                                 ((int)element.Properties.ID).ToString("00"),                                           // Main element type
+                                 Element.STATUS_UNDEFINED.ToString("00"),                                               // Accessory status
+                                 Element.STATUS_UNDEFINED.ToString("00"),                                               // Feedback status
+                                 (element.RouteElement == null ? "0" : (element.RouteElement.Activated ? "1" : "0")));  // Activated in route
          }
          else
          {
+            int status = (element.RouteElement == null ? element.AccessoryStatus : element.RouteElement.AccessoryStatus);
+            int activated = (element.RouteElement == null ? 0 : (element.RouteElement.Activated ? 1 : 0));
+
             return string.Format("B{0}_{1}_{2}_{3}",
-                                 ((int)block.Properties.ID).ToString("00"),        // Main element type
-                                 block.AccessoryStatus.ToString("00"),            // Accessory status
-                                 (block.FeedbackStatus ? 1 : 0).ToString("00"),   // Accessory status
-                                 (block.IsActivatedInRoute ? "1" : "0"));           // Activated in route
+                                 ((int)element.Properties.ID).ToString("00"),       // Main element type
+                                 status.ToString("00"),                             // Accessory status
+                                 (element.FeedbackStatus ? 1 : 0).ToString("00"),   // Accessory status
+                                 activated.ToString("0"));                          // Activated in route
          }
       }
 

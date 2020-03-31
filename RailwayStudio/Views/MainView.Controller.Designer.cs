@@ -174,6 +174,7 @@ namespace Rwm.Studio.Views
          cmdProjectClose.Enabled = this.IsProjectLoaded;
 
          cmdBarButtonProject.Caption = (this.IsProjectLoaded ? OTCContext.Project.Name : "<no project>");
+         cmdBarButtonProject.Enabled = this.IsProjectLoaded;
 
          nbcPlugins.Enabled = this.IsProjectLoaded;
       }

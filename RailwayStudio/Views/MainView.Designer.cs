@@ -28,10 +28,11 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Rwm.Studio.Views.SplashView), true, true);
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
          this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
-         this.applicationMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu();
+         this.applicationMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
          this.cmdFileNew = new DevExpress.XtraBars.BarButtonItem();
          this.cmdFileOpen = new DevExpress.XtraBars.BarButtonItem();
          this.cmdFileSettings = new DevExpress.XtraBars.BarButtonItem();
@@ -49,19 +50,19 @@
          this.rpgView = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.repositoryItemImageComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
          this.riCboProjectSelect = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
-         this.imageList = new System.Windows.Forms.ImageList();
+         this.imageList = new System.Windows.Forms.ImageList(this.components);
          this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-         this.dockManager = new DevExpress.XtraBars.Docking.DockManager();
+         this.dockManager = new DevExpress.XtraBars.Docking.DockManager(this.components);
          this.hideContainerBottom = new DevExpress.XtraBars.Docking.AutoHideContainer();
          this.dockPanelConsole = new DevExpress.XtraBars.Docking.DockPanel();
          this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-         this.logConsole = new Plugins.Common.Controls.ConsoleControl();
+         this.logConsole = new Rwm.Studio.Plugins.Common.Controls.ConsoleControl();
          this.dockPanelToolbox = new DevExpress.XtraBars.Docking.DockPanel();
          this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
          this.nbcPlugins = new DevExpress.XtraNavBar.NavBarControl();
-         this.docManager = new DevExpress.XtraBars.Docking2010.DocumentManager();
-         this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
-         this.defaultLookAndFeel = new DevExpress.LookAndFeel.DefaultLookAndFeel();
+         this.docManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
+         this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
+         this.defaultLookAndFeel = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
          ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.applicationMenu)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox1)).BeginInit();
@@ -234,6 +235,7 @@
          // cmdBarButtonProject
          // 
          this.cmdBarButtonProject.Caption = "<no project>";
+         this.cmdBarButtonProject.Hint = "Project properties";
          this.cmdBarButtonProject.Id = 6;
          this.cmdBarButtonProject.ImageOptions.Image = global::Rwm.Studio.Properties.Resources.ICO_PROJECT_16;
          this.cmdBarButtonProject.ImageOptions.LargeImage = global::Rwm.Studio.Properties.Resources.ICO_PROJECT_16;

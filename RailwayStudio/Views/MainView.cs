@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using DevExpress.Utils;
 using DevExpress.XtraBars;
 using Rwm.Otc;
 using Rwm.Studio.Plugins.Common;
@@ -78,35 +77,6 @@ namespace Rwm.Studio.Views
       private void FrmMain_Load(object sender, System.EventArgs e)
       {
          this.ProjectOpenLast();
-
-         if (OTCContext.Project != null)
-         {
-            ToolTipTitleItem ttti = new ToolTipTitleItem();
-            ttti.Appearance.Image = Properties.Resources.ICO_PROJECT_16;
-            ttti.Appearance.Options.UseImage = true;
-            ttti.Image = Properties.Resources.ICO_PROJECT_16;
-            ttti.Text = OTCContext.Project.Name;
-
-            ToolTipItem tti = new ToolTipItem();
-            tti.LeftIndent = 6;
-            tti.Text = string.Format("File: <i>{0}</i><br>Location: <i>{1}</i>",
-                                     System.IO.Path.GetFileName(OTCContext.Project.Filename),
-                                     System.IO.Path.GetDirectoryName(OTCContext.Project.Filename));
-
-            SuperToolTip stp = new SuperToolTip();
-            stp.AllowHtmlText = DefaultBoolean.True;
-            stp.Items.Add(ttti);
-            stp.Items.Add(tti);
-
-            cmdBarButtonProject.SuperTip = stp;
-            cmdBarButtonProject.Caption = OTCContext.Project.Name;
-
-            nbcPlugins.Enabled = true;
-         }
-         else
-         {
-            cmdBarButtonProject.Caption = "<no project>";
-         }
       }
 
       private void MainView_Shown(object sender, EventArgs e)

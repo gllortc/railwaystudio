@@ -161,7 +161,7 @@ namespace Rwm.Otc.Layout
       {
          foreach (Element element in this.Elements)
          {
-            element.SetInRoute(false);
+            element.RouteElement = null;
          }
       }
 

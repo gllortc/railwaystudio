@@ -76,6 +76,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\cross_16.png" />
     <Content Include="Resources\favicon.ico" />
     <None Include="Resources\lightning_16.png" />
     <None Include="Resources\toolbar_add.png" />

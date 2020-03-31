@@ -6,6 +6,9 @@ using Rwm.Otc.Utils;
 
 namespace Rwm.Otc.UI.Controls
 {
+   /// <summary>
+   /// Base class to develop specialized classes to represent switchboards.
+   /// </summary>
    public abstract class SwitchboardControlBase : DevExpress.XtraEditors.XtraPanel
    {
 
@@ -23,18 +26,15 @@ namespace Rwm.Otc.UI.Controls
       {
          InitializeComponent();
 
-         this.Initialize();
-         this.Mode = designMode;
+         this.DesignModeEnabled = designMode;
       }
 
       public SwitchboardControlBase(Switchboard sb, bool designMode)
       {
          InitializeComponent();
 
-         this.Initialize();
-
          this.Switchboard = sb;
-         this.Mode = designMode;
+         this.DesignModeEnabled = designMode;
       }
 
       #endregion
@@ -46,28 +46,39 @@ namespace Rwm.Otc.UI.Controls
       /// </summary>
       public Switchboard Switchboard { get; internal set; }
 
-      public Color SelectedCellColor { get; set; }
+      /// <summary>
+      /// Gets or sets the switchboards selected cells color.
+      /// </summary>
+      public Color SelectedCellColor { get; set; } = SwitchboardCommandControl.COLOR_SELECTED;
 
-      public Color SwitchboardPanelBackgroundColor { get; set; }
+      /// <summary>
+      /// Gets or sets the switchboards background color.
+      /// </summary>
+      public Color SwitchboardPanelBackgroundColor { get; set; } = SwitchboardCommandControl.COLOR_PANEL;
+
+      /// <summary>
+      /// Gets or sets the active route in the layout.
+      /// </summary>
+      public Route ActiveRoute { get; set; } = null;
 
       /// <summary>
       /// Gets the coordinates of the current selected cell.
       /// </summary>
-      public Coordinates SelectedCell { get; internal set; }
+      public Coordinates SelectedCell { get; internal set; } = null;
 
       /// <summary>
       /// Gets a value indicating if the switchboard is in design mode.
       /// </summary>
-      public bool Mode { get; private set; }
+      public bool DesignModeEnabled { get; set; } = false;
 
       #endregion
 
       #region Methods
 
-      public virtual void Draw()
-      {
-         this.SwitchboardControlBase_Paint(this, new PaintEventArgs(this.CreateGraphics(), new Rectangle()));
-      }
+      //public virtual void Draw()
+      //{
+      //   this.SwitchboardControlBase_Paint(this, new PaintEventArgs(this.CreateGraphics(), new Rectangle()));
+      //}
 
       public void RepaintCoordinates(IEnumerable<Coordinates> coords)
       {
@@ -76,28 +87,32 @@ namespace Rwm.Otc.UI.Controls
 
       public void RepaintCoordinates(Coordinates coords)
       {
-         int widthInBlocks = 1;
-         Coordinates paintCoords = null;
+         int widthInBlocks;
          Element element;
+         RouteElement routeElement = null;
          Rectangle rect = new Rectangle(0, 0, 0, 0);
+         Coordinates paintCoords;
+
+         // Get involved elements
+         element = this.Switchboard.GetBlock(coords);
+         if (this.ActiveRoute != null && element != null) routeElement = this.ActiveRoute.GetByElement(element);
 
          // Get the element placed in coordinates
-         element = this.Switchboard.GetBlock(coords);
-         widthInBlocks = (element != null ? element.Properties.Width : 1);
-         paintCoords = (element != null ? element.Coordinates : coords);
+         widthInBlocks = element != null ? element.Properties.Width : 1;
+         paintCoords = element != null ? element.Coordinates : coords;
 
          using (Graphics g = this.CreateGraphics())
          {
             for (int i = 1; i < widthInBlocks + 1; i++)
             {
                // Get the cell rectabgle
-               rect = new Rectangle(this.GetElementPosition(this.GetRealCoordinates( paintCoords)), OTCContext.Project.Theme.ElementSize);
+               rect = new Rectangle(this.GetElementPosition(this.GetRealCoordinates(paintCoords)), OTCContext.Project.Theme.ElementSize);
 
                // Delete cell previous drawing
                this.RemoveCellImage(g, rect);
 
                // Paint the element (if exists in that position)
-               if (element != null) this.DrawCellImage(g, rect.Location, element);
+               if (element != null) this.DrawCellImage(g, rect.Location, element, routeElement);
 
                paintCoords.X++;
             }
@@ -110,11 +125,20 @@ namespace Rwm.Otc.UI.Controls
          }
       }
 
+      /// <summary>
+      /// Select the specified switchboard cell.
+      /// </summary>
+      /// <param name="col">Cell column.</param>
+      /// <param name="row">Cell row.</param>
       public void SelectCell(int col, int row)
       {
          this.SelectCell(new Coordinates(col, row));
       }
 
+      /// <summary>
+      /// Select the specified switchboard cell.
+      /// </summary>
+      /// <param name="coords">Cell <see cref="Coordinates"/>.</param>
       public virtual void SelectCell(Coordinates coords)
       {
          Element element;
@@ -145,6 +169,10 @@ namespace Rwm.Otc.UI.Controls
          this.SelectedCell = coords;
       }
 
+      /// <summary>
+      /// Unselect the specified cell.
+      /// </summary>
+      /// <param name="coords">Cell <see cref="Coordinates"/>.</param>
       public void UnselectCell(Coordinates coords)
       {
          Element element;
@@ -166,6 +194,9 @@ namespace Rwm.Otc.UI.Controls
          this.SelectedCell = null;
       }
 
+      /// <summary>
+      /// Unselect all selected cells.
+      /// </summary>
       public void UnselectCell()
       {
          if (this.SelectedCell != null)
@@ -212,9 +243,9 @@ namespace Rwm.Otc.UI.Controls
       /// <summary>
       /// Draw the element image on the cell.
       /// </summary>
-      internal void DrawCellImage(Graphics g, Point point, Element element)
+      internal void DrawCellImage(Graphics g, Point point, Element element, RouteElement routeElement = null)
       {
-         g.DrawImage(element.GetImage(OTCContext.Project.Theme, this.Mode), point);
+         g.DrawImage(element.GetImage(OTCContext.Project.Theme, this.DesignModeEnabled), point);
       }
 
       internal Point GetElementPosition(Coordinates coords)
@@ -236,6 +267,8 @@ namespace Rwm.Otc.UI.Controls
          // Call virtual method to override in case 
          // to need to make some tasks before to paint
          this.BeforePaint();
+
+         this.SuspendLayout();
 
          using (e.Graphics)
          {
@@ -288,6 +321,8 @@ namespace Rwm.Otc.UI.Controls
 
             e.Graphics.Dispose();
          }
+
+         this.ResumeLayout();
       }
 
       /// <summary>
@@ -331,20 +366,8 @@ namespace Rwm.Otc.UI.Controls
          // 
          // SwitchboardControlBase
          // 
-         this.Paint += new System.Windows.Forms.PaintEventHandler(this.SwitchboardControlBase_Paint);
+         this.Paint += new PaintEventHandler(this.SwitchboardControlBase_Paint);
          this.ResumeLayout(false);
-      }
-
-      /// <summary>
-      /// Initialize the instance data.
-      /// </summary>
-      private void Initialize()
-      {
-         this.Switchboard = null;
-         this.SelectedCell = null;
-
-         this.SelectedCellColor = SwitchboardCommandControl.COLOR_SELECTED;
-         this.SwitchboardPanelBackgroundColor = SwitchboardCommandControl.COLOR_PANEL;
       }
 
       #endregion

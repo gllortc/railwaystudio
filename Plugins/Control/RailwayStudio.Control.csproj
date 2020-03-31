@@ -155,9 +155,6 @@
     <Compile Include="Controls\DesignToolboxControl.Designer.cs">
       <DependentUpon>DesignToolboxControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ElementImageComboBoxEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Controls\IActionParametersEditor.cs" />
     <Compile Include="Controls\InputEditorControl.cs">
       <SubType>UserControl</SubType>
@@ -269,12 +266,6 @@
     </Compile>
     <Compile Include="Views\AccesoryConnectionFindView.Designer.cs">
       <DependentUpon>AccesoryConnectionFindView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\RouteEditorView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\RouteEditorView.Designer.cs">
-      <DependentUpon>RouteEditorView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\SoundEditorView.cs">
       <SubType>Form</SubType>
@@ -397,9 +388,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\AccesoryConnectionFindView.resx">
       <DependentUpon>AccesoryConnectionFindView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\RouteEditorView.resx">
-      <DependentUpon>RouteEditorView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SoundEditorView.resx">
       <DependentUpon>SoundEditorView.cs</DependentUpon>
