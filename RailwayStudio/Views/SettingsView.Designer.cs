@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsView));
          this.tabSettings = new DevExpress.XtraTab.XtraTabControl();
          this.tabSettingsGeneral = new DevExpress.XtraTab.XtraTabPage();
@@ -45,7 +44,7 @@
          this.txtLogWindowsName = new DevExpress.XtraEditors.TextEdit();
          this.lblLogWindowsName = new DevExpress.XtraEditors.LabelControl();
          this.cboLogWindowsLevel = new DevExpress.XtraEditors.ImageComboBoxEdit();
-         this.imageList = new System.Windows.Forms.ImageList(this.components);
+         this.imageList = new System.Windows.Forms.ImageList();
          this.lblLogWindowsLevel = new DevExpress.XtraEditors.LabelControl();
          this.grpLogFileProperties = new DevExpress.XtraEditors.GroupControl();
          this.cboLogFileLevel = new DevExpress.XtraEditors.ImageComboBoxEdit();
@@ -170,7 +169,6 @@
          // 
          this.grpLogWindowsProperties.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.grpLogWindowsProperties.CaptionImage = global::Rwm.Studio.Properties.Resources.ICO_WINDOWS_16;
          this.grpLogWindowsProperties.Controls.Add(this.txtLogWindowsSource);
          this.grpLogWindowsProperties.Controls.Add(this.lblLogWindowsSource);
          this.grpLogWindowsProperties.Controls.Add(this.txtLogWindowsName);
@@ -232,13 +230,11 @@
          // 
          this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
          this.imageList.TransparentColor = System.Drawing.Color.Transparent;
-         this.imageList.Images.SetKeyName(0, "brick_16.png");
-         this.imageList.Images.SetKeyName(1, "brick_error.png");
-         this.imageList.Images.SetKeyName(2, "ICO_LOG_DEBUG");
+         this.imageList.Images.SetKeyName(0, "ICO_LOG_DISABLED");
+         this.imageList.Images.SetKeyName(1, "ICO_LOG_ERR");
+         this.imageList.Images.SetKeyName(2, "ICO_LOG_WARN");
          this.imageList.Images.SetKeyName(3, "ICO_LOG_INFO");
-         this.imageList.Images.SetKeyName(4, "ICO_LOG_WARN");
-         this.imageList.Images.SetKeyName(5, "ICO_LOG_ERR");
-         this.imageList.Images.SetKeyName(6, "ICO_LOG_DISABLED");
+         this.imageList.Images.SetKeyName(4, "ICO_LOG_DEBUG");
          // 
          // lblLogWindowsLevel
          // 
@@ -252,7 +248,6 @@
          // 
          this.grpLogFileProperties.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.grpLogFileProperties.CaptionImage = global::Rwm.Studio.Properties.Resources.ICO_FOLDER_16;
          this.grpLogFileProperties.Controls.Add(this.cboLogFileLevel);
          this.grpLogFileProperties.Controls.Add(this.lblLogFileLevel);
          this.grpLogFileProperties.Location = new System.Drawing.Point(13, 13);
@@ -301,7 +296,7 @@
          this.cmdCancel.Text = "Cancel";
          this.cmdCancel.Click += new System.EventHandler(this.CmdCancel_Click);
          // 
-         // FrmSettings
+         // SettingsView
          // 
          this.AcceptButton = this.cmdAccept;
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -314,7 +309,7 @@
          this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
          this.MaximizeBox = false;
          this.MinimizeBox = false;
-         this.Name = "FrmSettings";
+         this.Name = "SettingsView";
          this.ShowIcon = false;
          this.ShowInTaskbar = false;
          this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

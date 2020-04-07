@@ -43,8 +43,6 @@ namespace Rwm.Otc
       /// <param name="filename">Filename (and path) to file.</param>
       public Project() : base()
       {
-         this.Initialize();
-
          //   // Store the current project filename
          //   this.Filename = filename;
 
@@ -105,71 +103,66 @@ namespace Rwm.Otc
       /// <summary>
       /// Gets or sets the filename (and path) for the project file.
       /// </summary>
-      public string Filename { get; set; }
+      public string Filename { get; set; } = string.Empty;
 
       /// <summary>
       /// Gets or sets the object unique identifier.
       /// </summary>
       [ORMPrimaryKey()]
-      public override long ID { get; set; }
+      public override long ID { get; set; } = 0;
 
       /// <summary>
       /// Gets or sets the project name.
       /// </summary>
       [ORMProperty("NAME")]
-      public string Name { get; set; }
+      public string Name { get; set; } = string.Empty;
 
       /// <summary>
       /// Gets or sets the project description.
       /// </summary>
       [ORMProperty("DESCRIPTION")]
-      public string Description { get; set; }
+      public string Description { get; set; } = string.Empty;
 
       /// <summary>
       /// Gets or sets the project version.
       /// </summary>
       [ORMProperty("VERSION")]
-      public string Version { get; set; }
+      public string Version { get; set; } = "1.0";
 
       /// <summary>
       /// Gets the switchboard list inlcuded in the project.
       /// </summary>
       [ORMForeignCollection(OnDeleteActionTypes.NoAction)]
-      public List<Switchboard> Switchboards { get; private set; }
+      public List<Switchboard> Switchboards { get; private set; } = null;
 
       /// <summary>
       /// Gets the accessory decoders used in the project.
       /// </summary>
       [ORMForeignCollection(OnDeleteActionTypes.DeleteInCascade)]
-      public List<AccessoryDecoder> AccessoryDecoders { get; private set; }
+      public List<AccessoryDecoder> AccessoryDecoders { get; private set; } = null;
 
       /// <summary>
       /// Gets the feedback decoders used in the project.
       /// </summary>
       [ORMForeignCollection(OnDeleteActionTypes.DeleteInCascade)]
-      public List<FeedbackDecoder> FeedbackDecoders { get; private set; }
+      public List<FeedbackDecoder> FeedbackDecoders { get; private set; } = null;
 
       /// <summary>
       /// Gets all routes in the project.
       /// </summary>
       [ORMForeignCollection(OnDeleteActionTypes.DeleteInCascade)]
-      public List<Route> Routes { get; private set; }
-
-      ///// <summary>
-      ///// Gets all routes in the project.
-      ///// </summary>
-      //internal ItemCollection<RouteElement> RouteElements { get; private set; }
+      public List<Route> Routes { get; private set; } = null;
 
       /// <summary>
       /// Gets all sounds in the project.
       /// </summary>
       [ORMForeignCollection(OnDeleteActionTypes.DeleteInCascade)]
-      public List<Sound> Sounds { get; private set; }
+      public List<Sound> Sounds { get; private set; } = null;
 
       /// <summary>
-      /// Grets the active route in the layout.
+      /// Gets the active routes in current project.
       /// </summary>
-      internal Route ActiveRoute { get; set; }
+      public Dictionary<long, Route> ActiveRoutes { get; private set; } = new Dictionary<long, Route>();
 
       /// <summary>
       /// Gets or sets a value indicating if the actions must be disabled or not.
@@ -213,7 +206,6 @@ namespace Rwm.Otc
          catch (Exception ex)
          {
             Logger.LogError(this, ex);
-
             throw ex;
          }
       }
@@ -238,7 +230,6 @@ namespace Rwm.Otc
          catch (Exception ex)
          {
             Logger.LogError(this, ex);
-
             throw ex;
          }
       }
@@ -388,27 +379,6 @@ namespace Rwm.Otc
             e.Element.Train = null;
             Element.Save(e.Element);
          }
-      }
-
-      #endregion
-
-      #region Private Members
-
-      /// <summary>
-      /// Initialize the instance data.
-      /// </summary>
-      private void Initialize()
-      {
-         this.ID = 0;
-         this.Filename = string.Empty;
-         this.Name = string.Empty;
-         this.Description = string.Empty;
-         this.Version = "1.0";
-         this.ActiveRoute = null;
-         this.Switchboards = null;
-         this.AccessoryDecoders = null;
-         this.Routes = null;
-         this.Sounds = null;
       }
 
       #endregion

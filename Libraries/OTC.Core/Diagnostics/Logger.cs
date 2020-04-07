@@ -1,8 +1,8 @@
-﻿using Rwm.Otc.Configuration;
-using Rwm.Otc.Utils;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+using Rwm.Otc.Configuration;
+using Rwm.Otc.Utils;
 
 namespace Rwm.Otc.Diagnostics
 {
@@ -38,6 +38,8 @@ namespace Rwm.Otc.Diagnostics
 
       public enum LogLevel : int
       {
+         /// <summary>Disabled logger.</summary>
+         Disabled = 0,
          /// <summary>Error messages (exceptions).</summary>
          Error = 1,
          /// <summary>Warning messages (trapped and controlled errors).</summary>
@@ -63,12 +65,8 @@ namespace Rwm.Otc.Diagnostics
 
          try
          {
-            // Load settings
-            Logger.Settings = new XmlSettingsManager();
-            Logger.Settings.LoadSettings();
-
             // Load modules from settings
-            Logger.ModuleManager = new LoggerSettingsManager(Logger.Settings);
+            Logger.ModuleManager = new LoggerSettingsManager(); // OTCContext.Settings);
 
             // If no loggers are appended, a FileLogger with ERROR level will be appended to ensure LOG all application exceptions
             if (Logger.ModuleManager.LoggerModules.Count <= 0)
@@ -105,8 +103,6 @@ namespace Rwm.Otc.Diagnostics
       #endregion
 
       #region Properties
-
-      public static XmlSettingsManager Settings { get; private set; }
 
       public static LoggerSettingsManager ModuleManager { get; private set; }
 

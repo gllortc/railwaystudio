@@ -65,6 +65,11 @@ namespace Rwm.Studio.Views
          get { return logConsole; }
       }
 
+      public DevExpress.XtraBars.Alerter.AlertControl AlertControl
+      {
+         get { return alertControl; }
+      }
+
       public IWin32Window HwndHandle
       {
          get { return this; }

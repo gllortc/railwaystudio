@@ -155,17 +155,6 @@ namespace Rwm.Otc.Layout
       }
 
       /// <summary>
-      /// Clear all activated route in the panel.
-      /// </summary>
-      public void ClearRoute()
-      {
-         foreach (Element element in this.Elements)
-         {
-            element.RouteElement = null;
-         }
-      }
-
-      /// <summary>
       /// Check if a position is occupied by some element.
       /// </summary>
       /// <param name="coords">Coordinates to check.</param>

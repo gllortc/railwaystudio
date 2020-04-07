@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using Rwm.Otc.Layout;
 using Rwm.Studio.Plugins.Common;
 
 namespace Rwm.Studio.Plugins.Control.Modules
@@ -25,6 +26,11 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
       #region IPluginModule Implementation
 
+      public string ID
+      {
+         get { return MODULE_GUID; }
+      }
+
       public Image LargeIcon
       {
          get { return Properties.Resources.ICO_MODULE_ROUTES_32; }
@@ -33,11 +39,6 @@ namespace Rwm.Studio.Plugins.Control.Modules
       public Image SmallIcon
       {
          get { return Properties.Resources.ICO_DESIGN_16; }
-      }
-
-      public string ID
-      {
-         get { return MODULE_GUID; }
       }
 
       public string Caption
@@ -72,7 +73,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
       public void Initialize(params object[] args)
       {
-         this.RefreshRouteList();
+         // Nothing to do here
       }
 
       public void CreatePanels() { }
@@ -89,11 +90,10 @@ namespace Rwm.Studio.Plugins.Control.Modules
       private void RouteModule_Load(object sender, System.EventArgs e)
       {
          grdData.Dock = System.Windows.Forms.DockStyle.Fill;
-         splitRoute.Dock = System.Windows.Forms.DockStyle.Fill;
+         pnlRoute.Dock = System.Windows.Forms.DockStyle.Fill;
 
-         this.HasChanges = false;
-
-         this.HideSwitchboards();
+         this.ShowRoutesList();
+         this.RefreshViewStatus();
       }
 
       private void GrdDataView_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
@@ -104,6 +104,19 @@ namespace Rwm.Studio.Plugins.Control.Modules
       private void GrdData_DoubleClick(object sender, System.EventArgs e)
       {
          this.RouteEdit();
+      }
+
+      private void GrdConnectView_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
+      {
+         System.Data.DataRowView drv = grdConnectView.GetRow(e.RowHandle) as System.Data.DataRowView;
+         if (drv != null)
+         {
+            if ((int)drv[0] <= 0)
+            {
+               e.Appearance.BackColor = Color.FromArgb(192, 255, 192);
+               e.Appearance.BackColor2 = Color.FromArgb(192, 255, 192);
+            }
+         }
       }
 
       private void CmdRouteAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -126,12 +139,22 @@ namespace Rwm.Studio.Plugins.Control.Modules
          this.RouteSave();
       }
 
+      private void CmdRouteSaveClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      {
+         this.RouteSaveAndClose();
+      }
+
       private void CmdRouteClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          this.RouteClose();
       }
 
-        #endregion
+      private void ChkIsBlock_CheckedChanged(object sender, System.EventArgs e)
+      {
+         grpBlockConnections.Enabled = chkIsBlock.Checked;
+      }
 
-    }
+      #endregion
+
+   }
 }

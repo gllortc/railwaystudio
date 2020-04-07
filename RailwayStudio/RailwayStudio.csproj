@@ -321,7 +321,6 @@
     <None Include="Resources\application_osx_terminal_16.png" />
     <None Include="Resources\application_osx_terminal.png" />
     <None Include="Resources\about.png" />
-    <Content Include="RailwayStudio.xml" />
     <None Include="Resources\1__16_.jpg" />
     <None Include="Resources\1__16_2.jpg" />
     <Content Include="Resources\favicon.ico" />

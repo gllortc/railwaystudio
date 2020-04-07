@@ -244,7 +244,7 @@
   <data name="ICO_ACTION_DELETE_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cog_delete_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="exclamation_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ICO_EXCLAMATION_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exclamation_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="folder_train_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -256,7 +256,7 @@
   <data name="ICO_BLOCK_ADD_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\shape_square_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="exclamation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ICO_EXCLAMATION_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exclamation.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_ROUTE_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -558,5 +558,8 @@
   </data>
   <data name="ICO_THEME_SELECTED_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\table_heatmap_go_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICO_ROUTE_ACTIVE_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow_switch_yellow_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

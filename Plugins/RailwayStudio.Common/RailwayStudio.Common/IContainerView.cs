@@ -1,12 +1,15 @@
-﻿using DevExpress.XtraBars.Docking;
+﻿using System.Windows.Forms;
+using DevExpress.XtraBars.Alerter;
+using DevExpress.XtraBars.Docking;
 using DevExpress.XtraBars.Ribbon;
 using Rwm.Studio.Plugins.Common.Controls;
-using System.Windows.Forms;
 
 namespace Rwm.Studio.Plugins.Common
 {
    public interface IContainerView
    {
+
+      #region Properties
 
       IWin32Window HwndHandle { get; }
 
@@ -18,9 +21,15 @@ namespace Rwm.Studio.Plugins.Common
 
       ConsoleControl LogConsole { get; }
 
-      void Close();
+      AlertControl AlertControl { get; }
+
+      #endregion
+
+      #region Methods
 
       void OpenPluginModule(string className, params object[] args);
+
+      #endregion
 
    }
 }

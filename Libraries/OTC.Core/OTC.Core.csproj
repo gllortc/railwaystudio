@@ -365,6 +365,7 @@
     <None Include="Resources\delete_16.png" />
     <None Include="Resources\drive_light_16.png" />
     <None Include="Resources\drive_lightning_16.png" />
+    <None Include="Resources\arrow_switch_stop_16.png" />
     <Content Include="Resources\signal-hs-0[1].png" />
     <Content Include="Resources\signal-hs-1[1].png" />
     <Content Include="Resources\signal-hs-2[1].png" />

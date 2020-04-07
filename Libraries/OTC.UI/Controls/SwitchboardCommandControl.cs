@@ -125,7 +125,7 @@ namespace Rwm.Otc.UI.Controls
             }
 
             // Feedback element clicked (manual activation)
-            if (OTCContext.Project.AllowManualSensorActivation && element.Properties.IsFeedback && !element.Properties.IsBlock)
+            if (element.Properties.IsFeedback && OTCContext.Project.AllowManualSensorActivation && !element.Properties.IsBlock)
             {
                element.SetFeedbackStatus(false);
 
@@ -239,8 +239,8 @@ namespace Rwm.Otc.UI.Controls
          {
             if (action.Event == eventType)
             {
-               if (action.ConditionStatus == ElementAction.CONDITION_DISABLED ||
-                  (action.ConditionStatus != ElementAction.CONDITION_DISABLED && action.ConditionStatus == elementStatus))
+               if (action.IsConditionStatusDisabled ||
+                  (!action.IsConditionStatusDisabled && action.ConditionStatus == elementStatus))
                {
                   action.Execute();
                }

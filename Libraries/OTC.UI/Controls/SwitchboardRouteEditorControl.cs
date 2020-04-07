@@ -175,7 +175,7 @@ namespace Rwm.Otc.UI.Controls
             if (routeElement == null)
             {
                routeElement = new RouteElement(this.Route, element);
-               this.Route.Add(routeElement);
+               this.Route.Elements.Add(routeElement);
                element.RouteElement = routeElement;
                // RouteElement.Save(routeElement);
             }

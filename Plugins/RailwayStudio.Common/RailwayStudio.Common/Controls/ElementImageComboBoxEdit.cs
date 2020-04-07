@@ -1,4 +1,7 @@
-﻿using DevExpress.XtraEditors;
+﻿using System.ComponentModel;
+using System.Drawing;
+using System.Windows.Forms;
+using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Drawing;
 using DevExpress.XtraEditors.Popup;
@@ -6,9 +9,6 @@ using DevExpress.XtraEditors.Registrator;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraEditors.ViewInfo;
 using Rwm.Otc.Layout;
-using System.ComponentModel;
-using System.Drawing;
-using System.Windows.Forms;
 
 namespace Rwm.Studio.Plugins.Common.Controls
 {
@@ -81,17 +81,23 @@ namespace Rwm.Studio.Plugins.Common.Controls
          RepositoryItemElementImageComboBoxEdit.RegisterElementImageComboBoxEdit();
       }
 
-      public ElementImageComboBoxEdit()
-      {
-         this.ElementType = null; // All
-      }
+      /// <summary>
+      /// Return a new instance of <see cref="ElementImageComboBoxEdit"/>.
+      /// </summary>
+      public ElementImageComboBoxEdit() { }
 
       #endregion
 
       #region Properties
 
-      public ElementType ElementType { get; set; }
+      /// <summary>
+      /// Gets or sets the type of element shown in the editor (<c>null</c> for all).
+      /// </summary>
+      public ElementType ElementType { get; set; } = null;
 
+      /// <summary>
+      /// Gets the selected item in the list.
+      /// </summary>
       public Element SelectedElement
       {
          get
@@ -118,11 +124,18 @@ namespace Rwm.Studio.Plugins.Common.Controls
 
       #region Methods
 
+      /// <summary>
+      /// Refresh/Fill the editor list of the selected type of elements.
+      /// </summary>
       public void RefreshElementsList()
       {
          this.FillItems(null);
       }
 
+      /// <summary>
+      /// Sets the selected element in the editor.
+      /// </summary>
+      /// <param name="selected">Selected item.</param>
       public void SetSelectedElement(Element selected)
       {
          this.FillItems(selected);
@@ -139,7 +152,6 @@ namespace Rwm.Studio.Plugins.Common.Controls
 
       private void FillItems(Element selected)
       {
-         ImageComboBoxItem item = null;
 
          // Create an image collection
          this.ImageList = new ImageList();
@@ -159,7 +171,7 @@ namespace Rwm.Studio.Plugins.Common.Controls
                      this.ImageList.Images.Add(eb.Properties.ID.ToString(), eb.Properties.TypeIcon);
                   }
 
-                  item = new ImageComboBoxItem(eb.ToString(), eb);
+                  ImageComboBoxItem item = new ImageComboBoxItem(eb.ToString(), eb);
                   item.ImageIndex = this.ImageList.Images.IndexOfKey(eb.Properties.ID.ToString());
 
                   this.Properties.Items.Add(item);

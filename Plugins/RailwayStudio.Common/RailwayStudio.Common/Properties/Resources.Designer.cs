@@ -83,9 +83,29 @@ namespace Rwm.Studio.Plugins.Common.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ICO_ERROR_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_ERROR_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ICO_FIND_16 {
             get {
                 object obj = ResourceManager.GetObject("ICO_FIND_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_INFORMATION_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_INFORMATION_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

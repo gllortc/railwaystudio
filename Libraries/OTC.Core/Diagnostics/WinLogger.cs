@@ -1,8 +1,7 @@
-﻿using Rwm.Otc.Configuration;
-using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Text;
 using System.Windows.Forms;
+using Rwm.Otc.Configuration;
 
 namespace Rwm.Otc.Diagnostics
 {
@@ -11,7 +10,7 @@ namespace Rwm.Otc.Diagnostics
    /// </summary>
    /// <remarks>
    /// The current log file is located on:
-   /// [DLL or APP path]\LOGS\[YEAR]\[MONTH]\EMDEP_[Date in format yyyyMMdd].log
+   /// [DLL or APP path]\LOGS\[YEAR]\[MONTH]\RWM_[Date in format yyyyMMdd].log
    /// </remarks>
    public class WinLogger : ILogger
    {
@@ -53,18 +52,13 @@ namespace Rwm.Otc.Diagnostics
       /// <param name="settings">Settings for the corresponding plugin module.</param>
       public void Initialize(XmlSettingsItem settings)
       {
-         string name = string.Empty;
-         string source = string.Empty;
-
          this.Settings = settings;
 
          // Get the service name
-         name = this.Settings.GetString(WinLogger.SETTING_LOG_NAME, Application.ProductName);
+         string name = this.Settings.GetString(SETTING_LOG_NAME, Application.ProductName);
 
          // Get the service source
-         source = this.Settings.GetString(WinLogger.SETTING_LOG_SOURCE, string.Empty);
-
-         
+         string source = this.Settings.GetString(SETTING_LOG_SOURCE, string.Empty);
          if (string.IsNullOrEmpty(source))
          {
             source = "RWM";

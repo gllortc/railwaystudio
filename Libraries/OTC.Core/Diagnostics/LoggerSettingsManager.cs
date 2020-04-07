@@ -1,6 +1,5 @@
-﻿using Rwm.Otc.Configuration;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Rwm.Otc.Configuration;
 
 namespace Rwm.Otc.Diagnostics
 {
@@ -9,8 +8,6 @@ namespace Rwm.Otc.Diagnostics
    /// </summary>
    public class LoggerSettingsManager
    {
-      // Internal data declarations
-      XmlSettingsItem loggerPlugin;
 
       #region Constants
 
@@ -40,17 +37,17 @@ namespace Rwm.Otc.Diagnostics
       /// Gets a new instance of <see cref="LoggerSettingsManager"/>.
       /// </summary>
       /// <param name="settings">The current settings for the application.</param>
-      public LoggerSettingsManager(XmlSettingsManager settings)
+      public LoggerSettingsManager() //XmlSettingsManager settings)
       {
-         this.Settings = settings;
-         this.AutoStore = true;
+         // this.Settings = settings;
+         this.AutoStore = false;
 
          // Get the plugin uset to store the connections
-         loggerPlugin = settings.GetItem(LoggerSettingsManager.PLUGIN_LOGGER_REPOSITORY);
-         if (loggerPlugin == null)
+         this.LoggerPlugin = OTCContext.Settings.GetItem(LoggerSettingsManager.PLUGIN_LOGGER_REPOSITORY);
+         if (this.LoggerPlugin == null)
          {
-            loggerPlugin = new XmlSettingsItem(LoggerSettingsManager.PLUGIN_LOGGER_REPOSITORY, string.Empty);
-            settings.AddSetting(loggerPlugin);
+            this.LoggerPlugin = new XmlSettingsItem(LoggerSettingsManager.PLUGIN_LOGGER_REPOSITORY, string.Empty);
+            OTCContext.Settings.AddSetting(this.LoggerPlugin);
          }
       }
 
@@ -59,9 +56,9 @@ namespace Rwm.Otc.Diagnostics
       #region Properties
 
       /// <summary>
-      /// Gets the current application settings.
+      /// Internal data declarations.
       /// </summary>
-      public XmlSettingsManager Settings { get; private set; }
+      private XmlSettingsItem LoggerPlugin { get; set; }
 
       /// <summary>
       /// Gets a value indicating if the settings must be saved en each operation.
@@ -78,7 +75,7 @@ namespace Rwm.Otc.Diagnostics
          get
          {
             List<XmlSettingsItem> conns = new List<XmlSettingsItem>();
-            foreach (XmlSettingsItem module in loggerPlugin.Items.Values)
+            foreach (XmlSettingsItem module in this.LoggerPlugin.Items.Values)
             {
                conns.Add(module);
             }
@@ -99,15 +96,13 @@ namespace Rwm.Otc.Diagnostics
       public void AddLibrary(XmlSettingsItem module)
       {
          if (module == null)
-         {
             return;
-         }
 
-         loggerPlugin.AddSetting(module);
+         this.LoggerPlugin.AddSetting(module);
 
          if (this.AutoStore)
          {
-            this.Settings.SaveSettings();
+            OTCContext.Settings.SaveSettings();
          }
       }
 
@@ -126,22 +121,22 @@ namespace Rwm.Otc.Diagnostics
       /// <param name="libraryId">Library identifier.</param>
       public void RemoveLibrary(string libraryId)
       {
-         if (loggerPlugin.Items.ContainsKey(libraryId))
+         if (this.LoggerPlugin.Items.ContainsKey(libraryId))
          {
-            loggerPlugin.Items.Remove(libraryId);
+            this.LoggerPlugin.Items.Remove(libraryId);
 
             if (this.AutoStore)
             {
-               this.Settings.SaveSettings();
+               OTCContext.Settings.SaveSettings();
             }
          }
-         else if (loggerPlugin.Items.ContainsKey(LoggerSettingsManager.ConvertNameToID(libraryId)))
+         else if (this.LoggerPlugin.Items.ContainsKey(LoggerSettingsManager.ConvertNameToID(libraryId)))
          {
-            loggerPlugin.Items.Remove(libraryId);
+            this.LoggerPlugin.Items.Remove(libraryId);
 
             if (this.AutoStore)
             {
-               this.Settings.SaveSettings();
+               OTCContext.Settings.SaveSettings();
             }
          }
       }
@@ -153,12 +148,12 @@ namespace Rwm.Otc.Diagnostics
       /// <returns></returns>
       public XmlSettingsItem GetLibrary(string libraryId)
       {
-         if (loggerPlugin.Items.ContainsKey(libraryId))
+         if (this.LoggerPlugin.Items.ContainsKey(libraryId))
          {
-            return loggerPlugin.Items[libraryId];
+            return this.LoggerPlugin.Items[libraryId];
          }
 
-         throw new Exception("Requested logger module " + libraryId + " not found.");
+         return null;
       }
 
 

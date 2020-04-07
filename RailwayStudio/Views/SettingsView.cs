@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using DevExpress.Skins;
 using DevExpress.XtraEditors.Controls;
 using Rwm.Otc;
+using Rwm.Otc.Configuration;
 using Rwm.Otc.Diagnostics;
 using Rwm.Studio.Plugins.Common;
 using Rwm.Studio.Plugins.Common.Controls;
@@ -22,7 +23,8 @@ namespace Rwm.Studio.Views
 
          ListSkins();
          LoadPlugins();
-         LoadLoggers();
+         LoadFileLogger();
+         LoadWinLogger();
       }
 
       #endregion
@@ -52,8 +54,37 @@ namespace Rwm.Studio.Views
          DevExpress.LookAndFeel.UserLookAndFeel.Default.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Skin;
          DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = skin.SkinName;
 
+         // General settings
          StudioContext.SkinName = skin.SkinName;
          StudioContext.OpenLastProject = chkProjectsLoadLast.Checked;
+
+         // LOGs settings
+         Logger.LogLevel level = this.GetLoggerLevel(cboLogFileLevel);
+         if (level == Logger.LogLevel.Disabled)
+         {
+            Logger.ModuleManager.RemoveLibrary(typeof(FileLogger).Name);
+         }
+         else
+         {
+            XmlSettingsItem library = new XmlSettingsItem(typeof(FileLogger).Name, typeof(FileLogger).FullName);
+            library.AddSetting(Logger.SETTING_LOG_LEVEL, level.ToString().ToLower());
+            Logger.ModuleManager.AddLibrary(library);
+         }
+
+         level = this.GetLoggerLevel(cboLogWindowsLevel);
+         if (level == Logger.LogLevel.Disabled)
+         {
+            Logger.ModuleManager.RemoveLibrary(typeof(WinLogger).Name);
+         }
+         else
+         {
+            XmlSettingsItem library = new XmlSettingsItem(typeof(WinLogger).Name, typeof(WinLogger).FullName);
+            library.AddSetting(Logger.SETTING_LOG_LEVEL, level.ToString().ToLower());
+            library.AddSetting(WinLogger.SETTING_LOG_NAME, txtLogWindowsName.Text);
+            library.AddSetting(WinLogger.SETTING_LOG_SOURCE, txtLogWindowsSource.Text);
+            Logger.ModuleManager.AddLibrary(library);
+         }
+
          OTCContext.Settings.SaveSettings();
 
          this.RefreshPluginsBar = this.PluginsControl.PluginsChanged;
@@ -121,47 +152,57 @@ namespace Rwm.Studio.Views
          tabSettingsPlugins.Controls.Add(this.PluginsControl);
       }
 
-      private void LoadLoggers()
+      private Logger.LogLevel GetLoggerLevel(DevExpress.XtraEditors.ImageComboBoxEdit editor)
       {
-         ImageComboBoxItem item = new ImageComboBoxItem();
-         item.Description = "Disabled";
-         item.Value = null;
-         item.ImageIndex = 6;
+         ImageComboBoxItem item = editor.SelectedItem as ImageComboBoxItem;
+         return (Logger.LogLevel)item.Value;
+      }
 
-         cboLogFileLevel.Properties.Items.Add(item);
-         cboLogWindowsLevel.Properties.Items.Add(item);
+      private void LoadFileLogger()
+      {
+         ImageComboBoxItem item;
+         XmlSettingsItem logger = Logger.ModuleManager.GetLibrary(typeof(FileLogger).Name);
 
-         item = new ImageComboBoxItem();
-         item.Description = Logger.LogLevel.Error.ToString();
-         item.Value = Logger.LogLevel.Error;
-         item.ImageIndex = 5;
+         foreach (Logger.LogLevel level in Enum.GetValues(typeof(Logger.LogLevel)))
+         {
+            item = new ImageComboBoxItem();
+            item.Description = level.ToString();
+            item.Value = level;
+            item.ImageIndex = (int)level;
+            cboLogFileLevel.Properties.Items.Add(item);
 
-         cboLogFileLevel.Properties.Items.Add(item);
-         cboLogWindowsLevel.Properties.Items.Add(item);
+            if (logger != null && level == Logger.StringToLogLevel(logger.GetString(Logger.SETTING_LOG_LEVEL)))
+               cboLogFileLevel.SelectedItem = item;
+         }
 
-         item = new ImageComboBoxItem();
-         item.Description = Logger.LogLevel.Warn.ToString();
-         item.Value = Logger.LogLevel.Warn;
-         item.ImageIndex = 4;
+         if (cboLogFileLevel.SelectedItem == null)
+            cboLogFileLevel.SelectedItem = cboLogFileLevel.Properties.Items[0];
+      }
 
-         cboLogFileLevel.Properties.Items.Add(item);
-         cboLogWindowsLevel.Properties.Items.Add(item);
+      private void LoadWinLogger()
+      {
+         ImageComboBoxItem item;
+         XmlSettingsItem logger = Logger.ModuleManager.GetLibrary(typeof(WinLogger).Name);
 
-         item = new ImageComboBoxItem();
-         item.Description = Logger.LogLevel.Info.ToString();
-         item.Value = Logger.LogLevel.Info;
-         item.ImageIndex = 3;
+         foreach (Logger.LogLevel level in Enum.GetValues(typeof(Logger.LogLevel)))
+         {
+            item = new ImageComboBoxItem();
+            item.Description = level.ToString();
+            item.Value = level;
+            item.ImageIndex = (int)level;
+            cboLogWindowsLevel.Properties.Items.Add(item);
 
-         cboLogFileLevel.Properties.Items.Add(item);
-         cboLogWindowsLevel.Properties.Items.Add(item);
+            if (logger != null && level == Logger.StringToLogLevel(logger.GetString(Logger.SETTING_LOG_LEVEL)))
+               cboLogWindowsLevel.SelectedItem = item;
+         }
 
-         item = new ImageComboBoxItem();
-         item.Description = Logger.LogLevel.Debug.ToString();
-         item.Value = Logger.LogLevel.Debug;
-         item.ImageIndex = 2;
-
-         cboLogFileLevel.Properties.Items.Add(item);
-         cboLogWindowsLevel.Properties.Items.Add(item);
+         if (cboLogWindowsLevel.SelectedItem == null)
+            cboLogWindowsLevel.SelectedItem = cboLogWindowsLevel.Properties.Items[0];
+         else
+         {
+            txtLogWindowsName.Text = logger.GetString(WinLogger.SETTING_LOG_NAME);
+            txtLogWindowsSource.Text = logger.GetString(WinLogger.SETTING_LOG_SOURCE);
+         }
       }
 
       #endregion

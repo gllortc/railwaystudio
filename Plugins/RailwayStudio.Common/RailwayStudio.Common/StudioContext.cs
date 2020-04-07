@@ -1,4 +1,5 @@
-﻿using Rwm.Otc;
+﻿using DevExpress.XtraBars.Alerter;
+using Rwm.Otc;
 
 namespace Rwm.Studio.Plugins.Common
 {
@@ -123,6 +124,31 @@ namespace Rwm.Studio.Plugins.Common
       public static void LogDebug(string message, params object[] args)
       {
          StudioContext.MainView.LogConsole.Debug(string.Format(message, args));
+      }
+
+      public static void AlertError(string caption, string text, bool playSound = true)
+      {
+         AlertInfo ai = new AlertInfo(string.Format("<b>{0}</b>", caption),
+                                      text,
+                                      null,
+                                      Properties.Resources.ICO_ERROR_32,
+                                      null,
+                                      true);
+         StudioContext.MainView.AlertControl.Show(StudioContext.MainView.ParentForm, ai);
+
+         if (playSound)
+            System.Media.SystemSounds.Exclamation.Play();
+      }
+
+      public static void AlertInformation(string caption, string text)
+      {
+         AlertInfo ai = new AlertInfo(string.Format("<b>{0}</b>", caption),
+                                      text,
+                                      null,
+                                      Properties.Resources.ICO_INFORMATION_32,
+                                      null,
+                                      true);
+         StudioContext.MainView.AlertControl.Show(StudioContext.MainView.ParentForm, ai);
       }
 
       #endregion

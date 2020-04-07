@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using DevExpress.XtraGrid.Columns;
 using Rwm.Otc.Layout;
 using Rwm.Studio.Plugins.Common;
@@ -41,17 +42,33 @@ namespace Rwm.Studio.Plugins.Control.Controls
 
       #region Event Handlers
 
-      private void grdRouteView_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+      private void GrdRouteView_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
       {
-         StudioContext.UI.DrawRowIcon(global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_16, e);
+         if (!(grdRouteView.GetRow(e.RowHandle) is Route route)) return;
+
+         if (route.IsActive)
+            StudioContext.UI.DrawRowIcon(Properties.Resources.ICO_ROUTE_ACTIVE_16, e);
+         else
+            StudioContext.UI.DrawRowIcon(Properties.Resources.ICO_ROUTE_16, e);
       }
 
-      private void grdRouteView_DoubleClick(object sender, EventArgs e)
+      private void GrdRouteView_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
       {
-         cmdRouteActivate_ItemClick(sender, null);
+         if (!(grdRouteView.GetRow(e.RowHandle) is Route route)) return;
+
+         if (route.IsActive)
+         {
+            e.Appearance.BackColor = Color.LightBlue;
+            e.Appearance.BackColor2 = Color.LightBlue;
+         }
       }
 
-      private void cmdRouteActivate_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void GrdRouteView_DoubleClick(object sender, EventArgs e)
+      {
+         CmdRouteActivate_ItemClick(sender, null);
+      }
+
+      private void CmdRouteActivate_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          if (grdRouteView.SelectedRowsCount <= 0)
          {
@@ -61,16 +78,25 @@ namespace Rwm.Studio.Plugins.Control.Controls
          Route route = (Route)grdRouteView.GetRow(grdRouteView.GetSelectedRows()[0]);
          if (route != null)
          {
-            route.Activate();
+            if (!route.IsActive)
+            {
+               if (!route.Activate())
+               {
+                  StudioContext.AlertError("<b>Route conflict</b>",
+                                           String.Format("Route <b>{0}</b> cannot be activated due to a conflict with current active route(s)", route.Name));
+               }
+            }
+            else
+               route.Deactivate();
+
+            this.Refresh();
          }
       }
 
-      private void cmdRouteClear_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void CmdRouteClear_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
-         foreach (Switchboard switchboard in Switchboard.FindAll())
-         {
-            switchboard.ClearRoute();
-         }
+         Route.ClearAll();
+         this.Refresh();
       }
 
       #endregion

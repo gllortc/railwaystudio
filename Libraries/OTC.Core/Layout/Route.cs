@@ -15,19 +15,15 @@ namespace Rwm.Otc.Layout
       /// <summary>
       /// Returns a new instance of <see cref="Route"/>.
       /// </summary>
-      public Route()
-      {
-         Initialize();
-      }
+      public Route() { }
 
       /// <summary>
       /// Returns a new instance of <see cref="Route"/>.
       /// </summary>
+      /// <param name="project">Owner <see cref="Project"/>.</param>
       /// <param name="name">Name of the route.</param>
       public Route(Project project, string name = "")
       {
-         Initialize();
-
          this.Project = project;
          this.Name = name;
       }
@@ -40,61 +36,61 @@ namespace Rwm.Otc.Layout
       /// Gets or sets the object unique identifier.
       /// </summary>
       [ORMPrimaryKey()]
-      public override long ID { get; set; }
+      public override long ID { get; set; } = 0;
 
       /// <summary>
       /// Gets or sets the owner switchboard.
       /// </summary>
       [ORMProperty("projectid")]
-      public Project Project { get; set; }
+      public Project Project { get; set; } = null;
 
       /// <summary>
       /// Gets or sets the route name.
       /// </summary>
       [ORMProperty("name")]
-      public string Name { get; set; }
+      public string Name { get; set; } = string.Empty;
 
       /// <summary>
       /// Gets or sets the route description.
       /// </summary>
       [ORMProperty("description")]
-      public string Description { get; set; }
+      public string Description { get; set; } = string.Empty;
 
       /// <summary>
       /// Gets or sets a value indicating the time interval between accessory activations.
       /// </summary>
       [ORMProperty("switchTime")]
-      public int SwitchTime { get; set; }
+      public int SwitchTime { get; set; } = 0;
 
       /// <summary>
       /// Gets or sets a value indicating if the route corresponds to a block.
       /// </summary>
       [ORMProperty("isBlock")]
-      public bool IsBlock { get; set; }
+      public bool IsBlock { get; set; } = false;
 
       /// <summary>
       /// Gets or sets the source block element.
       /// </summary>
       [ORMProperty("fromBlock")]
-      public Element FromBlock { get; set; }
+      public Element FromBlock { get; set; } = null;
 
       /// <summary>
       /// Gets or sets the destination block element.
       /// </summary>
       [ORMProperty("toBlock")]
-      public Element ToBlock { get; set; }
+      public Element ToBlock { get; set; } = null;
 
       /// <summary>
       /// Gets or sets a value indicating if the route is bidirectional or only in direction from->to.
       /// </summary>
       [ORMProperty("bidirectional")]
-      public bool IsBidirectionl { get; set; }
+      public bool IsBidirectionl { get; set; } = true;
 
       /// <summary>
       /// Gets or sets the element list.
       /// </summary>
       [ORMForeignCollection(ORMForeignCollection.OnDeleteActionTypes.DeleteInCascade)]
-      public List<RouteElement> Elements { get; set; }
+      public List<RouteElement> Elements { get; set; } = new List<RouteElement>();
 
       /// <summary>
       /// Gets the number of elements contained in the current route.
@@ -104,19 +100,17 @@ namespace Rwm.Otc.Layout
          get { return (this.Elements == null ? 0 : this.Elements.Count); }
       }
 
+      /// <summary>
+      /// Gets a value indicating if the current route has been activated in current project.
+      /// </summary>
+      public bool IsActive
+      {
+         get { return OTCContext.Project.ActiveRoutes.ContainsKey(this.ID); }
+      }
+
       #endregion
 
       #region Methods
-
-      /// <summary>
-      /// Manually adds a new <see cref="RouteElement"/> into the route controlled elements.<br />
-      /// The added item won't be stored in project database: To store the element into database, use <c>Project.Add()</c> method.
-      /// </summary>
-      /// <param name="item">Item to add.</param>
-      public void Add(RouteElement item)
-      {
-         this.Elements.Add(item);
-      }
 
       /// <summary>
       /// Get a route element by its associated element.
@@ -126,19 +120,11 @@ namespace Rwm.Otc.Layout
       {
          foreach (RouteElement re in this.Elements)
          {
-            if (re.Element != null && re.Element.ID == item.ID) return re;
+            if (re.Element != null && re.Element.ID == item.ID) 
+               return re;
          }
 
          return null;
-      }
-
-      /// <summary>
-      /// Remove a route element from the current route.
-      /// </summary>
-      /// <param name="item">Item to remove.</param>
-      public void Remove(RouteElement item)
-      {
-         this.Elements.Remove(item);
       }
 
       /// <summary>
@@ -158,7 +144,91 @@ namespace Rwm.Otc.Layout
             }
          }
 
-         if (toRemove != null) this.Remove(toRemove);
+         if (toRemove != null) 
+            this.Elements.Remove(toRemove);
+      }
+
+      /// <summary>
+      /// Check if current <see cref="Route"/> can be activated by checking with current activated routes in project.
+      /// </summary>
+      /// <returns>A value indicating if the route can be activated or not.</returns>
+      public bool IsActivationAllowed()
+      {
+         if (this.Project.ActiveRoutes.Count <= 0)
+            return true;
+
+         foreach (Route route in this.Project.ActiveRoutes.Values)
+         {
+            if (route.Match(this))
+               return false;
+         }
+
+         return true;
+      }
+
+      /// <summary>
+      /// Activate the route in current project.
+      /// </summary>
+      /// <returns>A value indicating if the route has been activated or not.</returns>
+      public bool Activate()
+      {
+         if (!this.IsActivationAllowed())
+            return false;
+
+         foreach (RouteElement routeElement in this.Elements)
+         {
+            if (routeElement.Element != null && routeElement.Element.Properties.IsRouteable)
+            {
+               routeElement.Element.RouteElement = routeElement;
+
+               // Raise image changed event to repaint element
+               this.Project.ElementImageChanged(routeElement.Element);
+            }
+         }
+
+         // Set the active route
+         this.Project.ActiveRoutes.Add(this.ID, this);
+
+         return true;
+      }
+
+      /// <summary>
+      /// Deactivate the current route from the current project.
+      /// </summary>
+      public void Deactivate()
+      {
+         foreach (RouteElement routeElement in this.Elements)
+         {
+            if (routeElement.Element != null && routeElement.Element.Properties.IsRouteable)
+            {
+               routeElement.Element.RouteElement = null;
+
+               // Raise image changed event to repaint element
+               this.Project.ElementImageChanged(routeElement.Element);
+            }
+         }
+
+         // Deactivate current route in project
+         this.Project.ActiveRoutes.Remove(this.ID);
+      }
+
+      /// <summary>
+      /// Check if a <see cref="Route"/> hav one or more elements at same coordinates.
+      /// </summary>
+      /// <param name="route"><see cref="Route"/> to check with the current route.</param>
+      /// <returns>Return a value that indicates if <paramref name="route"/> have any matching element or not.</returns>
+      public bool Match(Route route)
+      {
+         foreach (RouteElement routeElement in this.Elements)
+         {
+            foreach (RouteElement exRouteElement in route.Elements)
+            {
+               if (routeElement.Element.Coordinates.Equals(exRouteElement.Element.Coordinates))
+                  return true;
+            }
+         }
+
+         return false;
       }
 
       /// <summary>
@@ -169,57 +239,31 @@ namespace Rwm.Otc.Layout
          return this.Name;
       }
 
-      /// <summary>
-      /// Activate the route in current project.
-      /// </summary>
-      public void Activate()
-      {
-         // Set the active route
-         this.Project.ActiveRoute = this;
-
-         foreach (Switchboard panel in this.Project.Switchboards)
-         {
-            foreach (Element element in panel.Elements)
-            {
-               if (element.Properties.IsRouteable)
-               {
-                  element.RouteElement = null;
-
-                  foreach (RouteElement routeElem in this.Project.ActiveRoute.Elements)
-                  {
-                     if (routeElem.Element == element)
-                     {
-                        element.RouteElement = routeElem;
-
-                        if (element.Properties.IsAccessory)
-                        {
-                           element.SetAccessoryStatus(routeElem.AccessoryStatus);
-                        }
-
-                        break;
-                     }
-                  }
-               }
-            }
-         }
-      }
-
       #endregion
 
-      #region Private Members
+      #region Static Members
 
       /// <summary>
-      /// Initialize the instance data.
+      /// Clear all active routes from current project.
       /// </summary>
-      private void Initialize()
+      public static void ClearAll()
       {
-         this.ID = 0;
-         this.Name = string.Empty;
-         this.Description = string.Empty;
-         this.FromBlock = null;
-         this.ToBlock = null;
-         this.IsBidirectionl = false;
-         this.Elements = new List<RouteElement>();
+         if (OTCContext.Project.ActiveRoutes.Count <= 0)
+            return;
+
+         // Get all active routes IDs
+         List<long> ids = new List<long>();
+         ids.AddRange(OTCContext.Project.ActiveRoutes.Keys);
+
+         // Deactivate all routes
+         foreach (long id in ids)
+         {
+            if (OTCContext.Project.ActiveRoutes.ContainsKey(id))
+            {
+               Route route = OTCContext.Project.ActiveRoutes[id];
+               route.Deactivate();
+            }
+         }
       }
 
       #endregion

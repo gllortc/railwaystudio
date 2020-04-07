@@ -122,8 +122,8 @@
          this.cmdCtrlEmergencyStop.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
          this.cmdCtrlEmergencyStop.Caption = "Stop trains";
          this.cmdCtrlEmergencyStop.Id = 13;
-         this.cmdCtrlEmergencyStop.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.exclamation_16;
-         this.cmdCtrlEmergencyStop.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.exclamation;
+         this.cmdCtrlEmergencyStop.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_EXCLAMATION_16;
+         this.cmdCtrlEmergencyStop.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_EXCLAMATION_32;
          this.cmdCtrlEmergencyStop.Name = "cmdCtrlEmergencyStop";
          this.cmdCtrlEmergencyStop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdCtrlEmergencyStop_ItemClick);
          // 

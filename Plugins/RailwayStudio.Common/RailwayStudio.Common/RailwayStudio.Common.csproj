@@ -91,6 +91,9 @@
     <Compile Include="Controls\ElementImageComboBoxEdit.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\HotkeyControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\PluginManagementControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -238,6 +241,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+    <None Include="Resources\information_32.png" />
+    <None Include="Resources\exclamation_32.png" />
+    <None Include="Resources\field_size.png" />
     <None Include="Resources\brick.png" />
     <None Include="Resources\application_16.png" />
     <None Include="Resources\draw_eraser_16.png" />

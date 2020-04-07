@@ -1,11 +1,10 @@
-﻿using DevExpress.XtraEditors;
+﻿using System;
+using System.Windows.Forms;
+using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
-using Rwm.Otc;
 using Rwm.Otc.Layout;
 using Rwm.Otc.Utils;
 using Rwm.Studio.Plugins.Control.Controls;
-using System;
-using System.Windows.Forms;
 
 namespace Rwm.Studio.Plugins.Control.Views
 {

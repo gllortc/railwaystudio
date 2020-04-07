@@ -1,8 +1,8 @@
-﻿using Rwm.Otc.Configuration;
-using System;
+﻿using System;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using Rwm.Otc.Configuration;
 
 namespace Rwm.Otc.Diagnostics
 {
@@ -11,7 +11,7 @@ namespace Rwm.Otc.Diagnostics
    /// </summary>
    /// <remarks>
    /// The current log file is located on:
-   /// [DLL or APP path]\LOGS\[YEAR]\[MONTH]\EMDEP_[Date in format yyyyMMdd].log
+   /// [DLL or APP path]\LOGS\[YEAR]\[MONTH]\RWM_[Date in format yyyyMMdd].log
    /// </remarks>
    public class FileLogger : ILogger
    {
@@ -95,15 +95,6 @@ namespace Rwm.Otc.Diagnostics
                dir.Create();
             }
 
-            // Ensure that the LOG file is created
-            //FileInfo file = new FileInfo(DebugLogger.CurrentLogFilename);
-            //if (!file.Exists)
-            //{
-            //   file.Create();
-
-            //   LogInfo(sender, "LOG file created by {0}", Application.ProductName);
-            //}
-
             // Generate text for entry
             StringBuilder txt = new StringBuilder();
             txt.AppendLine(string.Format("{0} - {1} at {2}", 
@@ -120,7 +111,6 @@ namespace Rwm.Otc.Diagnostics
             // Set all used instances to null to minimize memory usage
             txt = null;
             dir = null;
-            // file = null;
          }
          catch
          {

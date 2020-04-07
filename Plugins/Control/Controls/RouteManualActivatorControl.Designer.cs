@@ -39,6 +39,7 @@
          this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
          this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
          this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+         this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
          ((System.ComponentModel.ISupportInitialize)(this.grdRoute)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.grdRouteView)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
@@ -50,7 +51,7 @@
          this.grdRoute.Location = new System.Drawing.Point(0, 31);
          this.grdRoute.MainView = this.grdRouteView;
          this.grdRoute.Name = "grdRoute";
-         this.grdRoute.Size = new System.Drawing.Size(348, 379);
+         this.grdRoute.Size = new System.Drawing.Size(323, 465);
          this.grdRoute.TabIndex = 4;
          this.grdRoute.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdRouteView});
@@ -63,10 +64,13 @@
          this.grdRouteView.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
          this.grdRouteView.OptionsBehavior.Editable = false;
          this.grdRouteView.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.grdRouteView.OptionsSelection.EnableAppearanceFocusedRow = false;
+         this.grdRouteView.OptionsSelection.UseIndicatorForSelection = false;
          this.grdRouteView.OptionsView.ShowGroupPanel = false;
          this.grdRouteView.OptionsView.ShowIndicator = false;
-         this.grdRouteView.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.grdRouteView_CustomDrawCell);
-         this.grdRouteView.DoubleClick += new System.EventHandler(this.grdRouteView_DoubleClick);
+         this.grdRouteView.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.GrdRouteView_CustomDrawCell);
+         this.grdRouteView.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.GrdRouteView_RowStyle);
+         this.grdRouteView.DoubleClick += new System.EventHandler(this.GrdRouteView_DoubleClick);
          // 
          // barManager
          // 
@@ -97,53 +101,64 @@
          this.barRoutes.OptionsBar.DrawBorder = false;
          this.barRoutes.OptionsBar.DrawDragBorder = false;
          this.barRoutes.OptionsBar.UseWholeRow = true;
-         this.barRoutes.Text = "Herramientas";
+         this.barRoutes.Text = "Route tools";
          // 
          // cmdRouteActivate
          // 
-         this.cmdRouteActivate.Caption = "Activate route";
-         this.cmdRouteActivate.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_ACTIVATE_16;
+         this.cmdRouteActivate.Caption = "Toggle route activation";
          this.cmdRouteActivate.Id = 0;
-         this.cmdRouteActivate.LargeGlyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_ACTIVATE_16;
+         this.cmdRouteActivate.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_ACTIVATE_16;
+         this.cmdRouteActivate.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_ACTIVATE_16;
          this.cmdRouteActivate.Name = "cmdRouteActivate";
-         this.cmdRouteActivate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdRouteActivate_ItemClick);
+         this.cmdRouteActivate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdRouteActivate_ItemClick);
          // 
          // cmdRouteClear
          // 
-         this.cmdRouteClear.Caption = "Clear";
-         this.cmdRouteClear.Glyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_CLEAR_16;
+         this.cmdRouteClear.Caption = "Clear active routes";
          this.cmdRouteClear.Id = 4;
-         this.cmdRouteClear.LargeGlyph = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_CLEAR_16;
+         this.cmdRouteClear.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_CLEAR_16;
+         this.cmdRouteClear.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_CLEAR_16;
          this.cmdRouteClear.Name = "cmdRouteClear";
-         this.cmdRouteClear.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdRouteClear_ItemClick);
+         this.cmdRouteClear.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdRouteClear_ItemClick);
          // 
          // barDockControlTop
          // 
          this.barDockControlTop.CausesValidation = false;
          this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
          this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-         this.barDockControlTop.Size = new System.Drawing.Size(348, 31);
+         this.barDockControlTop.Manager = this.barManager;
+         this.barDockControlTop.Size = new System.Drawing.Size(323, 31);
          // 
          // barDockControlBottom
          // 
          this.barDockControlBottom.CausesValidation = false;
          this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-         this.barDockControlBottom.Location = new System.Drawing.Point(0, 410);
-         this.barDockControlBottom.Size = new System.Drawing.Size(348, 0);
+         this.barDockControlBottom.Location = new System.Drawing.Point(0, 496);
+         this.barDockControlBottom.Manager = this.barManager;
+         this.barDockControlBottom.Size = new System.Drawing.Size(323, 0);
          // 
          // barDockControlLeft
          // 
          this.barDockControlLeft.CausesValidation = false;
          this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
          this.barDockControlLeft.Location = new System.Drawing.Point(0, 31);
-         this.barDockControlLeft.Size = new System.Drawing.Size(0, 379);
+         this.barDockControlLeft.Manager = this.barManager;
+         this.barDockControlLeft.Size = new System.Drawing.Size(0, 465);
          // 
          // barDockControlRight
          // 
          this.barDockControlRight.CausesValidation = false;
          this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-         this.barDockControlRight.Location = new System.Drawing.Point(348, 31);
-         this.barDockControlRight.Size = new System.Drawing.Size(0, 379);
+         this.barDockControlRight.Location = new System.Drawing.Point(323, 31);
+         this.barDockControlRight.Manager = this.barManager;
+         this.barDockControlRight.Size = new System.Drawing.Size(0, 465);
+         // 
+         // alertControl
+         // 
+         this.alertControl.AllowHtmlText = true;
+         this.alertControl.FormShowingEffect = DevExpress.XtraBars.Alerter.AlertFormShowingEffect.SlideVertical;
+         this.alertControl.ShowPinButton = false;
+         this.alertControl.ShowToolTips = false;
          // 
          // RouteManualActivatorControl
          // 
@@ -156,7 +171,7 @@
          this.Controls.Add(this.barDockControlBottom);
          this.Controls.Add(this.barDockControlTop);
          this.Name = "RouteManualActivatorControl";
-         this.Size = new System.Drawing.Size(348, 410);
+         this.Size = new System.Drawing.Size(323, 496);
          ((System.ComponentModel.ISupportInitialize)(this.grdRoute)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.grdRouteView)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
@@ -177,5 +192,6 @@
       private DevExpress.XtraBars.BarDockControl barDockControlLeft;
       private DevExpress.XtraBars.BarDockControl barDockControlRight;
       private DevExpress.XtraBars.BarButtonItem cmdRouteClear;
-   }
+        private DevExpress.XtraBars.Alerter.AlertControl alertControl;
+    }
 }

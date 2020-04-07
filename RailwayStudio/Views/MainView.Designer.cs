@@ -28,11 +28,10 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Rwm.Studio.Views.SplashView), true, true);
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
          this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
-         this.applicationMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
+         this.applicationMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu();
          this.cmdFileNew = new DevExpress.XtraBars.BarButtonItem();
          this.cmdFileOpen = new DevExpress.XtraBars.BarButtonItem();
          this.cmdFileSettings = new DevExpress.XtraBars.BarButtonItem();
@@ -50,9 +49,9 @@
          this.rpgView = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.repositoryItemImageComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
          this.riCboProjectSelect = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
-         this.imageList = new System.Windows.Forms.ImageList(this.components);
+         this.imageList = new System.Windows.Forms.ImageList();
          this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-         this.dockManager = new DevExpress.XtraBars.Docking.DockManager(this.components);
+         this.dockManager = new DevExpress.XtraBars.Docking.DockManager();
          this.hideContainerBottom = new DevExpress.XtraBars.Docking.AutoHideContainer();
          this.dockPanelConsole = new DevExpress.XtraBars.Docking.DockPanel();
          this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
@@ -60,9 +59,10 @@
          this.dockPanelToolbox = new DevExpress.XtraBars.Docking.DockPanel();
          this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
          this.nbcPlugins = new DevExpress.XtraNavBar.NavBarControl();
-         this.docManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
-         this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
-         this.defaultLookAndFeel = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+         this.docManager = new DevExpress.XtraBars.Docking2010.DocumentManager();
+         this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
+         this.defaultLookAndFeel = new DevExpress.LookAndFeel.DefaultLookAndFeel();
+         this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl();
          ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.applicationMenu)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox1)).BeginInit();
@@ -415,6 +415,13 @@
          // 
          this.defaultLookAndFeel.LookAndFeel.SkinName = "Office 2010 Blue";
          // 
+         // alertControl
+         // 
+         this.alertControl.AllowHtmlText = true;
+         this.alertControl.AutoFormDelay = 10000;
+         this.alertControl.ShowPinButton = false;
+         this.alertControl.ShowToolTips = false;
+         // 
          // MainView
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -485,5 +492,6 @@
         private DevExpress.XtraBars.BarButtonItem cmdProjectEdit;
         private DevExpress.XtraBars.BarButtonItem cmdProjectClose;
         private DevExpress.XtraBars.BarButtonItem cmdBarButtonProject;
+        private DevExpress.XtraBars.Alerter.AlertControl alertControl;
     }
 }

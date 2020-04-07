@@ -111,7 +111,6 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -567,6 +566,7 @@
     <None Include="Resources\exclamation.png" />
     <None Include="Resources\control_play_blue_161.png" />
     <None Include="Resources\control_play_blue_321.png" />
+    <None Include="Resources\arrow_switch_yellow_16.png" />
     <Content Include="Resources\favicon.ico" />
     <None Include="Resources\processor_error_16.png" />
     <None Include="Resources\processor_edit_16.png" />

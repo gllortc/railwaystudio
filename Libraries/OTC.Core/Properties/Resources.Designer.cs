@@ -443,6 +443,16 @@ namespace Rwm.Otc.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ICO_ROUTE_DEACTIVATE_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_ROUTE_DEACTIVATE_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ICO_SOUND_16 {
             get {
                 object obj = ResourceManager.GetObject("ICO_SOUND_16", resourceCulture);
