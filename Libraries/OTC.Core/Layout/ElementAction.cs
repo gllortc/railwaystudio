@@ -8,7 +8,7 @@ namespace Rwm.Otc.Layout
    /// <summary>
    /// Represents an action executable from the related element.
    /// </summary>
-   [ORMTable("actions")]
+   [ORMTable("ELEMENT_ACTIONS")]
    public class ElementAction : ORMEntity<ElementAction>
    {
 

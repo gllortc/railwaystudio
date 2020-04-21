@@ -21,14 +21,9 @@ namespace Rwm.Studio.Plugins.Control.Views
       public FeedbackEncoderEditorView()
       {
          InitializeComponent();
-         ListComboLists();
 
-         this.Decoder = new FeedbackDecoder();
-
-         txtInputs.Properties.MinValue = this.InputsPerAddress;
-         txtInputs.Properties.MaxValue = 9999;
-         txtInputs.Properties.Increment = this.InputsPerAddress;
-         txtInputs.EditValue = this.InputsPerAddress;
+         this.ListComboLists();
+         this.MapModelToView(new FeedbackEncoder());
 
          this.IsLoaded = true;
       }
@@ -38,23 +33,12 @@ namespace Rwm.Studio.Plugins.Control.Views
       /// </summary>
       /// <param name="settings">Current application settings.</param>
       /// <param name="decoder">The decoder to edit in the editor dialogue.</param>
-      public FeedbackEncoderEditorView(FeedbackDecoder decoder)
+      public FeedbackEncoderEditorView(FeedbackEncoder decoder)
       {
          InitializeComponent();
-         ListComboLists();
 
-         this.Decoder = decoder;
-
-         txtInputs.Properties.MinValue = this.InputsPerAddress;
-         txtInputs.Properties.MaxValue = 9999;
-         txtInputs.Properties.Increment = this.InputsPerAddress;
-
-         txtName.Text = this.Decoder.Name;
-         cboModel.Text = this.Decoder.Model;
-         cboManufacturer.EditValue = this.Decoder.Manufacturer;
-         nudAddress.EditValue = this.Decoder.StartAddress;
-         txtInputs.EditValue = this.Decoder.Inputs;
-         txtNotes.Text = this.Decoder.Notes;
+         this.ListComboLists();
+         this.MapModelToView(decoder);
 
          this.IsLoaded = true;
       }
@@ -65,7 +49,7 @@ namespace Rwm.Studio.Plugins.Control.Views
 
       private bool IsLoaded { get; set; } = false;
 
-      internal FeedbackDecoder Decoder { get; private set; }
+      internal FeedbackEncoder Decoder { get; private set; }
 
       private int InputsPerAddress
       {
@@ -122,37 +106,17 @@ namespace Rwm.Studio.Plugins.Control.Views
 
       private void CmdOk_Click(object sender, EventArgs e)
       {
-         if (string.IsNullOrWhiteSpace(txtName.Text))
-         {
-            MessageBox.Show("You must provide a valid name for the decoder.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            txtName.Focus();
-            return;
-         }
-         else if (int.Parse(txtInputs.Text) <= 0)
-         {
-            MessageBox.Show("Invalid number of sensor module inputs per address.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            txtInputs.SelectAll();
-            txtInputs.Focus();
-            return;
-         }
-
-         Cursor.Current = Cursors.WaitCursor;
-
-         this.Decoder.Project = OTCContext.Project;
-         this.Decoder.Name = txtName.Text.Trim();
-         this.Decoder.Manufacturer = cboManufacturer.EditValue as Manufacturer;
-         this.Decoder.Model = cboModel.Text.Trim();
-         this.Decoder.StartAddress = (int)nudAddress.Value;
-         this.Decoder.Inputs = int.Parse(txtInputs.Text);
-         this.Decoder.Notes = txtNotes.Text.Trim();
-
          try
          {
-            FeedbackDecoder.Save(this.Decoder);
+            if (!this.MapViewToModel()) return;
+
+            Cursor.Current = Cursors.WaitCursor;
+
+            FeedbackEncoder.Save(this.Decoder);
 
             // Add the decoder into the project
-            if (!OTCContext.Project.FeedbackDecoders.Contains(this.Decoder))
-               OTCContext.Project.FeedbackDecoders.Add(this.Decoder);
+            if (!OTCContext.Project.FeedbackEncoders.Contains(this.Decoder))
+               OTCContext.Project.FeedbackEncoders.Add(this.Decoder);
 
             this.DialogResult = DialogResult.OK;
             this.Close();
@@ -179,6 +143,53 @@ namespace Rwm.Studio.Plugins.Control.Views
 
       #region Private Members
 
+      private void MapModelToView(FeedbackEncoder decoder)
+      {
+         this.Decoder = decoder;
+
+         txtInputs.Properties.MinValue = this.InputsPerAddress;
+         txtInputs.Properties.MaxValue = 9999;
+         txtInputs.Properties.Increment = this.InputsPerAddress;
+
+         txtName.Text = this.Decoder.Name;
+         cboModel.Text = this.Decoder.Model;
+         cboManufacturer.EditValue = this.Decoder.Manufacturer;
+         nudAddress.EditValue = this.Decoder.StartAddress;
+         txtInputs.EditValue = this.Decoder.Inputs;
+         txtNotes.Text = this.Decoder.Notes;
+         cboSection.SetSelectedElement(this.Decoder.Section);
+      }
+
+      private bool MapViewToModel()
+      {
+         if (string.IsNullOrWhiteSpace(txtName.Text))
+         {
+            MessageBox.Show("You must provide a valid name for the decoder.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            txtName.Focus();
+            return false;
+         }
+         else if (int.Parse(txtInputs.Text) <= 0)
+         {
+            MessageBox.Show("Invalid number of sensor module inputs per address.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            txtInputs.SelectAll();
+            txtInputs.Focus();
+            return false;
+         }
+
+         Cursor.Current = Cursors.WaitCursor;
+
+         this.Decoder.Project = OTCContext.Project;
+         this.Decoder.Name = txtName.Text.Trim();
+         this.Decoder.Manufacturer = cboManufacturer.EditValue as Manufacturer;
+         this.Decoder.Model = cboModel.Text.Trim();
+         this.Decoder.StartAddress = (int)nudAddress.Value;
+         this.Decoder.Inputs = int.Parse(txtInputs.Text);
+         this.Decoder.Notes = txtNotes.Text.Trim();
+         this.Decoder.Section = cboSection.SelectedSection;
+
+         return true;
+      }
+
       private void ListComboLists()
       {
          ImageComboBoxItem item;
@@ -196,7 +207,7 @@ namespace Rwm.Studio.Plugins.Control.Views
          }
 
          // Fill models list
-         foreach (FeedbackDecoder decoder in FeedbackDecoder.FindAll())
+         foreach (FeedbackEncoder decoder in FeedbackEncoder.FindAll())
          {
             if (!deviceModels.Contains(decoder.Name))
             {

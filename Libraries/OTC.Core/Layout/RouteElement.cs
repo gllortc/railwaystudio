@@ -1,12 +1,13 @@
-﻿using Rwm.Otc.Data;
+﻿using System;
+using Rwm.Otc.Data;
 
 namespace Rwm.Otc.Layout
 {
    /// <summary>
    /// Route element.
    /// </summary>
-   [ORMTable("routeelements")]
-   public class RouteElement : ORMEntity<RouteElement>
+   [ORMTable("ROUTE_ELEMENTS")]
+   public class RouteElement : ORMEntity<RouteElement>, IComparable<RouteElement>
    {
 
       #region Constructors
@@ -97,21 +98,20 @@ namespace Rwm.Otc.Layout
             this.Activated = !this.Activated;
       }
 
+      /// <summary>
+      /// Compare two instances to allow sorting the list with accessory activation order:
+      ///   1 -> Turnouts
+      ///   2 -> Signals / Red
+      ///   3 -> Signals / Green
+      /// </summary>
+      /// <param name="other">Other instance to compare with.</param>
+      /// <returns>An integer indicating if the <paramref name="other"/> is less, equals or greater than current instance.</returns>
+      public int CompareTo(RouteElement other)
+      {
+         return this.Element.Properties.ActivationOrder.CompareTo(other.Element.Properties.ActivationOrder);
+      }
+
       #endregion
-
-      //#region Static Members
-
-      ///// <summary>
-      ///// Check if a regular switchboard element is activated in route.
-      ///// </summary>
-      ///// <param name="element">The <see cref="ElementBase"/> instance to check.</param>
-      ///// <returns><c>true</c> if the element is activated in route, otherwise return <c>false</c>.</returns>
-      //public static bool IsElementActivatedInRoute(Element element)
-      //{
-      //   return element.IsActivatedInRoute;
-      //}
-
-      //#endregion
 
    }
 }

@@ -31,7 +31,7 @@ namespace Rwm.Otc.Layout
 
    #endregion
 
-   [ORMTable("elements")]
+   [ORMTable("ELEMENTS")]
    public class Element : ORMEntity<Element>
    {
 
@@ -160,7 +160,7 @@ namespace Rwm.Otc.Layout
       /// Gets or sets the list of feedback input connections for the element.
       /// </summary>
       [ORMForeignCollection(OnDeleteActionTypes.DeleteInCascade)]
-      public List<FeedbackDecoderConnection> FeedbackConnections { get; set; }
+      public List<FeedbackEncoderConnection> FeedbackConnections { get; set; }
 
       /// <summary>
       /// Gets the current element feedback status.
@@ -216,14 +216,14 @@ namespace Rwm.Otc.Layout
          return theme.GetElementImage(this, status);
       }
 
-      /// <summary>
-      /// Returns the size (in pixels) of the element.
-      /// </summary>
-      /// <returns>The requested image size.</returns>
-      public Size GetSize(ITheme theme)
-      {
-         return new Size(theme.ElementSize.Width * this.Properties.Width, theme.ElementSize.Height);
-      }
+      ///// <summary>
+      ///// Returns the size (in pixels) of the element.
+      ///// </summary>
+      ///// <returns>The requested image size.</returns>
+      //public Size GetSize(ITheme theme)
+      //{
+      //   return new Size(theme.ElementSize.Width * this.Properties.Width, theme.ElementSize.Height);
+      //}
 
       /// <summary>
       /// Rotate the element 90º to right direction.
@@ -343,14 +343,14 @@ namespace Rwm.Otc.Layout
          return status;
       }
 
-      /// <summary>
-      /// Returns the default connection map for the specified connection index.
-      /// </summary>
-      /// <returns>An instance of <see cref="ConnectionMap"/> with default settings.</returns>
-      public DeviceConnectionMap GetDefaultConnectionMap(int connectionIndex)
-      {
-         return new DeviceConnectionMap(Convert.ToInt32("1001", 2));
-      }
+      ///// <summary>
+      ///// Returns the default connection map for the specified connection index.
+      ///// </summary>
+      ///// <returns>An instance of <see cref="ConnectionMap"/> with default settings.</returns>
+      //public DeviceConnectionMap GetDefaultConnectionMap(int connectionIndex)
+      //{
+      //   return new DeviceConnectionMap(Convert.ToInt32("1001", 2));
+      //}
 
       /// <summary>
       /// Set feedback status for the element.

@@ -44,7 +44,7 @@ namespace Rwm.Studio.Plugins.Control.Views
          txtName.Text = this.Decoder.Name;
          cboModel.Text = this.Decoder.Model;
          cboManufacturer.EditValue = this.Decoder.Manufacturer;
-         cboModule.Text = this.Decoder.Module;
+         cboSection.SetSelectedElement(this.Decoder.Section);
          nudAddress.EditValue = this.Decoder.StartAddress;
          txtOutputs.EditValue = this.Decoder.Outputs;
          txtNotes.Text = this.Decoder.Notes;
@@ -159,7 +159,7 @@ namespace Rwm.Studio.Plugins.Control.Views
          this.Decoder.Name = txtName.Text.Trim();
          this.Decoder.Manufacturer = cboManufacturer.EditValue as Manufacturer;
          this.Decoder.Model = cboModel.Text.Trim();
-         this.Decoder.Module = cboModule.Text.Trim();
+         this.Decoder.Section = cboSection.SelectedSection;
          this.Decoder.StartAddress = (int)nudAddress.Value;
          this.Decoder.Outputs = int.Parse(txtOutputs.Text);
          this.Decoder.Notes = txtNotes.Text.Trim();
@@ -225,16 +225,6 @@ namespace Rwm.Studio.Plugins.Control.Views
                item.ImageIndex = 2;
 
                cboModel.Properties.Items.Add(item);
-            }
-
-            if (!string.IsNullOrEmpty(decoder.Module) && !modules.Contains(decoder.Module))
-            {
-               item = new ImageComboBoxItem();
-               item.Value = decoder.Module;
-               item.Description = decoder.Module;
-               item.ImageIndex = 2;
-
-               cboModule.Properties.Items.Add(item);
             }
          }
       }

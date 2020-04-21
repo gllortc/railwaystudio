@@ -10,6 +10,17 @@ namespace Rwm.Studio.Plugins.Common
    public class UI
    {
 
+      #region Properties
+
+      public Control LogConsoleControl
+      {
+         get { return StudioContext.MainView.LogConsole; }
+      }
+
+      #endregion
+
+      #region Methods
+
       /// <summary>
       /// Add a new dockable panel showing a control.
       /// </summary>
@@ -137,5 +148,8 @@ namespace Rwm.Studio.Plugins.Common
 
          docViewer.DocumentSource = ps;
       }
+
+      #endregion
+
    }
 }

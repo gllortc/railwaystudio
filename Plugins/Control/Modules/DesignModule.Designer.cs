@@ -28,16 +28,16 @@
       /// </summary>
       private void InitializeComponent()
       {
-         DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem1 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem2 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem3 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem4 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem5 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem6 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem7 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem8 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup3 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem9 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem10 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem11 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem12 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup4 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem13 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem14 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem15 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem16 = new DevExpress.XtraBars.Ribbon.GalleryItem();
          this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
          this.cmdPanelAdd = new DevExpress.XtraBars.BarButtonItem();
          this.cmdPanelEdit = new DevExpress.XtraBars.BarButtonItem();
@@ -58,9 +58,13 @@
          this.cmdMoveRight = new DevExpress.XtraBars.BarButtonItem();
          this.barButtonGroup1 = new DevExpress.XtraBars.BarButtonGroup();
          this.bbtnThemesManage = new DevExpress.XtraBars.BarButtonItem();
+         this.cmdResourcesAreas = new DevExpress.XtraBars.BarButtonItem();
+         this.cmdResourcesSounds = new DevExpress.XtraBars.BarButtonItem();
+         this.cmdResourcesDecoders = new DevExpress.XtraBars.BarButtonItem();
          this.rbpDesign = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.rpgPanels = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.rpgBlocks = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+         this.rpgManage = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.rpgPrint = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
          this.tabPanels = new DevExpress.XtraTab.XtraTabControl();
@@ -96,14 +100,17 @@
             this.barBtnGroupMove,
             this.cmdMoveRight,
             this.barButtonGroup1,
-            this.bbtnThemesManage});
+            this.bbtnThemesManage,
+            this.cmdResourcesAreas,
+            this.cmdResourcesSounds,
+            this.cmdResourcesDecoders});
          this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-         this.ribbonControl1.MaxItemId = 39;
+         this.ribbonControl1.MaxItemId = 42;
          this.ribbonControl1.Name = "ribbonControl1";
          this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpDesign});
          this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
-         this.ribbonControl1.Size = new System.Drawing.Size(808, 143);
+         this.ribbonControl1.Size = new System.Drawing.Size(1002, 143);
          this.ribbonControl1.StatusBar = this.ribbonStatusBar;
          // 
          // cmdPanelAdd
@@ -140,7 +147,9 @@
          // 
          // 
          // 
+         this.rgbElements.Gallery.ColumnCount = 4;
          this.rgbElements.Gallery.ItemCheckMode = DevExpress.XtraBars.Ribbon.Gallery.ItemCheckMode.SingleRadio;
+         this.rgbElements.Gallery.MaxItemWidth = 75;
          this.rgbElements.Id = 4;
          this.rgbElements.Name = "rgbElements";
          // 
@@ -150,29 +159,29 @@
          // 
          // 
          // 
-         galleryItemGroup1.Caption = "Group1";
-         galleryItem1.Caption = "Item5";
-         galleryItem2.Caption = "Item6";
-         galleryItem3.Caption = "Item7";
-         galleryItem4.Caption = "Item8";
-         galleryItemGroup1.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
-            galleryItem1,
-            galleryItem2,
-            galleryItem3,
-            galleryItem4});
-         galleryItemGroup2.Caption = "Group2";
-         galleryItem5.Caption = "Item1";
-         galleryItem6.Caption = "Item2";
-         galleryItem7.Caption = "Item3";
-         galleryItem8.Caption = "Item4";
-         galleryItemGroup2.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
-            galleryItem5,
-            galleryItem6,
-            galleryItem7,
-            galleryItem8});
+         galleryItemGroup3.Caption = "Group1";
+         galleryItem9.Caption = "Item5";
+         galleryItem10.Caption = "Item6";
+         galleryItem11.Caption = "Item7";
+         galleryItem12.Caption = "Item8";
+         galleryItemGroup3.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
+            galleryItem9,
+            galleryItem10,
+            galleryItem11,
+            galleryItem12});
+         galleryItemGroup4.Caption = "Group2";
+         galleryItem13.Caption = "Item1";
+         galleryItem14.Caption = "Item2";
+         galleryItem15.Caption = "Item3";
+         galleryItem16.Caption = "Item4";
+         galleryItemGroup4.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
+            galleryItem13,
+            galleryItem14,
+            galleryItem15,
+            galleryItem16});
          this.ribbonGalleryBarItem1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup1,
-            galleryItemGroup2});
+            galleryItemGroup3,
+            galleryItemGroup4});
          this.ribbonGalleryBarItem1.Id = 7;
          this.ribbonGalleryBarItem1.Name = "ribbonGalleryBarItem1";
          // 
@@ -305,11 +314,39 @@
          this.bbtnThemesManage.Name = "bbtnThemesManage";
          this.bbtnThemesManage.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdPanelThemes_ItemClick);
          // 
+         // cmdResourcesAreas
+         // 
+         this.cmdResourcesAreas.Caption = "Layout areas";
+         this.cmdResourcesAreas.Id = 39;
+         this.cmdResourcesAreas.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_AREAS_16;
+         this.cmdResourcesAreas.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_AREAS_32;
+         this.cmdResourcesAreas.Name = "cmdResourcesAreas";
+         this.cmdResourcesAreas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdResourcesAreas_ItemClick);
+         // 
+         // cmdResourcesSounds
+         // 
+         this.cmdResourcesSounds.Caption = "Layout sounds";
+         this.cmdResourcesSounds.Id = 40;
+         this.cmdResourcesSounds.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SOUND_MANAGER_16;
+         this.cmdResourcesSounds.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SOUND_MANAGER_32;
+         this.cmdResourcesSounds.Name = "cmdResourcesSounds";
+         this.cmdResourcesSounds.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdResourcesSounds_ItemClick);
+         // 
+         // cmdResourcesDecoders
+         // 
+         this.cmdResourcesDecoders.Caption = "Digital components";
+         this.cmdResourcesDecoders.Id = 41;
+         this.cmdResourcesDecoders.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_MODULE_16;
+         this.cmdResourcesDecoders.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_DECODER_MANAGE_32;
+         this.cmdResourcesDecoders.Name = "cmdResourcesDecoders";
+         this.cmdResourcesDecoders.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdResourcesDecoders_ItemClick);
+         // 
          // rbpDesign
          // 
          this.rbpDesign.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpgPanels,
             this.rpgBlocks,
+            this.rpgManage,
             this.rpgPrint});
          this.rbpDesign.Name = "rbpDesign";
          this.rbpDesign.Text = "Design";
@@ -334,6 +371,15 @@
          this.rpgBlocks.ShowCaptionButton = false;
          this.rpgBlocks.Text = "Elements";
          // 
+         // rpgManage
+         // 
+         this.rpgManage.ItemLinks.Add(this.cmdResourcesAreas);
+         this.rpgManage.ItemLinks.Add(this.cmdResourcesDecoders);
+         this.rpgManage.ItemLinks.Add(this.cmdResourcesSounds);
+         this.rpgManage.Name = "rpgManage";
+         this.rpgManage.ShowCaptionButton = false;
+         this.rpgManage.Text = "Resources";
+         // 
          // rpgPrint
          // 
          this.rpgPrint.ItemLinks.Add(this.cmdPrintDigitalReport);
@@ -344,10 +390,10 @@
          // ribbonStatusBar
          // 
          this.ribbonStatusBar.ItemLinks.Add(this.bbtnThemesManage);
-         this.ribbonStatusBar.Location = new System.Drawing.Point(0, 594);
+         this.ribbonStatusBar.Location = new System.Drawing.Point(0, 673);
          this.ribbonStatusBar.Name = "ribbonStatusBar";
          this.ribbonStatusBar.Ribbon = this.ribbonControl1;
-         this.ribbonStatusBar.Size = new System.Drawing.Size(808, 31);
+         this.ribbonStatusBar.Size = new System.Drawing.Size(1002, 31);
          // 
          // tabPanels
          // 
@@ -355,7 +401,7 @@
          this.tabPanels.Location = new System.Drawing.Point(5, 5);
          this.tabPanels.Name = "tabPanels";
          this.tabPanels.SelectedTabPage = this.tabPanel1;
-         this.tabPanels.Size = new System.Drawing.Size(798, 441);
+         this.tabPanels.Size = new System.Drawing.Size(992, 520);
          this.tabPanels.TabIndex = 3;
          this.tabPanels.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabPanel1});
@@ -364,7 +410,7 @@
          // 
          this.tabPanel1.Name = "tabPanel1";
          this.tabPanel1.Padding = new System.Windows.Forms.Padding(5);
-         this.tabPanel1.Size = new System.Drawing.Size(792, 413);
+         this.tabPanel1.Size = new System.Drawing.Size(986, 492);
          this.tabPanel1.Text = "Switchboards";
          // 
          // pnlContainer
@@ -375,7 +421,7 @@
          this.pnlContainer.Location = new System.Drawing.Point(0, 143);
          this.pnlContainer.Name = "pnlContainer";
          this.pnlContainer.Padding = new System.Windows.Forms.Padding(5);
-         this.pnlContainer.Size = new System.Drawing.Size(808, 451);
+         this.pnlContainer.Size = new System.Drawing.Size(1002, 530);
          this.pnlContainer.TabIndex = 4;
          // 
          // DesignModule
@@ -383,7 +429,7 @@
          this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.ClientSize = new System.Drawing.Size(808, 625);
+         this.ClientSize = new System.Drawing.Size(1002, 704);
          this.Controls.Add(this.pnlContainer);
          this.Controls.Add(this.ribbonStatusBar);
          this.Controls.Add(this.ribbonControl1);
@@ -431,6 +477,10 @@
       private DevExpress.XtraBars.BarButtonItem cmdMoveRight;
       private DevExpress.XtraBars.BarButtonGroup barButtonGroup1;
         private DevExpress.XtraBars.BarButtonItem bbtnThemesManage;
+        private DevExpress.XtraBars.BarButtonItem cmdResourcesAreas;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgManage;
+        private DevExpress.XtraBars.BarButtonItem cmdResourcesSounds;
+        private DevExpress.XtraBars.BarButtonItem cmdResourcesDecoders;
     }
 }
 

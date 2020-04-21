@@ -86,6 +86,11 @@ namespace Rwm.Studio.Plugins.Common
          StudioContext.PluginManager.LoadPackages();
       }
 
+      public static void OpenPluginModule(string guid, params object[] args)
+      {
+         StudioContext.MainView.OpenPluginModule(guid, args);
+      }
+
       public static void LogInformation(string message)
       {
          StudioContext.MainView.LogConsole.Information(message);

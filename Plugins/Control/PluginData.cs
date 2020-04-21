@@ -30,7 +30,7 @@ namespace Rwm.Studio.Plugins.Control
 
       public override string Name
       {
-         get { return "Control"; }
+         get { return "Layout controller"; }
       }
 
       public override string Description

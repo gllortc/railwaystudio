@@ -263,6 +263,36 @@ namespace Rwm.Studio.Plugins.Control.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ICO_AREA_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_AREA_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_AREAS_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_AREAS_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_AREAS_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_AREAS_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ICO_BLOCK_ADD_16 {
             get {
                 object obj = ResourceManager.GetObject("ICO_BLOCK_ADD_16", resourceCulture);
@@ -576,6 +606,16 @@ namespace Rwm.Studio.Plugins.Control.Properties {
         internal static System.Drawing.Bitmap ICO_DECODER_ERROR_32 {
             get {
                 object obj = ResourceManager.GetObject("ICO_DECODER_ERROR_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_DECODER_MANAGE_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_DECODER_MANAGE_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1453,6 +1493,46 @@ namespace Rwm.Studio.Plugins.Control.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap layer_add_16 {
+            get {
+                object obj = ResourceManager.GetObject("layer_add_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap layer_add_32 {
+            get {
+                object obj = ResourceManager.GetObject("layer_add_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap layer_delete_32 {
+            get {
+                object obj = ResourceManager.GetObject("layer_delete_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap layer_edit_32 {
+            get {
+                object obj = ResourceManager.GetObject("layer_edit_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap lightning_go {
             get {
                 object obj = ResourceManager.GetObject("lightning_go", resourceCulture);
@@ -1496,6 +1576,16 @@ namespace Rwm.Studio.Plugins.Control.Properties {
         internal static System.Drawing.Bitmap server_delete_32 {
             get {
                 object obj = ResourceManager.GetObject("server_delete_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sound_edit_32 {
+            get {
+                object obj = ResourceManager.GetObject("sound_edit_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

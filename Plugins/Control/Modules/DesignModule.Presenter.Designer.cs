@@ -48,7 +48,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
       internal void PanelAdd()
       {
-         PanelEditorView form = new PanelEditorView();
+         SwitchboardEditorView form = new SwitchboardEditorView();
          form.ShowDialog(this);
 
          if (form.DialogResult == DialogResult.OK)
@@ -70,7 +70,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
             return;
          }
 
-         PanelEditorView form = new PanelEditorView((Switchboard)tabPanels.SelectedTabPage.Tag);
+         SwitchboardEditorView form = new SwitchboardEditorView((Switchboard)tabPanels.SelectedTabPage.Tag);
          form.ShowDialog(this);
 
          if (form.DialogResult == System.Windows.Forms.DialogResult.OK)
@@ -139,6 +139,24 @@ namespace Rwm.Studio.Plugins.Control.Modules
       internal void ThemesManager()
       {
          ThemeManagerView form = new ThemeManagerView();
+         form.ShowDialog(this);
+      }
+
+      internal void ManageLayoutAreas()
+      {
+         AreasManagerView form = new AreasManagerView();
+         form.ShowDialog(this);
+      }
+
+      internal void ManageDecoders()
+      {
+         DecodersManagerView form = new DecodersManagerView();
+         form.ShowDialog(this);
+      }
+
+      internal void ManageLayoutSounds()
+      {
+         SoundsManagerView form = new SoundsManagerView();
          form.ShowDialog(this);
       }
 

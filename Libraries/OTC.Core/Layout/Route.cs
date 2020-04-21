@@ -6,7 +6,7 @@ namespace Rwm.Otc.Layout
    /// <summary>
    /// Implements a route into the layout.
    /// </summary>
-   [ORMTable("routes")]
+   [ORMTable("ROUTES")]
    public class Route : ORMEntity<Route>
    {
 

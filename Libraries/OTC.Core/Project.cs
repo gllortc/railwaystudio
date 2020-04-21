@@ -145,7 +145,7 @@ namespace Rwm.Otc
       /// Gets the feedback decoders used in the project.
       /// </summary>
       [ORMForeignCollection(OnDeleteActionTypes.DeleteInCascade)]
-      public List<FeedbackDecoder> FeedbackDecoders { get; private set; } = null;
+      public List<FeedbackEncoder> FeedbackEncoders { get; private set; } = null;
 
       /// <summary>
       /// Gets all routes in the project.
@@ -158,6 +158,34 @@ namespace Rwm.Otc
       /// </summary>
       [ORMForeignCollection(OnDeleteActionTypes.DeleteInCascade)]
       public List<Sound> Sounds { get; private set; } = null;
+
+      /// <summary>
+      /// Gets the layout sections list.
+      /// </summary>
+      [ORMForeignCollection(OnDeleteActionTypes.NoAction)]
+      public List<Section> Sections { get; private set; } = null;
+
+      /// <summary>
+      /// Gets a value indicating if layout areas are in use in the current project.
+      /// </summary>
+      public bool IsUsingSections
+      {
+         get
+         {
+            if (this.Sections.Count > 0)
+            {
+               foreach (AccessoryDecoder decoder in this.AccessoryDecoders)
+                  if (decoder.Section != null)
+                     return true;
+
+               foreach (FeedbackEncoder encoder in this.FeedbackEncoders)
+                  if (encoder.Section != null)
+                     return true;
+            }
+
+            return false;
+         }
+      }
 
       /// <summary>
       /// Gets the active routes in current project.

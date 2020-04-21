@@ -27,12 +27,6 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
       #region Methods
 
-      internal void ThemesManage()
-      {
-         ThemeManagerView form = new ThemeManagerView();
-         form.ShowDialog(this);
-      }
-
       /// <summary>
       /// Open the systems manager dialogue.
       /// </summary>

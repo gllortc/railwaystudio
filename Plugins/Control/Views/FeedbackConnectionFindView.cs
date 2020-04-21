@@ -34,7 +34,7 @@ namespace Rwm.Studio.Plugins.Control.Views
 
       public FeedbackDecoderConnection SelectedConnection { get; private set; }
 
-      public FeedbackDecoder SelectedDecoder { get; private set; }
+      public FeedbackEncoder SelectedDecoder { get; private set; }
 
       public bool ShowUsedConnections
       {
@@ -82,7 +82,7 @@ namespace Rwm.Studio.Plugins.Control.Views
             }
          }
 
-         this.SelectedDecoder = tvwConnections.FocusedNode.ParentNode.Tag as FeedbackDecoder;
+         this.SelectedDecoder = tvwConnections.FocusedNode.ParentNode.Tag as FeedbackEncoder;
          this.SelectedConnection = tvwConnections.FocusedNode.Tag as FeedbackDecoderConnection;
 
          this.DialogResult = DialogResult.OK;
@@ -137,7 +137,7 @@ namespace Rwm.Studio.Plugins.Control.Views
          root.StateImageIndex = 4;
          root.Expanded = true;
 
-         foreach (FeedbackDecoder decoder in OTCContext.Project.FeedbackDecoders)
+         foreach (FeedbackEncoder decoder in OTCContext.Project.FeedbackEncoders)
          {
             mod = tvwConnections.AppendNode(new object[] { decoder.Name, string.Empty, string.Empty }, root);
             mod.StateImageIndex = 1;

@@ -71,19 +71,25 @@ namespace Rwm.Otc.Layout
       /// Gets or sets the number of outputs of the decoder.
       /// </summary>
       [ORMProperty("OUTPUTS")]
-      public int Outputs { get; set; }
+      public int NumberOfOutputs { get; set; }
 
       /// <summary>
       /// Establece o devuelve la dirección inicial del descodificador.
       /// </summary>
       [ORMProperty("STARTADDRESS")]
-      public int StartAddress { get; set; }
+      public int StartAddress { get; set; } = 0;
 
       /// <summary>
-      /// Gets or sets the name of the owner's module (or layout part) that contains the decoder.
+      /// Gets or sets the owner section of the layout where the decoder is installed.
       /// </summary>
-      [ORMProperty("MODULE")]
-      public string Module { get; set; }
+      [ORMProperty("SECTIONID")]
+      public Section Section { get; set; }
+
+      /// <summary>
+      /// Gets or sets the list of device outputs.
+      /// </summary>
+      [ORMForeignCollection(OnDeleteActionTypes.DeleteInCascade)]
+      public List<AccessoryDecoderOutput> Outputs { get; set; }
 
       /// <summary>
       /// Gets or sets the list of connections for the device.
@@ -92,7 +98,7 @@ namespace Rwm.Otc.Layout
       public List<AccessoryDecoderConnection> Connections { get; set; }
 
       /// <summary>
-      /// Gets the number of connections.
+      /// Gets the number of used outputs by connections.
       /// </summary>
       public int ConnectionsCount 
       {
@@ -110,6 +116,25 @@ namespace Rwm.Otc.Layout
       #endregion
 
       #region Methods
+
+      /// <summary>
+      /// Returns the specified decoder output.
+      /// </summary>
+      /// <param name="index">Output index.</param>
+      /// <returns>The requested output or <null> if the output doesn't exists.</null></returns>
+      public AccessoryDecoderOutput GetOutputByIndex(int index)
+      {
+         if (this.Outputs == null) 
+            return null;
+
+         foreach (AccessoryDecoderOutput output in this.Outputs)
+         {
+            if (output.Index == index)
+               return output;
+         }
+
+         return null;
+      }
 
       /// <summary>
       /// Get all decoders information in an instance of <see cref="DataTable"/>.
@@ -249,7 +274,7 @@ namespace Rwm.Otc.Layout
          this.Name = string.Empty;
          this.Manufacturer = null;
          this.Model = string.Empty;
-         this.Outputs = 0;
+         this.NumberOfOutputs = 0;
          this.StartAddress = 0;
          this.Notes = string.Empty;
          this.Connections = new List<AccessoryDecoderConnection>();

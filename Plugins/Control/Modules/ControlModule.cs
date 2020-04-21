@@ -158,7 +158,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
       private void BbtnThemesManage_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
-         this.ThemesManage();
+         StudioContext.Utils.ShowThemeManager(this);
       }
 
       #endregion

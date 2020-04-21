@@ -218,7 +218,7 @@ namespace Rwm.Otc.Data
          {
             if (reader.Read())
             {
-               instance = ORMEntity<T>.MapData(typeof(T), reader);
+               instance = ORMEntity<T>.MapData(reader);
             }
          }
 
@@ -489,7 +489,7 @@ namespace Rwm.Otc.Data
       /// <summary>
       /// Maps the database readed data into a new instance.
       /// </summary>
-      private static T MapData(Type type, DbDataReader reader)
+      private static T MapData(DbDataReader reader)
       {
          object value;
 

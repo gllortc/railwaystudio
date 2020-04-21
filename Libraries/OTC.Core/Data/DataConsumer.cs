@@ -28,7 +28,7 @@ namespace Rwm.Otc.Data
 
       #region Constants
 
-      internal static string SQL_REGISTRY_TABLE = "sysregistry";
+      internal static string SQL_REGISTRY_TABLE = "SYS_REGISTRY";
       internal static string SQL_REGISTRY_FIELDS = "key, value";
 
       /// <summary>Settings key that contains the current project database connection string.</summary>

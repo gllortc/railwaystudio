@@ -11,7 +11,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
 
       #region Constants
 
-      private const string MODULE_GUID = "8458EC08-4224-42B0-8CF5-84FCD5AAFB3C";
+      internal const string MODULE_GUID = "8458EC08-4224-42B0-8CF5-84FCD5AAFB3C";
 
       #endregion
 

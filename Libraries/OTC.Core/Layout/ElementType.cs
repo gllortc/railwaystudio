@@ -7,7 +7,7 @@ using static Rwm.Otc.Data.ORMForeignCollection;
 
 namespace Rwm.Otc.Layout
 {
-   [ORMTable("elementtypes")]
+   [ORMTable("ELEMENT_TYPES")]
    public class ElementType : ORMEntity<ElementType>
    {
 
@@ -56,6 +56,12 @@ namespace Rwm.Otc.Layout
       /// </summary>
       [ORMProperty("groupkey")]
       public string Group { get; set; }
+
+      /// <summary>
+      /// Gets or sets a value indicating the order of activation in a secuance.
+      /// </summary>
+      [ORMProperty("activationorder")]
+      public int ActivationOrder { get; set; }
 
       /// <summary>
       /// Gets the name of the type of the bloc.

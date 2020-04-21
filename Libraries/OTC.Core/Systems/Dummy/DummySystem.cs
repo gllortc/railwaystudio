@@ -245,7 +245,7 @@ namespace Rwm.Otc.Systems.Dummy
             return;
          }
 
-         foreach (FeedbackDecoderConnection connection in element.FeedbackConnections)
+         foreach (FeedbackEncoderConnection connection in element.FeedbackConnections)
          {
             if (connection != null)
             {

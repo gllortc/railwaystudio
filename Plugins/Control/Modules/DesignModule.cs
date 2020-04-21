@@ -1,8 +1,6 @@
-﻿using DevExpress.XtraBars.Docking;
+﻿using System.Drawing;
 using Rwm.Otc.UI.Controls;
 using Rwm.Studio.Plugins.Common;
-using Rwm.Studio.Plugins.Control.Controls;
-using System.Drawing;
 
 namespace Rwm.Studio.Plugins.Control.Modules
 {
@@ -86,14 +84,14 @@ namespace Rwm.Studio.Plugins.Control.Modules
       /// </summary>
       public void CreatePanels()
       {
-         DesignToolboxControl ctrl = new DesignToolboxControl(this, this.SelectedSwitchboardPanel);
-         ctrl.Refresh();
+         //DesignToolboxControl ctrl = new DesignToolboxControl(this, this.SelectedSwitchboardPanel);
+         //ctrl.Refresh();
 
-         StudioContext.UI.AddDockPanel(DOCKPANEL_DESIGN,
-                                       "Automation toolbox",
-                                       ctrl,
-                                       global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_16,
-                                       DockingStyle.Right);
+         //StudioContext.UI.AddDockPanel(DOCKPANEL_DESIGN,
+         //                              "Automation toolbox",
+         //                              ctrl,
+         //                              global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_16,
+         //                              DockingStyle.Right);
       }
 
       /// <summary>
@@ -101,7 +99,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
       /// </summary>
       public void DestoryPanels()
       {
-         StudioContext.UI.RemoveDockPanel(DOCKPANEL_DESIGN);
+         //StudioContext.UI.RemoveDockPanel(DOCKPANEL_DESIGN);
       }
 
       #endregion
@@ -198,6 +196,21 @@ namespace Rwm.Studio.Plugins.Control.Modules
       private void CmdMoveRight_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          this.MoveRight();
+      }
+
+      private void CmdResourcesAreas_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      {
+         this.ManageLayoutAreas();
+      }
+
+      private void cmdResourcesDecoders_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      {
+         this.ManageDecoders();
+      }
+
+      private void CmdResourcesSounds_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      {
+         this.ManageLayoutSounds();
       }
 
       #endregion

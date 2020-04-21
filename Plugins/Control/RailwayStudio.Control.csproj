@@ -130,110 +130,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\FeedbackDecoderManagerControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\FeedbackDecoderManagerControl.Designer.cs">
-      <DependentUpon>FeedbackDecoderManagerControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\ActionManagerControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\ActionManagerControl.Designer.cs">
-      <DependentUpon>ActionManagerControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\AddressEditorControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\AddressEditorControl.Designer.cs">
-      <DependentUpon>AddressEditorControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\DesignToolboxControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\DesignToolboxControl.Designer.cs">
-      <DependentUpon>DesignToolboxControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\IActionParametersEditor.cs" />
-    <Compile Include="Controls\InputEditorControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\InputEditorControl.Designer.cs">
-      <DependentUpon>InputEditorControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\ConnectionChangedEventArgs.cs" />
-    <Compile Include="Controls\MapChangedEventArgs.cs" />
-    <Compile Include="Controls\OutputStatusEditorControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\OutputStatusEditorControl.Designer.cs">
-      <DependentUpon>OutputStatusEditorControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controls\RouteManualActivatorControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\RouteManualActivatorControl.Designer.cs">
       <DependentUpon>RouteManualActivatorControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\SetAccessoryStatusActionControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\SetAccessoryStatusActionControl.Designer.cs">
-      <DependentUpon>SetAccessoryStatusActionControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\PlaySoundActionControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\PlaySoundActionControl.Designer.cs">
-      <DependentUpon>PlaySoundActionControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\ActivateRouteActionControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\ActivateRouteActionControl.Designer.cs">
-      <DependentUpon>ActivateRouteActionControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\OutputEditorControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\OutputEditorControl.Designer.cs">
-      <DependentUpon>OutputEditorControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\AccessoryDecoderManagerControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\AccessoryDecoderManagerControl.Designer.cs">
-      <DependentUpon>AccessoryDecoderManagerControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\SoundManagerControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\SoundManagerControl.Designer.cs">
-      <DependentUpon>SoundManagerControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Modules\ControlModule.Presenter.Designer.cs" />
-    <Compile Include="Modules\RouteModule.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\RouteModule.Designer.cs">
-      <DependentUpon>RouteModule.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\DesignModule.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\DesignModule.Designer.cs">
-      <DependentUpon>DesignModule.cs</DependentUpon>
-    </Compile>
     <Compile Include="Modules\ControlModule.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modules\ControlModule.Designer.cs">
       <DependentUpon>ControlModule.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modules\RouteModule.Presenter.Designer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\DesignModule.Presenter.Designer.cs" />
     <Compile Include="PanelControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -242,65 +151,11 @@
     </Compile>
     <Compile Include="PluginData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reports\DigitalReport.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\DigitalReport.Designer.cs">
-      <DependentUpon>DigitalReport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FeedbackConnectionFindView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FeedbackConnectionFindView.Designer.cs">
-      <DependentUpon>FeedbackConnectionFindView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ActionEditorView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\ActionEditorView.Designer.cs">
-      <DependentUpon>ActionEditorView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AccesoryConnectionFindView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\AccesoryConnectionFindView.Designer.cs">
-      <DependentUpon>AccesoryConnectionFindView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SoundEditorView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\SoundEditorView.Designer.cs">
-      <DependentUpon>SoundEditorView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\SystemEditorView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\SystemEditorView.Designer.cs">
       <DependentUpon>SystemEditorView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\BlockPropertiesViews.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\BlockPropertiesViews.Designer.cs">
-      <DependentUpon>BlockPropertiesViews.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FeedbackEncoderEditorView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FeedbackEncoderEditorView.Designer.cs">
-      <DependentUpon>FeedbackEncoderEditorView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AccessoryDecoderEditorView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\AccessoryDecoderEditorView.Designer.cs">
-      <DependentUpon>AccessoryDecoderEditorView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\PanelEditorView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\PanelEditorView.Designer.cs">
-      <DependentUpon>PanelEditorView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\SystemManagerView.cs">
       <SubType>Form</SubType>
@@ -308,56 +163,8 @@
     <Compile Include="Views\SystemManagerView.Designer.cs">
       <DependentUpon>SystemManagerView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ThemeManagerView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\ThemeManagerView.Designer.cs">
-      <DependentUpon>ThemeManagerView.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Controls\FeedbackDecoderManagerControl.resx">
-      <DependentUpon>FeedbackDecoderManagerControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ActionManagerControl.resx">
-      <DependentUpon>ActionManagerControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\AddressEditorControl.resx">
-      <DependentUpon>AddressEditorControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\DesignToolboxControl.resx">
-      <DependentUpon>DesignToolboxControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\InputEditorControl.resx">
-      <DependentUpon>InputEditorControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\OutputStatusEditorControl.resx">
-      <DependentUpon>OutputStatusEditorControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controls\RouteManualActivatorControl.resx">
       <DependentUpon>RouteManualActivatorControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\SetAccessoryStatusActionControl.resx">
-      <DependentUpon>SetAccessoryStatusActionControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\PlaySoundActionControl.resx">
-      <DependentUpon>PlaySoundActionControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ActivateRouteActionControl.resx">
-      <DependentUpon>ActivateRouteActionControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\OutputEditorControl.resx">
-      <DependentUpon>OutputEditorControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\AccessoryDecoderManagerControl.resx">
-      <DependentUpon>AccessoryDecoderManagerControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\SoundManagerControl.resx">
-      <DependentUpon>SoundManagerControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\RouteModule.resx">
-      <DependentUpon>RouteModule.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\DesignModule.resx">
-      <DependentUpon>DesignModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\ControlModule.resx">
       <DependentUpon>ControlModule.cs</DependentUpon>
@@ -376,41 +183,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reports\DigitalReport.resx">
-      <DependentUpon>DigitalReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FeedbackConnectionFindView.resx">
-      <DependentUpon>FeedbackConnectionFindView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\ActionEditorView.resx">
-      <DependentUpon>ActionEditorView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\AccesoryConnectionFindView.resx">
-      <DependentUpon>AccesoryConnectionFindView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\SoundEditorView.resx">
-      <DependentUpon>SoundEditorView.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\SystemEditorView.resx">
       <DependentUpon>SystemEditorView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\BlockPropertiesViews.resx">
-      <DependentUpon>BlockPropertiesViews.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FeedbackEncoderEditorView.resx">
-      <DependentUpon>FeedbackEncoderEditorView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\AccessoryDecoderEditorView.resx">
-      <DependentUpon>AccessoryDecoderEditorView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\PanelEditorView.resx">
-      <DependentUpon>PanelEditorView.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\SystemManagerView.resx">
       <DependentUpon>SystemManagerView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\ThemeManagerView.resx">
-      <DependentUpon>ThemeManagerView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />
@@ -425,6 +202,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\sound_edit_32.png" />
+    <None Include="Resources\layers_32.png" />
+    <None Include="Resources\layers_16.png" />
+    <None Include="Resources\layer_16.png" />
+    <None Include="Resources\layer_delete_32.png" />
+    <None Include="Resources\layer_edit_32.png" />
+    <None Include="Resources\layer_add_32.png" />
+    <None Include="Resources\layer_add_16.png" />
     <None Include="Resources\table_heatmap_go_16.png" />
     <None Include="Resources\processor_settings_32.png" />
     <None Include="Resources\prohibition_button_16.png" />
@@ -567,6 +352,7 @@
     <None Include="Resources\control_play_blue_161.png" />
     <None Include="Resources\control_play_blue_321.png" />
     <None Include="Resources\arrow_switch_yellow_16.png" />
+    <None Include="Resources\drive_folder_32.png" />
     <Content Include="Resources\favicon.ico" />
     <None Include="Resources\processor_error_16.png" />
     <None Include="Resources\processor_edit_16.png" />
@@ -607,6 +393,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Lib\" />
+    <Folder Include="Reports\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

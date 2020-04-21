@@ -1,0 +1,652 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D90EA763-E8EB-4A06-BA08-CB3C9308AA11}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Rwm.Studio.Plugins.Designer</RootNamespace>
+    <AssemblyName>RailwayStudio.Designer</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publicar\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v17.1" />
+    <Reference Include="DevExpress.Data.v17.1" />
+    <Reference Include="DevExpress.Office.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v17.1.Core" />
+    <Reference Include="DevExpress.RichEdit.v17.1.Export" />
+    <Reference Include="DevExpress.Printing.v17.1.Core" />
+    <Reference Include="DevExpress.RichEdit.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v17.1" />
+    <Reference Include="DevExpress.XtraBars.v17.1" />
+    <Reference Include="DevExpress.Sparkline.v17.1.Core" />
+    <Reference Include="DevExpress.XtraEditors.v17.1" />
+    <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v17.1.Extensions, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Data.SQLite.Core.1.0.112.0\lib\net451\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Data.SQLite.EF6.1.0.112.0\lib\net451\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Data.SQLite.Linq.1.0.112.0\lib\net451\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Arduino\Sketch.cs" />
+    <Compile Include="Controls\ActionManagerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ActionManagerControl.Designer.cs">
+      <DependentUpon>ActionManagerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ActivateRouteActionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ActivateRouteActionControl.Designer.cs">
+      <DependentUpon>ActivateRouteActionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ConnectionChangedEventArgs.cs" />
+    <Compile Include="Controls\DecoderSettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DecoderSettingsControl.Designer.cs">
+      <DependentUpon>DecoderSettingsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IActionParametersEditor.cs" />
+    <Compile Include="Controls\InputEditorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\InputEditorControl.Designer.cs">
+      <DependentUpon>InputEditorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OutputEditorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\OutputEditorControl.Designer.cs">
+      <DependentUpon>OutputEditorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PlaySoundActionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PlaySoundActionControl.Designer.cs">
+      <DependentUpon>PlaySoundActionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SetAccessoryStatusActionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SetAccessoryStatusActionControl.Designer.cs">
+      <DependentUpon>SetAccessoryStatusActionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DecoderEditorModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DecoderEditorModule.Designer.cs">
+      <DependentUpon>DecoderEditorModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DecoderEditorModule.Controller.Designer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DecoderManagerModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DecoderManagerModule.Designer.cs">
+      <DependentUpon>DecoderManagerModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DecoderManagerModule.Controller.Designer.cs" />
+    <Compile Include="Modules\DesignModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\DesignModule.Designer.cs">
+      <DependentUpon>DesignModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\DesignModule.Controller.Designer.cs" />
+    <Compile Include="Modules\RouteModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\RouteModule.Designer.cs">
+      <DependentUpon>RouteModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\RouteModule.Controller.Designer.cs" />
+    <Compile Include="PluginData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\DigitalReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\DigitalReport.Designer.cs">
+      <DependentUpon>DigitalReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DigitalReportBySections.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\DigitalReportBySections.Designer.cs">
+      <DependentUpon>DigitalReportBySections.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AccesoryConnectionFindView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AccesoryConnectionFindView.Designer.cs">
+      <DependentUpon>AccesoryConnectionFindView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RwmDecoderEditorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RwmDecoderEditorView.Designer.cs">
+      <DependentUpon>RwmDecoderEditorView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AccessoryDecoderEditorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AccessoryDecoderEditorView.Designer.cs">
+      <DependentUpon>AccessoryDecoderEditorView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ActionEditorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ActionEditorView.Designer.cs">
+      <DependentUpon>ActionEditorView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AreaEditorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AreaEditorView.Designer.cs">
+      <DependentUpon>AreaEditorView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AreasManagerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AreasManagerView.Designer.cs">
+      <DependentUpon>AreasManagerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BlockPropertiesViews.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BlockPropertiesViews.Designer.cs">
+      <DependentUpon>BlockPropertiesViews.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DecoderBuildView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DecoderBuildView.Designer.cs">
+      <DependentUpon>DecoderBuildView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DecodersManagerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DecodersManagerView.Designer.cs">
+      <DependentUpon>DecodersManagerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FeedbackConnectionFindView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FeedbackConnectionFindView.Designer.cs">
+      <DependentUpon>FeedbackConnectionFindView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FeedbackEncoderEditorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FeedbackEncoderEditorView.Designer.cs">
+      <DependentUpon>FeedbackEncoderEditorView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SoundEditorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SoundEditorView.Designer.cs">
+      <DependentUpon>SoundEditorView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SoundsManagerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SoundsManagerView.Designer.cs">
+      <DependentUpon>SoundsManagerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SwitchboardEditorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SwitchboardEditorView.Designer.cs">
+      <DependentUpon>SwitchboardEditorView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Controls\ActionManagerControl.resx">
+      <DependentUpon>ActionManagerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ActivateRouteActionControl.resx">
+      <DependentUpon>ActivateRouteActionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DecoderSettingsControl.resx">
+      <DependentUpon>DecoderSettingsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\InputEditorControl.resx">
+      <DependentUpon>InputEditorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\OutputEditorControl.resx">
+      <DependentUpon>OutputEditorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PlaySoundActionControl.resx">
+      <DependentUpon>PlaySoundActionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SetAccessoryStatusActionControl.resx">
+      <DependentUpon>SetAccessoryStatusActionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DecoderEditorModule.resx">
+      <DependentUpon>DecoderEditorModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DecoderManagerModule.resx">
+      <DependentUpon>DecoderManagerModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DesignModule.resx">
+      <DependentUpon>DesignModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\RouteModule.resx">
+      <DependentUpon>RouteModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reports\DigitalReport.resx">
+      <DependentUpon>DigitalReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DigitalReportBySections.resx">
+      <DependentUpon>DigitalReportBySections.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AccesoryConnectionFindView.resx">
+      <DependentUpon>AccesoryConnectionFindView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RwmDecoderEditorView.resx">
+      <DependentUpon>RwmDecoderEditorView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AccessoryDecoderEditorView.resx">
+      <DependentUpon>AccessoryDecoderEditorView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ActionEditorView.resx">
+      <DependentUpon>ActionEditorView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AreaEditorView.resx">
+      <DependentUpon>AreaEditorView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AreasManagerView.resx">
+      <DependentUpon>AreasManagerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\BlockPropertiesViews.resx">
+      <DependentUpon>BlockPropertiesViews.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DecoderBuildView.resx">
+      <DependentUpon>DecoderBuildView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DecodersManagerView.resx">
+      <DependentUpon>DecodersManagerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FeedbackConnectionFindView.resx">
+      <DependentUpon>FeedbackConnectionFindView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FeedbackEncoderEditorView.resx">
+      <DependentUpon>FeedbackEncoderEditorView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SoundEditorView.resx">
+      <DependentUpon>SoundEditorView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SoundsManagerView.resx">
+      <DependentUpon>SoundsManagerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SwitchboardEditorView.resx">
+      <DependentUpon>SwitchboardEditorView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\OTC.Core\OTC.Core.csproj">
+      <Project>{6a159ab3-7d3d-4128-85c0-b65bdd73a68f}</Project>
+      <Name>OTC.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\OTC.UI\OTC.UI.csproj">
+      <Project>{d34ba3ab-ecaf-4a21-8168-95872a8ac3ba}</Project>
+      <Name>OTC.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RailwayStudio.Common\RailwayStudio.Common\RailwayStudio.Common.csproj">
+      <Project>{930ba765-ec32-47e2-985d-cbf987fdb049}</Project>
+      <Name>RailwayStudio.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\layer.png" />
+    <None Include="Resources\page_white_drive_32.png" />
+    <None Include="Resources\folder_drive_32.png" />
+    <None Include="Resources\layer_16.png" />
+    <None Include="Resources\layers_32.png" />
+    <None Include="Resources\layers_16.png" />
+    <None Include="Resources\sound_folder_16.png" />
+    <None Include="Resources\shape_rotate_16.png" />
+    <None Include="Resources\shape_rotate_32.png" />
+    <None Include="Resources\shape_square_delete.png" />
+    <None Include="Resources\shape_square_add.png" />
+    <None Include="Resources\shape_square_add_16.png" />
+    <None Include="Resources\shape_square_delete_16.png" />
+    <None Include="Resources\printer_32.png" />
+    <None Include="Resources\layer_edit_32.png" />
+    <None Include="Resources\layer_delete_32.png" />
+    <None Include="Resources\layer_add_32.png" />
+    <None Include="Resources\table_edit.png" />
+    <None Include="Resources\table_delete.png" />
+    <None Include="Resources\table_add.png" />
+    <None Include="Resources\table_edit_16.png" />
+    <None Include="Resources\table_delete_16.png" />
+    <None Include="Resources\table_add_16.png" />
+    <None Include="Resources\table_16.png" />
+    <None Include="Resources\table_design_16.png" />
+    <None Include="Resources\train_route_32.png" />
+    <None Include="Resources\train_design_32.png" />
+    <None Include="Resources\zone_clear_16.png" />
+    <None Include="Resources\zone_go_16.png" />
+    <None Include="Resources\table_heatmap_check_16.png" />
+    <None Include="Resources\table_heatmap_16.png" />
+    <None Include="Resources\table_heatmap_check_32.png" />
+    <None Include="Resources\table_heatmap_32.png" />
+    <None Include="Resources\sound_16.png" />
+    <None Include="Resources\sound_folder_32.png" />
+    <None Include="Resources\sound_edit_32.png" />
+    <None Include="Resources\sound_delete_32.png" />
+    <None Include="Resources\sound_add_32.png" />
+    <None Include="Resources\sound.png" />
+    <None Include="Resources\folder_processor_32.png" />
+    <None Include="Resources\processor_burn_32.png" />
+    <None Include="Resources\processor_edit.png" />
+    <None Include="Resources\processor_delete.png" />
+    <None Include="Resources\processor_add.png" />
+    <None Include="Resources\report_16.png" />
+    <None Include="Resources\report_32.png" />
+    <None Include="Resources\printer_16.png" />
+    <None Include="Resources\printer.png" />
+    <None Include="Resources\train_metro_1611.png" />
+    <None Include="Resources\page_train_32.png" />
+    <None Include="Resources\train_metro_161.png" />
+    <None Include="Resources\folder_16.png" />
+    <None Include="Resources\folder_train_32.png" />
+    <None Include="Resources\link_go.png" />
+    <None Include="Resources\link_delete.png" />
+    <None Include="Resources\link.png" />
+    <None Include="Resources\lightbulb_off_16.png" />
+    <None Include="Resources\lightbulb_16.png" />
+    <None Include="Resources\train_metro_16.png" />
+    <None Include="Resources\train_metro.png" />
+    <None Include="Resources\save_as_16.png" />
+    <None Include="Resources\save_as.png" />
+    <None Include="Resources\tag_blue_16.png" />
+    <None Include="Resources\tag_blue.png" />
+    <None Include="Resources\processor.png" />
+    <None Include="Resources\processor_16.png" />
+    <None Include="Resources\pencil_16.png" />
+    <None Include="Resources\pencil.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\add_16.png" />
+    <None Include="Resources\delete_16.png" />
+    <None Include="Resources\building.png" />
+    <None Include="Resources\building_16.png" />
+    <None Include="Resources\diskette_16.png" />
+    <None Include="Resources\diskette.png" />
+    <None Include="Resources\connect_16.png" />
+    <None Include="Resources\DCC_Decoder.cpp" />
+    <None Include="Resources\DCC_Decoder.h" />
+    <None Include="Resources\control_play_blue_32.png" />
+    <None Include="Resources\drive_add.png" />
+    <None Include="Resources\drive_delete.png" />
+    <None Include="Resources\drive_edit.png" />
+    <None Include="Resources\drive_bulb_32.png" />
+    <None Include="Resources\drive_light_32.png" />
+    <None Include="Resources\drive_light_16.png" />
+    <None Include="Resources\drive_lightning_16.png" />
+    <None Include="Resources\cog_16.png" />
+    <None Include="Resources\cog_add_16.png" />
+    <None Include="Resources\cog_delete_16.png" />
+    <None Include="Resources\cog_edit_16.png" />
+    <None Include="Resources\arrow_switch_go_16.png" />
+    <None Include="Resources\disconnect_16.png" />
+    <None Include="Resources\arrow_switch_add_32.png" />
+    <None Include="Resources\arrow_switch_delete_32.png" />
+    <None Include="Resources\arrow_switch_edit_32.png" />
+    <None Include="Resources\arrow_switch_add_16.png" />
+    <None Include="Resources\arrow_switch_delete_16.png" />
+    <None Include="Resources\arrow_switch_edit_16.png" />
+    <None Include="Resources\arrow_switch_16.png" />
+    <None Include="Resources\cursor_32.png" />
+    <None Include="Resources\cursor_16.png" />
+    <None Include="Resources\arrow_down_16.png" />
+    <None Include="Resources\arrow_left_16.png" />
+    <None Include="Resources\arrow_right_16.png" />
+    <None Include="Resources\arrow_up_16.png" />
+    <None Include="Resources\drive_folder_16.png" />
+    <None Include="Resources\drive_folder_32.png" />
+    <None Include="Resources\cross_32.png" />
+    <None Include="Resources\cross_16.png" />
+    <None Include="Resources\disk_back_16.png" />
+    <None Include="Resources\disk_close_32.png" />
+    <None Include="Resources\drive_16.png" />
+    <None Include="Resources\arduino_16.png" />
+    <None Include="Resources\arduino_32.png" />
+    <None Include="Resources\drive.png" />
+    <None Include="Resources\arrow_refresh_32.png" />
+    <None Include="Resources\arrow_refresh_16.png" />
+    <None Include="Resources\drive_delete_16.png" />
+    <None Include="Resources\compile_16.png" />
+    <Content Include="Resources\favicon.ico" />
+    <None Include="Resources\database_table_16.png" />
+    <None Include="Resources\database_table.png" />
+    <None Include="Resources\factory.png" />
+    <None Include="Resources\factory_16.png" />
+    <None Include="Resources\cart_full_16.png" />
+    <None Include="Resources\cart_full.png" />
+    <None Include="Resources\measure_crop_16.png" />
+    <None Include="Resources\measure_crop.png" />
+    <None Include="Resources\F_19.gif" />
+    <None Include="Resources\B_31.gif" />
+    <None Include="Resources\F_2.1.gif" />
+    <None Include="Resources\F_1.1.gif" />
+    <None Include="Resources\E6.gif" />
+    <None Include="Resources\E5.gif" />
+    <None Include="Resources\E4.gif" />
+    <None Include="Resources\E3.gif" />
+    <None Include="Resources\E2.gif" />
+    <None Include="Resources\E1.gif" />
+    <None Include="Resources\D_32.gif" />
+    <None Include="Resources\app.png" />
+    <None Include="Resources\1013.gif" />
+    <None Include="Resources\pictp_service_run.gif" />
+    <None Include="Resources\picto_nem652.gif" />
+    <None Include="Resources\picto_nem651.gif" />
+    <None Include="Resources\picto_maint_001.gif" />
+    <None Include="Resources\picto_limited.gif" />
+    <None Include="Resources\picto_digital_address.gif" />
+    <None Include="Resources\picto_43.gif" />
+    <None Include="Resources\picto_42.gif" />
+    <None Include="Resources\picto_39.gif" />
+    <None Include="Resources\picto_38.gif" />
+    <None Include="Resources\picto_35.gif" />
+    <None Include="Resources\picto_34.gif" />
+    <None Include="Resources\picto_33.gif" />
+    <None Include="Resources\picto_31.gif" />
+    <None Include="Resources\picto_30.gif" />
+    <None Include="Resources\picto_29.gif" />
+    <None Include="Resources\picto_28.gif" />
+    <None Include="Resources\picto_27.gif" />
+    <None Include="Resources\picto_26.gif" />
+    <None Include="Resources\picto_25.gif" />
+    <None Include="Resources\picto_24.gif" />
+    <None Include="Resources\picto_23.gif" />
+    <None Include="Resources\picto_22.gif" />
+    <None Include="Resources\picto_21pin.gif" />
+    <None Include="Resources\picto_21.gif" />
+    <None Include="Resources\picto_20.gif" />
+    <None Include="Resources\picto_19.gif" />
+    <None Include="Resources\picto_18.gif" />
+    <None Include="Resources\picto_17.gif" />
+    <None Include="Resources\picto_16.gif" />
+    <None Include="Resources\picto_8.gif" />
+    <None Include="Resources\picto_7.gif" />
+    <None Include="Resources\picto_6.gif" />
+    <None Include="Resources\picto_5.gif" />
+    <None Include="Resources\bahn_epoche_VI.png" />
+    <None Include="Resources\bahn_epoche_V.png" />
+    <None Include="Resources\bahn_epoche_IV.png" />
+    <None Include="Resources\bahn_epoche_III.png" />
+    <None Include="Resources\bahn_epoche_II.png" />
+    <None Include="Resources\bahn_epoche_I.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\System.Data.SQLite.Core.1.0.112.0\build\net451\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\System.Data.SQLite.Core.1.0.112.0\build\net451\System.Data.SQLite.Core.targets'))" />
+    <Error Condition="!Exists('..\..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\..\packages\System.Data.SQLite.Core.1.0.112.0\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\..\packages\System.Data.SQLite.Core.1.0.112.0\build\net451\System.Data.SQLite.Core.targets')" />
+  <Import Project="..\..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

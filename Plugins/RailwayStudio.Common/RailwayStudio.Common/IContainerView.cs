@@ -27,7 +27,7 @@ namespace Rwm.Studio.Plugins.Common
 
       #region Methods
 
-      void OpenPluginModule(string className, params object[] args);
+      void OpenPluginModule(string guid, params object[] args);
 
       #endregion
 

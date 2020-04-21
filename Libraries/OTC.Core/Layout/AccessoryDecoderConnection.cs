@@ -83,9 +83,11 @@ namespace Rwm.Otc.Layout
       [ORMProperty("SWITCHTIME")]
       public int SwitchTime { get; set; } = 0;
 
-      public DeviceConnectionMap OutputMap { get; set; } = new DeviceConnectionMap();
-
-      public DecoderFunctionOutputStatus Output2 { get; set; } = DecoderFunctionOutputStatus.Unknown;
+      /// <summary>
+      /// Gets or sets the time (in milliseconds) to switch.
+      /// </summary>
+      [ORMProperty("INVERTED")]
+      public bool Inverted { get; set; } = false;
 
       /// <summary>
       /// Gets a value indicating if the connection is used by an element.
@@ -113,39 +115,39 @@ namespace Rwm.Otc.Layout
 
       #region Static Members
 
-      /// <summary>
-      /// Get a <see cref="AccessoryDecoderConnection"/> by its device output.
-      /// </summary>
-      /// <param name="element">Owner connection <see cref="Element"/>.</param>
-      /// <param name="output"><see cref="AccessoryDecoderConnection"/> index.</param>
-      /// <returns>The requested <see cref="AccessoryDecoderConnection"/> or <c>null</c> if no <see cref="AccessoryDecoderConnection"/> is used by the specified <see cref="Element"/> and index.</returns>
-      public static AccessoryDecoderConnection GetByOutput(Element element, int output)
-      {
-         foreach (AccessoryDecoderConnection connection in element?.AccessoryConnections)
-         {
-            if (connection.DecoderOutput == output)
-               return connection;
-         }
+      ///// <summary>
+      ///// Get a <see cref="AccessoryDecoderConnection"/> by its device output.
+      ///// </summary>
+      ///// <param name="element">Owner connection <see cref="Element"/>.</param>
+      ///// <param name="output"><see cref="AccessoryDecoderConnection"/> index.</param>
+      ///// <returns>The requested <see cref="AccessoryDecoderConnection"/> or <c>null</c> if no <see cref="AccessoryDecoderConnection"/> is used by the specified <see cref="Element"/> and index.</returns>
+      //public static AccessoryDecoderConnection GetByOutput(Element element, int output)
+      //{
+      //   foreach (AccessoryDecoderConnection connection in element?.AccessoryConnections)
+      //   {
+      //      if (connection.DecoderOutput == output)
+      //         return connection;
+      //   }
 
-         return null;
-      }
+      //   return null;
+      //}
 
-      /// <summary>
-      /// Get a <see cref="AccessoryDecoderConnection"/> by its device output.
-      /// </summary>
-      /// <param name="element">Owner connection <see cref="Element"/>.</param>
-      /// <param name="output"><see cref="AccessoryDecoderConnection"/> index.</param>
-      /// <returns>The requested <see cref="AccessoryDecoderConnection"/> or <c>null</c> if no <see cref="AccessoryDecoderConnection"/> is used by the specified <see cref="Element"/> and index.</returns>
-      public static AccessoryDecoderConnection GetByOutput(AccessoryDecoder decoder, int output)
-      {
-         foreach (AccessoryDecoderConnection connection in decoder?.Connections)
-         {
-            if (connection.DecoderOutput == output)
-               return connection;
-         }
+      ///// <summary>
+      ///// Get a <see cref="AccessoryDecoderConnection"/> by its device output.
+      ///// </summary>
+      ///// <param name="element">Owner connection <see cref="Element"/>.</param>
+      ///// <param name="output"><see cref="AccessoryDecoderConnection"/> index.</param>
+      ///// <returns>The requested <see cref="AccessoryDecoderConnection"/> or <c>null</c> if no <see cref="AccessoryDecoderConnection"/> is used by the specified <see cref="Element"/> and index.</returns>
+      //public static AccessoryDecoderConnection GetByOutput(AccessoryDecoder decoder, int output)
+      //{
+      //   foreach (AccessoryDecoderConnection connection in decoder?.Connections)
+      //   {
+      //      if (connection.DecoderOutput == output)
+      //         return connection;
+      //   }
 
-         return null;
-      }
+      //   return null;
+      //}
 
       /// <summary>
       /// Get a <see cref="AccessoryDecoderConnection"/> by its index.
@@ -190,8 +192,7 @@ namespace Rwm.Otc.Layout
          catch (Exception ex)
          {
             Logger.LogError(ex);
-
-            throw;
+            throw ex;
          }
          finally
          {

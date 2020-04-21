@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 using Rwm.Otc.Utils;
 
@@ -59,6 +60,20 @@ namespace Rwm.Studio.Plugins.Common
       /// Gets the list of package plugin instances.
       /// </summary>
       public List<IPluginModule> Modules { get; private set; } = new List<IPluginModule>();
+
+      /// <summary>
+      /// Gets the private plugin directory path.
+      /// </summary>
+      public static string PluginPath
+      {
+         get
+         {
+            FileInfo fi = new FileInfo(typeof(PluginPackageBase).Assembly.Location.ToString());
+            string pluginPath = Path.Combine(fi.DirectoryName, typeof(PluginPackageBase).FullName);
+            if (!Directory.Exists(pluginPath)) Directory.CreateDirectory(pluginPath);
+            return pluginPath;
+         }
+      }
 
       #endregion
 

@@ -15,10 +15,7 @@ namespace Rwm.Otc.Layout
       /// <summary>
       /// Returns a new instance of <see cref="Sound"/>.
       /// </summary>
-      public Sound()
-      {
-         Initialize();
-      }
+      public Sound() { }
 
       #endregion
 
@@ -28,31 +25,31 @@ namespace Rwm.Otc.Layout
       /// Gets or sets the object unique identifier.
       /// </summary>
       [ORMPrimaryKey()]
-      public override long ID { get; set; }
+      public override long ID { get; set; } = 0;
 
       /// <summary>
       /// Identificador único del elemento.
       /// </summary>
       [ORMProperty("PROJECTID")]
-      public Project Project { get; set; }
+      public Project Project { get; set; } = null;
 
       /// <summary>
       /// Nombre descriptivo del bloque.
       /// </summary>
       [ORMProperty("NAME")]
-      public string Name { get; set; }
+      public string Name { get; set; } = string.Empty;
 
       /// <summary>
       /// Gets the icon of the type of the bloc.
       /// </summary>
       [ORMProperty("FILENAME")]
-      public string Filename { get; set; }
+      public string Filename { get; set; } = string.Empty;
 
       /// <summary>
       /// Gets the group of the type of the bloc.
       /// </summary>
       // [ORMProperty("FILEDATA")]
-      public Stream SoundStream { get; set; }
+      public Stream SoundStream { get; set; } = null;
 
       #endregion
 
@@ -64,15 +61,13 @@ namespace Rwm.Otc.Layout
       public void Play()
       {
          bool played = false;
-         string path = string.Empty;
-         Sound tmpSound = null;
 
          try
          {
-            path = Path.Combine(this.GetCacheFolder(), this.GetCacheFilename());
+            string path = Path.Combine(this.GetCacheFolder(), this.GetCacheFilename());
             if (!File.Exists(path))
             {
-               tmpSound = Sound.Get(this.ID);
+               Sound tmpSound = Sound.Get(this.ID);
                tmpSound.SoundStream.Seek(0, SeekOrigin.Begin);
 
                using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
@@ -98,12 +93,7 @@ namespace Rwm.Otc.Layout
          catch (Exception ex)
          {
             Logger.LogError(this, ex);
-
-            throw;
-         }
-         finally
-         {
-            tmpSound = null;
+            throw ex;
          }
       }
 
@@ -123,17 +113,6 @@ namespace Rwm.Otc.Layout
       #endregion
 
       #region Private Members
-
-      /// <summary>
-      /// Initialize the instance data.
-      /// </summary>
-      private void Initialize()
-      {
-         this.ID = 0;
-         this.Name = string.Empty;
-         this.Filename = string.Empty;
-         this.SoundStream = null;
-      }
 
       private string GetCacheFolder()
       {

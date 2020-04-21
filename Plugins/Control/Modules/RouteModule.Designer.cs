@@ -69,6 +69,7 @@
          this.tabDecoder = new DevExpress.XtraTab.XtraTabControl();
          this.tabRouteGeneral = new DevExpress.XtraTab.XtraTabPage();
          this.grpGeneralProperties = new DevExpress.XtraEditors.GroupControl();
+         this.hotkeyControl1 = new Rwm.Studio.Plugins.Common.Controls.HotkeyControl();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.lblSwitchTimeUnits = new DevExpress.XtraEditors.LabelControl();
          this.spnSwitchTime = new DevExpress.XtraEditors.SpinEdit();
@@ -94,7 +95,6 @@
          this.txtNotes = new DevExpress.XtraEditors.MemoEdit();
          this.grdData = new DevExpress.XtraGrid.GridControl();
          this.grdDataView = new DevExpress.XtraGrid.Views.Grid.GridView();
-         this.hotkeyControl1 = new Rwm.Studio.Plugins.Common.Controls.HotkeyControl();
          ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.tabPanels)).BeginInit();
          this.tabPanels.SuspendLayout();
@@ -107,6 +107,7 @@
          this.tabRouteGeneral.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.grpGeneralProperties)).BeginInit();
          this.grpGeneralProperties.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.hotkeyControl1.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.spnSwitchTime.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.grpGeneral)).BeginInit();
          this.grpGeneral.SuspendLayout();
@@ -128,7 +129,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.txtNotes.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.grdData)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.grdDataView)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.hotkeyControl1.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // ribbonControl1
@@ -405,6 +405,17 @@
          this.grpGeneralProperties.Size = new System.Drawing.Size(246, 96);
          this.grpGeneralProperties.TabIndex = 218;
          this.grpGeneralProperties.Text = "Properties";
+         // 
+         // hotkeyControl1
+         // 
+         this.hotkeyControl1.EditValue = "None";
+         this.hotkeyControl1.Hotkey = System.Windows.Forms.Keys.None;
+         this.hotkeyControl1.HotkeyModifiers = System.Windows.Forms.Keys.None;
+         this.hotkeyControl1.Location = new System.Drawing.Point(102, 59);
+         this.hotkeyControl1.MenuManager = this.ribbonControl1;
+         this.hotkeyControl1.Name = "hotkeyControl1";
+         this.hotkeyControl1.Size = new System.Drawing.Size(129, 20);
+         this.hotkeyControl1.TabIndex = 6;
          // 
          // labelControl1
          // 
@@ -685,16 +696,6 @@
          this.grdDataView.OptionsView.ShowIndicator = false;
          this.grdDataView.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.GrdDataView_CustomDrawCell);
          // 
-         // hotkeyControl1
-         // 
-         this.hotkeyControl1.Hotkey = System.Windows.Forms.Keys.None;
-         this.hotkeyControl1.HotkeyModifiers = System.Windows.Forms.Keys.None;
-         this.hotkeyControl1.Location = new System.Drawing.Point(102, 59);
-         this.hotkeyControl1.MenuManager = this.ribbonControl1;
-         this.hotkeyControl1.Name = "hotkeyControl1";
-         this.hotkeyControl1.Size = new System.Drawing.Size(129, 20);
-         this.hotkeyControl1.TabIndex = 6;
-         // 
          // RouteModule
          // 
          this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -722,6 +723,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.grpGeneralProperties)).EndInit();
          this.grpGeneralProperties.ResumeLayout(false);
          this.grpGeneralProperties.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.hotkeyControl1.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.spnSwitchTime.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.grpGeneral)).EndInit();
          this.grpGeneral.ResumeLayout(false);
@@ -746,7 +748,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.txtNotes.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.grdData)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.grdDataView)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.hotkeyControl1.Properties)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 

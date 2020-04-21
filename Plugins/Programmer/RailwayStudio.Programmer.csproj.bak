@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4A0F7F3F-9C83-4D7A-929B-9B27014A3CBC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Rwm.Studio.Plugins.Collection</RootNamespace>
+    <AssemblyName>RailwayStudio.Collection</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>ca30380b</NuGetPackageImportStamp>
+    <PublishUrl>publicar\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v15.1" />
+    <Reference Include="DevExpress.Data.v15.1" />
+    <Reference Include="DevExpress.Office.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v15.1.Core" />
+    <Reference Include="DevExpress.RichEdit.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v15.1" />
+    <Reference Include="DevExpress.XtraBars.v15.1" />
+    <Reference Include="DevExpress.Sparkline.v15.1.Core" />
+    <Reference Include="DevExpress.XtraEditors.v15.1" />
+    <Reference Include="DevExpress.XtraGrid.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v15.1.Extensions, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.106.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Data.SQLite.Core.1.0.106.0\lib\net45\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.106.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Data.SQLite.EF6.1.0.106.0\lib\net45\System.Data.SQLite.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.106.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Data.SQLite.Linq.1.0.106.0\lib\net45\System.Data.SQLite.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\EnumItemImage.cs" />
+    <Compile Include="Modules\ExplorerModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\ExplorerModule.Designer.cs">
+      <DependentUpon>ExplorerModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ExplorerModule.Presenter.Designer.cs" />
+    <Compile Include="Modules\ModelModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\ModelModule.Designer.cs">
+      <DependentUpon>ModelModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ModelModule.Presenter.Designer.cs" />
+    <Compile Include="PluginData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\DecoderEditorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DecoderEditorView.Designer.cs">
+      <DependentUpon>DecoderEditorView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManufacturerEditorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ManufacturerEditorView.Designer.cs">
+      <DependentUpon>ManufacturerEditorView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CategoryEditorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CategoryEditorView.Designer.cs">
+      <DependentUpon>CategoryEditorView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdministrationEditorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AdministrationEditorView.Designer.cs">
+      <DependentUpon>AdministrationEditorView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ScaleEditorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ScaleEditorView.Designer.cs">
+      <DependentUpon>ScaleEditorView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StoreEditorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\StoreEditorView.Designer.cs">
+      <DependentUpon>StoreEditorView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Modules\ExplorerModule.resx">
+      <DependentUpon>ExplorerModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ModelModule.resx">
+      <DependentUpon>ModelModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Views\DecoderEditorView.resx">
+      <DependentUpon>DecoderEditorView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ManufacturerEditorView.resx">
+      <DependentUpon>ManufacturerEditorView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CategoryEditorView.resx">
+      <DependentUpon>CategoryEditorView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AdministrationEditorView.resx">
+      <DependentUpon>AdministrationEditorView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ScaleEditorView.resx">
+      <DependentUpon>ScaleEditorView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\StoreEditorView.resx">
+      <DependentUpon>StoreEditorView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\OTC.Core\OTC.Core.csproj">
+      <Project>{6a159ab3-7d3d-4128-85c0-b65bdd73a68f}</Project>
+      <Name>OTC.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RailwayStudio.Common\RailwayStudio.Common\RailwayStudio.Common.csproj">
+      <Project>{930ba765-ec32-47e2-985d-cbf987fdb049}</Project>
+      <Name>RailwayStudio.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer_16.png" />
+    <None Include="Resources\printer.png" />
+    <None Include="Resources\train_metro_1611.png" />
+    <None Include="Resources\page_train_32.png" />
+    <None Include="Resources\train_metro_161.png" />
+    <None Include="Resources\folder_16.png" />
+    <None Include="Resources\folder_train_32.png" />
+    <None Include="Resources\link_go.png" />
+    <None Include="Resources\link_delete.png" />
+    <None Include="Resources\link.png" />
+    <None Include="Resources\lightbulb_off_16.png" />
+    <None Include="Resources\lightbulb_16.png" />
+    <None Include="Resources\train_metro_16.png" />
+    <None Include="Resources\train_metro.png" />
+    <None Include="Resources\save_as_16.png" />
+    <None Include="Resources\save_as.png" />
+    <None Include="Resources\tag_blue_16.png" />
+    <None Include="Resources\tag_blue.png" />
+    <None Include="Resources\processor.png" />
+    <None Include="Resources\processor_16.png" />
+    <None Include="Resources\pencil_16.png" />
+    <None Include="Resources\pencil.png" />
+    <None Include="Resources\bookshelf.png" />
+    <None Include="Resources\bookshelf_16.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\add_16.png" />
+    <None Include="Resources\delete_16.png" />
+    <None Include="Resources\building.png" />
+    <None Include="Resources\building_16.png" />
+    <None Include="Resources\diskette_16.png" />
+    <None Include="Resources\diskette.png" />
+    <None Include="Resources\connect_16.png" />
+    <Content Include="Resources\favicon.ico" />
+    <None Include="Resources\database_table_16.png" />
+    <None Include="Resources\database_table.png" />
+    <None Include="Resources\factory.png" />
+    <None Include="Resources\factory_16.png" />
+    <None Include="Resources\cart_full_16.png" />
+    <None Include="Resources\cart_full.png" />
+    <None Include="Resources\measure_crop_16.png" />
+    <None Include="Resources\measure_crop.png" />
+    <None Include="Resources\F_19.gif" />
+    <None Include="Resources\B_31.gif" />
+    <None Include="Resources\F_2.1.gif" />
+    <None Include="Resources\F_1.1.gif" />
+    <None Include="Resources\E6.gif" />
+    <None Include="Resources\E5.gif" />
+    <None Include="Resources\E4.gif" />
+    <None Include="Resources\E3.gif" />
+    <None Include="Resources\E2.gif" />
+    <None Include="Resources\E1.gif" />
+    <None Include="Resources\D_32.gif" />
+    <None Include="Resources\app.png" />
+    <None Include="Resources\1013.gif" />
+    <None Include="Resources\pictp_service_run.gif" />
+    <None Include="Resources\picto_nem652.gif" />
+    <None Include="Resources\picto_nem651.gif" />
+    <None Include="Resources\picto_maint_001.gif" />
+    <None Include="Resources\picto_limited.gif" />
+    <None Include="Resources\picto_digital_address.gif" />
+    <None Include="Resources\picto_43.gif" />
+    <None Include="Resources\picto_42.gif" />
+    <None Include="Resources\picto_39.gif" />
+    <None Include="Resources\picto_38.gif" />
+    <None Include="Resources\picto_35.gif" />
+    <None Include="Resources\picto_34.gif" />
+    <None Include="Resources\picto_33.gif" />
+    <None Include="Resources\picto_31.gif" />
+    <None Include="Resources\picto_30.gif" />
+    <None Include="Resources\picto_29.gif" />
+    <None Include="Resources\picto_28.gif" />
+    <None Include="Resources\picto_27.gif" />
+    <None Include="Resources\picto_26.gif" />
+    <None Include="Resources\picto_25.gif" />
+    <None Include="Resources\picto_24.gif" />
+    <None Include="Resources\picto_23.gif" />
+    <None Include="Resources\picto_22.gif" />
+    <None Include="Resources\picto_21pin.gif" />
+    <None Include="Resources\picto_21.gif" />
+    <None Include="Resources\picto_20.gif" />
+    <None Include="Resources\picto_19.gif" />
+    <None Include="Resources\picto_18.gif" />
+    <None Include="Resources\picto_17.gif" />
+    <None Include="Resources\picto_16.gif" />
+    <None Include="Resources\picto_8.gif" />
+    <None Include="Resources\picto_7.gif" />
+    <None Include="Resources\picto_6.gif" />
+    <None Include="Resources\picto_5.gif" />
+    <None Include="Resources\bahn_epoche_VI.png" />
+    <None Include="Resources\bahn_epoche_V.png" />
+    <None Include="Resources\bahn_epoche_IV.png" />
+    <None Include="Resources\bahn_epoche_III.png" />
+    <None Include="Resources\bahn_epoche_II.png" />
+    <None Include="Resources\bahn_epoche_I.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\..\packages\System.Data.SQLite.Core.1.0.106.0\build\net45\System.Data.SQLite.Core.targets" Condition="Exists('..\..\packages\System.Data.SQLite.Core.1.0.106.0\build\net45\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Habilite la restauración del paquete NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\System.Data.SQLite.Core.1.0.106.0\build\net45\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\System.Data.SQLite.Core.1.0.106.0\build\net45\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

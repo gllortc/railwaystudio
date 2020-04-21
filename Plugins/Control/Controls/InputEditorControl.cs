@@ -59,7 +59,7 @@ namespace Rwm.Studio.Plugins.Control.Controls
 
       public FeedbackDecoderConnection SelectedInput { get; private set; }
 
-      public FeedbackDecoder SelectedDecoder { get; private set; }
+      public FeedbackEncoder SelectedDecoder { get; private set; }
 
       public Element Element { get; private set; }
 

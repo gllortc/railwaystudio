@@ -145,14 +145,14 @@
     <Compile Include="Modules\ExplorerModule.Designer.cs">
       <DependentUpon>ExplorerModule.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modules\ExplorerModule.Presenter.Designer.cs" />
+    <Compile Include="Modules\ExplorerModule.Controller.Designer.cs" />
     <Compile Include="Modules\ModelModule.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modules\ModelModule.Designer.cs">
       <DependentUpon>ModelModule.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modules\ModelModule.Presenter.Designer.cs" />
+    <Compile Include="Modules\ModelModule.Controller.Designer.cs" />
     <Compile Include="PluginData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports\DigitalReport.cs">

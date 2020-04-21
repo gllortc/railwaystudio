@@ -125,30 +125,41 @@ namespace Rwm.Otc.Data
       /// <returns>The property instance value.</returns>
       public object GetReaderValue(object instance, DbDataReader reader)
       {
-         long id;
          object value = null;
 
-         if (this.IsForeignField)
+         try
          {
-            int ordinal = reader.GetOrdinal(this.Attribute.FieldName);
-            if (ordinal >= 0)
+            if (this.IsForeignField)
             {
-               value = reader[ordinal];
-               if (!(value is System.DBNull))
+               int ordinal = reader.GetOrdinal(this.Attribute.FieldName);
+               if (ordinal >= 0)
                {
-                  id = reader.GetInt64(reader.GetOrdinal(this.Attribute.FieldName));
-                  value = this.GetForeignFieldValue(id);
+                  if (reader[ordinal] is System.DBNull)
+                  {
+                     value = null;
+                  }
+                  else if (reader[ordinal] is System.Int64)
+                  {
+                     value = this.GetForeignFieldValue((long)reader[ordinal]);
+                  }
+                  else
+                  {
+                     Logger.LogError(this, "Foreign key type error: only Int64 (long) is supported but provided type is {0}", reader[ordinal].GetType().FullName);
+                  }
                }
-
-               if (value is System.DBNull) value = null;
             }
-         }
-         else
-         {
-            value = this.Property.GetValue(instance);
-         }
+            else
+            {
+               value = this.Property.GetValue(instance);
+            }
 
-         return value;
+            return value;
+         }
+         catch (Exception ex)
+         {
+            Logger.LogError(this, "Error retrieving field {0}{1}{2}", this.Attribute.FieldName, Environment.NewLine, ex.ToString());
+            throw ex;
+         }
       }
 
       /// <summary>
