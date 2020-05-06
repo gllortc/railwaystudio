@@ -321,7 +321,7 @@ namespace Rwm.Otc.Layout
          if (this.Properties.NumberOfAccessoryConnections == 1)
          {
             if (this.AccessoryConnections.Count > 0)
-               OTCContext.Project.DigitalSystem.OperateAccessory(this.AccessoryConnections[0].Address, newStatus);
+               OTCContext.Project.DigitalSystem.OperateAccessory(this.AccessoryConnections[0].DecoderOutput.Address, newStatus);
          }
          else if (this.Properties.NumberOfAccessoryConnections == 2)
          {
@@ -453,7 +453,7 @@ namespace Rwm.Otc.Layout
          {
             foreach (AccessoryDecoderConnection connection in element.AccessoryConnections)
             {
-               if (connection.Address == address)
+               if (connection.DecoderOutput.Address == address)
                   return element;
             }
          }

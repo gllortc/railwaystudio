@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using Rwm.Otc.Data;
-using Rwm.Otc.Diagnostics;
 
 namespace Rwm.Otc.Layout
 {
@@ -48,16 +47,10 @@ namespace Rwm.Otc.Layout
       public override long ID { get; set; } = 0;
 
       /// <summary>
-      /// Gets or sets the element connection index (to maintain its position).
-      /// </summary>
-      [ORMProperty("INDEX")]
-      public int ElementPinIndex { get; set; } = 0;
-
-      /// <summary>
       /// Gets or sets the related accessory module.
       /// </summary>
-      [ORMProperty("DECODERID")]
-      public AccessoryDecoder Decoder { get; set; } = null;
+      [ORMProperty("OUTPUTID", "AccessoryConnection")]
+      public AccessoryDecoderOutput DecoderOutput { get; set; } = null;
 
       /// <summary>
       /// Gets or sets the related element.
@@ -66,22 +59,10 @@ namespace Rwm.Otc.Layout
       public Element Element { get; set; } = null;
 
       /// <summary>
-      /// Gets or sets the output digital address.
+      /// Gets or sets the element connection index (to maintain its position).
       /// </summary>
-      [ORMProperty("ADDRESS")]
-      public int Address { get; set; } = 0;
-
-      /// <summary>
-      /// Gets or sets the device output where it is connected (starting at 1).
-      /// </summary>
-      [ORMProperty("DECODEROUTPUT")]
-      public int DecoderOutput { get; set; } = 0;
-
-      /// <summary>
-      /// Gets or sets the time (in milliseconds) to switch.
-      /// </summary>
-      [ORMProperty("SWITCHTIME")]
-      public int SwitchTime { get; set; } = 0;
+      [ORMProperty("INDEX")]
+      public int ElementPinIndex { get; set; } = 0;
 
       /// <summary>
       /// Gets or sets the time (in milliseconds) to switch.
@@ -115,40 +96,6 @@ namespace Rwm.Otc.Layout
 
       #region Static Members
 
-      ///// <summary>
-      ///// Get a <see cref="AccessoryDecoderConnection"/> by its device output.
-      ///// </summary>
-      ///// <param name="element">Owner connection <see cref="Element"/>.</param>
-      ///// <param name="output"><see cref="AccessoryDecoderConnection"/> index.</param>
-      ///// <returns>The requested <see cref="AccessoryDecoderConnection"/> or <c>null</c> if no <see cref="AccessoryDecoderConnection"/> is used by the specified <see cref="Element"/> and index.</returns>
-      //public static AccessoryDecoderConnection GetByOutput(Element element, int output)
-      //{
-      //   foreach (AccessoryDecoderConnection connection in element?.AccessoryConnections)
-      //   {
-      //      if (connection.DecoderOutput == output)
-      //         return connection;
-      //   }
-
-      //   return null;
-      //}
-
-      ///// <summary>
-      ///// Get a <see cref="AccessoryDecoderConnection"/> by its device output.
-      ///// </summary>
-      ///// <param name="element">Owner connection <see cref="Element"/>.</param>
-      ///// <param name="output"><see cref="AccessoryDecoderConnection"/> index.</param>
-      ///// <returns>The requested <see cref="AccessoryDecoderConnection"/> or <c>null</c> if no <see cref="AccessoryDecoderConnection"/> is used by the specified <see cref="Element"/> and index.</returns>
-      //public static AccessoryDecoderConnection GetByOutput(AccessoryDecoder decoder, int output)
-      //{
-      //   foreach (AccessoryDecoderConnection connection in decoder?.Connections)
-      //   {
-      //      if (connection.DecoderOutput == output)
-      //         return connection;
-      //   }
-
-      //   return null;
-      //}
-
       /// <summary>
       /// Get a <see cref="AccessoryDecoderConnection"/> by its index.
       /// </summary>
@@ -166,39 +113,39 @@ namespace Rwm.Otc.Layout
          return null;
       }
 
-      /// <summary>
-      /// Gets all connection for the specified element.
-      /// </summary>
-      /// <returns>The requested list of <see cref="AccessoryDecoderConnection"/> related to the specified element.</returns>
-      public static IEnumerable<AccessoryDecoderConnection> GetDuplicated()
-      {
-         string sql = string.Empty;
+      ///// <summary>
+      ///// Gets all connection for the specified element.
+      ///// </summary>
+      ///// <returns>The requested list of <see cref="AccessoryDecoderConnection"/> related to the specified element.</returns>
+      //public static IEnumerable<AccessoryDecoderConnection> GetDuplicated()
+      //{
+      //   string sql = string.Empty;
 
-         Logger.LogDebug("Rwm.Otc.Layout.AccessoryDecoderConnection.GetDuplicated()");
+      //   Logger.LogDebug("Rwm.Otc.Layout.AccessoryDecoderConnection.GetDuplicated()");
 
-         try
-         {
-            // Get connections with repeated addresses
-            sql = @"WHERE 
-                        address in (SELECT address, COUNT(*) c 
-                                    FROM   " + AccessoryDecoderConnection.ORMStructure.Table.TableName + @" 
-                                    GROUP  BY address 
-                                    HAVING c > 1) 
-                    ORDER BY 
-                        id";
+      //   try
+      //   {
+      //      // Get connections with repeated addresses
+      //      sql = @"WHERE 
+      //                  address in (SELECT address, COUNT(*) c 
+      //                              FROM   " + AccessoryDecoderConnection.ORMStructure.Table.TableName + @" 
+      //                              GROUP  BY address 
+      //                              HAVING c > 1) 
+      //              ORDER BY 
+      //                  id";
 
-            return AccessoryDecoderConnection.ExecuteQuery(sql);
-         }
-         catch (Exception ex)
-         {
-            Logger.LogError(ex);
-            throw ex;
-         }
-         finally
-         {
-            Disconnect();
-         }
-      }
+      //      return AccessoryDecoderConnection.ExecuteQuery(sql);
+      //   }
+      //   catch (Exception ex)
+      //   {
+      //      Logger.LogError(ex);
+      //      throw ex;
+      //   }
+      //   finally
+      //   {
+      //      Disconnect();
+      //   }
+      //}
 
       /// <summary>
       /// returns a list of route involved connections.
@@ -238,9 +185,9 @@ namespace Rwm.Otc.Layout
                      connections.Rows.Add(deviceConnection.ID,
                                           true,
                                           (deviceConnection.Element != null ? deviceConnection.Element?.ToString() : "Bad connection"),
-                                          (deviceConnection.Decoder != null ? deviceConnection.Decoder?.Name : "Bad connection"),
+                                          (deviceConnection.DecoderOutput.AccessoryDecoder != null ? deviceConnection.DecoderOutput.AccessoryDecoder?.Name : "Bad connection"),
                                           deviceConnection.DecoderOutput,
-                                          deviceConnection.Address,
+                                          deviceConnection.DecoderOutput.Address,
                                           routeElement.Element.Properties.GetStatusDescription(routeElement.AccessoryStatus));
                   }
                   else

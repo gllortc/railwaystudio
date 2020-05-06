@@ -1,5 +1,6 @@
 ﻿using System;
 using Rwm.Otc.Layout;
+using Rwm.Otc.Utils;
 
 namespace Rwm.Otc.Systems.Dummy
 {
@@ -13,7 +14,7 @@ namespace Rwm.Otc.Systems.Dummy
 
       private const string SYSTEM_GUID = "A88107DA-C8C4-408E-98E7-CC7D30C9F15F";
 
-      private const int SENSOR_OUTPUTS_ADDRESS = 8;   // Like Lenz systems
+      private const int SENSOR_OUTPUTS_ADDRESS = 4;   // Like Lenz systems
 
       #endregion
 
@@ -26,6 +27,11 @@ namespace Rwm.Otc.Systems.Dummy
       {
          this.Initialize();
       }
+
+      #endregion
+
+      #region Fields
+
 
       #endregion
 
@@ -60,7 +66,7 @@ namespace Rwm.Otc.Systems.Dummy
       /// </summary>
       public string Version
       {
-         get { return Rwm.Otc.Utils.ReflectionUtils.GetAssemblyVersion(this.GetType()); }
+         get { return ReflectionUtils.GetAssemblyVersion(this.GetType()); }
       }
 
       /// <summary>
@@ -69,9 +75,19 @@ namespace Rwm.Otc.Systems.Dummy
       public SystemStatus Status { get; private set; }
 
       /// <summary>
+      /// Gets the valid accessory address range.
+      /// </summary>
+      public Range AccessoryAddressRange { get; } = new Range(1, 1024);
+
+      /// <summary>
+      /// Gets the valid feedback address range.
+      /// </summary>
+      public Range FeedbackAddressRange { get; } = new Range(1, 128);
+
+      /// <summary>
       /// Gets the number of associated outputs by sensor address.
       /// </summary>
-      public int OutputsBySensorAddress
+      public int PointAddressesByFeedbackAddress
       {
          get { return DummySystem.SENSOR_OUTPUTS_ADDRESS; }
       }
@@ -252,7 +268,7 @@ namespace Rwm.Otc.Systems.Dummy
                // Execute the command to set the accessory
                this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Information,
                                                                                    "SetSensorStatus: {0:0000} → T:{1}",
-                                                                                   connection.Address,
+                                                                                   connection.EncoderInput.Address,
                                                                                    status));
             }
             else

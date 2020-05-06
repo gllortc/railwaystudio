@@ -148,8 +148,9 @@
     <Compile Include="Diagnostics\ILogger.cs" />
     <Compile Include="Diagnostics\LoggerSettingsManager.cs" />
     <Compile Include="Diagnostics\WinLogger.cs" />
-    <Compile Include="Layout\AccessoryDecoderOutput.cs" />
     <Compile Include="Layout\FeedbackEncoderConnection.cs" />
+    <Compile Include="Layout\AccessoryDecoderOutput.cs" />
+    <Compile Include="Layout\FeedbackEncoderInput.cs" />
     <Compile Include="Layout\FeedbackEncoder.cs" />
     <Compile Include="Layout\AccessoryStatus.cs" />
     <Compile Include="Layout\ElementAction.cs" />
@@ -208,6 +209,7 @@
     <Compile Include="Trains\ModelRevision.cs" />
     <Compile Include="Trains\Gauge.cs" />
     <Compile Include="Trains\Store.cs" />
+    <Compile Include="Utils\Range.cs" />
     <Compile Include="Utils\ReflectionUtils.cs" />
     <Compile Include="Utils\Coordinates.cs" />
     <Compile Include="Utils\EnumItemImage.cs" />

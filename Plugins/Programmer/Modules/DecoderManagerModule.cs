@@ -117,7 +117,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
          }
       }
 
-      private void CmdDeviceAddGenericAcc_ItemClick(object sender, ItemClickEventArgs e)
+      private void CmdAccessoryDecoderAdd_ItemClick(object sender, ItemClickEventArgs e)
       {
          this.AccessoryDecoderAdd();
       }
@@ -167,7 +167,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
          this.ReportsDigitalAddresses();
       }
 
-      #endregion
+        #endregion
 
-   }
+    }
 }

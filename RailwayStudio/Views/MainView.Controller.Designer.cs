@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraNavBar;
@@ -80,7 +81,7 @@ namespace Rwm.Studio.Views
       /// <summary>
       /// Opens the last used project (if exists).
       /// </summary>
-      internal void ProjectOpenLast()
+      internal async Task ProjectOpenLast()
       {
          if (!StudioContext.OpenLastProject)
          {
@@ -91,11 +92,13 @@ namespace Rwm.Studio.Views
             return;
          }
 
-         OTCContext.OpenProject(StudioContext.LastOpenedProjectFile);
+         await OTCContext.OpenProject(StudioContext.LastOpenedProjectFile);
          this.RefreshViewStatus();
 
          // Show information in console
          StudioContext.LogInformation("Project {0} loaded (from {1})", OTCContext.Project.Name, StudioContext.LastOpenedProjectFile);
+
+         return;
       }
 
       /// <summary>

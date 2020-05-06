@@ -61,6 +61,16 @@ namespace Rwm.Studio.Plugins.Designer.Properties {
         }
         
         /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1__16_2 {
+            get {
+                object obj = ResourceManager.GetObject("1__16_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a //
         ///// DCC_Decoder.cpp - Arduino library for NMRA DCC Decoding.
         ///// Written by Kevin Snow, MynaBay.com, November, 2011. 
@@ -613,6 +623,16 @@ namespace Rwm.Studio.Plugins.Designer.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ICO_EDIT_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_EDIT_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ICO_ELEMENT_ADD_16 {
             get {
                 object obj = ResourceManager.GetObject("ICO_ELEMENT_ADD_16", resourceCulture);
@@ -726,6 +746,36 @@ namespace Rwm.Studio.Plugins.Designer.Properties {
         internal static System.Drawing.Bitmap ICO_LIGHT_ON {
             get {
                 object obj = ResourceManager.GetObject("ICO_LIGHT_ON", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_MODE_CONTINUOUS_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_MODE_CONTINUOUS_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_MODE_FLASH_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_MODE_FLASH_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_MODE_SHOT_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_MODE_SHOT_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1156,6 +1206,16 @@ namespace Rwm.Studio.Plugins.Designer.Properties {
         internal static System.Drawing.Bitmap ICO_THEME_SELECT_32 {
             get {
                 object obj = ResourceManager.GetObject("ICO_THEME_SELECT_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap zoom_16 {
+            get {
+                object obj = ResourceManager.GetObject("zoom_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

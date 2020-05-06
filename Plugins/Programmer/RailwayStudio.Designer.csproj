@@ -113,6 +113,7 @@
     <Reference Include="DevExpress.XtraRichEdit.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraRichEdit.v17.1.Extensions, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraTreeList.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraWizard.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -139,6 +140,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Arduino\Sketch.cs" />
+    <Compile Include="Controls\FeedbackConnectionsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\FeedbackConnectionsControl.Designer.cs">
+      <DependentUpon>FeedbackConnectionsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ActionManagerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -151,26 +158,13 @@
     <Compile Include="Controls\ActivateRouteActionControl.Designer.cs">
       <DependentUpon>ActivateRouteActionControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ConnectionChangedEventArgs.cs" />
-    <Compile Include="Controls\DecoderSettingsControl.cs">
+    <Compile Include="Controls\AccessoryConnectionsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\DecoderSettingsControl.Designer.cs">
-      <DependentUpon>DecoderSettingsControl.cs</DependentUpon>
+    <Compile Include="Controls\AccessoryConnectionsControl.Designer.cs">
+      <DependentUpon>AccessoryConnectionsControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\IActionParametersEditor.cs" />
-    <Compile Include="Controls\InputEditorControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\InputEditorControl.Designer.cs">
-      <DependentUpon>InputEditorControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\OutputEditorControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\OutputEditorControl.Designer.cs">
-      <DependentUpon>OutputEditorControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controls\PlaySoundActionControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -182,15 +176,6 @@
     </Compile>
     <Compile Include="Controls\SetAccessoryStatusActionControl.Designer.cs">
       <DependentUpon>SetAccessoryStatusActionControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\DecoderEditorModule.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\DecoderEditorModule.Designer.cs">
-      <DependentUpon>DecoderEditorModule.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\DecoderEditorModule.Controller.Designer.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modules\DecoderManagerModule.cs">
       <SubType>Form</SubType>
@@ -227,11 +212,41 @@
     <Compile Include="Reports\DigitalReportBySections.Designer.cs">
       <DependentUpon>DigitalReportBySections.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FeedbackEncoderWizardView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FeedbackEncoderWizardView.Designer.cs">
+      <DependentUpon>FeedbackEncoderWizardView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FeedbackConnectionFindView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FeedbackConnectionFindView.Designer.cs">
+      <DependentUpon>FeedbackConnectionFindView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\AccesoryConnectionFindView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\AccesoryConnectionFindView.Designer.cs">
       <DependentUpon>AccesoryConnectionFindView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AccessoryDecoderWizardView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AccessoryDecoderWizardView.Designer.cs">
+      <DependentUpon>AccessoryDecoderWizardView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AccessoryDecoderOutputEditorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AccessoryDecoderOutputEditorView.Designer.cs">
+      <DependentUpon>AccessoryDecoderOutputEditorView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FindAddressView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FindAddressView.Designer.cs">
+      <DependentUpon>FindAddressView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\RwmDecoderEditorView.cs">
       <SubType>Form</SubType>
@@ -263,29 +278,17 @@
     <Compile Include="Views\AreasManagerView.Designer.cs">
       <DependentUpon>AreasManagerView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\BlockPropertiesViews.cs">
+    <Compile Include="Views\ElementEditorViews.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\BlockPropertiesViews.Designer.cs">
-      <DependentUpon>BlockPropertiesViews.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\DecoderBuildView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\DecoderBuildView.Designer.cs">
-      <DependentUpon>DecoderBuildView.cs</DependentUpon>
+    <Compile Include="Views\ElementEditorViews.Designer.cs">
+      <DependentUpon>ElementEditorViews.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\DecodersManagerView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\DecodersManagerView.Designer.cs">
       <DependentUpon>DecodersManagerView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FeedbackConnectionFindView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FeedbackConnectionFindView.Designer.cs">
-      <DependentUpon>FeedbackConnectionFindView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FeedbackEncoderEditorView.cs">
       <SubType>Form</SubType>
@@ -311,29 +314,23 @@
     <Compile Include="Views\SwitchboardEditorView.Designer.cs">
       <DependentUpon>SwitchboardEditorView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Controls\FeedbackConnectionsControl.resx">
+      <DependentUpon>FeedbackConnectionsControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\ActionManagerControl.resx">
       <DependentUpon>ActionManagerControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ActivateRouteActionControl.resx">
       <DependentUpon>ActivateRouteActionControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\DecoderSettingsControl.resx">
-      <DependentUpon>DecoderSettingsControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\InputEditorControl.resx">
-      <DependentUpon>InputEditorControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\OutputEditorControl.resx">
-      <DependentUpon>OutputEditorControl.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\AccessoryConnectionsControl.resx">
+      <DependentUpon>AccessoryConnectionsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\PlaySoundActionControl.resx">
       <DependentUpon>PlaySoundActionControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\SetAccessoryStatusActionControl.resx">
       <DependentUpon>SetAccessoryStatusActionControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\DecoderEditorModule.resx">
-      <DependentUpon>DecoderEditorModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\DecoderManagerModule.resx">
       <DependentUpon>DecoderManagerModule.cs</DependentUpon>
@@ -361,8 +358,23 @@
     <EmbeddedResource Include="Reports\DigitalReportBySections.resx">
       <DependentUpon>DigitalReportBySections.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\FeedbackEncoderWizardView.resx">
+      <DependentUpon>FeedbackEncoderWizardView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FeedbackConnectionFindView.resx">
+      <DependentUpon>FeedbackConnectionFindView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\AccesoryConnectionFindView.resx">
       <DependentUpon>AccesoryConnectionFindView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AccessoryDecoderWizardView.resx">
+      <DependentUpon>AccessoryDecoderWizardView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AccessoryDecoderOutputEditorView.resx">
+      <DependentUpon>AccessoryDecoderOutputEditorView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FindAddressView.resx">
+      <DependentUpon>FindAddressView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\RwmDecoderEditorView.resx">
       <DependentUpon>RwmDecoderEditorView.cs</DependentUpon>
@@ -379,17 +391,11 @@
     <EmbeddedResource Include="Views\AreasManagerView.resx">
       <DependentUpon>AreasManagerView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\BlockPropertiesViews.resx">
-      <DependentUpon>BlockPropertiesViews.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\DecoderBuildView.resx">
-      <DependentUpon>DecoderBuildView.cs</DependentUpon>
+    <EmbeddedResource Include="Views\ElementEditorViews.resx">
+      <DependentUpon>ElementEditorViews.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DecodersManagerView.resx">
       <DependentUpon>DecodersManagerView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FeedbackConnectionFindView.resx">
-      <DependentUpon>FeedbackConnectionFindView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FeedbackEncoderEditorView.resx">
       <DependentUpon>FeedbackEncoderEditorView.cs</DependentUpon>
@@ -447,6 +453,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\signal_shot_16.png" />
+    <None Include="Resources\signal_flash_16.png" />
+    <None Include="Resources\signal_continuous_16.png" />
+    <None Include="Resources\zoom_16.png" />
     <None Include="Resources\layer.png" />
     <None Include="Resources\page_white_drive_32.png" />
     <None Include="Resources\folder_drive_32.png" />
@@ -567,6 +577,8 @@
     <None Include="Resources\arrow_refresh_16.png" />
     <None Include="Resources\drive_delete_16.png" />
     <None Include="Resources\compile_16.png" />
+    <None Include="Resources\edit_button_16.png" />
+    <None Include="Resources\1__16_2.jpg" />
     <Content Include="Resources\favicon.ico" />
     <None Include="Resources\database_table_16.png" />
     <None Include="Resources\database_table.png" />

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Rwm.Otc.Configuration;
 using Rwm.Otc.Data;
 using Rwm.Otc.Diagnostics;
@@ -114,7 +115,7 @@ namespace Rwm.Otc
       /// </summary>
       /// <param name="path">Filename and path to the project to open.</param>
       /// <param name="systemInformationEventHandler">Event handler to receive notification from digital system.</param>
-      public static void OpenProject(string path)
+      public static async Task OpenProject(string path)
       {
          if (string.IsNullOrWhiteSpace(path))
          {
@@ -130,17 +131,21 @@ namespace Rwm.Otc
             // Store the current database to the settings
             OTCContext.Settings.AddSetting(ORMSqliteDriver.SETTINGS_DB_CURRENT, path);
 
-            // Load the project data
-            OTCContext.Project = Project.Get(1);
-            if (OTCContext.Project == null) 
-               throw new Exception("Bad project file.");
+            await Task.Run(() =>
+            {
 
-            OTCContext.Project.Filename = path;
-            OTCContext.Project.LoadSystem();
-            OTCContext.Project.LoadTheme();
+               // Load the project data
+               OTCContext.Project = Project.Get(1);
+               if (OTCContext.Project == null)
+                  throw new Exception("Bad project file.");
 
-            // Initialize the digital system
-            OTCContext.Project.SystemManager.GetSystem();
+               OTCContext.Project.Filename = path;
+               OTCContext.Project.LoadSystem();
+               OTCContext.Project.LoadTheme();
+
+               // Initialize the digital system
+               OTCContext.Project.SystemManager.GetSystem();
+            });
          }
          catch (Exception ex)
          {

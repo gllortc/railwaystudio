@@ -37,7 +37,7 @@ namespace Rwm.Studio.Plugins.Designer.Views
       {
          if (tabDecoder.SelectedTabPage == tabDecoderAcc)
          {
-            AccessoryDecoderEditorView form = new AccessoryDecoderEditorView();
+            AccessoryDecoderEditorView form = new AccessoryDecoderEditorView(4);
             if (form.ShowDialog(this) == DialogResult.OK)
             {
                this.ListAccessoryDecoders();

@@ -32,7 +32,7 @@ namespace Rwm.Studio.Plugins.Designer.Controls
       /// Returns a new instance of <see cref="OutputEditorControl"/>.
       /// </summary>
       /// <remarks>Constructor for design purposes. Don't use in runtime.</remarks>
-      public InputEditorControl(FeedbackEncoderConnection output)
+      public InputEditorControl(FeedbackEncoderInput output)
       {
          InitializeComponent();
          Initialize();
@@ -57,7 +57,7 @@ namespace Rwm.Studio.Plugins.Designer.Controls
 
       public int ConnectionIndex { get; set; }
 
-      public FeedbackEncoderConnection SelectedInput { get; private set; }
+      public FeedbackEncoderInput SelectedInput { get; private set; }
 
       public FeedbackEncoder SelectedDecoder { get; private set; }
 
@@ -97,7 +97,7 @@ namespace Rwm.Studio.Plugins.Designer.Controls
 
                this.SelectedInput.ElementPinIndex = this.ConnectionIndex;
                this.SelectedInput.Element = this.Element;
-               FeedbackEncoderConnection.Save(this.SelectedInput);
+               FeedbackEncoderInput.Save(this.SelectedInput);
             }
          }
          else if (e.Button.Index == 1)

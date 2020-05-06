@@ -34,10 +34,14 @@ namespace Rwm.Studio.Plugins.Designer.Modules
 
       internal void AccessoryDecoderAdd()
       {
-         AccessoryDecoderEditorView form = new AccessoryDecoderEditorView();
-         if (form.ShowDialog(this) == DialogResult.OK)
+         AccessoryDecoderWizardView wizard = new AccessoryDecoderWizardView();
+         if (wizard.ShowDialog(this) == DialogResult.OK)
          {
-            this.RefreshTreeList();
+            AccessoryDecoderEditorView editor = new AccessoryDecoderEditorView(wizard.Decoder);
+            if (editor.ShowDialog(this) == DialogResult.OK)
+            {
+               this.RefreshTreeList();
+            }
          }
       }
 
@@ -52,10 +56,14 @@ namespace Rwm.Studio.Plugins.Designer.Modules
 
       internal void FeedbackEncoderAdd()
       {
-         FeedbackEncoderEditorView form = new FeedbackEncoderEditorView();
-         if (form.ShowDialog(this) == DialogResult.OK)
+         FeedbackEncoderWizardView wizard = new FeedbackEncoderWizardView();
+         if (wizard.ShowDialog(this) == DialogResult.OK)
          {
-            this.RefreshTreeList();
+            FeedbackEncoderEditorView editor = new FeedbackEncoderEditorView(wizard.Encoder);
+            if (editor.ShowDialog(this) == DialogResult.OK)
+            {
+               this.RefreshTreeList();
+            }
          }
       }
 
@@ -228,7 +236,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
 
          foreach (AccessoryDecoder accDecoder in OTCContext.Project.AccessoryDecoders)
          {
-            node = tlsDecoders.AppendNode(new object[] { accDecoder.Name, "Generic", accDecoder.Model, accDecoder.NumberOfOutputs, accDecoder.ConnectionsCount }, parentNode);
+            node = tlsDecoders.AppendNode(new object[] { accDecoder.Name, "Generic", accDecoder.Model, accDecoder.Outputs.Count, accDecoder.Outputs.Count }, parentNode);
             node.Tag = accDecoder;
             node.StateImageIndex = 2;
             count++;
@@ -241,7 +249,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
 
          foreach (FeedbackEncoder fbEncoder in OTCContext.Project.FeedbackEncoders)
          {
-            node = tlsDecoders.AppendNode(new object[] { fbEncoder.Name, "Generic", fbEncoder.Model, fbEncoder.Inputs, fbEncoder.ConnectionsCount }, parentNode);
+            node = tlsDecoders.AppendNode(new object[] { fbEncoder.Name, "Generic", fbEncoder.Model, fbEncoder.Inputs.Count, fbEncoder.ConnectionsCount }, parentNode);
             node.Tag = fbEncoder;
             node.StateImageIndex = 3;
             count++;
@@ -279,7 +287,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
             {
                if (accDecoder.Section == area)
                {
-                  node = tlsDecoders.AppendNode(new object[] { accDecoder.Name, "Generic", accDecoder.Model, accDecoder.NumberOfOutputs, accDecoder.ConnectionsCount }, parentNode);
+                  node = tlsDecoders.AppendNode(new object[] { accDecoder.Name, "Generic", accDecoder.Model, accDecoder.Outputs.Count, accDecoder.Outputs.Count }, parentNode);
                   node.Tag = accDecoder;
                   node.StateImageIndex = 2;
                   count++;
@@ -298,7 +306,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
             {
                if (fbEncoder.Section == area)
                {
-                  node = tlsDecoders.AppendNode(new object[] { fbEncoder.Name, "Generic", fbEncoder.Model, fbEncoder.Inputs, fbEncoder.ConnectionsCount }, parentNode);
+                  node = tlsDecoders.AppendNode(new object[] { fbEncoder.Name, "Generic", fbEncoder.Model, fbEncoder.Inputs.Count, fbEncoder.ConnectionsCount }, parentNode);
                   node.Tag = fbEncoder;
                   node.StateImageIndex = 3;
                   count++;
@@ -324,7 +332,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
          {
             if (accDecoder.Section == null)
             {
-               node = tlsDecoders.AppendNode(new object[] { accDecoder.Name, "Generic", accDecoder.Model, accDecoder.NumberOfOutputs, accDecoder.ConnectionsCount }, parentNode);
+               node = tlsDecoders.AppendNode(new object[] { accDecoder.Name, "Generic", accDecoder.Model, accDecoder.Outputs.Count, accDecoder.Outputs.Count }, parentNode);
                node.Tag = accDecoder;
                node.StateImageIndex = 2;
                count++;
@@ -345,7 +353,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
          {
             if (fbEncoder.Section == null)
             {
-               node = tlsDecoders.AppendNode(new object[] { fbEncoder.Name, fbEncoder.Model, fbEncoder.Inputs, fbEncoder.ConnectionsCount }, parentNode);
+               node = tlsDecoders.AppendNode(new object[] { fbEncoder.Name, fbEncoder.Model, fbEncoder.Inputs.Count, fbEncoder.ConnectionsCount }, parentNode);
                node.Tag = fbEncoder;
                node.StateImageIndex = 3;
                count++;

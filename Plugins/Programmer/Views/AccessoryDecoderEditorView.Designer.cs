@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccessoryDecoderEditorView));
          this.txtNotes = new DevExpress.XtraEditors.MemoEdit();
          this.lblName = new DevExpress.XtraEditors.LabelControl();
@@ -36,39 +37,32 @@
          this.cmdOk = new DevExpress.XtraEditors.SimpleButton();
          this.tabDecoder = new DevExpress.XtraTab.XtraTabControl();
          this.tabDecoderGeneral = new DevExpress.XtraTab.XtraTabPage();
-         this.grdConnect = new DevExpress.XtraGrid.GridControl();
-         this.grdConnectView = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.grdOut = new DevExpress.XtraGrid.GridControl();
+         this.grdOutView = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.grpGeneral = new DevExpress.XtraEditors.GroupControl();
+         this.lblOutputsCount = new DevExpress.XtraEditors.LabelControl();
+         this.cboManufacturer = new Rwm.Studio.Plugins.Common.Controls.ManufacturerImageComboBoxEdit();
+         this.cboSection = new Rwm.Studio.Plugins.Common.Controls.SectionImageComboBoxEdit();
          this.lblSection = new DevExpress.XtraEditors.LabelControl();
-         this.cboManufacturer = new DevExpress.XtraEditors.ImageComboBoxEdit();
-         this.imageList = new System.Windows.Forms.ImageList();
+         this.lblOutputs = new DevExpress.XtraEditors.LabelControl();
          this.cboModel = new DevExpress.XtraEditors.ComboBoxEdit();
          this.lblModel = new DevExpress.XtraEditors.LabelControl();
          this.lblManufacturer = new DevExpress.XtraEditors.LabelControl();
-         this.grpDigital = new DevExpress.XtraEditors.GroupControl();
-         this.lblAddress = new DevExpress.XtraEditors.LabelControl();
-         this.nudAddress = new DevExpress.XtraEditors.SpinEdit();
-         this.lblOutputs = new DevExpress.XtraEditors.LabelControl();
-         this.txtOutputs = new DevExpress.XtraEditors.SpinEdit();
          this.tabDecoderNotes = new DevExpress.XtraTab.XtraTabPage();
-         this.cboSection = new Rwm.Studio.Plugins.Common.Controls.SectionImageComboBoxEdit();
+         this.imageList = new System.Windows.Forms.ImageList(this.components);
          ((System.ComponentModel.ISupportInitialize)(this.txtNotes.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.tabDecoder)).BeginInit();
          this.tabDecoder.SuspendLayout();
          this.tabDecoderGeneral.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.grdConnect)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.grdConnectView)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.grdOut)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.grdOutView)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.grpGeneral)).BeginInit();
          this.grpGeneral.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.cboManufacturer.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.cboModel.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.grpDigital)).BeginInit();
-         this.grpDigital.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.nudAddress.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.txtOutputs.Properties)).BeginInit();
-         this.tabDecoderNotes.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.cboSection.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.cboModel.Properties)).BeginInit();
+         this.tabDecoderNotes.SuspendLayout();
          this.SuspendLayout();
          // 
          // txtNotes
@@ -89,11 +83,11 @@
          // 
          // txtName
          // 
-         this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+         this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.txtName.Location = new System.Drawing.Point(105, 33);
          this.txtName.Name = "txtName";
-         this.txtName.Size = new System.Drawing.Size(181, 20);
+         this.txtName.Size = new System.Drawing.Size(372, 20);
          this.txtName.TabIndex = 1;
          // 
          // cmdCancel
@@ -119,8 +113,8 @@
          // 
          // tabDecoder
          // 
-         this.tabDecoder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+         this.tabDecoder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.tabDecoder.Location = new System.Drawing.Point(12, 12);
          this.tabDecoder.Name = "tabDecoder";
@@ -133,54 +127,39 @@
          // 
          // tabDecoderGeneral
          // 
-         this.tabDecoderGeneral.Controls.Add(this.grdConnect);
+         this.tabDecoderGeneral.Controls.Add(this.grdOut);
          this.tabDecoderGeneral.Controls.Add(this.grpGeneral);
-         this.tabDecoderGeneral.Controls.Add(this.grpDigital);
          this.tabDecoderGeneral.Name = "tabDecoderGeneral";
          this.tabDecoderGeneral.Padding = new System.Windows.Forms.Padding(10);
          this.tabDecoderGeneral.Size = new System.Drawing.Size(518, 436);
          this.tabDecoderGeneral.Text = "Properties";
          // 
-         // grdConnect
+         // grdOut
          // 
-         this.grdConnect.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.grdConnect.Location = new System.Drawing.Point(13, 167);
-         this.grdConnect.MainView = this.grdConnectView;
-         this.grdConnect.Name = "grdConnect";
-         this.grdConnect.Size = new System.Drawing.Size(492, 256);
-         this.grdConnect.TabIndex = 5;
-         this.grdConnect.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.grdConnectView});
+         this.grdOut.Location = new System.Drawing.Point(13, 190);
+         this.grdOut.MainView = this.grdOutView;
+         this.grdOut.Name = "grdOut";
+         this.grdOut.Size = new System.Drawing.Size(492, 233);
+         this.grdOut.TabIndex = 217;
+         this.grdOut.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grdOutView});
          // 
-         // grdConnectView
+         // grdOutView
          // 
-         this.grdConnectView.GridControl = this.grdConnect;
-         this.grdConnectView.Name = "grdConnectView";
-         this.grdConnectView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
-         this.grdConnectView.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
-         this.grdConnectView.OptionsCustomization.AllowColumnMoving = false;
-         this.grdConnectView.OptionsCustomization.AllowFilter = false;
-         this.grdConnectView.OptionsCustomization.AllowSort = false;
-         this.grdConnectView.OptionsFilter.AllowFilterEditor = false;
-         this.grdConnectView.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.grdConnectView.OptionsSelection.EnableAppearanceFocusedRow = false;
-         this.grdConnectView.OptionsSelection.EnableAppearanceHideSelection = false;
-         this.grdConnectView.OptionsView.ShowGroupPanel = false;
-         this.grdConnectView.OptionsView.ShowIndicator = false;
-         this.grdConnectView.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.GrdConnectView_CustomDrawCell);
-         this.grdConnectView.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.GrdConnectView_RowStyle);
-         this.grdConnectView.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.GrdConnectView_ShowingEditor);
-         this.grdConnectView.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.GrdConnectView_RowUpdated);
+         this.grdOutView.GridControl = this.grdOut;
+         this.grdOutView.Name = "grdOutView";
+         this.grdOutView.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.GrdOutView_CustomDrawCell);
+         this.grdOutView.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.GrdOutView_RowStyle);
          // 
          // grpGeneral
          // 
-         this.grpGeneral.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+         this.grpGeneral.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+         this.grpGeneral.Controls.Add(this.lblOutputsCount);
+         this.grpGeneral.Controls.Add(this.cboManufacturer);
          this.grpGeneral.Controls.Add(this.cboSection);
          this.grpGeneral.Controls.Add(this.lblSection);
-         this.grpGeneral.Controls.Add(this.cboManufacturer);
+         this.grpGeneral.Controls.Add(this.lblOutputs);
          this.grpGeneral.Controls.Add(this.cboModel);
          this.grpGeneral.Controls.Add(this.lblName);
          this.grpGeneral.Controls.Add(this.txtName);
@@ -189,9 +168,41 @@
          this.grpGeneral.Location = new System.Drawing.Point(13, 13);
          this.grpGeneral.Name = "grpGeneral";
          this.grpGeneral.Padding = new System.Windows.Forms.Padding(10);
-         this.grpGeneral.Size = new System.Drawing.Size(301, 148);
+         this.grpGeneral.Size = new System.Drawing.Size(492, 171);
          this.grpGeneral.TabIndex = 216;
          this.grpGeneral.Text = "General";
+         // 
+         // lblOutputsCount
+         // 
+         this.lblOutputsCount.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+         this.lblOutputsCount.Appearance.Options.UseFont = true;
+         this.lblOutputsCount.Location = new System.Drawing.Point(105, 140);
+         this.lblOutputsCount.Name = "lblOutputsCount";
+         this.lblOutputsCount.Size = new System.Drawing.Size(7, 13);
+         this.lblOutputsCount.TabIndex = 11;
+         this.lblOutputsCount.Text = "4";
+         // 
+         // cboManufacturer
+         // 
+         this.cboManufacturer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.cboManufacturer.Location = new System.Drawing.Point(105, 59);
+         this.cboManufacturer.Name = "cboManufacturer";
+         this.cboManufacturer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.cboManufacturer.Size = new System.Drawing.Size(372, 20);
+         this.cboManufacturer.TabIndex = 10;
+         // 
+         // cboSection
+         // 
+         this.cboSection.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.cboSection.Location = new System.Drawing.Point(105, 111);
+         this.cboSection.Name = "cboSection";
+         this.cboSection.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.cboSection.Size = new System.Drawing.Size(372, 20);
+         this.cboSection.TabIndex = 9;
          // 
          // lblSection
          // 
@@ -201,35 +212,23 @@
          this.lblSection.TabIndex = 8;
          this.lblSection.Text = "Location / Module";
          // 
-         // cboManufacturer
+         // lblOutputs
          // 
-         this.cboManufacturer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.cboManufacturer.Location = new System.Drawing.Point(105, 59);
-         this.cboManufacturer.Name = "cboManufacturer";
-         this.cboManufacturer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.cboManufacturer.Properties.SmallImages = this.imageList;
-         this.cboManufacturer.Size = new System.Drawing.Size(181, 20);
-         this.cboManufacturer.TabIndex = 6;
-         // 
-         // imageList
-         // 
-         this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
-         this.imageList.TransparentColor = System.Drawing.Color.Transparent;
-         this.imageList.Images.SetKeyName(0, "ICO_OUTPUT");
-         this.imageList.Images.SetKeyName(1, "ICO_MANUFACTURER");
-         this.imageList.Images.SetKeyName(2, "ICO_MODEL");
+         this.lblOutputs.Location = new System.Drawing.Point(15, 140);
+         this.lblOutputs.Name = "lblOutputs";
+         this.lblOutputs.Size = new System.Drawing.Size(39, 13);
+         this.lblOutputs.TabIndex = 6;
+         this.lblOutputs.Text = "Outputs";
          // 
          // cboModel
          // 
-         this.cboModel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+         this.cboModel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.cboModel.Location = new System.Drawing.Point(105, 85);
          this.cboModel.Name = "cboModel";
          this.cboModel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.cboModel.Size = new System.Drawing.Size(181, 20);
+         this.cboModel.Size = new System.Drawing.Size(372, 20);
          this.cboModel.TabIndex = 5;
          // 
          // lblModel
@@ -248,79 +247,6 @@
          this.lblManufacturer.TabIndex = 2;
          this.lblManufacturer.Text = "Manufacturer";
          // 
-         // grpDigital
-         // 
-         this.grpDigital.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.grpDigital.Controls.Add(this.lblAddress);
-         this.grpDigital.Controls.Add(this.nudAddress);
-         this.grpDigital.Controls.Add(this.lblOutputs);
-         this.grpDigital.Controls.Add(this.txtOutputs);
-         this.grpDigital.Location = new System.Drawing.Point(320, 13);
-         this.grpDigital.Name = "grpDigital";
-         this.grpDigital.Padding = new System.Windows.Forms.Padding(10);
-         this.grpDigital.Size = new System.Drawing.Size(185, 148);
-         this.grpDigital.TabIndex = 215;
-         this.grpDigital.Text = "Digital properties";
-         // 
-         // lblAddress
-         // 
-         this.lblAddress.Location = new System.Drawing.Point(15, 36);
-         this.lblAddress.Name = "lblAddress";
-         this.lblAddress.Size = new System.Drawing.Size(65, 13);
-         this.lblAddress.TabIndex = 12;
-         this.lblAddress.Text = "Start address";
-         // 
-         // nudAddress
-         // 
-         this.nudAddress.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-         this.nudAddress.Location = new System.Drawing.Point(99, 33);
-         this.nudAddress.Name = "nudAddress";
-         this.nudAddress.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.nudAddress.Properties.IsFloatValue = false;
-         this.nudAddress.Properties.Mask.EditMask = "N00";
-         this.nudAddress.Properties.MaxValue = new decimal(new int[] {
-            999,
-            0,
-            0,
-            0});
-         this.nudAddress.Size = new System.Drawing.Size(71, 20);
-         this.nudAddress.TabIndex = 13;
-         this.nudAddress.EditValueChanged += new System.EventHandler(this.NudAddress_EditValueChanged);
-         // 
-         // lblOutputs
-         // 
-         this.lblOutputs.Location = new System.Drawing.Point(15, 62);
-         this.lblOutputs.Name = "lblOutputs";
-         this.lblOutputs.Size = new System.Drawing.Size(39, 13);
-         this.lblOutputs.TabIndex = 6;
-         this.lblOutputs.Text = "Outputs";
-         // 
-         // txtOutputs
-         // 
-         this.txtOutputs.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-         this.txtOutputs.Location = new System.Drawing.Point(99, 59);
-         this.txtOutputs.Name = "txtOutputs";
-         this.txtOutputs.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.txtOutputs.Properties.IsFloatValue = false;
-         this.txtOutputs.Properties.Mask.EditMask = "N00";
-         this.txtOutputs.Properties.MaxValue = new decimal(new int[] {
-            999,
-            0,
-            0,
-            0});
-         this.txtOutputs.Size = new System.Drawing.Size(71, 20);
-         this.txtOutputs.TabIndex = 7;
-         // 
          // tabDecoderNotes
          // 
          this.tabDecoderNotes.Controls.Add(this.txtNotes);
@@ -329,14 +255,13 @@
          this.tabDecoderNotes.Size = new System.Drawing.Size(518, 436);
          this.tabDecoderNotes.Text = "Notes";
          // 
-         // cboSection
+         // imageList
          // 
-         this.cboSection.Location = new System.Drawing.Point(105, 111);
-         this.cboSection.Name = "cboSection";
-         this.cboSection.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.cboSection.Size = new System.Drawing.Size(181, 20);
-         this.cboSection.TabIndex = 9;
+         this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
+         this.imageList.TransparentColor = System.Drawing.Color.Transparent;
+         this.imageList.Images.SetKeyName(0, "ICO_OUTPUT");
+         this.imageList.Images.SetKeyName(1, "ICO_MANUFACTURER");
+         this.imageList.Images.SetKeyName(2, "ICO_MODEL");
          // 
          // AccessoryDecoderEditorView
          // 
@@ -360,20 +285,15 @@
          ((System.ComponentModel.ISupportInitialize)(this.tabDecoder)).EndInit();
          this.tabDecoder.ResumeLayout(false);
          this.tabDecoderGeneral.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.grdConnect)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.grdConnectView)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.grdOut)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.grdOutView)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.grpGeneral)).EndInit();
          this.grpGeneral.ResumeLayout(false);
          this.grpGeneral.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.cboManufacturer.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.cboModel.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.grpDigital)).EndInit();
-         this.grpDigital.ResumeLayout(false);
-         this.grpDigital.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.nudAddress.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.txtOutputs.Properties)).EndInit();
-         this.tabDecoderNotes.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.cboSection.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.cboModel.Properties)).EndInit();
+         this.tabDecoderNotes.ResumeLayout(false);
          this.ResumeLayout(false);
 
       }
@@ -391,17 +311,14 @@
       private DevExpress.XtraEditors.LabelControl lblManufacturer;
       private DevExpress.XtraTab.XtraTabPage tabDecoderNotes;
       private DevExpress.XtraEditors.GroupControl grpGeneral;
-      private DevExpress.XtraEditors.GroupControl grpDigital;
-      private DevExpress.XtraEditors.LabelControl lblOutputs;
-      private DevExpress.XtraEditors.SpinEdit txtOutputs;
       private System.Windows.Forms.ImageList imageList;
-      private DevExpress.XtraGrid.GridControl grdConnect;
-      private DevExpress.XtraGrid.Views.Grid.GridView grdConnectView;
       private DevExpress.XtraEditors.ComboBoxEdit cboModel;
-      private DevExpress.XtraEditors.ImageComboBoxEdit cboManufacturer;
       private DevExpress.XtraEditors.LabelControl lblSection;
-      private DevExpress.XtraEditors.LabelControl lblAddress;
-      private DevExpress.XtraEditors.SpinEdit nudAddress;
       private Common.Controls.SectionImageComboBoxEdit cboSection;
-   }
+      private Common.Controls.ManufacturerImageComboBoxEdit cboManufacturer;
+      private DevExpress.XtraGrid.GridControl grdOut;
+      private DevExpress.XtraGrid.Views.Grid.GridView grdOutView;
+        private DevExpress.XtraEditors.LabelControl lblOutputsCount;
+        private DevExpress.XtraEditors.LabelControl lblOutputs;
+    }
 }

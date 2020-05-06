@@ -22,9 +22,15 @@ namespace Rwm.Otc.Layout
       /// <summary>
       /// Gets a new instance of <see cref="AccessoryDecoder"/>.
       /// </summary>
-      public AccessoryDecoder() 
+      public AccessoryDecoder() { }
+
+      /// <summary>
+      /// Gets a new instance of <see cref="AccessoryDecoder"/>.
+      /// </summary>
+      /// <param name="numberOfOutputs">Number of outputs to assign to new instance.</param>
+      public AccessoryDecoder(int numberOfOutputs)
       {
-         Initialize();
+         this.InitializeOutouts(numberOfOutputs);
       }
 
       #endregion
@@ -35,43 +41,37 @@ namespace Rwm.Otc.Layout
       /// Gets or sets the object unique identifier.
       /// </summary>
       [ORMPrimaryKey()]
-      public override long ID { get; set; }
+      public override long ID { get; set; } = 0;
 
       /// <summary>
       /// Gets or sets the object unique identifier.
       /// </summary>
       [ORMProperty("PROJECTID")]
-      public Project Project { get; set; }
+      public Project Project { get; set; } = null;
 
       /// <summary>
       /// Gets or sets the manufacturer.
       /// </summary>
       [ORMProperty("MANUFACTURERID")]
-      public Manufacturer Manufacturer { get; set; }
+      public Manufacturer Manufacturer { get; set; } = null;
 
       /// <summary>
       /// Gets or sets the decoder name.
       /// </summary>
       [ORMProperty("NAME")]
-      public string Name { get; set; }
+      public string Name { get; set; } = string.Empty;
 
       /// <summary>
       /// Gets or sets las notas y comentarios al elemento.
       /// </summary>
       [ORMProperty("DESCRIPTION")]
-      public string Notes { get; set; }
+      public string Notes { get; set; } = string.Empty;
 
       /// <summary>
       /// Gets or sets the decoder's model name or number.
       /// </summary>
       [ORMProperty("MODEL")]
-      public string Model { get; set; }
-
-      /// <summary>
-      /// Gets or sets the number of outputs of the decoder.
-      /// </summary>
-      [ORMProperty("OUTPUTS")]
-      public int NumberOfOutputs { get; set; }
+      public string Model { get; set; } = string.Empty;
 
       /// <summary>
       /// Establece o devuelve la dirección inicial del descodificador.
@@ -83,34 +83,20 @@ namespace Rwm.Otc.Layout
       /// Gets or sets the owner section of the layout where the decoder is installed.
       /// </summary>
       [ORMProperty("SECTIONID")]
-      public Section Section { get; set; }
+      public Section Section { get; set; } = null;
 
       /// <summary>
       /// Gets or sets the list of device outputs.
       /// </summary>
       [ORMForeignCollection(OnDeleteActionTypes.DeleteInCascade)]
-      public List<AccessoryDecoderOutput> Outputs { get; set; }
-
-      /// <summary>
-      /// Gets or sets the list of connections for the device.
-      /// </summary>
-      [ORMForeignCollection(OnDeleteActionTypes.DeleteInCascade)]
-      public List<AccessoryDecoderConnection> Connections { get; set; }
-
-      /// <summary>
-      /// Gets the number of used outputs by connections.
-      /// </summary>
-      public int ConnectionsCount 
-      {
-         get { return (this.Connections == null ? 0 : this.Connections.Count); } 
-      }
+      public List<AccessoryDecoderOutput> Outputs { get; set; } = new List<AccessoryDecoderOutput>();
 
       /// <summary>
       /// Gets the associated icon.
       /// </summary>
       public Image Icon
       {
-         get { return Rwm.Otc.Properties.Resources.ICO_MODULE_ACC_16; }
+         get { return Properties.Resources.ICO_MODULE_ACC_16; }
       }
 
       #endregion
@@ -265,19 +251,17 @@ namespace Rwm.Otc.Layout
 
       #region Private Members
 
-      /// <summary>
-      /// Initialize the instance data.
-      /// </summary>
-      private void Initialize()
+      private void InitializeOutouts(int numberOfOutputs)
       {
-         this.ID = 0;
-         this.Name = string.Empty;
-         this.Manufacturer = null;
-         this.Model = string.Empty;
-         this.NumberOfOutputs = 0;
-         this.StartAddress = 0;
-         this.Notes = string.Empty;
-         this.Connections = new List<AccessoryDecoderConnection>();
+         for (int i = 1; i <= numberOfOutputs; i++)
+         {
+            AccessoryDecoderOutput output = new AccessoryDecoderOutput();
+            output.AccessoryDecoder = this;
+            output.Index = i;
+            output.Mode = AccessoryDecoderOutput.OutputMode.OneShot;
+
+            this.Outputs.Add(output);
+         }
       }
 
       #endregion

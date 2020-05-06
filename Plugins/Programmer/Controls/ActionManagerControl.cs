@@ -37,6 +37,12 @@ namespace Rwm.Studio.Plugins.Designer.Controls
 
       #region Methods
 
+      public void SetElement(Element element)
+      {
+         this.OwnerElement = element;
+         this.Refresh();
+      }
+
       public override void Refresh()
       {
          try
@@ -136,9 +142,7 @@ namespace Rwm.Studio.Plugins.Designer.Controls
          action.Type = ElementAction.ActionTypes.PlaySound;
 
          ActionEditorView form = new ActionEditorView(this.OwnerElement, action);
-         form.ShowDialog(this);
-
-         if (form.DialogResult == DialogResult.OK)
+         if (form.ShowDialog(this) == DialogResult.OK)
          {
             this.Refresh();
          }
@@ -151,9 +155,7 @@ namespace Rwm.Studio.Plugins.Designer.Controls
          action.Type = ElementAction.ActionTypes.SetAccessoryStatus;
 
          ActionEditorView form = new ActionEditorView(this.OwnerElement, action);
-         form.ShowDialog(this);
-
-         if (form.DialogResult == DialogResult.OK)
+         if (form.ShowDialog(this) == DialogResult.OK)
          {
             this.Refresh();
          }
@@ -170,13 +172,10 @@ namespace Rwm.Studio.Plugins.Designer.Controls
 
          try
          {
-            ElementAction action = grdDataView.GetRow(grdDataView.GetSelectedRows()[0]) as ElementAction;
-            if (action != null)
+            if (grdDataView.GetRow(grdDataView.GetSelectedRows()[0]) is ElementAction action)
             {
                ActionEditorView form = new ActionEditorView(this.OwnerElement, action);
-               form.ShowDialog(this);
-
-               if (form.DialogResult == DialogResult.OK)
+               if (form.ShowDialog(this) == DialogResult.OK)
                {
                   this.Refresh();
                }
@@ -200,11 +199,11 @@ namespace Rwm.Studio.Plugins.Designer.Controls
 
          try
          {
-            ElementAction action = grdDataView.GetRow(grdDataView.GetSelectedRows()[0]) as ElementAction;
-            if (action != null)
+            if (grdDataView.GetRow(grdDataView.GetSelectedRows()[0]) is ElementAction action)
             {
                if (MessageBox.Show("Are you sure you want to delete the action " + action.Description + "?",
-                               Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No) {
+                               Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+               {
                   return;
                }
 

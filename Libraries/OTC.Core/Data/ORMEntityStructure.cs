@@ -28,27 +28,27 @@ namespace Rwm.Otc.Data
          if (tables.Length > 0)
          {
             this.Table = (ORMTable)tables[0];
-         }
 
-         // Read fields and PKs
-         foreach (PropertyInfo pi in this.OwnerType.GetProperties())
-         {
-            member = ORMEntityMember.CreateInstance(pi);
-            if (member != null) 
+            // Read fields and PKs
+            foreach (PropertyInfo pi in this.OwnerType.GetProperties())
             {
-               if (member.IsPrimaryKey)
+               member = ORMEntityMember.CreateInstance(pi);
+               if (member != null)
                {
-                  this.PrimaryKey = member;
-               }
-               else if (member.IsForeignCollection)
-               {
-                  this.ForeignCollections.Add(member);
-                  this.All.Add(member);
-               }
-               else
-               {
-                  this.Fields.Add(member);
-                  this.All.Add(member);
+                  if (member.IsPrimaryKey)
+                  {
+                     this.PrimaryKey = member;
+                  }
+                  else if (member.IsForeignCollection)
+                  {
+                     this.ForeignCollections.Add(member);
+                     this.All.Add(member);
+                  }
+                  else
+                  {
+                     this.Fields.Add(member);
+                     this.All.Add(member);
+                  }
                }
             }
          }

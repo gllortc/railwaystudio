@@ -21,8 +21,7 @@ namespace Rwm.Studio.Plugins.Designer.Controls
          Initialize();
 
          this.FixedHeight = this.Height;
-         this.SelectedOutput = null;
-         this.SelectedDecoder = null;
+         this.SelectedConnection = null;
          this.Element = element;
 
          ShowSelectedOutput();
@@ -38,8 +37,7 @@ namespace Rwm.Studio.Plugins.Designer.Controls
          Initialize();
 
          this.FixedHeight = this.Height;
-         this.SelectedOutput = output;
-         this.SelectedDecoder = output.Decoder;
+         this.SelectedConnection = output;
          this.Element = output.Element;
 
          ShowSelectedOutput();
@@ -57,9 +55,7 @@ namespace Rwm.Studio.Plugins.Designer.Controls
 
       public int ConnectionIndex { get; set; }
 
-      public AccessoryDecoderConnection SelectedOutput { get; private set; }
-
-      public AccessoryDecoder SelectedDecoder { get; private set; }
+      public AccessoryDecoderConnection SelectedConnection { get; private set; }
 
       public Element Element { get; private set; }
 
@@ -71,7 +67,7 @@ namespace Rwm.Studio.Plugins.Designer.Controls
 
       public bool IsConnected
       {
-         get { return (this.SelectedOutput != null && this.SelectedOutput.Address > 0); }
+         get { return (this.SelectedConnection != null && this.SelectedConnection.DecoderOutput.Address > 0); }
       }
 
       #endregion
@@ -97,36 +93,40 @@ namespace Rwm.Studio.Plugins.Designer.Controls
       {
          if (e.Button.Index == 0)
          {
-            AccesoryConnectionFindView form = new AccesoryConnectionFindView(this.SelectedOutput);
-            form.ShowDialog(this);
-
-            if (form.DialogResult == DialogResult.OK)
+            AccesoryConnectionFindView form = new AccesoryConnectionFindView(this.SelectedConnection);
+            if (form.ShowDialog(this) == DialogResult.OK)
             {
-               this.SelectedOutput = form.SelectedConnection;
-               this.SelectedDecoder = form.SelectedDecoder;
+               // Remove existing connection
+               if (form.SelectedOutput.AccessoryConnection != null)
+               {
+                  AccessoryDecoderConnection.Delete(form.SelectedOutput.AccessoryConnection);
+               }
 
-               this.SelectedOutput.ElementPinIndex = this.ConnectionIndex;
-               this.SelectedOutput.Element = this.Element;
-               AccessoryDecoderConnection.Save(this.SelectedOutput);
+               // Create new connection
+               this.SelectedConnection = new AccessoryDecoderConnection();
+               this.SelectedConnection.DecoderOutput = form.SelectedOutput;
+               this.SelectedConnection.Element = this.Element;
+               this.SelectedConnection.ElementPinIndex = this.ConnectionIndex;
+               AccessoryDecoderConnection.Save(this.SelectedConnection);
 
-               this.ConnectionChanged?.Invoke(this, new ConnectionChangedEventArgs(this.ConnectionIndex, this.SelectedOutput));
+               form.SelectedOutput.AccessoryConnection = this.SelectedConnection;
+
+               this.ConnectionChanged?.Invoke(this, new ConnectionChangedEventArgs(this.ConnectionIndex, this.SelectedConnection));
             }
          }
          else if (e.Button.Index == 1)
          {
-            if (this.SelectedOutput == null)
+            if (this.SelectedConnection == null)
             {
-               MessageBox.Show("This connection is not connected to any decoder output.",
-                               Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+               MessageBox.Show("Current element input is not connected to any decoder output.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                return;
             }
 
-            AccessoryDecoderConnection.Delete(this.SelectedOutput.ID);
+            AccessoryDecoderConnection.Delete(this.SelectedConnection);
 
-            this.SelectedOutput = null;
-            this.SelectedDecoder = null;
+            this.SelectedConnection = null;
 
-            this.ConnectionChanged?.Invoke(this, new ConnectionChangedEventArgs(this.ConnectionIndex, this.SelectedOutput));
+            this.ConnectionChanged?.Invoke(this, new ConnectionChangedEventArgs(this.ConnectionIndex, this.SelectedConnection));
          }
 
          ShowSelectedOutput();
@@ -143,20 +143,20 @@ namespace Rwm.Studio.Plugins.Designer.Controls
 
       private void ShowSelectedOutput()
       {
-         if (this.SelectedOutput == null || this.SelectedDecoder == null)
+         if (this.SelectedConnection == null || this.Element == null)
          {
             txtOutput.Text = "Not connected";
          }
          else
          {
             txtOutput.Text = string.Format("<b>{0}</b> output <b>{1}</b> (address <b>{2}</b>)",
-                                           this.SelectedDecoder.Name,
-                                           this.SelectedOutput.DecoderOutput,
-                                           this.SelectedOutput.Address.ToString("D4"));
+                                           this.SelectedConnection.DecoderOutput.AccessoryDecoder.Name,
+                                           this.SelectedConnection.DecoderOutput.Index,
+                                           this.SelectedConnection.DecoderOutput.Address.ToString("D4"));
          }
 
          // Set disconnect button status
-         txtOutput.Properties.Buttons[1].Enabled = !(this.SelectedOutput == null || this.SelectedDecoder == null);
+         txtOutput.Properties.Buttons[1].Enabled = !(this.SelectedConnection == null || this.Element == null);
       }
 
       #endregion

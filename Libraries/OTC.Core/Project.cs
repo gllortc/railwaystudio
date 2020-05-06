@@ -297,31 +297,6 @@ namespace Rwm.Otc
          this.OnElementImageChanged?.Invoke(element, new ElementEventArgs(element));
       }
 
-      ///// <summary>
-      ///// Force to raise the event <c>OnAccessoryStatusChanged</c>. Used by <see cref="Element"/> instances.
-      ///// </summary>
-      ///// <param name="element"><see cref="Element"/> that have been changed.</param>
-      //public void AccessoryStatusChanged(Element element)
-      //{
-      //   this.OnAccessoryStatusChanged?.Invoke(element, new AccessoryEventArgs(element.AccessoryStatus));
-      //}
-
-      ///// <summary>
-      ///// Force to raise the event <see cref="Project.OnFeedbackStatusChanged"/>. Used by <see cref="Element"/> instances.
-      ///// </summary>
-      //public void FeedbackStatusChanged(Element element)
-      //{
-      //   this.OnFeedbackStatusChanged?.Invoke(element, new FeedbackEventArgs(element.FeedbackStatus));
-      //}
-
-      ///// <summary>
-      ///// Handler for the <c>AccessoryStatusChanged</c> event.
-      ///// </summary>
-      //void DigitalSystemInfo(MessageType type, string message, params object[] args)
-      //{
-      //   this.OnDigitalSystemInfo?.Invoke(OTCContext.Project.DigitalSystem, new SystemConsoleEventArgs(type, message, args));
-      //}
-
       #endregion
 
       #region Events

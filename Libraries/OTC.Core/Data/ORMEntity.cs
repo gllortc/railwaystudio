@@ -491,12 +491,13 @@ namespace Rwm.Otc.Data
       /// </summary>
       private static T MapData(DbDataReader reader)
       {
+         T instance;
          object value;
 
          try
          {
             // Create the new instance
-            T instance = (T)Activator.CreateInstance(typeof(T), new object[] { });
+            instance = (T)Activator.CreateInstance(typeof(T), new object[] { });
 
             // Add primary key
             ORMEntity<T>.ORMStructure.PrimaryKey.SetValue(instance, reader);
@@ -521,6 +522,11 @@ namespace Rwm.Otc.Data
                else
                {
                   member.SetValue(instance, reader);
+               }
+
+               if (member.Attribute.IsOneToOneProperty)
+               {
+                  ORMEntity<T>.SetOneToOneProperty(member.Attribute.OneToOnePropertyName, value, instance);
                }
             }
 
@@ -583,6 +589,18 @@ namespace Rwm.Otc.Data
          }
 
          return -1;
+      }
+
+      /// <summary>
+      /// Sets the one-to-one property value.
+      /// </summary>
+      private static void SetOneToOneProperty(string fieldName, object instance, object value)
+      {
+         if (string.IsNullOrWhiteSpace(fieldName) || instance == null || value == null)
+            return;
+
+         PropertyInfo pi = instance.GetType().GetProperty(fieldName);
+         if (pi != null) pi.SetValue(instance, value);
       }
 
       #endregion

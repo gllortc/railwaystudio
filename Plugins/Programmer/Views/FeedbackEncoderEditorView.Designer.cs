@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FeedbackEncoderEditorView));
          this.txtNotes = new DevExpress.XtraEditors.MemoEdit();
          this.lblName = new DevExpress.XtraEditors.LabelControl();
@@ -39,20 +40,16 @@
          this.grdConnect = new DevExpress.XtraGrid.GridControl();
          this.grdConnectView = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.grpGeneral = new DevExpress.XtraEditors.GroupControl();
+         this.cboSection = new Rwm.Studio.Plugins.Common.Controls.SectionImageComboBoxEdit();
          this.lblModule = new DevExpress.XtraEditors.LabelControl();
          this.cboManufacturer = new DevExpress.XtraEditors.ImageComboBoxEdit();
-         this.imageList = new System.Windows.Forms.ImageList();
+         this.imageList = new System.Windows.Forms.ImageList(this.components);
          this.cboModel = new DevExpress.XtraEditors.ComboBoxEdit();
          this.lblModel = new DevExpress.XtraEditors.LabelControl();
          this.lblManufacturer = new DevExpress.XtraEditors.LabelControl();
-         this.grpDigital = new DevExpress.XtraEditors.GroupControl();
-         this.chkConsequentAddr = new DevExpress.XtraEditors.CheckEdit();
-         this.lblAddress = new DevExpress.XtraEditors.LabelControl();
-         this.nudAddress = new DevExpress.XtraEditors.SpinEdit();
          this.lblOutputs = new DevExpress.XtraEditors.LabelControl();
-         this.txtInputs = new DevExpress.XtraEditors.SpinEdit();
          this.tabDecoderNotes = new DevExpress.XtraTab.XtraTabPage();
-         this.cboSection = new Rwm.Studio.Plugins.Common.Controls.SectionImageComboBoxEdit();
+         this.lblInputsCount = new DevExpress.XtraEditors.LabelControl();
          ((System.ComponentModel.ISupportInitialize)(this.txtNotes.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.tabDecoder)).BeginInit();
@@ -62,15 +59,10 @@
          ((System.ComponentModel.ISupportInitialize)(this.grdConnectView)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.grpGeneral)).BeginInit();
          this.grpGeneral.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.cboSection.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.cboManufacturer.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.cboModel.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.grpDigital)).BeginInit();
-         this.grpDigital.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.chkConsequentAddr.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.nudAddress.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.txtInputs.Properties)).BeginInit();
          this.tabDecoderNotes.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.cboSection.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // txtNotes
@@ -95,7 +87,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
          this.txtName.Location = new System.Drawing.Point(105, 33);
          this.txtName.Name = "txtName";
-         this.txtName.Size = new System.Drawing.Size(181, 20);
+         this.txtName.Size = new System.Drawing.Size(372, 20);
          this.txtName.TabIndex = 1;
          // 
          // cmdCancel
@@ -137,7 +129,6 @@
          // 
          this.tabDecoderGeneral.Controls.Add(this.grdConnect);
          this.tabDecoderGeneral.Controls.Add(this.grpGeneral);
-         this.tabDecoderGeneral.Controls.Add(this.grpDigital);
          this.tabDecoderGeneral.Name = "tabDecoderGeneral";
          this.tabDecoderGeneral.Padding = new System.Windows.Forms.Padding(10);
          this.tabDecoderGeneral.Size = new System.Drawing.Size(518, 436);
@@ -148,10 +139,10 @@
          this.grdConnect.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.grdConnect.Location = new System.Drawing.Point(13, 167);
+         this.grdConnect.Location = new System.Drawing.Point(13, 190);
          this.grdConnect.MainView = this.grdConnectView;
          this.grdConnect.Name = "grdConnect";
-         this.grdConnect.Size = new System.Drawing.Size(492, 256);
+         this.grdConnect.Size = new System.Drawing.Size(492, 233);
          this.grdConnect.TabIndex = 6;
          this.grdConnect.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdConnectView});
@@ -178,8 +169,10 @@
          // 
          this.grpGeneral.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+         this.grpGeneral.Controls.Add(this.lblInputsCount);
          this.grpGeneral.Controls.Add(this.cboSection);
          this.grpGeneral.Controls.Add(this.lblModule);
+         this.grpGeneral.Controls.Add(this.lblOutputs);
          this.grpGeneral.Controls.Add(this.cboManufacturer);
          this.grpGeneral.Controls.Add(this.cboModel);
          this.grpGeneral.Controls.Add(this.lblModel);
@@ -189,9 +182,20 @@
          this.grpGeneral.Location = new System.Drawing.Point(13, 13);
          this.grpGeneral.Name = "grpGeneral";
          this.grpGeneral.Padding = new System.Windows.Forms.Padding(10);
-         this.grpGeneral.Size = new System.Drawing.Size(301, 148);
+         this.grpGeneral.Size = new System.Drawing.Size(492, 171);
          this.grpGeneral.TabIndex = 216;
          this.grpGeneral.Text = "General";
+         // 
+         // cboSection
+         // 
+         this.cboSection.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.cboSection.Location = new System.Drawing.Point(105, 111);
+         this.cboSection.Name = "cboSection";
+         this.cboSection.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.cboSection.Size = new System.Drawing.Size(372, 20);
+         this.cboSection.TabIndex = 13;
          // 
          // lblModule
          // 
@@ -210,7 +214,7 @@
          this.cboManufacturer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
          this.cboManufacturer.Properties.SmallImages = this.imageList;
-         this.cboManufacturer.Size = new System.Drawing.Size(181, 20);
+         this.cboManufacturer.Size = new System.Drawing.Size(372, 20);
          this.cboManufacturer.TabIndex = 10;
          // 
          // imageList
@@ -229,7 +233,7 @@
          this.cboModel.Name = "cboModel";
          this.cboModel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.cboModel.Size = new System.Drawing.Size(181, 20);
+         this.cboModel.Size = new System.Drawing.Size(372, 20);
          this.cboModel.TabIndex = 9;
          // 
          // lblModel
@@ -248,91 +252,13 @@
          this.lblManufacturer.TabIndex = 6;
          this.lblManufacturer.Text = "Manufacturer";
          // 
-         // grpDigital
-         // 
-         this.grpDigital.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.grpDigital.Controls.Add(this.chkConsequentAddr);
-         this.grpDigital.Controls.Add(this.lblAddress);
-         this.grpDigital.Controls.Add(this.nudAddress);
-         this.grpDigital.Controls.Add(this.lblOutputs);
-         this.grpDigital.Controls.Add(this.txtInputs);
-         this.grpDigital.Location = new System.Drawing.Point(320, 13);
-         this.grpDigital.Name = "grpDigital";
-         this.grpDigital.Padding = new System.Windows.Forms.Padding(10);
-         this.grpDigital.Size = new System.Drawing.Size(185, 148);
-         this.grpDigital.TabIndex = 215;
-         this.grpDigital.Text = "Digital properties";
-         // 
-         // chkConsequentAddr
-         // 
-         this.chkConsequentAddr.EditValue = true;
-         this.chkConsequentAddr.Enabled = false;
-         this.chkConsequentAddr.Location = new System.Drawing.Point(15, 86);
-         this.chkConsequentAddr.Name = "chkConsequentAddr";
-         this.chkConsequentAddr.Properties.Caption = "Consequent addresses";
-         this.chkConsequentAddr.Size = new System.Drawing.Size(145, 19);
-         this.chkConsequentAddr.TabIndex = 12;
-         // 
-         // lblAddress
-         // 
-         this.lblAddress.Location = new System.Drawing.Point(15, 36);
-         this.lblAddress.Name = "lblAddress";
-         this.lblAddress.Size = new System.Drawing.Size(65, 13);
-         this.lblAddress.TabIndex = 10;
-         this.lblAddress.Text = "Start address";
-         // 
-         // nudAddress
-         // 
-         this.nudAddress.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-         this.nudAddress.Location = new System.Drawing.Point(99, 33);
-         this.nudAddress.Name = "nudAddress";
-         this.nudAddress.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.nudAddress.Properties.IsFloatValue = false;
-         this.nudAddress.Properties.Mask.EditMask = "N00";
-         this.nudAddress.Properties.MaxValue = new decimal(new int[] {
-            999,
-            0,
-            0,
-            0});
-         this.nudAddress.Size = new System.Drawing.Size(71, 20);
-         this.nudAddress.TabIndex = 11;
-         this.nudAddress.EditValueChanged += new System.EventHandler(this.NudAddress_EditValueChanged);
-         // 
          // lblOutputs
          // 
-         this.lblOutputs.Location = new System.Drawing.Point(15, 62);
+         this.lblOutputs.Location = new System.Drawing.Point(15, 140);
          this.lblOutputs.Name = "lblOutputs";
          this.lblOutputs.Size = new System.Drawing.Size(31, 13);
          this.lblOutputs.TabIndex = 8;
          this.lblOutputs.Text = "Inputs";
-         // 
-         // txtInputs
-         // 
-         this.txtInputs.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-         this.txtInputs.Location = new System.Drawing.Point(99, 59);
-         this.txtInputs.Name = "txtInputs";
-         this.txtInputs.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.txtInputs.Properties.IsFloatValue = false;
-         this.txtInputs.Properties.Mask.EditMask = "N00";
-         this.txtInputs.Properties.MaxValue = new decimal(new int[] {
-            999,
-            0,
-            0,
-            0});
-         this.txtInputs.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-         this.txtInputs.Size = new System.Drawing.Size(71, 20);
-         this.txtInputs.TabIndex = 9;
-         this.txtInputs.EditValueChanged += new System.EventHandler(this.TxtInputs_EditValueChanged);
          // 
          // tabDecoderNotes
          // 
@@ -342,14 +268,15 @@
          this.tabDecoderNotes.Size = new System.Drawing.Size(518, 436);
          this.tabDecoderNotes.Text = "Notes";
          // 
-         // cboSection
+         // lblInputsCount
          // 
-         this.cboSection.Location = new System.Drawing.Point(105, 111);
-         this.cboSection.Name = "cboSection";
-         this.cboSection.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.cboSection.Size = new System.Drawing.Size(181, 20);
-         this.cboSection.TabIndex = 13;
+         this.lblInputsCount.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+         this.lblInputsCount.Appearance.Options.UseFont = true;
+         this.lblInputsCount.Location = new System.Drawing.Point(105, 140);
+         this.lblInputsCount.Name = "lblInputsCount";
+         this.lblInputsCount.Size = new System.Drawing.Size(7, 13);
+         this.lblInputsCount.TabIndex = 14;
+         this.lblInputsCount.Text = "0";
          // 
          // FeedbackEncoderEditorView
          // 
@@ -378,16 +305,10 @@
          ((System.ComponentModel.ISupportInitialize)(this.grpGeneral)).EndInit();
          this.grpGeneral.ResumeLayout(false);
          this.grpGeneral.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.cboSection.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.cboManufacturer.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.cboModel.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.grpDigital)).EndInit();
-         this.grpDigital.ResumeLayout(false);
-         this.grpDigital.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.chkConsequentAddr.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.nudAddress.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.txtInputs.Properties)).EndInit();
          this.tabDecoderNotes.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.cboSection.Properties)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -403,20 +324,16 @@
       private DevExpress.XtraTab.XtraTabPage tabDecoderGeneral;
       private DevExpress.XtraTab.XtraTabPage tabDecoderNotes;
       private DevExpress.XtraEditors.GroupControl grpGeneral;
-      private DevExpress.XtraEditors.GroupControl grpDigital;
       private DevExpress.XtraEditors.LabelControl lblOutputs;
-      private DevExpress.XtraEditors.SpinEdit txtInputs;
       private System.Windows.Forms.ImageList imageList;
       private DevExpress.XtraGrid.GridControl grdConnect;
       private DevExpress.XtraEditors.ComboBoxEdit cboModel;
       private DevExpress.XtraEditors.LabelControl lblModel;
       private DevExpress.XtraEditors.LabelControl lblManufacturer;
-      private DevExpress.XtraEditors.LabelControl lblAddress;
-      private DevExpress.XtraEditors.SpinEdit nudAddress;
       private DevExpress.XtraEditors.ImageComboBoxEdit cboManufacturer;
         private DevExpress.XtraEditors.LabelControl lblModule;
-        private DevExpress.XtraEditors.CheckEdit chkConsequentAddr;
         private DevExpress.XtraGrid.Views.Grid.GridView grdConnectView;
         private Common.Controls.SectionImageComboBoxEdit cboSection;
+        private DevExpress.XtraEditors.LabelControl lblInputsCount;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using Rwm.Otc.Layout;
+using Rwm.Otc.Utils;
 
 namespace Rwm.Otc.Systems
 {
@@ -58,9 +59,19 @@ namespace Rwm.Otc.Systems
       string Version { get; }
 
       /// <summary>
+      /// Gets the valid accessory address range.
+      /// </summary>
+      Range AccessoryAddressRange { get; }
+
+      /// <summary>
+      /// Gets the valid feedback address range.
+      /// </summary>
+      Range FeedbackAddressRange { get; }
+
+      /// <summary>
       /// Gets the number of associated outputs by sensor address.
       /// </summary>
-      int OutputsBySensorAddress { get; }
+      int PointAddressesByFeedbackAddress { get; }
 
       /// <summary>
       /// Gets the status of the system.

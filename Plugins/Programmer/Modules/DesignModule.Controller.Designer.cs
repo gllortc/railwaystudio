@@ -265,7 +265,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
 
       void spcPanel_BlockDoubleClick(object sender, CellClickEventArgs e)
       {
-         BlockPropertiesViews form = new BlockPropertiesViews(e.Element);
+         ElementEditorViews form = new ElementEditorViews(e.Element);
          form.ShowDialog(this);
       }
 

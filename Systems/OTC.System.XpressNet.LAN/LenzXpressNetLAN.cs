@@ -90,7 +90,20 @@ namespace Rwm.Otc.Systems.XpressNet
       /// </summary>
       public SystemStatus Status { get; private set; }
 
-      public int OutputsBySensorAddress
+      /// <summary>
+      /// Gets the valid accessory address range.
+      /// </summary>
+      public Range AccessoryAddressRange { get; } = new Range(1, 1024);
+
+      /// <summary>
+      /// Gets the valid feedback address range.
+      /// </summary>
+      public Range FeedbackAddressRange { get; } = new Range(1, 128);
+
+      /// <summary>
+      /// Gets the number of associated outputs by sensor address.
+      /// </summary>
+      public int PointAddressesByFeedbackAddress
       {
          get { return SENSOR_OUTPUTS_ADDRESS; }
       }

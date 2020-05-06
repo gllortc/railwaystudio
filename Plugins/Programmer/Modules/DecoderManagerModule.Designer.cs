@@ -34,7 +34,7 @@
          this.cmdDeviceEdit = new DevExpress.XtraBars.BarButtonItem();
          this.cmdDeviceDelete = new DevExpress.XtraBars.BarButtonItem();
          this.barLinkContainerItem1 = new DevExpress.XtraBars.BarLinkContainerItem();
-         this.cmdDeviceAddGenericAcc = new DevExpress.XtraBars.BarButtonItem();
+         this.cmdAccessoryDecoderAdd = new DevExpress.XtraBars.BarButtonItem();
          this.cmdDeviceAddRwmAcc = new DevExpress.XtraBars.BarButtonItem();
          this.cmdDeviceAddGenericFb = new DevExpress.XtraBars.BarButtonItem();
          this.cmdResourcesAreas = new DevExpress.XtraBars.BarButtonItem();
@@ -62,7 +62,6 @@
             this.cmdDeviceEdit,
             this.cmdDeviceDelete,
             this.barLinkContainerItem1,
-            this.cmdDeviceAddGenericAcc,
             this.cmdDeviceAddRwmAcc,
             this.cmdDeviceAddGenericFb,
             this.cmdResourcesAreas,
@@ -70,9 +69,10 @@
             this.cmdViewByArea,
             this.cmdRefreshView,
             this.bsiElementCounter,
-            this.cmdDecoderProgram});
+            this.cmdDecoderProgram,
+            this.cmdAccessoryDecoderAdd});
          this.ribbon.Location = new System.Drawing.Point(0, 0);
-         this.ribbon.MaxItemId = 37;
+         this.ribbon.MaxItemId = 44;
          this.ribbon.Name = "ribbon";
          this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpData});
@@ -103,18 +103,18 @@
          this.barLinkContainerItem1.Id = 25;
          this.barLinkContainerItem1.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_DEVICE_ADD_32;
          this.barLinkContainerItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.cmdDeviceAddGenericAcc),
+            new DevExpress.XtraBars.LinkPersistInfo(this.cmdAccessoryDecoderAdd),
             new DevExpress.XtraBars.LinkPersistInfo(this.cmdDeviceAddRwmAcc),
             new DevExpress.XtraBars.LinkPersistInfo(this.cmdDeviceAddGenericFb, true)});
          this.barLinkContainerItem1.Name = "barLinkContainerItem1";
          // 
-         // cmdDeviceAddGenericAcc
+         // cmdAccessoryDecoderAdd
          // 
-         this.cmdDeviceAddGenericAcc.Caption = "Generic accessory decoder";
-         this.cmdDeviceAddGenericAcc.Id = 26;
-         this.cmdDeviceAddGenericAcc.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_DEVICE_ACC_16;
-         this.cmdDeviceAddGenericAcc.Name = "cmdDeviceAddGenericAcc";
-         this.cmdDeviceAddGenericAcc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdDeviceAddGenericAcc_ItemClick);
+         this.cmdAccessoryDecoderAdd.Caption = "Generic accessory decoder";
+         this.cmdAccessoryDecoderAdd.Id = 43;
+         this.cmdAccessoryDecoderAdd.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_DEVICE_ACC_16;
+         this.cmdAccessoryDecoderAdd.Name = "cmdAccessoryDecoderAdd";
+         this.cmdAccessoryDecoderAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdAccessoryDecoderAdd_ItemClick);
          // 
          // cmdDeviceAddRwmAcc
          // 
@@ -293,7 +293,6 @@
       private System.Windows.Forms.ImageList imlIcons;
       private DevExpress.XtraTreeList.TreeList tlsDecoders;
         private DevExpress.XtraBars.BarLinkContainerItem barLinkContainerItem1;
-        private DevExpress.XtraBars.BarButtonItem cmdDeviceAddGenericAcc;
         private DevExpress.XtraBars.BarButtonItem cmdDeviceAddRwmAcc;
         private DevExpress.XtraBars.BarButtonItem cmdDeviceAddGenericFb;
       private DevExpress.XtraBars.BarButtonItem cmdResourcesAreas;
@@ -304,5 +303,6 @@
         private DevExpress.XtraBars.BarButtonItem cmdRefreshView;
         private DevExpress.XtraBars.BarStaticItem bsiElementCounter;
         private DevExpress.XtraBars.BarButtonItem cmdDecoderProgram;
+        private DevExpress.XtraBars.BarButtonItem cmdAccessoryDecoderAdd;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using DevExpress.XtraTreeList.Columns;
 using DevExpress.XtraTreeList.Nodes;
@@ -7,92 +8,80 @@ using Rwm.Otc.Layout;
 
 namespace Rwm.Studio.Plugins.Designer.Views
 {
-   public partial class FeedbackConnectionFindView : DevExpress.XtraEditors.XtraForm
+    public partial class FeedbackConnectionFindView : DevExpress.XtraEditors.XtraForm
    {
 
       #region Constructors
 
-      public FeedbackConnectionFindView()
+      public FeedbackConnectionFindView(FeedbackEncoderConnection connection = null)
       {
          InitializeComponent();
-         ShowInputs();
 
-         chkShowUnused.Checked = true;
-      }
+         this.SelectedInput = connection?.EncoderInput;
 
-      public FeedbackConnectionFindView(FeedbackEncoderConnection connection)
-      {
-         InitializeComponent();
-         ShowInputs(connection);
-
-         chkShowUnused.Checked = true;
+         this.RefreshOutputsList(chkShowAll.Checked);
       }
 
       #endregion
 
       #region Properties
 
-      public FeedbackEncoderConnection SelectedConnection { get; private set; }
-
-      public FeedbackEncoder SelectedDecoder { get; private set; }
-
-      public bool ShowUsedConnections
-      {
-         get { return !chkShowUnused.Checked; }
-      }
+      public FeedbackEncoderInput SelectedInput { get; private set; } = null;
 
       #endregion
 
       #region Event Handlers
 
-      private void ChkShowUnused_CheckedChanged(object sender, System.EventArgs e)
+      private void TvwOutputs_NodeCellStyle(object sender, DevExpress.XtraTreeList.GetCustomNodeCellStyleEventArgs e)
       {
-         this.FilterUsedConnections(tvwConnections.Nodes[0], chkShowUnused.Checked);
-      }
-
-      private void CmdDecoderNew_Click(object sender, System.EventArgs e)
-      {
-         FeedbackEncoderEditorView form = new FeedbackEncoderEditorView();
-         if (form.ShowDialog() == DialogResult.OK)
+         if (e.Node.Tag is FeedbackEncoderInput input)
          {
-            this.ShowInputs(this.SelectedConnection);
-         }
-      }
-
-      private void CmdOK_Click(object sender, System.EventArgs e)
-      {
-         if (tvwConnections.FocusedNode == null)
-         {
-            MessageBox.Show("You must select the control module output you want to connect the element.",
-                            Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            return;
-         }
-         else if (tvwConnections.FocusedNode.StateImageIndex == 1 || tvwConnections.FocusedNode.StateImageIndex == 4)
-         {
-            MessageBox.Show("The selected node is not a control module output.",
-                            Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            return;
-         }
-         else if (tvwConnections.FocusedNode.StateImageIndex == 3)
-         {
-            if (MessageBox.Show("The selected output is used by another element. Really you want to share this output?",
-                                Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.No)
+            if (input.FeedbackConnection != null)
             {
-               return;
+               e.Appearance.BackColor = Color.LightSalmon;
+               e.Appearance.BackColor2 = Color.LightSalmon;
             }
          }
+         else if (e.Node.Tag == null || e.Node.Tag is Section)
+         {
+            e.Appearance.FontStyleDelta = FontStyle.Bold;
+         }
+      }
 
-         this.SelectedDecoder = tvwConnections.FocusedNode.ParentNode.Tag as FeedbackEncoder;
-         this.SelectedConnection = tvwConnections.FocusedNode.Tag as FeedbackEncoderConnection;
+      private void TvwOutputs_Click(object sender, EventArgs e)
+      {
+         if (tvwOutputs.Selection.Count <= 0)
+         {
+            this.SelectedInput = null;
+         }
+         else if (tvwOutputs.Selection[0].Tag is FeedbackEncoderInput selected)
+         {
+            this.SelectedInput = selected;
+         }
+
+         cmdOK.Enabled = (this.SelectedInput != null);
+      }
+
+      private void ChkShowAll_CheckedChanged(object sender, EventArgs e)
+      {
+         this.RefreshOutputsList(chkShowAll.Checked);
+      }
+
+      private void CmdOK_Click(object sender, EventArgs e)
+      {
+         if (this.SelectedInput == null)
+         {
+            MessageBox.Show("You must select a non connected input.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return;
+         }
 
          this.DialogResult = DialogResult.OK;
          this.Close();
       }
 
-      private void CmdCancel_Click(object sender, System.EventArgs e)
+      private void CmdCancel_Click(object sender, EventArgs e)
       {
-         this.SelectedDecoder = null;
-         this.SelectedConnection = null;
+         this.SelectedInput = null;
 
          this.DialogResult = DialogResult.Cancel;
          this.Close();
@@ -102,107 +91,94 @@ namespace Rwm.Studio.Plugins.Designer.Views
 
       #region Private Members
 
-      private void ShowInputs()
+      private void RefreshOutputsList(bool showAll = true)
       {
-         this.ShowInputs(null);
-      }
+         TreeListColumn column;
+         TreeListNode nodeSection, nodeOutput;
 
-      void ShowInputs(FeedbackEncoderConnection connection)
-      {
-         TreeListNode root;
-         TreeListNode mod;
-         TreeListNode output;
-         TreeListColumn col;
-         Dictionary<int, FeedbackEncoderConnection> connections;
-
-         tvwConnections.BeginUpdate();
-
-         tvwConnections.Nodes.Clear();
-         tvwConnections.Columns.Clear();
-
-         col = tvwConnections.Columns.Add();
-         col.Caption = "Decoder input";
-         col.VisibleIndex = 0;
-         col = tvwConnections.Columns.Add();
-         col.Caption = "Address";
-         col.VisibleIndex = 1;
-         col = tvwConnections.Columns.Add();
-         col.Caption = "Element";
-         col.VisibleIndex = 2;
-         tvwConnections.EndUpdate();
-
-         tvwConnections.BeginUnboundLoad();
-
-         root = tvwConnections.AppendNode(new object[] { "Modules", string.Empty, string.Empty }, null);
-         root.StateImageIndex = 4;
-         root.Expanded = true;
-
-         foreach (FeedbackEncoder decoder in OTCContext.Project.FeedbackEncoders)
+         if (tvwOutputs.Columns.Count <= 0)
          {
-            mod = tvwConnections.AppendNode(new object[] { decoder.Name, string.Empty, string.Empty }, root);
-            mod.StateImageIndex = 1;
-            mod.Tag = decoder;
+            tvwOutputs.BeginUpdate();
 
-            connections = new Dictionary<int, FeedbackEncoderConnection>();
+            column = tvwOutputs.Columns.Add();
+            column.Caption = "Encoder";
+            column.Width = 100;
+            column.VisibleIndex = 0;
+            // column.FieldName = "AccessoryDecoder.Name";
 
-            // Create the non existing connections
-            foreach (FeedbackEncoderConnection inputConn in decoder.Connections)
-               connections.Add(inputConn.DecoderInput, inputConn);
+            column = tvwOutputs.Columns.Add();
+            column.Caption = "Input";
+            column.Width = 55;
+            column.VisibleIndex = 1;
+            // column.FieldName = "Index";
 
-            for (int inputidx = 1; inputidx <= decoder.Inputs; inputidx++)
-               if (!connections.ContainsKey(inputidx))
-                  connections.Add(inputidx, new FeedbackEncoderConnection()
-                  {
-                     DecoderInput = inputidx,
-                     Address = decoder.StartAddress + inputidx - 1,
-                     Device = decoder,
-                     Element = null
-                  });
+            column = tvwOutputs.Columns.Add();
+            column.Caption = "Address";
+            column.Width = 80;
+            column.VisibleIndex = 2;
+            // column.FieldName = "DisplayAddress";
 
-            foreach (FeedbackEncoderConnection con in connections.Values)
+            column = tvwOutputs.Columns.Add();
+            column.Caption = "Point";
+            column.Width = 200;
+            column.VisibleIndex = 3;
+            // column.FieldName = "DisplayConfiguration";
+
+            tvwOutputs.EndUpdate();
+         }
+
+         tvwOutputs.BeginUnboundLoad();
+
+         tvwOutputs.Nodes.Clear();
+
+         nodeSection = tvwOutputs.AppendNode(new object[] { "Global area" }, null);
+         nodeSection.Tag = null;
+
+         foreach (FeedbackEncoder encoder in OTCContext.Project.FeedbackEncoders)
+         {
+            if (encoder.Section == null)
             {
-               if (con.IsNew || this.ShowUsedConnections)
+               foreach (FeedbackEncoderInput input in encoder.Inputs)
                {
-                  output = tvwConnections.AppendNode(new object[] { con.DecoderInput,
-                                                                    con.Address.ToString("D4"),
-                                                                    con.Element == null ? "<empty>" : con.Element.Name}, mod);
-                  output.StateImageIndex = (con.Element == null ? 2 : 3);
-                  output.Tag = con;
-
-                  if (connection?.ID == con.ID)
+                  if (showAll || input.FeedbackConnection == null)
                   {
-                     tvwConnections.FocusedNode = output;
+                     nodeOutput = tvwOutputs.AppendNode(new object[] { encoder.Name, input.Index, input.Address, input.PointAddress }, nodeSection);
+                     nodeOutput.Tag = input;
                   }
                }
             }
          }
 
-         if (tvwConnections.FocusedNode != null && tvwConnections.FocusedNode != root)
+         foreach (Section section in OTCContext.Project.Sections)
          {
-            tvwConnections.MakeNodeVisible(tvwConnections.FocusedNode);
-         }
-         else
-         {
-            root.Expanded = true;
-         }
+            nodeSection = tvwOutputs.AppendNode(new object[] { section.Name }, null);
+            nodeSection.Tag = section;
 
-         tvwConnections.EndUnboundLoad();
-      }
-
-      private void FilterUsedConnections(TreeListNode root, bool unusedOnly)
-      {
-         foreach (TreeListNode node in root.Nodes)
-         {
-            if (node.HasChildren)
+            foreach (FeedbackEncoder encoder in OTCContext.Project.FeedbackEncoders)
             {
-               this.FilterUsedConnections(node, unusedOnly);
+               if (encoder.Section == section)
+               {
+                  foreach (FeedbackEncoderInput inputs in encoder.Inputs)
+                  {
+                     if (showAll || inputs.FeedbackConnection == null)
+                     {
+                        nodeOutput = tvwOutputs.AppendNode(new object[] { encoder.Name, inputs.Index, inputs.Address, inputs.PointAddress }, nodeSection);
+                        nodeOutput.Tag = inputs;
+                     }
+                  }
+               }
             }
+         }
+
+         foreach (TreeListNode node in tvwOutputs.Nodes)
+         {
+            if (!node.HasChildren)
+               node.Visible = false;
             else
-            {
-               FeedbackEncoderConnection output = node.Tag as FeedbackEncoderConnection;
-               node.Visible = !unusedOnly || (output?.Element == null);
-            }
+               node.Expanded = true;
          }
+
+         tvwOutputs.EndUnboundLoad();
       }
 
       #endregion

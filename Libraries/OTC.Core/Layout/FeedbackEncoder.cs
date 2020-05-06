@@ -39,9 +39,15 @@ namespace Rwm.Otc.Layout
       /// <summary>
       /// Gets a new instance of <see cref="FeedbackEncoder"/>.
       /// </summary>
-      public FeedbackEncoder() 
+      public FeedbackEncoder() { }
+
+      /// <summary>
+      /// Gets a new instance of <see cref="FeedbackEncoder"/>.
+      /// </summary>
+      /// <param name="numberOfInputs">Number of inputs to assign to new instance.</param>
+      public FeedbackEncoder(int numberOfInputs)
       {
-         Initialize();
+         this.InitializeInputs(numberOfInputs);
       }
 
       #endregion
@@ -52,43 +58,37 @@ namespace Rwm.Otc.Layout
       /// Gets or sets the object unique identifier.
       /// </summary>
       [ORMPrimaryKey()]
-      public override long ID { get; set; }
+      public override long ID { get; set; } = 0;
 
       /// <summary>
       /// Gets or sets the object unique identifier.
       /// </summary>
       [ORMProperty("PROJECTID")]
-      public Project Project { get; set; }
+      public Project Project { get; set; } = null;
 
       /// <summary>
       /// Gets or sets the decoder name.
       /// </summary>
       [ORMProperty("NAME")]
-      public string Name { get; set; }
+      public string Name { get; set; } = string.Empty;
 
       /// <summary>
       /// Gets or sets las notas y comentarios al elemento.
       /// </summary>
       [ORMProperty("DESCRIPTION")]
-      public string Notes { get; set; }
+      public string Notes { get; set; } = string.Empty;
 
       /// <summary>
       /// Gets or sets the manufacturer.
       /// </summary>
       [ORMProperty("MANUFACTURERID")]
-      public Manufacturer Manufacturer { get; set; }
+      public Manufacturer Manufacturer { get; set; } = null;
 
       /// <summary>
       /// Gets or sets the decoder's model name or number.
       /// </summary>
       [ORMProperty("MODEL")]
-      public string Model { get; set; }
-
-      /// <summary>
-      /// Gets or sets the number of outputs of the decoder.
-      /// </summary>
-      [ORMProperty("INPUTS")]
-      public int Inputs { get; set; }
+      public string Model { get; set; } = string.Empty;
 
       /// <summary>
       /// Establece o devuelve la dirección inicial del descodificador.
@@ -106,14 +106,14 @@ namespace Rwm.Otc.Layout
       /// Gets or sets the list of connections for the device.
       /// </summary>
       [ORMForeignCollection(OnDeleteActionTypes.DeleteInCascade)]
-      public List<FeedbackEncoderConnection> Connections { get; set; }
+      public List<FeedbackEncoderInput> Inputs { get; set; } = new List<FeedbackEncoderInput>();
 
       /// <summary>
       /// Gets the number of used inputs by connections.
       /// </summary>
       public int ConnectionsCount 
       {
-         get { return (this.Connections == null ? 0 : this.Connections.Count); } 
+         get { return (this.Inputs == null ? 0 : this.Inputs.Count); } 
       }
 
       /// <summary>
@@ -121,7 +121,7 @@ namespace Rwm.Otc.Layout
       /// </summary>
       public Image Icon
       {
-         get { return Rwm.Otc.Properties.Resources.ICO_MODULE_SENSOR_16; }
+         get { return Properties.Resources.ICO_MODULE_SENSOR_16; }
       }
 
       #endregion
@@ -255,19 +255,17 @@ namespace Rwm.Otc.Layout
 
       #region Private Members
 
-      /// <summary>
-      /// Initialize the instance data.
-      /// </summary>
-      private void Initialize()
+      private void InitializeInputs(int numberOfInputs)
       {
-         this.ID = 0;
-         this.Name = string.Empty;
-         this.Manufacturer = null;
-         this.Model = string.Empty;
-         this.Inputs = 0;
-         this.StartAddress = 0;
-         this.Notes = string.Empty;
-         this.Connections = new List<FeedbackEncoderConnection>();
+         for (int i = 1; i <= numberOfInputs; i++)
+         {
+            FeedbackEncoderInput input = new FeedbackEncoderInput();
+            input.FeedbackEncoder = this;
+            input.Index = i;
+            input.DelayTime = 0;
+
+            this.Inputs.Add(input);
+         }
       }
 
       #endregion

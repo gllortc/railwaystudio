@@ -61,6 +61,11 @@ namespace Rwm.Otc.Layout
       public AccessoryDecoder AccessoryDecoder { get; set; } = null;
 
       /// <summary>
+      /// Gets or sets the connection to the element.
+      /// </summary>
+      public AccessoryDecoderConnection AccessoryConnection { get; set; } = null;
+
+      /// <summary>
       /// Gets or sets the output digital address.
       /// </summary>
       [ORMProperty("ADDRESS")]
@@ -81,8 +86,20 @@ namespace Rwm.Otc.Layout
       /// <summary>
       /// Gets or sets the shot duration when the output mode is set to <see cref="OutputMode.OneShot" /> in milliseconds.
       /// </summary>
-      [ORMProperty("SWITCHTIME")]
-      public int SwitchTime { get; set; } = 0;
+      [ORMProperty("INTERVAL1")]
+      public int DurationA { get; set; } = 0;
+
+      /// <summary>
+      /// Gets or sets the shot duration when the output mode is set to <see cref="OutputMode.OneShot" /> in milliseconds.
+      /// </summary>
+      [ORMProperty("INTERVAL2")]
+      public int DurationB { get; set; } = 0;
+
+      /// <summary>
+      /// Gets or sets the shot duration when the output mode is set to <see cref="OutputMode.OneShot" /> in milliseconds.
+      /// </summary>
+      [ORMProperty("SPEED")]
+      public int ServoSpeed { get; set; } = 0;
 
       /// <summary>
       /// Gets or sets the Arduino pin where accessory is connected to (out 1).
@@ -95,6 +112,44 @@ namespace Rwm.Otc.Layout
       /// </summary>
       [ORMProperty("OUTPIN2")]
       public int ArduinoPin2 { get; set; } = 0;
+
+      /// <summary>
+      /// Gets a string containing the address to display in UI dialogues.
+      /// </summary>
+      public string DisplayAddress
+      {
+         get
+         {
+            if (this.Address <= 0)
+               return "Not assigned";
+            else
+               return this.Address.ToString("0000");
+         }
+      }
+
+      /// <summary>
+      /// Gets a string containing a brief description of the current output configuration.
+      /// </summary>
+      public string DisplayConfiguration
+      {
+         get
+         {
+            switch (this.Mode)
+            {
+               case OutputMode.OneShot:
+                  return string.Format("One shot ({0} ms)", this.DurationA);
+
+               case OutputMode.Flasher:
+                  return string.Format("Flasher (on:{0} ms, off:{1} ms)", this.DurationA, this.DurationB);
+
+               case OutputMode.ServoControl:
+                  return string.Format("Servo control (go:{0}, back:{1}, speed:{2})", this.DurationA, this.DurationB, this.ServoSpeed);
+
+               default:
+                  return "Continuous";
+            }
+         }
+      }
 
       #endregion
 

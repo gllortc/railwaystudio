@@ -187,8 +187,6 @@ namespace Rwm.Studio.Views
       /// </summary>
       private void Initialize()
       {
-         //this.Modules = new List<PluginModule>();
-
          nbcPlugins.Enabled = false;
          chkViewToolbox.Checked = true;
       }

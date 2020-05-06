@@ -82,11 +82,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\AddressEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\ConsoleControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\ConsoleControl.Designer.cs">
       <DependentUpon>ConsoleControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DigitalAddressEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DigitalAddressEdit.Designer.cs">
+      <DependentUpon>DigitalAddressEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ManufacturerImageComboBoxEdit.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\SectionImageComboBoxEdit.cs">
       <SubType>Component</SubType>
@@ -102,6 +114,9 @@
     </Compile>
     <Compile Include="Controls\PluginManagementControl.Designer.cs">
       <DependentUpon>PluginManagementControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AddressButtonEdit.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\TrainEdit.cs">
       <SubType>Component</SubType>
@@ -253,6 +268,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+    <None Include="Resources\factory_delete_bw_16.png" />
+    <None Include="Resources\factory_16.png" />
     <None Include="Resources\table_heatmap_check_32.png" />
     <None Include="Resources\table_heatmap_32.png" />
     <None Include="Resources\table_heatmap_check_16.png" />
