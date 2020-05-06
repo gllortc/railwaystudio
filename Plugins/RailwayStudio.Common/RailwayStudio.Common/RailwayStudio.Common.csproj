@@ -122,9 +122,11 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="IContainerView.cs" />
+    <Compile Include="IPluginModuleDescriptor.cs" />
     <Compile Include="IPluginPackage.cs" />
     <Compile Include="IPluginModule.cs" />
     <Compile Include="Modules\ReportViewerModule.Controller.Designer.cs" />
+    <Compile Include="Modules\ReportViewerModuleDescriptor.cs" />
     <Compile Include="Modules\TextEditorModule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +139,7 @@
     <Compile Include="Modules\ReportViewerModule.Designer.cs">
       <DependentUpon>ReportViewerModule.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\TextEditorModuleDescriptor.cs" />
     <Compile Include="PluginData.cs" />
     <Compile Include="PluginManager.cs" />
     <Compile Include="PluginPackageBase.cs" />

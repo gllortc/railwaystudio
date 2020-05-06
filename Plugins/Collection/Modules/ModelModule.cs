@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using DevExpress.XtraBars;
 using Rwm.Otc.Trains;
 using Rwm.Studio.Plugins.Common;
@@ -9,11 +8,11 @@ namespace Rwm.Studio.Plugins.Collection.Modules
    public partial class ModelModule : DevExpress.XtraBars.Ribbon.RibbonForm, IPluginModule
    {
 
-      #region Constants
+      //#region Constants
 
-      internal const string MODULE_GUID = "8458EC08-4224-42B0-8CF5-84FCD5AAFB3C";
+      //internal const string MODULE_GUID = "8458EC08-4224-42B0-8CF5-84FCD5AAFB3C";
 
-      #endregion
+      //#endregion
 
       #region Constructors
 
@@ -21,6 +20,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
       {
          InitializeComponent();
 
+         this.Description = new ModelModuleDescriptor();
          this.CurrentModel = new Train();
       }
 
@@ -28,29 +28,34 @@ namespace Rwm.Studio.Plugins.Collection.Modules
 
       #region IPluginModule Implementation
 
-      public string ID
-      {
-         get { return ModelModule.MODULE_GUID; }
-      }
+      /// <summary>
+      /// Gets the plugin module description properties.
+      /// </summary>
+      public IPluginModuleDescriptor Description { get; private set; }
 
-      public string Caption
-      {
-         get { return "Model editor"; }
-      }
+      //public string ID
+      //{
+      //   get { return ModelModule.MODULE_GUID; }
+      //}
+
+      //public Image LargeIcon
+      //{
+      //   get { return Properties.Resources.ICO_MODEL_EDIT_32; }
+      //}
+
+      //public Image SmallIcon
+      //{
+      //   get { return Properties.Resources.ICO_MODEL_EDIT_16; }
+      //}
+
+      //public string Caption
+      //{
+      //   get { return "Model editor"; }
+      //}
 
       public string DocumentName
       {
          get { return this.CurrentModel.Name; }
-      }
-
-      public Image LargeIcon
-      {
-         get { return Properties.Resources.ICO_MODEL_EDIT_32; }
-      }
-
-      public Image SmallIcon
-      {
-         get { return Properties.Resources.ICO_MODEL_EDIT_16; }
       }
 
       public bool IsMultiInstance

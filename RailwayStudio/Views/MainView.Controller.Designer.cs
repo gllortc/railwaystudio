@@ -53,7 +53,7 @@ namespace Rwm.Studio.Views
       /// <summary>
       /// Selects and open a project file.
       /// </summary>
-      internal void ProjectOpen()
+      internal async void ProjectOpen()
       {
          try
          {
@@ -63,7 +63,7 @@ namespace Rwm.Studio.Views
 
             if (form.ShowDialog(this) == DialogResult.OK)
             {
-               OTCContext.OpenProject(form.FileName);
+               await OTCContext.OpenProject(form.FileName);
 
                StudioContext.LastOpenedProjectFile = form.FileName;
                OTCContext.Settings.SaveSettings();
@@ -193,13 +193,19 @@ namespace Rwm.Studio.Views
          }
       }
 
-      private void LoadPlugin(IPluginModule plugin)
+      private void LoadPlugin(IPluginModuleDescriptor plugin)
       {
-         this.LoadPlugin(plugin, null);
+         IPluginModule module = StudioContext.PluginManager.GetPluginModule(plugin.ID);
+         if (module != null)
+         {
+            this.LoadPlugin(module, null);
+         }
       }
 
       private void LoadPlugin(IPluginModule module, params object[] args)
       {
+         Logger.LogDebug(this, "[CLASS].LoadPlugin([{0}], [args:{1}])", module, args);
+
          try
          {
             if (module is Form form)
@@ -262,7 +268,7 @@ namespace Rwm.Studio.Views
             group.GroupStyle = NavBarGroupStyle.LargeIconsList;
             group.Tag = package;
 
-            foreach (IPluginModule module in package.Modules)
+            foreach (IPluginModuleDescriptor module in package.Modules)
             {
                item = new NavBarItem();
                item.Tag = module;
@@ -298,7 +304,7 @@ namespace Rwm.Studio.Views
       /// </summary>
       void PluginItem_LinkClicked(object sender, NavBarLinkEventArgs e)
       {
-         this.LoadPlugin(e.Link.Item.Tag as IPluginModule);
+         this.LoadPlugin(e.Link.Item.Tag as IPluginModuleDescriptor);
       }
 
       #endregion

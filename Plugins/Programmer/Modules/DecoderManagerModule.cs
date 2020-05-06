@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using DevExpress.XtraBars;
 using Rwm.Studio.Plugins.Common;
 
@@ -8,27 +7,31 @@ namespace Rwm.Studio.Plugins.Designer.Modules
    public partial class DecoderManagerModule : DevExpress.XtraBars.Ribbon.RibbonForm, IPluginModule
    {
 
-      #region Constants
-
-      private const string MODULE_GUID = "D1117691-F1AE-42C7-BF77-620E0361D711";
-
-      #endregion
-
       #region Constructors
 
+      /// <summary>
+      /// Returns a new instance of <see cref="DecoderManagerModule"/>.
+      /// </summary>
       public DecoderManagerModule()
       {
          InitializeComponent();
+
+         this.Description = new DecoderManagerModuleDescriptor();
       }
 
       #endregion
 
       #region IPluginModule Implementation
 
-      public string ID
-      {
-         get { return MODULE_GUID; }
-      }
+      /// <summary>
+      /// Gets the plugin module description properties.
+      /// </summary>
+      public IPluginModuleDescriptor Description { get; private set; }
+
+      //public string ID
+      //{
+      //   get { return MODULE_GUID; }
+      //}
 
       public object StartupRibbonPage
       {
@@ -40,24 +43,24 @@ namespace Rwm.Studio.Plugins.Designer.Modules
          get { return ribbonStatusBar; }
       }
 
-      public Image LargeIcon
-      {
-         get { return Properties.Resources.ICO_MODULE_DEVICE_MANAGER_32; }
-      }
+      //public Image LargeIcon
+      //{
+      //   get { return Properties.Resources.ICO_MODULE_DEVICE_MANAGER_32; }
+      //}
 
-      public Image SmallIcon
-      {
-         get { return Properties.Resources.ICO_DEVICE_FOLDER_16; }
-      }
+      //public Image SmallIcon
+      //{
+      //   get { return Properties.Resources.ICO_DEVICE_FOLDER_16; }
+      //}
 
-      public string Caption
-      {
-         get { return "Digital device manager"; }
-      }
+      //public string Caption
+      //{
+      //   get { return "Digital device manager"; }
+      //}
 
       public string DocumentName
       {
-         get { return this.Caption; }
+         get { return this.Description.Caption; }
       }
 
       public bool IsMultiInstance
@@ -72,7 +75,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
 
       public void Initialize(params object[] args)
       {
-         this.Text = this.Caption;
+         this.Text = this.Description.Caption;
 
          // Create the main tree list
          this.InitializeTreeList();
@@ -167,7 +170,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
          this.ReportsDigitalAddresses();
       }
 
-        #endregion
+      #endregion
 
-    }
+   }
 }

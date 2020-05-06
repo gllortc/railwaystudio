@@ -1,5 +1,4 @@
 ﻿using System.Drawing;
-using Rwm.Otc.Layout;
 using Rwm.Studio.Plugins.Common;
 
 namespace Rwm.Studio.Plugins.Designer.Modules
@@ -9,7 +8,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
 
       #region Constants
 
-      private const string MODULE_GUID = "6269D397-85FB-45A8-8FB5-EECD59640B29";
+      //private const string MODULE_GUID = "6269D397-85FB-45A8-8FB5-EECD59640B29";
 
       private const string DOCKPANEL_DESIGN = "dpDesign";
 
@@ -17,38 +16,48 @@ namespace Rwm.Studio.Plugins.Designer.Modules
 
       #region Constructors
 
+      /// <summary>
+      /// Returns a new instance of <see cref="RouteModule"/>.
+      /// </summary>
       public RouteModule()
       {
          InitializeComponent();
+
+         this.Description = new RouteModuleDescriptor();
       }
 
       #endregion
 
       #region IPluginModule Implementation
 
-      public string ID
-      {
-         get { return MODULE_GUID; }
-      }
+      /// <summary>
+      /// Gets the plugin module description properties.
+      /// </summary>
+      public IPluginModuleDescriptor Description { get; private set; }
 
-      public Image LargeIcon
-      {
-         get { return Properties.Resources.ICO_MODULE_ROUTES_32; }
-      }
+      //public string ID
+      //{
+      //   get { return MODULE_GUID; }
+      //}
 
-      public Image SmallIcon
-      {
-         get { return Properties.Resources.ICO_ROUTE_16; }
-      }
+      //public Image LargeIcon
+      //{
+      //   get { return Properties.Resources.ICO_MODULE_ROUTES_32; }
+      //}
 
-      public string Caption
-      {
-         get { return "Route designer"; }
-      }
+      //public Image SmallIcon
+      //{
+      //   get { return Properties.Resources.ICO_ROUTE_16; }
+      //}
+
+      //public string Caption
+      //{
+      //   get { return "Route designer"; }
+      //}
 
       public string DocumentName
       {
-         get { return this.Caption; }
+         get { return this.Description.Caption; }
       }
 
       public bool IsMultiInstance

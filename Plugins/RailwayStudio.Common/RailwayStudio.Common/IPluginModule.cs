@@ -1,29 +1,34 @@
 ﻿namespace Rwm.Studio.Plugins.Common
 {
-   public interface IPluginModule
+   public interface IPluginModule // : IPluginModuleDescriptor
    {
 
       #region Properties
 
-      /// <summary>
-      /// Gets an image that represents the large icon for the module.
-      /// </summary>
-      System.Drawing.Image LargeIcon { get; }
+      ///// <summary>
+      ///// Gets an image that represents the large icon for the module.
+      ///// </summary>
+      //System.Drawing.Image LargeIcon { get; }
+
+      ///// <summary>
+      ///// Gets an image that represents the small icon for the module.
+      ///// </summary>
+      //System.Drawing.Image SmallIcon { get; }
+
+      ///// <summary>
+      ///// Gets the unique identifier for the plugin module.
+      ///// </summary>
+      //string ID { get; }
+
+      ///// <summary>
+      ///// Gets the name of the module.
+      ///// </summary>
+      //string Caption { get; }
 
       /// <summary>
-      /// Gets an image that represents the small icon for the module.
+      /// Gets the plugin module description properties.
       /// </summary>
-      System.Drawing.Image SmallIcon { get; }
-
-      /// <summary>
-      /// Gets the unique identifier for the plugin module.
-      /// </summary>
-      string ID { get; }
-
-      /// <summary>
-      /// Gets the name of the module.
-      /// </summary>
-      string Caption { get; }
+      IPluginModuleDescriptor Description { get; }
 
       /// <summary>
       /// Gets the name of the loaded document.

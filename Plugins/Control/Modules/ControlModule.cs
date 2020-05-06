@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using Rwm.Otc;
 using Rwm.Studio.Plugins.Common;
 using Rwm.Studio.Plugins.Control.Controls;
@@ -11,7 +10,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
       #region Constants
 
-      private const string MODULE_GUID = "DF6D5AB9-D3BF-4A8A-9B55-C8B9BB9DA035";
+      // private const string MODULE_GUID = "DF6D5AB9-D3BF-4A8A-9B55-C8B9BB9DA035";
 
       private const string DOCKPANEL_CONTROL = "pnlControl";
 
@@ -19,34 +18,44 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
       #region Constructors
 
+      /// <summary>
+      /// returns a new instance of <see cref="ControlModule"/>.
+      /// </summary>
       public ControlModule()
       {
          InitializeComponent();
+
+         this.Description = new ControlModuleDescriptor();
       }
 
       #endregion
 
       #region IPluginModule Implementation
 
-      public Image LargeIcon
-      {
-         get { return Properties.Resources.ICO_APP_32; }
-      }
+      /// <summary>
+      /// Gets the plugin module description properties.
+      /// </summary>
+      public IPluginModuleDescriptor Description { get; private set; }
 
-      public Image SmallIcon
-      {
-         get { return Properties.Resources.ICO_APP_16; }
-      }
+      //public Image LargeIcon
+      //{
+      //   get { return Properties.Resources.ICO_APP_32; }
+      //}
 
-      public string ID
-      {
-         get { return MODULE_GUID; }
-      }
+      //public Image SmallIcon
+      //{
+      //   get { return Properties.Resources.ICO_APP_16; }
+      //}
 
-      public string Caption
-      {
-         get { return "Layout Control"; }
-      }
+      //public string ID
+      //{
+      //   get { return MODULE_GUID; }
+      //}
+
+      //public string Caption
+      //{
+      //   get { return "Layout Control"; }
+      //}
 
       public string DocumentName
       {
@@ -86,7 +95,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
          OTCContext.Project.DigitalSystem.OnCommandReceived += DigitalSystem_OnCommandReceived;
 
          // Show module information
-         StudioContext.LogInformation("{0} v{1} loaded", this.Caption, Application.ProductVersion);
+         StudioContext.LogInformation("{0} v{1} loaded", this.Description.Caption, Application.ProductVersion);
       }
 
       /// <summary>

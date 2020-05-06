@@ -7,42 +7,49 @@ namespace Rwm.Studio.Plugins.Common.Modules
    public partial class ReportViewerModule : DevExpress.XtraBars.Ribbon.RibbonForm, IPluginModule
    {
 
-      #region Constants
+      //#region Constants
 
-      internal const string MODULE_GUID = "BDF2AC43-7829-47F4-A3FC-BD7B4FA62A18";
+      //internal const string MODULE_GUID = "BDF2AC43-7829-47F4-A3FC-BD7B4FA62A18";
 
-      #endregion
+      //#endregion
 
       #region Constructors
 
       public ReportViewerModule()
       {
          InitializeComponent();
+
+         this.Description = new ReportViewerModuleDescriptor();
       }
 
       #endregion
 
       #region IPluginModule Implementation
 
-      public Image LargeIcon
-      {
-         get { return Properties.Resources.ICO_REPORT_32; }
-      }
+      /// <summary>
+      /// Gets the plugin module description properties.
+      /// </summary>
+      public IPluginModuleDescriptor Description { get; private set; }
 
-      public Image SmallIcon
-      {
-         get { return Properties.Resources.ICO_REPORT_16; }
-      }
+      //public Image LargeIcon
+      //{
+      //   get { return Properties.Resources.ICO_REPORT_32; }
+      //}
 
-      public string ID
-      {
-         get { return MODULE_GUID; }
-      }
+      //public Image SmallIcon
+      //{
+      //   get { return Properties.Resources.ICO_REPORT_16; }
+      //}
 
-      public string Caption
-      {
-         get { return "Report Viewer"; }
-      }
+      //public string ID
+      //{
+      //   get { return MODULE_GUID; }
+      //}
+
+      //public string Caption
+      //{
+      //   get { return "Report Viewer"; }
+      //}
 
       public string DocumentName
       {

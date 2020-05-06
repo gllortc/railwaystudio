@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using DevExpress.XtraBars;
 using Rwm.Studio.Plugins.Common;
 
@@ -8,27 +7,49 @@ namespace Rwm.Studio.Plugins.Collection.Modules
    public partial class ExplorerModule : DevExpress.XtraBars.Ribbon.RibbonForm, IPluginModule
    {
 
-      #region Constants
+      //#region Constants
 
-      private const string MODULE_GUID = "D1117691-F1AE-42C7-BF77-620E0361D711";
+      //private const string MODULE_GUID = "D1117691-F1AE-42C7-BF77-620E0361D711";
 
-      #endregion
+      //#endregion
 
       #region Constructors
 
       public ExplorerModule()
       {
          InitializeComponent();
+
+         this.Description = new ExplorerModuleDescriptor();
       }
 
       #endregion
 
       #region IPluginModule Implementation
 
-      public string ID
-      {
-         get { return MODULE_GUID; }
-      }
+      /// <summary>
+      /// Gets the plugin module description properties.
+      /// </summary>
+      public IPluginModuleDescriptor Description { get; private set; }
+
+      //public string ID
+      //{
+      //   get { return MODULE_GUID; }
+      //}
+
+      //public Image LargeIcon
+      //{
+      //   get { return Properties.Resources.ICO_APP_32; }
+      //}
+
+      //public Image SmallIcon
+      //{
+      //   get { return Properties.Resources.ICO_DATAMANAGER_16; }
+      //}
+
+      //public string Caption
+      //{
+      //   get { return "Collection Explorer"; }
+      //}
 
       public object StartupRibbonPage
       {
@@ -38,21 +59,6 @@ namespace Rwm.Studio.Plugins.Collection.Modules
       public object RibbonStatusBar
       {
          get { return ribbonStatusBar; }
-      }
-
-      public Image LargeIcon
-      {
-         get { return Properties.Resources.ICO_APP_32; }
-      }
-
-      public Image SmallIcon
-      {
-         get { return Properties.Resources.ICO_DATAMANAGER_16; }
-      }
-
-      public string Caption
-      {
-         get { return "Collection Explorer"; }
       }
 
       public string DocumentName

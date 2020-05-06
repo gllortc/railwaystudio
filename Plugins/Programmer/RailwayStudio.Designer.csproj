@@ -184,6 +184,7 @@
       <DependentUpon>DecoderManagerModule.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\DecoderManagerModule.Controller.Designer.cs" />
+    <Compile Include="Modules\DecoderManagerModuleDescriptor.cs" />
     <Compile Include="Modules\DesignModule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +192,7 @@
       <DependentUpon>DesignModule.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\DesignModule.Controller.Designer.cs" />
+    <Compile Include="Modules\DesignModuleDescriptor.cs" />
     <Compile Include="Modules\RouteModule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +200,7 @@
       <DependentUpon>RouteModule.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\RouteModule.Controller.Designer.cs" />
+    <Compile Include="Modules\RouteModuleDescriptor.cs" />
     <Compile Include="PluginData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports\DigitalReport.cs">

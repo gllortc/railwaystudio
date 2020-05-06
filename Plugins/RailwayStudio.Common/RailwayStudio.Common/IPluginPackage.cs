@@ -40,7 +40,7 @@ namespace Rwm.Studio.Plugins.Common
       /// <summary>
       /// Gets the list of module instances in the package.
       /// </summary>
-      List<IPluginModule> Modules { get; }
+      List<IPluginModuleDescriptor> Modules { get; }
 
       #endregion
 

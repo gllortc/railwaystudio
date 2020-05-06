@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using Rwm.Otc.UI.Controls;
+﻿using Rwm.Otc.UI.Controls;
 using Rwm.Studio.Plugins.Common;
 
 namespace Rwm.Studio.Plugins.Designer.Modules
@@ -9,7 +8,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
 
       #region Constants
 
-      private const string MODULE_GUID = "4EF23483-C174-424C-B079-36DA9A8FB5D5";
+      //private const string MODULE_GUID = "4EF23483-C174-424C-B079-36DA9A8FB5D5";
 
       private const string DOCKPANEL_DESIGN = "dpDesign";
 
@@ -17,11 +16,16 @@ namespace Rwm.Studio.Plugins.Designer.Modules
 
       #region Constructors
 
+      /// <summary>
+      /// Returns a new instance of <see cref="DesignModule"/>.
+      /// </summary>
       public DesignModule()
       {
          InitializeComponent();
-         CreateElementGallery();
 
+         this.Description = new DesignModuleDescriptor();
+
+         CreateElementGallery();
          ChkBlockPointer_ItemClick(null, null);
       }
 
@@ -29,29 +33,34 @@ namespace Rwm.Studio.Plugins.Designer.Modules
 
       #region IPluginModule Implementation
 
-      public Image LargeIcon
-      {
-         get { return Properties.Resources.ICO_MODULE_DESIGN_32; }
-      }
+      /// <summary>
+      /// Gets the plugin module description properties.
+      /// </summary>
+      public IPluginModuleDescriptor Description { get; private set; }
 
-      public Image SmallIcon
-      {
-         get { return Properties.Resources.ICO_MODULE_DESIGN_16; }
-      }
+      //public Image LargeIcon
+      //{
+      //   get { return Properties.Resources.ICO_MODULE_DESIGN_32; }
+      //}
 
-      public string ID
-      {
-         get { return MODULE_GUID; }
-      }
+      //public Image SmallIcon
+      //{
+      //   get { return Properties.Resources.ICO_MODULE_DESIGN_16; }
+      //}
 
-      public string Caption
-      {
-         get { return "Layout designer"; }
-      }
+      //public string ID
+      //{
+      //   get { return MODULE_GUID; }
+      //}
+
+      //public string Caption
+      //{
+      //   get { return "Layout designer"; }
+      //}
 
       public string DocumentName
       {
-         get { return this.Caption; }
+         get { return this.Description.Caption; }
       }
 
       public bool IsMultiInstance

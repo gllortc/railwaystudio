@@ -59,7 +59,7 @@ namespace Rwm.Studio.Plugins.Common
       /// <summary>
       /// Gets the list of package plugin instances.
       /// </summary>
-      public List<IPluginModule> Modules { get; private set; } = new List<IPluginModule>();
+      public List<IPluginModuleDescriptor> Modules { get; private set; } = new List<IPluginModuleDescriptor>();
 
       /// <summary>
       /// Gets the private plugin directory path.
@@ -88,9 +88,9 @@ namespace Rwm.Studio.Plugins.Common
          // Get all modules
          foreach (Type type in ownerType.Assembly.GetExportedTypes())
          {
-            if (typeof(IPluginModule).IsAssignableFrom(type) && type.IsClass)
+            if (typeof(IPluginModuleDescriptor).IsAssignableFrom(type) && type.IsClass)
             {
-               IPluginModule module = Activator.CreateInstance(type) as IPluginModule;
+               IPluginModuleDescriptor module = Activator.CreateInstance(type) as IPluginModuleDescriptor;
                this.Modules.Add(module);
             }
          }

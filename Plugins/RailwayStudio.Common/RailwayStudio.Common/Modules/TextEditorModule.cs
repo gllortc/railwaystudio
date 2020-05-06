@@ -5,27 +5,49 @@ namespace Rwm.Studio.Plugins.Common.Modules
    public partial class TextEditorModule : DevExpress.XtraBars.Ribbon.RibbonForm, IPluginModule
    {
 
-      #region Constants
+      //#region Constants
 
-      internal const string MODULE_GUID = "4812D1D5-C1B0-492C-8908-251E5E8922E3";
+      //internal const string MODULE_GUID = "4812D1D5-C1B0-492C-8908-251E5E8922E3";
 
-      #endregion
+      //#endregion
 
       #region Constructors
 
       public TextEditorModule()
       {
          InitializeComponent();
+
+         this.Description = new TextEditorModuleDescriptor();
       }
 
       #endregion
 
       #region IPluginModule Implementation
 
-      public string ID
-      {
-         get { return TextEditorModule.MODULE_GUID; }
-      }
+      /// <summary>
+      /// Gets the plugin module description properties.
+      /// </summary>
+      public IPluginModuleDescriptor Description { get; private set; }
+
+      //public string ID
+      //{
+      //   get { return TextEditorModule.MODULE_GUID; }
+      //}
+
+      //public Image LargeIcon
+      //{
+      //   get { return Properties.Resources.ICO_TEXTEDITOR_32; }
+      //}
+
+      //public Image SmallIcon
+      //{
+      //   get { return Properties.Resources.ICO_TEXTEDITOR_16; }
+      //}
+
+      //public string Caption
+      //{
+      //   get { return "Text editor"; }
+      //}
 
       /// <summary>
       /// Gets a value indicating if the module use a project or it is an independent utility.
@@ -33,21 +55,6 @@ namespace Rwm.Studio.Plugins.Common.Modules
       public bool UseProject
       {
          get { return false; }
-      }
-
-      public Image LargeIcon
-      {
-         get { return Properties.Resources.ICO_TEXTEDITOR_32; }
-      }
-
-      public Image SmallIcon
-      {
-         get { return Properties.Resources.ICO_TEXTEDITOR_16; }
-      }
-
-      public string Caption
-      {
-         get { return "Text editor"; }
       }
 
       public string DocumentName

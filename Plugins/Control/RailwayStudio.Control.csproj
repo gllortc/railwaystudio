@@ -143,6 +143,7 @@
     <Compile Include="Modules\ControlModule.Designer.cs">
       <DependentUpon>ControlModule.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\ControlModuleDescriptor.cs" />
     <Compile Include="PanelControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

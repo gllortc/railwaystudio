@@ -18,8 +18,8 @@ namespace Rwm.Studio.Plugins.Common
 
       public const string SETTINGS_KEY_PLUGINS = "rwm.studio.plugins";
 
-      public const string PLUGIN_TEXTEDITOR = Modules.TextEditorModule.MODULE_GUID;
-      public const string PLUGIN_REPORTVIEWER = Modules.ReportViewerModule.MODULE_GUID;
+      public const string PLUGIN_TEXTEDITOR = Modules.TextEditorModuleDescriptor.MODULE_GUID;
+      public const string PLUGIN_REPORTVIEWER = Modules.ReportViewerModuleDescriptor.MODULE_GUID;
 
       #endregion
 
@@ -140,11 +140,12 @@ namespace Rwm.Studio.Plugins.Common
       {
          foreach (IPluginPackage package in this.InstalledPackages)
          {
-            foreach (IPluginModule module in package.Modules)
+            foreach (IPluginModuleDescriptor module in package.Modules)
             {
                if (module.ID.Equals(moduleID))
                {
-                  return module;
+                  // Create the instance
+                  return Activator.CreateInstance(module.GetPluginModuleType()) as IPluginModule;
                }
             }
          }

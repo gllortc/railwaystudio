@@ -79,9 +79,9 @@ namespace Rwm.Studio.Views
 
       #region Event Handlers
 
-      private void FrmMain_Load(object sender, System.EventArgs e)
+      private async void FrmMain_Load(object sender, System.EventArgs e)
       {
-         this.ProjectOpenLast();
+         await this.ProjectOpenLast();
       }
 
       private void MainView_Shown(object sender, EventArgs e)
@@ -100,7 +100,7 @@ namespace Rwm.Studio.Views
             {
                if (e.Document.Control is IPluginModule module)
                {
-                  e.Document.Image = module.SmallIcon;
+                  e.Document.Image = module.Description.SmallIcon;
                   ribbon.SelectedPage = (DevExpress.XtraBars.Ribbon.RibbonPage)module.StartupRibbonPage;
                }
             }

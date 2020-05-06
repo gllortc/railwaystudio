@@ -44,7 +44,7 @@ namespace Rwm.Studio.Plugins.Common.Views
          if (!(grdModulesView.GetRow(e.RowHandle) is IPluginModule module))
             StudioContext.UI.DrawRowIcon(Properties.Resources.ICO_PLUGIN_16, e);
          else
-            StudioContext.UI.DrawRowIcon(module.SmallIcon, e);
+            StudioContext.UI.DrawRowIcon(module.Description.SmallIcon, e);
       }
 
       private void CmdOK_Click(object sender, EventArgs e)

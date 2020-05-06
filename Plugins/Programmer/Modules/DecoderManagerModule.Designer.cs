@@ -76,7 +76,7 @@
          this.ribbon.Name = "ribbon";
          this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpData});
-         this.ribbon.Size = new System.Drawing.Size(840, 143);
+         this.ribbon.Size = new System.Drawing.Size(840, 144);
          this.ribbon.StatusBar = this.ribbonStatusBar;
          // 
          // cmdDeviceEdit
@@ -228,10 +228,10 @@
          // ribbonStatusBar
          // 
          this.ribbonStatusBar.ItemLinks.Add(this.bsiElementCounter);
-         this.ribbonStatusBar.Location = new System.Drawing.Point(0, 502);
+         this.ribbonStatusBar.Location = new System.Drawing.Point(0, 501);
          this.ribbonStatusBar.Name = "ribbonStatusBar";
          this.ribbonStatusBar.Ribbon = this.ribbon;
-         this.ribbonStatusBar.Size = new System.Drawing.Size(840, 31);
+         this.ribbonStatusBar.Size = new System.Drawing.Size(840, 32);
          // 
          // imlIcons
          // 
@@ -246,7 +246,7 @@
          // 
          this.tlsDecoders.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.tlsDecoders.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.tlsDecoders.Location = new System.Drawing.Point(0, 143);
+         this.tlsDecoders.Location = new System.Drawing.Point(0, 144);
          this.tlsDecoders.Name = "tlsDecoders";
          this.tlsDecoders.OptionsBehavior.Editable = false;
          this.tlsDecoders.OptionsBehavior.ReadOnly = true;
@@ -257,7 +257,7 @@
          this.tlsDecoders.OptionsView.ShowHorzLines = false;
          this.tlsDecoders.OptionsView.ShowIndicator = false;
          this.tlsDecoders.OptionsView.ShowVertLines = false;
-         this.tlsDecoders.Size = new System.Drawing.Size(840, 359);
+         this.tlsDecoders.Size = new System.Drawing.Size(840, 357);
          this.tlsDecoders.StateImageList = this.imlIcons;
          this.tlsDecoders.TabIndex = 0;
          this.tlsDecoders.Click += new System.EventHandler(this.TlsDecoders_Click);
@@ -292,17 +292,17 @@
       private DevExpress.XtraBars.BarButtonItem cmdDeviceDelete;
       private System.Windows.Forms.ImageList imlIcons;
       private DevExpress.XtraTreeList.TreeList tlsDecoders;
-        private DevExpress.XtraBars.BarLinkContainerItem barLinkContainerItem1;
-        private DevExpress.XtraBars.BarButtonItem cmdDeviceAddRwmAcc;
-        private DevExpress.XtraBars.BarButtonItem cmdDeviceAddGenericFb;
+      private DevExpress.XtraBars.BarLinkContainerItem barLinkContainerItem1;
+      private DevExpress.XtraBars.BarButtonItem cmdDeviceAddRwmAcc;
+      private DevExpress.XtraBars.BarButtonItem cmdDeviceAddGenericFb;
       private DevExpress.XtraBars.BarButtonItem cmdResourcesAreas;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgTools;
-        private DevExpress.XtraBars.BarCheckItem cmdViewByType;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgView;
-        private DevExpress.XtraBars.BarCheckItem cmdViewByArea;
-        private DevExpress.XtraBars.BarButtonItem cmdRefreshView;
-        private DevExpress.XtraBars.BarStaticItem bsiElementCounter;
-        private DevExpress.XtraBars.BarButtonItem cmdDecoderProgram;
-        private DevExpress.XtraBars.BarButtonItem cmdAccessoryDecoderAdd;
-    }
+      private DevExpress.XtraBars.BarCheckItem cmdViewByType;
+      private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgView;
+      private DevExpress.XtraBars.BarCheckItem cmdViewByArea;
+      private DevExpress.XtraBars.BarButtonItem cmdRefreshView;
+      private DevExpress.XtraBars.BarStaticItem bsiElementCounter;
+      private DevExpress.XtraBars.BarButtonItem cmdDecoderProgram;
+      private DevExpress.XtraBars.BarButtonItem cmdAccessoryDecoderAdd;
+   }
 }

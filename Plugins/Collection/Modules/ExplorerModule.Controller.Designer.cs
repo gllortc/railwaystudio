@@ -82,7 +82,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
          }
          else if (this.CurrentCategory != null)
          {
-            StudioContext.OpenPluginModule(ModelModule.MODULE_GUID, null);
+            StudioContext.OpenPluginModule(ModelModuleDescriptor.MODULE_GUID, null);
          }
 
          this.Refresh();
@@ -169,7 +169,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
          }
          else if (this.CurrentCategory != null)
          {
-            StudioContext.OpenPluginModule(ModelModule.MODULE_GUID, row.ID);
+            StudioContext.OpenPluginModule(ModelModuleDescriptor.MODULE_GUID, row.ID);
          }
 
          this.Refresh();
