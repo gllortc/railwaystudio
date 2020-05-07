@@ -96,9 +96,10 @@
          // 
          this.tabSystemGeneral.Controls.Add(this.grpDriver);
          this.tabSystemGeneral.Controls.Add(this.groupControl1);
+         this.tabSystemGeneral.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_16;
          this.tabSystemGeneral.Name = "tabSystemGeneral";
          this.tabSystemGeneral.Padding = new System.Windows.Forms.Padding(10);
-         this.tabSystemGeneral.Size = new System.Drawing.Size(349, 277);
+         this.tabSystemGeneral.Size = new System.Drawing.Size(349, 274);
          this.tabSystemGeneral.Text = "General";
          // 
          // grpDriver
@@ -197,6 +198,7 @@
          this.lblDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+         this.lblDescription.Appearance.Options.UseTextOptions = true;
          this.lblDescription.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
          this.lblDescription.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.lblDescription.Location = new System.Drawing.Point(15, 38);
@@ -208,6 +210,7 @@
          // lblName
          // 
          this.lblName.Appearance.FontSizeDelta = 2;
+         this.lblName.Appearance.Options.UseFont = true;
          this.lblName.Location = new System.Drawing.Point(15, 15);
          this.lblName.Name = "lblName";
          this.lblName.Size = new System.Drawing.Size(105, 17);
@@ -218,9 +221,10 @@
          // 
          this.tabSystemSetup.Controls.Add(this.grdSettings);
          this.tabSystemSetup.Controls.Add(this.cmdSetup);
+         this.tabSystemSetup.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_SETUP_16;
          this.tabSystemSetup.Name = "tabSystemSetup";
          this.tabSystemSetup.Padding = new System.Windows.Forms.Padding(10);
-         this.tabSystemSetup.Size = new System.Drawing.Size(349, 277);
+         this.tabSystemSetup.Size = new System.Drawing.Size(349, 274);
          this.tabSystemSetup.Text = "Configuration";
          // 
          // grdSettings
@@ -231,7 +235,7 @@
          this.grdSettings.Location = new System.Drawing.Point(13, 13);
          this.grdSettings.MainView = this.grdSettingsView;
          this.grdSettings.Name = "grdSettings";
-         this.grdSettings.Size = new System.Drawing.Size(323, 222);
+         this.grdSettings.Size = new System.Drawing.Size(323, 219);
          this.grdSettings.TabIndex = 1;
          this.grdSettings.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdSettingsView});
@@ -244,13 +248,13 @@
          // cmdSetup
          // 
          this.cmdSetup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-         this.cmdSetup.Location = new System.Drawing.Point(13, 241);
+         this.cmdSetup.Location = new System.Drawing.Point(13, 238);
          this.cmdSetup.Name = "cmdSetup";
          this.cmdSetup.Size = new System.Drawing.Size(75, 23);
          this.cmdSetup.TabIndex = 0;
          this.cmdSetup.Text = "Configure";
          // 
-         // FrmSystemEditor
+         // SystemEditorView
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -261,7 +265,7 @@
          this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
          this.MaximizeBox = false;
          this.MinimizeBox = false;
-         this.Name = "FrmSystemEditor";
+         this.Name = "SystemEditorView";
          this.ShowIcon = false;
          this.ShowInTaskbar = false;
          this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

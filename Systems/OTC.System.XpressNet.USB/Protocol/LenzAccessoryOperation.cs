@@ -4,6 +4,10 @@ using Rwm.Otc.Systems.Protocol;
 
 namespace Rwm.Otc.Systems.XpressNet.Protocol
 {
+   /// <summary>
+   /// Lenz XpressNet protocol command: 
+   /// Accessory operation
+   /// </summary>
    public class LenzAccessoryOperation : IAccessoryOperation, IResponse
    {
 
@@ -54,7 +58,7 @@ namespace Rwm.Otc.Systems.XpressNet.Protocol
       /// <summary>
       /// Extract the data from the received command.
       /// </summary>
-      /// <param name="receivedData">Received bytes.</param>
+      /// <param name="receivedData">Received bytes from command station.</param>
       /// <returns>Return a value indicating if the data is valid or not.</returns>
       private bool SetResponseData(byte[] receivedData)
       {

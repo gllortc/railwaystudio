@@ -22,7 +22,15 @@ namespace Rwm.Studio.Plugins.Designer.Controls
 
       #region Properties
 
+      /// <summary>
+      /// Gets the item for which the connections are displayed.
+      /// </summary>
       public Element Element { get; private set; }
+
+      /// <summary>
+      /// Gets or sets a value indicating if the element admit connection management (numer of connections managed by the user).
+      /// </summary>
+      public bool AllowManageConnections { get; set; }
 
       #endregion
 

@@ -77,6 +77,11 @@ namespace Rwm.Studio.Plugins.Control.Views
          }
       }
 
+      private void CmdRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      {
+         this.ListSystems();
+      }
+
       private void CmdClose_Click(object sender, EventArgs e)
       {
          this.Close();
@@ -92,11 +97,15 @@ namespace Rwm.Studio.Plugins.Control.Views
          {
             grdSystems.BeginUpdate();
 
-            grdSystemsView.OptionsBehavior.AutoPopulateColumns = false;
-            grdSystemsView.Columns.Add(new GridColumn() { Caption = "ID", Visible = false, FieldName = "ID" });
-            grdSystemsView.Columns.Add(new GridColumn() { Caption = "Name", Visible = true, FieldName = "Name" });
-            grdSystemsView.Columns.Add(new GridColumn() { Caption = "Description", Visible = true, FieldName = "Description", Width = 165 });
-            grdSystemsView.Columns.Add(new GridColumn() { Caption = "Version", Visible = true, FieldName = "Version", Width = 45 });
+            if (grdSystemsView.Columns.Count <= 0)
+            {
+               grdSystemsView.OptionsBehavior.AutoPopulateColumns = false;
+               grdSystemsView.Columns.Add(new GridColumn() { Caption = "ID", Visible = false, FieldName = "ID" });
+               grdSystemsView.Columns.Add(new GridColumn() { Caption = "Name", Visible = true, FieldName = "Name" });
+               grdSystemsView.Columns.Add(new GridColumn() { Caption = "Description", Visible = true, FieldName = "Description", Width = 165 });
+               grdSystemsView.Columns.Add(new GridColumn() { Caption = "Version", Visible = true, FieldName = "Version", Width = 45 });
+            }
+
             grdSystems.DataSource = OTCContext.Project.SystemManager.GetAll();
 
             grdSystems.EndUpdate();
@@ -108,7 +117,7 @@ namespace Rwm.Studio.Plugins.Control.Views
          }
       }
 
-      #endregion
+        #endregion
 
-   }
+    }
 }

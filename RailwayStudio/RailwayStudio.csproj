@@ -296,6 +296,10 @@
       <Project>{930ba765-ec32-47e2-985d-cbf987fdb049}</Project>
       <Name>RailwayStudio.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Systems\OTC.System.XpressNet.USB\OTC.System.XpressNet.USB.csproj">
+      <Project>{34fffab0-b8fe-4809-a25d-b7bb4962c75e}</Project>
+      <Name>OTC.System.XpressNet.USB</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\page_edit.png" />

@@ -443,17 +443,36 @@ namespace Rwm.Otc.Layout
       #region Static Members
 
       /// <summary>
-      /// Get an <see cref="Element"/> by its digital address.
+      /// Get an <see cref="Element"/> by its accessory address.
       /// </summary>
       /// <param name="address">Digital address.</param>
       /// <returns>The related <see cref="Element"/> or <c>null</c> if no <see cref="Element"/> is connected to the specified address.</returns>
-      public static Element GetByConnectionAddress(int address)
+      public static Element GetByAccessoryAddress(int address)
       {
          foreach (Element element in Element.FindAll())
          {
             foreach (AccessoryDecoderConnection connection in element.AccessoryConnections)
             {
                if (connection.DecoderOutput.Address == address)
+                  return element;
+            }
+         }
+
+         return null;
+      }
+
+      /// <summary>
+      /// Get an <see cref="Element"/> by its feedback address.
+      /// </summary>
+      /// <param name="address">Digital address.</param>
+      /// <returns>The related <see cref="Element"/> or <c>null</c> if no <see cref="Element"/> is connected to the specified address.</returns>
+      public static Element GetByFeedbackAddress(int address, int pointAddress)
+      {
+         foreach (Element element in Element.FindAll())
+         {
+            foreach (FeedbackEncoderConnection connection in element.FeedbackConnections)
+            {
+               if (connection.EncoderInput.Address == address && connection.EncoderInput.PointAddress == pointAddress)
                   return element;
             }
          }

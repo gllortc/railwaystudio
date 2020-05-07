@@ -116,7 +116,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
          // Show system information
          bbtnSystemsManage.Caption = (OTCContext.Project.DigitalSystem == null ? "[No system]" : OTCContext.Project.DigitalSystem.Name);
-         bbtnSystemsManage.Glyph = (OTCContext.Project.DigitalSystem == null ? Control.Properties.Resources.ICO_SYSTEMS_UNSELECTED_16 : Control.Properties.Resources.ICO_SYSTEM_16);
+         bbtnSystemsManage.Glyph = (OTCContext.Project.DigitalSystem == null ? Control.Properties.Resources.ICO_SYSTEM_DISCONNECT_16 : Control.Properties.Resources.ICO_SYSTEM_16);
 
          // Update system controls
          cmdSystemSettings.Enabled = (OTCContext.Project.DigitalSystem != null);
@@ -192,6 +192,10 @@ namespace Rwm.Studio.Plugins.Control.Modules
          else if (e.CommandReceived is IInterfaceInformation)
          {
             this.InterfaceInformationCommandReceived((IInterfaceInformation)e.CommandReceived);
+         }
+         else if (e.CommandReceived is IFeedbackStatusChanged)
+         {
+            this.FeedbackStatusReceived((IFeedbackStatusChanged)e.CommandReceived);
          }
       }
 
@@ -309,7 +313,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
       private void AccessoryOperationCommandReceived(IAccessoryOperation command)
       {
-         Element element = Element.GetByConnectionAddress(command.Address);
+         Element element = Element.GetByAccessoryAddress(command.Address);
          if (element != null)
          {
             element.SetAccessoryStatus(command.Status);
@@ -318,6 +322,24 @@ namespace Rwm.Studio.Plugins.Control.Modules
          }
          else
             StudioContext.LogWarning("Accessory {0:D4} changed to status #{1}: Address not used in current layout", command.Address, command.Status);
+      }
+
+      private void FeedbackStatusReceived(IFeedbackStatusChanged command)
+      {
+         Element element;
+
+         foreach (FeedbackPointAddressStatus status in command.ReportedStatuses)
+         {
+            element = Element.GetByFeedbackAddress(command.Address, status.PointAddress);
+            if (element != null)
+            {
+               if (element.FeedbackStatus != status.Active)
+               {
+                  element.SetFeedbackStatus(status.Active);
+                  StudioContext.LogInformation("Accessory {0:D4}:{1} changed to status {2}", command.Address, status.PointAddress, (status.Active ? "HIGH" : "LOW"));
+               }
+            }
+         }
       }
 
       private void SystemInformationCommandReceived(ISystemInformation command)

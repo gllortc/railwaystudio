@@ -33,11 +33,11 @@
          this.barSystems = new DevExpress.XtraBars.Bar();
          this.cmdSystemSelect = new DevExpress.XtraBars.BarButtonItem();
          this.cmdSystemSetup = new DevExpress.XtraBars.BarButtonItem();
+         this.cmdRefresh = new DevExpress.XtraBars.BarButtonItem();
          this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
          this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
          this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
          this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-         this.cmdSystemRemove = new DevExpress.XtraBars.BarButtonItem();
          this.grdSystems = new DevExpress.XtraGrid.GridControl();
          this.grdSystemsView = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.cmdClose = new DevExpress.XtraEditors.SimpleButton();
@@ -57,9 +57,9 @@
          this.barManager.Form = this;
          this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.cmdSystemSelect,
-            this.cmdSystemRemove,
-            this.cmdSystemSetup});
-         this.barManager.MaxItemId = 3;
+            this.cmdSystemSetup,
+            this.cmdRefresh});
+         this.barManager.MaxItemId = 4;
          // 
          // barSystems
          // 
@@ -69,7 +69,8 @@
          this.barSystems.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
          this.barSystems.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.cmdSystemSelect),
-            new DevExpress.XtraBars.LinkPersistInfo(this.cmdSystemSetup)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.cmdSystemSetup),
+            new DevExpress.XtraBars.LinkPersistInfo(this.cmdRefresh, true)});
          this.barSystems.OptionsBar.AllowQuickCustomization = false;
          this.barSystems.OptionsBar.DisableClose = true;
          this.barSystems.OptionsBar.DisableCustomization = true;
@@ -81,7 +82,8 @@
          // 
          this.cmdSystemSelect.Caption = "Add system";
          this.cmdSystemSelect.Id = 0;
-         this.cmdSystemSelect.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.SYSTEM_SELECT_32;
+         this.cmdSystemSelect.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_SELECT_32;
+         this.cmdSystemSelect.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_SELECT_32;
          this.cmdSystemSelect.Name = "cmdSystemSelect";
          this.cmdSystemSelect.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdSystemSelect_ItemClick);
          // 
@@ -89,10 +91,19 @@
          // 
          this.cmdSystemSetup.Caption = "Settings";
          this.cmdSystemSetup.Id = 2;
-         this.cmdSystemSetup.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.processor_settings_32;
-         this.cmdSystemSetup.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.processor_settings_32;
+         this.cmdSystemSetup.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_SETUP_32;
+         this.cmdSystemSetup.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_SETUP_32;
          this.cmdSystemSetup.Name = "cmdSystemSetup";
          this.cmdSystemSetup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdSystemSetup_ItemClick);
+         // 
+         // cmdRefresh
+         // 
+         this.cmdRefresh.Caption = "Refresh";
+         this.cmdRefresh.Id = 3;
+         this.cmdRefresh.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_REFRESH_32;
+         this.cmdRefresh.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_REFRESH_32;
+         this.cmdRefresh.Name = "cmdRefresh";
+         this.cmdRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdRefresh_ItemClick);
          // 
          // barDockControlTop
          // 
@@ -125,13 +136,6 @@
          this.barDockControlRight.Location = new System.Drawing.Point(537, 47);
          this.barDockControlRight.Manager = this.barManager;
          this.barDockControlRight.Size = new System.Drawing.Size(0, 412);
-         // 
-         // cmdSystemRemove
-         // 
-         this.cmdSystemRemove.Caption = "Remove system";
-         this.cmdSystemRemove.Id = 1;
-         this.cmdSystemRemove.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_DECODER_DELETE_32;
-         this.cmdSystemRemove.Name = "cmdSystemRemove";
          // 
          // grdSystems
          // 
@@ -215,10 +219,10 @@
       private DevExpress.XtraBars.BarDockControl barDockControlLeft;
       private DevExpress.XtraBars.BarDockControl barDockControlRight;
       private DevExpress.XtraBars.BarButtonItem cmdSystemSelect;
-      private DevExpress.XtraBars.BarButtonItem cmdSystemRemove;
       private DevExpress.XtraGrid.GridControl grdSystems;
       private DevExpress.XtraGrid.Views.Grid.GridView grdSystemsView;
-        private DevExpress.XtraBars.BarButtonItem cmdSystemSetup;
-        private DevExpress.XtraEditors.SimpleButton cmdClose;
+      private DevExpress.XtraBars.BarButtonItem cmdSystemSetup;
+      private DevExpress.XtraEditors.SimpleButton cmdClose;
+        private DevExpress.XtraBars.BarButtonItem cmdRefresh;
     }
 }

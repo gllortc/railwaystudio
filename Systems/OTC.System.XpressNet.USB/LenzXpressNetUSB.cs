@@ -29,24 +29,7 @@ namespace Rwm.Otc.Systems.XpressNet
       private const string SETTINGS_KEY_KEEPALIVE_INTERVAL = "xpn.keepalive.interval";
       private const string SETTINGS_KEY_DEBUG_ENABLED = "xpn.debug.enabled";
 
-      private const int SENSOR_OUTPUTS_ADDRESS = 4;
-
-      private const int FEEDBACK_RANGE_BASE = 64;
-      private const int FEEDBACK_RANGE_BEGIN = 66;
-      private const int FEEDBACK_RANGE_END = 78;
-      private const int FEEDBACK_RANGE_1 = 66;
-      private const int FEEDBACK_RANGE_2 = 68;
-      private const int FEEDBACK_RANGE_3 = 70;
-      private const int FEEDBACK_RANGE_4 = 72;
-      private const int FEEDBACK_RANGE_5 = 74;
-      private const int FEEDBACK_RANGE_6 = 76;
-      private const int FEEDBACK_RANGE_7 = 78;
-      private const int MAX_FEEDBACK_BYTES = 14;
-      private const int XNET1AND2VER = 0x62;
-      private const int XNET3VER = 0x63;
-      private const int XNETSTATUS = 0x62;
-      private const int MIN_BROADCAST_MESSAGE_SIZE = 3;
-      private const int MAX_BROADCAST_MESSAGE_SIZE = 16;
+      private const int SENSOR_OUTPUTS_ADDRESS = 8;
 
       #endregion
 

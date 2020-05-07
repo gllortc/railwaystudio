@@ -175,8 +175,9 @@
     <Compile Include="Systems\Dummy\DummyEmergencyOff.cs" />
     <Compile Include="Systems\Dummy\DummyEmergencyStop.cs" />
     <Compile Include="Systems\Dummy\DummyAccessoryOperation.cs" />
-    <Compile Include="Systems\Protocol\IFeedbackStatusChanged.cs" />
+    <Compile Include="Systems\FeedbackPointAddressStatus.cs" />
     <Compile Include="Systems\Protocol\IAccessoryOperation.cs" />
+    <Compile Include="Systems\Protocol\IFeedbackStatusChanged.cs" />
     <Compile Include="Systems\Protocol\IResumeOperations.cs" />
     <Compile Include="Systems\Protocol\IEmergencyStop.cs" />
     <Compile Include="Systems\Protocol\IEmergencyOff.cs" />

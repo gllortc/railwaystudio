@@ -40,6 +40,8 @@
          this.cmdSystemDisconnect = new DevExpress.XtraBars.BarButtonItem();
          this.cmdSystemConnect = new DevExpress.XtraBars.BarButtonItem();
          this.cmdCtrlResumeOps = new DevExpress.XtraBars.BarButtonItem();
+         this.bbtnSystemsManage = new DevExpress.XtraBars.BarButtonItem();
+         this.bbtnThemesManage = new DevExpress.XtraBars.BarButtonItem();
          this.rptControl = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.rpgSystem = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.rpgControl = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -48,8 +50,6 @@
          this.pnlContainer = new DevExpress.XtraEditors.PanelControl();
          this.tabPanels = new DevExpress.XtraTab.XtraTabControl();
          this.tabPanel1 = new DevExpress.XtraTab.XtraTabPage();
-         this.bbtnSystemsManage = new DevExpress.XtraBars.BarButtonItem();
-         this.bbtnThemesManage = new DevExpress.XtraBars.BarButtonItem();
          ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.pnlContainer)).BeginInit();
          this.pnlContainer.SuspendLayout();
@@ -80,15 +80,15 @@
          this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rptControl});
          this.ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
-         this.ribbonControl.Size = new System.Drawing.Size(837, 143);
+         this.ribbonControl.Size = new System.Drawing.Size(837, 144);
          this.ribbonControl.StatusBar = this.ribbonStatusBar;
          // 
          // cmdSystemSettings
          // 
          this.cmdSystemSettings.Caption = "Settings";
          this.cmdSystemSettings.Id = 2;
-         this.cmdSystemSettings.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_SETUP_16;
-         this.cmdSystemSettings.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("cmdSystemSettings.ImageOptions.LargeImage")));
+         this.cmdSystemSettings.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdSystemSettings.ImageOptions.Image")));
+         this.cmdSystemSettings.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_SETUP_32;
          this.cmdSystemSettings.Name = "cmdSystemSettings";
          this.cmdSystemSettings.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdSystemSettings_ItemClick);
          // 
@@ -151,8 +151,8 @@
          this.cmdSystemDisconnect.Caption = "Disconnect";
          this.cmdSystemDisconnect.Enabled = false;
          this.cmdSystemDisconnect.Id = 18;
-         this.cmdSystemDisconnect.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEMS_UNSELECTED_16;
-         this.cmdSystemDisconnect.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.server_delete_32;
+         this.cmdSystemDisconnect.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_DISCONNECT_16;
+         this.cmdSystemDisconnect.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_DISCONNECT_32;
          this.cmdSystemDisconnect.Name = "cmdSystemDisconnect";
          this.cmdSystemDisconnect.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdSystemDisconnect_ItemClick);
          // 
@@ -170,10 +170,26 @@
          this.cmdCtrlResumeOps.Caption = "Resume operations";
          this.cmdCtrlResumeOps.Enabled = false;
          this.cmdCtrlResumeOps.Id = 21;
-         this.cmdCtrlResumeOps.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.control_play_blue_16;
-         this.cmdCtrlResumeOps.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.control_play_blue_32;
+         this.cmdCtrlResumeOps.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_EMERGENCY_RESUME_16;
+         this.cmdCtrlResumeOps.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_EMERGENCY_RESUME_32;
          this.cmdCtrlResumeOps.Name = "cmdCtrlResumeOps";
          this.cmdCtrlResumeOps.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdCtrlResumeOps_ItemClick);
+         // 
+         // bbtnSystemsManage
+         // 
+         this.bbtnSystemsManage.Caption = "<no system>";
+         this.bbtnSystemsManage.Id = 22;
+         this.bbtnSystemsManage.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_16;
+         this.bbtnSystemsManage.Name = "bbtnSystemsManage";
+         this.bbtnSystemsManage.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdSystemManage_ItemClick);
+         // 
+         // bbtnThemesManage
+         // 
+         this.bbtnThemesManage.Caption = "<no theme>";
+         this.bbtnThemesManage.Id = 23;
+         this.bbtnThemesManage.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_THEME_16;
+         this.bbtnThemesManage.Name = "bbtnThemesManage";
+         this.bbtnThemesManage.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BbtnThemesManage_ItemClick);
          // 
          // rptControl
          // 
@@ -215,20 +231,20 @@
          // 
          this.ribbonStatusBar.ItemLinks.Add(this.bbtnSystemsManage);
          this.ribbonStatusBar.ItemLinks.Add(this.bbtnThemesManage);
-         this.ribbonStatusBar.Location = new System.Drawing.Point(0, 466);
+         this.ribbonStatusBar.Location = new System.Drawing.Point(0, 465);
          this.ribbonStatusBar.Name = "ribbonStatusBar";
          this.ribbonStatusBar.Ribbon = this.ribbonControl;
-         this.ribbonStatusBar.Size = new System.Drawing.Size(837, 31);
+         this.ribbonStatusBar.Size = new System.Drawing.Size(837, 32);
          // 
          // pnlContainer
          // 
          this.pnlContainer.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.pnlContainer.Controls.Add(this.tabPanels);
          this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.pnlContainer.Location = new System.Drawing.Point(0, 143);
+         this.pnlContainer.Location = new System.Drawing.Point(0, 144);
          this.pnlContainer.Name = "pnlContainer";
          this.pnlContainer.Padding = new System.Windows.Forms.Padding(5);
-         this.pnlContainer.Size = new System.Drawing.Size(837, 323);
+         this.pnlContainer.Size = new System.Drawing.Size(837, 321);
          this.pnlContainer.TabIndex = 5;
          // 
          // tabPanels
@@ -237,7 +253,7 @@
          this.tabPanels.Location = new System.Drawing.Point(5, 5);
          this.tabPanels.Name = "tabPanels";
          this.tabPanels.SelectedTabPage = this.tabPanel1;
-         this.tabPanels.Size = new System.Drawing.Size(827, 313);
+         this.tabPanels.Size = new System.Drawing.Size(827, 311);
          this.tabPanels.TabIndex = 3;
          this.tabPanels.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabPanel1});
@@ -246,24 +262,8 @@
          // 
          this.tabPanel1.Name = "tabPanel1";
          this.tabPanel1.Padding = new System.Windows.Forms.Padding(5);
-         this.tabPanel1.Size = new System.Drawing.Size(821, 285);
+         this.tabPanel1.Size = new System.Drawing.Size(821, 283);
          this.tabPanel1.Text = "Page1";
-         // 
-         // bbtnSystemsManage
-         // 
-         this.bbtnSystemsManage.Caption = "<no system>";
-         this.bbtnSystemsManage.Id = 22;
-         this.bbtnSystemsManage.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_16;
-         this.bbtnSystemsManage.Name = "bbtnSystemsManage";
-         this.bbtnSystemsManage.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdSystemManage_ItemClick);
-         // 
-         // bbtnThemesManage
-         // 
-         this.bbtnThemesManage.Caption = "<no theme>";
-         this.bbtnThemesManage.Id = 23;
-         this.bbtnThemesManage.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_THEME_16;
-         this.bbtnThemesManage.Name = "bbtnThemesManage";
-         this.bbtnThemesManage.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BbtnThemesManage_ItemClick);
          // 
          // ControlModule
          // 

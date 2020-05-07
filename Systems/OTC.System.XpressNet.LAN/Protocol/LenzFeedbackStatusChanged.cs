@@ -3,7 +3,7 @@ using Rwm.Otc.Systems.Protocol;
 
 namespace Rwm.Otc.Systems.XpressNet.Protocol
 {
-   public class LenzFeedbackStatusChanged : IFeedbackStatusChanged, IResponse
+   public class LenzFeedbackStatusChanged : IResponse
    {
 
       #region Constructors
@@ -32,7 +32,7 @@ namespace Rwm.Otc.Systems.XpressNet.Protocol
       /// </summary>
       public byte[] ResponseBytes { get; private set; }
 
-      public int Output => throw new System.NotImplementedException();
+      public int PointAddress => throw new System.NotImplementedException();
 
       public bool Active => throw new System.NotImplementedException();
 

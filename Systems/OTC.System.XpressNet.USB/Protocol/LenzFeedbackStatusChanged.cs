@@ -3,11 +3,38 @@ using Rwm.Otc.Systems.Protocol;
 
 namespace Rwm.Otc.Systems.XpressNet.Protocol
 {
+   /// <summary>
+   /// Lenz XpressNet protocol command: 
+   /// Feedback signal received.
+   /// </summary>
+   /// <remarks>
+   /// The current version of this driver only supports feedback from the feedback encoders.
+   /// Feedback from the turnouts will be discarded.
+   /// </remarks>
    public class LenzFeedbackStatusChanged : IFeedbackStatusChanged, IResponse
    {
 
+      #region Enumerations
+
+      /// <summary>
+      /// Types of devices that generate feedback signal.
+      /// </summary>
+      public enum FeedbackAddressType : byte
+      {
+         TurnoutWithoutFeedback = 0b00,
+         TurnoutWithFeedback = 0b01,
+         FeedbackEncoder = 0b10,
+         Unknown = 0b11
+      }
+
+      #endregion
+
       #region Constructors
 
+      /// <summary>
+      /// returns a new instance of <see cref="LenzFeedbackStatusChanged"/>.
+      /// </summary>
+      /// <param name="receivedData">Data received from the command station.</param>
       public LenzFeedbackStatusChanged(byte[] receivedData)
       {
          this.SetResponseData(receivedData);
@@ -23,6 +50,11 @@ namespace Rwm.Otc.Systems.XpressNet.Protocol
       public int Address { get; private set; } = 0;
 
       /// <summary>
+      /// Gets the list of reported statuses from the feedback sensors.
+      /// </summary>
+      public List<FeedbackPointAddressStatus> ReportedStatuses { get; private set; } = new List<FeedbackPointAddressStatus>();
+
+      /// <summary>
       /// Gets a value indicating if received command is valid.
       /// </summary>
       public bool IsValidResponse { get; private set; } = false;
@@ -32,9 +64,14 @@ namespace Rwm.Otc.Systems.XpressNet.Protocol
       /// </summary>
       public byte[] ResponseBytes { get; private set; }
 
-      public int Output => throw new System.NotImplementedException();
+      private bool IsFeedback { get; set; } = false;
 
-      public bool Active => throw new System.NotImplementedException();
+      private int InputGroup { get; set; } = 0;
+
+      /// <summary>
+      /// Gets the type of device that generate the feedback signal.
+      /// </summary>
+      private FeedbackAddressType AddressType { get; set; } = FeedbackAddressType.Unknown;
 
       #endregion
 
@@ -55,21 +92,21 @@ namespace Rwm.Otc.Systems.XpressNet.Protocol
             return false;
          }
 
-         this.Address = receivedData[1] * 4;
+         this.Address = receivedData[1] + 1;
+         this.IsFeedback = ((receivedData[2] & 0b10000000) == 0b0); // Should be always 0 for feedback modules
+         this.AddressType = (FeedbackAddressType)((receivedData[2] & 0b01100000) >> 5); 
+         this.InputGroup = (receivedData[2] & 0b00010000);
+         this.IsValidResponse = (this.IsFeedback && (this.AddressType == FeedbackAddressType.FeedbackEncoder));
 
+         if (this.IsValidResponse)
+         {
+            this.ReportedStatuses.Add(new FeedbackPointAddressStatus(this.Address, 1 + (this.InputGroup * 4), ((receivedData[2] & 0b00000001) == 1)));
+            this.ReportedStatuses.Add(new FeedbackPointAddressStatus(this.Address, 2 + (this.InputGroup * 4), ((receivedData[2] & 0b00000010) == 1)));
+            this.ReportedStatuses.Add(new FeedbackPointAddressStatus(this.Address, 3 + (this.InputGroup * 4), ((receivedData[2] & 0b00000100) == 1)));
+            this.ReportedStatuses.Add(new FeedbackPointAddressStatus(this.Address, 4 + (this.InputGroup * 4), ((receivedData[2] & 0b00001000) == 1)));
+         }
 
-         double ver = (double)((receivedData[2] & 0xF0) >> 4) + ((double)(receivedData[2] & 0x0F) / 10.0);
-         //this.SystemVersion = ver.ToString().Replace(',', '.');
-         //switch (receivedData[3])
-         //{
-         //   case 0x00: this.SystemName = "LZ100"; break;
-         //   case 0x01: this.SystemName = "LH200"; break;
-         //   case 0x02: this.SystemName = "DPC (Compact o Commander)"; break;
-         //   default: this.SystemName = "Unknown model"; break;
-         //}
-
-         this.IsValidResponse = true;
-         return true;
+         return this.IsValidResponse;
       }
 
       #endregion
