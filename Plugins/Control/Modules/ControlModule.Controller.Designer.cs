@@ -32,8 +32,19 @@ namespace Rwm.Studio.Plugins.Control.Modules
       /// </summary>
       internal void SystemsManage()
       {
+         // Unregister project events
+         OTCContext.Project.DigitalSystem.OnInformationReceived -= DigitalSystem_OnInformationReceived;
+         OTCContext.Project.DigitalSystem.OnCommandReceived -= DigitalSystem_OnCommandReceived;
+
          SystemManagerView form = new SystemManagerView();
          form.ShowDialog(this);
+
+         // Register project events
+         OTCContext.Project.DigitalSystem.OnInformationReceived += DigitalSystem_OnInformationReceived;
+         OTCContext.Project.DigitalSystem.OnCommandReceived += DigitalSystem_OnCommandReceived;
+
+         // Refresh the current digital system
+         this.RefreshStatus();
       }
 
       /// <summary>
@@ -125,7 +136,6 @@ namespace Rwm.Studio.Plugins.Control.Modules
          cmdSystemDisconnect.Enabled = !cmdSystemConnect.Enabled;
 
          // Update the switchboard status
-
          foreach (XtraTabPage page in tabPanels.TabPages)
          {
             ctrl = page.Controls[0] as SwitchboardCommandControl;

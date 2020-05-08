@@ -28,11 +28,6 @@ namespace Rwm.Studio.Plugins.Designer.Modules
       /// </summary>
       public IPluginModuleDescriptor Description { get; private set; }
 
-      //public string ID
-      //{
-      //   get { return MODULE_GUID; }
-      //}
-
       public object StartupRibbonPage
       {
          get { return ribbon.Pages[0]; }
@@ -42,21 +37,6 @@ namespace Rwm.Studio.Plugins.Designer.Modules
       {
          get { return ribbonStatusBar; }
       }
-
-      //public Image LargeIcon
-      //{
-      //   get { return Properties.Resources.ICO_MODULE_DEVICE_MANAGER_32; }
-      //}
-
-      //public Image SmallIcon
-      //{
-      //   get { return Properties.Resources.ICO_DEVICE_FOLDER_16; }
-      //}
-
-      //public string Caption
-      //{
-      //   get { return "Digital device manager"; }
-      //}
 
       public string DocumentName
       {
@@ -85,18 +65,12 @@ namespace Rwm.Studio.Plugins.Designer.Modules
       /// <summary>
       /// Add docable panels to environment.
       /// </summary>
-      public void CreatePanels()
-      {
-         // Nothing to do
-      }
+      public void CreatePanels() { }
 
       /// <summary>
       /// Remove all dockable panels created when the module was loaded.
       /// </summary>
-      public void DestoryPanels()
-      {
-         // Nothing to do
-      }
+      public void DestoryPanels() { }
 
       #endregion
 

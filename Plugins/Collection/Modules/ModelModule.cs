@@ -8,12 +8,6 @@ namespace Rwm.Studio.Plugins.Collection.Modules
    public partial class ModelModule : DevExpress.XtraBars.Ribbon.RibbonForm, IPluginModule
    {
 
-      //#region Constants
-
-      //internal const string MODULE_GUID = "8458EC08-4224-42B0-8CF5-84FCD5AAFB3C";
-
-      //#endregion
-
       #region Constructors
 
       public ModelModule()
@@ -32,26 +26,6 @@ namespace Rwm.Studio.Plugins.Collection.Modules
       /// Gets the plugin module description properties.
       /// </summary>
       public IPluginModuleDescriptor Description { get; private set; }
-
-      //public string ID
-      //{
-      //   get { return ModelModule.MODULE_GUID; }
-      //}
-
-      //public Image LargeIcon
-      //{
-      //   get { return Properties.Resources.ICO_MODEL_EDIT_32; }
-      //}
-
-      //public Image SmallIcon
-      //{
-      //   get { return Properties.Resources.ICO_MODEL_EDIT_16; }
-      //}
-
-      //public string Caption
-      //{
-      //   get { return "Model editor"; }
-      //}
 
       public string DocumentName
       {
@@ -96,18 +70,12 @@ namespace Rwm.Studio.Plugins.Collection.Modules
       /// <summary>
       /// Add docable panels to environment.
       /// </summary>
-      public void CreatePanels()
-      {
-         // Nothing to do
-      }
+      public void CreatePanels() { }
 
       /// <summary>
       /// Remove all dockable panels created when the module was loaded.
       /// </summary>
-      public void DestoryPanels()
-      {
-         // Nothing to do
-      }
+      public void DestoryPanels() { }
 
       #endregion
 

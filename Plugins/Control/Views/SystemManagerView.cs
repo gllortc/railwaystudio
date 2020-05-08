@@ -25,12 +25,14 @@ namespace Rwm.Studio.Plugins.Control.Views
 
       private void GrdSystemsView_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
       {
-         IDigitalSystem system = grdSystemsView.GetRow(e.RowHandle) as IDigitalSystem;
-
-         if (system == null || !system.ID.Equals(OTCContext.Project.DigitalSystem.ID))
+         if (!(grdSystemsView.GetRow(e.RowHandle) is IDigitalSystem system) || !system.ID.Equals(OTCContext.Project.DigitalSystem.ID))
+         {
             StudioContext.UI.DrawRowIcon(Properties.Resources.ICO_SYSTEM_16, e);
+         }
          else
+         {
             StudioContext.UI.DrawRowIcon(Properties.Resources.ICO_SYSTEM_SELECTED_16, e);
+         }
       }
 
       private void CmdSystemSelect_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

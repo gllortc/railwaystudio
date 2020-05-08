@@ -1,4 +1,5 @@
 ﻿using System;
+using Rwm.Otc.Diagnostics;
 using Rwm.Otc.Layout;
 using Rwm.Otc.Utils;
 
@@ -101,16 +102,6 @@ namespace Rwm.Otc.Systems.Dummy
 
       #region Events
 
-      /////// <summary>
-      /////// Event raised when a sensor is activated or deactivated.
-      /////// </summary>
-      ////public event EventHandler<FeedbackEventArgs> SensorStatusChanged;
-
-      /////// <summary>
-      /////// Event raised when an accessory is set outside the OTC context.
-      /////// </summary>
-      ////public event EventHandler<AccessoryEventArgs> AccessoryStatusChanged;
-
       /// <summary>
       /// Event raised when any operation is requested or received by the digital system.
       /// </summary>
@@ -127,6 +118,8 @@ namespace Rwm.Otc.Systems.Dummy
 
       public bool Connect()
       {
+         Logger.LogDebug(this, "[CLASS].Connect()");
+
          this.Status = SystemStatus.Connecting;
 
          this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs("{0} connected", this.Name));
@@ -145,6 +138,8 @@ namespace Rwm.Otc.Systems.Dummy
       /// </summary>
       public bool Disconnect()
       {
+         Logger.LogDebug(this, "[CLASS].Disconnect()");
+
          this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs("Digital system disconnected"));
 
          this.Status = SystemStatus.Disconnected;
@@ -160,6 +155,8 @@ namespace Rwm.Otc.Systems.Dummy
       /// <returns>A <see cref="System.String"/> containing information about the digital system.</returns>
       public void SystemInformation()
       {
+         Logger.LogDebug(this, "[CLASS].SystemInformation()");
+
          DummySystemInformation command = new DummySystemInformation();
 
          this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Warning,
@@ -175,6 +172,8 @@ namespace Rwm.Otc.Systems.Dummy
       /// </summary>
       public void EmergencyOff()
       {
+         Logger.LogDebug(this, "[CLASS].EmergencyOff()");
+
          this.EmergencyStopEnabled = true;
 
          DummyEmergencyOff command = new DummyEmergencyOff();
@@ -188,6 +187,8 @@ namespace Rwm.Otc.Systems.Dummy
       /// </summary>
       public void EmergencyStop()
       {
+         Logger.LogDebug(this, "[CLASS].EmergencyStop()");
+         
          this.EmergencyStopEnabled = true;
 
          DummyEmergencyStop command = new DummyEmergencyStop();
@@ -201,6 +202,8 @@ namespace Rwm.Otc.Systems.Dummy
       /// </summary>
       public void ResumeOperations()
       {
+         Logger.LogDebug(this, "[CLASS].ResumeOperations()");
+
          this.EmergencyStopEnabled = false;
 
          DummyResumeOperations command = new DummyResumeOperations();
@@ -216,6 +219,8 @@ namespace Rwm.Otc.Systems.Dummy
       /// <param name="activatePin">Pin to activate (1/2).</param>
       public void OperateAccessory(int address, int activatePin)
       {
+         Logger.LogDebug(this, "[CLASS].ResumeOperations(#{0:D4}, {1})", address, activatePin);
+
          this.EmergencyStopEnabled = false;
 
          DummyAccessoryOperation command = new DummyAccessoryOperation(address, activatePin);
@@ -241,6 +246,8 @@ namespace Rwm.Otc.Systems.Dummy
       /// <param name="status">Value to set.</param>
       public void SetAccessoryStatus(int address, bool turned, bool activate)
       {
+         Logger.LogDebug(this, "[CLASS].SetAccessoryStatus(#{0:D4}, {1}, {2})", address, turned, activate);
+
          DummyEmergencyStop command = new DummyEmergencyStop();
          this.OnCommandReceived?.Invoke(this, new SystemCommandEventArgs(command));
 
@@ -254,6 +261,8 @@ namespace Rwm.Otc.Systems.Dummy
       /// <param name="status">Status.</param>
       public void SetSensorStatus(Element element, FeedbackStatus status)
       {
+         Logger.LogDebug(this, "[CLASS].SetSensorStatus([{0}], {1})", element, status);
+
          if (element.AccessoryConnections?.Count <= 0)
          {
             this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Warning,
@@ -288,6 +297,8 @@ namespace Rwm.Otc.Systems.Dummy
       /// <rereturns>A value indicating if the user has been changed the settings or not.</rereturns>
       public System.Windows.Forms.DialogResult ShowSettingsDialog()
       {
+         Logger.LogDebug(this, "[CLASS].ShowSettingsDialog()");
+
          System.Windows.Forms.MessageBox.Show("This digital system doesn't have any configuration.",
                                               System.Windows.Forms.Application.ProductName,
                                               System.Windows.Forms.MessageBoxButtons.OK,

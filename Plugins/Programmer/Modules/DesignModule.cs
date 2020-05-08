@@ -38,26 +38,6 @@ namespace Rwm.Studio.Plugins.Designer.Modules
       /// </summary>
       public IPluginModuleDescriptor Description { get; private set; }
 
-      //public Image LargeIcon
-      //{
-      //   get { return Properties.Resources.ICO_MODULE_DESIGN_32; }
-      //}
-
-      //public Image SmallIcon
-      //{
-      //   get { return Properties.Resources.ICO_MODULE_DESIGN_16; }
-      //}
-
-      //public string ID
-      //{
-      //   get { return MODULE_GUID; }
-      //}
-
-      //public string Caption
-      //{
-      //   get { return "Layout designer"; }
-      //}
-
       public string DocumentName
       {
          get { return this.Description.Caption; }
@@ -91,25 +71,12 @@ namespace Rwm.Studio.Plugins.Designer.Modules
       /// <summary>
       /// Add docable panels to environment.
       /// </summary>
-      public void CreatePanels()
-      {
-         //DesignToolboxControl ctrl = new DesignToolboxControl(this, this.SelectedSwitchboardPanel);
-         //ctrl.Refresh();
-
-         //StudioContext.UI.AddDockPanel(DOCKPANEL_DESIGN,
-         //                              "Automation toolbox",
-         //                              ctrl,
-         //                              global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_16,
-         //                              DockingStyle.Right);
-      }
+      public void CreatePanels() { }
 
       /// <summary>
       /// Remove all dockable panels created when the module was loaded.
       /// </summary>
-      public void DestoryPanels()
-      {
-         //StudioContext.UI.RemoveDockPanel(DOCKPANEL_DESIGN);
-      }
+      public void DestoryPanels() { }
 
       #endregion
 

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Reflection;
 using Rwm.Otc.Configuration;
 using Rwm.Otc.Diagnostics;
@@ -87,8 +86,7 @@ namespace Rwm.Otc.Systems
          catch (Exception ex)
          {
             Logger.LogError(this, ex);
-
-            throw;
+            throw ex;
          }
       }
 
@@ -121,8 +119,7 @@ namespace Rwm.Otc.Systems
          catch (Exception ex)
          {
             Logger.LogError(this, ex);
-
-            throw;
+            throw ex;
          }
       }
 
@@ -168,8 +165,7 @@ namespace Rwm.Otc.Systems
          catch (Exception ex)
          {
             Logger.LogError(this, ex);
-
-            throw;
+            throw ex;
          }
       }
 

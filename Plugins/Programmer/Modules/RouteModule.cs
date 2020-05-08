@@ -35,26 +35,6 @@ namespace Rwm.Studio.Plugins.Designer.Modules
       /// </summary>
       public IPluginModuleDescriptor Description { get; private set; }
 
-      //public string ID
-      //{
-      //   get { return MODULE_GUID; }
-      //}
-
-      //public Image LargeIcon
-      //{
-      //   get { return Properties.Resources.ICO_MODULE_ROUTES_32; }
-      //}
-
-      //public Image SmallIcon
-      //{
-      //   get { return Properties.Resources.ICO_ROUTE_16; }
-      //}
-
-      //public string Caption
-      //{
-      //   get { return "Route designer"; }
-      //}
-
       public string DocumentName
       {
          get { return this.Description.Caption; }
@@ -80,10 +60,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
          get { return true; }
       }
 
-      public void Initialize(params object[] args)
-      {
-         // Nothing to do here
-      }
+      public void Initialize(params object[] args) { }
 
       public void CreatePanels() { }
 

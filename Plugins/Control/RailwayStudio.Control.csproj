@@ -136,7 +136,7 @@
     <Compile Include="Controls\RouteManualActivatorControl.Designer.cs">
       <DependentUpon>RouteManualActivatorControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modules\ControlModule.Presenter.Designer.cs" />
+    <Compile Include="Modules\ControlModule.Controller.Designer.cs" />
     <Compile Include="Modules\ControlModule.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -10,8 +10,6 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
       #region Constants
 
-      // private const string MODULE_GUID = "DF6D5AB9-D3BF-4A8A-9B55-C8B9BB9DA035";
-
       private const string DOCKPANEL_CONTROL = "pnlControl";
 
       #endregion
@@ -36,26 +34,6 @@ namespace Rwm.Studio.Plugins.Control.Modules
       /// Gets the plugin module description properties.
       /// </summary>
       public IPluginModuleDescriptor Description { get; private set; }
-
-      //public Image LargeIcon
-      //{
-      //   get { return Properties.Resources.ICO_APP_32; }
-      //}
-
-      //public Image SmallIcon
-      //{
-      //   get { return Properties.Resources.ICO_APP_16; }
-      //}
-
-      //public string ID
-      //{
-      //   get { return MODULE_GUID; }
-      //}
-
-      //public string Caption
-      //{
-      //   get { return "Layout Control"; }
-      //}
 
       public string DocumentName
       {

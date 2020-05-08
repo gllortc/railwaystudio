@@ -1,17 +1,10 @@
-﻿using System.Drawing;
-using DevExpress.XtraGrid;
+﻿using DevExpress.XtraGrid;
 using DevExpress.XtraReports.UI;
 
 namespace Rwm.Studio.Plugins.Common.Modules
 {
    public partial class ReportViewerModule : DevExpress.XtraBars.Ribbon.RibbonForm, IPluginModule
    {
-
-      //#region Constants
-
-      //internal const string MODULE_GUID = "BDF2AC43-7829-47F4-A3FC-BD7B4FA62A18";
-
-      //#endregion
 
       #region Constructors
 
@@ -30,26 +23,6 @@ namespace Rwm.Studio.Plugins.Common.Modules
       /// Gets the plugin module description properties.
       /// </summary>
       public IPluginModuleDescriptor Description { get; private set; }
-
-      //public Image LargeIcon
-      //{
-      //   get { return Properties.Resources.ICO_REPORT_32; }
-      //}
-
-      //public Image SmallIcon
-      //{
-      //   get { return Properties.Resources.ICO_REPORT_16; }
-      //}
-
-      //public string ID
-      //{
-      //   get { return MODULE_GUID; }
-      //}
-
-      //public string Caption
-      //{
-      //   get { return "Report Viewer"; }
-      //}
 
       public string DocumentName
       {

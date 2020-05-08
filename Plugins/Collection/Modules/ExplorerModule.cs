@@ -7,12 +7,6 @@ namespace Rwm.Studio.Plugins.Collection.Modules
    public partial class ExplorerModule : DevExpress.XtraBars.Ribbon.RibbonForm, IPluginModule
    {
 
-      //#region Constants
-
-      //private const string MODULE_GUID = "D1117691-F1AE-42C7-BF77-620E0361D711";
-
-      //#endregion
-
       #region Constructors
 
       public ExplorerModule()
@@ -30,26 +24,6 @@ namespace Rwm.Studio.Plugins.Collection.Modules
       /// Gets the plugin module description properties.
       /// </summary>
       public IPluginModuleDescriptor Description { get; private set; }
-
-      //public string ID
-      //{
-      //   get { return MODULE_GUID; }
-      //}
-
-      //public Image LargeIcon
-      //{
-      //   get { return Properties.Resources.ICO_APP_32; }
-      //}
-
-      //public Image SmallIcon
-      //{
-      //   get { return Properties.Resources.ICO_DATAMANAGER_16; }
-      //}
-
-      //public string Caption
-      //{
-      //   get { return "Collection Explorer"; }
-      //}
 
       public object StartupRibbonPage
       {
@@ -78,10 +52,6 @@ namespace Rwm.Studio.Plugins.Collection.Modules
 
       public void Initialize(params object[] args)
       {
-         // Check the database version
-         //CollectionDataEntity cde = new CollectionDataEntity(OTCContext.Settings);
-         //cde.CheckDatabase();
-
          // Create the main tree list
          this.CreateTreeList();
       }
@@ -89,18 +59,12 @@ namespace Rwm.Studio.Plugins.Collection.Modules
       /// <summary>
       /// Add docable panels to environment.
       /// </summary>
-      public void CreatePanels()
-      {
-         // Nothing to do
-      }
+      public void CreatePanels() { }
 
       /// <summary>
       /// Remove all dockable panels created when the module was loaded.
       /// </summary>
-      public void DestoryPanels()
-      {
-         // Nothing to do
-      }
+      public void DestoryPanels() { }
 
       #endregion
 
