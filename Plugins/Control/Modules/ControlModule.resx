@@ -117,43 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="ribbonControl.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="cmdSystemSettings.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        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
+        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
+        R/Qba/p5Zbz3lFMAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="ribbonStatusBar.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="pnlContainer.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="tabPanels.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="tabPanel1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
+  <metadata name="dockManager.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>63</value>

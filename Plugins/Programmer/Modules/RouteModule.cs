@@ -62,13 +62,6 @@ namespace Rwm.Studio.Plugins.Designer.Modules
 
       public void Initialize(params object[] args) { }
 
-      public void CreatePanels() { }
-
-      /// <summary>
-      /// Remove all dockable panels created when the module was loaded.
-      /// </summary>
-      public void DestoryPanels() { }
-
       #endregion
 
       #region Event Handlers

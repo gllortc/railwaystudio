@@ -104,7 +104,10 @@ namespace Rwm.Otc.Layout
       /// <returns>The requested <see cref="AccessoryDecoderConnection"/> or <c>null</c> if no <see cref="AccessoryDecoderConnection"/> is used by the specified <see cref="Element"/> and index.</returns>
       public static AccessoryDecoderConnection GetByIndex(Element element, int index)
       {
-         foreach (AccessoryDecoderConnection connection in element?.AccessoryConnections)
+         if (element.AccessoryConnections == null)
+            return null;
+
+         foreach (AccessoryDecoderConnection connection in element.AccessoryConnections)
          {
             if (connection.ElementPinIndex == index)
                return connection;
@@ -112,40 +115,6 @@ namespace Rwm.Otc.Layout
 
          return null;
       }
-
-      ///// <summary>
-      ///// Gets all connection for the specified element.
-      ///// </summary>
-      ///// <returns>The requested list of <see cref="AccessoryDecoderConnection"/> related to the specified element.</returns>
-      //public static IEnumerable<AccessoryDecoderConnection> GetDuplicated()
-      //{
-      //   string sql = string.Empty;
-
-      //   Logger.LogDebug("Rwm.Otc.Layout.AccessoryDecoderConnection.GetDuplicated()");
-
-      //   try
-      //   {
-      //      // Get connections with repeated addresses
-      //      sql = @"WHERE 
-      //                  address in (SELECT address, COUNT(*) c 
-      //                              FROM   " + AccessoryDecoderConnection.ORMStructure.Table.TableName + @" 
-      //                              GROUP  BY address 
-      //                              HAVING c > 1) 
-      //              ORDER BY 
-      //                  id";
-
-      //      return AccessoryDecoderConnection.ExecuteQuery(sql);
-      //   }
-      //   catch (Exception ex)
-      //   {
-      //      Logger.LogError(ex);
-      //      throw ex;
-      //   }
-      //   finally
-      //   {
-      //      Disconnect();
-      //   }
-      //}
 
       /// <summary>
       /// returns a list of route involved connections.

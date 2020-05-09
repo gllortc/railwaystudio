@@ -148,6 +148,7 @@
     <Compile Include="Diagnostics\ILogger.cs" />
     <Compile Include="Diagnostics\LoggerSettingsManager.cs" />
     <Compile Include="Diagnostics\WinLogger.cs" />
+    <Compile Include="Layout\ElementTrain.cs" />
     <Compile Include="Layout\FeedbackEncoderConnection.cs" />
     <Compile Include="Layout\AccessoryDecoderOutput.cs" />
     <Compile Include="Layout\FeedbackEncoderInput.cs" />
@@ -416,9 +417,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\ORM\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -50,11 +50,25 @@
          this.pnlContainer = new DevExpress.XtraEditors.PanelControl();
          this.tabPanels = new DevExpress.XtraTab.XtraTabControl();
          this.tabPanel1 = new DevExpress.XtraTab.XtraTabPage();
+         this.dockManager = new DevExpress.XtraBars.Docking.DockManager();
+         this.hideContainerRight = new DevExpress.XtraBars.Docking.AutoHideContainer();
+         this.dockPanelRoutes = new DevExpress.XtraBars.Docking.DockPanel();
+         this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+         this.rmaRoutes = new Rwm.Studio.Plugins.Control.Controls.RouteManualActivatorControl();
+         this.dockPanelTrains = new DevExpress.XtraBars.Docking.DockPanel();
+         this.controlContainer1 = new DevExpress.XtraBars.Docking.ControlContainer();
+         this.tscTrains = new Rwm.Studio.Plugins.Control.Controls.TrainSelectionControl();
          ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.pnlContainer)).BeginInit();
          this.pnlContainer.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.tabPanels)).BeginInit();
          this.tabPanels.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.dockManager)).BeginInit();
+         this.hideContainerRight.SuspendLayout();
+         this.dockPanelRoutes.SuspendLayout();
+         this.dockPanel1_Container.SuspendLayout();
+         this.dockPanelTrains.SuspendLayout();
+         this.controlContainer1.SuspendLayout();
          this.SuspendLayout();
          // 
          // ribbonControl
@@ -244,7 +258,7 @@
          this.pnlContainer.Location = new System.Drawing.Point(0, 144);
          this.pnlContainer.Name = "pnlContainer";
          this.pnlContainer.Padding = new System.Windows.Forms.Padding(5);
-         this.pnlContainer.Size = new System.Drawing.Size(837, 321);
+         this.pnlContainer.Size = new System.Drawing.Size(811, 321);
          this.pnlContainer.TabIndex = 5;
          // 
          // tabPanels
@@ -253,7 +267,7 @@
          this.tabPanels.Location = new System.Drawing.Point(5, 5);
          this.tabPanels.Name = "tabPanels";
          this.tabPanels.SelectedTabPage = this.tabPanel1;
-         this.tabPanels.Size = new System.Drawing.Size(827, 311);
+         this.tabPanels.Size = new System.Drawing.Size(801, 311);
          this.tabPanels.TabIndex = 3;
          this.tabPanels.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabPanel1});
@@ -262,8 +276,98 @@
          // 
          this.tabPanel1.Name = "tabPanel1";
          this.tabPanel1.Padding = new System.Windows.Forms.Padding(5);
-         this.tabPanel1.Size = new System.Drawing.Size(821, 283);
+         this.tabPanel1.Size = new System.Drawing.Size(795, 283);
          this.tabPanel1.Text = "Page1";
+         // 
+         // dockManager
+         // 
+         this.dockManager.AutoHideContainers.AddRange(new DevExpress.XtraBars.Docking.AutoHideContainer[] {
+            this.hideContainerRight});
+         this.dockManager.Form = this;
+         this.dockManager.TopZIndexControls.AddRange(new string[] {
+            "DevExpress.XtraBars.BarDockControl",
+            "DevExpress.XtraBars.StandaloneBarDockControl",
+            "System.Windows.Forms.StatusBar",
+            "System.Windows.Forms.MenuStrip",
+            "System.Windows.Forms.StatusStrip",
+            "DevExpress.XtraBars.Ribbon.RibbonStatusBar",
+            "DevExpress.XtraBars.Ribbon.RibbonControl",
+            "DevExpress.XtraBars.Navigation.OfficeNavigationBar",
+            "DevExpress.XtraBars.Navigation.TileNavPane",
+            "DevExpress.XtraBars.TabFormControl"});
+         // 
+         // hideContainerRight
+         // 
+         this.hideContainerRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(238)))));
+         this.hideContainerRight.Controls.Add(this.dockPanelRoutes);
+         this.hideContainerRight.Controls.Add(this.dockPanelTrains);
+         this.hideContainerRight.Dock = System.Windows.Forms.DockStyle.Right;
+         this.hideContainerRight.Location = new System.Drawing.Point(811, 144);
+         this.hideContainerRight.Name = "hideContainerRight";
+         this.hideContainerRight.Size = new System.Drawing.Size(26, 321);
+         // 
+         // dockPanelRoutes
+         // 
+         this.dockPanelRoutes.Controls.Add(this.dockPanel1_Container);
+         this.dockPanelRoutes.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
+         this.dockPanelRoutes.ID = new System.Guid("d7730765-2068-42f9-90cd-5cdd0afaff72");
+         this.dockPanelRoutes.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_16;
+         this.dockPanelRoutes.Location = new System.Drawing.Point(0, 0);
+         this.dockPanelRoutes.Name = "dockPanelRoutes";
+         this.dockPanelRoutes.OriginalSize = new System.Drawing.Size(200, 200);
+         this.dockPanelRoutes.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
+         this.dockPanelRoutes.SavedIndex = 0;
+         this.dockPanelRoutes.SavedParent = this.dockPanelTrains;
+         this.dockPanelRoutes.Size = new System.Drawing.Size(200, 321);
+         this.dockPanelRoutes.Text = "Routes";
+         this.dockPanelRoutes.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
+         // 
+         // dockPanel1_Container
+         // 
+         this.dockPanel1_Container.Controls.Add(this.rmaRoutes);
+         this.dockPanel1_Container.Location = new System.Drawing.Point(5, 25);
+         this.dockPanel1_Container.Name = "dockPanel1_Container";
+         this.dockPanel1_Container.Size = new System.Drawing.Size(191, 292);
+         this.dockPanel1_Container.TabIndex = 0;
+         // 
+         // rmaRoutes
+         // 
+         this.rmaRoutes.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.rmaRoutes.Location = new System.Drawing.Point(0, 0);
+         this.rmaRoutes.Name = "rmaRoutes";
+         this.rmaRoutes.Size = new System.Drawing.Size(191, 292);
+         this.rmaRoutes.TabIndex = 0;
+         // 
+         // dockPanelTrains
+         // 
+         this.dockPanelTrains.Controls.Add(this.controlContainer1);
+         this.dockPanelTrains.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
+         this.dockPanelTrains.ID = new System.Guid("8316fd95-f956-4c38-a22d-76c29a432a48");
+         this.dockPanelTrains.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_TRAIN_16;
+         this.dockPanelTrains.Location = new System.Drawing.Point(0, 0);
+         this.dockPanelTrains.Name = "dockPanelTrains";
+         this.dockPanelTrains.OriginalSize = new System.Drawing.Size(200, 200);
+         this.dockPanelTrains.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Right;
+         this.dockPanelTrains.SavedIndex = 0;
+         this.dockPanelTrains.Size = new System.Drawing.Size(200, 321);
+         this.dockPanelTrains.Text = "Trains";
+         this.dockPanelTrains.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
+         // 
+         // controlContainer1
+         // 
+         this.controlContainer1.Controls.Add(this.tscTrains);
+         this.controlContainer1.Location = new System.Drawing.Point(5, 25);
+         this.controlContainer1.Name = "controlContainer1";
+         this.controlContainer1.Size = new System.Drawing.Size(191, 292);
+         this.controlContainer1.TabIndex = 0;
+         // 
+         // tscTrains
+         // 
+         this.tscTrains.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.tscTrains.Location = new System.Drawing.Point(0, 0);
+         this.tscTrains.Name = "tscTrains";
+         this.tscTrains.Size = new System.Drawing.Size(191, 292);
+         this.tscTrains.TabIndex = 0;
          // 
          // ControlModule
          // 
@@ -272,6 +376,7 @@
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.ClientSize = new System.Drawing.Size(837, 497);
          this.Controls.Add(this.pnlContainer);
+         this.Controls.Add(this.hideContainerRight);
          this.Controls.Add(this.ribbonStatusBar);
          this.Controls.Add(this.ribbonControl);
          this.Name = "ControlModule";
@@ -284,6 +389,12 @@
          this.pnlContainer.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.tabPanels)).EndInit();
          this.tabPanels.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.dockManager)).EndInit();
+         this.hideContainerRight.ResumeLayout(false);
+         this.dockPanelRoutes.ResumeLayout(false);
+         this.dockPanel1_Container.ResumeLayout(false);
+         this.dockPanelTrains.ResumeLayout(false);
+         this.controlContainer1.ResumeLayout(false);
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -313,6 +424,14 @@
       private DevExpress.XtraBars.BarButtonItem cmdCtrlResumeOps;
       private DevExpress.XtraBars.BarButtonItem bbtnSystemsManage;
       private DevExpress.XtraBars.BarButtonItem bbtnThemesManage;
-   }
+        private DevExpress.XtraBars.Docking.DockManager dockManager;
+        private DevExpress.XtraBars.Docking.DockPanel dockPanelRoutes;
+        private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
+        private Controls.RouteManualActivatorControl rmaRoutes;
+        private DevExpress.XtraBars.Docking.DockPanel dockPanelTrains;
+        private DevExpress.XtraBars.Docking.ControlContainer controlContainer1;
+        private DevExpress.XtraBars.Docking.AutoHideContainer hideContainerRight;
+        private Controls.TrainSelectionControl tscTrains;
+    }
 }
 

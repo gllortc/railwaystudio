@@ -1,7 +1,6 @@
 ﻿using System.Windows.Forms;
 using Rwm.Otc;
 using Rwm.Studio.Plugins.Common;
-using Rwm.Studio.Plugins.Control.Controls;
 
 namespace Rwm.Studio.Plugins.Control.Modules
 {
@@ -72,31 +71,12 @@ namespace Rwm.Studio.Plugins.Control.Modules
          OTCContext.Project.DigitalSystem.OnInformationReceived += DigitalSystem_OnInformationReceived;
          OTCContext.Project.DigitalSystem.OnCommandReceived += DigitalSystem_OnCommandReceived;
 
+         // Initialize the management panels
+         rmaRoutes.RefreshRouteList();
+         tscTrains.RefreshTrainList();
+
          // Show module information
          StudioContext.LogInformation("{0} v{1} loaded", this.Description.Caption, Application.ProductVersion);
-      }
-
-      /// <summary>
-      /// Add docable panels to environment.
-      /// </summary>
-      public void CreatePanels()
-      {
-         RouteManualActivatorControl ctrl = new RouteManualActivatorControl();
-         ctrl.Refresh();
-
-         StudioContext.UI.AddDockPanel(DOCKPANEL_CONTROL,
-                                       "Automation toolbox",
-                                       ctrl,
-                                       global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_16,
-                                       DevExpress.XtraBars.Docking.DockingStyle.Right);
-      }
-
-      /// <summary>
-      /// Remove all dockable panels created when the module was loaded.
-      /// </summary>
-      public void DestoryPanels()
-      {
-         StudioContext.UI.RemoveDockPanel(DOCKPANEL_CONTROL);
       }
 
       #endregion

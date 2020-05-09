@@ -130,6 +130,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\TrainSelectionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TrainSelectionControl.Designer.cs">
+      <DependentUpon>TrainSelectionControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\RouteManualActivatorControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -164,6 +170,9 @@
     <Compile Include="Views\SystemManagerView.Designer.cs">
       <DependentUpon>SystemManagerView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Controls\TrainSelectionControl.resx">
+      <DependentUpon>TrainSelectionControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\RouteManualActivatorControl.resx">
       <DependentUpon>RouteManualActivatorControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -203,6 +212,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\train_bullet_red_16.png" />
+    <None Include="Resources\train_clear_16.png" />
+    <None Include="Resources\train_metro_16.png" />
     <None Include="Resources\server_refresh_32.png" />
     <None Include="Resources\sound_folder_321.png" />
     <None Include="Resources\sound_folder_161.png" />

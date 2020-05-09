@@ -463,6 +463,36 @@ namespace Rwm.Studio.Plugins.Control.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ICO_TRAIN_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_TRAIN_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_TRAIN_CLEAR_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_TRAIN_CLEAR_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_TRAIN_UNASSIGN_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_TRAIN_UNASSIGN_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap lightning_go {
             get {
                 object obj = ResourceManager.GetObject("lightning_go", resourceCulture);

@@ -28,10 +28,9 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          this.grdRoute = new DevExpress.XtraGrid.GridControl();
          this.grdRouteView = new DevExpress.XtraGrid.Views.Grid.GridView();
-         this.barManager = new DevExpress.XtraBars.BarManager(this.components);
+         this.barManager = new DevExpress.XtraBars.BarManager();
          this.barRoutes = new DevExpress.XtraBars.Bar();
          this.cmdRouteActivate = new DevExpress.XtraBars.BarButtonItem();
          this.cmdRouteClear = new DevExpress.XtraBars.BarButtonItem();
@@ -39,7 +38,7 @@
          this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
          this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
          this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-         this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
+         this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl();
          ((System.ComponentModel.ISupportInitialize)(this.grdRoute)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.grdRouteView)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
@@ -48,10 +47,10 @@
          // grdRoute
          // 
          this.grdRoute.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.grdRoute.Location = new System.Drawing.Point(0, 31);
+         this.grdRoute.Location = new System.Drawing.Point(0, 29);
          this.grdRoute.MainView = this.grdRouteView;
          this.grdRoute.Name = "grdRoute";
-         this.grdRoute.Size = new System.Drawing.Size(323, 465);
+         this.grdRoute.Size = new System.Drawing.Size(325, 469);
          this.grdRoute.TabIndex = 4;
          this.grdRoute.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdRouteView});
@@ -127,31 +126,31 @@
          this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
          this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
          this.barDockControlTop.Manager = this.barManager;
-         this.barDockControlTop.Size = new System.Drawing.Size(323, 31);
+         this.barDockControlTop.Size = new System.Drawing.Size(325, 29);
          // 
          // barDockControlBottom
          // 
          this.barDockControlBottom.CausesValidation = false;
          this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-         this.barDockControlBottom.Location = new System.Drawing.Point(0, 496);
+         this.barDockControlBottom.Location = new System.Drawing.Point(0, 498);
          this.barDockControlBottom.Manager = this.barManager;
-         this.barDockControlBottom.Size = new System.Drawing.Size(323, 0);
+         this.barDockControlBottom.Size = new System.Drawing.Size(325, 0);
          // 
          // barDockControlLeft
          // 
          this.barDockControlLeft.CausesValidation = false;
          this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-         this.barDockControlLeft.Location = new System.Drawing.Point(0, 31);
+         this.barDockControlLeft.Location = new System.Drawing.Point(0, 29);
          this.barDockControlLeft.Manager = this.barManager;
-         this.barDockControlLeft.Size = new System.Drawing.Size(0, 465);
+         this.barDockControlLeft.Size = new System.Drawing.Size(0, 469);
          // 
          // barDockControlRight
          // 
          this.barDockControlRight.CausesValidation = false;
          this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-         this.barDockControlRight.Location = new System.Drawing.Point(323, 31);
+         this.barDockControlRight.Location = new System.Drawing.Point(325, 29);
          this.barDockControlRight.Manager = this.barManager;
-         this.barDockControlRight.Size = new System.Drawing.Size(0, 465);
+         this.barDockControlRight.Size = new System.Drawing.Size(0, 469);
          // 
          // alertControl
          // 
@@ -164,14 +163,13 @@
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
          this.Controls.Add(this.grdRoute);
          this.Controls.Add(this.barDockControlLeft);
          this.Controls.Add(this.barDockControlRight);
          this.Controls.Add(this.barDockControlBottom);
          this.Controls.Add(this.barDockControlTop);
          this.Name = "RouteManualActivatorControl";
-         this.Size = new System.Drawing.Size(323, 496);
+         this.Size = new System.Drawing.Size(325, 498);
          ((System.ComponentModel.ISupportInitialize)(this.grdRoute)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.grdRouteView)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();

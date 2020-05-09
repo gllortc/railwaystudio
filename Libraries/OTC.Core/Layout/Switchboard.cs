@@ -97,20 +97,33 @@ namespace Rwm.Otc.Layout
       public void Move(MoveDirection direction)
       {
          int index = 0;
+         int horizontal = 0;
+         int vertical = 0;
          Element[] items = this.Elements.ToArray();
+
+         Logger.LogDebug(this, "[CLASS].Move({0})", direction);
 
          try
          {
-            // ElementPinIndex initialization
             switch (direction)
             {
                case MoveDirection.Left:
+                  horizontal = -1;
+                  index = int.MaxValue;
+                  break;
+
                case MoveDirection.Up:
+                  vertical = -1;
                   index = int.MaxValue;
                   break;
 
                case MoveDirection.Down:
+                  vertical = 1;
+                  index = int.MinValue;
+                  break;
+
                case MoveDirection.Right:
+                  horizontal = 1;
                   index = int.MinValue;
                   break;
             }
@@ -142,15 +155,41 @@ namespace Rwm.Otc.Layout
                }
             }
 
+            // Update database elements
+            string sql = @"PRAGMA ignore_check_constraints=on;
+                           BEGIN TRANSACTION;
+                           UPDATE " + Element.TableName + @" 
+                           SET x = x + :horizontal, y = y + :vertical 
+                           WHERE switchboardid = :switchboardid; 
+                           COMMIT;
+                           PRAGMA ignore_check_constraints=off;";
+
+            Connect();
+            Element.SetParameter("horizontal", horizontal);
+            Element.SetParameter("vertical", vertical);
+            Element.SetParameter("switchboardid", this.ID);
+            Element.ExecuteNonQuery(sql);
+
+            // Update memory elements
             foreach (Element element in this.Elements)
             {
-               Element.Move(element, direction);
+               switch (direction)
+               {
+                  case MoveDirection.Left:  element.X--; break;
+                  case MoveDirection.Up:    element.Y--; break;
+                  case MoveDirection.Down:  element.Y++; break;
+                  case MoveDirection.Right: element.X++; break;
+               }
             }
          }
          catch (Exception ex)
          {
             Logger.LogError(this, ex);
-            throw;
+            throw ex;
+         }
+         finally
+         {
+            Disconnect();
          }
       }
 
@@ -177,6 +216,8 @@ namespace Rwm.Otc.Layout
          Bitmap offScreenBmp;
          Point startP = new Point();
          Point endP = new Point();
+
+         Logger.LogDebug(this, "[CLASS].GetImage()");
 
          offScreenBmp = new Bitmap(this.Width * OTCContext.Project.Theme.ElementSize.Width,
                                    this.Height * OTCContext.Project.Theme.ElementSize.Height);

@@ -61,16 +61,6 @@
       /// </summary>
       public void Initialize(params object[] args) { }
 
-      /// <summary>
-      /// Add docable panels to environment.
-      /// </summary>
-      public void CreatePanels() { }
-
-      /// <summary>
-      /// Remove all dockable panels created when the module was loaded.
-      /// </summary>
-      public void DestoryPanels() { }
-
       #endregion
 
    }

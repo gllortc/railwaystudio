@@ -213,7 +213,6 @@ namespace Rwm.Studio.Views
                // Show the main form of the plugin module
                form.MdiParent = this.ParentForm;
                form.Tag = module;
-               form.FormClosing += PluginModule_FormClosing;
                form.Show();
 
                // Select the default ribbon page for the plugin module
@@ -224,7 +223,6 @@ namespace Rwm.Studio.Views
 
                // Initialize the module
                module.Initialize(args);
-               module.CreatePanels();
 
                // Merge status bar (not merged by default)
                if (module.RibbonStatusBar != null)
@@ -287,17 +285,6 @@ namespace Rwm.Studio.Views
       #endregion
 
       #region Event Handlers
-
-      /// <summary>
-      /// Event captured to remove all panels created by the module.
-      /// </summary>
-      void PluginModule_FormClosing(object sender, FormClosingEventArgs e)
-      {
-         if (sender is IPluginModule module)
-         {
-            module.DestoryPanels();
-         }
-      }
 
       /// <summary>
       /// Event captured to launch a plugin module.

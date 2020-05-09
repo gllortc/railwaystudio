@@ -46,7 +46,7 @@
          this.cmdAccept.Size = new System.Drawing.Size(75, 23);
          this.cmdAccept.TabIndex = 202;
          this.cmdAccept.Text = "Accept";
-         this.cmdAccept.Click += new System.EventHandler(this.cmdAccept_Click);
+         this.cmdAccept.Click += new System.EventHandler(this.CmdAccept_Click);
          // 
          // cmdCancel
          // 
@@ -57,7 +57,7 @@
          this.cmdCancel.Size = new System.Drawing.Size(75, 23);
          this.cmdCancel.TabIndex = 203;
          this.cmdCancel.Text = "Cancel";
-         this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
+         this.cmdCancel.Click += new System.EventHandler(this.CmdCancel_Click);
          // 
          // grdTrain
          // 
@@ -82,7 +82,6 @@
          this.grdTrainView.OptionsCustomization.AllowGroup = false;
          this.grdTrainView.OptionsFind.AlwaysVisible = true;
          this.grdTrainView.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.grdTrainView.OptionsSelection.EnableAppearanceFocusedRow = false;
          this.grdTrainView.OptionsView.ShowGroupPanel = false;
          this.grdTrainView.OptionsView.ShowIndicator = false;
          this.grdTrainView.RowHeight = 45;
@@ -97,7 +96,7 @@
          this.chkShowAll.Properties.Caption = "Show assigned trains";
          this.chkShowAll.Size = new System.Drawing.Size(241, 19);
          this.chkShowAll.TabIndex = 205;
-         this.chkShowAll.CheckedChanged += new System.EventHandler(this.chkShowAll_CheckedChanged);
+         this.chkShowAll.CheckedChanged += new System.EventHandler(this.ChkShowAll_CheckedChanged);
          // 
          // FindTrainView
          // 

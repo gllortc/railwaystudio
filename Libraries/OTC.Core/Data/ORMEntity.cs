@@ -96,6 +96,26 @@ namespace Rwm.Otc.Data
             return ORMEntity<T>.UpdateDatabaseRecord(instance);
       }
 
+      ///// <summary>
+      ///// Store an instance into the memory table without persisting it.
+      ///// </summary>
+      ///// <param name="instance">Instance to save.</param>
+      //public static long StoreInMemory(T instance)
+      //{
+      //   ORMIdentifiableEntity identity = instance as ORMIdentifiableEntity;
+
+      //   if (ORMEntity<T>.InMemoryTable.ContainsKey(identity.ID))
+      //   {
+      //      ORMEntity<T>.InMemoryTable[identity.ID] = instance;
+      //   }
+      //   else
+      //   {
+      //      ORMEntity<T>.InMemoryTable.Add(identity.ID, instance);
+      //   }
+
+      //   return identity.ID;
+      //}
+
       /// <summary>
       /// Delete an existing instance.
       /// </summary>

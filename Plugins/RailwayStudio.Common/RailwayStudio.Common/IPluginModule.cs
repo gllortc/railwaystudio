@@ -67,16 +67,6 @@
       /// <param name="context">The application container context.</param>
       void Initialize(params object[] args);
 
-      /// <summary>
-      /// Add dockable panels to environment.
-      /// </summary>
-      void CreatePanels();
-
-      /// <summary>
-      /// Remove all dockable panels created when the module was loaded.
-      /// </summary>
-      void DestoryPanels();
-
       #endregion
 
    }

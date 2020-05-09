@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Drawing;
 using Rwm.Otc.Data;
-using Rwm.Otc.Diagnostics;
 using Rwm.Otc.Systems;
 using Rwm.Otc.Themes;
 using Rwm.Otc.Trains;
@@ -133,7 +132,6 @@ namespace Rwm.Otc.Layout
       /// <summary>
       /// Gets the current element feedback status.
       /// </summary>
-      [ORMProperty("modelid")]
       public Train Train { get; set; }
 
       /// <summary>
@@ -170,7 +168,7 @@ namespace Rwm.Otc.Layout
       /// <summary>
       /// Gets a value indicating if the block is occupied.
       /// </summary>
-      public bool IsBlockOccupied { get; private set; }
+      public bool IsBlockOccupied { get; private set; } = false;
 
       /// <summary>
       /// Gets a value indicating if the element have one or more digital connections.
@@ -478,49 +476,6 @@ namespace Rwm.Otc.Layout
          }
 
          return null;
-      }
-
-      /// <summary>
-      /// Move all switchboard blocks to the specified orientation.
-      /// </summary>
-      /// <param name="element">Switchboard to move.</param>
-      /// <param name="dir">Movement orientation.</param>
-      public static void Move(Element element, Switchboard.MoveDirection dir)
-      {
-         Logger.LogDebug("Rwm.Otc.Layout.Element.Move([" + element.ToString() + "], " + dir.ToString() + ")");
-
-         try
-         {
-            switch (dir)
-            {
-               case Switchboard.MoveDirection.Up:
-                  element.Y--;
-                  break;
-               case Switchboard.MoveDirection.Down:
-                  element.Y++;
-                  break;
-               case Switchboard.MoveDirection.Left:
-                  element.X--;
-                  break;
-               case Switchboard.MoveDirection.Right:
-                  element.X++;
-                  break;
-               default:
-                  break;
-            }
-
-            Element.Save(element);
-         }
-         catch (Exception ex)
-         {
-            Logger.LogError(ex);
-
-            throw;
-         }
-         finally
-         {
-            Disconnect();
-         }
       }
 
       #endregion

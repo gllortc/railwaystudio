@@ -19,23 +19,19 @@ namespace Rwm.Studio.Plugins.Control.Controls
       public RouteManualActivatorControl()
       {
          InitializeComponent();
-
-         this.Refresh();
       }
 
       #endregion
 
       #region Methods
 
-      public override void Refresh()
+      public void RefreshRouteList()
       {
          grdRoute.BeginUpdate();
          grdRouteView.Columns.Clear();
          grdRouteView.Columns.Add(new GridColumn() { Caption = "Name", Visible = true, FieldName = "Name" });
          grdRoute.DataSource = Route.FindAll();
          grdRoute.EndUpdate();
-
-         base.Refresh();
       }
 
       #endregion
@@ -89,14 +85,14 @@ namespace Rwm.Studio.Plugins.Control.Controls
             else
                route.Deactivate();
 
-            this.Refresh();
+            this.RefreshRouteList();
          }
       }
 
       private void CmdRouteClear_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          Route.ClearAll();
-         this.Refresh();
+         this.RefreshRouteList();
       }
 
       #endregion
