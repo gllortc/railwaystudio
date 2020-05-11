@@ -1,6 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Windows.Forms;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using Rwm.Otc.Layout;
+using Rwm.Otc.Trains;
 using Rwm.Studio.Plugins.Common;
 
 namespace Rwm.Studio.Plugins.Control.Controls
@@ -22,19 +28,46 @@ namespace Rwm.Studio.Plugins.Control.Controls
 
       #endregion
 
+      #region Properties
+
+      private GridHitInfo MouseDownHitInfo { get; set; } = null;
+
+      public Train SelectedTrain
+      {
+         get
+         {
+            if (grdTrainView.SelectedRowsCount <= 0)
+               return null;
+
+            Train train = (Train)grdTrainView.GetRow(grdTrainView.GetSelectedRows()[0]);
+            if (train == null) return null;
+
+            return train;
+         }
+      }
+
+      #endregion
+
       #region Methods
 
       public void RefreshTrainList()
       {
          grdTrainView.BeginUpdate();
-         grdTrain.DataSource = null;
-         grdTrain.DataSource = ElementTrain.ListTrains();
-         grdTrainView.Columns[0].Visible = false;
-         grdTrainView.Columns[1].Visible = false;
 
-         grdTrainView.Columns[4].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         grdTrainView.Columns[4].AppearanceCell.FontStyleDelta = FontStyle.Bold;
-         grdTrainView.Columns[4].AppearanceCell.FontSizeDelta = 2;
+         if (grdTrainView.Columns.Count <= 0)
+         {
+            grdTrainView.OptionsBehavior.AutoPopulateColumns = false;
+            grdTrainView.Columns.Add(new GridColumn() { Caption = "ID", Visible = false, FieldName = "ID" });
+            grdTrainView.Columns.Add(new GridColumn() { Caption = "Image", Visible = true, FieldName = "Picture" });
+            grdTrainView.Columns.Add(new GridColumn() { Caption = "Name", Visible = true, FieldName = "Name" });
+            grdTrainView.Columns.Add(new GridColumn() { Caption = "Block", Visible = true, FieldName = "BlockOccupied.DisplayName" });
+
+            grdTrainView.Columns[2].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            grdTrainView.Columns[2].AppearanceCell.FontStyleDelta = FontStyle.Bold;
+         }
+
+         grdTrain.DataSource = null;
+         grdTrain.DataSource = Train.FindAllDigital();
 
          grdTrainView.EndUpdate();
       }
@@ -43,69 +76,78 @@ namespace Rwm.Studio.Plugins.Control.Controls
 
       #region Event Handlers
 
-      private void GrdRouteView_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+      private void GrdTrainView_RowStyle(object sender, RowStyleEventArgs e)
       {
-         if (!(grdTrainView.GetRow(e.RowHandle) is Route route)) return;
+         if (!(grdTrainView.GetRow(e.RowHandle) is Train train)) return;
 
-         if (route.IsActive)
-            StudioContext.UI.DrawRowIcon(Properties.Resources.ICO_ROUTE_ACTIVE_16, e);
-         else
-            StudioContext.UI.DrawRowIcon(Properties.Resources.ICO_ROUTE_16, e);
-      }
-
-      private void GrdRouteView_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
-      {
-         if (!(grdTrainView.GetRow(e.RowHandle) is Route route)) return;
-
-         if (route.IsActive)
+         if (train.BlockOccupied != null)
          {
-            e.Appearance.BackColor = Color.LightBlue;
-            e.Appearance.BackColor2 = Color.LightBlue;
+            e.Appearance.BackColor = Color.LightPink;
+            e.Appearance.BackColor2 = Color.LightPink;
          }
       }
 
-      private void GrdRouteView_DoubleClick(object sender, EventArgs e)
+      private void GrdTrainView_MouseDown(object sender, MouseEventArgs e)
       {
-         CmdRouteActivate_ItemClick(sender, null);
+         GridView view = sender as GridView;
+         this.MouseDownHitInfo = null;
+
+         GridHitInfo hitInfo = view.CalcHitInfo(new Point(e.X, e.Y));
+         if (System.Windows.Forms.Control.ModifierKeys != Keys.None) return;
+         if (e.Button == MouseButtons.Left && hitInfo.RowHandle >= 0)
+            this.MouseDownHitInfo = hitInfo;
       }
 
-      private void CmdRouteActivate_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void GrdTrainView_MouseMove(object sender, MouseEventArgs e)
       {
-         if (grdTrainView.SelectedRowsCount <= 0)
+         GridView view = sender as GridView;
+         if (e.Button == MouseButtons.Left && this.MouseDownHitInfo != null)
          {
-            return;
-         }
+            Size dragSize = SystemInformation.DragSize;
+            Rectangle dragRect = new Rectangle(new Point(this.MouseDownHitInfo.HitPoint.X - dragSize.Width / 2,
+                                                         this.MouseDownHitInfo.HitPoint.Y - dragSize.Height / 2), dragSize);
 
-         Route route = (Route)grdTrainView.GetRow(grdTrainView.GetSelectedRows()[0]);
-         if (route != null)
-         {
-            if (!route.IsActive)
+            if (!dragRect.Contains(new Point(e.X, e.Y)))
             {
-               if (!route.Activate())
-               {
-                  StudioContext.AlertError("<b>Route conflict</b>",
-                                           String.Format("Route <b>{0}</b> cannot be activated due to a conflict with current active route(s)", route.Name));
-               }
+               Train train = view.GetRow(this.MouseDownHitInfo.RowHandle) as Train;
+               view.GridControl.DoDragDrop(train, DragDropEffects.Move);
+               this.MouseDownHitInfo = null;
+               DevExpress.Utils.DXMouseEventArgs.GetMouseArgs(e).Handled = true;
             }
-            else
-               route.Deactivate();
-
-            this.RefreshTrainList();
          }
+      }
+
+      private void CmdTrainEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      {
+         if (this.SelectedTrain == null) return;
+
+         StudioContext.OpenPluginModule("8458EC08-4224-42B0-8CF5-84FCD5AAFB3C", this.SelectedTrain.ID); 
       }
 
       private void CmdTrainUnassign_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
+         if (this.SelectedTrain == null) return;
 
+         Element.UnassignTrain(this.SelectedTrain);
+         this.RefreshTrainList();
       }
 
       private void CmdTrainClear_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
-         Route.ClearAll();
+         string msg = "Are you sure you want to unassign all trains from their current positions?" + Environment.NewLine + Environment.NewLine + "This action cannot be undone.";
+
+         if (MessageBox.Show(msg, Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+            return;
+
+         foreach (Train train in (ICollection<Train>)grdTrain.DataSource)
+         {
+            Element.UnassignTrain(train);
+         }
+
          this.RefreshTrainList();
       }
 
-        #endregion
+      #endregion
 
-    }
+   }
 }

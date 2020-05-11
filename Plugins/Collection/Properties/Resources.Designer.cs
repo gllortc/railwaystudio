@@ -103,6 +103,16 @@ namespace Rwm.Studio.Plugins.Collection.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ICO_ADMIN_OFF_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_ADMIN_OFF_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ICO_APP_16 {
             get {
                 object obj = ResourceManager.GetObject("ICO_APP_16", resourceCulture);
@@ -116,6 +126,16 @@ namespace Rwm.Studio.Plugins.Collection.Properties {
         internal static System.Drawing.Bitmap ICO_APP_32 {
             get {
                 object obj = ResourceManager.GetObject("ICO_APP_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_CATEGORY_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_CATEGORY_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -253,6 +273,16 @@ namespace Rwm.Studio.Plugins.Collection.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ICO_DECODER_OFF_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_DECODER_OFF_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ICO_EPOCH_1 {
             get {
                 object obj = ResourceManager.GetObject("ICO_EPOCH_1", resourceCulture);
@@ -306,6 +336,36 @@ namespace Rwm.Studio.Plugins.Collection.Properties {
         internal static System.Drawing.Bitmap ICO_EPOCH_6 {
             get {
                 object obj = ResourceManager.GetObject("ICO_EPOCH_6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_GAUGE_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_GAUGE_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_GAUGE_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_GAUGE_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_GAUGE_OFF_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_GAUGE_OFF_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -483,26 +543,6 @@ namespace Rwm.Studio.Plugins.Collection.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ICO_SCALE_16 {
-            get {
-                object obj = ResourceManager.GetObject("ICO_SCALE_16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ICO_SCALE_32 {
-            get {
-                object obj = ResourceManager.GetObject("ICO_SCALE_32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap ICO_STORE_16 {
             get {
                 object obj = ResourceManager.GetObject("ICO_STORE_16", resourceCulture);
@@ -666,6 +706,16 @@ namespace Rwm.Studio.Plugins.Collection.Properties {
         internal static System.Drawing.Bitmap PICTO_EPOCHE_IV_16 {
             get {
                 object obj = ResourceManager.GetObject("PICTO_EPOCHE_IV_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PICTO_EPOCHE_OFF_16 {
+            get {
+                object obj = ResourceManager.GetObject("PICTO_EPOCHE_OFF_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -305,7 +305,7 @@ namespace Rwm.Otc.Data
 
             // Generate FROM clause
             cmd.SqlCommand += " from ";
-            cmd.SqlCommand += ORMEntity<T>.ORMStructure.Table.TableName;
+            cmd.SqlCommand += ORMEntity<T>.ORMStructure.Table.TableName + " ";
 
             // Generate WHERE clause
             whereClause = whereClause.Trim();

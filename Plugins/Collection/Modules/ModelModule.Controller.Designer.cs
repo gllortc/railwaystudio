@@ -5,7 +5,6 @@ using System.Reflection;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
-using Rwm.Otc.Data;
 using Rwm.Otc.Trains;
 using Rwm.Studio.Plugins.Collection.Controls;
 
@@ -24,28 +23,58 @@ namespace Rwm.Studio.Plugins.Collection.Modules
 
       #region Methods
 
-      internal void SetData()
+      /// <summary>
+      /// Save current model.
+      /// </summary>
+      public void Save()
       {
-         if (this.CurrentModel == null)
-         {
+         if (!this.MapViewToModel()) 
             return;
+
+         try
+         {
+            Train.Save(this.CurrentModel);
+
+            // Update document title
+            this.Text = this.CurrentModel.Name;
          }
+         catch (Exception ex)
+         {
+            MessageBox.Show("ERROR storing data: " + ex.Message,
+                            Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+         }
+      }
+
+      #endregion
+
+      #region Private Members
+
+      private void MapModelToView(Train train)
+      {
+         this.CurrentModel = train;
+         if (this.CurrentModel == null) return;
+
+         this.FillComboBox(cboDigitalPlug, typeof(Train.DigitalConnectorType), this.CurrentModel.DigitalConnector);
+         this.FillComboBox(cboPropertiesLights, typeof(Train.LightFrontType), this.CurrentModel.LightFront);
+         this.FillComboBox(cboPropertiesIntLights, typeof(Train.LightInteriorType), this.CurrentModel.LightInterior);
+         this.FillComboBox(cboPropertiesCouplers, typeof(Train.CouplerTypes), this.CurrentModel.CouplersType);
+         this.FillComboBox(cboPropertiesIntEq, typeof(Train.InteriorEquipmentType), this.CurrentModel.InteriorEquipment);
 
          this.Text = (!string.IsNullOrEmpty(this.CurrentModel.Name) ? this.CurrentModel.Name : "New model");
 
          txtName.Text = this.CurrentModel.Name;
-         this.SetID(cboCategory, (this.CurrentModel.Category != null ? this.CurrentModel.Category.ID : 0));
-         this.SetID(cboAdministration, (this.CurrentModel.Company != null ? this.CurrentModel.Company.ID : 0));
-         cboEra.EditValue = this.CurrentModel.Era;
+         cboCategory.SetSelectedElement(this.CurrentModel.Category);
+         cboCompany.SetSelectedElement(this.CurrentModel.Company);
+         cboEra.SetSelectedElement(this.CurrentModel.Era);
          cboPaintScheme.Text = this.CurrentModel.PaintScheme;
          picImage.Image = this.CurrentModel.Picture;
 
-         this.SetID(cboManufacturer, (this.CurrentModel.Manufacturer != null ? this.CurrentModel.Manufacturer.ID : 0));
+         cboManufacturer.SetSelectedElement(this.CurrentModel.Manufacturer);
          txtItems.EditValue = this.CurrentModel.Units;
          txtReference.EditValue = this.CurrentModel.Reference;
-         this.SetID(cboScale, (this.CurrentModel.Gauge != null ? this.CurrentModel.Gauge.ID : 0));
+         cboGauge.SetSelectedElement(this.CurrentModel.Gauge);
 
-         this.SetID(cboStore, (this.CurrentModel.Store != null ? this.CurrentModel.Store.ID : 0));
+         cboStore.SetSelectedElement(this.CurrentModel.Store);
          if (this.CurrentModel.BuyDate > DateTime.MinValue) dtePurchaseDate.DateTime = this.CurrentModel.BuyDate; else dtePurchaseDate.EditValue = null;
          txtPurchasePrice.EditValue = this.CurrentModel.BuyPricePurchase;
          txtPriceCatalog.EditValue = this.CurrentModel.BuyPriceCatalogue;
@@ -53,7 +82,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
          chkLimitedModel.Checked = this.CurrentModel.IsLimited;
          txtLimitedModel.Text = this.CurrentModel.LimitedYear;
 
-         this.SetID(cboDigitalDecoder, (this.CurrentModel.DigitalDecoder != null ? this.CurrentModel.DigitalDecoder.ID : 0));
+         cboDigitalDecoder.SetSelectedElement(this.CurrentModel.DigitalDecoder);
          txtDigitalAddress.EditValue = this.CurrentModel.DigitalAddress;
          this.SetID(cboDigitalPlug, this.CurrentModel.DigitalConnector);
 
@@ -67,37 +96,37 @@ namespace Rwm.Studio.Plugins.Collection.Modules
          this.UpdatePicture = false;
       }
 
-      internal void Save()
+      private bool MapViewToModel()
       {
          if (string.IsNullOrWhiteSpace(txtName.Text))
          {
             MessageBox.Show("You must specify the name of the model.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             txtName.Focus();
-            return;
+            return false;
          }
-         else if (cboCategory.SelectedItem == null)
+         else if (cboCategory.SelectedCategory == null)
          {
             MessageBox.Show("You must specify the category of the model.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             cboCategory.Focus();
-            return;
+            return false;
          }
 
          try
          {
             this.CurrentModel.Name = txtName.Text.Trim();
-            this.CurrentModel.Category = (cboCategory.SelectedItem as ImageComboBoxItem).Value as Category; // this.GetID(cboCategory.SelectedItem as ImageComboBoxItem);
-            this.CurrentModel.Company = (cboAdministration.SelectedItem as ImageComboBoxItem).Value as Company; // this.GetID(cboAdministration.SelectedItem as ImageComboBoxItem);
-            this.CurrentModel.Era = (cboEra.SelectedItem != null ? (Train.Epoche)((ImageComboBoxItem)cboEra.SelectedItem).Value : Train.Epoche.NotDefined);
+            this.CurrentModel.Category = cboCategory.SelectedCategory;
+            this.CurrentModel.Company = cboCompany.SelectedCompany;
+            this.CurrentModel.Era = cboEra.SelectedEra;
             this.CurrentModel.PaintScheme = cboPaintScheme.Text.Trim();
             this.CurrentModel.Picture = picImage.Image;
             System.Drawing.Imaging.ImageFormat format = DevExpress.XtraEditors.Controls.ByteImageConverter.GetImageFormatByPixelFormat(this.CurrentModel.Picture);
 
-            this.CurrentModel.Manufacturer = (cboManufacturer.SelectedItem as ImageComboBoxItem).Value as Manufacturer; // this.GetID(cboManufacturer.SelectedItem as ImageComboBoxItem);
-            this.CurrentModel.Gauge = (cboScale.SelectedItem as ImageComboBoxItem).Value as Gauge; // this.GetID(cboScale.SelectedItem as ImageComboBoxItem);
+            this.CurrentModel.Manufacturer = cboManufacturer.SelectedManufacturer;
+            this.CurrentModel.Gauge = cboGauge.SelectedGauge;
             this.CurrentModel.Units = Decimal.ToInt32((Decimal)txtItems.EditValue);
             this.CurrentModel.Reference = txtReference.EditValue.ToString().Trim();
 
-            this.CurrentModel.Store = (cboStore.SelectedItem != null ? (cboStore.SelectedItem as ImageComboBoxItem).Value as Store : null); // this.GetID(cboStore.SelectedItem as ImageComboBoxItem);
+            this.CurrentModel.Store = cboStore.SelectedStore;
             this.CurrentModel.BuyDate = dtePurchaseDate.DateTime;
             this.CurrentModel.BuyPricePurchase = Decimal.Parse(txtPurchasePrice.EditValue.ToString());
             this.CurrentModel.BuyPriceCatalogue = Decimal.Parse(txtPriceCatalog.EditValue.ToString());
@@ -105,7 +134,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
             this.CurrentModel.IsLimited = chkLimitedModel.Checked;
             this.CurrentModel.LimitedYear = txtLimitedModel.Text.Trim();
 
-            this.CurrentModel.DigitalDecoder = (cboDigitalDecoder.SelectedItem != null ? (cboDigitalDecoder.SelectedItem as ImageComboBoxItem).Value as TrainDecoder : null); // this.GetID(cboDigitalDecoder.SelectedItem as ImageComboBoxItem);
+            this.CurrentModel.DigitalDecoder = cboDigitalDecoder.SelectedDecoder;
             this.CurrentModel.DigitalAddress = Int32.Parse(txtDigitalAddress.EditValue.ToString());
             this.CurrentModel.DigitalConnector = (Train.DigitalConnectorType)this.GetEnum(cboDigitalPlug);
 
@@ -116,36 +145,15 @@ namespace Rwm.Studio.Plugins.Collection.Modules
 
             this.CurrentModel.Description = rtfDescription.RtfText;
 
-            Train.Save(this.CurrentModel);
-
-            // Update document title
-            this.Text = this.CurrentModel.Name;
+            return true;
          }
          catch (Exception ex)
          {
-            MessageBox.Show("ERROR storing data: " + ex.Message, 
+            MessageBox.Show("ERROR collecting data: " + ex.Message,
                             Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            return false;
          }
-      }
-
-      #endregion
-
-      #region Private Members
-
-      private long GetID(ImageComboBoxItem item)
-      {
-         if (item == null)
-         {
-            return 0;
-         }
-
-         ORMIdentifiableEntity obj = item.Value as ORMIdentifiableEntity;
-         if (obj != null)
-         {
-            return obj.ID;
-         }
-
-         return 0;
       }
 
       private object GetEnum(ImageComboBoxEdit ctrl)
@@ -158,29 +166,6 @@ namespace Rwm.Studio.Plugins.Collection.Modules
          }
 
          return item.Value;
-      }
-
-      private void SetID(ImageComboBoxEdit ctrl, long value)
-      {
-         ORMIdentifiableEntity obj = null;
-
-         if (value <= 0)
-         {
-            ctrl.SelectedItem = null;
-            return;
-         }
-
-         foreach (ImageComboBoxItem item in ctrl.Properties.Items)
-         {
-            obj = item.Value as ORMIdentifiableEntity;
-            if (obj != null && obj.ID == value)
-            {
-               ctrl.SelectedItem = item;
-               return;
-            }
-         }
-
-         ctrl.SelectedItem = null;
       }
 
       private void SetID(ImageComboBoxEdit ctrl, object value)
@@ -201,128 +186,6 @@ namespace Rwm.Studio.Plugins.Collection.Modules
          }
 
          ctrl.SelectedItem = null;
-      }
-
-      private void FillLists()
-      {
-         ImageComboBoxItem item;
-
-         // Clear all lists
-         cboCategory.Properties.Items.Clear();
-
-         // Fill categories list
-         cboCategory.Properties.Items.BeginUpdate();
-         foreach (Category category in Category.FindAll()) // OTCContext.Project.TrainManager.CategoryDAO.GetAll())
-         {
-            item = new ImageComboBoxItem();
-            item.Value = category;
-            item.Description = category.Name;
-            item.ImageIndex = 0;
-
-            cboCategory.Properties.Items.Add(item);
-         }
-         cboCategory.Properties.Items.EndUpdate();
-
-         // Fill administrations list
-         cboAdministration.Properties.Items.BeginUpdate();
-         foreach (Company administration in Company.FindAll()) // OTCContext.Project.TrainManager.AdministrationDAO.GetAll())
-         {
-            item = new ImageComboBoxItem();
-            item.Value = administration;
-            item.Description = administration.Name;
-            item.ImageIndex = 1;
-
-            cboAdministration.Properties.Items.Add(item);
-         }
-         cboAdministration.Properties.Items.EndUpdate();
-
-         // Fill epoques list
-         cboEra.Properties.Items.BeginUpdate();
-         for (int era = 0; era < 6; era++)
-         {
-            item = new ImageComboBoxItem();
-            item.Value = ((Train.Epoche)era + 1);
-            item.Description = "Epoche " + (era + 1);
-            item.ImageIndex = era;
-
-            cboEra.Properties.Items.Add(item);
-         }
-         cboEra.Properties.Items.EndUpdate();
-
-         // Fill paint schemes list
-         //cboPaintScheme.Properties.Items.BeginUpdate();
-         //foreach (string scheme in CollectionModel.GetPaintSchemes())
-         //{
-         //   cboPaintScheme.Properties.Items.Add(new ComboBoxItem(scheme));
-         //}
-         //cboPaintScheme.Properties.Items.EndUpdate();
-
-         // Fill manufacturers list
-         cboManufacturer.Properties.Items.BeginUpdate();
-         foreach (Manufacturer manufacturer in Manufacturer.FindAll()) //  OTCContext.Project.TrainManager.ManufacturerDAO.GetAll())
-         {
-            item = new ImageComboBoxItem();
-            item.Value = manufacturer;
-            item.Description = manufacturer.Name;
-            item.ImageIndex = 2;
-
-            cboManufacturer.Properties.Items.Add(item);
-         }
-         cboManufacturer.Properties.Items.EndUpdate();
-
-         // Fill scales list
-         cboScale.Properties.Items.BeginUpdate();
-         foreach (Gauge scale in Rwm.Otc.Trains.Gauge.FindAll()) // OTCContext.Project.TrainManager.ScaleDAO.GetAll())
-         {
-            item = new ImageComboBoxItem();
-            item.Value = scale;
-            item.Description = scale.Name + " (" + scale.Notation + ")";
-            item.ImageIndex = 3;
-
-            cboScale.Properties.Items.Add(item);
-         }
-         cboScale.Properties.Items.EndUpdate();
-
-         // Fill stores list
-         cboStore.Properties.Items.BeginUpdate();
-         foreach (Store store in Store.FindAll()) // OTCContext.Project.TrainManager.StoreDAO.GetAll())
-         {
-            item = new ImageComboBoxItem();
-            item.Value = store;
-            item.Description = store.Name;
-            item.ImageIndex = 4;
-
-            cboStore.Properties.Items.Add(item);
-         }
-         cboStore.Properties.Items.EndUpdate();
-
-         // Fill decoders list
-         cboDigitalDecoder.Properties.Items.BeginUpdate();
-         foreach (TrainDecoder decoder in TrainDecoder.FindAll()) //  OTCContext.Project.TrainManager.DecoderDAO.GetAll())
-         {
-            item = new ImageComboBoxItem();
-            item.Value = decoder;
-            item.Description = decoder.Name;
-            item.ImageIndex = 5;
-
-            cboDigitalDecoder.Properties.Items.Add(item);
-         }
-         cboDigitalDecoder.Properties.Items.EndUpdate();
-
-         // Fill decoder connectors list
-         this.FillComboBox(cboDigitalPlug, typeof(Train.DigitalConnectorType), this.CurrentModel.DigitalConnector);
-
-         // Fill lights list
-         this.FillComboBox(cboPropertiesLights, typeof(Train.LightFrontType), this.CurrentModel.LightFront);
-
-         // Fill interior lights list
-         this.FillComboBox(cboPropertiesIntLights, typeof(Train.LightInteriorType), this.CurrentModel.LightInterior);
-
-         // Fill couplers list
-         this.FillComboBox(cboPropertiesCouplers, typeof(Train.CouplerTypes), this.CurrentModel.CouplersType);
-
-         // Fill interior equipment type
-         this.FillComboBox(cboPropertiesIntEq, typeof(Train.InteriorEquipmentType), this.CurrentModel.InteriorEquipment);
       }
 
       private void FillComboBox(ImageComboBoxEdit ctrl, Type enumeration, object selectedValue)

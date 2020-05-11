@@ -11,10 +11,7 @@ namespace Rwm.Otc.Trains
       /// <summary>
       /// Returns a new instance of <see cref="Category"/>.
       /// </summary>
-      public Category() : base()
-      {
-         this.Initialize();
-      }
+      public Category() : base() { }
 
       #endregion
 
@@ -23,26 +20,26 @@ namespace Rwm.Otc.Trains
       /// <summary>
       /// Gets or sets the object unique identifier.
       /// </summary>
-      [ORMPrimaryKey("typeid")]
-      public override long ID { get; set; }
+      [ORMPrimaryKey("ID")]
+      public override long ID { get; set; } = 0;
 
       /// <summary>
       /// Nombre identificativo de la categoria.
       /// </summary>
-      [ORMProperty("typename")]
-      public string Name { get; set; }
+      [ORMProperty("NAME")]
+      public string Name { get; set; } = string.Empty;
 
       /// <summary>
       /// Icono correspondiente a l acategoria (no usado).
       /// </summary>
-      [ORMProperty("typeicon")]
-      public string Icon { get; set; }
+      [ORMProperty("ICON")]
+      public string Icon { get; set; } = string.Empty;
 
       /// <summary>
       /// Indica si los modelos de la categoria disponen de control de mantenimiento o no.
       /// </summary>
-      [ORMProperty("typemaint")]
-      public bool HaveMaintenance { get; set; }
+      [ORMProperty("MAINTENANCE")]
+      public bool HaveMaintenance { get; set; } = false;
 
       #endregion
 
@@ -55,18 +52,6 @@ namespace Rwm.Otc.Trains
       public override string ToString()
       {
          return this.Name;
-      }
-
-      #endregion
-
-      #region Private Members
-
-      private void Initialize()
-      {
-         this.ID = 0;
-         this.Name = string.Empty;
-         this.Icon = string.Empty;
-         this.HaveMaintenance = false;
       }
 
       #endregion

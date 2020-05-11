@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using Rwm.Otc.Layout;
-using Rwm.Otc.Utils;
 
 namespace Rwm.Otc.UI.Controls
 {
@@ -66,8 +66,8 @@ namespace Rwm.Otc.UI.Controls
             return;
          }
 
-         Coordinates coords = new Coordinates((e.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
-                                              (e.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
+         Point coords = new Point((e.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
+                                  (e.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
          Element element = this.Switchboard.GetBlock(coords);
 
          this.DesignRouteClickDispatcher(element);
@@ -90,8 +90,8 @@ namespace Rwm.Otc.UI.Controls
             return;
          }
 
-         Coordinates coords = new Coordinates((e.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
-                                              (e.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
+         Point coords = new Point((e.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
+                                  (e.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
          Element element = this.Switchboard.GetBlock(coords);
 
          if (this.ElementDoubleClick != null && element != null)

@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControlModule));
          this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
          this.cmdSystemSettings = new DevExpress.XtraBars.BarButtonItem();
@@ -50,11 +51,11 @@
          this.pnlContainer = new DevExpress.XtraEditors.PanelControl();
          this.tabPanels = new DevExpress.XtraTab.XtraTabControl();
          this.tabPanel1 = new DevExpress.XtraTab.XtraTabPage();
-         this.dockManager = new DevExpress.XtraBars.Docking.DockManager();
+         this.dockManager = new DevExpress.XtraBars.Docking.DockManager(this.components);
          this.hideContainerRight = new DevExpress.XtraBars.Docking.AutoHideContainer();
          this.dockPanelRoutes = new DevExpress.XtraBars.Docking.DockPanel();
          this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-         this.rmaRoutes = new Rwm.Studio.Plugins.Control.Controls.RouteManualActivatorControl();
+         this.rmaRoutes = new Rwm.Studio.Plugins.Control.Controls.RouteActivationControl();
          this.dockPanelTrains = new DevExpress.XtraBars.Docking.DockPanel();
          this.controlContainer1 = new DevExpress.XtraBars.Docking.ControlContainer();
          this.tscTrains = new Rwm.Studio.Plugins.Control.Controls.TrainSelectionControl();
@@ -94,7 +95,7 @@
          this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rptControl});
          this.ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
-         this.ribbonControl.Size = new System.Drawing.Size(837, 144);
+         this.ribbonControl.Size = new System.Drawing.Size(837, 143);
          this.ribbonControl.StatusBar = this.ribbonStatusBar;
          // 
          // cmdSystemSettings
@@ -245,20 +246,20 @@
          // 
          this.ribbonStatusBar.ItemLinks.Add(this.bbtnSystemsManage);
          this.ribbonStatusBar.ItemLinks.Add(this.bbtnThemesManage);
-         this.ribbonStatusBar.Location = new System.Drawing.Point(0, 465);
+         this.ribbonStatusBar.Location = new System.Drawing.Point(0, 466);
          this.ribbonStatusBar.Name = "ribbonStatusBar";
          this.ribbonStatusBar.Ribbon = this.ribbonControl;
-         this.ribbonStatusBar.Size = new System.Drawing.Size(837, 32);
+         this.ribbonStatusBar.Size = new System.Drawing.Size(837, 31);
          // 
          // pnlContainer
          // 
          this.pnlContainer.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.pnlContainer.Controls.Add(this.tabPanels);
          this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.pnlContainer.Location = new System.Drawing.Point(0, 144);
+         this.pnlContainer.Location = new System.Drawing.Point(0, 143);
          this.pnlContainer.Name = "pnlContainer";
          this.pnlContainer.Padding = new System.Windows.Forms.Padding(5);
-         this.pnlContainer.Size = new System.Drawing.Size(811, 321);
+         this.pnlContainer.Size = new System.Drawing.Size(815, 323);
          this.pnlContainer.TabIndex = 5;
          // 
          // tabPanels
@@ -267,7 +268,7 @@
          this.tabPanels.Location = new System.Drawing.Point(5, 5);
          this.tabPanels.Name = "tabPanels";
          this.tabPanels.SelectedTabPage = this.tabPanel1;
-         this.tabPanels.Size = new System.Drawing.Size(801, 311);
+         this.tabPanels.Size = new System.Drawing.Size(805, 313);
          this.tabPanels.TabIndex = 3;
          this.tabPanels.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabPanel1});
@@ -276,7 +277,7 @@
          // 
          this.tabPanel1.Name = "tabPanel1";
          this.tabPanel1.Padding = new System.Windows.Forms.Padding(5);
-         this.tabPanel1.Size = new System.Drawing.Size(795, 283);
+         this.tabPanel1.Size = new System.Drawing.Size(799, 285);
          this.tabPanel1.Text = "Page1";
          // 
          // dockManager
@@ -298,13 +299,13 @@
          // 
          // hideContainerRight
          // 
-         this.hideContainerRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(221)))), ((int)(((byte)(238)))));
+         this.hideContainerRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
          this.hideContainerRight.Controls.Add(this.dockPanelRoutes);
          this.hideContainerRight.Controls.Add(this.dockPanelTrains);
          this.hideContainerRight.Dock = System.Windows.Forms.DockStyle.Right;
-         this.hideContainerRight.Location = new System.Drawing.Point(811, 144);
+         this.hideContainerRight.Location = new System.Drawing.Point(815, 143);
          this.hideContainerRight.Name = "hideContainerRight";
-         this.hideContainerRight.Size = new System.Drawing.Size(26, 321);
+         this.hideContainerRight.Size = new System.Drawing.Size(22, 323);
          // 
          // dockPanelRoutes
          // 
@@ -349,16 +350,16 @@
          this.dockPanelTrains.OriginalSize = new System.Drawing.Size(200, 200);
          this.dockPanelTrains.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Right;
          this.dockPanelTrains.SavedIndex = 0;
-         this.dockPanelTrains.Size = new System.Drawing.Size(200, 321);
+         this.dockPanelTrains.Size = new System.Drawing.Size(200, 323);
          this.dockPanelTrains.Text = "Trains";
          this.dockPanelTrains.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
          // 
          // controlContainer1
          // 
          this.controlContainer1.Controls.Add(this.tscTrains);
-         this.controlContainer1.Location = new System.Drawing.Point(5, 25);
+         this.controlContainer1.Location = new System.Drawing.Point(5, 23);
          this.controlContainer1.Name = "controlContainer1";
-         this.controlContainer1.Size = new System.Drawing.Size(191, 292);
+         this.controlContainer1.Size = new System.Drawing.Size(191, 296);
          this.controlContainer1.TabIndex = 0;
          // 
          // tscTrains
@@ -366,7 +367,7 @@
          this.tscTrains.Dock = System.Windows.Forms.DockStyle.Fill;
          this.tscTrains.Location = new System.Drawing.Point(0, 0);
          this.tscTrains.Name = "tscTrains";
-         this.tscTrains.Size = new System.Drawing.Size(191, 292);
+         this.tscTrains.Size = new System.Drawing.Size(191, 296);
          this.tscTrains.TabIndex = 0;
          // 
          // ControlModule
@@ -427,7 +428,7 @@
         private DevExpress.XtraBars.Docking.DockManager dockManager;
         private DevExpress.XtraBars.Docking.DockPanel dockPanelRoutes;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
-        private Controls.RouteManualActivatorControl rmaRoutes;
+        private Controls.RouteActivationControl rmaRoutes;
         private DevExpress.XtraBars.Docking.DockPanel dockPanelTrains;
         private DevExpress.XtraBars.Docking.ControlContainer controlContainer1;
         private DevExpress.XtraBars.Docking.AutoHideContainer hideContainerRight;

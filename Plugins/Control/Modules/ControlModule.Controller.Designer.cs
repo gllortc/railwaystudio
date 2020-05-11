@@ -234,13 +234,42 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
       #endregion
 
-      #region Static Members
+      #region Private Members
 
-      public static void ViewAddCommandPanel(Switchboard panel,
-                                             XtraTabControl tabControl,
-                                             XtraTabPage tabPage,
-                                             SwitchboardCommandControl.BlockAssignTrainEventHandler blockAssignTrainEvent,
-                                             SwitchboardCommandControl.BlockUnassignTrainEventHandler blockUnassignTrainEvent)
+      /// <summary>
+      /// Create and paint all panels.
+      /// </summary>
+      private void ShowPanels()
+      {
+         Cursor.Current = Cursors.WaitCursor;
+
+         // Clear all previous panels
+         tabPanels.TabPages.Clear();
+
+         // Draw all panels
+         foreach (Switchboard panel in OTCContext.Project.Switchboards)
+         {
+            this.ViewAddCommandPanel(panel,
+                                     this.tabPanels,
+                                     null,
+                                     spcPanel_BlockAssignTrain,
+                                     spcPanel_BlockUnassignTrain);
+         }
+
+         // Select the first panel
+         if (tabPanels.TabPages.Count > 0)
+         {
+            tabPanels.SelectedTabPage = tabPanels.TabPages[0];
+         }
+
+         Cursor.Current = Cursors.Default;
+      }
+
+      private void ViewAddCommandPanel(Switchboard panel,
+                                       XtraTabControl tabControl,
+                                       XtraTabPage tabPage,
+                                       SwitchboardCommandControl.BlockAssignTrainEventHandler blockAssignTrainEvent,
+                                       SwitchboardCommandControl.BlockUnassignTrainEventHandler blockUnassignTrainEvent)
       {
          XtraTabPage tabPanel;
 
@@ -285,40 +314,6 @@ namespace Rwm.Studio.Plugins.Control.Modules
          tabControl.SelectedTabPage = tabPanel;
 
          tabControl.ResumeLayout(false);
-      }
-
-      #endregion
-
-      #region Private Members
-
-      /// <summary>
-      /// Create and paint all panels.
-      /// </summary>
-      private void ShowPanels()
-      {
-         Cursor.Current = Cursors.WaitCursor;
-
-         // Clear all previous panels
-         tabPanels.TabPages.Clear();
-
-         // Draw all panels
-         foreach (Switchboard panel in OTCContext.Project.Switchboards)
-         {
-            ControlModule.ViewAddCommandPanel(panel,
-                                              this.tabPanels,
-                                              null,
-                                              // spcPanel_SensorManuallyActivated,
-                                              spcPanel_BlockAssignTrain,
-                                              spcPanel_BlockUnassignTrain);
-         }
-
-         // Select the first panel
-         if (tabPanels.TabPages.Count > 0)
-         {
-            tabPanels.SelectedTabPage = tabPanels.TabPages[0];
-         }
-
-         Cursor.Current = Cursors.Default;
       }
 
       private void AccessoryOperationCommandReceived(IAccessoryOperation command)

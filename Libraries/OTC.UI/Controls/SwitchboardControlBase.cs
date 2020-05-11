@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Rwm.Otc.Layout;
-using Rwm.Otc.Utils;
 
 namespace Rwm.Otc.UI.Controls
 {
@@ -64,7 +63,7 @@ namespace Rwm.Otc.UI.Controls
       /// <summary>
       /// Gets the coordinates of the current selected cell.
       /// </summary>
-      public Coordinates SelectedCell { get; internal set; } = null;
+      public Point SelectedCell { get; internal set; }
 
       /// <summary>
       /// Gets a value indicating if the switchboard is in design mode.
@@ -75,23 +74,18 @@ namespace Rwm.Otc.UI.Controls
 
       #region Methods
 
-      //public virtual void Draw()
-      //{
-      //   this.SwitchboardControlBase_Paint(this, new PaintEventArgs(this.CreateGraphics(), new Rectangle()));
-      //}
-
-      public void RepaintCoordinates(IEnumerable<Coordinates> coords)
+      public void RepaintCoordinates(IEnumerable<Point> coords)
       {
-         foreach (Coordinates c in coords) this.RepaintCoordinates(c);
+         foreach (Point c in coords) this.RepaintCoordinates(c);
       }
 
-      public void RepaintCoordinates(Coordinates coords)
+      public void RepaintCoordinates(Point coords)
       {
          int widthInBlocks;
          Element element;
          RouteElement routeElement = null;
          Rectangle rect = new Rectangle(0, 0, 0, 0);
-         Coordinates paintCoords;
+         Point paintCoords;
 
          // Get involved elements
          element = this.Switchboard.GetBlock(coords);
@@ -132,14 +126,14 @@ namespace Rwm.Otc.UI.Controls
       /// <param name="row">Cell row.</param>
       public void SelectCell(int col, int row)
       {
-         this.SelectCell(new Coordinates(col, row));
+         this.SelectCell(new Point(col, row));
       }
 
       /// <summary>
       /// Select the specified switchboard cell.
       /// </summary>
       /// <param name="coords">Cell <see cref="Coordinates"/>.</param>
-      public virtual void SelectCell(Coordinates coords)
+      public virtual void SelectCell(Point coords)
       {
          Element element;
          Rectangle rect = new Rectangle(this.GetElementPosition(coords), OTCContext.Project.Theme.ElementSize);
@@ -173,7 +167,7 @@ namespace Rwm.Otc.UI.Controls
       /// Unselect the specified cell.
       /// </summary>
       /// <param name="coords">Cell <see cref="Coordinates"/>.</param>
-      public void UnselectCell(Coordinates coords)
+      public void UnselectCell(Point coords)
       {
          Element element;
          Rectangle rect = new Rectangle(GetElementPosition(coords), OTCContext.Project.Theme.ElementSize);
@@ -191,7 +185,7 @@ namespace Rwm.Otc.UI.Controls
             }
          }
 
-         this.SelectedCell = null;
+         this.SelectedCell = default;
       }
 
       /// <summary>
@@ -248,7 +242,7 @@ namespace Rwm.Otc.UI.Controls
          g.DrawImage(element.GetImage(OTCContext.Project.Theme, this.DesignModeEnabled), point);
       }
 
-      internal Point GetElementPosition(Coordinates coords)
+      internal Point GetElementPosition(Point coords)
       {
          return new Point(coords.X * OTCContext.Project.Theme.ElementSize.Width,
                           coords.Y * OTCContext.Project.Theme.ElementSize.Height);
@@ -330,7 +324,7 @@ namespace Rwm.Otc.UI.Controls
       /// </summary>
       /// <param name="coords">Selected coordinates.</param>
       /// <returns>The real origina coordinates.</returns>
-      internal Coordinates GetRealCoordinates(Coordinates coords)
+      internal Point GetRealCoordinates(Point coords)
       {
          Element element = this.Switchboard.GetBlock(coords);
          if (element == null)

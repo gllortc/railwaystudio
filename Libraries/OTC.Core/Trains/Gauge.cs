@@ -21,31 +21,31 @@ namespace Rwm.Otc.Trains
       /// Gets or sets the object unique identifier.
       /// </summary>
       [ORMPrimaryKey()]
-      public override long ID { get; set; }
+      public override long ID { get; set; } = 0;
 
       /// <summary>
       /// Gets or sets the gauge name.
       /// </summary>
       [ORMProperty("NAME")]
-      public string Name { get; set; }
+      public string Name { get; set; } = string.Empty;
 
       /// <summary>
       /// Gets or sets the gauge scale notation (1:87, 1:160, etc).
       /// </summary>
       [ORMProperty("SCALE")]
-      public string Notation { get; set; }
+      public string Notation { get; set; } = string.Empty;
 
       /// <summary>
       /// Gets or sets the scale model track width (in mm).
       /// </summary>
       [ORMProperty("SCALE_TRACK_WIDTH")]
-      public double TrackWidthScale { get; set; }
+      public double TrackWidthScale { get; set; } = 0.0;
 
       /// <summary>
       /// Gets or sets the prototype track width (in mm).
       /// </summary>
       [ORMProperty("REAL_TRACK_WIDTH")]
-      public double TrackWidthReal { get; set; }
+      public double TrackWidthReal { get; set; } = 0.0;
 
       #endregion
 

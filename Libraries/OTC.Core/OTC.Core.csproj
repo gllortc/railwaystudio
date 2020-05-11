@@ -148,7 +148,6 @@
     <Compile Include="Diagnostics\ILogger.cs" />
     <Compile Include="Diagnostics\LoggerSettingsManager.cs" />
     <Compile Include="Diagnostics\WinLogger.cs" />
-    <Compile Include="Layout\ElementTrain.cs" />
     <Compile Include="Layout\FeedbackEncoderConnection.cs" />
     <Compile Include="Layout\AccessoryDecoderOutput.cs" />
     <Compile Include="Layout\FeedbackEncoderInput.cs" />
@@ -199,6 +198,7 @@
     <Compile Include="Themes\ITheme.cs" />
     <Compile Include="Internationalization\OTCLanguage.cs" />
     <Compile Include="Trains\TrainDigitalAddress.cs" />
+    <Compile Include="Utils\EnumItemImage.cs" />
     <Compile Include="Utils\NumericUtils.cs" />
     <Compile Include="Help\OTCHelpIndex.cs" />
     <Compile Include="Trains\Company.cs" />
@@ -213,8 +213,6 @@
     <Compile Include="Trains\Store.cs" />
     <Compile Include="Utils\Range.cs" />
     <Compile Include="Utils\ReflectionUtils.cs" />
-    <Compile Include="Utils\Coordinates.cs" />
-    <Compile Include="Utils\EnumItemImage.cs" />
     <Compile Include="Utils\IOUtils.cs" />
     <Compile Include="Utils\BinaryUtils.cs" />
     <Compile Include="Net\EventArgs.cs" />

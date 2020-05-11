@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.Common;
 using Rwm.Otc.Data;
 using Rwm.Otc.Diagnostics;
+using Rwm.Otc.Layout;
 using Rwm.Otc.Utils;
 using static Rwm.Otc.Data.ORMForeignCollection;
 
@@ -231,6 +232,11 @@ namespace Rwm.Otc.Trains
       /// </summary>
       [ORMProperty("MANUFACTURERID")]
       public Manufacturer Manufacturer { get; set; }
+
+      /// <summary>
+      /// Gets or sets the block element occupied by current train.
+      /// </summary>
+      public Element BlockOccupied { get; set; } = null;
 
       /// <summary>
       /// Gets or set sthe train name.
@@ -540,27 +546,66 @@ namespace Rwm.Otc.Trains
       #region Static Members
 
       /// <summary>
+      /// Find all <see cref="Train"/> instances with a digital address assigned.
+      /// </summary>
+      /// <returns>The requested list of <see cref="Train"/> instances.</returns>
+      public static ICollection<Train> FindAllDigital()
+      {
+         return Train.FindByQuery("moddigitaladd > 0");
+      }
+
+      [Obsolete]
+      public static DataTable ListTrains()
+      {
+         try
+         {
+            string sql = @"SELECT 
+                             t.id, 
+                             e.id,  
+                             t.IMAGEDATA     As ""Icon"", 
+                             t.name          As ""Name"", 
+                             t.moddigitaladd As ""Address"",
+                             Case 
+                                 When (e.Name IS null) Or (e.Name='') Then 'X:' || e.x || ';Y:' || e.y
+                                 Else e.Name 
+                             End             As ""Block""
+                          FROM 
+                             " + Train.TableName + @" t 
+                             Left Join " + Element.TableName + @" e  On (e.trainid = t.id)
+                          WHERE 
+                             t.moddigitaladd > 0 
+                          ORDER BY 
+                             t.name ASC";
+
+            return Train.ExecuteDataTable(sql);
+         }
+         catch (Exception ex)
+         {
+            Logger.LogError(ex);
+            throw ex;
+         }
+      }
+
+      /// <summary>
       /// Get all paint schemes used in all mkdels.
       /// </summary>
       /// <returns>A list filled with strings.</returns>
       public static List<string> GetPaintSchemes()
       {
-         string sql = string.Empty;
          List<string> paints = new List<string>();
 
          try
          {
-            Connect();
-
             // Genera la senténcia SQL que obtiene los elementos
-            sql = @"SELECT DISTINCT 
-                        modpaint 
-                    FROM 
-                        " + Train.TableName + @" 
-                    ORDER BY 
-                        modpaint ASC";
+            string sql = @"SELECT DISTINCT 
+                               modpaint 
+                           FROM 
+                               " + Train.TableName + @" 
+                           ORDER BY 
+                               modpaint ASC";
 
-            using (DbDataReader reader = ExecuteReader(sql))
+            Train.Connect();
+            using (DbDataReader reader = Train.ExecuteReader(sql))
             {
                while (reader.Read())
                {
@@ -573,12 +618,11 @@ namespace Rwm.Otc.Trains
          catch (Exception ex)
          {
             Logger.LogError(ex);
-
-            throw;
+            throw ex;
          }
          finally
          {
-            Disconnect();
+            Train.Disconnect();
          }
       }
 

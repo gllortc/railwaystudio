@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Drawing;
 using Rwm.Otc.Data;
+using Rwm.Otc.Diagnostics;
 using Rwm.Otc.Systems;
 using Rwm.Otc.Themes;
 using Rwm.Otc.Trains;
-using Rwm.Otc.Utils;
 using static Rwm.Otc.Data.ORMForeignCollection;
 
 namespace Rwm.Otc.Layout
@@ -80,59 +80,60 @@ namespace Rwm.Otc.Layout
       /// Gets or sets the object unique identifier.
       /// </summary>
       [ORMPrimaryKey()]
-      public override long ID { get; set; }
+      public override long ID { get; set; } = 0;
 
       /// <summary>
       /// Gets or sets the owner switchboard panel.
       /// </summary>
-      [ORMProperty("switchboardid")]
-      public Switchboard Switchboard { get; set; }
+      [ORMProperty("SWITCHBOARDID")]
+      public Switchboard Switchboard { get; set; } = null;
 
       /// <summary>
       /// Gets or sets the owner switchboard panel.
       /// </summary>
-      [ORMProperty("type")]
-      public ElementType Properties { get; set; }
+      [ORMProperty("TYPEID")]
+      public ElementType Properties { get; set; } = null;
 
       /// <summary>
       /// Columna en la que se sitúa el bloque (X).
       /// </summary>
-      [ORMProperty("x")]
-      public int X { get; set; }
+      [ORMProperty("X")]
+      public int X { get; set; } = 0;
 
       /// <summary>
       /// Fila en la que se sitúa el bloque (Y).
       /// </summary>
-      [ORMProperty("y")]
-      public int Y { get; set; }
+      [ORMProperty("Y")]
+      public int Y { get; set; } = 0;
 
       /// <summary>
       /// Rotación del elemento.
       /// </summary>
-      [ORMProperty("rotation")]
-      public RotationStep Rotation { get; set; }
+      [ORMProperty("ROTATION")]
+      public RotationStep Rotation { get; set; } = RotationStep.Step0;
 
       /// <summary>
       /// Nombre descriptivo del bloque.
       /// </summary>
-      [ORMProperty("name")]
-      public string Name { get; set; }
+      [ORMProperty("NAME")]
+      public string Name { get; set; } = string.Empty;
 
       /// <summary>
       /// Gets the current element status as an accessory element.
       /// </summary>
-      [ORMProperty("status")]
+      [ORMProperty("STATUS")]
       public int AccessoryStatus { get; private set; } = Element.STATUS_UNDEFINED;
 
       /// <summary>
       /// Gets the route element activated in the element.
       /// </summary>
-      public RouteElement RouteElement { get; set; }
+      public RouteElement RouteElement { get; set; } = null;
 
       /// <summary>
       /// Gets the current element feedback status.
       /// </summary>
-      public Train Train { get; set; }
+      [ORMProperty("TRAINID", "BlockOccupied")]
+      public Train Train { get; set; } = null;
 
       /// <summary>
       /// Gets or sets the list of event actions for the element.
@@ -143,9 +144,9 @@ namespace Rwm.Otc.Layout
       /// <summary>
       /// Gets the coordinates for the element.
       /// </summary>
-      public Coordinates Coordinates
+      public Point Coordinates
       {
-         get { return new Coordinates(this.X, this.Y); }
+         get { return new Point(this.X, this.Y); }
       }
 
       /// <summary>
@@ -168,7 +169,10 @@ namespace Rwm.Otc.Layout
       /// <summary>
       /// Gets a value indicating if the block is occupied.
       /// </summary>
-      public bool IsBlockOccupied { get; private set; } = false;
+      public bool IsBlockOccupied 
+      { 
+         get { return (this.Train != null); }
+      }
 
       /// <summary>
       /// Gets a value indicating if the element have one or more digital connections.
@@ -185,11 +189,6 @@ namespace Rwm.Otc.Layout
       {
          get { return (!string.IsNullOrWhiteSpace(this.Name) ? this.Name : this.Coordinates.ToString()); }
       }
-
-      /// <summary>
-      /// Gets a <see cref="Boolean"/> value indicating if the status has been confirmed from the command station.
-      /// </summary>
-      internal bool Statusconfirmed { get; private set; } = false;
 
       #endregion
 
@@ -213,15 +212,6 @@ namespace Rwm.Otc.Layout
       {
          return theme.GetElementImage(this, status);
       }
-
-      ///// <summary>
-      ///// Returns the size (in pixels) of the element.
-      ///// </summary>
-      ///// <returns>The requested image size.</returns>
-      //public Size GetSize(ITheme theme)
-      //{
-      //   return new Size(theme.ElementSize.Width * this.Properties.Width, theme.ElementSize.Height);
-      //}
 
       /// <summary>
       /// Rotate the element 90º to right direction.
@@ -253,13 +243,13 @@ namespace Rwm.Otc.Layout
       /// Get all coordinates occupied by the element.
       /// </summary>
       /// <returns>An array with all used coordinates.</returns>
-      public IEnumerable<Coordinates> GetUsedCoordinates()
+      public IEnumerable<Point> GetUsedCoordinates()
       {
          int x = this.X;
-         Coordinates[] coords = new Coordinates[this.Properties.Width];
+         Point[] coords = new Point[this.Properties.Width];
          for (int i = 0; i < this.Properties.Width; i++)
          {
-            coords[i] = new Coordinates(x, this.Y);
+            coords[i] = new Point(x, this.Y);
             x++;
          }
          return coords;
@@ -271,9 +261,9 @@ namespace Rwm.Otc.Layout
       /// <param name="element">Element to check.</param>
       /// <param name="coords">Coordinates to check.</param>
       /// <returns>A value indicating if the element is ocuupying the specified coordinates.</returns>
-      public bool IsInCoordinates(Coordinates coords)
+      public bool IsInCoordinates(Point coords)
       {
-         Coordinates tc = this.Coordinates.Clone();
+         Point tc = new Point(this.Coordinates.X, this.Coordinates.Y);
 
          for (int x = this.Coordinates.X; x < this.Coordinates.X + this.Properties.Width; x++)
          {
@@ -341,15 +331,6 @@ namespace Rwm.Otc.Layout
          return status;
       }
 
-      ///// <summary>
-      ///// Returns the default connection map for the specified connection index.
-      ///// </summary>
-      ///// <returns>An instance of <see cref="ConnectionMap"/> with default settings.</returns>
-      //public DeviceConnectionMap GetDefaultConnectionMap(int connectionIndex)
-      //{
-      //   return new DeviceConnectionMap(Convert.ToInt32("1001", 2));
-      //}
-
       /// <summary>
       /// Set feedback status for the element.
       /// </summary>
@@ -364,37 +345,6 @@ namespace Rwm.Otc.Layout
          // Raise project events
          OTCContext.Project.ElementImageChanged(this);
       }
-
-      ///// <summary>
-      ///// Set route next status for the element.
-      ///// </summary>
-      ///// <returns>A value indicating if the element must be repainted.</returns>
-      //public void SetRouteNextStatus()
-      //{
-      //   if (!this.Properties.IsRouteable) 
-      //      return;
-
-      //   int newStatus = this.GetAccessoryNextStatus(this.RouteStatus);
-      //   if (newStatus <= 1) this.IsActivatedInRoute = !this.IsActivatedInRoute;
-
-      //   // Raise project events
-      //   OTCContext.Project.ElementImageChanged(this);
-      //}
-
-      ///// <summary>
-      ///// Activate/deactivate the element in a route). 
-      ///// </summary>
-      ///// <param name="activated">A value indicating if the element will be activated or deactivated.</param>
-      //public void SetInRoute(bool activated)
-      //{
-      //   if (!this.Properties.IsRouteable)
-      //      return;
-
-      //   this.IsActivatedInRoute = activated;
-
-      //   // Raise project events
-      //   OTCContext.Project.ElementImageChanged(this);
-      //}
 
       /// <summary>
       /// Return a <see cref="System.String"/> representing the name of the element.
@@ -476,6 +426,120 @@ namespace Rwm.Otc.Layout
          }
 
          return null;
+      }
+
+      /// <summary>
+      /// Occupies the specified block with a train.
+      /// </summary>
+      /// <param name="train">Train that occupies the block.</param>
+      /// <param name="element">Occupied block.</param>
+      public static void AssignTrain(Train train, Element element)
+      {
+         if (element == null || train == null)
+            return;
+
+         if (!element.Properties.IsBlock)
+            throw new Exception("Provided element is not a BLOCK.");
+
+         try
+         {
+            Element oldElement = null;
+            if (train.BlockOccupied != null) oldElement = train.BlockOccupied;
+
+            Element.UnassignTrain(train);
+            Element.UnassignBlock(element);
+
+            element.Train = train;
+            element.Train.BlockOccupied = element;
+            Element.Save(element);
+
+            // Raise project events
+            OTCContext.Project.ElementImageChanged(element);
+            if (oldElement != null) OTCContext.Project.ElementImageChanged(oldElement);
+         }
+         catch (Exception ex)
+         {
+            Logger.LogError(ex);
+            throw ex;
+         }
+      }
+
+      /// <summary>
+      /// Clears the current position of the specified train.
+      /// </summary>
+      /// <param name="train">Train to clear.</param>
+      public static void UnassignTrain(Train train)
+      {
+         try
+         {
+            string sql = @"UPDATE 
+                             " + Element.TableName + @" 
+                          SET 
+                             trainid = NULL 
+                          WHERE 
+                             trainid = :trainid ";
+
+            Element.Connect();
+            Element.SetParameter("trainid", train.ID);
+            Element.ExecuteNonQuery(sql);
+
+            if (train.BlockOccupied != null)
+            {
+               train.BlockOccupied.Train = null;
+               train.BlockOccupied = null;
+            }
+         }
+         catch (Exception ex)
+         {
+            Logger.LogError(ex);
+            throw ex;
+         }
+         finally
+         {
+            Element.Disconnect();
+         }
+      }
+
+      /// <summary>
+      /// Deletes the train from the specified position.
+      /// </summary>
+      /// <param name="element">Position to clear.</param>
+      public static void UnassignBlock(Element element)
+      {
+         if (element == null)
+            return;
+
+         if (!element.Properties.IsBlock)
+            throw new Exception("Provided element is not a BLOCK.");
+
+         try
+         {
+            string sql = @"UPDATE 
+                              " + Element.TableName + @" 
+                           SET 
+                              trainid = NULL 
+                           WHERE 
+                              id = :elementid ";
+
+            Element.Connect();
+            Element.SetParameter("elementid", element.ID);
+            Element.ExecuteNonQuery(sql);
+
+            if (element.Train != null)
+            {
+               element.Train.BlockOccupied = null;
+               element.Train = null;
+            }
+         }
+         catch (Exception ex)
+         {
+            Logger.LogError(ex);
+            throw ex;
+         }
+         finally
+         {
+            Element.Disconnect();
+         }
       }
 
       #endregion

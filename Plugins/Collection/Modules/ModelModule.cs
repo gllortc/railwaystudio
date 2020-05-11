@@ -52,36 +52,44 @@ namespace Rwm.Studio.Plugins.Collection.Modules
          get { return ribbonStatusBar; }
       }
 
+      /// <summary>
+      /// Initialize the plug-in module.
+      /// </summary>
+      /// <param name="args">args[0] (optional): Train instance unique identifier.</param>
       public void Initialize(params object[] args)
       {
+         Train train;
+
          this.UpdatePicture = false;
 
-         this.FillLists();
-
-         // Load requested model
-         if (args != null && args.Length >= 1 && args[0].GetType() == typeof(Int64))
+         if (args != null && args.Length >= 1 && args[0].GetType() == typeof(long))
          {
-            this.CurrentModel = Train.Get((Int64)args[0]); // OTCContext.Project.TrainManager.ModelDAO.GetByID((Int64)args[0]);
+            // Load requested model for edit
+            train = Train.Get((long)args[0]);
          }
-         
-         this.SetData();
+         else
+         {
+            train = new Train();
+         }
+
+         this.MapModelToView(train);
       }
 
       #endregion
 
       #region Event Handlers
 
-      private void picImage_EditValueChanged(object sender, EventArgs e)
+      private void PicImage_EditValueChanged(object sender, EventArgs e)
       {
          this.UpdatePicture = true;
       }
 
-      private void cmdFileSave_ItemClick(object sender, ItemClickEventArgs e)
+      private void CmdFileSave_ItemClick(object sender, ItemClickEventArgs e)
       {
          this.Save();
       }
 
-      private void cmdProperties_Click(object sender, EventArgs e)
+      private void CmdProperties_Click(object sender, EventArgs e)
       {
          pmnProperties.ShowPopup(MousePosition);
       }

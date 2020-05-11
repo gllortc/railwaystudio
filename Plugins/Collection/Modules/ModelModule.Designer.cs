@@ -28,9 +28,11 @@
       /// </summary>
       private void InitializeComponent()
       {
-         DevExpress.XtraBars.Ribbon.ReduceOperation reduceOperation1 = new DevExpress.XtraBars.Ribbon.ReduceOperation();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModelModule));
          DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+         DevExpress.XtraBars.Ribbon.ReduceOperation reduceOperation1 = new DevExpress.XtraBars.Ribbon.ReduceOperation();
+         this.stylesRibbonPageGroup1 = new DevExpress.XtraRichEdit.UI.StylesRibbonPageGroup();
+         this.galleryChangeStyleItem1 = new DevExpress.XtraRichEdit.UI.GalleryChangeStyleItem();
          this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
          this.cmdFileSave = new DevExpress.XtraBars.BarButtonItem();
          this.cmdFileSaveAs = new DevExpress.XtraBars.BarButtonItem();
@@ -53,9 +55,70 @@
          this.barCheckItem13 = new DevExpress.XtraBars.BarCheckItem();
          this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
          this.barCheckItem14 = new DevExpress.XtraBars.BarCheckItem();
+         this.pasteItem1 = new DevExpress.XtraRichEdit.UI.PasteItem();
+         this.cutItem1 = new DevExpress.XtraRichEdit.UI.CutItem();
+         this.copyItem1 = new DevExpress.XtraRichEdit.UI.CopyItem();
+         this.pasteSpecialItem1 = new DevExpress.XtraRichEdit.UI.PasteSpecialItem();
+         this.barButtonGroup1 = new DevExpress.XtraBars.BarButtonGroup();
+         this.changeFontNameItem1 = new DevExpress.XtraRichEdit.UI.ChangeFontNameItem();
+         this.repositoryItemFontEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemFontEdit();
+         this.changeFontSizeItem1 = new DevExpress.XtraRichEdit.UI.ChangeFontSizeItem();
+         this.repositoryItemRichEditFontSizeEdit1 = new DevExpress.XtraRichEdit.Design.RepositoryItemRichEditFontSizeEdit();
+         this.rtfDescription = new DevExpress.XtraRichEdit.RichEditControl();
+         this.fontSizeIncreaseItem1 = new DevExpress.XtraRichEdit.UI.FontSizeIncreaseItem();
+         this.fontSizeDecreaseItem1 = new DevExpress.XtraRichEdit.UI.FontSizeDecreaseItem();
+         this.barButtonGroup2 = new DevExpress.XtraBars.BarButtonGroup();
+         this.toggleFontBoldItem1 = new DevExpress.XtraRichEdit.UI.ToggleFontBoldItem();
+         this.toggleFontItalicItem1 = new DevExpress.XtraRichEdit.UI.ToggleFontItalicItem();
+         this.toggleFontUnderlineItem1 = new DevExpress.XtraRichEdit.UI.ToggleFontUnderlineItem();
+         this.toggleFontDoubleUnderlineItem1 = new DevExpress.XtraRichEdit.UI.ToggleFontDoubleUnderlineItem();
+         this.toggleFontStrikeoutItem1 = new DevExpress.XtraRichEdit.UI.ToggleFontStrikeoutItem();
+         this.toggleFontDoubleStrikeoutItem1 = new DevExpress.XtraRichEdit.UI.ToggleFontDoubleStrikeoutItem();
+         this.toggleFontSuperscriptItem1 = new DevExpress.XtraRichEdit.UI.ToggleFontSuperscriptItem();
+         this.toggleFontSubscriptItem1 = new DevExpress.XtraRichEdit.UI.ToggleFontSubscriptItem();
+         this.barButtonGroup3 = new DevExpress.XtraBars.BarButtonGroup();
+         this.changeFontColorItem1 = new DevExpress.XtraRichEdit.UI.ChangeFontColorItem();
+         this.changeFontBackColorItem1 = new DevExpress.XtraRichEdit.UI.ChangeFontBackColorItem();
+         this.changeTextCaseItem1 = new DevExpress.XtraRichEdit.UI.ChangeTextCaseItem();
+         this.makeTextUpperCaseItem1 = new DevExpress.XtraRichEdit.UI.MakeTextUpperCaseItem();
+         this.makeTextLowerCaseItem1 = new DevExpress.XtraRichEdit.UI.MakeTextLowerCaseItem();
+         this.capitalizeEachWordCaseItem1 = new DevExpress.XtraRichEdit.UI.CapitalizeEachWordCaseItem();
+         this.toggleTextCaseItem1 = new DevExpress.XtraRichEdit.UI.ToggleTextCaseItem();
+         this.clearFormattingItem1 = new DevExpress.XtraRichEdit.UI.ClearFormattingItem();
+         this.barButtonGroup4 = new DevExpress.XtraBars.BarButtonGroup();
+         this.toggleBulletedListItem1 = new DevExpress.XtraRichEdit.UI.ToggleBulletedListItem();
+         this.toggleNumberingListItem1 = new DevExpress.XtraRichEdit.UI.ToggleNumberingListItem();
+         this.toggleMultiLevelListItem1 = new DevExpress.XtraRichEdit.UI.ToggleMultiLevelListItem();
+         this.barButtonGroup5 = new DevExpress.XtraBars.BarButtonGroup();
+         this.decreaseIndentItem1 = new DevExpress.XtraRichEdit.UI.DecreaseIndentItem();
+         this.increaseIndentItem1 = new DevExpress.XtraRichEdit.UI.IncreaseIndentItem();
+         this.toggleShowWhitespaceItem1 = new DevExpress.XtraRichEdit.UI.ToggleShowWhitespaceItem();
+         this.barButtonGroup6 = new DevExpress.XtraBars.BarButtonGroup();
+         this.toggleParagraphAlignmentLeftItem1 = new DevExpress.XtraRichEdit.UI.ToggleParagraphAlignmentLeftItem();
+         this.toggleParagraphAlignmentCenterItem1 = new DevExpress.XtraRichEdit.UI.ToggleParagraphAlignmentCenterItem();
+         this.toggleParagraphAlignmentRightItem1 = new DevExpress.XtraRichEdit.UI.ToggleParagraphAlignmentRightItem();
+         this.toggleParagraphAlignmentJustifyItem1 = new DevExpress.XtraRichEdit.UI.ToggleParagraphAlignmentJustifyItem();
+         this.barButtonGroup7 = new DevExpress.XtraBars.BarButtonGroup();
+         this.changeParagraphLineSpacingItem1 = new DevExpress.XtraRichEdit.UI.ChangeParagraphLineSpacingItem();
+         this.setSingleParagraphSpacingItem1 = new DevExpress.XtraRichEdit.UI.SetSingleParagraphSpacingItem();
+         this.setSesquialteralParagraphSpacingItem1 = new DevExpress.XtraRichEdit.UI.SetSesquialteralParagraphSpacingItem();
+         this.setDoubleParagraphSpacingItem1 = new DevExpress.XtraRichEdit.UI.SetDoubleParagraphSpacingItem();
+         this.showLineSpacingFormItem1 = new DevExpress.XtraRichEdit.UI.ShowLineSpacingFormItem();
+         this.addSpacingBeforeParagraphItem1 = new DevExpress.XtraRichEdit.UI.AddSpacingBeforeParagraphItem();
+         this.removeSpacingBeforeParagraphItem1 = new DevExpress.XtraRichEdit.UI.RemoveSpacingBeforeParagraphItem();
+         this.addSpacingAfterParagraphItem1 = new DevExpress.XtraRichEdit.UI.AddSpacingAfterParagraphItem();
+         this.removeSpacingAfterParagraphItem1 = new DevExpress.XtraRichEdit.UI.RemoveSpacingAfterParagraphItem();
+         this.changeParagraphBackColorItem1 = new DevExpress.XtraRichEdit.UI.ChangeParagraphBackColorItem();
+         this.findItem1 = new DevExpress.XtraRichEdit.UI.FindItem();
+         this.replaceItem1 = new DevExpress.XtraRichEdit.UI.ReplaceItem();
          this.rbpModel = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.rpgFile = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.rpgPrint = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+         this.homeRibbonPage1 = new DevExpress.XtraRichEdit.UI.HomeRibbonPage();
+         this.clipboardRibbonPageGroup1 = new DevExpress.XtraRichEdit.UI.ClipboardRibbonPageGroup();
+         this.fontRibbonPageGroup1 = new DevExpress.XtraRichEdit.UI.FontRibbonPageGroup();
+         this.paragraphRibbonPageGroup1 = new DevExpress.XtraRichEdit.UI.ParagraphRibbonPageGroup();
+         this.editingRibbonPageGroup1 = new DevExpress.XtraRichEdit.UI.EditingRibbonPageGroup();
          this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
          this.cmdProperties = new DevExpress.XtraEditors.SimpleButton();
          this.pmnProperties = new DevExpress.XtraBars.PopupMenu();
@@ -65,20 +128,21 @@
          this.picImage = new DevExpress.XtraEditors.PictureEdit();
          this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
          this.grpProperties = new DevExpress.XtraEditors.GroupControl();
+         this.cboEra = new Rwm.Studio.Plugins.Collection.Controls.EraImageComboBoxEdit();
+         this.cboCompany = new Rwm.Studio.Plugins.Collection.Controls.CompanyImageComboBoxEdit();
+         this.cboCategory = new Rwm.Studio.Plugins.Collection.Controls.CategoryImageComboBoxEdit();
          this.lblPaintScheme = new DevExpress.XtraEditors.LabelControl();
          this.cboPaintScheme = new DevExpress.XtraEditors.ComboBoxEdit();
-         this.cboEra = new DevExpress.XtraEditors.ImageComboBoxEdit();
-         this.imlEpoch = new System.Windows.Forms.ImageList();
          this.lblEra = new DevExpress.XtraEditors.LabelControl();
-         this.cboAdministration = new DevExpress.XtraEditors.ImageComboBoxEdit();
-         this.imlObjects = new System.Windows.Forms.ImageList();
          this.lblAdministration = new DevExpress.XtraEditors.LabelControl();
          this.txtName = new DevExpress.XtraEditors.TextEdit();
-         this.cboCategory = new DevExpress.XtraEditors.ImageComboBoxEdit();
          this.lblName = new DevExpress.XtraEditors.LabelControl();
          this.lblCategory = new DevExpress.XtraEditors.LabelControl();
          this.tabModelScale = new DevExpress.XtraTab.XtraTabPage();
          this.grpScaleProperties = new DevExpress.XtraEditors.GroupControl();
+         this.cboPropertiesIntEq = new DevExpress.XtraEditors.ImageComboBoxEdit();
+         this.imlObjects = new System.Windows.Forms.ImageList();
+         this.lblPropertiesIntEq = new DevExpress.XtraEditors.LabelControl();
          this.cboPropertiesFrame = new DevExpress.XtraEditors.ImageComboBoxEdit();
          this.lblPropertiesFrame = new DevExpress.XtraEditors.LabelControl();
          this.cboPropertiesCouplers = new DevExpress.XtraEditors.ImageComboBoxEdit();
@@ -90,14 +154,15 @@
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
          this.grpDigital = new DevExpress.XtraEditors.GroupControl();
+         this.cboDigitalDecoder = new Rwm.Studio.Plugins.Collection.Controls.DecoderImageComboBoxEdit();
          this.cboDigitalPlug = new DevExpress.XtraEditors.ImageComboBoxEdit();
          this.lblDigitalPlug = new DevExpress.XtraEditors.LabelControl();
-         this.cboDigitalDecoder = new DevExpress.XtraEditors.ImageComboBoxEdit();
          this.lblDigitalDecoder = new DevExpress.XtraEditors.LabelControl();
          this.txtDigitalAddress = new DevExpress.XtraEditors.SpinEdit();
          this.lblDigitalAddress = new DevExpress.XtraEditors.LabelControl();
          this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
          this.grpScaleSales = new DevExpress.XtraEditors.GroupControl();
+         this.cboStore = new Rwm.Studio.Plugins.Common.Controls.StoreImageComboBoxEdit();
          this.chkPurchasePending = new DevExpress.XtraEditors.CheckEdit();
          this.txtLimitedModel = new DevExpress.XtraEditors.TextEdit();
          this.chkLimitedModel = new DevExpress.XtraEditors.CheckEdit();
@@ -107,89 +172,26 @@
          this.lblPricePurchase = new DevExpress.XtraEditors.LabelControl();
          this.dtePurchaseDate = new DevExpress.XtraEditors.DateEdit();
          this.lblBuyDate = new DevExpress.XtraEditors.LabelControl();
-         this.cboStore = new DevExpress.XtraEditors.ImageComboBoxEdit();
          this.lblStore = new DevExpress.XtraEditors.LabelControl();
          this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
          this.grpScaleGeneral = new DevExpress.XtraEditors.GroupControl();
-         this.cboScale = new DevExpress.XtraEditors.ImageComboBoxEdit();
+         this.cboGauge = new Rwm.Studio.Plugins.Collection.Controls.GaugeImageComboBoxEdit();
+         this.cboManufacturer = new Rwm.Studio.Plugins.Common.Controls.ManufacturerImageComboBoxEdit();
          this.lblScale = new DevExpress.XtraEditors.LabelControl();
          this.txtReference = new DevExpress.XtraEditors.TextEdit();
          this.lblReference = new DevExpress.XtraEditors.LabelControl();
          this.txtItems = new DevExpress.XtraEditors.SpinEdit();
          this.lblItems = new DevExpress.XtraEditors.LabelControl();
-         this.cboManufacturer = new DevExpress.XtraEditors.ImageComboBoxEdit();
          this.lblManufacturer = new DevExpress.XtraEditors.LabelControl();
          this.tabModelReal = new DevExpress.XtraTab.XtraTabPage();
          this.tabModelMaintenance = new DevExpress.XtraTab.XtraTabPage();
+         this.imlEpoch = new System.Windows.Forms.ImageList();
          this.imlLargeObjects = new System.Windows.Forms.ImageList();
          this.pnlContainer = new DevExpress.XtraEditors.PanelControl();
-         this.cboPropertiesIntEq = new DevExpress.XtraEditors.ImageComboBoxEdit();
-         this.lblPropertiesIntEq = new DevExpress.XtraEditors.LabelControl();
-         this.rtfDescription = new DevExpress.XtraRichEdit.RichEditControl();
          this.richEditBarController1 = new DevExpress.XtraRichEdit.UI.RichEditBarController();
-         this.clipboardRibbonPageGroup1 = new DevExpress.XtraRichEdit.UI.ClipboardRibbonPageGroup();
-         this.homeRibbonPage1 = new DevExpress.XtraRichEdit.UI.HomeRibbonPage();
-         this.pasteItem1 = new DevExpress.XtraRichEdit.UI.PasteItem();
-         this.cutItem1 = new DevExpress.XtraRichEdit.UI.CutItem();
-         this.copyItem1 = new DevExpress.XtraRichEdit.UI.CopyItem();
-         this.pasteSpecialItem1 = new DevExpress.XtraRichEdit.UI.PasteSpecialItem();
-         this.fontRibbonPageGroup1 = new DevExpress.XtraRichEdit.UI.FontRibbonPageGroup();
-         this.changeFontNameItem1 = new DevExpress.XtraRichEdit.UI.ChangeFontNameItem();
-         this.changeFontSizeItem1 = new DevExpress.XtraRichEdit.UI.ChangeFontSizeItem();
-         this.fontSizeIncreaseItem1 = new DevExpress.XtraRichEdit.UI.FontSizeIncreaseItem();
-         this.fontSizeDecreaseItem1 = new DevExpress.XtraRichEdit.UI.FontSizeDecreaseItem();
-         this.toggleFontBoldItem1 = new DevExpress.XtraRichEdit.UI.ToggleFontBoldItem();
-         this.toggleFontItalicItem1 = new DevExpress.XtraRichEdit.UI.ToggleFontItalicItem();
-         this.toggleFontUnderlineItem1 = new DevExpress.XtraRichEdit.UI.ToggleFontUnderlineItem();
-         this.toggleFontDoubleUnderlineItem1 = new DevExpress.XtraRichEdit.UI.ToggleFontDoubleUnderlineItem();
-         this.toggleFontStrikeoutItem1 = new DevExpress.XtraRichEdit.UI.ToggleFontStrikeoutItem();
-         this.toggleFontDoubleStrikeoutItem1 = new DevExpress.XtraRichEdit.UI.ToggleFontDoubleStrikeoutItem();
-         this.toggleFontSuperscriptItem1 = new DevExpress.XtraRichEdit.UI.ToggleFontSuperscriptItem();
-         this.toggleFontSubscriptItem1 = new DevExpress.XtraRichEdit.UI.ToggleFontSubscriptItem();
-         this.changeFontColorItem1 = new DevExpress.XtraRichEdit.UI.ChangeFontColorItem();
-         this.changeFontBackColorItem1 = new DevExpress.XtraRichEdit.UI.ChangeFontBackColorItem();
-         this.changeTextCaseItem1 = new DevExpress.XtraRichEdit.UI.ChangeTextCaseItem();
-         this.makeTextUpperCaseItem1 = new DevExpress.XtraRichEdit.UI.MakeTextUpperCaseItem();
-         this.makeTextLowerCaseItem1 = new DevExpress.XtraRichEdit.UI.MakeTextLowerCaseItem();
-         this.capitalizeEachWordCaseItem1 = new DevExpress.XtraRichEdit.UI.CapitalizeEachWordCaseItem();
-         this.toggleTextCaseItem1 = new DevExpress.XtraRichEdit.UI.ToggleTextCaseItem();
-         this.clearFormattingItem1 = new DevExpress.XtraRichEdit.UI.ClearFormattingItem();
-         this.barButtonGroup1 = new DevExpress.XtraBars.BarButtonGroup();
-         this.repositoryItemFontEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemFontEdit();
-         this.repositoryItemRichEditFontSizeEdit1 = new DevExpress.XtraRichEdit.Design.RepositoryItemRichEditFontSizeEdit();
-         this.barButtonGroup2 = new DevExpress.XtraBars.BarButtonGroup();
-         this.barButtonGroup3 = new DevExpress.XtraBars.BarButtonGroup();
-         this.paragraphRibbonPageGroup1 = new DevExpress.XtraRichEdit.UI.ParagraphRibbonPageGroup();
-         this.toggleBulletedListItem1 = new DevExpress.XtraRichEdit.UI.ToggleBulletedListItem();
-         this.toggleNumberingListItem1 = new DevExpress.XtraRichEdit.UI.ToggleNumberingListItem();
-         this.toggleMultiLevelListItem1 = new DevExpress.XtraRichEdit.UI.ToggleMultiLevelListItem();
-         this.decreaseIndentItem1 = new DevExpress.XtraRichEdit.UI.DecreaseIndentItem();
-         this.increaseIndentItem1 = new DevExpress.XtraRichEdit.UI.IncreaseIndentItem();
-         this.toggleParagraphAlignmentLeftItem1 = new DevExpress.XtraRichEdit.UI.ToggleParagraphAlignmentLeftItem();
-         this.toggleParagraphAlignmentCenterItem1 = new DevExpress.XtraRichEdit.UI.ToggleParagraphAlignmentCenterItem();
-         this.toggleParagraphAlignmentRightItem1 = new DevExpress.XtraRichEdit.UI.ToggleParagraphAlignmentRightItem();
-         this.toggleParagraphAlignmentJustifyItem1 = new DevExpress.XtraRichEdit.UI.ToggleParagraphAlignmentJustifyItem();
-         this.toggleShowWhitespaceItem1 = new DevExpress.XtraRichEdit.UI.ToggleShowWhitespaceItem();
-         this.changeParagraphLineSpacingItem1 = new DevExpress.XtraRichEdit.UI.ChangeParagraphLineSpacingItem();
-         this.setSingleParagraphSpacingItem1 = new DevExpress.XtraRichEdit.UI.SetSingleParagraphSpacingItem();
-         this.setSesquialteralParagraphSpacingItem1 = new DevExpress.XtraRichEdit.UI.SetSesquialteralParagraphSpacingItem();
-         this.setDoubleParagraphSpacingItem1 = new DevExpress.XtraRichEdit.UI.SetDoubleParagraphSpacingItem();
-         this.showLineSpacingFormItem1 = new DevExpress.XtraRichEdit.UI.ShowLineSpacingFormItem();
-         this.addSpacingBeforeParagraphItem1 = new DevExpress.XtraRichEdit.UI.AddSpacingBeforeParagraphItem();
-         this.removeSpacingBeforeParagraphItem1 = new DevExpress.XtraRichEdit.UI.RemoveSpacingBeforeParagraphItem();
-         this.addSpacingAfterParagraphItem1 = new DevExpress.XtraRichEdit.UI.AddSpacingAfterParagraphItem();
-         this.removeSpacingAfterParagraphItem1 = new DevExpress.XtraRichEdit.UI.RemoveSpacingAfterParagraphItem();
-         this.changeParagraphBackColorItem1 = new DevExpress.XtraRichEdit.UI.ChangeParagraphBackColorItem();
-         this.barButtonGroup4 = new DevExpress.XtraBars.BarButtonGroup();
-         this.barButtonGroup5 = new DevExpress.XtraBars.BarButtonGroup();
-         this.barButtonGroup6 = new DevExpress.XtraBars.BarButtonGroup();
-         this.barButtonGroup7 = new DevExpress.XtraBars.BarButtonGroup();
-         this.stylesRibbonPageGroup1 = new DevExpress.XtraRichEdit.UI.StylesRibbonPageGroup();
-         this.galleryChangeStyleItem1 = new DevExpress.XtraRichEdit.UI.GalleryChangeStyleItem();
-         this.editingRibbonPageGroup1 = new DevExpress.XtraRichEdit.UI.EditingRibbonPageGroup();
-         this.findItem1 = new DevExpress.XtraRichEdit.UI.FindItem();
-         this.replaceItem1 = new DevExpress.XtraRichEdit.UI.ReplaceItem();
          ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEdit1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichEditFontSizeEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.pmnProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.tabModel)).BeginInit();
          this.tabModel.SuspendLayout();
@@ -200,14 +202,15 @@
          ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.grpProperties)).BeginInit();
          this.grpProperties.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.cboPaintScheme.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.cboEra.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.cboAdministration.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.cboCompany.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.cboCategory.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.cboPaintScheme.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
          this.tabModelScale.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.grpScaleProperties)).BeginInit();
          this.grpScaleProperties.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.cboPropertiesIntEq.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.cboPropertiesFrame.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.cboPropertiesCouplers.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.cboPropertiesIntLights.Properties)).BeginInit();
@@ -215,12 +218,13 @@
          ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.grpDigital)).BeginInit();
          this.grpDigital.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.cboDigitalPlug.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.cboDigitalDecoder.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.cboDigitalPlug.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtDigitalAddress.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.grpScaleSales)).BeginInit();
          this.grpScaleSales.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.cboStore.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.chkPurchasePending.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtLimitedModel.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.chkLimitedModel.Properties)).BeginInit();
@@ -228,22 +232,36 @@
          ((System.ComponentModel.ISupportInitialize)(this.txtPurchasePrice.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.dtePurchaseDate.Properties.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.dtePurchaseDate.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.cboStore.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.grpScaleGeneral)).BeginInit();
          this.grpScaleGeneral.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.cboScale.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.cboGauge.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.cboManufacturer.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtReference.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtItems.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.cboManufacturer.Properties)).BeginInit();
          this.tabModelMaintenance.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.pnlContainer)).BeginInit();
          this.pnlContainer.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.cboPropertiesIntEq.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.richEditBarController1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEdit1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichEditFontSizeEdit1)).BeginInit();
          this.SuspendLayout();
+         // 
+         // stylesRibbonPageGroup1
+         // 
+         this.stylesRibbonPageGroup1.Glyph = ((System.Drawing.Image)(resources.GetObject("stylesRibbonPageGroup1.Glyph")));
+         this.stylesRibbonPageGroup1.ItemLinks.Add(this.galleryChangeStyleItem1);
+         this.stylesRibbonPageGroup1.Name = "stylesRibbonPageGroup1";
+         // 
+         // galleryChangeStyleItem1
+         // 
+         // 
+         // 
+         // 
+         this.galleryChangeStyleItem1.Gallery.ColumnCount = 10;
+         this.galleryChangeStyleItem1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
+            galleryItemGroup1});
+         this.galleryChangeStyleItem1.Gallery.ImageSize = new System.Drawing.Size(65, 46);
+         this.galleryChangeStyleItem1.Id = 73;
+         this.galleryChangeStyleItem1.Name = "galleryChangeStyleItem1";
          // 
          // ribbon
          // 
@@ -340,18 +358,18 @@
          // cmdFileSave
          // 
          this.cmdFileSave.Caption = "Save";
-         this.cmdFileSave.Glyph = global::Rwm.Studio.Plugins.Collection.Properties.Resources.ICO_SAVE_16;
          this.cmdFileSave.Id = 1;
-         this.cmdFileSave.LargeGlyph = global::Rwm.Studio.Plugins.Collection.Properties.Resources.ICO_SAVE_32;
+         this.cmdFileSave.ImageOptions.Image = global::Rwm.Studio.Plugins.Collection.Properties.Resources.ICO_SAVE_16;
+         this.cmdFileSave.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Collection.Properties.Resources.ICO_SAVE_32;
          this.cmdFileSave.Name = "cmdFileSave";
-         this.cmdFileSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdFileSave_ItemClick);
+         this.cmdFileSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdFileSave_ItemClick);
          // 
          // cmdFileSaveAs
          // 
          this.cmdFileSaveAs.Caption = "Save as...";
-         this.cmdFileSaveAs.Glyph = global::Rwm.Studio.Plugins.Collection.Properties.Resources.ICO_SAVEAS_16;
          this.cmdFileSaveAs.Id = 2;
-         this.cmdFileSaveAs.LargeGlyph = global::Rwm.Studio.Plugins.Collection.Properties.Resources.ICO_SAVEAS_32;
+         this.cmdFileSaveAs.ImageOptions.Image = global::Rwm.Studio.Plugins.Collection.Properties.Resources.ICO_SAVEAS_16;
+         this.cmdFileSaveAs.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Collection.Properties.Resources.ICO_SAVEAS_32;
          this.cmdFileSaveAs.Name = "cmdFileSaveAs";
          // 
          // barSubItem1
@@ -502,6 +520,347 @@
          this.barCheckItem14.Id = 21;
          this.barCheckItem14.Name = "barCheckItem14";
          // 
+         // pasteItem1
+         // 
+         this.pasteItem1.Id = 29;
+         this.pasteItem1.Name = "pasteItem1";
+         // 
+         // cutItem1
+         // 
+         this.cutItem1.Id = 30;
+         this.cutItem1.Name = "cutItem1";
+         // 
+         // copyItem1
+         // 
+         this.copyItem1.Id = 31;
+         this.copyItem1.Name = "copyItem1";
+         // 
+         // pasteSpecialItem1
+         // 
+         this.pasteSpecialItem1.Id = 32;
+         this.pasteSpecialItem1.Name = "pasteSpecialItem1";
+         // 
+         // barButtonGroup1
+         // 
+         this.barButtonGroup1.Id = 22;
+         this.barButtonGroup1.ItemLinks.Add(this.changeFontNameItem1, "FF");
+         this.barButtonGroup1.ItemLinks.Add(this.changeFontSizeItem1);
+         this.barButtonGroup1.ItemLinks.Add(this.fontSizeIncreaseItem1, "FG");
+         this.barButtonGroup1.ItemLinks.Add(this.fontSizeDecreaseItem1, "FK");
+         this.barButtonGroup1.Name = "barButtonGroup1";
+         this.barButtonGroup1.Tag = "{97BBE334-159B-44d9-A168-0411957565E8}";
+         // 
+         // changeFontNameItem1
+         // 
+         this.changeFontNameItem1.Edit = this.repositoryItemFontEdit1;
+         this.changeFontNameItem1.Id = 33;
+         this.changeFontNameItem1.Name = "changeFontNameItem1";
+         // 
+         // repositoryItemFontEdit1
+         // 
+         this.repositoryItemFontEdit1.AutoHeight = false;
+         this.repositoryItemFontEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.repositoryItemFontEdit1.Name = "repositoryItemFontEdit1";
+         // 
+         // changeFontSizeItem1
+         // 
+         this.changeFontSizeItem1.Edit = this.repositoryItemRichEditFontSizeEdit1;
+         this.changeFontSizeItem1.Id = 34;
+         this.changeFontSizeItem1.Name = "changeFontSizeItem1";
+         // 
+         // repositoryItemRichEditFontSizeEdit1
+         // 
+         this.repositoryItemRichEditFontSizeEdit1.AutoHeight = false;
+         this.repositoryItemRichEditFontSizeEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.repositoryItemRichEditFontSizeEdit1.Control = this.rtfDescription;
+         this.repositoryItemRichEditFontSizeEdit1.Name = "repositoryItemRichEditFontSizeEdit1";
+         // 
+         // rtfDescription
+         // 
+         this.rtfDescription.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this.rtfDescription.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.rtfDescription.Location = new System.Drawing.Point(0, 0);
+         this.rtfDescription.MenuManager = this.ribbon;
+         this.rtfDescription.Name = "rtfDescription";
+         this.rtfDescription.Options.Bookmarks.ConflictNameResolution = DevExpress.XtraRichEdit.ConflictNameAction.Skip;
+         this.rtfDescription.Size = new System.Drawing.Size(979, 495);
+         this.rtfDescription.TabIndex = 0;
+         this.rtfDescription.Text = "richEditControl1";
+         // 
+         // fontSizeIncreaseItem1
+         // 
+         this.fontSizeIncreaseItem1.Id = 35;
+         this.fontSizeIncreaseItem1.Name = "fontSizeIncreaseItem1";
+         // 
+         // fontSizeDecreaseItem1
+         // 
+         this.fontSizeDecreaseItem1.Id = 36;
+         this.fontSizeDecreaseItem1.Name = "fontSizeDecreaseItem1";
+         // 
+         // barButtonGroup2
+         // 
+         this.barButtonGroup2.Id = 23;
+         this.barButtonGroup2.ItemLinks.Add(this.toggleFontBoldItem1);
+         this.barButtonGroup2.ItemLinks.Add(this.toggleFontItalicItem1);
+         this.barButtonGroup2.ItemLinks.Add(this.toggleFontUnderlineItem1);
+         this.barButtonGroup2.ItemLinks.Add(this.toggleFontDoubleUnderlineItem1);
+         this.barButtonGroup2.ItemLinks.Add(this.toggleFontStrikeoutItem1);
+         this.barButtonGroup2.ItemLinks.Add(this.toggleFontDoubleStrikeoutItem1);
+         this.barButtonGroup2.ItemLinks.Add(this.toggleFontSuperscriptItem1);
+         this.barButtonGroup2.ItemLinks.Add(this.toggleFontSubscriptItem1);
+         this.barButtonGroup2.Name = "barButtonGroup2";
+         this.barButtonGroup2.Tag = "{433DA7F0-03E2-4650-9DB5-66DD92D16E39}";
+         // 
+         // toggleFontBoldItem1
+         // 
+         this.toggleFontBoldItem1.Id = 37;
+         this.toggleFontBoldItem1.Name = "toggleFontBoldItem1";
+         // 
+         // toggleFontItalicItem1
+         // 
+         this.toggleFontItalicItem1.Id = 38;
+         this.toggleFontItalicItem1.Name = "toggleFontItalicItem1";
+         // 
+         // toggleFontUnderlineItem1
+         // 
+         this.toggleFontUnderlineItem1.Id = 39;
+         this.toggleFontUnderlineItem1.Name = "toggleFontUnderlineItem1";
+         // 
+         // toggleFontDoubleUnderlineItem1
+         // 
+         this.toggleFontDoubleUnderlineItem1.Id = 40;
+         this.toggleFontDoubleUnderlineItem1.Name = "toggleFontDoubleUnderlineItem1";
+         // 
+         // toggleFontStrikeoutItem1
+         // 
+         this.toggleFontStrikeoutItem1.Id = 41;
+         this.toggleFontStrikeoutItem1.Name = "toggleFontStrikeoutItem1";
+         // 
+         // toggleFontDoubleStrikeoutItem1
+         // 
+         this.toggleFontDoubleStrikeoutItem1.Id = 42;
+         this.toggleFontDoubleStrikeoutItem1.Name = "toggleFontDoubleStrikeoutItem1";
+         // 
+         // toggleFontSuperscriptItem1
+         // 
+         this.toggleFontSuperscriptItem1.Id = 43;
+         this.toggleFontSuperscriptItem1.Name = "toggleFontSuperscriptItem1";
+         // 
+         // toggleFontSubscriptItem1
+         // 
+         this.toggleFontSubscriptItem1.Id = 44;
+         this.toggleFontSubscriptItem1.Name = "toggleFontSubscriptItem1";
+         // 
+         // barButtonGroup3
+         // 
+         this.barButtonGroup3.Id = 24;
+         this.barButtonGroup3.ItemLinks.Add(this.changeFontColorItem1, "FC");
+         this.barButtonGroup3.ItemLinks.Add(this.changeFontBackColorItem1, "I");
+         this.barButtonGroup3.Name = "barButtonGroup3";
+         this.barButtonGroup3.Tag = "{DF8C5334-EDE3-47c9-A42C-FE9A9247E180}";
+         // 
+         // changeFontColorItem1
+         // 
+         this.changeFontColorItem1.Id = 45;
+         this.changeFontColorItem1.Name = "changeFontColorItem1";
+         // 
+         // changeFontBackColorItem1
+         // 
+         this.changeFontBackColorItem1.Id = 46;
+         this.changeFontBackColorItem1.Name = "changeFontBackColorItem1";
+         // 
+         // changeTextCaseItem1
+         // 
+         this.changeTextCaseItem1.Id = 47;
+         this.changeTextCaseItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.makeTextUpperCaseItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.makeTextLowerCaseItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.capitalizeEachWordCaseItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.toggleTextCaseItem1)});
+         this.changeTextCaseItem1.Name = "changeTextCaseItem1";
+         // 
+         // makeTextUpperCaseItem1
+         // 
+         this.makeTextUpperCaseItem1.Id = 48;
+         this.makeTextUpperCaseItem1.Name = "makeTextUpperCaseItem1";
+         // 
+         // makeTextLowerCaseItem1
+         // 
+         this.makeTextLowerCaseItem1.Id = 49;
+         this.makeTextLowerCaseItem1.Name = "makeTextLowerCaseItem1";
+         // 
+         // capitalizeEachWordCaseItem1
+         // 
+         this.capitalizeEachWordCaseItem1.Id = 50;
+         this.capitalizeEachWordCaseItem1.Name = "capitalizeEachWordCaseItem1";
+         // 
+         // toggleTextCaseItem1
+         // 
+         this.toggleTextCaseItem1.Id = 51;
+         this.toggleTextCaseItem1.Name = "toggleTextCaseItem1";
+         // 
+         // clearFormattingItem1
+         // 
+         this.clearFormattingItem1.Id = 52;
+         this.clearFormattingItem1.Name = "clearFormattingItem1";
+         // 
+         // barButtonGroup4
+         // 
+         this.barButtonGroup4.Id = 25;
+         this.barButtonGroup4.ItemLinks.Add(this.toggleBulletedListItem1, "U");
+         this.barButtonGroup4.ItemLinks.Add(this.toggleNumberingListItem1, "N");
+         this.barButtonGroup4.ItemLinks.Add(this.toggleMultiLevelListItem1, "M");
+         this.barButtonGroup4.Name = "barButtonGroup4";
+         this.barButtonGroup4.Tag = "{0B3A7A43-3079-4ce0-83A8-3789F5F6DC9F}";
+         // 
+         // toggleBulletedListItem1
+         // 
+         this.toggleBulletedListItem1.Id = 53;
+         this.toggleBulletedListItem1.Name = "toggleBulletedListItem1";
+         // 
+         // toggleNumberingListItem1
+         // 
+         this.toggleNumberingListItem1.Id = 54;
+         this.toggleNumberingListItem1.Name = "toggleNumberingListItem1";
+         // 
+         // toggleMultiLevelListItem1
+         // 
+         this.toggleMultiLevelListItem1.Id = 55;
+         this.toggleMultiLevelListItem1.Name = "toggleMultiLevelListItem1";
+         // 
+         // barButtonGroup5
+         // 
+         this.barButtonGroup5.Id = 26;
+         this.barButtonGroup5.ItemLinks.Add(this.decreaseIndentItem1, "AO");
+         this.barButtonGroup5.ItemLinks.Add(this.increaseIndentItem1, "AI");
+         this.barButtonGroup5.ItemLinks.Add(this.toggleShowWhitespaceItem1);
+         this.barButtonGroup5.Name = "barButtonGroup5";
+         this.barButtonGroup5.Tag = "{4747D5AB-2BEB-4ea6-9A1D-8E4FB36F1B40}";
+         // 
+         // decreaseIndentItem1
+         // 
+         this.decreaseIndentItem1.Id = 56;
+         this.decreaseIndentItem1.Name = "decreaseIndentItem1";
+         // 
+         // increaseIndentItem1
+         // 
+         this.increaseIndentItem1.Id = 57;
+         this.increaseIndentItem1.Name = "increaseIndentItem1";
+         // 
+         // toggleShowWhitespaceItem1
+         // 
+         this.toggleShowWhitespaceItem1.Id = 62;
+         this.toggleShowWhitespaceItem1.Name = "toggleShowWhitespaceItem1";
+         // 
+         // barButtonGroup6
+         // 
+         this.barButtonGroup6.Id = 27;
+         this.barButtonGroup6.ItemLinks.Add(this.toggleParagraphAlignmentLeftItem1, "AL");
+         this.barButtonGroup6.ItemLinks.Add(this.toggleParagraphAlignmentCenterItem1, "AC");
+         this.barButtonGroup6.ItemLinks.Add(this.toggleParagraphAlignmentRightItem1, "AR");
+         this.barButtonGroup6.ItemLinks.Add(this.toggleParagraphAlignmentJustifyItem1, "AJ");
+         this.barButtonGroup6.Name = "barButtonGroup6";
+         this.barButtonGroup6.Tag = "{8E89E775-996E-49a0-AADA-DE338E34732E}";
+         // 
+         // toggleParagraphAlignmentLeftItem1
+         // 
+         this.toggleParagraphAlignmentLeftItem1.Id = 58;
+         this.toggleParagraphAlignmentLeftItem1.Name = "toggleParagraphAlignmentLeftItem1";
+         // 
+         // toggleParagraphAlignmentCenterItem1
+         // 
+         this.toggleParagraphAlignmentCenterItem1.Id = 59;
+         this.toggleParagraphAlignmentCenterItem1.Name = "toggleParagraphAlignmentCenterItem1";
+         // 
+         // toggleParagraphAlignmentRightItem1
+         // 
+         this.toggleParagraphAlignmentRightItem1.Id = 60;
+         this.toggleParagraphAlignmentRightItem1.Name = "toggleParagraphAlignmentRightItem1";
+         // 
+         // toggleParagraphAlignmentJustifyItem1
+         // 
+         this.toggleParagraphAlignmentJustifyItem1.Id = 61;
+         this.toggleParagraphAlignmentJustifyItem1.Name = "toggleParagraphAlignmentJustifyItem1";
+         // 
+         // barButtonGroup7
+         // 
+         this.barButtonGroup7.Id = 28;
+         this.barButtonGroup7.ItemLinks.Add(this.changeParagraphLineSpacingItem1, "K");
+         this.barButtonGroup7.ItemLinks.Add(this.changeParagraphBackColorItem1, "H");
+         this.barButtonGroup7.Name = "barButtonGroup7";
+         this.barButtonGroup7.Tag = "{9A8DEAD8-3890-4857-A395-EC625FD02217}";
+         // 
+         // changeParagraphLineSpacingItem1
+         // 
+         this.changeParagraphLineSpacingItem1.Id = 63;
+         this.changeParagraphLineSpacingItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.setSingleParagraphSpacingItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.setSesquialteralParagraphSpacingItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.setDoubleParagraphSpacingItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.showLineSpacingFormItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.KeyTip, this.addSpacingBeforeParagraphItem1, "", false, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.Standard, "B", ""),
+            new DevExpress.XtraBars.LinkPersistInfo(this.removeSpacingBeforeParagraphItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.addSpacingAfterParagraphItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.removeSpacingAfterParagraphItem1)});
+         this.changeParagraphLineSpacingItem1.Name = "changeParagraphLineSpacingItem1";
+         // 
+         // setSingleParagraphSpacingItem1
+         // 
+         this.setSingleParagraphSpacingItem1.Id = 64;
+         this.setSingleParagraphSpacingItem1.Name = "setSingleParagraphSpacingItem1";
+         // 
+         // setSesquialteralParagraphSpacingItem1
+         // 
+         this.setSesquialteralParagraphSpacingItem1.Id = 65;
+         this.setSesquialteralParagraphSpacingItem1.Name = "setSesquialteralParagraphSpacingItem1";
+         // 
+         // setDoubleParagraphSpacingItem1
+         // 
+         this.setDoubleParagraphSpacingItem1.Id = 66;
+         this.setDoubleParagraphSpacingItem1.Name = "setDoubleParagraphSpacingItem1";
+         // 
+         // showLineSpacingFormItem1
+         // 
+         this.showLineSpacingFormItem1.Id = 67;
+         this.showLineSpacingFormItem1.Name = "showLineSpacingFormItem1";
+         // 
+         // addSpacingBeforeParagraphItem1
+         // 
+         this.addSpacingBeforeParagraphItem1.Id = 68;
+         this.addSpacingBeforeParagraphItem1.Name = "addSpacingBeforeParagraphItem1";
+         // 
+         // removeSpacingBeforeParagraphItem1
+         // 
+         this.removeSpacingBeforeParagraphItem1.Id = 69;
+         this.removeSpacingBeforeParagraphItem1.Name = "removeSpacingBeforeParagraphItem1";
+         // 
+         // addSpacingAfterParagraphItem1
+         // 
+         this.addSpacingAfterParagraphItem1.Id = 70;
+         this.addSpacingAfterParagraphItem1.Name = "addSpacingAfterParagraphItem1";
+         // 
+         // removeSpacingAfterParagraphItem1
+         // 
+         this.removeSpacingAfterParagraphItem1.Id = 71;
+         this.removeSpacingAfterParagraphItem1.Name = "removeSpacingAfterParagraphItem1";
+         // 
+         // changeParagraphBackColorItem1
+         // 
+         this.changeParagraphBackColorItem1.Id = 72;
+         this.changeParagraphBackColorItem1.Name = "changeParagraphBackColorItem1";
+         // 
+         // findItem1
+         // 
+         this.findItem1.Id = 74;
+         this.findItem1.Name = "findItem1";
+         // 
+         // replaceItem1
+         // 
+         this.replaceItem1.Id = 75;
+         this.replaceItem1.Name = "replaceItem1";
+         // 
          // rbpModel
          // 
          this.rbpModel.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -524,6 +883,53 @@
          this.rpgPrint.ShowCaptionButton = false;
          this.rpgPrint.Text = "Print";
          // 
+         // homeRibbonPage1
+         // 
+         this.homeRibbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.clipboardRibbonPageGroup1,
+            this.fontRibbonPageGroup1,
+            this.paragraphRibbonPageGroup1,
+            this.stylesRibbonPageGroup1,
+            this.editingRibbonPageGroup1});
+         this.homeRibbonPage1.Name = "homeRibbonPage1";
+         reduceOperation1.Behavior = DevExpress.XtraBars.Ribbon.ReduceOperationBehavior.UntilAvailable;
+         reduceOperation1.Group = this.stylesRibbonPageGroup1;
+         reduceOperation1.ItemLinkIndex = 0;
+         reduceOperation1.ItemLinksCount = 0;
+         reduceOperation1.Operation = DevExpress.XtraBars.Ribbon.ReduceOperationType.Gallery;
+         this.homeRibbonPage1.ReduceOperations.Add(reduceOperation1);
+         // 
+         // clipboardRibbonPageGroup1
+         // 
+         this.clipboardRibbonPageGroup1.ItemLinks.Add(this.pasteItem1, "V");
+         this.clipboardRibbonPageGroup1.ItemLinks.Add(this.cutItem1, "X");
+         this.clipboardRibbonPageGroup1.ItemLinks.Add(this.copyItem1, "C");
+         this.clipboardRibbonPageGroup1.ItemLinks.Add(this.pasteSpecialItem1);
+         this.clipboardRibbonPageGroup1.Name = "clipboardRibbonPageGroup1";
+         // 
+         // fontRibbonPageGroup1
+         // 
+         this.fontRibbonPageGroup1.ItemLinks.Add(this.barButtonGroup1);
+         this.fontRibbonPageGroup1.ItemLinks.Add(this.barButtonGroup2);
+         this.fontRibbonPageGroup1.ItemLinks.Add(this.barButtonGroup3);
+         this.fontRibbonPageGroup1.ItemLinks.Add(this.changeTextCaseItem1);
+         this.fontRibbonPageGroup1.ItemLinks.Add(this.clearFormattingItem1, "E");
+         this.fontRibbonPageGroup1.Name = "fontRibbonPageGroup1";
+         // 
+         // paragraphRibbonPageGroup1
+         // 
+         this.paragraphRibbonPageGroup1.ItemLinks.Add(this.barButtonGroup4);
+         this.paragraphRibbonPageGroup1.ItemLinks.Add(this.barButtonGroup5);
+         this.paragraphRibbonPageGroup1.ItemLinks.Add(this.barButtonGroup6);
+         this.paragraphRibbonPageGroup1.ItemLinks.Add(this.barButtonGroup7);
+         this.paragraphRibbonPageGroup1.Name = "paragraphRibbonPageGroup1";
+         // 
+         // editingRibbonPageGroup1
+         // 
+         this.editingRibbonPageGroup1.ItemLinks.Add(this.findItem1, "FD");
+         this.editingRibbonPageGroup1.ItemLinks.Add(this.replaceItem1, "R");
+         this.editingRibbonPageGroup1.Name = "editingRibbonPageGroup1";
+         // 
          // ribbonStatusBar
          // 
          this.ribbonStatusBar.Location = new System.Drawing.Point(0, 676);
@@ -539,7 +945,7 @@
          this.cmdProperties.Size = new System.Drawing.Size(75, 23);
          this.cmdProperties.TabIndex = 9;
          this.cmdProperties.Text = "Properties";
-         this.cmdProperties.Click += new System.EventHandler(this.cmdProperties_Click);
+         this.cmdProperties.Click += new System.EventHandler(this.CmdProperties_Click);
          // 
          // pmnProperties
          // 
@@ -572,7 +978,7 @@
          this.tabModelGeneral.Controls.Add(this.grpProperties);
          this.tabModelGeneral.Name = "tabModelGeneral";
          this.tabModelGeneral.Padding = new System.Windows.Forms.Padding(10);
-         this.tabModelGeneral.Size = new System.Drawing.Size(845, 451);
+         this.tabModelGeneral.Size = new System.Drawing.Size(979, 495);
          this.tabModelGeneral.Text = "General";
          // 
          // grpImage
@@ -582,21 +988,23 @@
          this.grpImage.Location = new System.Drawing.Point(10, 168);
          this.grpImage.Name = "grpImage";
          this.grpImage.Padding = new System.Windows.Forms.Padding(10);
-         this.grpImage.Size = new System.Drawing.Size(825, 273);
+         this.grpImage.Size = new System.Drawing.Size(959, 317);
          this.grpImage.TabIndex = 5;
          this.grpImage.Text = "Picture";
          // 
          // picImage
          // 
+         this.picImage.Cursor = System.Windows.Forms.Cursors.Default;
          this.picImage.Dock = System.Windows.Forms.DockStyle.Fill;
          this.picImage.Location = new System.Drawing.Point(12, 30);
          this.picImage.MenuManager = this.ribbon;
          this.picImage.Name = "picImage";
          this.picImage.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
          this.picImage.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
-         this.picImage.Size = new System.Drawing.Size(801, 231);
+         this.picImage.Properties.ZoomAccelerationFactor = 1D;
+         this.picImage.Size = new System.Drawing.Size(935, 275);
          this.picImage.TabIndex = 0;
-         this.picImage.EditValueChanged += new System.EventHandler(this.picImage_EditValueChanged);
+         this.picImage.EditValueChanged += new System.EventHandler(this.PicImage_EditValueChanged);
          // 
          // panelControl1
          // 
@@ -608,28 +1016,63 @@
          this.panelControl1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.panelControl1.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl1.Name = "panelControl1";
-         this.panelControl1.Size = new System.Drawing.Size(825, 10);
+         this.panelControl1.Size = new System.Drawing.Size(959, 10);
          this.panelControl1.TabIndex = 6;
          // 
          // grpProperties
          // 
+         this.grpProperties.Controls.Add(this.cboEra);
+         this.grpProperties.Controls.Add(this.cboCompany);
+         this.grpProperties.Controls.Add(this.cboCategory);
          this.grpProperties.Controls.Add(this.lblPaintScheme);
          this.grpProperties.Controls.Add(this.cboPaintScheme);
-         this.grpProperties.Controls.Add(this.cboEra);
          this.grpProperties.Controls.Add(this.lblEra);
-         this.grpProperties.Controls.Add(this.cboAdministration);
          this.grpProperties.Controls.Add(this.lblAdministration);
          this.grpProperties.Controls.Add(this.txtName);
-         this.grpProperties.Controls.Add(this.cboCategory);
          this.grpProperties.Controls.Add(this.lblName);
          this.grpProperties.Controls.Add(this.lblCategory);
          this.grpProperties.Dock = System.Windows.Forms.DockStyle.Top;
          this.grpProperties.Location = new System.Drawing.Point(10, 10);
          this.grpProperties.Name = "grpProperties";
          this.grpProperties.Padding = new System.Windows.Forms.Padding(10);
-         this.grpProperties.Size = new System.Drawing.Size(825, 148);
+         this.grpProperties.Size = new System.Drawing.Size(959, 148);
          this.grpProperties.TabIndex = 4;
          this.grpProperties.Text = "Properties";
+         // 
+         // cboEra
+         // 
+         this.cboEra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.cboEra.Location = new System.Drawing.Point(816, 85);
+         this.cboEra.MenuManager = this.ribbon;
+         this.cboEra.Name = "cboEra";
+         this.cboEra.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.cboEra.Size = new System.Drawing.Size(128, 20);
+         this.cboEra.TabIndex = 12;
+         // 
+         // cboCompany
+         // 
+         this.cboCompany.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.cboCompany.Location = new System.Drawing.Point(99, 85);
+         this.cboCompany.MenuManager = this.ribbon;
+         this.cboCompany.Name = "cboCompany";
+         this.cboCompany.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.cboCompany.Size = new System.Drawing.Size(671, 20);
+         this.cboCompany.TabIndex = 11;
+         // 
+         // cboCategory
+         // 
+         this.cboCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.cboCategory.Location = new System.Drawing.Point(99, 59);
+         this.cboCategory.MenuManager = this.ribbon;
+         this.cboCategory.Name = "cboCategory";
+         this.cboCategory.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.cboCategory.Size = new System.Drawing.Size(845, 20);
+         this.cboCategory.TabIndex = 10;
          // 
          // lblPaintScheme
          // 
@@ -648,67 +1091,17 @@
          this.cboPaintScheme.Name = "cboPaintScheme";
          this.cboPaintScheme.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.cboPaintScheme.Size = new System.Drawing.Size(711, 20);
+         this.cboPaintScheme.Size = new System.Drawing.Size(845, 20);
          this.cboPaintScheme.TabIndex = 8;
-         // 
-         // cboEra
-         // 
-         this.cboEra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.cboEra.Location = new System.Drawing.Point(692, 85);
-         this.cboEra.MenuManager = this.ribbon;
-         this.cboEra.Name = "cboEra";
-         this.cboEra.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.cboEra.Properties.SmallImages = this.imlEpoch;
-         this.cboEra.Size = new System.Drawing.Size(118, 20);
-         this.cboEra.TabIndex = 7;
-         // 
-         // imlEpoch
-         // 
-         this.imlEpoch.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imlEpoch.ImageStream")));
-         this.imlEpoch.TransparentColor = System.Drawing.Color.Transparent;
-         this.imlEpoch.Images.SetKeyName(0, "ICO_1");
-         this.imlEpoch.Images.SetKeyName(1, "ICO_2");
-         this.imlEpoch.Images.SetKeyName(2, "ICO_3");
-         this.imlEpoch.Images.SetKeyName(3, "ICO_4");
-         this.imlEpoch.Images.SetKeyName(4, "ICO_5");
-         this.imlEpoch.Images.SetKeyName(5, "ICO_6");
          // 
          // lblEra
          // 
          this.lblEra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.lblEra.Location = new System.Drawing.Point(657, 88);
+         this.lblEra.Location = new System.Drawing.Point(791, 88);
          this.lblEra.Name = "lblEra";
-         this.lblEra.Size = new System.Drawing.Size(29, 13);
+         this.lblEra.Size = new System.Drawing.Size(16, 13);
          this.lblEra.TabIndex = 6;
-         this.lblEra.Text = "Epoch";
-         // 
-         // cboAdministration
-         // 
-         this.cboAdministration.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.cboAdministration.Location = new System.Drawing.Point(99, 85);
-         this.cboAdministration.MenuManager = this.ribbon;
-         this.cboAdministration.Name = "cboAdministration";
-         this.cboAdministration.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.cboAdministration.Properties.SmallImages = this.imlObjects;
-         this.cboAdministration.Size = new System.Drawing.Size(537, 20);
-         this.cboAdministration.TabIndex = 5;
-         // 
-         // imlObjects
-         // 
-         this.imlObjects.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imlObjects.ImageStream")));
-         this.imlObjects.TransparentColor = System.Drawing.Color.Transparent;
-         this.imlObjects.Images.SetKeyName(0, "ICO_CATEGORY");
-         this.imlObjects.Images.SetKeyName(1, "ICO_ADMIN");
-         this.imlObjects.Images.SetKeyName(2, "ICO_MANUFACTURER");
-         this.imlObjects.Images.SetKeyName(3, "ICO_SCALE");
-         this.imlObjects.Images.SetKeyName(4, "ICO_STORE");
-         this.imlObjects.Images.SetKeyName(5, "ICO_DECODER");
-         this.imlObjects.Images.SetKeyName(6, "ICO_PLUG");
-         this.imlObjects.Images.SetKeyName(7, "ICO_LIGHT_ON");
-         this.imlObjects.Images.SetKeyName(8, "ICO_LIGHT_OFF");
+         this.lblEra.Text = "Era";
          // 
          // lblAdministration
          // 
@@ -725,21 +1118,8 @@
          this.txtName.Location = new System.Drawing.Point(99, 33);
          this.txtName.MenuManager = this.ribbon;
          this.txtName.Name = "txtName";
-         this.txtName.Size = new System.Drawing.Size(711, 20);
+         this.txtName.Size = new System.Drawing.Size(845, 20);
          this.txtName.TabIndex = 1;
-         // 
-         // cboCategory
-         // 
-         this.cboCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.cboCategory.Location = new System.Drawing.Point(99, 59);
-         this.cboCategory.MenuManager = this.ribbon;
-         this.cboCategory.Name = "cboCategory";
-         this.cboCategory.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.cboCategory.Properties.SmallImages = this.imlObjects;
-         this.cboCategory.Size = new System.Drawing.Size(711, 20);
-         this.cboCategory.TabIndex = 3;
          // 
          // lblName
          // 
@@ -769,7 +1149,7 @@
          this.tabModelScale.Controls.Add(this.grpScaleGeneral);
          this.tabModelScale.Name = "tabModelScale";
          this.tabModelScale.Padding = new System.Windows.Forms.Padding(10);
-         this.tabModelScale.Size = new System.Drawing.Size(845, 451);
+         this.tabModelScale.Size = new System.Drawing.Size(979, 495);
          this.tabModelScale.Text = "Gauge";
          // 
          // grpScaleProperties
@@ -790,9 +1170,42 @@
          this.grpScaleProperties.Location = new System.Drawing.Point(10, 350);
          this.grpScaleProperties.Name = "grpScaleProperties";
          this.grpScaleProperties.Padding = new System.Windows.Forms.Padding(10);
-         this.grpScaleProperties.Size = new System.Drawing.Size(808, 184);
+         this.grpScaleProperties.Size = new System.Drawing.Size(959, 184);
          this.grpScaleProperties.TabIndex = 4;
          this.grpScaleProperties.Text = "Model properties";
+         // 
+         // cboPropertiesIntEq
+         // 
+         this.cboPropertiesIntEq.Location = new System.Drawing.Point(110, 85);
+         this.cboPropertiesIntEq.MenuManager = this.ribbon;
+         this.cboPropertiesIntEq.Name = "cboPropertiesIntEq";
+         this.cboPropertiesIntEq.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.cboPropertiesIntEq.Properties.SmallImages = this.imlObjects;
+         this.cboPropertiesIntEq.Size = new System.Drawing.Size(258, 20);
+         this.cboPropertiesIntEq.TabIndex = 18;
+         // 
+         // imlObjects
+         // 
+         this.imlObjects.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imlObjects.ImageStream")));
+         this.imlObjects.TransparentColor = System.Drawing.Color.Transparent;
+         this.imlObjects.Images.SetKeyName(0, "ICO_CATEGORY");
+         this.imlObjects.Images.SetKeyName(1, "ICO_ADMIN");
+         this.imlObjects.Images.SetKeyName(2, "ICO_MANUFACTURER");
+         this.imlObjects.Images.SetKeyName(3, "ICO_SCALE");
+         this.imlObjects.Images.SetKeyName(4, "ICO_STORE");
+         this.imlObjects.Images.SetKeyName(5, "ICO_DECODER");
+         this.imlObjects.Images.SetKeyName(6, "ICO_PLUG");
+         this.imlObjects.Images.SetKeyName(7, "ICO_LIGHT_ON");
+         this.imlObjects.Images.SetKeyName(8, "ICO_LIGHT_OFF");
+         // 
+         // lblPropertiesIntEq
+         // 
+         this.lblPropertiesIntEq.Location = new System.Drawing.Point(15, 88);
+         this.lblPropertiesIntEq.Name = "lblPropertiesIntEq";
+         this.lblPropertiesIntEq.Size = new System.Drawing.Size(89, 13);
+         this.lblPropertiesIntEq.TabIndex = 17;
+         this.lblPropertiesIntEq.Text = "Interior equipment";
          // 
          // cboPropertiesFrame
          // 
@@ -873,6 +1286,7 @@
          // labelControl1
          // 
          this.labelControl1.Appearance.Font = new System.Drawing.Font("Maerklin Piktos", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.labelControl1.Appearance.Options.UseFont = true;
          this.labelControl1.Location = new System.Drawing.Point(569, 133);
          this.labelControl1.Name = "labelControl1";
          this.labelControl1.Size = new System.Drawing.Size(210, 30);
@@ -889,14 +1303,14 @@
          this.panelControl4.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.panelControl4.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl4.Name = "panelControl4";
-         this.panelControl4.Size = new System.Drawing.Size(808, 10);
+         this.panelControl4.Size = new System.Drawing.Size(959, 10);
          this.panelControl4.TabIndex = 11;
          // 
          // grpDigital
          // 
+         this.grpDigital.Controls.Add(this.cboDigitalDecoder);
          this.grpDigital.Controls.Add(this.cboDigitalPlug);
          this.grpDigital.Controls.Add(this.lblDigitalPlug);
-         this.grpDigital.Controls.Add(this.cboDigitalDecoder);
          this.grpDigital.Controls.Add(this.lblDigitalDecoder);
          this.grpDigital.Controls.Add(this.txtDigitalAddress);
          this.grpDigital.Controls.Add(this.lblDigitalAddress);
@@ -904,9 +1318,21 @@
          this.grpDigital.Location = new System.Drawing.Point(10, 245);
          this.grpDigital.Name = "grpDigital";
          this.grpDigital.Padding = new System.Windows.Forms.Padding(10);
-         this.grpDigital.Size = new System.Drawing.Size(808, 95);
+         this.grpDigital.Size = new System.Drawing.Size(959, 95);
          this.grpDigital.TabIndex = 8;
          this.grpDigital.Text = "Digital";
+         // 
+         // cboDigitalDecoder
+         // 
+         this.cboDigitalDecoder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.cboDigitalDecoder.Location = new System.Drawing.Point(110, 34);
+         this.cboDigitalDecoder.MenuManager = this.ribbon;
+         this.cboDigitalDecoder.Name = "cboDigitalDecoder";
+         this.cboDigitalDecoder.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.cboDigitalDecoder.Size = new System.Drawing.Size(700, 20);
+         this.cboDigitalDecoder.TabIndex = 8;
          // 
          // cboDigitalPlug
          // 
@@ -927,19 +1353,6 @@
          this.lblDigitalPlug.TabIndex = 6;
          this.lblDigitalPlug.Text = "Decoder plug";
          // 
-         // cboDigitalDecoder
-         // 
-         this.cboDigitalDecoder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.cboDigitalDecoder.Location = new System.Drawing.Point(110, 34);
-         this.cboDigitalDecoder.MenuManager = this.ribbon;
-         this.cboDigitalDecoder.Name = "cboDigitalDecoder";
-         this.cboDigitalDecoder.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.cboDigitalDecoder.Properties.SmallImages = this.imlObjects;
-         this.cboDigitalDecoder.Size = new System.Drawing.Size(509, 20);
-         this.cboDigitalDecoder.TabIndex = 5;
-         // 
          // lblDigitalDecoder
          // 
          this.lblDigitalDecoder.Location = new System.Drawing.Point(15, 37);
@@ -956,7 +1369,7 @@
             0,
             0,
             0});
-         this.txtDigitalAddress.Location = new System.Drawing.Point(728, 34);
+         this.txtDigitalAddress.Location = new System.Drawing.Point(879, 34);
          this.txtDigitalAddress.MenuManager = this.ribbon;
          this.txtDigitalAddress.Name = "txtDigitalAddress";
          this.txtDigitalAddress.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -969,7 +1382,7 @@
          // lblDigitalAddress
          // 
          this.lblDigitalAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.lblDigitalAddress.Location = new System.Drawing.Point(638, 37);
+         this.lblDigitalAddress.Location = new System.Drawing.Point(828, 37);
          this.lblDigitalAddress.Name = "lblDigitalAddress";
          this.lblDigitalAddress.Size = new System.Drawing.Size(39, 13);
          this.lblDigitalAddress.TabIndex = 2;
@@ -985,11 +1398,12 @@
          this.panelControl3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.panelControl3.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl3.Name = "panelControl3";
-         this.panelControl3.Size = new System.Drawing.Size(808, 10);
+         this.panelControl3.Size = new System.Drawing.Size(959, 10);
          this.panelControl3.TabIndex = 10;
          // 
          // grpScaleSales
          // 
+         this.grpScaleSales.Controls.Add(this.cboStore);
          this.grpScaleSales.Controls.Add(this.chkPurchasePending);
          this.grpScaleSales.Controls.Add(this.txtLimitedModel);
          this.grpScaleSales.Controls.Add(this.chkLimitedModel);
@@ -999,15 +1413,26 @@
          this.grpScaleSales.Controls.Add(this.lblPricePurchase);
          this.grpScaleSales.Controls.Add(this.dtePurchaseDate);
          this.grpScaleSales.Controls.Add(this.lblBuyDate);
-         this.grpScaleSales.Controls.Add(this.cboStore);
          this.grpScaleSales.Controls.Add(this.lblStore);
          this.grpScaleSales.Dock = System.Windows.Forms.DockStyle.Top;
          this.grpScaleSales.Location = new System.Drawing.Point(10, 115);
          this.grpScaleSales.Name = "grpScaleSales";
          this.grpScaleSales.Padding = new System.Windows.Forms.Padding(10);
-         this.grpScaleSales.Size = new System.Drawing.Size(808, 120);
+         this.grpScaleSales.Size = new System.Drawing.Size(959, 120);
          this.grpScaleSales.TabIndex = 8;
          this.grpScaleSales.Text = "Comercial";
+         // 
+         // cboStore
+         // 
+         this.cboStore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.cboStore.Location = new System.Drawing.Point(110, 33);
+         this.cboStore.MenuManager = this.ribbon;
+         this.cboStore.Name = "cboStore";
+         this.cboStore.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.cboStore.Size = new System.Drawing.Size(552, 20);
+         this.cboStore.TabIndex = 13;
          // 
          // chkPurchasePending
          // 
@@ -1025,7 +1450,7 @@
          this.txtLimitedModel.Location = new System.Drawing.Point(576, 59);
          this.txtLimitedModel.MenuManager = this.ribbon;
          this.txtLimitedModel.Name = "txtLimitedModel";
-         this.txtLimitedModel.Size = new System.Drawing.Size(217, 20);
+         this.txtLimitedModel.Size = new System.Drawing.Size(368, 20);
          this.txtLimitedModel.TabIndex = 11;
          // 
          // chkLimitedModel
@@ -1083,7 +1508,7 @@
          // 
          this.dtePurchaseDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.dtePurchaseDate.EditValue = null;
-         this.dtePurchaseDate.Location = new System.Drawing.Point(597, 33);
+         this.dtePurchaseDate.Location = new System.Drawing.Point(748, 33);
          this.dtePurchaseDate.MenuManager = this.ribbon;
          this.dtePurchaseDate.Name = "dtePurchaseDate";
          this.dtePurchaseDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1096,24 +1521,11 @@
          // lblBuyDate
          // 
          this.lblBuyDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.lblBuyDate.Location = new System.Drawing.Point(522, 36);
+         this.lblBuyDate.Location = new System.Drawing.Point(673, 36);
          this.lblBuyDate.Name = "lblBuyDate";
          this.lblBuyDate.Size = new System.Drawing.Size(69, 13);
          this.lblBuyDate.TabIndex = 3;
          this.lblBuyDate.Text = "Purchase date";
-         // 
-         // cboStore
-         // 
-         this.cboStore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.cboStore.Location = new System.Drawing.Point(110, 33);
-         this.cboStore.MenuManager = this.ribbon;
-         this.cboStore.Name = "cboStore";
-         this.cboStore.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.cboStore.Properties.SmallImages = this.imlObjects;
-         this.cboStore.Size = new System.Drawing.Size(401, 20);
-         this.cboStore.TabIndex = 1;
          // 
          // lblStore
          // 
@@ -1133,45 +1545,56 @@
          this.panelControl2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.panelControl2.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl2.Name = "panelControl2";
-         this.panelControl2.Size = new System.Drawing.Size(808, 10);
+         this.panelControl2.Size = new System.Drawing.Size(959, 10);
          this.panelControl2.TabIndex = 9;
          // 
          // grpScaleGeneral
          // 
-         this.grpScaleGeneral.Controls.Add(this.cboScale);
+         this.grpScaleGeneral.Controls.Add(this.cboGauge);
+         this.grpScaleGeneral.Controls.Add(this.cboManufacturer);
          this.grpScaleGeneral.Controls.Add(this.lblScale);
          this.grpScaleGeneral.Controls.Add(this.txtReference);
          this.grpScaleGeneral.Controls.Add(this.lblReference);
          this.grpScaleGeneral.Controls.Add(this.txtItems);
          this.grpScaleGeneral.Controls.Add(this.lblItems);
-         this.grpScaleGeneral.Controls.Add(this.cboManufacturer);
          this.grpScaleGeneral.Controls.Add(this.lblManufacturer);
          this.grpScaleGeneral.Dock = System.Windows.Forms.DockStyle.Top;
          this.grpScaleGeneral.Location = new System.Drawing.Point(10, 10);
          this.grpScaleGeneral.Name = "grpScaleGeneral";
          this.grpScaleGeneral.Padding = new System.Windows.Forms.Padding(10);
-         this.grpScaleGeneral.Size = new System.Drawing.Size(808, 95);
+         this.grpScaleGeneral.Size = new System.Drawing.Size(959, 95);
          this.grpScaleGeneral.TabIndex = 0;
          this.grpScaleGeneral.Text = "General";
          // 
-         // cboScale
+         // cboGauge
          // 
-         this.cboScale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.cboScale.Location = new System.Drawing.Point(664, 59);
-         this.cboScale.MenuManager = this.ribbon;
-         this.cboScale.Name = "cboScale";
-         this.cboScale.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+         this.cboGauge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.cboGauge.Location = new System.Drawing.Point(815, 59);
+         this.cboGauge.MenuManager = this.ribbon;
+         this.cboGauge.Name = "cboGauge";
+         this.cboGauge.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.cboScale.Properties.SmallImages = this.imlObjects;
-         this.cboScale.Size = new System.Drawing.Size(129, 20);
-         this.cboScale.TabIndex = 7;
+         this.cboGauge.Size = new System.Drawing.Size(129, 20);
+         this.cboGauge.TabIndex = 9;
+         // 
+         // cboManufacturer
+         // 
+         this.cboManufacturer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.cboManufacturer.Location = new System.Drawing.Point(110, 33);
+         this.cboManufacturer.MenuManager = this.ribbon;
+         this.cboManufacturer.Name = "cboManufacturer";
+         this.cboManufacturer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.cboManufacturer.Size = new System.Drawing.Size(660, 20);
+         this.cboManufacturer.TabIndex = 8;
          // 
          // lblScale
          // 
          this.lblScale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.lblScale.Location = new System.Drawing.Point(624, 62);
+         this.lblScale.Location = new System.Drawing.Point(775, 62);
          this.lblScale.Name = "lblScale";
-         this.lblScale.Size = new System.Drawing.Size(25, 13);
+         this.lblScale.Size = new System.Drawing.Size(31, 13);
          this.lblScale.TabIndex = 6;
          this.lblScale.Text = "Gauge";
          // 
@@ -1182,7 +1605,7 @@
          this.txtReference.Location = new System.Drawing.Point(110, 59);
          this.txtReference.MenuManager = this.ribbon;
          this.txtReference.Name = "txtReference";
-         this.txtReference.Size = new System.Drawing.Size(494, 20);
+         this.txtReference.Size = new System.Drawing.Size(645, 20);
          this.txtReference.TabIndex = 5;
          // 
          // lblReference
@@ -1201,7 +1624,7 @@
             0,
             0,
             0});
-         this.txtItems.Location = new System.Drawing.Point(728, 33);
+         this.txtItems.Location = new System.Drawing.Point(879, 33);
          this.txtItems.MenuManager = this.ribbon;
          this.txtItems.Name = "txtItems";
          this.txtItems.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1214,24 +1637,11 @@
          // lblItems
          // 
          this.lblItems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.lblItems.Location = new System.Drawing.Point(638, 36);
+         this.lblItems.Location = new System.Drawing.Point(789, 36);
          this.lblItems.Name = "lblItems";
          this.lblItems.Size = new System.Drawing.Size(78, 13);
          this.lblItems.TabIndex = 2;
          this.lblItems.Text = "Number of items";
-         // 
-         // cboManufacturer
-         // 
-         this.cboManufacturer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.cboManufacturer.Location = new System.Drawing.Point(110, 33);
-         this.cboManufacturer.MenuManager = this.ribbon;
-         this.cboManufacturer.Name = "cboManufacturer";
-         this.cboManufacturer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.cboManufacturer.Properties.SmallImages = this.imlObjects;
-         this.cboManufacturer.Size = new System.Drawing.Size(509, 20);
-         this.cboManufacturer.TabIndex = 1;
          // 
          // lblManufacturer
          // 
@@ -1244,7 +1654,7 @@
          // tabModelReal
          // 
          this.tabModelReal.Name = "tabModelReal";
-         this.tabModelReal.Size = new System.Drawing.Size(845, 451);
+         this.tabModelReal.Size = new System.Drawing.Size(979, 495);
          this.tabModelReal.Text = "Prototipe";
          // 
          // tabModelMaintenance
@@ -1253,6 +1663,17 @@
          this.tabModelMaintenance.Name = "tabModelMaintenance";
          this.tabModelMaintenance.Size = new System.Drawing.Size(979, 495);
          this.tabModelMaintenance.Text = "Maintenance";
+         // 
+         // imlEpoch
+         // 
+         this.imlEpoch.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imlEpoch.ImageStream")));
+         this.imlEpoch.TransparentColor = System.Drawing.Color.Transparent;
+         this.imlEpoch.Images.SetKeyName(0, "ICO_1");
+         this.imlEpoch.Images.SetKeyName(1, "ICO_2");
+         this.imlEpoch.Images.SetKeyName(2, "ICO_3");
+         this.imlEpoch.Images.SetKeyName(3, "ICO_4");
+         this.imlEpoch.Images.SetKeyName(4, "ICO_5");
+         this.imlEpoch.Images.SetKeyName(5, "ICO_6");
          // 
          // imlLargeObjects
          // 
@@ -1274,38 +1695,6 @@
          this.pnlContainer.Padding = new System.Windows.Forms.Padding(5);
          this.pnlContainer.Size = new System.Drawing.Size(995, 533);
          this.pnlContainer.TabIndex = 3;
-         // 
-         // cboPropertiesIntEq
-         // 
-         this.cboPropertiesIntEq.Location = new System.Drawing.Point(110, 85);
-         this.cboPropertiesIntEq.MenuManager = this.ribbon;
-         this.cboPropertiesIntEq.Name = "cboPropertiesIntEq";
-         this.cboPropertiesIntEq.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.cboPropertiesIntEq.Properties.SmallImages = this.imlObjects;
-         this.cboPropertiesIntEq.Size = new System.Drawing.Size(258, 20);
-         this.cboPropertiesIntEq.TabIndex = 18;
-         // 
-         // lblPropertiesIntEq
-         // 
-         this.lblPropertiesIntEq.Location = new System.Drawing.Point(15, 88);
-         this.lblPropertiesIntEq.Name = "lblPropertiesIntEq";
-         this.lblPropertiesIntEq.Size = new System.Drawing.Size(89, 13);
-         this.lblPropertiesIntEq.TabIndex = 17;
-         this.lblPropertiesIntEq.Text = "Interior equipment";
-         // 
-         // rtfDescription
-         // 
-         this.rtfDescription.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-         this.rtfDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.rtfDescription.EnableToolTips = true;
-         this.rtfDescription.Location = new System.Drawing.Point(0, 0);
-         this.rtfDescription.MenuManager = this.ribbon;
-         this.rtfDescription.Name = "rtfDescription";
-         this.rtfDescription.Options.Bookmarks.ConflictNameResolution = DevExpress.XtraRichEdit.ConflictNameAction.Skip;
-         this.rtfDescription.Size = new System.Drawing.Size(979, 495);
-         this.rtfDescription.TabIndex = 0;
-         this.rtfDescription.Text = "richEditControl1";
          // 
          // richEditBarController1
          // 
@@ -1358,400 +1747,6 @@
          this.richEditBarController1.BarItems.Add(this.replaceItem1);
          this.richEditBarController1.Control = this.rtfDescription;
          // 
-         // clipboardRibbonPageGroup1
-         // 
-         this.clipboardRibbonPageGroup1.ItemLinks.Add(this.pasteItem1);
-         this.clipboardRibbonPageGroup1.ItemLinks.Add(this.cutItem1);
-         this.clipboardRibbonPageGroup1.ItemLinks.Add(this.copyItem1);
-         this.clipboardRibbonPageGroup1.ItemLinks.Add(this.pasteSpecialItem1);
-         this.clipboardRibbonPageGroup1.Name = "clipboardRibbonPageGroup1";
-         // 
-         // homeRibbonPage1
-         // 
-         this.homeRibbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.clipboardRibbonPageGroup1,
-            this.fontRibbonPageGroup1,
-            this.paragraphRibbonPageGroup1,
-            this.stylesRibbonPageGroup1,
-            this.editingRibbonPageGroup1});
-         this.homeRibbonPage1.Name = "homeRibbonPage1";
-         reduceOperation1.Behavior = DevExpress.XtraBars.Ribbon.ReduceOperationBehavior.UntilAvailable;
-         reduceOperation1.Group = this.stylesRibbonPageGroup1;
-         reduceOperation1.ItemLinkIndex = 0;
-         reduceOperation1.ItemLinksCount = 0;
-         reduceOperation1.Operation = DevExpress.XtraBars.Ribbon.ReduceOperationType.Gallery;
-         this.homeRibbonPage1.ReduceOperations.Add(reduceOperation1);
-         // 
-         // pasteItem1
-         // 
-         this.pasteItem1.Id = 29;
-         this.pasteItem1.Name = "pasteItem1";
-         // 
-         // cutItem1
-         // 
-         this.cutItem1.Id = 30;
-         this.cutItem1.Name = "cutItem1";
-         // 
-         // copyItem1
-         // 
-         this.copyItem1.Id = 31;
-         this.copyItem1.Name = "copyItem1";
-         // 
-         // pasteSpecialItem1
-         // 
-         this.pasteSpecialItem1.Id = 32;
-         this.pasteSpecialItem1.Name = "pasteSpecialItem1";
-         // 
-         // fontRibbonPageGroup1
-         // 
-         this.fontRibbonPageGroup1.ItemLinks.Add(this.barButtonGroup1);
-         this.fontRibbonPageGroup1.ItemLinks.Add(this.barButtonGroup2);
-         this.fontRibbonPageGroup1.ItemLinks.Add(this.barButtonGroup3);
-         this.fontRibbonPageGroup1.ItemLinks.Add(this.changeTextCaseItem1);
-         this.fontRibbonPageGroup1.ItemLinks.Add(this.clearFormattingItem1);
-         this.fontRibbonPageGroup1.Name = "fontRibbonPageGroup1";
-         // 
-         // changeFontNameItem1
-         // 
-         this.changeFontNameItem1.Edit = this.repositoryItemFontEdit1;
-         this.changeFontNameItem1.Id = 33;
-         this.changeFontNameItem1.Name = "changeFontNameItem1";
-         // 
-         // changeFontSizeItem1
-         // 
-         this.changeFontSizeItem1.Edit = this.repositoryItemRichEditFontSizeEdit1;
-         this.changeFontSizeItem1.Id = 34;
-         this.changeFontSizeItem1.Name = "changeFontSizeItem1";
-         // 
-         // fontSizeIncreaseItem1
-         // 
-         this.fontSizeIncreaseItem1.Id = 35;
-         this.fontSizeIncreaseItem1.Name = "fontSizeIncreaseItem1";
-         // 
-         // fontSizeDecreaseItem1
-         // 
-         this.fontSizeDecreaseItem1.Id = 36;
-         this.fontSizeDecreaseItem1.Name = "fontSizeDecreaseItem1";
-         // 
-         // toggleFontBoldItem1
-         // 
-         this.toggleFontBoldItem1.Id = 37;
-         this.toggleFontBoldItem1.Name = "toggleFontBoldItem1";
-         // 
-         // toggleFontItalicItem1
-         // 
-         this.toggleFontItalicItem1.Id = 38;
-         this.toggleFontItalicItem1.Name = "toggleFontItalicItem1";
-         // 
-         // toggleFontUnderlineItem1
-         // 
-         this.toggleFontUnderlineItem1.Id = 39;
-         this.toggleFontUnderlineItem1.Name = "toggleFontUnderlineItem1";
-         // 
-         // toggleFontDoubleUnderlineItem1
-         // 
-         this.toggleFontDoubleUnderlineItem1.Id = 40;
-         this.toggleFontDoubleUnderlineItem1.Name = "toggleFontDoubleUnderlineItem1";
-         // 
-         // toggleFontStrikeoutItem1
-         // 
-         this.toggleFontStrikeoutItem1.Id = 41;
-         this.toggleFontStrikeoutItem1.Name = "toggleFontStrikeoutItem1";
-         // 
-         // toggleFontDoubleStrikeoutItem1
-         // 
-         this.toggleFontDoubleStrikeoutItem1.Id = 42;
-         this.toggleFontDoubleStrikeoutItem1.Name = "toggleFontDoubleStrikeoutItem1";
-         // 
-         // toggleFontSuperscriptItem1
-         // 
-         this.toggleFontSuperscriptItem1.Id = 43;
-         this.toggleFontSuperscriptItem1.Name = "toggleFontSuperscriptItem1";
-         // 
-         // toggleFontSubscriptItem1
-         // 
-         this.toggleFontSubscriptItem1.Id = 44;
-         this.toggleFontSubscriptItem1.Name = "toggleFontSubscriptItem1";
-         // 
-         // changeFontColorItem1
-         // 
-         this.changeFontColorItem1.Id = 45;
-         this.changeFontColorItem1.Name = "changeFontColorItem1";
-         // 
-         // changeFontBackColorItem1
-         // 
-         this.changeFontBackColorItem1.Id = 46;
-         this.changeFontBackColorItem1.Name = "changeFontBackColorItem1";
-         // 
-         // changeTextCaseItem1
-         // 
-         this.changeTextCaseItem1.Id = 47;
-         this.changeTextCaseItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.makeTextUpperCaseItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.makeTextLowerCaseItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.capitalizeEachWordCaseItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.toggleTextCaseItem1)});
-         this.changeTextCaseItem1.Name = "changeTextCaseItem1";
-         // 
-         // makeTextUpperCaseItem1
-         // 
-         this.makeTextUpperCaseItem1.Id = 48;
-         this.makeTextUpperCaseItem1.Name = "makeTextUpperCaseItem1";
-         // 
-         // makeTextLowerCaseItem1
-         // 
-         this.makeTextLowerCaseItem1.Id = 49;
-         this.makeTextLowerCaseItem1.Name = "makeTextLowerCaseItem1";
-         // 
-         // capitalizeEachWordCaseItem1
-         // 
-         this.capitalizeEachWordCaseItem1.Id = 50;
-         this.capitalizeEachWordCaseItem1.Name = "capitalizeEachWordCaseItem1";
-         // 
-         // toggleTextCaseItem1
-         // 
-         this.toggleTextCaseItem1.Id = 51;
-         this.toggleTextCaseItem1.Name = "toggleTextCaseItem1";
-         // 
-         // clearFormattingItem1
-         // 
-         this.clearFormattingItem1.Id = 52;
-         this.clearFormattingItem1.Name = "clearFormattingItem1";
-         // 
-         // barButtonGroup1
-         // 
-         this.barButtonGroup1.Id = 22;
-         this.barButtonGroup1.ItemLinks.Add(this.changeFontNameItem1);
-         this.barButtonGroup1.ItemLinks.Add(this.changeFontSizeItem1);
-         this.barButtonGroup1.ItemLinks.Add(this.fontSizeIncreaseItem1);
-         this.barButtonGroup1.ItemLinks.Add(this.fontSizeDecreaseItem1);
-         this.barButtonGroup1.Name = "barButtonGroup1";
-         this.barButtonGroup1.Tag = "{97BBE334-159B-44d9-A168-0411957565E8}";
-         // 
-         // repositoryItemFontEdit1
-         // 
-         this.repositoryItemFontEdit1.AutoHeight = false;
-         this.repositoryItemFontEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.repositoryItemFontEdit1.Name = "repositoryItemFontEdit1";
-         // 
-         // repositoryItemRichEditFontSizeEdit1
-         // 
-         this.repositoryItemRichEditFontSizeEdit1.AutoHeight = false;
-         this.repositoryItemRichEditFontSizeEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.repositoryItemRichEditFontSizeEdit1.Control = this.rtfDescription;
-         this.repositoryItemRichEditFontSizeEdit1.Name = "repositoryItemRichEditFontSizeEdit1";
-         // 
-         // barButtonGroup2
-         // 
-         this.barButtonGroup2.Id = 23;
-         this.barButtonGroup2.ItemLinks.Add(this.toggleFontBoldItem1);
-         this.barButtonGroup2.ItemLinks.Add(this.toggleFontItalicItem1);
-         this.barButtonGroup2.ItemLinks.Add(this.toggleFontUnderlineItem1);
-         this.barButtonGroup2.ItemLinks.Add(this.toggleFontDoubleUnderlineItem1);
-         this.barButtonGroup2.ItemLinks.Add(this.toggleFontStrikeoutItem1);
-         this.barButtonGroup2.ItemLinks.Add(this.toggleFontDoubleStrikeoutItem1);
-         this.barButtonGroup2.ItemLinks.Add(this.toggleFontSuperscriptItem1);
-         this.barButtonGroup2.ItemLinks.Add(this.toggleFontSubscriptItem1);
-         this.barButtonGroup2.Name = "barButtonGroup2";
-         this.barButtonGroup2.Tag = "{433DA7F0-03E2-4650-9DB5-66DD92D16E39}";
-         // 
-         // barButtonGroup3
-         // 
-         this.barButtonGroup3.Id = 24;
-         this.barButtonGroup3.ItemLinks.Add(this.changeFontColorItem1);
-         this.barButtonGroup3.ItemLinks.Add(this.changeFontBackColorItem1);
-         this.barButtonGroup3.Name = "barButtonGroup3";
-         this.barButtonGroup3.Tag = "{DF8C5334-EDE3-47c9-A42C-FE9A9247E180}";
-         // 
-         // paragraphRibbonPageGroup1
-         // 
-         this.paragraphRibbonPageGroup1.ItemLinks.Add(this.barButtonGroup4);
-         this.paragraphRibbonPageGroup1.ItemLinks.Add(this.barButtonGroup5);
-         this.paragraphRibbonPageGroup1.ItemLinks.Add(this.barButtonGroup6);
-         this.paragraphRibbonPageGroup1.ItemLinks.Add(this.barButtonGroup7);
-         this.paragraphRibbonPageGroup1.Name = "paragraphRibbonPageGroup1";
-         // 
-         // toggleBulletedListItem1
-         // 
-         this.toggleBulletedListItem1.Id = 53;
-         this.toggleBulletedListItem1.Name = "toggleBulletedListItem1";
-         // 
-         // toggleNumberingListItem1
-         // 
-         this.toggleNumberingListItem1.Id = 54;
-         this.toggleNumberingListItem1.Name = "toggleNumberingListItem1";
-         // 
-         // toggleMultiLevelListItem1
-         // 
-         this.toggleMultiLevelListItem1.Id = 55;
-         this.toggleMultiLevelListItem1.Name = "toggleMultiLevelListItem1";
-         // 
-         // decreaseIndentItem1
-         // 
-         this.decreaseIndentItem1.Id = 56;
-         this.decreaseIndentItem1.Name = "decreaseIndentItem1";
-         // 
-         // increaseIndentItem1
-         // 
-         this.increaseIndentItem1.Id = 57;
-         this.increaseIndentItem1.Name = "increaseIndentItem1";
-         // 
-         // toggleParagraphAlignmentLeftItem1
-         // 
-         this.toggleParagraphAlignmentLeftItem1.Id = 58;
-         this.toggleParagraphAlignmentLeftItem1.Name = "toggleParagraphAlignmentLeftItem1";
-         // 
-         // toggleParagraphAlignmentCenterItem1
-         // 
-         this.toggleParagraphAlignmentCenterItem1.Id = 59;
-         this.toggleParagraphAlignmentCenterItem1.Name = "toggleParagraphAlignmentCenterItem1";
-         // 
-         // toggleParagraphAlignmentRightItem1
-         // 
-         this.toggleParagraphAlignmentRightItem1.Id = 60;
-         this.toggleParagraphAlignmentRightItem1.Name = "toggleParagraphAlignmentRightItem1";
-         // 
-         // toggleParagraphAlignmentJustifyItem1
-         // 
-         this.toggleParagraphAlignmentJustifyItem1.Id = 61;
-         this.toggleParagraphAlignmentJustifyItem1.Name = "toggleParagraphAlignmentJustifyItem1";
-         // 
-         // toggleShowWhitespaceItem1
-         // 
-         this.toggleShowWhitespaceItem1.Id = 62;
-         this.toggleShowWhitespaceItem1.Name = "toggleShowWhitespaceItem1";
-         // 
-         // changeParagraphLineSpacingItem1
-         // 
-         this.changeParagraphLineSpacingItem1.Id = 63;
-         this.changeParagraphLineSpacingItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.setSingleParagraphSpacingItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.setSesquialteralParagraphSpacingItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.setDoubleParagraphSpacingItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.showLineSpacingFormItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.addSpacingBeforeParagraphItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.removeSpacingBeforeParagraphItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.addSpacingAfterParagraphItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.removeSpacingAfterParagraphItem1)});
-         this.changeParagraphLineSpacingItem1.Name = "changeParagraphLineSpacingItem1";
-         // 
-         // setSingleParagraphSpacingItem1
-         // 
-         this.setSingleParagraphSpacingItem1.Id = 64;
-         this.setSingleParagraphSpacingItem1.Name = "setSingleParagraphSpacingItem1";
-         // 
-         // setSesquialteralParagraphSpacingItem1
-         // 
-         this.setSesquialteralParagraphSpacingItem1.Id = 65;
-         this.setSesquialteralParagraphSpacingItem1.Name = "setSesquialteralParagraphSpacingItem1";
-         // 
-         // setDoubleParagraphSpacingItem1
-         // 
-         this.setDoubleParagraphSpacingItem1.Id = 66;
-         this.setDoubleParagraphSpacingItem1.Name = "setDoubleParagraphSpacingItem1";
-         // 
-         // showLineSpacingFormItem1
-         // 
-         this.showLineSpacingFormItem1.Id = 67;
-         this.showLineSpacingFormItem1.Name = "showLineSpacingFormItem1";
-         // 
-         // addSpacingBeforeParagraphItem1
-         // 
-         this.addSpacingBeforeParagraphItem1.Id = 68;
-         this.addSpacingBeforeParagraphItem1.Name = "addSpacingBeforeParagraphItem1";
-         // 
-         // removeSpacingBeforeParagraphItem1
-         // 
-         this.removeSpacingBeforeParagraphItem1.Id = 69;
-         this.removeSpacingBeforeParagraphItem1.Name = "removeSpacingBeforeParagraphItem1";
-         // 
-         // addSpacingAfterParagraphItem1
-         // 
-         this.addSpacingAfterParagraphItem1.Id = 70;
-         this.addSpacingAfterParagraphItem1.Name = "addSpacingAfterParagraphItem1";
-         // 
-         // removeSpacingAfterParagraphItem1
-         // 
-         this.removeSpacingAfterParagraphItem1.Id = 71;
-         this.removeSpacingAfterParagraphItem1.Name = "removeSpacingAfterParagraphItem1";
-         // 
-         // changeParagraphBackColorItem1
-         // 
-         this.changeParagraphBackColorItem1.Id = 72;
-         this.changeParagraphBackColorItem1.Name = "changeParagraphBackColorItem1";
-         // 
-         // barButtonGroup4
-         // 
-         this.barButtonGroup4.Id = 25;
-         this.barButtonGroup4.ItemLinks.Add(this.toggleBulletedListItem1);
-         this.barButtonGroup4.ItemLinks.Add(this.toggleNumberingListItem1);
-         this.barButtonGroup4.ItemLinks.Add(this.toggleMultiLevelListItem1);
-         this.barButtonGroup4.Name = "barButtonGroup4";
-         this.barButtonGroup4.Tag = "{0B3A7A43-3079-4ce0-83A8-3789F5F6DC9F}";
-         // 
-         // barButtonGroup5
-         // 
-         this.barButtonGroup5.Id = 26;
-         this.barButtonGroup5.ItemLinks.Add(this.decreaseIndentItem1);
-         this.barButtonGroup5.ItemLinks.Add(this.increaseIndentItem1);
-         this.barButtonGroup5.ItemLinks.Add(this.toggleShowWhitespaceItem1);
-         this.barButtonGroup5.Name = "barButtonGroup5";
-         this.barButtonGroup5.Tag = "{4747D5AB-2BEB-4ea6-9A1D-8E4FB36F1B40}";
-         // 
-         // barButtonGroup6
-         // 
-         this.barButtonGroup6.Id = 27;
-         this.barButtonGroup6.ItemLinks.Add(this.toggleParagraphAlignmentLeftItem1);
-         this.barButtonGroup6.ItemLinks.Add(this.toggleParagraphAlignmentCenterItem1);
-         this.barButtonGroup6.ItemLinks.Add(this.toggleParagraphAlignmentRightItem1);
-         this.barButtonGroup6.ItemLinks.Add(this.toggleParagraphAlignmentJustifyItem1);
-         this.barButtonGroup6.Name = "barButtonGroup6";
-         this.barButtonGroup6.Tag = "{8E89E775-996E-49a0-AADA-DE338E34732E}";
-         // 
-         // barButtonGroup7
-         // 
-         this.barButtonGroup7.Id = 28;
-         this.barButtonGroup7.ItemLinks.Add(this.changeParagraphLineSpacingItem1);
-         this.barButtonGroup7.ItemLinks.Add(this.changeParagraphBackColorItem1);
-         this.barButtonGroup7.Name = "barButtonGroup7";
-         this.barButtonGroup7.Tag = "{9A8DEAD8-3890-4857-A395-EC625FD02217}";
-         // 
-         // stylesRibbonPageGroup1
-         // 
-         this.stylesRibbonPageGroup1.Glyph = ((System.Drawing.Image)(resources.GetObject("stylesRibbonPageGroup1.Glyph")));
-         this.stylesRibbonPageGroup1.ItemLinks.Add(this.galleryChangeStyleItem1);
-         this.stylesRibbonPageGroup1.Name = "stylesRibbonPageGroup1";
-         // 
-         // galleryChangeStyleItem1
-         // 
-         // 
-         // 
-         // 
-         this.galleryChangeStyleItem1.Gallery.ColumnCount = 10;
-         this.galleryChangeStyleItem1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup1});
-         this.galleryChangeStyleItem1.Gallery.ImageSize = new System.Drawing.Size(65, 46);
-         this.galleryChangeStyleItem1.Id = 73;
-         this.galleryChangeStyleItem1.Name = "galleryChangeStyleItem1";
-         // 
-         // editingRibbonPageGroup1
-         // 
-         this.editingRibbonPageGroup1.ItemLinks.Add(this.findItem1);
-         this.editingRibbonPageGroup1.ItemLinks.Add(this.replaceItem1);
-         this.editingRibbonPageGroup1.Name = "editingRibbonPageGroup1";
-         // 
-         // findItem1
-         // 
-         this.findItem1.Id = 74;
-         this.findItem1.Name = "findItem1";
-         // 
-         // replaceItem1
-         // 
-         this.replaceItem1.Id = 75;
-         this.replaceItem1.Name = "replaceItem1";
-         // 
          // ModelModule
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1765,6 +1760,8 @@
          this.StatusBar = this.ribbonStatusBar;
          this.Text = "ModelModule";
          ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEdit1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichEditFontSizeEdit1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.pmnProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.tabModel)).EndInit();
          this.tabModel.ResumeLayout(false);
@@ -1776,15 +1773,16 @@
          ((System.ComponentModel.ISupportInitialize)(this.grpProperties)).EndInit();
          this.grpProperties.ResumeLayout(false);
          this.grpProperties.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.cboPaintScheme.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.cboEra.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.cboAdministration.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.cboCompany.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.cboCategory.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.cboPaintScheme.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
          this.tabModelScale.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.grpScaleProperties)).EndInit();
          this.grpScaleProperties.ResumeLayout(false);
          this.grpScaleProperties.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.cboPropertiesIntEq.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.cboPropertiesFrame.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.cboPropertiesCouplers.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.cboPropertiesIntLights.Properties)).EndInit();
@@ -1793,13 +1791,14 @@
          ((System.ComponentModel.ISupportInitialize)(this.grpDigital)).EndInit();
          this.grpDigital.ResumeLayout(false);
          this.grpDigital.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.cboDigitalPlug.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.cboDigitalDecoder.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.cboDigitalPlug.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtDigitalAddress.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.grpScaleSales)).EndInit();
          this.grpScaleSales.ResumeLayout(false);
          this.grpScaleSales.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.cboStore.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.chkPurchasePending.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtLimitedModel.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.chkLimitedModel.Properties)).EndInit();
@@ -1807,22 +1806,18 @@
          ((System.ComponentModel.ISupportInitialize)(this.txtPurchasePrice.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.dtePurchaseDate.Properties.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.dtePurchaseDate.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.cboStore.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.grpScaleGeneral)).EndInit();
          this.grpScaleGeneral.ResumeLayout(false);
          this.grpScaleGeneral.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.cboScale.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.cboGauge.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.cboManufacturer.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtReference.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtItems.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.cboManufacturer.Properties)).EndInit();
          this.tabModelMaintenance.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.pnlContainer)).EndInit();
          this.pnlContainer.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.cboPropertiesIntEq.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.richEditBarController1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEdit1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichEditFontSizeEdit1)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -1844,13 +1839,10 @@
       private DevExpress.XtraEditors.TextEdit txtName;
       private DevExpress.XtraEditors.LabelControl lblName;
       private DevExpress.XtraEditors.GroupControl grpProperties;
-      private DevExpress.XtraEditors.ImageComboBoxEdit cboCategory;
       private DevExpress.XtraEditors.LabelControl lblCategory;
-      private DevExpress.XtraEditors.ImageComboBoxEdit cboAdministration;
       private DevExpress.XtraEditors.LabelControl lblAdministration;
       private DevExpress.XtraEditors.LabelControl lblPaintScheme;
       private DevExpress.XtraEditors.ComboBoxEdit cboPaintScheme;
-      private DevExpress.XtraEditors.ImageComboBoxEdit cboEra;
       private DevExpress.XtraEditors.LabelControl lblEra;
       private DevExpress.XtraEditors.PanelControl panelControl1;
       private DevExpress.XtraEditors.GroupControl grpImage;
@@ -1859,18 +1851,15 @@
       private DevExpress.XtraEditors.GroupControl grpScaleGeneral;
       private DevExpress.XtraEditors.SpinEdit txtItems;
       private DevExpress.XtraEditors.LabelControl lblItems;
-      private DevExpress.XtraEditors.ImageComboBoxEdit cboManufacturer;
       private DevExpress.XtraEditors.LabelControl lblManufacturer;
       private DevExpress.XtraEditors.GroupControl grpScaleSales;
       private DevExpress.XtraEditors.DateEdit dtePurchaseDate;
       private DevExpress.XtraEditors.LabelControl lblBuyDate;
-      private DevExpress.XtraEditors.ImageComboBoxEdit cboStore;
       private DevExpress.XtraEditors.LabelControl lblStore;
       private DevExpress.XtraEditors.GroupControl grpScaleProperties;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgPrint;
       private DevExpress.XtraEditors.TextEdit txtReference;
       private DevExpress.XtraEditors.LabelControl lblReference;
-      private DevExpress.XtraEditors.ImageComboBoxEdit cboScale;
       private DevExpress.XtraEditors.LabelControl lblScale;
       private DevExpress.XtraEditors.TextEdit txtPriceCatalog;
       private DevExpress.XtraEditors.LabelControl lblPriceCatalog;
@@ -1885,7 +1874,6 @@
       private DevExpress.XtraEditors.GroupControl grpDigital;
       private DevExpress.XtraEditors.SpinEdit txtDigitalAddress;
       private DevExpress.XtraEditors.LabelControl lblDigitalAddress;
-      private DevExpress.XtraEditors.ImageComboBoxEdit cboDigitalDecoder;
       private DevExpress.XtraEditors.LabelControl lblDigitalDecoder;
       private DevExpress.XtraEditors.ImageComboBoxEdit cboDigitalPlug;
       private DevExpress.XtraEditors.LabelControl lblDigitalPlug;
@@ -1988,5 +1976,12 @@
       private DevExpress.XtraRichEdit.UI.StylesRibbonPageGroup stylesRibbonPageGroup1;
       private DevExpress.XtraRichEdit.UI.EditingRibbonPageGroup editingRibbonPageGroup1;
       private DevExpress.XtraRichEdit.UI.RichEditBarController richEditBarController1;
-   }
+        private Common.Controls.ManufacturerImageComboBoxEdit cboManufacturer;
+        private Common.Controls.StoreImageComboBoxEdit cboStore;
+        private Controls.CategoryImageComboBoxEdit cboCategory;
+        private Controls.CompanyImageComboBoxEdit cboCompany;
+        private Controls.GaugeImageComboBoxEdit cboGauge;
+        private Controls.EraImageComboBoxEdit cboEra;
+        private Controls.DecoderImageComboBoxEdit cboDigitalDecoder;
+    }
 }

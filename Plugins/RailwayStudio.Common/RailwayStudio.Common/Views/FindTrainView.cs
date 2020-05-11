@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using Rwm.Otc.Layout;
 using Rwm.Otc.Trains;
 
 namespace Rwm.Studio.Plugins.Common.Views
@@ -84,7 +83,7 @@ namespace Rwm.Studio.Plugins.Common.Views
       {
          grdTrainView.BeginUpdate();
          grdTrain.DataSource = null;
-         grdTrain.DataSource = ElementTrain.ListTrains();
+         grdTrain.DataSource = Train.ListTrains();
          grdTrainView.Columns[0].Visible = false;
          grdTrainView.Columns[1].Visible = false;
 

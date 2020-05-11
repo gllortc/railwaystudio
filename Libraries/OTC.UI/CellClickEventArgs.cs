@@ -1,6 +1,6 @@
-﻿using Rwm.Otc.Layout;
+﻿using System.Drawing;
+using Rwm.Otc.Layout;
 using Rwm.Otc.UI.Controls;
-using Rwm.Otc.Utils;
 
 namespace Rwm.Otc.UI
 {
@@ -19,7 +19,7 @@ namespace Rwm.Otc.UI
       /// <param name="y">Y position for the clicked cell.</param>
       public CellClickEventArgs(SwitchboardControlBase control, int x, int y)
       {
-         this.Coordinates = new Coordinates(x, y);
+         this.Coordinates = new Point(x, y);
          this.Element = null;
       }
 
@@ -27,7 +27,7 @@ namespace Rwm.Otc.UI
       /// Returns a new instance of <see cref="CellClickEventArgs"/>.
       /// </summary>
       /// <param name="coords">Coordinates for the clicked cell.</param>
-      public CellClickEventArgs(SwitchboardControlBase control, Coordinates coords)
+      public CellClickEventArgs(SwitchboardControlBase control, Point coords)
       {
          this.Coordinates = coords;
          this.Element = null;
@@ -41,7 +41,7 @@ namespace Rwm.Otc.UI
       /// <param name="element">Element contained in the clicked cell.</param>
       public CellClickEventArgs(SwitchboardControlBase control, int x, int y, Element element)
       {
-         this.Coordinates = new Coordinates(x, y);
+         this.Coordinates = new Point(x, y);
          this.Element = element;
       }
 
@@ -50,7 +50,7 @@ namespace Rwm.Otc.UI
       /// </summary>
       /// <param name="coords">Coordinates for the clicked cell.</param>
       /// <param name="element">Element contained in the clicked cell.</param>
-      public CellClickEventArgs(SwitchboardControlBase control, Coordinates coords, Element element)
+      public CellClickEventArgs(SwitchboardControlBase control, Point coords, Element element)
       {
          this.Coordinates = coords;
          this.Element = element;
@@ -89,7 +89,7 @@ namespace Rwm.Otc.UI
       /// <summary>
       /// Gets the coordinates for the clicked cell.
       /// </summary>
-      public Coordinates Coordinates { get; private set; }
+      public Point Coordinates { get; private set; }
 
       #endregion
 

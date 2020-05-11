@@ -46,37 +46,7 @@ namespace Rwm.Otc.Layout
 
       #region Methods
 
-      public static System.Data.DataTable ListTrains()
-      {
-         try
-         {
-            string sql = @"SELECT 
-                             m.id, 
-                             em.elementid,  
-                             m.IMAGEDATA     As ""Icon"", 
-                             m.name          As ""Name"", 
-                             m.moddigitaladd As ""Address"",
-                             Case 
-                                 When (e.Name IS null) Or (e.Name='') Then 'X:' || e.x || ';Y:' || e.y
-                                 Else e.Name 
-                             End             As ""Block""
-                          FROM 
-                             " + Train.TableName + @" m 
-                             Left Join " + ElementTrain.TableName + @" em On (em.trainid = m.id) 
-                             Left Join " + Element.TableName + @"      e  On (e.id = em.elementid)
-                          WHERE 
-                             m.moddigitaladd > 0 
-                          ORDER BY 
-                             m.name ASC";
-
-            return Train.ExecuteDataTable(sql);
-         }
-         catch (Exception ex)
-         {
-            Logger.LogError(ex);
-            throw ex;
-         }
-      }
+      
 
       #endregion
 

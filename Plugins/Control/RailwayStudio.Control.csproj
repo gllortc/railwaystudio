@@ -136,11 +136,11 @@
     <Compile Include="Controls\TrainSelectionControl.Designer.cs">
       <DependentUpon>TrainSelectionControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\RouteManualActivatorControl.cs">
+    <Compile Include="Controls\RouteActivationControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\RouteManualActivatorControl.Designer.cs">
-      <DependentUpon>RouteManualActivatorControl.cs</DependentUpon>
+    <Compile Include="Controls\RouteActivationControl.Designer.cs">
+      <DependentUpon>RouteActivationControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\ControlModule.Controller.Designer.cs" />
     <Compile Include="Modules\ControlModule.cs">
@@ -173,8 +173,8 @@
     <EmbeddedResource Include="Controls\TrainSelectionControl.resx">
       <DependentUpon>TrainSelectionControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\RouteManualActivatorControl.resx">
-      <DependentUpon>RouteManualActivatorControl.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\RouteActivationControl.resx">
+      <DependentUpon>RouteActivationControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\ControlModule.resx">
       <DependentUpon>ControlModule.cs</DependentUpon>
@@ -212,6 +212,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\train_edit_16.png" />
     <None Include="Resources\train_bullet_red_16.png" />
     <None Include="Resources\train_clear_16.png" />
     <None Include="Resources\train_metro_16.png" />

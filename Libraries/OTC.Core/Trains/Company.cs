@@ -15,10 +15,7 @@ namespace Rwm.Otc.Trains
       /// <summary>
       /// Returns a new instance of <see cref="Company"/>.
       /// </summary>
-      public Company() : base()
-      {
-         this.Initialize();
-      }
+      public Company() : base() { }
 
       #endregion
 
@@ -28,51 +25,37 @@ namespace Rwm.Otc.Trains
       /// Gets or sets the object unique identifier.
       /// </summary>
       [ORMPrimaryKey()]
-      public override long ID { get; set; }
+      public override long ID { get; set; } = 0;
 
       /// <summary>
       /// Gets or sets el nombre.
       /// </summary>
-      [ORMProperty("name")]
-      public string Name { get; set; }
+      [ORMProperty("NAME")]
+      public string Name { get; set; } = string.Empty;
 
       /// <summary>
       /// Gets or sets la descripción.
       /// </summary>
-      [ORMProperty("description")]
-      public string Description { get; set; }
+      [ORMProperty("DESCRIPTION")]
+      public string Description { get; set; } = string.Empty;
 
       /// <summary>
       /// Gets or sets la URL correspondiente a la página web oficial.
       /// </summary>
-      [ORMProperty("web")]
-      public string URL { get; set; }
+      [ORMProperty("WEB")]
+      public string URL { get; set; } = string.Empty;
 
       /// <summary>
       /// Gets or sets el nombre de archivo (sin ruta) correspondiente al logotipo (imagen) de la administración.
       /// </summary>
-      [ORMProperty("logofile")]
-      public string LogoFilename { get; set; }
+      [ORMProperty("LOGOFILE")]
+      public string LogoFilename { get; set; } = string.Empty;
 
       /// <summary>
       /// Gets or sets la imagen correspondiente al logotipo (imagen) de la administración.
       /// </summary>
-      [ORMProperty("logoimage")]
-      public Image LogoImage { get; set; }
-
-      #endregion
-
-      #region Private Members
-
-      private void Initialize()
-      {
-         this.ID = 0;
-         this.Name = string.Empty;
-         this.Description = string.Empty;
-         this.URL = string.Empty;
-         this.LogoFilename = string.Empty;
-         this.LogoImage = null;
-      }
+      [ORMProperty("LOGOIMAGE")]
+      public Image LogoImage { get; set; } = null;
 
       #endregion
 

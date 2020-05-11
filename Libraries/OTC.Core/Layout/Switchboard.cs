@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using Rwm.Otc.Data;
 using Rwm.Otc.Diagnostics;
-using Rwm.Otc.Utils;
 using static Rwm.Otc.Data.ORMForeignCollection;
 
 namespace Rwm.Otc.Layout
@@ -198,7 +197,7 @@ namespace Rwm.Otc.Layout
       /// </summary>
       /// <param name="coords">Coordinates to check.</param>
       /// <returns>A value indicating if the position is occupied.</returns>
-      public bool IsOccupied(Coordinates coords)
+      public bool IsOccupied(Point coords)
       {
          foreach (Element element in this.Elements)
          {
@@ -289,7 +288,7 @@ namespace Rwm.Otc.Layout
       /// <param name="sb">Parent switchboard.</param>
       /// <param name="coords">Coordinates to check.</param>
       /// <returns>The requested element or <c>null</c> if coordinates are empty.</returns>
-      public Element GetBlock(Coordinates coords)
+      public Element GetBlock(Point coords)
       {
          foreach (Element element in this.Elements)
          {

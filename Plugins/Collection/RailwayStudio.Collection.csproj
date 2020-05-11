@@ -138,7 +138,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\EraImageComboBoxEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DecoderImageComboBoxEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\GaugeImageComboBoxEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\EnumItemImage.cs" />
+    <Compile Include="Controls\CategoryImageComboBoxEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CompanyImageComboBoxEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Modules\ExplorerModule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,6 +292,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\processor_delete_16.png" />
+    <None Include="Resources\measure_delete_16.png" />
+    <None Include="Resources\folder_16.png" />
     <None Include="Resources\report_16.png" />
     <None Include="Resources\report_32.png" />
     <None Include="Resources\printer_16.png" />
@@ -284,7 +302,6 @@
     <None Include="Resources\train_metro_1611.png" />
     <None Include="Resources\page_train_32.png" />
     <None Include="Resources\train_metro_161.png" />
-    <None Include="Resources\folder_16.png" />
     <None Include="Resources\folder_train_32.png" />
     <None Include="Resources\link_go.png" />
     <None Include="Resources\link_delete.png" />
@@ -312,6 +329,9 @@
     <None Include="Resources\diskette_16.png" />
     <None Include="Resources\diskette.png" />
     <None Include="Resources\connect_16.png" />
+    <None Include="Resources\bullet_arrow_left_2.png" />
+    <None Include="Resources\building_delete_16.png" />
+    <None Include="Resources\bahn_epoche_none.png" />
     <Content Include="Resources\favicon.ico" />
     <None Include="Resources\database_table_16.png" />
     <None Include="Resources\database_table.png" />

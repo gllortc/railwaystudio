@@ -31,7 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Svg, Version=2.4.3.29446, Culture=neutral, PublicKeyToken=12a0bac221edeae2, processorArchitecture=MSIL">
@@ -93,7 +93,7 @@
     <None Include="Resources\cancel.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="favicon.ico" />
+    <Content Include="Resources\favicon.ico" />
     <None Include="Resources\stdblock.svg" />
     <None Include="Resources\dturnout-left-route-turned.svg" />
     <None Include="Resources\dturnout-left-route-stright.svg" />

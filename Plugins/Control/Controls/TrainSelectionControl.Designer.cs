@@ -28,18 +28,19 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          this.grdTrain = new DevExpress.XtraGrid.GridControl();
          this.grdTrainView = new DevExpress.XtraGrid.Views.Grid.GridView();
-         this.barManager = new DevExpress.XtraBars.BarManager();
+         this.barManager = new DevExpress.XtraBars.BarManager(this.components);
          this.barRoutes = new DevExpress.XtraBars.Bar();
-         this.cmdRouteActivate = new DevExpress.XtraBars.BarButtonItem();
+         this.cmdTrainEdit = new DevExpress.XtraBars.BarButtonItem();
          this.cmdTrainUnassign = new DevExpress.XtraBars.BarButtonItem();
          this.cmdTrainClear = new DevExpress.XtraBars.BarButtonItem();
          this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
          this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
          this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
          this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-         this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl();
+         this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
          ((System.ComponentModel.ISupportInitialize)(this.grdTrain)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.grdTrainView)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
@@ -48,10 +49,10 @@
          // grdTrain
          // 
          this.grdTrain.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.grdTrain.Location = new System.Drawing.Point(0, 29);
+         this.grdTrain.Location = new System.Drawing.Point(0, 31);
          this.grdTrain.MainView = this.grdTrainView;
          this.grdTrain.Name = "grdTrain";
-         this.grdTrain.Size = new System.Drawing.Size(325, 469);
+         this.grdTrain.Size = new System.Drawing.Size(325, 467);
          this.grdTrain.TabIndex = 4;
          this.grdTrain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdTrainView});
@@ -63,14 +64,30 @@
          this.grdTrainView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
          this.grdTrainView.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
          this.grdTrainView.OptionsBehavior.Editable = false;
+         this.grdTrainView.OptionsCustomization.AllowColumnMoving = false;
+         this.grdTrainView.OptionsCustomization.AllowColumnResizing = false;
+         this.grdTrainView.OptionsCustomization.AllowFilter = false;
+         this.grdTrainView.OptionsCustomization.AllowGroup = false;
+         this.grdTrainView.OptionsCustomization.AllowQuickHideColumns = false;
+         this.grdTrainView.OptionsCustomization.AllowSort = false;
+         this.grdTrainView.OptionsDetail.AllowZoomDetail = false;
+         this.grdTrainView.OptionsDetail.EnableMasterViewMode = false;
+         this.grdTrainView.OptionsDetail.ShowDetailTabs = false;
+         this.grdTrainView.OptionsDetail.SmartDetailExpand = false;
+         this.grdTrainView.OptionsFilter.AllowColumnMRUFilterList = false;
+         this.grdTrainView.OptionsFilter.AllowFilterEditor = false;
+         this.grdTrainView.OptionsMenu.EnableColumnMenu = false;
+         this.grdTrainView.OptionsMenu.EnableFooterMenu = false;
+         this.grdTrainView.OptionsMenu.EnableGroupPanelMenu = false;
          this.grdTrainView.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.grdTrainView.OptionsSelection.EnableAppearanceFocusedRow = false;
          this.grdTrainView.OptionsSelection.UseIndicatorForSelection = false;
+         this.grdTrainView.OptionsView.ShowDetailButtons = false;
+         this.grdTrainView.OptionsView.ShowGroupExpandCollapseButtons = false;
          this.grdTrainView.OptionsView.ShowGroupPanel = false;
          this.grdTrainView.OptionsView.ShowIndicator = false;
-         this.grdTrainView.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.GrdRouteView_CustomDrawCell);
-         this.grdTrainView.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.GrdRouteView_RowStyle);
-         this.grdTrainView.DoubleClick += new System.EventHandler(this.GrdRouteView_DoubleClick);
+         this.grdTrainView.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.GrdTrainView_RowStyle);
+         this.grdTrainView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.GrdTrainView_MouseDown);
+         this.grdTrainView.MouseMove += new System.Windows.Forms.MouseEventHandler(this.GrdTrainView_MouseMove);
          // 
          // barManager
          // 
@@ -82,7 +99,7 @@
          this.barManager.DockControls.Add(this.barDockControlRight);
          this.barManager.Form = this;
          this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.cmdRouteActivate,
+            this.cmdTrainEdit,
             this.cmdTrainClear,
             this.cmdTrainUnassign});
          this.barManager.MaxItemId = 8;
@@ -94,9 +111,9 @@
          this.barRoutes.DockRow = 0;
          this.barRoutes.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
          this.barRoutes.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.cmdRouteActivate),
             new DevExpress.XtraBars.LinkPersistInfo(this.cmdTrainUnassign),
-            new DevExpress.XtraBars.LinkPersistInfo(this.cmdTrainClear, true)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.cmdTrainClear),
+            new DevExpress.XtraBars.LinkPersistInfo(this.cmdTrainEdit, true)});
          this.barRoutes.OptionsBar.AllowQuickCustomization = false;
          this.barRoutes.OptionsBar.DisableClose = true;
          this.barRoutes.OptionsBar.DisableCustomization = true;
@@ -105,14 +122,14 @@
          this.barRoutes.OptionsBar.UseWholeRow = true;
          this.barRoutes.Text = "Route tools";
          // 
-         // cmdRouteActivate
+         // cmdTrainEdit
          // 
-         this.cmdRouteActivate.Caption = "Toggle route activation";
-         this.cmdRouteActivate.Id = 0;
-         this.cmdRouteActivate.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_ACTIVATE_16;
-         this.cmdRouteActivate.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_ACTIVATE_16;
-         this.cmdRouteActivate.Name = "cmdRouteActivate";
-         this.cmdRouteActivate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdRouteActivate_ItemClick);
+         this.cmdTrainEdit.Caption = "Open train for view/edit";
+         this.cmdTrainEdit.Id = 0;
+         this.cmdTrainEdit.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_TRAIN_EDIT_16;
+         this.cmdTrainEdit.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_TRAIN_EDIT_16;
+         this.cmdTrainEdit.Name = "cmdTrainEdit";
+         this.cmdTrainEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdTrainEdit_ItemClick);
          // 
          // cmdTrainUnassign
          // 
@@ -138,7 +155,7 @@
          this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
          this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
          this.barDockControlTop.Manager = this.barManager;
-         this.barDockControlTop.Size = new System.Drawing.Size(325, 29);
+         this.barDockControlTop.Size = new System.Drawing.Size(325, 31);
          // 
          // barDockControlBottom
          // 
@@ -152,17 +169,17 @@
          // 
          this.barDockControlLeft.CausesValidation = false;
          this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-         this.barDockControlLeft.Location = new System.Drawing.Point(0, 29);
+         this.barDockControlLeft.Location = new System.Drawing.Point(0, 31);
          this.barDockControlLeft.Manager = this.barManager;
-         this.barDockControlLeft.Size = new System.Drawing.Size(0, 469);
+         this.barDockControlLeft.Size = new System.Drawing.Size(0, 467);
          // 
          // barDockControlRight
          // 
          this.barDockControlRight.CausesValidation = false;
          this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-         this.barDockControlRight.Location = new System.Drawing.Point(325, 29);
+         this.barDockControlRight.Location = new System.Drawing.Point(325, 31);
          this.barDockControlRight.Manager = this.barManager;
-         this.barDockControlRight.Size = new System.Drawing.Size(0, 469);
+         this.barDockControlRight.Size = new System.Drawing.Size(0, 467);
          // 
          // alertControl
          // 
@@ -196,7 +213,7 @@
       private DevExpress.XtraGrid.Views.Grid.GridView grdTrainView;
       private DevExpress.XtraBars.BarManager barManager;
       private DevExpress.XtraBars.Bar barRoutes;
-      private DevExpress.XtraBars.BarButtonItem cmdRouteActivate;
+      private DevExpress.XtraBars.BarButtonItem cmdTrainEdit;
       private DevExpress.XtraBars.BarDockControl barDockControlTop;
       private DevExpress.XtraBars.BarDockControl barDockControlBottom;
       private DevExpress.XtraBars.BarDockControl barDockControlLeft;

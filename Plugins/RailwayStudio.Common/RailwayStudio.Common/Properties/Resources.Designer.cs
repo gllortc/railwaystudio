@@ -233,6 +233,26 @@ namespace Rwm.Studio.Plugins.Common.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ICO_STORE_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_STORE_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_STORE_OFF_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_STORE_OFF_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ICO_TEXTEDITOR_16 {
             get {
                 object obj = ResourceManager.GetObject("ICO_TEXTEDITOR_16", resourceCulture);

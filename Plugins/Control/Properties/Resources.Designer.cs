@@ -483,6 +483,16 @@ namespace Rwm.Studio.Plugins.Control.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ICO_TRAIN_EDIT_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_TRAIN_EDIT_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ICO_TRAIN_UNASSIGN_16 {
             get {
                 object obj = ResourceManager.GetObject("ICO_TRAIN_UNASSIGN_16", resourceCulture);

@@ -1,8 +1,7 @@
-﻿using Rwm.Otc.Layout;
-using Rwm.Otc.Utils;
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Rwm.Otc.Layout;
 
 namespace Rwm.Otc.UI.Controls
 {
@@ -64,10 +63,10 @@ namespace Rwm.Otc.UI.Controls
 
       public void BlockAdd(ElementType blockType, int col, int row)
       {
-         this.BlockAdd(blockType, new Coordinates(col, row));
+         this.BlockAdd(blockType, new Point(col, row));
       }
 
-      public void BlockAdd(ElementType blockType, Coordinates coords)
+      public void BlockAdd(ElementType blockType, Point coords)
       {
          // Avoit adding blocks without predefined type
          if (blockType == null) return;
@@ -102,10 +101,10 @@ namespace Rwm.Otc.UI.Controls
 
       public void BlockDelete(int col, int row)
       {
-         this.BlockDelete(new Coordinates(col, row));
+         this.BlockDelete(new Point(col, row));
       }
 
-      public void BlockDelete(Coordinates coords)
+      public void BlockDelete(Point coords)
       {
          Element element = null;
 
@@ -124,17 +123,17 @@ namespace Rwm.Otc.UI.Controls
          }
          finally
          {
-            this.RepaintCoordinates(element != null ? element.GetUsedCoordinates() : new Coordinates[] { coords });
+            this.RepaintCoordinates(element != null ? element.GetUsedCoordinates() : new Point[] { coords });
             this.SelectCell(coords);
          }
       }
 
       public void RotateElement(int col, int row)
       {
-         this.RotateElement(new Coordinates(col, row));
+         this.RotateElement(new Point(col, row));
       }
 
-      public void RotateElement(Coordinates coords)
+      public void RotateElement(Point coords)
       {
          try
          {
@@ -160,10 +159,9 @@ namespace Rwm.Otc.UI.Controls
       /// Select a element cell.
       /// </summary>
       /// <param name="coords">Cell coordinates.</param>
-      public override void SelectCell(Coordinates coords)
+      public override void SelectCell(Point coords)
       {
          int elementWidth = 1;
-         Coordinates tmpCoords = null;
          Element element;
          Rectangle selrect;
 
@@ -172,6 +170,8 @@ namespace Rwm.Otc.UI.Controls
 
          using (Graphics g = this.CreateGraphics())
          {
+            Point tmpCoords;
+
             // Remove current selection
             if (this.SelectedCell != null)
             {
@@ -180,8 +180,7 @@ namespace Rwm.Otc.UI.Controls
                elementWidth = (element != null ? element.Properties.Width : 1);
                for (int blockIdx = 0; blockIdx < elementWidth; blockIdx++)
                {
-                  tmpCoords = new Coordinates(this.SelectedCell.X + blockIdx,
-                                              this.SelectedCell.Y);
+                  tmpCoords = new Point(this.SelectedCell.X + blockIdx, this.SelectedCell.Y);
 
                   selrect = new Rectangle(this.GetElementPosition(tmpCoords),
                                           OTCContext.Project.Theme.ElementSize);
@@ -202,7 +201,7 @@ namespace Rwm.Otc.UI.Controls
             elementWidth = (element != null ? element.Properties.Width : 1);
             for (int blockIdx = 0; blockIdx < elementWidth; blockIdx++)
             {
-               tmpCoords = new Coordinates(coords.X + blockIdx, coords.Y);
+               tmpCoords = new Point(coords.X + blockIdx, coords.Y);
 
                this.DrawCellHighlight(g, new Rectangle(this.GetElementPosition(tmpCoords),
                                                        OTCContext.Project.Theme.ElementSize));
@@ -241,8 +240,8 @@ namespace Rwm.Otc.UI.Controls
 
       protected override void OnMouseClick(MouseEventArgs e)
       {
-         Coordinates coords = new Coordinates((e.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
-                                              (e.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
+         Point coords = new Point((e.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
+                                  (e.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
 
          if (this.IsOutOfClickableArea(coords) || e.Button != System.Windows.Forms.MouseButtons.Left)
          {
@@ -266,8 +265,8 @@ namespace Rwm.Otc.UI.Controls
 
       protected override void OnMouseDoubleClick(MouseEventArgs e)
       {
-         Coordinates coords = new Coordinates((e.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
-                                              (e.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
+         Point coords = new Point((e.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
+                                  (e.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
          Element element = this.Switchboard.GetBlock(coords);
 
          if (this.BlockDoubleClick != null && element != null)
@@ -293,7 +292,7 @@ namespace Rwm.Otc.UI.Controls
       /// <summary>
       /// Manage the clik in blocks.
       /// </summary>
-      private void DesignLayoutClickDispatcher(Coordinates coords)
+      private void DesignLayoutClickDispatcher(Point coords)
       {
          switch (this.SelectedDesignTool)
          {
@@ -319,17 +318,17 @@ namespace Rwm.Otc.UI.Controls
       /// <summary>
       /// Check if the current element can be fitted in the desired coordinates.
       /// </summary>
-      private bool IsAddBlockAllowed(Element element, Coordinates position)
+      private bool IsAddBlockAllowed(Element element, Point position)
       {
          if (element.Properties.Width <= 1)
          {
-            return !this.Switchboard.IsOccupied(new Coordinates(element.X, element.Y));
+            return !this.Switchboard.IsOccupied(new Point(element.X, element.Y));
          }
          else
          {
             for (int x = 0; x < element.Properties.Width; x++)
             {
-               if (this.Switchboard.IsOccupied(new Coordinates(element.X + x, element.Y)))
+               if (this.Switchboard.IsOccupied(new Point(element.X + x, element.Y)))
                {
                   return false;
                }
@@ -339,32 +338,10 @@ namespace Rwm.Otc.UI.Controls
          return true;
       }
 
-      ///// <summary>
-      ///// Get the real coordinates (origina) for any coordinates.
-      ///// </summary>
-      ///// <param name="coords">Selected coordinates.</param>
-      ///// <returns>The real origina coordinates.</returns>
-      //private Coordinates GetRealCoordinates(Coordinates coords)
-      //{
-      //   ElementBase element = OTCContext.Project.Elements.Get(this.Switchboard, coords);
-      //   if (element == null)
-      //   {
-      //      return coords;
-      //   }
-      //   else if (element.Width == 1)
-      //   {
-      //      return coords;
-      //   }
-      //   else
-      //   {
-      //      return element.Coordinates;
-      //   }
-      //}
-
       /// <summary>
       /// Check if a coordinate is out of valid switchboard area.
       /// </summary>
-      private bool IsOutOfClickableArea(Coordinates coords)
+      private bool IsOutOfClickableArea(Point coords)
       {
          return ((coords.X > this.Switchboard.Width - 1) || (coords.Y > this.Switchboard.Height - 1));
       }

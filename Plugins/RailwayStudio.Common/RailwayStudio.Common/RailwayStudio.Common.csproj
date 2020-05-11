@@ -46,7 +46,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -89,6 +89,9 @@
     </Compile>
     <Compile Include="Controls\DigitalAddressEdit.Designer.cs">
       <DependentUpon>DigitalAddressEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\StoreImageComboBoxEdit.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\ManufacturerImageComboBoxEdit.cs">
       <SubType>Component</SubType>
@@ -263,7 +266,9 @@
     <None Include="Resources\rwm_logo_black.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="favicon.ico" />
+    <Content Include="Resources\favicon.ico" />
+    <None Include="Resources\cart_delete_16.png" />
+    <None Include="Resources\cart_16.png" />
     <None Include="Resources\factory_delete_bw_16.png" />
     <None Include="Resources\factory_16.png" />
     <None Include="Resources\table_heatmap_check_32.png" />

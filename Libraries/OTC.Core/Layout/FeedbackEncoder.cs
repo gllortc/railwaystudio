@@ -91,12 +91,6 @@ namespace Rwm.Otc.Layout
       public string Model { get; set; } = string.Empty;
 
       /// <summary>
-      /// Establece o devuelve la dirección inicial del descodificador.
-      /// </summary>
-      [ORMProperty("STARTADDRESS")]
-      public int StartAddress { get; set; } = 0;
-
-      /// <summary>
       /// Gets or sets the owner section of the layout where the decoder is installed.
       /// </summary>
       [ORMProperty("SECTIONID")]

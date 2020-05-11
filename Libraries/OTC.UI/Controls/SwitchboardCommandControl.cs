@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using Rwm.Otc.Diagnostics;
 using Rwm.Otc.Layout;
 using Rwm.Otc.Systems;
-using Rwm.Otc.Utils;
+using Rwm.Otc.Trains;
 
 namespace Rwm.Otc.UI.Controls
 {
@@ -40,7 +41,7 @@ namespace Rwm.Otc.UI.Controls
 
       #region Methods
 
-      public void SetSensorStatus(Coordinates coords, bool status)
+      public void SetSensorStatus(Point coords, bool status)
       {
          Element element = this.Switchboard.GetBlock(coords);
          if (element != null)
@@ -75,8 +76,8 @@ namespace Rwm.Otc.UI.Controls
       {
          try
          {
-            Coordinates coords = new Coordinates((e.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
-                                              (e.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
+            Point coords = new Point((e.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
+                                     (e.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
 
             // Get the affected element
             Element element = this.Switchboard.GetBlock(coords);
@@ -87,7 +88,7 @@ namespace Rwm.Otc.UI.Controls
                element.SetFeedbackStatus(true);
 
                this.ExecuteActions(element,
-                                   Rwm.Otc.Layout.ElementAction.EventType.OnSensorStatusChange,
+                                   ElementAction.EventType.OnSensorStatusChange,
                                    (int)FeedbackStatus.Activated);
             }
          }
@@ -102,8 +103,8 @@ namespace Rwm.Otc.UI.Controls
          try
          {
             // Adapt click coordinates to an element click
-            Coordinates coords = new Coordinates((e.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
-                                                 (e.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
+            Point coords = new Point((e.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
+                                     (e.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
 
             // Get the clicked element
             Element element = this.Switchboard.GetBlock(coords);
@@ -120,7 +121,7 @@ namespace Rwm.Otc.UI.Controls
 
                // Execute element associated actions
                this.ExecuteActions(element,
-                                   Rwm.Otc.Layout.ElementAction.EventType.OnAccessoryStatusChange,
+                                   ElementAction.EventType.OnAccessoryStatusChange,
                                    element.AccessoryStatus);
             }
 
@@ -130,7 +131,7 @@ namespace Rwm.Otc.UI.Controls
                element.SetFeedbackStatus(false);
 
                this.ExecuteActions(element,
-                                   Rwm.Otc.Layout.ElementAction.EventType.OnSensorStatusChange,
+                                   ElementAction.EventType.OnSensorStatusChange,
                                    (int)FeedbackStatus.Deactivated);
             }
 
@@ -146,17 +147,48 @@ namespace Rwm.Otc.UI.Controls
          }
       }
 
-      //void Project_FeedbackStatusChanged(object sender, FeedbackEventArgs e)
-      //{
-      //   ElementBase element = sender as ElementBase;
-      //   if (element != null && element.Switchboard.Equals(this.Switchboard))
-      //   {
-      //      this.sys
+      private void OnDragOver(object sender, DragEventArgs e)
+      {
+         e.Effect = DragDropEffects.None;
 
-      //      StudioContext.LogInformation("Feedback signal received in element {0} (status {1})",
-      //                                   element.Name, e.NewStatus);
-      //   }
-      //}
+         if (this.Enabled)
+         {
+            Point point = this.PointToClient(new Point(e.X, e.Y));
+            Point coords = new Point((point.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
+                                     (point.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
+
+            if (this.Switchboard.GetBlock(coords) is Element element)
+            {
+               if (element.Properties.IsBlock)
+               {
+                  e.Effect = DragDropEffects.All;
+               }
+            }
+         }
+      }
+
+      private void OnDragDrop(object sender, DragEventArgs e)
+      {
+         if (e.Data.GetDataPresent(typeof(Train)))
+         {
+            Point point = this.PointToClient(new Point(e.X, e.Y));
+            Point coords = new Point((point.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
+                                     (point.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
+
+            if (this.Switchboard.GetBlock(coords) is Element element)
+            {
+               if (element.Properties.IsBlock)
+               {
+                  if (!(e.Data.GetData(typeof(Train)) is Train train)) return;
+
+                  Element.AssignTrain(train, element);
+
+                  // TODO: Inform to control of change in assignments to refresh the trains list!
+                  // this.BlockAssignTrain?.Invoke(this, element);
+               }
+            }
+         }
+      }
 
       /// <summary>
       /// Handle all project elements image changed event to repaint affected elements.
@@ -226,6 +258,11 @@ namespace Rwm.Otc.UI.Controls
 
          // Suscribe to project events
          OTCContext.Project.OnElementImageChanged += Project_OnElementImageChanged;
+
+         // Enable drag&drop for the trains in block elements
+         this.AllowDrop = true;
+         this.DragOver += OnDragOver;
+         this.DragDrop += OnDragDrop;
       }
 
       /// <summary>
@@ -235,7 +272,7 @@ namespace Rwm.Otc.UI.Controls
       {
          if (!OTCContext.Project.ExecuteBlockActions || element.Actions == null || element.Actions.Count <= 0) return;
 
-         foreach (Rwm.Otc.Layout.ElementAction action in element.Actions)
+         foreach (ElementAction action in element.Actions)
          {
             if (action.Event == eventType)
             {

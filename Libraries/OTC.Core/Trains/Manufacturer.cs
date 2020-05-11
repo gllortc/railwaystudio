@@ -14,10 +14,7 @@ namespace Rwm.Otc.Trains
       /// <summary>
       /// Returns a new instance of <see cref="Manufacturer"/>.
       /// </summary>
-      public Manufacturer() : base()
-      {
-         Initialize();
-      }
+      public Manufacturer() : base() { }
 
       #endregion
 
@@ -27,35 +24,19 @@ namespace Rwm.Otc.Trains
       /// Gets or sets the object unique identifier.
       /// </summary>
       [ORMPrimaryKey()]
-      public override long ID { get; set; }
+      public override long ID { get; set; } = 0;
 
-      [ORMProperty("name")]
-      public string Name { get; set; }
+      [ORMProperty("NAME")]
+      public string Name { get; set; } = string.Empty;
 
-      [ORMProperty("description")]
-      public string Description { get; set; }
+      [ORMProperty("DESCRIPTION")]
+      public string Description { get; set; } = string.Empty;
 
-      [ORMProperty("address")]
-      public string Address { get; set; }
+      [ORMProperty("ADDRESS")]
+      public string Address { get; set; } = string.Empty;
 
-      [ORMProperty("web")]
-      public string URL { get; set; }
-
-      #endregion
-
-      #region Private Members
-
-      /// <summary>
-      /// Initializes the instance data.
-      /// </summary>
-      private void Initialize()
-      {
-         this.ID = 0;
-         this.Name = string.Empty;
-         this.Description = string.Empty;
-         this.Address = string.Empty;
-         this.URL = string.Empty;
-      }
+      [ORMProperty("WEB")]
+      public string URL { get; set; } = string.Empty;
 
       #endregion
 

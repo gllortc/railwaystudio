@@ -96,26 +96,6 @@ namespace Rwm.Otc.Data
             return ORMEntity<T>.UpdateDatabaseRecord(instance);
       }
 
-      ///// <summary>
-      ///// Store an instance into the memory table without persisting it.
-      ///// </summary>
-      ///// <param name="instance">Instance to save.</param>
-      //public static long StoreInMemory(T instance)
-      //{
-      //   ORMIdentifiableEntity identity = instance as ORMIdentifiableEntity;
-
-      //   if (ORMEntity<T>.InMemoryTable.ContainsKey(identity.ID))
-      //   {
-      //      ORMEntity<T>.InMemoryTable[identity.ID] = instance;
-      //   }
-      //   else
-      //   {
-      //      ORMEntity<T>.InMemoryTable.Add(identity.ID, instance);
-      //   }
-
-      //   return identity.ID;
-      //}
-
       /// <summary>
       /// Delete an existing instance.
       /// </summary>
@@ -194,12 +174,14 @@ namespace Rwm.Otc.Data
       }
 
       /// <summary>
-      /// Gets all instances.
+      /// Gets all instances by a query.
       /// </summary>
+      /// <param name="whereClause">Query condition (<c>WHERE</c> clause)</param>
+      /// <param name="closeConnection">Value indicating if the connection should be closed after the query execution.</param>
       /// <returns>The requested list of instances.</returns>
-      public static ICollection<T> ExecuteQuery(string sql, bool closeConnection = true)
+      public static ICollection<T> FindByQuery(string whereClause, bool closeConnection = true)
       {
-         return ORMEntity<T>.ReadQueryRecords(sql, closeConnection);
+         return ORMEntity<T>.ReadQueryRecords(whereClause, closeConnection);
       }
 
       #endregion
