@@ -446,8 +446,8 @@ namespace Rwm.Otc.Layout
             Element oldElement = null;
             if (train.BlockOccupied != null) oldElement = train.BlockOccupied;
 
-            Element.UnassignTrain(train);
-            Element.UnassignBlock(element);
+            Element.UnassignTrain(train, false);
+            Element.UnassignBlock(element, false);
 
             element.Train = train;
             element.Train.BlockOccupied = element;
@@ -468,7 +468,7 @@ namespace Rwm.Otc.Layout
       /// Clears the current position of the specified train.
       /// </summary>
       /// <param name="train">Train to clear.</param>
-      public static void UnassignTrain(Train train)
+      public static void UnassignTrain(Train train, bool raiseRepaintEvent = true)
       {
          try
          {
@@ -485,8 +485,13 @@ namespace Rwm.Otc.Layout
 
             if (train.BlockOccupied != null)
             {
+               Element oldElement = train.BlockOccupied;
+
                train.BlockOccupied.Train = null;
                train.BlockOccupied = null;
+
+               if (raiseRepaintEvent)
+                  OTCContext.Project.ElementImageChanged(oldElement);
             }
          }
          catch (Exception ex)
@@ -504,7 +509,7 @@ namespace Rwm.Otc.Layout
       /// Deletes the train from the specified position.
       /// </summary>
       /// <param name="element">Position to clear.</param>
-      public static void UnassignBlock(Element element)
+      public static void UnassignBlock(Element element, bool raiseRepaintEvent = true)
       {
          if (element == null)
             return;
@@ -530,6 +535,9 @@ namespace Rwm.Otc.Layout
                element.Train.BlockOccupied = null;
                element.Train = null;
             }
+
+            if (raiseRepaintEvent)
+               OTCContext.Project.ElementImageChanged(element);
          }
          catch (Exception ex)
          {

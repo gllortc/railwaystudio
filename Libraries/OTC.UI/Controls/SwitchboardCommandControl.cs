@@ -57,16 +57,10 @@ namespace Rwm.Otc.UI.Controls
       #region Events
 
       // An event that clients can use to be notified whenever the elements of the list change.
-      public event BlockAssignTrainEventHandler BlockAssignTrain;
+      public event BlockAssignmentChangedEventHandler BlockAssignmentChanged;
 
       // A delegate type for hooking up change notifications.
-      public delegate void BlockAssignTrainEventHandler(object sender, Element e);
-
-      // An event that clients can use to be notified whenever the elements of the list change.
-      public event BlockUnassignTrainEventHandler BlockUnassignTrain;
-
-      // A delegate type for hooking up change notifications.
-      public delegate void BlockUnassignTrainEventHandler(object sender, Element e);
+      public delegate void BlockAssignmentChangedEventHandler(object sender, EventArgs e);
 
       #endregion
 
@@ -183,8 +177,7 @@ namespace Rwm.Otc.UI.Controls
 
                   Element.AssignTrain(train, element);
 
-                  // TODO: Inform to control of change in assignments to refresh the trains list!
-                  // this.BlockAssignTrain?.Invoke(this, element);
+                  this.BlockAssignmentChanged?.Invoke(this, new EventArgs());
                }
             }
          }
@@ -202,25 +195,13 @@ namespace Rwm.Otc.UI.Controls
          }
       }
 
-      void CmdBlockAssign_ItemClick(object sender, EventArgs e)
-      {
-         if (this.BlockAssignTrain != null)
-         {
-            if (((ToolStripItem)sender).Tag is Element blockElement)
-            {
-               this.BlockAssignTrain(this, blockElement);
-            }
-         }
-      }
-
       void CmdBlockUnassign_ItemClick(object sender, EventArgs e)
       {
-         if (this.BlockUnassignTrain != null)
+         if (((ToolStripItem)sender).Tag is Element blockElement)
          {
-            if (((ToolStripItem)sender).Tag is Element blockElement)
-            {
-               this.BlockUnassignTrain(this, blockElement);
-            }
+            Element.UnassignBlock(blockElement);
+
+            this.BlockAssignmentChanged?.Invoke(this, new EventArgs());
          }
       }
 
@@ -268,7 +249,7 @@ namespace Rwm.Otc.UI.Controls
       /// <summary>
       /// Execute actions for the specified element.
       /// </summary>
-      private void ExecuteActions(Element element, Rwm.Otc.Layout.ElementAction.EventType eventType, int elementStatus)
+      private void ExecuteActions(Element element, ElementAction.EventType eventType, int elementStatus)
       {
          if (!OTCContext.Project.ExecuteBlockActions || element.Actions == null || element.Actions.Count <= 0) return;
 
@@ -276,8 +257,7 @@ namespace Rwm.Otc.UI.Controls
          {
             if (action.Event == eventType)
             {
-               if (action.IsConditionStatusDisabled ||
-                  (!action.IsConditionStatusDisabled && action.ConditionStatus == elementStatus))
+               if (action.IsConditionStatusDisabled || (!action.IsConditionStatusDisabled && action.ConditionStatus == elementStatus))
                {
                   action.Execute();
                }
@@ -293,7 +273,6 @@ namespace Rwm.Otc.UI.Controls
          if (this.BlockMenu == null)
          {
             this.BlockMenu = new ContextMenuStrip();
-            this.BlockMenu.Items.Add("&Assign train...", Properties.Resources.ICO_BLOCK_ASSIGN_16, new EventHandler(CmdBlockAssign_ItemClick));
             this.BlockMenu.Items.Add("&Unassign train (remove)", Properties.Resources.ICO_BLOCK_CLEAR_16, new EventHandler(CmdBlockUnassign_ItemClick));
             this.BlockMenu.Items.Add("Set &destination", Properties.Resources.ICO_BLOCK_GO_16);
             this.BlockMenu.Items.Add("-");

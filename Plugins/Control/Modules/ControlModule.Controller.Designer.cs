@@ -5,7 +5,6 @@ using Rwm.Otc;
 using Rwm.Otc.Layout;
 using Rwm.Otc.Systems;
 using Rwm.Otc.Systems.Protocol;
-using Rwm.Otc.Trains;
 using Rwm.Otc.UI;
 using Rwm.Otc.UI.Controls;
 using Rwm.Studio.Plugins.Common;
@@ -209,7 +208,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
          }
       }
 
-      void spcPanel_SensorManuallyActivated(object sender, CellClickEventArgs e, bool status)
+      private void SpcPanel_SensorManuallyActivated(object sender, CellClickEventArgs e, bool status)
       {
          SwitchboardCommandControl panel = sender as SwitchboardCommandControl;
          if (panel == null)
@@ -221,15 +220,9 @@ namespace Rwm.Studio.Plugins.Control.Modules
          panel.SetSensorStatus(e.Coordinates, status);
       }
 
-      private void spcPanel_BlockAssignTrain(object sender, Element e)
+      private void SpcPanel_BlockAssignTrain(object sender, EventArgs e)
       {
-         Train train = StudioContext.Find.Train("Assign train to block");
-         if (train != null) e.Train = train;
-      }
-
-      private void spcPanel_BlockUnassignTrain(object sender, Element e)
-      {
-         e.Train = null;
+         tscTrains.RefreshTrainList();
       }
 
       #endregion
@@ -252,8 +245,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
             this.ViewAddCommandPanel(panel,
                                      this.tabPanels,
                                      null,
-                                     spcPanel_BlockAssignTrain,
-                                     spcPanel_BlockUnassignTrain);
+                                     SpcPanel_BlockAssignTrain);
          }
 
          // Select the first panel
@@ -268,8 +260,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
       private void ViewAddCommandPanel(Switchboard panel,
                                        XtraTabControl tabControl,
                                        XtraTabPage tabPage,
-                                       SwitchboardCommandControl.BlockAssignTrainEventHandler blockAssignTrainEvent,
-                                       SwitchboardCommandControl.BlockUnassignTrainEventHandler blockUnassignTrainEvent)
+                                       SwitchboardCommandControl.BlockAssignmentChangedEventHandler blockAssignmentChangedEvent)
       {
          XtraTabPage tabPanel;
 
@@ -283,9 +274,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
          spcPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 
          // Subscribe required events
-         spcPanel.BlockAssignTrain += blockAssignTrainEvent;
-         spcPanel.BlockUnassignTrain += blockUnassignTrainEvent;
-         // if (sensorManuallyActivatedEvent != null) spcPanel.SensorManuallyActivated += sensorManuallyActivatedEvent;
+         spcPanel.BlockAssignmentChanged += blockAssignmentChangedEvent;
 
          // Generate the tab page
          if (tabPage == null)
