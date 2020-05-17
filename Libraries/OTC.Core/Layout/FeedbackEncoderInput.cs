@@ -1,5 +1,6 @@
 ﻿using System;
 using Rwm.Otc.Data;
+using Rwm.Otc.Systems;
 
 namespace Rwm.Otc.Layout
 {
@@ -82,6 +83,16 @@ namespace Rwm.Otc.Layout
       #endregion
 
       #region Methods
+
+      /// <summary>
+      /// Check if a status received from command statios matches the current input.
+      /// </summary>
+      /// <param name="status">Status received from the command station.</param>
+      /// <returns>A value indicating if the status corresponds to the current input.</returns>
+      public bool MatchStatus(FeedbackPointAddressStatus status)
+      {
+         return (this.Address.Equals(status.Address) && this.PointAddress.Equals(status.PointAddress));
+      }
 
       /// <summary>
       /// Compare the current instance with other.

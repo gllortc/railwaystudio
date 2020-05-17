@@ -166,55 +166,58 @@
   <data name="ICO_BLOCK_UNKNOWN_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cross.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_DESIGN_BLOCK_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\toolbar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ICO_ELEMENT_BLOCK_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICO_ELEMENT_BLOCK_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_DESIGN_BUFFER_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ICO_ELEMENT_BLOCK_DEST_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICO_ELEMENT_BLOCK_DEST_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICO_ELEMENT_BUFFER_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Design_Buffer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_DESIGN_CURVE_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ICO_ELEMENT_CURVE_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Design_Curve.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_DESIGN_SIGNAL2A_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ICO_ELEMENT_SIGNAL_2A_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TwoAspect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_DESIGN_SIGNAL3A_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ICO_ELEMENT_SIGNAL_3A_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ThreeAspect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_DESIGN_SIGNALADV_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ICO_ELEMENT_SIGNAL_ADV_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Advanced.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_DESIGN_SIGNALSHUNT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ICO_ELEMENT_SIGNAL_SHUNT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Shunt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_DESIGN_STRIGHT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ICO_ELEMENT_STRIGHT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Design_Stright.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_DESIGN_STRIGHT_SENSOR_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ICO_ELEMENT_STRIGHT_FEEDBACK_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Design_Stright_sensor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_DESIGN_SWITCH_BLUE_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ICO_ELEMENT_SWITCH_BLUE_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Design_Switch_Blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_DESIGN_SWITCH_FREEN_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ICO_ELEMENT_SWITCH_GREEN_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Design_Switch_Green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_DESIGN_SWITCH_RED_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ICO_ELEMENT_SWITCH_RED_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Design_Switch_Red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_DESIGN_SWITCH_YELLOW_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ICO_ELEMENT_SWITCH_YELLOW_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Design_Switch_Yellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_DESIGN_TURNOUT_LEFT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ICO_ELEMENT_TURNOUT_LEFT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Design_Turnout_Left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_DESIGN_TURNOUT_RIGHT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ICO_ELEMENT_TURNOUT_RIGHT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Design_Turnout_Right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_DESIGN_TURNOUT_TRIPLE_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ICO_ELEMENT_TURNOUT_TRIPLE_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Design_Turnout_Triple.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_DESIGN_TURNOUT_Y_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="ICO_ELEMENT_TURNOUT_Y_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Design_Turnout_Y.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_FORMS" type="System.Resources.ResXFileRef, System.Windows.Forms">

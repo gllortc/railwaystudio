@@ -130,6 +130,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\TrafficControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TrafficControl.Designer.cs">
+      <DependentUpon>TrafficControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TrainSelectionControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -170,6 +176,9 @@
     <Compile Include="Views\SystemManagerView.Designer.cs">
       <DependentUpon>SystemManagerView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Controls\TrafficControl.resx">
+      <DependentUpon>TrafficControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\TrainSelectionControl.resx">
       <DependentUpon>TrainSelectionControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -212,6 +221,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\timeline.png" />
+    <None Include="Resources\timeline_16.png" />
     <None Include="Resources\train_edit_16.png" />
     <None Include="Resources\train_bullet_red_16.png" />
     <None Include="Resources\train_clear_16.png" />

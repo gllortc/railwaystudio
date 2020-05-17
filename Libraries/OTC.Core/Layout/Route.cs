@@ -41,50 +41,56 @@ namespace Rwm.Otc.Layout
       /// <summary>
       /// Gets or sets the owner switchboard.
       /// </summary>
-      [ORMProperty("projectid")]
+      [ORMProperty("PROJECTID")]
       public Project Project { get; set; } = null;
 
       /// <summary>
       /// Gets or sets the route name.
       /// </summary>
-      [ORMProperty("name")]
+      [ORMProperty("NAME")]
       public string Name { get; set; } = string.Empty;
 
       /// <summary>
       /// Gets or sets the route description.
       /// </summary>
-      [ORMProperty("description")]
+      [ORMProperty("DESCRIPTION")]
       public string Description { get; set; } = string.Empty;
 
       /// <summary>
       /// Gets or sets a value indicating the time interval between accessory activations.
       /// </summary>
-      [ORMProperty("switchTime")]
+      [ORMProperty("SWITCHTIME")]
       public int SwitchTime { get; set; } = 0;
 
       /// <summary>
       /// Gets or sets a value indicating if the route corresponds to a block.
       /// </summary>
-      [ORMProperty("isBlock")]
+      [ORMProperty("ISBLOCK")]
       public bool IsBlock { get; set; } = false;
 
       /// <summary>
       /// Gets or sets the source block element.
       /// </summary>
-      [ORMProperty("fromBlock")]
+      [ORMProperty("FROMBLOCK")]
       public Element FromBlock { get; set; } = null;
 
       /// <summary>
       /// Gets or sets the destination block element.
       /// </summary>
-      [ORMProperty("toBlock")]
+      [ORMProperty("TOBLOCK")]
       public Element ToBlock { get; set; } = null;
 
       /// <summary>
       /// Gets or sets a value indicating if the route is bidirectional or only in direction from->to.
       /// </summary>
-      [ORMProperty("bidirectional")]
+      [ORMProperty("BIDIRECTIONAL")]
       public bool IsBidirectionl { get; set; } = true;
+
+      /// <summary>
+      /// Gets or sets the route description.
+      /// </summary>
+      [ORMProperty("NOTES")]
+      public string Notes { get; set; } = string.Empty;
 
       /// <summary>
       /// Gets or sets the element list.
@@ -93,11 +99,11 @@ namespace Rwm.Otc.Layout
       public List<RouteElement> Elements { get; set; } = new List<RouteElement>();
 
       /// <summary>
-      /// Gets the number of elements contained in the current route.
+      /// Gets the type description.
       /// </summary>
-      public int ElementsCount
+      public string TypeDescription
       {
-         get { return (this.Elements == null ? 0 : this.Elements.Count); }
+         get { return (this.IsBlock ? "Traffic route" : "Accessory group"); }
       }
 
       /// <summary>
@@ -187,7 +193,10 @@ namespace Rwm.Otc.Layout
          }
 
          // Set the active route
-         this.Project.ActiveRoutes.Add(this.ID, this);
+         if (this.Project.ActiveRoutes.ContainsKey(this.ID))
+            this.Project.ActiveRoutes[this.ID] = this;
+         else
+            this.Project.ActiveRoutes.Add(this.ID, this);
 
          return true;
       }

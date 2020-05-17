@@ -190,6 +190,10 @@ namespace Rwm.Otc.Layout
          get { return (!string.IsNullOrWhiteSpace(this.Name) ? this.Name : this.Coordinates.ToString()); }
       }
 
+      public List<Route> RoutesFromHere { get; internal set; } = null;
+
+      public List<Route> RoutesToHere { get; internal set; } = null;
+
       #endregion
 
       #region Methods

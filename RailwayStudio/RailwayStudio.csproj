@@ -300,6 +300,10 @@
       <Project>{34fffab0-b8fe-4809-a25d-b7bb4962c75e}</Project>
       <Name>OTC.System.XpressNet.USB</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Themes\OTC.Theme.SpDrS60.SVG\OTC.Theme.SpDrS60SVG.csproj">
+      <Project>{2652304d-027b-4cca-91cb-8e4a596d5b20}</Project>
+      <Name>OTC.Theme.SpDrS60SVG</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\page_edit.png" />

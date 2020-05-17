@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Rwm.Otc.Data;
 using Rwm.Otc.Diagnostics;
 using Rwm.Otc.Layout;
+using Rwm.Otc.Layout.Traffic;
 using Rwm.Otc.Systems;
 using Rwm.Otc.Themes;
 using static Rwm.Otc.Data.ORMForeignCollection;
@@ -61,6 +62,7 @@ namespace Rwm.Otc
 
       private SystemManager pSystems = null;
       private ThemeManager pThemeManager = null;
+      private TrafficManager pTrafficManager = null;
 
       #endregion
 
@@ -83,8 +85,8 @@ namespace Rwm.Otc
       {
          get
          {
-            if (this.pThemeManager == null) this.pThemeManager = new ThemeManager(OTCContext.Settings);
-            return this.pThemeManager;
+            if (pThemeManager == null) pThemeManager = new ThemeManager(OTCContext.Settings);
+            return pThemeManager;
          }
       }
 
@@ -95,8 +97,20 @@ namespace Rwm.Otc
       {
          get
          {
-            if (this.pSystems == null) this.pSystems = new SystemManager(OTCContext.Settings);
-            return this.pSystems;
+            if (pSystems == null) pSystems = new SystemManager(OTCContext.Settings);
+            return pSystems;
+         }
+      }
+
+      /// <summary>
+      /// Gets the traffic manager system for the current project.
+      /// </summary>
+      public TrafficManager TrafficManager
+      {
+         get
+         {
+            if (pTrafficManager == null) pTrafficManager = new TrafficManager();
+            return pTrafficManager;
          }
       }
 
@@ -262,31 +276,31 @@ namespace Rwm.Otc
          }
       }
 
-      /// <summary>
-      /// Get all destination blocks from the specified block.
-      /// </summary>
-      /// <param name="fromElement">Source block element.</param>
-      /// <returns>The requested list of destination block elements.</returns>
-      public List<Route> GetDestinations(Element fromElement)
-      {
-         Logger.LogDebug(this, "[CLASS].GetDestinations([{0}])", fromElement);
+      ///// <summary>
+      ///// Get all destination blocks from the specified block.
+      ///// </summary>
+      ///// <param name="fromElement">Source block element.</param>
+      ///// <returns>The requested list of destination block elements.</returns>
+      //public List<Route> GetDestinations(Element fromElement)
+      //{
+      //   Logger.LogDebug(this, "[CLASS].GetDestinations([{0}])", fromElement);
 
-         List<Route> routes = new List<Route>();
+      //   List<Route> routes = new List<Route>();
 
-         foreach (Route route in this.Routes)
-         {
-            if (route.FromBlock != null && route.FromBlock.ID == fromElement.ID)
-            {
-               routes.Add(route);
-            }
-            else if (route.IsBidirectionl && (route.ToBlock != null && route.ToBlock.ID == fromElement.ID))
-            {
-               routes.Add(route);
-            }
-         }
+      //   foreach (Route route in this.Routes)
+      //   {
+      //      if (route.FromBlock != null && route.FromBlock.ID == fromElement.ID)
+      //      {
+      //         routes.Add(route);
+      //      }
+      //      else if (route.IsBidirectionl && (route.ToBlock != null && route.ToBlock.ID == fromElement.ID))
+      //      {
+      //         routes.Add(route);
+      //      }
+      //   }
 
-         return routes;
-      }
+      //   return routes;
+      //}
 
       /// <summary>
       /// Force to raise the event <c>OnElementImageChanged</c>. Used by <see cref="Element"/> instances.
@@ -367,22 +381,22 @@ namespace Rwm.Otc
       //   element.SetFeedbackStatus(e.NewStatus);
       //}
 
-      /// <summary>
-      /// Handler for the event <c>OccupationChanged</c>.
-      /// </summary>
-      void Layout_OccupationChanged(object sender, OccupationEventArgs e)
-      {
-         if (e.IsOccupied)
-         {
-            e.Element.Train = e.Model;
-            Element.Save(e.Element);
-         }
-         else
-         {
-            e.Element.Train = null;
-            Element.Save(e.Element);
-         }
-      }
+      ///// <summary>
+      ///// Handler for the event <c>OccupationChanged</c>.
+      ///// </summary>
+      //void Layout_OccupationChanged(object sender, OccupationEventArgs e)
+      //{
+      //   if (e.IsOccupied)
+      //   {
+      //      e.Element.Train = e.Model;
+      //      Element.Save(e.Element);
+      //   }
+      //   else
+      //   {
+      //      e.Element.Train = null;
+      //      Element.Save(e.Element);
+      //   }
+      //}
 
       #endregion
 

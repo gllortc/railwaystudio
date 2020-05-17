@@ -28,25 +28,25 @@
       /// </summary>
       private void InitializeComponent()
       {
-         DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem1 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem2 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem3 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem4 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem5 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem6 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem7 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem8 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup3 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem9 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem10 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem11 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem12 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup4 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem13 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem14 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem15 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem16 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
          this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
          this.cmdRouteAdd = new DevExpress.XtraBars.BarButtonItem();
          this.cmdRouteEdit = new DevExpress.XtraBars.BarButtonItem();
@@ -66,8 +66,14 @@
          this.tabPanel1 = new DevExpress.XtraTab.XtraTabPage();
          this.pnlContainer = new DevExpress.XtraEditors.PanelControl();
          this.pnlRoute = new DevExpress.XtraEditors.PanelControl();
-         this.tabDecoder = new DevExpress.XtraTab.XtraTabControl();
+         this.tabRoute = new DevExpress.XtraTab.XtraTabControl();
          this.tabRouteGeneral = new DevExpress.XtraTab.XtraTabPage();
+         this.grpBlockConnections = new DevExpress.XtraEditors.GroupControl();
+         this.chkIsBlock = new DevExpress.XtraEditors.CheckEdit();
+         this.txtBlockTo = new DevExpress.XtraEditors.LabelControl();
+         this.txtBlockFrom = new DevExpress.XtraEditors.LabelControl();
+         this.cboBlockTo = new Rwm.Studio.Plugins.Common.Controls.BlockImageComboBoxEdit();
+         this.cboBlockFrom = new Rwm.Studio.Plugins.Common.Controls.BlockImageComboBoxEdit();
          this.grpGeneralProperties = new DevExpress.XtraEditors.GroupControl();
          this.hotkeyControl1 = new Rwm.Studio.Plugins.Common.Controls.HotkeyControl();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -75,26 +81,15 @@
          this.spnSwitchTime = new DevExpress.XtraEditors.SpinEdit();
          this.lblSwitchTime = new DevExpress.XtraEditors.LabelControl();
          this.grpGeneral = new DevExpress.XtraEditors.GroupControl();
+         this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+         this.txtDescription = new DevExpress.XtraEditors.TextEdit();
          this.lblName = new DevExpress.XtraEditors.LabelControl();
          this.txtName = new DevExpress.XtraEditors.TextEdit();
-         this.tabRouteBlock = new DevExpress.XtraTab.XtraTabPage();
-         this.chkIsBlock = new DevExpress.XtraEditors.CheckEdit();
-         this.grpBlockBehaviour = new DevExpress.XtraEditors.GroupControl();
-         this.cboAction = new DevExpress.XtraEditors.ImageComboBoxEdit();
-         this.lblAction = new DevExpress.XtraEditors.LabelControl();
-         this.grpBlockConnections = new DevExpress.XtraEditors.GroupControl();
-         this.chkBidirectional = new DevExpress.XtraEditors.CheckEdit();
-         this.txtBlockTo = new DevExpress.XtraEditors.LabelControl();
-         this.cboBlockTo = new Rwm.Studio.Plugins.Common.Controls.ElementImageComboBoxEdit();
-         this.txtBlockFrom = new DevExpress.XtraEditors.LabelControl();
-         this.cboBlockFrom = new Rwm.Studio.Plugins.Common.Controls.ElementImageComboBoxEdit();
-         this.tabRouteConnections = new DevExpress.XtraTab.XtraTabPage();
-         this.grdConnect = new DevExpress.XtraGrid.GridControl();
-         this.grdConnectView = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.tabRouteNotes = new DevExpress.XtraTab.XtraTabPage();
          this.txtNotes = new DevExpress.XtraEditors.MemoEdit();
          this.grdData = new DevExpress.XtraGrid.GridControl();
          this.grdDataView = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.cmdGenerateName = new DevExpress.XtraEditors.SimpleButton();
          ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.tabPanels)).BeginInit();
          this.tabPanels.SuspendLayout();
@@ -102,29 +97,22 @@
          this.pnlContainer.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.pnlRoute)).BeginInit();
          this.pnlRoute.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.tabDecoder)).BeginInit();
-         this.tabDecoder.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.tabRoute)).BeginInit();
+         this.tabRoute.SuspendLayout();
          this.tabRouteGeneral.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.grpBlockConnections)).BeginInit();
+         this.grpBlockConnections.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.chkIsBlock.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.cboBlockTo.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.cboBlockFrom.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.grpGeneralProperties)).BeginInit();
          this.grpGeneralProperties.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.hotkeyControl1.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.spnSwitchTime.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.grpGeneral)).BeginInit();
          this.grpGeneral.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
-         this.tabRouteBlock.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.chkIsBlock.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.grpBlockBehaviour)).BeginInit();
-         this.grpBlockBehaviour.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.cboAction.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.grpBlockConnections)).BeginInit();
-         this.grpBlockConnections.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.chkBidirectional.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.cboBlockTo.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.cboBlockFrom.Properties)).BeginInit();
-         this.tabRouteConnections.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.grdConnect)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.grdConnectView)).BeginInit();
          this.tabRouteNotes.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.txtNotes.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.grdData)).BeginInit();
@@ -159,8 +147,8 @@
          // 
          this.cmdRouteAdd.Caption = "New route";
          this.cmdRouteAdd.Id = 1;
-         this.cmdRouteAdd.ImageOptions.Image = Properties.Resources.ICO_ROUTE_ADD_16;
-         this.cmdRouteAdd.ImageOptions.LargeImage = Properties.Resources.ICO_ROUTE_ADD_32;
+         this.cmdRouteAdd.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_ROUTE_ADD_16;
+         this.cmdRouteAdd.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_ROUTE_ADD_32;
          this.cmdRouteAdd.Name = "cmdRouteAdd";
          this.cmdRouteAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdRouteAdd_ItemClick);
          // 
@@ -168,8 +156,8 @@
          // 
          this.cmdRouteEdit.Caption = "Edit route";
          this.cmdRouteEdit.Id = 2;
-         this.cmdRouteEdit.ImageOptions.Image = Properties.Resources.ICO_ROUTE_EDIT_16;
-         this.cmdRouteEdit.ImageOptions.LargeImage = Properties.Resources.ICO_ROUTE_EDIT_32;
+         this.cmdRouteEdit.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_ROUTE_EDIT_16;
+         this.cmdRouteEdit.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_ROUTE_EDIT_32;
          this.cmdRouteEdit.Name = "cmdRouteEdit";
          this.cmdRouteEdit.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
          this.cmdRouteEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdRouteEdit_ItemClick);
@@ -178,8 +166,8 @@
          // 
          this.cmdRouteDelete.Caption = "Delete route";
          this.cmdRouteDelete.Id = 3;
-         this.cmdRouteDelete.ImageOptions.Image = Properties.Resources.ICO_ROUTE_DELETE_16;
-         this.cmdRouteDelete.ImageOptions.LargeImage = Properties.Resources.ICO_ROUTE_DELETE_32;
+         this.cmdRouteDelete.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_ROUTE_DELETE_16;
+         this.cmdRouteDelete.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_ROUTE_DELETE_32;
          this.cmdRouteDelete.Name = "cmdRouteDelete";
          this.cmdRouteDelete.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
          this.cmdRouteDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdRouteDelete_ItemClick);
@@ -190,29 +178,29 @@
          // 
          // 
          // 
-         galleryItemGroup1.Caption = "Group1";
-         galleryItem1.Caption = "Item5";
-         galleryItem2.Caption = "Item6";
-         galleryItem3.Caption = "Item7";
-         galleryItem4.Caption = "Item8";
-         galleryItemGroup1.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
-            galleryItem1,
-            galleryItem2,
-            galleryItem3,
-            galleryItem4});
-         galleryItemGroup2.Caption = "Group2";
-         galleryItem5.Caption = "Item1";
-         galleryItem6.Caption = "Item2";
-         galleryItem7.Caption = "Item3";
-         galleryItem8.Caption = "Item4";
-         galleryItemGroup2.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
-            galleryItem5,
-            galleryItem6,
-            galleryItem7,
-            galleryItem8});
+         galleryItemGroup3.Caption = "Group1";
+         galleryItem9.Caption = "Item5";
+         galleryItem10.Caption = "Item6";
+         galleryItem11.Caption = "Item7";
+         galleryItem12.Caption = "Item8";
+         galleryItemGroup3.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
+            galleryItem9,
+            galleryItem10,
+            galleryItem11,
+            galleryItem12});
+         galleryItemGroup4.Caption = "Group2";
+         galleryItem13.Caption = "Item1";
+         galleryItem14.Caption = "Item2";
+         galleryItem15.Caption = "Item3";
+         galleryItem16.Caption = "Item4";
+         galleryItemGroup4.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
+            galleryItem13,
+            galleryItem14,
+            galleryItem15,
+            galleryItem16});
          this.ribbonGalleryBarItem1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup1,
-            galleryItemGroup2});
+            galleryItemGroup3,
+            galleryItemGroup4});
          this.ribbonGalleryBarItem1.Id = 7;
          this.ribbonGalleryBarItem1.Name = "ribbonGalleryBarItem1";
          // 
@@ -240,56 +228,56 @@
          // 
          this.cmdRouteSave.Caption = "Save";
          this.cmdRouteSave.Id = 39;
-         this.cmdRouteSave.ImageOptions.Image = Properties.Resources.ICO_SAVE_16;
-         this.cmdRouteSave.ImageOptions.LargeImage = Properties.Resources.ICO_SAVE_32;
+         this.cmdRouteSave.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_SAVE_16;
+         this.cmdRouteSave.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_SAVE_32;
          this.cmdRouteSave.Name = "cmdRouteSave";
-         toolTipTitleItem1.Appearance.Image = Properties.Resources.ICO_SAVE_16;
-         toolTipTitleItem1.Appearance.Options.UseImage = true;
-         toolTipTitleItem1.Image = Properties.Resources.ICO_SAVE_16;
-         toolTipTitleItem1.Text = "Save";
-         toolTipItem1.LeftIndent = 6;
-         toolTipItem1.Text = "Save the route or block and continue editing (without closing the current route)." +
+         toolTipTitleItem4.Appearance.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_SAVE_16;
+         toolTipTitleItem4.Appearance.Options.UseImage = true;
+         toolTipTitleItem4.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_SAVE_16;
+         toolTipTitleItem4.Text = "Save";
+         toolTipItem4.LeftIndent = 6;
+         toolTipItem4.Text = "Save the route or block and continue editing (without closing the current route)." +
     "";
-         superToolTip1.Items.Add(toolTipTitleItem1);
-         superToolTip1.Items.Add(toolTipItem1);
-         this.cmdRouteSave.SuperTip = superToolTip1;
+         superToolTip4.Items.Add(toolTipTitleItem4);
+         superToolTip4.Items.Add(toolTipItem4);
+         this.cmdRouteSave.SuperTip = superToolTip4;
          this.cmdRouteSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdRouteSave_ItemClick);
          // 
          // cmdRouteClose
          // 
          this.cmdRouteClose.Caption = "Cancel";
          this.cmdRouteClose.Id = 41;
-         this.cmdRouteClose.ImageOptions.Image = Properties.Resources.ICO_CLOSE_16;
-         this.cmdRouteClose.ImageOptions.LargeImage = Properties.Resources.ICO_CLOSE_32;
+         this.cmdRouteClose.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_CLOSE_16;
+         this.cmdRouteClose.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_CLOSE_32;
          this.cmdRouteClose.Name = "cmdRouteClose";
-         toolTipTitleItem2.Appearance.Image = Properties.Resources.ICO_CLOSE_16;
-         toolTipTitleItem2.Appearance.Options.UseImage = true;
-         toolTipTitleItem2.Image = Properties.Resources.ICO_CLOSE_16;
-         toolTipTitleItem2.Text = "Cancel / Close";
-         toolTipItem2.LeftIndent = 6;
-         toolTipItem2.Text = "Close the current route or block and come back to the routes list. If current rou" +
+         toolTipTitleItem5.Appearance.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_CLOSE_16;
+         toolTipTitleItem5.Appearance.Options.UseImage = true;
+         toolTipTitleItem5.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_CLOSE_16;
+         toolTipTitleItem5.Text = "Cancel / Close";
+         toolTipItem5.LeftIndent = 6;
+         toolTipItem5.Text = "Close the current route or block and come back to the routes list. If current rou" +
     "te have unsaved changes, prompt to save it.";
-         superToolTip2.Items.Add(toolTipTitleItem2);
-         superToolTip2.Items.Add(toolTipItem2);
-         this.cmdRouteClose.SuperTip = superToolTip2;
+         superToolTip5.Items.Add(toolTipTitleItem5);
+         superToolTip5.Items.Add(toolTipItem5);
+         this.cmdRouteClose.SuperTip = superToolTip5;
          this.cmdRouteClose.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdRouteClose_ItemClick);
          // 
          // cmdRouteSaveClose
          // 
          this.cmdRouteSaveClose.Caption = "Save and close";
          this.cmdRouteSaveClose.Id = 42;
-         this.cmdRouteSaveClose.ImageOptions.Image = Properties.Resources.ICO_SAVE_CLOSE_16;
-         this.cmdRouteSaveClose.ImageOptions.LargeImage = Properties.Resources.ICO_SAVE_CLOSE_32;
+         this.cmdRouteSaveClose.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_SAVE_CLOSE_16;
+         this.cmdRouteSaveClose.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_SAVE_CLOSE_32;
          this.cmdRouteSaveClose.Name = "cmdRouteSaveClose";
-         toolTipTitleItem3.Appearance.Image = Properties.Resources.ICO_SAVE_CLOSE_16;
-         toolTipTitleItem3.Appearance.Options.UseImage = true;
-         toolTipTitleItem3.Image = Properties.Resources.ICO_SAVE_CLOSE_16;
-         toolTipTitleItem3.Text = "Save and close";
-         toolTipItem3.LeftIndent = 6;
-         toolTipItem3.Text = "Save the current route or block, close it and return to the routes list.";
-         superToolTip3.Items.Add(toolTipTitleItem3);
-         superToolTip3.Items.Add(toolTipItem3);
-         this.cmdRouteSaveClose.SuperTip = superToolTip3;
+         toolTipTitleItem6.Appearance.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_SAVE_CLOSE_16;
+         toolTipTitleItem6.Appearance.Options.UseImage = true;
+         toolTipTitleItem6.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_SAVE_CLOSE_16;
+         toolTipTitleItem6.Text = "Save and close";
+         toolTipItem6.LeftIndent = 6;
+         toolTipItem6.Text = "Save the current route or block, close it and return to the routes list.";
+         superToolTip6.Items.Add(toolTipTitleItem6);
+         superToolTip6.Items.Add(toolTipItem6);
+         this.cmdRouteSaveClose.SuperTip = superToolTip6;
          this.cmdRouteSaveClose.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdRouteSaveClose_ItemClick);
          // 
          // rbpDesign
@@ -320,7 +308,7 @@
          // 
          // ribbonStatusBar
          // 
-         this.ribbonStatusBar.Location = new System.Drawing.Point(0, 625);
+         this.ribbonStatusBar.Location = new System.Drawing.Point(0, 680);
          this.ribbonStatusBar.Name = "ribbonStatusBar";
          this.ribbonStatusBar.Ribbon = this.ribbonControl1;
          this.ribbonStatusBar.Size = new System.Drawing.Size(887, 31);
@@ -333,7 +321,7 @@
          this.tabPanels.Location = new System.Drawing.Point(5, 5);
          this.tabPanels.Name = "tabPanels";
          this.tabPanels.SelectedTabPage = this.tabPanel1;
-         this.tabPanels.Size = new System.Drawing.Size(289, 456);
+         this.tabPanels.Size = new System.Drawing.Size(289, 511);
          this.tabPanels.TabIndex = 3;
          this.tabPanels.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabPanel1});
@@ -342,7 +330,7 @@
          // 
          this.tabPanel1.Name = "tabPanel1";
          this.tabPanel1.Padding = new System.Windows.Forms.Padding(5);
-         this.tabPanel1.Size = new System.Drawing.Size(283, 428);
+         this.tabPanel1.Size = new System.Drawing.Size(283, 483);
          this.tabPanel1.Text = "Switchboards";
          // 
          // pnlContainer
@@ -354,41 +342,105 @@
          this.pnlContainer.Location = new System.Drawing.Point(0, 143);
          this.pnlContainer.Name = "pnlContainer";
          this.pnlContainer.Padding = new System.Windows.Forms.Padding(5);
-         this.pnlContainer.Size = new System.Drawing.Size(887, 482);
+         this.pnlContainer.Size = new System.Drawing.Size(887, 537);
          this.pnlContainer.TabIndex = 4;
          // 
          // pnlRoute
          // 
-         this.pnlRoute.Controls.Add(this.tabDecoder);
+         this.pnlRoute.Controls.Add(this.tabRoute);
          this.pnlRoute.Controls.Add(this.tabPanels);
          this.pnlRoute.Location = new System.Drawing.Point(297, 8);
          this.pnlRoute.Name = "pnlRoute";
-         this.pnlRoute.Size = new System.Drawing.Size(582, 466);
+         this.pnlRoute.Size = new System.Drawing.Size(582, 521);
          this.pnlRoute.TabIndex = 6;
          // 
-         // tabDecoder
+         // tabRoute
          // 
-         this.tabDecoder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+         this.tabRoute.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.tabDecoder.Location = new System.Drawing.Point(299, 5);
-         this.tabDecoder.Name = "tabDecoder";
-         this.tabDecoder.SelectedTabPage = this.tabRouteGeneral;
-         this.tabDecoder.Size = new System.Drawing.Size(278, 456);
-         this.tabDecoder.TabIndex = 6;
-         this.tabDecoder.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+         this.tabRoute.Location = new System.Drawing.Point(299, 5);
+         this.tabRoute.Name = "tabRoute";
+         this.tabRoute.SelectedTabPage = this.tabRouteGeneral;
+         this.tabRoute.Size = new System.Drawing.Size(278, 511);
+         this.tabRoute.TabIndex = 6;
+         this.tabRoute.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabRouteGeneral,
-            this.tabRouteBlock,
-            this.tabRouteConnections,
             this.tabRouteNotes});
          // 
          // tabRouteGeneral
          // 
+         this.tabRouteGeneral.Controls.Add(this.grpBlockConnections);
          this.tabRouteGeneral.Controls.Add(this.grpGeneralProperties);
          this.tabRouteGeneral.Controls.Add(this.grpGeneral);
          this.tabRouteGeneral.Name = "tabRouteGeneral";
          this.tabRouteGeneral.Padding = new System.Windows.Forms.Padding(10);
-         this.tabRouteGeneral.Size = new System.Drawing.Size(272, 428);
+         this.tabRouteGeneral.Size = new System.Drawing.Size(272, 483);
          this.tabRouteGeneral.Text = "General";
+         // 
+         // grpBlockConnections
+         // 
+         this.grpBlockConnections.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.grpBlockConnections.Controls.Add(this.cmdGenerateName);
+         this.grpBlockConnections.Controls.Add(this.chkIsBlock);
+         this.grpBlockConnections.Controls.Add(this.txtBlockTo);
+         this.grpBlockConnections.Controls.Add(this.txtBlockFrom);
+         this.grpBlockConnections.Controls.Add(this.cboBlockTo);
+         this.grpBlockConnections.Controls.Add(this.cboBlockFrom);
+         this.grpBlockConnections.Location = new System.Drawing.Point(13, 255);
+         this.grpBlockConnections.Name = "grpBlockConnections";
+         this.grpBlockConnections.Padding = new System.Windows.Forms.Padding(10);
+         this.grpBlockConnections.Size = new System.Drawing.Size(246, 192);
+         this.grpBlockConnections.TabIndex = 217;
+         this.grpBlockConnections.Text = "Block connections";
+         // 
+         // chkIsBlock
+         // 
+         this.chkIsBlock.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.chkIsBlock.Location = new System.Drawing.Point(15, 33);
+         this.chkIsBlock.Name = "chkIsBlock";
+         this.chkIsBlock.Properties.Caption = "Route connects two blocks";
+         this.chkIsBlock.Size = new System.Drawing.Size(216, 19);
+         this.chkIsBlock.TabIndex = 6;
+         // 
+         // txtBlockTo
+         // 
+         this.txtBlockTo.Location = new System.Drawing.Point(15, 104);
+         this.txtBlockTo.Name = "txtBlockTo";
+         this.txtBlockTo.Size = new System.Drawing.Size(39, 13);
+         this.txtBlockTo.TabIndex = 9;
+         this.txtBlockTo.Text = "To block";
+         // 
+         // txtBlockFrom
+         // 
+         this.txtBlockFrom.Location = new System.Drawing.Point(15, 58);
+         this.txtBlockFrom.Name = "txtBlockFrom";
+         this.txtBlockFrom.Size = new System.Drawing.Size(51, 13);
+         this.txtBlockFrom.TabIndex = 7;
+         this.txtBlockFrom.Text = "From block";
+         // 
+         // cboBlockTo
+         // 
+         this.cboBlockTo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.cboBlockTo.Location = new System.Drawing.Point(15, 123);
+         this.cboBlockTo.Name = "cboBlockTo";
+         this.cboBlockTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.cboBlockTo.Size = new System.Drawing.Size(216, 20);
+         this.cboBlockTo.TabIndex = 8;
+         // 
+         // cboBlockFrom
+         // 
+         this.cboBlockFrom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.cboBlockFrom.Location = new System.Drawing.Point(15, 77);
+         this.cboBlockFrom.Name = "cboBlockFrom";
+         this.cboBlockFrom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.cboBlockFrom.Size = new System.Drawing.Size(216, 20);
+         this.cboBlockFrom.TabIndex = 8;
          // 
          // grpGeneralProperties
          // 
@@ -399,7 +451,7 @@
          this.grpGeneralProperties.Controls.Add(this.lblSwitchTimeUnits);
          this.grpGeneralProperties.Controls.Add(this.spnSwitchTime);
          this.grpGeneralProperties.Controls.Add(this.lblSwitchTime);
-         this.grpGeneralProperties.Location = new System.Drawing.Point(13, 111);
+         this.grpGeneralProperties.Location = new System.Drawing.Point(13, 153);
          this.grpGeneralProperties.Name = "grpGeneralProperties";
          this.grpGeneralProperties.Padding = new System.Windows.Forms.Padding(10);
          this.grpGeneralProperties.Size = new System.Drawing.Size(246, 96);
@@ -411,23 +463,23 @@
          this.hotkeyControl1.EditValue = "None";
          this.hotkeyControl1.Hotkey = System.Windows.Forms.Keys.None;
          this.hotkeyControl1.HotkeyModifiers = System.Windows.Forms.Keys.None;
-         this.hotkeyControl1.Location = new System.Drawing.Point(102, 59);
+         this.hotkeyControl1.Location = new System.Drawing.Point(125, 59);
          this.hotkeyControl1.MenuManager = this.ribbonControl1;
          this.hotkeyControl1.Name = "hotkeyControl1";
-         this.hotkeyControl1.Size = new System.Drawing.Size(129, 20);
+         this.hotkeyControl1.Size = new System.Drawing.Size(106, 20);
          this.hotkeyControl1.TabIndex = 6;
          // 
          // labelControl1
          // 
          this.labelControl1.Location = new System.Drawing.Point(15, 62);
          this.labelControl1.Name = "labelControl1";
-         this.labelControl1.Size = new System.Drawing.Size(68, 13);
+         this.labelControl1.Size = new System.Drawing.Size(104, 13);
          this.labelControl1.TabIndex = 5;
-         this.labelControl1.Text = "Activation key";
+         this.labelControl1.Text = "Manual activation key";
          // 
          // lblSwitchTimeUnits
          // 
-         this.lblSwitchTimeUnits.Location = new System.Drawing.Point(178, 36);
+         this.lblSwitchTimeUnits.Location = new System.Drawing.Point(201, 36);
          this.lblSwitchTimeUnits.Name = "lblSwitchTimeUnits";
          this.lblSwitchTimeUnits.Size = new System.Drawing.Size(13, 13);
          this.lblSwitchTimeUnits.TabIndex = 4;
@@ -440,7 +492,7 @@
             0,
             0,
             0});
-         this.spnSwitchTime.Location = new System.Drawing.Point(102, 33);
+         this.spnSwitchTime.Location = new System.Drawing.Point(125, 33);
          this.spnSwitchTime.Name = "spnSwitchTime";
          this.spnSwitchTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -464,14 +516,34 @@
          // 
          this.grpGeneral.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+         this.grpGeneral.Controls.Add(this.labelControl2);
+         this.grpGeneral.Controls.Add(this.txtDescription);
          this.grpGeneral.Controls.Add(this.lblName);
          this.grpGeneral.Controls.Add(this.txtName);
          this.grpGeneral.Location = new System.Drawing.Point(13, 13);
          this.grpGeneral.Name = "grpGeneral";
          this.grpGeneral.Padding = new System.Windows.Forms.Padding(10);
-         this.grpGeneral.Size = new System.Drawing.Size(246, 92);
+         this.grpGeneral.Size = new System.Drawing.Size(246, 134);
          this.grpGeneral.TabIndex = 216;
          this.grpGeneral.Text = "General";
+         // 
+         // labelControl2
+         // 
+         this.labelControl2.Location = new System.Drawing.Point(15, 78);
+         this.labelControl2.Name = "labelControl2";
+         this.labelControl2.Size = new System.Drawing.Size(53, 13);
+         this.labelControl2.TabIndex = 2;
+         this.labelControl2.Text = "Description";
+         // 
+         // txtDescription
+         // 
+         this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.txtDescription.Location = new System.Drawing.Point(15, 97);
+         this.txtDescription.Name = "txtDescription";
+         this.txtDescription.Properties.MaxLength = 512;
+         this.txtDescription.Size = new System.Drawing.Size(216, 20);
+         this.txtDescription.TabIndex = 3;
          // 
          // lblName
          // 
@@ -489,163 +561,9 @@
          this.txtName.Name = "txtName";
          this.txtName.Properties.Appearance.FontStyleDelta = System.Drawing.FontStyle.Bold;
          this.txtName.Properties.Appearance.Options.UseFont = true;
+         this.txtName.Properties.MaxLength = 64;
          this.txtName.Size = new System.Drawing.Size(216, 20);
          this.txtName.TabIndex = 1;
-         // 
-         // tabRouteBlock
-         // 
-         this.tabRouteBlock.Controls.Add(this.chkIsBlock);
-         this.tabRouteBlock.Controls.Add(this.grpBlockBehaviour);
-         this.tabRouteBlock.Controls.Add(this.grpBlockConnections);
-         this.tabRouteBlock.Name = "tabRouteBlock";
-         this.tabRouteBlock.Padding = new System.Windows.Forms.Padding(10);
-         this.tabRouteBlock.Size = new System.Drawing.Size(272, 428);
-         this.tabRouteBlock.Text = "Block";
-         // 
-         // chkIsBlock
-         // 
-         this.chkIsBlock.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.chkIsBlock.Location = new System.Drawing.Point(13, 13);
-         this.chkIsBlock.Name = "chkIsBlock";
-         this.chkIsBlock.Properties.Caption = "This route corresponds to a block";
-         this.chkIsBlock.Size = new System.Drawing.Size(199, 19);
-         this.chkIsBlock.TabIndex = 6;
-         this.chkIsBlock.CheckedChanged += new System.EventHandler(this.ChkIsBlock_CheckedChanged);
-         // 
-         // grpBlockBehaviour
-         // 
-         this.grpBlockBehaviour.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.grpBlockBehaviour.Controls.Add(this.cboAction);
-         this.grpBlockBehaviour.Controls.Add(this.lblAction);
-         this.grpBlockBehaviour.Enabled = false;
-         this.grpBlockBehaviour.Location = new System.Drawing.Point(13, 203);
-         this.grpBlockBehaviour.Name = "grpBlockBehaviour";
-         this.grpBlockBehaviour.Padding = new System.Windows.Forms.Padding(10);
-         this.grpBlockBehaviour.Size = new System.Drawing.Size(229, 93);
-         this.grpBlockBehaviour.TabIndex = 217;
-         this.grpBlockBehaviour.Text = "Behaviour";
-         // 
-         // cboAction
-         // 
-         this.cboAction.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.cboAction.Location = new System.Drawing.Point(15, 52);
-         this.cboAction.Name = "cboAction";
-         this.cboAction.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.cboAction.Size = new System.Drawing.Size(199, 20);
-         this.cboAction.TabIndex = 13;
-         // 
-         // lblAction
-         // 
-         this.lblAction.Location = new System.Drawing.Point(15, 33);
-         this.lblAction.Name = "lblAction";
-         this.lblAction.Size = new System.Drawing.Size(107, 13);
-         this.lblAction.TabIndex = 12;
-         this.lblAction.Text = "When block is reached";
-         // 
-         // grpBlockConnections
-         // 
-         this.grpBlockConnections.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.grpBlockConnections.Controls.Add(this.chkBidirectional);
-         this.grpBlockConnections.Controls.Add(this.txtBlockTo);
-         this.grpBlockConnections.Controls.Add(this.cboBlockTo);
-         this.grpBlockConnections.Controls.Add(this.txtBlockFrom);
-         this.grpBlockConnections.Controls.Add(this.cboBlockFrom);
-         this.grpBlockConnections.Enabled = false;
-         this.grpBlockConnections.Location = new System.Drawing.Point(13, 38);
-         this.grpBlockConnections.Name = "grpBlockConnections";
-         this.grpBlockConnections.Padding = new System.Windows.Forms.Padding(10);
-         this.grpBlockConnections.Size = new System.Drawing.Size(229, 159);
-         this.grpBlockConnections.TabIndex = 217;
-         this.grpBlockConnections.Text = "AccessoryConnections";
-         // 
-         // chkBidirectional
-         // 
-         this.chkBidirectional.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.chkBidirectional.Location = new System.Drawing.Point(15, 127);
-         this.chkBidirectional.Name = "chkBidirectional";
-         this.chkBidirectional.Properties.Caption = "Bidirectional route";
-         this.chkBidirectional.Size = new System.Drawing.Size(199, 19);
-         this.chkBidirectional.TabIndex = 11;
-         // 
-         // txtBlockTo
-         // 
-         this.txtBlockTo.Location = new System.Drawing.Point(15, 78);
-         this.txtBlockTo.Name = "txtBlockTo";
-         this.txtBlockTo.Size = new System.Drawing.Size(39, 13);
-         this.txtBlockTo.TabIndex = 9;
-         this.txtBlockTo.Text = "To block";
-         // 
-         // cboBlockTo
-         // 
-         this.cboBlockTo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.cboBlockTo.ElementType = null;
-         this.cboBlockTo.Location = new System.Drawing.Point(15, 97);
-         this.cboBlockTo.Name = "cboBlockTo";
-         this.cboBlockTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.cboBlockTo.Size = new System.Drawing.Size(199, 20);
-         this.cboBlockTo.TabIndex = 10;
-         // 
-         // txtBlockFrom
-         // 
-         this.txtBlockFrom.Location = new System.Drawing.Point(15, 33);
-         this.txtBlockFrom.Name = "txtBlockFrom";
-         this.txtBlockFrom.Size = new System.Drawing.Size(51, 13);
-         this.txtBlockFrom.TabIndex = 7;
-         this.txtBlockFrom.Text = "From block";
-         // 
-         // cboBlockFrom
-         // 
-         this.cboBlockFrom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.cboBlockFrom.ElementType = null;
-         this.cboBlockFrom.Location = new System.Drawing.Point(15, 52);
-         this.cboBlockFrom.Name = "cboBlockFrom";
-         this.cboBlockFrom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.cboBlockFrom.Size = new System.Drawing.Size(199, 20);
-         this.cboBlockFrom.TabIndex = 8;
-         // 
-         // tabRouteConnections
-         // 
-         this.tabRouteConnections.Controls.Add(this.grdConnect);
-         this.tabRouteConnections.Name = "tabRouteConnections";
-         this.tabRouteConnections.Padding = new System.Windows.Forms.Padding(5);
-         this.tabRouteConnections.Size = new System.Drawing.Size(272, 428);
-         this.tabRouteConnections.Text = "Connections";
-         // 
-         // grdConnect
-         // 
-         this.grdConnect.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.grdConnect.Location = new System.Drawing.Point(5, 5);
-         this.grdConnect.MainView = this.grdConnectView;
-         this.grdConnect.Name = "grdConnect";
-         this.grdConnect.Size = new System.Drawing.Size(262, 418);
-         this.grdConnect.TabIndex = 5;
-         this.grdConnect.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.grdConnectView});
-         // 
-         // grdConnectView
-         // 
-         this.grdConnectView.GridControl = this.grdConnect;
-         this.grdConnectView.Name = "grdConnectView";
-         this.grdConnectView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
-         this.grdConnectView.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
-         this.grdConnectView.OptionsBehavior.Editable = false;
-         this.grdConnectView.OptionsBehavior.ReadOnly = true;
-         this.grdConnectView.OptionsCustomization.AllowColumnMoving = false;
-         this.grdConnectView.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.grdConnectView.OptionsSelection.EnableAppearanceFocusedRow = false;
-         this.grdConnectView.OptionsView.ShowGroupPanel = false;
-         this.grdConnectView.OptionsView.ShowIndicator = false;
-         this.grdConnectView.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.GrdConnectView_RowStyle);
          // 
          // tabRouteNotes
          // 
@@ -691,17 +609,27 @@
          this.grdDataView.OptionsDetail.AllowZoomDetail = false;
          this.grdDataView.OptionsDetail.EnableMasterViewMode = false;
          this.grdDataView.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.grdDataView.OptionsView.ColumnAutoWidth = false;
          this.grdDataView.OptionsView.ShowGroupPanel = false;
          this.grdDataView.OptionsView.ShowIndicator = false;
          this.grdDataView.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.GrdDataView_CustomDrawCell);
+         // 
+         // cmdGenerateName
+         // 
+         this.cmdGenerateName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.cmdGenerateName.Location = new System.Drawing.Point(15, 154);
+         this.cmdGenerateName.Name = "cmdGenerateName";
+         this.cmdGenerateName.Size = new System.Drawing.Size(216, 23);
+         this.cmdGenerateName.TabIndex = 10;
+         this.cmdGenerateName.Text = "Generate name from block names";
+         this.cmdGenerateName.Click += new System.EventHandler(this.CmdGenerateName_Click);
          // 
          // RouteModule
          // 
          this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.ClientSize = new System.Drawing.Size(887, 656);
+         this.ClientSize = new System.Drawing.Size(887, 711);
          this.Controls.Add(this.pnlContainer);
          this.Controls.Add(this.ribbonStatusBar);
          this.Controls.Add(this.ribbonControl1);
@@ -709,6 +637,7 @@
          this.Ribbon = this.ribbonControl1;
          this.StatusBar = this.ribbonStatusBar;
          this.Text = "Route designer";
+         this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RouteModule_FormClosed);
          this.Load += new System.EventHandler(this.RouteModule_Load);
          ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.tabPanels)).EndInit();
@@ -717,9 +646,15 @@
          this.pnlContainer.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.pnlRoute)).EndInit();
          this.pnlRoute.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.tabDecoder)).EndInit();
-         this.tabDecoder.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.tabRoute)).EndInit();
+         this.tabRoute.ResumeLayout(false);
          this.tabRouteGeneral.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.grpBlockConnections)).EndInit();
+         this.grpBlockConnections.ResumeLayout(false);
+         this.grpBlockConnections.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.chkIsBlock.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.cboBlockTo.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.cboBlockFrom.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.grpGeneralProperties)).EndInit();
          this.grpGeneralProperties.ResumeLayout(false);
          this.grpGeneralProperties.PerformLayout();
@@ -728,22 +663,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.grpGeneral)).EndInit();
          this.grpGeneral.ResumeLayout(false);
          this.grpGeneral.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
-         this.tabRouteBlock.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.chkIsBlock.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.grpBlockBehaviour)).EndInit();
-         this.grpBlockBehaviour.ResumeLayout(false);
-         this.grpBlockBehaviour.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.cboAction.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.grpBlockConnections)).EndInit();
-         this.grpBlockConnections.ResumeLayout(false);
-         this.grpBlockConnections.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.chkBidirectional.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.cboBlockTo.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.cboBlockFrom.Properties)).EndInit();
-         this.tabRouteConnections.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.grdConnect)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.grdConnectView)).EndInit();
          this.tabRouteNotes.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.txtNotes.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.grdData)).EndInit();
@@ -775,7 +696,7 @@
       private DevExpress.XtraBars.BarButtonItem cmdRouteClose;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgRoute;
         private DevExpress.XtraBars.BarButtonItem cmdRouteSaveClose;
-        private DevExpress.XtraTab.XtraTabControl tabDecoder;
+        private DevExpress.XtraTab.XtraTabControl tabRoute;
         private DevExpress.XtraTab.XtraTabPage tabRouteGeneral;
         private DevExpress.XtraEditors.GroupControl grpGeneralProperties;
         private DevExpress.XtraEditors.LabelControl lblSwitchTimeUnits;
@@ -784,25 +705,20 @@
         private DevExpress.XtraEditors.GroupControl grpGeneral;
         private DevExpress.XtraEditors.LabelControl lblName;
         private DevExpress.XtraEditors.TextEdit txtName;
-        private DevExpress.XtraTab.XtraTabPage tabRouteBlock;
         private DevExpress.XtraEditors.CheckEdit chkIsBlock;
-        private DevExpress.XtraEditors.GroupControl grpBlockBehaviour;
-        private DevExpress.XtraEditors.ImageComboBoxEdit cboAction;
-        private DevExpress.XtraEditors.LabelControl lblAction;
         private DevExpress.XtraEditors.GroupControl grpBlockConnections;
-        private DevExpress.XtraEditors.CheckEdit chkBidirectional;
         private DevExpress.XtraEditors.LabelControl txtBlockTo;
-        private Common.Controls.ElementImageComboBoxEdit cboBlockTo;
         private DevExpress.XtraEditors.LabelControl txtBlockFrom;
-        private Common.Controls.ElementImageComboBoxEdit cboBlockFrom;
-        private DevExpress.XtraTab.XtraTabPage tabRouteConnections;
-        private DevExpress.XtraGrid.GridControl grdConnect;
-        private DevExpress.XtraGrid.Views.Grid.GridView grdConnectView;
+        private Common.Controls.BlockImageComboBoxEdit cboBlockFrom;
         private DevExpress.XtraTab.XtraTabPage tabRouteNotes;
-        private DevExpress.XtraEditors.MemoEdit txtNotes;
         private DevExpress.XtraEditors.PanelControl pnlRoute;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private Common.Controls.HotkeyControl hotkeyControl1;
+        private Common.Controls.BlockImageComboBoxEdit cboBlockTo;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.TextEdit txtDescription;
+        private DevExpress.XtraEditors.MemoEdit txtNotes;
+        private DevExpress.XtraEditors.SimpleButton cmdGenerateName;
     }
 }
 

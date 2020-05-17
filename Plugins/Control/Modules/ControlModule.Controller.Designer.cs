@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using DevExpress.XtraTab;
 using Rwm.Otc;
 using Rwm.Otc.Layout;
+using Rwm.Otc.Layout.Traffic;
 using Rwm.Otc.Systems;
 using Rwm.Otc.Systems.Protocol;
 using Rwm.Otc.UI;
@@ -21,6 +22,11 @@ namespace Rwm.Studio.Plugins.Control.Modules
       /// Gets the current digital command system.
       /// </summary>
       public IDigitalSystem DigitalSystem { get; private set; }
+
+      /// <summary>
+      /// Gets the traffic manager used to guide train routes.
+      /// </summary>
+      public TrafficManager TrafficManager { get; private set; }
 
       #endregion
 
@@ -74,6 +80,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
       {
          Cursor.Current = Cursors.WaitCursor;
 
+         OTCContext.Project.TrafficManager?.Reset();
          OTCContext.Project.DigitalSystem?.Disconnect();
 
          this.RefreshStatus();
@@ -331,6 +338,9 @@ namespace Rwm.Studio.Plugins.Control.Modules
                {
                   element.SetFeedbackStatus(status.Active);
                   StudioContext.LogInformation("Accessory {0:D4}:{1} changed to status {2}", command.Address, status.PointAddress, (status.Active ? "HIGH" : "LOW"));
+
+                  // Inform traffic manager
+                  OTCContext.Project.TrafficManager.FeedbackReceived(status, element);
                }
             }
          }

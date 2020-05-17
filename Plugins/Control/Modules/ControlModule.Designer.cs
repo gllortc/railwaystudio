@@ -36,13 +36,13 @@
          this.chkOptionsManualSensorAllowed = new DevExpress.XtraBars.BarCheckItem();
          this.chkOptionsExecuteActions = new DevExpress.XtraBars.BarCheckItem();
          this.cmdCtrlEmergencyStop = new DevExpress.XtraBars.BarButtonItem();
-         this.bbgOptions = new DevExpress.XtraBars.BarButtonGroup();
          this.cmdUtilsDigitalAddressCalculator = new DevExpress.XtraBars.BarButtonItem();
          this.cmdSystemDisconnect = new DevExpress.XtraBars.BarButtonItem();
          this.cmdSystemConnect = new DevExpress.XtraBars.BarButtonItem();
          this.cmdCtrlResumeOps = new DevExpress.XtraBars.BarButtonItem();
          this.bbtnSystemsManage = new DevExpress.XtraBars.BarButtonItem();
          this.bbtnThemesManage = new DevExpress.XtraBars.BarButtonItem();
+         this.cmdControlTraffic = new DevExpress.XtraBars.BarCheckItem();
          this.rptControl = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.rpgSystem = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.rpgControl = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -54,11 +54,14 @@
          this.dockManager = new DevExpress.XtraBars.Docking.DockManager(this.components);
          this.hideContainerRight = new DevExpress.XtraBars.Docking.AutoHideContainer();
          this.dockPanelRoutes = new DevExpress.XtraBars.Docking.DockPanel();
-         this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+         this.dockPanelsContainer = new DevExpress.XtraBars.Docking.ControlContainer();
          this.rmaRoutes = new Rwm.Studio.Plugins.Control.Controls.RouteActivationControl();
          this.dockPanelTrains = new DevExpress.XtraBars.Docking.DockPanel();
          this.controlContainer1 = new DevExpress.XtraBars.Docking.ControlContainer();
          this.tscTrains = new Rwm.Studio.Plugins.Control.Controls.TrainSelectionControl();
+         this.dockPanelTraffic = new DevExpress.XtraBars.Docking.DockPanel();
+         this.controlContainer2 = new DevExpress.XtraBars.Docking.ControlContainer();
+         this.trafficControl = new Rwm.Studio.Plugins.Control.Controls.TrafficControl();
          ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.pnlContainer)).BeginInit();
          this.pnlContainer.SuspendLayout();
@@ -67,9 +70,11 @@
          ((System.ComponentModel.ISupportInitialize)(this.dockManager)).BeginInit();
          this.hideContainerRight.SuspendLayout();
          this.dockPanelRoutes.SuspendLayout();
-         this.dockPanel1_Container.SuspendLayout();
+         this.dockPanelsContainer.SuspendLayout();
          this.dockPanelTrains.SuspendLayout();
          this.controlContainer1.SuspendLayout();
+         this.dockPanelTraffic.SuspendLayout();
+         this.controlContainer2.SuspendLayout();
          this.SuspendLayout();
          // 
          // ribbonControl
@@ -82,15 +87,15 @@
             this.chkOptionsManualSensorAllowed,
             this.chkOptionsExecuteActions,
             this.cmdCtrlEmergencyStop,
-            this.bbgOptions,
             this.cmdUtilsDigitalAddressCalculator,
             this.cmdSystemDisconnect,
             this.cmdSystemConnect,
             this.cmdCtrlResumeOps,
             this.bbtnSystemsManage,
-            this.bbtnThemesManage});
+            this.bbtnThemesManage,
+            this.cmdControlTraffic});
          this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-         this.ribbonControl.MaxItemId = 24;
+         this.ribbonControl.MaxItemId = 25;
          this.ribbonControl.Name = "ribbonControl";
          this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rptControl});
@@ -141,15 +146,6 @@
          this.cmdCtrlEmergencyStop.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_EXCLAMATION_32;
          this.cmdCtrlEmergencyStop.Name = "cmdCtrlEmergencyStop";
          this.cmdCtrlEmergencyStop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdCtrlEmergencyStop_ItemClick);
-         // 
-         // bbgOptions
-         // 
-         this.bbgOptions.Caption = "Options";
-         this.bbgOptions.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbgOptions.Id = 16;
-         this.bbgOptions.ItemLinks.Add(this.chkOptionsManualSensorAllowed);
-         this.bbgOptions.ItemLinks.Add(this.chkOptionsExecuteActions);
-         this.bbgOptions.Name = "bbgOptions";
          // 
          // cmdUtilsDigitalAddressCalculator
          // 
@@ -206,6 +202,15 @@
          this.bbtnThemesManage.Name = "bbtnThemesManage";
          this.bbtnThemesManage.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BbtnThemesManage_ItemClick);
          // 
+         // cmdControlTraffic
+         // 
+         this.cmdControlTraffic.Caption = "Auto-traffic";
+         this.cmdControlTraffic.Id = 24;
+         this.cmdControlTraffic.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_TRAFFIC_16;
+         this.cmdControlTraffic.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_TRAFFIC_32;
+         this.cmdControlTraffic.Name = "cmdControlTraffic";
+         this.cmdControlTraffic.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdCtrlTraffic_CheckedChanged);
+         // 
          // rptControl
          // 
          this.rptControl.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -230,7 +235,9 @@
          this.rpgControl.Enabled = false;
          this.rpgControl.ItemLinks.Add(this.cmdCtrlEmergencyStop);
          this.rpgControl.ItemLinks.Add(this.cmdCtrlResumeOps);
-         this.rpgControl.ItemLinks.Add(this.bbgOptions, true);
+         this.rpgControl.ItemLinks.Add(this.cmdControlTraffic, true);
+         this.rpgControl.ItemLinks.Add(this.chkOptionsManualSensorAllowed);
+         this.rpgControl.ItemLinks.Add(this.chkOptionsExecuteActions);
          this.rpgControl.Name = "rpgControl";
          this.rpgControl.ShowCaptionButton = false;
          this.rpgControl.Text = "Control";
@@ -302,6 +309,7 @@
          this.hideContainerRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
          this.hideContainerRight.Controls.Add(this.dockPanelRoutes);
          this.hideContainerRight.Controls.Add(this.dockPanelTrains);
+         this.hideContainerRight.Controls.Add(this.dockPanelTraffic);
          this.hideContainerRight.Dock = System.Windows.Forms.DockStyle.Right;
          this.hideContainerRight.Location = new System.Drawing.Point(815, 143);
          this.hideContainerRight.Name = "hideContainerRight";
@@ -309,7 +317,7 @@
          // 
          // dockPanelRoutes
          // 
-         this.dockPanelRoutes.Controls.Add(this.dockPanel1_Container);
+         this.dockPanelRoutes.Controls.Add(this.dockPanelsContainer);
          this.dockPanelRoutes.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
          this.dockPanelRoutes.ID = new System.Guid("d7730765-2068-42f9-90cd-5cdd0afaff72");
          this.dockPanelRoutes.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_16;
@@ -323,13 +331,13 @@
          this.dockPanelRoutes.Text = "Routes";
          this.dockPanelRoutes.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
          // 
-         // dockPanel1_Container
+         // dockPanelsContainer
          // 
-         this.dockPanel1_Container.Controls.Add(this.rmaRoutes);
-         this.dockPanel1_Container.Location = new System.Drawing.Point(5, 25);
-         this.dockPanel1_Container.Name = "dockPanel1_Container";
-         this.dockPanel1_Container.Size = new System.Drawing.Size(191, 292);
-         this.dockPanel1_Container.TabIndex = 0;
+         this.dockPanelsContainer.Controls.Add(this.rmaRoutes);
+         this.dockPanelsContainer.Location = new System.Drawing.Point(5, 25);
+         this.dockPanelsContainer.Name = "dockPanelsContainer";
+         this.dockPanelsContainer.Size = new System.Drawing.Size(191, 292);
+         this.dockPanelsContainer.TabIndex = 0;
          // 
          // rmaRoutes
          // 
@@ -370,6 +378,37 @@
          this.tscTrains.Size = new System.Drawing.Size(191, 296);
          this.tscTrains.TabIndex = 0;
          // 
+         // dockPanelTraffic
+         // 
+         this.dockPanelTraffic.Controls.Add(this.controlContainer2);
+         this.dockPanelTraffic.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
+         this.dockPanelTraffic.ID = new System.Guid("39e9ef60-e2c0-43c2-a01e-c4c026ae8d93");
+         this.dockPanelTraffic.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_TRAFFIC_16;
+         this.dockPanelTraffic.Location = new System.Drawing.Point(0, 0);
+         this.dockPanelTraffic.Name = "dockPanelTraffic";
+         this.dockPanelTraffic.OriginalSize = new System.Drawing.Size(200, 200);
+         this.dockPanelTraffic.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Right;
+         this.dockPanelTraffic.SavedIndex = 0;
+         this.dockPanelTraffic.Size = new System.Drawing.Size(200, 323);
+         this.dockPanelTraffic.Text = "Traffic";
+         this.dockPanelTraffic.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
+         // 
+         // controlContainer2
+         // 
+         this.controlContainer2.Controls.Add(this.trafficControl);
+         this.controlContainer2.Location = new System.Drawing.Point(5, 23);
+         this.controlContainer2.Name = "controlContainer2";
+         this.controlContainer2.Size = new System.Drawing.Size(191, 296);
+         this.controlContainer2.TabIndex = 0;
+         // 
+         // trafficControl
+         // 
+         this.trafficControl.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.trafficControl.Location = new System.Drawing.Point(0, 0);
+         this.trafficControl.Name = "trafficControl";
+         this.trafficControl.Size = new System.Drawing.Size(191, 296);
+         this.trafficControl.TabIndex = 0;
+         // 
          // ControlModule
          // 
          this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -393,9 +432,11 @@
          ((System.ComponentModel.ISupportInitialize)(this.dockManager)).EndInit();
          this.hideContainerRight.ResumeLayout(false);
          this.dockPanelRoutes.ResumeLayout(false);
-         this.dockPanel1_Container.ResumeLayout(false);
+         this.dockPanelsContainer.ResumeLayout(false);
          this.dockPanelTrains.ResumeLayout(false);
          this.controlContainer1.ResumeLayout(false);
+         this.dockPanelTraffic.ResumeLayout(false);
+         this.controlContainer2.ResumeLayout(false);
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -410,14 +451,12 @@
       private DevExpress.XtraEditors.PanelControl pnlContainer;
       private DevExpress.XtraTab.XtraTabControl tabPanels;
       private DevExpress.XtraTab.XtraTabPage tabPanel1;
-      // private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox repositoryItemImageComboBox1;
       private DevExpress.XtraBars.BarButtonItem cmdSystemSettings;
       private DevExpress.XtraBars.BarButtonItem cmdSystemManage;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgControl;
       private DevExpress.XtraBars.BarCheckItem chkOptionsManualSensorAllowed;
       private DevExpress.XtraBars.BarCheckItem chkOptionsExecuteActions;
       private DevExpress.XtraBars.BarButtonItem cmdCtrlEmergencyStop;
-      private DevExpress.XtraBars.BarButtonGroup bbgOptions;
       private DevExpress.XtraBars.BarButtonItem cmdUtilsDigitalAddressCalculator;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgUtils;
       private DevExpress.XtraBars.BarButtonItem cmdSystemDisconnect;
@@ -425,14 +464,18 @@
       private DevExpress.XtraBars.BarButtonItem cmdCtrlResumeOps;
       private DevExpress.XtraBars.BarButtonItem bbtnSystemsManage;
       private DevExpress.XtraBars.BarButtonItem bbtnThemesManage;
-        private DevExpress.XtraBars.Docking.DockManager dockManager;
-        private DevExpress.XtraBars.Docking.DockPanel dockPanelRoutes;
-        private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
-        private Controls.RouteActivationControl rmaRoutes;
-        private DevExpress.XtraBars.Docking.DockPanel dockPanelTrains;
-        private DevExpress.XtraBars.Docking.ControlContainer controlContainer1;
-        private DevExpress.XtraBars.Docking.AutoHideContainer hideContainerRight;
-        private Controls.TrainSelectionControl tscTrains;
-    }
+      private DevExpress.XtraBars.Docking.DockManager dockManager;
+      private DevExpress.XtraBars.Docking.DockPanel dockPanelRoutes;
+      private DevExpress.XtraBars.Docking.ControlContainer dockPanelsContainer;
+      private Controls.RouteActivationControl rmaRoutes;
+      private DevExpress.XtraBars.Docking.DockPanel dockPanelTrains;
+      private DevExpress.XtraBars.Docking.ControlContainer controlContainer1;
+      private DevExpress.XtraBars.Docking.AutoHideContainer hideContainerRight;
+      private Controls.TrainSelectionControl tscTrains;
+      private DevExpress.XtraBars.Docking.DockPanel dockPanelTraffic;
+      private DevExpress.XtraBars.Docking.ControlContainer controlContainer2;
+      private Controls.TrafficControl trafficControl;
+      private DevExpress.XtraBars.BarCheckItem cmdControlTraffic;
+   }
 }
 

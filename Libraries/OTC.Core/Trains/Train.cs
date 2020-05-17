@@ -538,7 +538,7 @@ namespace Rwm.Otc.Trains
 
       public override string ToString()
       {
-         return string.Format("{0} (addr. {1})", this.Name, this.DigitalAddress);
+         return string.Format("{0} (#{1:4D})", this.Name, this.DigitalAddress);
       }
 
       #endregion

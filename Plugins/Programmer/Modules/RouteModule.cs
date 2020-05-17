@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using Rwm.Studio.Plugins.Common;
+﻿using Rwm.Studio.Plugins.Common;
 
 namespace Rwm.Studio.Plugins.Designer.Modules
 {
@@ -75,6 +74,11 @@ namespace Rwm.Studio.Plugins.Designer.Modules
          this.RefreshViewStatus();
       }
 
+      private void RouteModule_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
+      {
+         Otc.Layout.Route.ClearAll();
+      }
+
       private void GrdDataView_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
       {
          StudioContext.UI.DrawRowIcon(Properties.Resources.ICO_ROUTE_16, e);
@@ -83,19 +87,6 @@ namespace Rwm.Studio.Plugins.Designer.Modules
       private void GrdData_DoubleClick(object sender, System.EventArgs e)
       {
          this.RouteEdit();
-      }
-
-      private void GrdConnectView_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
-      {
-         System.Data.DataRowView drv = grdConnectView.GetRow(e.RowHandle) as System.Data.DataRowView;
-         if (drv != null)
-         {
-            if ((int)drv[0] <= 0)
-            {
-               e.Appearance.BackColor = Color.FromArgb(192, 255, 192);
-               e.Appearance.BackColor2 = Color.FromArgb(192, 255, 192);
-            }
-         }
       }
 
       private void CmdRouteAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -128,9 +119,9 @@ namespace Rwm.Studio.Plugins.Designer.Modules
          this.RouteClose();
       }
 
-      private void ChkIsBlock_CheckedChanged(object sender, System.EventArgs e)
+      private void CmdGenerateName_Click(object sender, System.EventArgs e)
       {
-         grpBlockConnections.Enabled = chkIsBlock.Checked;
+         this.GenerateRouteName();
       }
 
       #endregion

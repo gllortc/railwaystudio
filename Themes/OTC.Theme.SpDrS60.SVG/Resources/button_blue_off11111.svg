@@ -1,4 +1,5 @@
-<svg width="32" height="32">
+<?xml version="1.0"?>
+<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
   <g>
     <path stroke="rgb(255, 216, 0)" fill="rgb(255, 216, 0)" d="M 0,0 L 31,0 L 31,31 L 0,31 z " />
     <path stroke="rgb(0, 0, 0)" fill="rgb(255, 255, 255)" d="M 7,20 L 26,20 L 26,28 L 7,28 z " />    

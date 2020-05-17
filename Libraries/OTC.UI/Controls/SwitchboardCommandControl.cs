@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Rwm.Otc.Diagnostics;
 using Rwm.Otc.Layout;
+using Rwm.Otc.Layout.Traffic;
 using Rwm.Otc.Systems;
 using Rwm.Otc.Trains;
 
@@ -211,10 +212,16 @@ namespace Rwm.Otc.UI.Controls
          if (!(sender is ToolStripMenuItem item)) return;
 
          // Get the route to activate
-         if (!(item.Tag is Route route)) return;
+         if (!(item.Tag is Itinerary troute)) return;
 
-         // Activate the route
-         route.Activate();
+         try
+         {
+            OTCContext.Project.TrafficManager.AddItinerary(troute);
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+         }
       }
 
       void CmdBlockSensorActivated_ItemClick(object sender, EventArgs e)
@@ -287,31 +294,34 @@ namespace Rwm.Otc.UI.Controls
       {
          ToolStripMenuItem destItem = null;
 
-         this.BlockMenu.Items[0].Enabled = true;
+         // this.BlockMenu.Items[0].Enabled = true;
+         // this.BlockMenu.Items[0].Tag = blockElement;
+         this.BlockMenu.Items[0].Enabled = blockElement.IsBlockOccupied;
          this.BlockMenu.Items[0].Tag = blockElement;
          this.BlockMenu.Items[1].Enabled = blockElement.IsBlockOccupied;
-         this.BlockMenu.Items[1].Tag = blockElement;
-         this.BlockMenu.Items[2].Enabled = blockElement.IsBlockOccupied;
 
-         destItem = this.BlockMenu.Items[2] as ToolStripMenuItem;
+         destItem = this.BlockMenu.Items[1] as ToolStripMenuItem;
 
          // Clear previous destination menu items
          for (int i = 0; i < destItem.DropDownItems.Count; i++) destItem.DropDownItems[i].Dispose();
          destItem.DropDownItems.Clear();
 
          // Get all destinations
-         foreach (Route dest in OTCContext.Project.GetDestinations(blockElement))
+         foreach (Element block in OTCContext.Project.TrafficManager.GetDestinationsFromBlock(blockElement))
          {
-            if (dest.FromBlock.ID != blockElement.ID)
-            {
-               destItem.DropDownItems.Add(string.Format("{0} (route {1})", dest.FromBlock, dest), null, new EventHandler(CmdBlockRouteAssign_ItemClick));
-               destItem.DropDownItems[destItem.DropDownItems.Count - 1].Tag = dest;
-            }
-            else if (dest.ToBlock.ID != blockElement.ID)
-            {
-               destItem.DropDownItems.Add(string.Format("{0} (route {1})", dest.ToBlock.Name, dest), null, new EventHandler(CmdBlockRouteAssign_ItemClick));
-               destItem.DropDownItems[destItem.DropDownItems.Count - 1].Tag = dest;
-            }
+            destItem.DropDownItems.Add(string.Format("{0}", block.DisplayName), null, new EventHandler(CmdBlockRouteAssign_ItemClick));
+            destItem.DropDownItems[destItem.DropDownItems.Count - 1].Tag = new Itinerary(blockElement.Train, blockElement, block);
+
+            //if (dest.FromBlock.ID != blockElement.ID)
+            //{
+            //   destItem.DropDownItems.Add(string.Format("{0} (route {1})", dest.FromBlock, dest), null, new EventHandler(CmdBlockRouteAssign_ItemClick));
+            //   destItem.DropDownItems[destItem.DropDownItems.Count - 1].Tag = dest;
+            //}
+            //else if (dest.ToBlock.ID != blockElement.ID)
+            //{
+            //   destItem.DropDownItems.Add(string.Format("{0} (route {1})", dest.ToBlock.Name, dest), null, new EventHandler(CmdBlockRouteAssign_ItemClick));
+            //   destItem.DropDownItems[destItem.DropDownItems.Count - 1].Tag = dest;
+            //}
          }
 
          // Add an empty item in case of no destinations was found

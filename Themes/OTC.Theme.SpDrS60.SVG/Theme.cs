@@ -163,6 +163,18 @@ namespace Rwm.Otc.Themes
 
                return imageClone;
             }
+            else if (designImage && element.Properties.IsBlock)
+            {
+               Image imageClone = (Image)image.Clone();
+
+               using (Graphics g = Graphics.FromImage(imageClone))
+               using (Font font = new Font("Calibri", 10, FontStyle.Bold))
+               {
+                  g.DrawString(element.DisplayName, font, Brushes.Black, 3, 3);
+               }
+
+               return imageClone;
+            }
 
             return image;
          }

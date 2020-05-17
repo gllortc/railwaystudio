@@ -26,21 +26,33 @@ namespace Rwm.Otc.Layout
       public override long ID { get; set; }
 
       /// <summary>
+      /// Gets the name of the type of the bloc.
+      /// </summary>
+      [ORMProperty("NAME")]
+      public string Name { get; set; }
+
+      /// <summary>
+      /// Gets the description of the type of the bloc.
+      /// </summary>
+      [ORMProperty("DESCRIPTION")]
+      public string Description { get; set; }
+
+      /// <summary>
       /// Columna en la que se sitúa el bloque (X).
       /// </summary>
-      [ORMProperty("width")]
+      [ORMProperty("WIDTH")]
       public int Width { get; set; }
 
       /// <summary>
       /// Fila en la que se sitúa el bloque (Y).
       /// </summary>
-      [ORMProperty("height")]
+      [ORMProperty("HEIGHT")]
       public int Height { get; set; }
 
       /// <summary>
       /// Gets or sets the icon ID.
       /// </summary>
-      [ORMProperty("icon")]
+      [ORMProperty("ICON")]
       public string IconID { get; set; }
 
       /// <summary>
@@ -54,79 +66,73 @@ namespace Rwm.Otc.Layout
       /// <summary>
       /// Gets the group of the type of the bloc.
       /// </summary>
-      [ORMProperty("groupkey")]
+      [ORMProperty("GROUPKEY")]
       public string Group { get; set; }
+
+      /// <summary>
+      /// Gets or sets the number of rotations that can be applied to the blobk.
+      /// </summary>
+      [ORMProperty("ROTATIONSTEPS")]
+      public int RotationSteps { get; set; }
 
       /// <summary>
       /// Gets or sets a value indicating the order of activation in a secuance.
       /// </summary>
-      [ORMProperty("activationorder")]
+      [ORMProperty("ACTIVATIONORDER")]
       public int ActivationOrder { get; set; }
 
       /// <summary>
-      /// Gets the name of the type of the bloc.
-      /// </summary>
-      [ORMProperty("name")]
-      public string Name { get; set; }
-
-      /// <summary>
-      /// Gets the description of the type of the bloc.
-      /// </summary>
-      [ORMProperty("description")]
-      public string Description { get; set; }
-
-      /// <summary>
       /// Gets or sets the number of rotations that can be applied to the blobk.
       /// </summary>
-      [ORMProperty("rotationsteps")]
-      public int RotationSteps { get; set; }
-
-      /// <summary>
-      /// Gets or sets the number of rotations that can be applied to the blobk.
-      /// </summary>
-      [ORMProperty("accessory")]
+      [ORMProperty("ACCESSORY")]
       public bool IsAccessory { get; set; }
 
       /// <summary>
       /// Gets or sets the number of possible statuses for the accessory.
       /// </summary>
-      [ORMProperty("accessorystats")]
+      [ORMProperty("ACCSTATS")]
       public int AccessoryMaxStats { get; set; }
 
       /// <summary>
       /// Gets or sets the number of accessory connections allowed by the modules.
       /// </summary>
-      [ORMProperty("numconnacc")]
+      [ORMProperty("ACCNUMCONN")]
       public int NumberOfAccessoryConnections { get; set; } = 0;
+
+      /// <summary>
+      /// Gets or sets the number of rotations that can be applied to the blobk.
+      /// </summary>
+      [ORMProperty("FEEDBACK")]
+      public bool IsFeedback { get; set; }
 
       /// <summary>
       /// Gets or sets the number of feedback connections allowed by the modules.
       /// </summary>
-      [ORMProperty("numconnfeed")]
+      [ORMProperty("FBNUMCONN")]
       public int NumberOfFeedbackConnections { get; set; } = 0;
 
       /// <summary>
       /// Gets or sets the number of rotations that can be applied to the blobk.
       /// </summary>
-      [ORMProperty("feedback")]
-      public bool IsFeedback { get; set; }
-
-      /// <summary>
-      /// Gets or sets the number of rotations that can be applied to the blobk.
-      /// </summary>
-      [ORMProperty("routeable")]
+      [ORMProperty("ROUTEABLE")]
       public bool IsRouteable { get; set; }
 
       /// <summary>
-      /// Gets or sets the number of rotations that can be applied to the blobk.
+      /// Gets or sets a value indicating if the element is a block.
       /// </summary>
-      [ORMProperty("occupable")]
+      [ORMProperty("OCCUPABLE")]
       public bool IsBlock { get; set; }
+
+      /// <summary>
+      /// Gets or sets a value indicating if the element is a destination block.
+      /// </summary>
+      [ORMProperty("DESTINATION")]
+      public bool IsDestination { get; set; }
 
       /// <summary>
       /// Gets or sets the number of rotations that can be applied to the blobk.
       /// </summary>
-      [ORMProperty("allowactions")]
+      [ORMProperty("ALLOWACTIONS")]
       public bool ActionsAllowed { get; set; }
 
       /// <summary>

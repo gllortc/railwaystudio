@@ -61,7 +61,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///    &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -77,7 +78,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///    &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -93,7 +95,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 19,31 L 11,31 L 0,20 z &quot; /&gt;
@@ -110,7 +113,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 19,31 L 11,31 L 0,20 z &quot; /&gt;
@@ -127,7 +131,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot;  d=&quot;M 0,12 L 27,12 L 27,19 L 0,19 z &quot; /&gt;
@@ -144,7 +149,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot;  d=&quot;M 0,12 L 27,12 L 27,19 L 0,19 z &quot; /&gt;
@@ -162,7 +168,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -170,8 +177,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- Abzweig unten links --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 31,19 L 24,19 L 12,31 L 20,31 L 31,20 z &quot; /&gt;
-        ///  &lt;!-- Ausleuchtung Abzweig unten links grau --&gt;
-        ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,19 [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Au [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B10_00_00_0 {
             get {
@@ -180,16 +186,15 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///   &lt;g&gt;
         ///      &lt;!-- Track --&gt;
         ///      &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
         ///      &lt;!-- Ausleuchtung grau --&gt;
         ///      &lt;path stroke=&quot;rgb(0,255,255)&quot; fill=&quot;rgb(0,255,255)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///      &lt;!-- Abzweig unten links --&gt;
-        ///      &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 31,19 L 24,19 L 12,31 L 20,31 L 31,20 z &quot; /&gt;
-        ///      &lt;!-- Ausleuchtung Abzweig unten links gelb --&gt;
-        ///      &lt;path stroke=&quot;rgb(192,192,192)&quot; [resto de la cadena truncado]&quot;;.
+        ///      &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 31,19 L 24,19 L 12,31 L 20,31 L 31,20 z  [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B10_01_00_0 {
             get {
@@ -198,16 +203,15 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///   &lt;g&gt;
         ///      &lt;!-- Track --&gt;
         ///      &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
         ///      &lt;!-- Ausleuchtung grau --&gt;
         ///      &lt;path stroke=&quot;rgb(255,255,0)&quot; fill=&quot;rgb(255,255,0)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///      &lt;!-- Abzweig unten links --&gt;
-        ///      &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 31,19 L 24,19 L 12,31 L 20,31 L 31,20 z &quot; /&gt;
-        ///      &lt;!-- Ausleuchtung Abzweig unten links gelb --&gt;
-        ///      &lt;path stroke=&quot;rgb(192,192,192)&quot; [resto de la cadena truncado]&quot;;.
+        ///      &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 31,19 L 24,19 L 12,31 L 20,31 L 31,20 z  [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B10_01_00_1 {
             get {
@@ -216,7 +220,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -224,8 +229,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- Abzweig unten links --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 31,19 L 24,19 L 12,31 L 20,31 L 31,20 z &quot; /&gt;
-        ///  &lt;!-- Ausleuchtung Abzweig unten links gelb --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,255,255)&quot; fill=&quot;rgb(0,255,255)&quot;  [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Au [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B10_02_00_0 {
             get {
@@ -234,7 +238,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -242,8 +247,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- Abzweig unten links --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 31,19 L 24,19 L 12,31 L 20,31 L 31,20 z &quot; /&gt;
-        ///  &lt;!-- Ausleuchtung Abzweig unten links gelb --&gt;
-        ///    &lt;path stroke=&quot;rgb(255,255,0)&quot; fill=&quot;rgb(255,255,0)&quot;  [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Au [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B10_02_00_1 {
             get {
@@ -252,7 +256,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -260,8 +265,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- Abzweig unten rechts --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,19 L 7,19 L 19,31 L 15,31 L 11,31 L 0,20 z &quot; /&gt;
-        ///  &lt;!-- Ausleuchtung Abzweig unten rechts grau --&gt;
-        ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192 [resto de la cadena truncado]&quot;;.
+        ///  &lt; [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B11_00_00_0 {
             get {
@@ -270,7 +274,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -278,8 +283,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(0,255,255)&quot; fill=&quot;rgb(0,255,255)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- Abzweig unten rechts --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,19 L 7,19 L 19,31 L 15,31 L 11,31 L 0,20 z &quot; /&gt;
-        ///  &lt;!-- Ausleuchtung Abzweig unten rechts grau --&gt;
-        ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192 [resto de la cadena truncado]&quot;;.
+        ///  &lt;!--  [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B11_01_00_0 {
             get {
@@ -288,7 +292,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -296,8 +301,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(255,255,0)&quot; fill=&quot;rgb(255,255,0)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- Abzweig unten rechts --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,19 L 7,19 L 19,31 L 15,31 L 11,31 L 0,20 z &quot; /&gt;
-        ///  &lt;!-- Ausleuchtung Abzweig unten rechts grau --&gt;
-        ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192 [resto de la cadena truncado]&quot;;.
+        ///  &lt;!--  [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B11_01_00_1 {
             get {
@@ -306,7 +310,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -314,8 +319,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- Abzweig unten rechts --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,19 L 7,19 L 19,31 L 15,31 L 11,31 L 0,20 z &quot; /&gt;
-        ///  &lt;!-- Ausleuchtung Abzweig unten rechts grau --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,255,255)&quot; fill=&quot;rgb(0,255 [resto de la cadena truncado]&quot;;.
+        ///  &lt; [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B11_02_00_0 {
             get {
@@ -324,7 +328,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -332,8 +337,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- Abzweig unten rechts --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,19 L 7,19 L 19,31 L 15,31 L 11,31 L 0,20 z &quot; /&gt;
-        ///  &lt;!-- Ausleuchtung Abzweig unten rechts grau --&gt;
-        ///    &lt;path stroke=&quot;rgb(255,255,0)&quot; fill=&quot;rgb(255,2 [resto de la cadena truncado]&quot;;.
+        ///  &lt; [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B11_02_00_1 {
             get {
@@ -342,16 +346,15 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 24,12 L 31,12 L 31,19 L 24,19 z &quot; /&gt;
         ///    &lt;!-- Abzweig unten links --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 31,19 L 24,19 L 12,31 L 20,31 L 31,20 z &quot; /&gt;
         ///  &lt;!-- Ausleuchtung Abzweig unten links grau --&gt;
-        ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 19,26 L 25,20 L 27,22 L 21,28 z &quot; /&gt;
-        ///  &lt;!-- Abzweig oben rechts --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot;  [resto de la cadena truncado]&quot;;.
+        ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 19,26 L 25,20 L 27,22 [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B12_00_00_0 {
             get {
@@ -360,16 +363,15 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 24,12 L 31,12 L 31,19 L 24,19 z &quot; /&gt;
         ///    &lt;!-- Abzweig unten links --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 31,19 L 24,19 L 12,31 L 20,31 L 31,20 z &quot; /&gt;
         ///  &lt;!-- Ausleuchtung Abzweig unten links grau --&gt;
-        ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 19,26 L 25,20 L 27,22 L 21,28 z &quot; /&gt;
-        ///  &lt;!-- Abzweig oben rechts --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot;  [resto de la cadena truncado]&quot;;.
+        ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 19,26 L 25,20 L 27,22 [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B12_01_00_0 {
             get {
@@ -378,16 +380,15 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 24,12 L 31,12 L 31,19 L 24,19 z &quot; /&gt;
         ///    &lt;!-- Abzweig unten links --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 31,19 L 24,19 L 12,31 L 20,31 L 31,20 z &quot; /&gt;
         ///  &lt;!-- Ausleuchtung Abzweig unten links grau --&gt;
-        ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 19,26 L 25,20 L 27,22 L 21,28 z &quot; /&gt;
-        ///  &lt;!-- Abzweig oben rechts --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot;  [resto de la cadena truncado]&quot;;.
+        ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 19,26 L 25,20 L 27,22 [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B12_01_00_1 {
             get {
@@ -396,16 +397,15 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 24,12 L 31,12 L 31,19 L 24,19 z &quot; /&gt; 
         ///  &lt;!-- Abzweig unten links --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 31,19 L 24,19 L 12,31 L 20,31 L 31,20 z &quot; /&gt;
         ///  &lt;!-- Ausleuchtung Abzweig unten links grau --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,255,255)&quot; fill=&quot;rgb(0,255,255)&quot; d=&quot;M 19,26 L 25,20 L 27,22 L 21,28 z &quot; /&gt;
-        ///  &lt;!-- Abzweig oben rechts --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M  [resto de la cadena truncado]&quot;;.
+        ///    &lt;path stroke=&quot;rgb(0,255,255)&quot; fill=&quot;rgb(0,255,255)&quot; d=&quot;M 19,26 L 25,20 L 27,22 L 21 [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B12_02_00_0 {
             get {
@@ -414,16 +414,15 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 24,12 L 31,12 L 31,19 L 24,19 z &quot; /&gt; 
         ///  &lt;!-- Abzweig unten links --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 31,19 L 24,19 L 12,31 L 20,31 L 31,20 z &quot; /&gt;
         ///  &lt;!-- Ausleuchtung Abzweig unten links grau --&gt;
-        ///    &lt;path stroke=&quot;rgb(255,255,0)&quot; fill=&quot;rgb(255,255,0)&quot; d=&quot;M 19,26 L 25,20 L 27,22 L 21,28 z &quot; /&gt;
-        ///  &lt;!-- Abzweig oben rechts --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M  [resto de la cadena truncado]&quot;;.
+        ///    &lt;path stroke=&quot;rgb(255,255,0)&quot; fill=&quot;rgb(255,255,0)&quot; d=&quot;M 19,26 L 25,20 L 27,22 L 21 [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B12_02_00_1 {
             get {
@@ -432,7 +431,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -440,8 +440,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- Abzweig unten links --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 31,19 L 24,19 L 12,31 L 20,31 L 31,20 z &quot; /&gt;
-        ///  &lt;!-- Ausleuchtung Abzweig unten links grau --&gt;
-        ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,19 [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Au [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B13_00_00_0 {
             get {
@@ -450,7 +449,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -458,8 +458,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(0,255,255)&quot; fill=&quot;rgb(0,255,255)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- Abzweig unten links --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 31,19 L 24,19 L 12,31 L 20,31 L 31,20 z &quot; /&gt;
-        ///  &lt;!-- Ausleuchtung Abzweig unten links grau --&gt;
-        ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot;  [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Ausleu [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B13_01_00_0 {
             get {
@@ -468,7 +467,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -476,8 +476,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(255,255,0)&quot; fill=&quot;rgb(255,255,0)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- Abzweig unten links --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 31,19 L 24,19 L 12,31 L 20,31 L 31,20 z &quot; /&gt;
-        ///  &lt;!-- Ausleuchtung Abzweig unten links grau --&gt;
-        ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot;  [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Ausleu [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B13_01_00_1 {
             get {
@@ -486,7 +485,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -494,8 +494,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- Abzweig unten links --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 31,19 L 24,19 L 12,31 L 20,31 L 31,20 z &quot; /&gt;
-        ///  &lt;!-- Ausleuchtung Abzweig unten links grau --&gt;
-        ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,19 [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Au [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B13_02_00_0 {
             get {
@@ -504,7 +503,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -512,8 +512,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- Abzweig unten links --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 31,19 L 24,19 L 12,31 L 20,31 L 31,20 z &quot; /&gt;
-        ///  &lt;!-- Ausleuchtung Abzweig unten links grau --&gt;
-        ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,19 [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Au [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B13_02_00_1 {
             get {
@@ -522,7 +521,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -530,8 +530,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- Abzweig unten links --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 31,19 L 24,19 L 12,31 L 20,31 L 31,20 z &quot; /&gt;
-        ///  &lt;!-- Ausleuchtung Abzweig unten links grau --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,255,255)&quot; fill=&quot;rgb(0,255,255)&quot;  [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Au [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B13_03_00_0 {
             get {
@@ -540,7 +539,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -548,8 +548,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- Abzweig unten links --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 31,19 L 24,19 L 12,31 L 20,31 L 31,20 z &quot; /&gt;
-        ///  &lt;!-- Ausleuchtung Abzweig unten links grau --&gt;
-        ///    &lt;path stroke=&quot;rgb(255,255,0)&quot; fill=&quot;rgb(255,255,0)&quot;  [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Au [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B13_03_00_1 {
             get {
@@ -558,16 +557,15 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;64&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;64&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///    &lt;!-- Gerade --&gt; 
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 63,12 L  63,19 L 0,19 z &quot; /&gt;
         ///    &lt;!-- Ausleuchtung gerade links gelb --&gt;
         ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///    &lt;!-- Ausleuchtung gerade rechts gelb --&gt;
-        ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 40,14 L 55,14 L 55,17 L 40,17 z &quot; /&gt;
-        ///    &lt;!-- Diagonale links oben rechts unten --&gt;  
-        ///    &lt;path stroke=&quot; [resto de la cadena truncado]&quot;;.
+        ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 40,14 L 5 [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B15_00_00_0 {
             get {
@@ -576,16 +574,15 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;64&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;64&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///    &lt;!-- Gerade --&gt; 
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 63,12 L  63,19 L 0,19 z &quot; /&gt;
         ///    &lt;!-- Ausleuchtung gerade links gelb --&gt;
         ///    &lt;path stroke=&quot;rgb(0,255,255)&quot; fill=&quot;rgb(0,255,255)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///    &lt;!-- Ausleuchtung gerade rechts gelb --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,255,255)&quot; fill=&quot;rgb(0,255,255)&quot; d=&quot;M 40,14 L 55,14 L 55,17 L 40,17 z &quot; /&gt;
-        ///    &lt;!-- Diagonale links oben rechts unten --&gt;  
-        ///    &lt;path stroke=&quot;rgb(0,0, [resto de la cadena truncado]&quot;;.
+        ///    &lt;path stroke=&quot;rgb(0,255,255)&quot; fill=&quot;rgb(0,255,255)&quot; d=&quot;M 40,14 L 55,14 L 5 [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B15_01_00_0 {
             get {
@@ -594,16 +591,15 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;64&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;64&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///    &lt;!-- Gerade --&gt; 
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 63,12 L  63,19 L 0,19 z &quot; /&gt;
         ///    &lt;!-- Ausleuchtung gerade links gelb --&gt;
         ///    &lt;path stroke=&quot;rgb(255,255,0)&quot; fill=&quot;rgb(255,255,0)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///    &lt;!-- Ausleuchtung gerade rechts gelb --&gt;
-        ///    &lt;path stroke=&quot;rgb(255,255,0)&quot; fill=&quot;rgb(255,255,0)&quot; d=&quot;M 40,14 L 55,14 L 55,17 L 40,17 z &quot; /&gt;
-        ///    &lt;!-- Diagonale links oben rechts unten --&gt;  
-        ///    &lt;path stroke=&quot;rgb(0,0, [resto de la cadena truncado]&quot;;.
+        ///    &lt;path stroke=&quot;rgb(255,255,0)&quot; fill=&quot;rgb(255,255,0)&quot; d=&quot;M 40,14 L 55,14 L 5 [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B15_01_00_1 {
             get {
@@ -612,15 +608,14 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;64&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;64&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///    &lt;!-- links mitte rechts unten --&gt; 
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 25,12 L 51,31 L 43,31 L 26,19 L 0,19 z &quot; /&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 25,12 L 38,12 L 38,19 L 25,19 z &quot; /&gt;
         ///    &lt;!-- Ausleuchtung gelb --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,255,255)&quot; fill=&quot;rgb(0,255,255)&quot; d=&quot;M 8,14 L 25,14 L 41,25 L 39,27 L 25,17 L 8,17 z &quot; /&gt;
-        ///    &lt;!-- links oben rechts mitte --&gt;  
-        ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 2 [resto de la cadena truncado]&quot;;.
+        ///    &lt;path stroke=&quot;rgb(0,255,255)&quot; fill=&quot;rgb(0,255,255)&quot; d=&quot;M 8,14 L 25,14 L 41,25 L 39,27 L 25,17 L 8,17 z &quot; / [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B15_02_00_0 {
             get {
@@ -629,15 +624,14 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;64&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;64&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///    &lt;!-- links mitte rechts unten --&gt; 
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 25,12 L 51,31 L 43,31 L 26,19 L 0,19 z &quot; /&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 25,12 L 38,12 L 38,19 L 25,19 z &quot; /&gt;
         ///    &lt;!-- Ausleuchtung gelb --&gt;
-        ///    &lt;path stroke=&quot;rgb(255,255,0)&quot; fill=&quot;rgb(255,255,0)&quot; d=&quot;M 8,14 L 25,14 L 41,25 L 39,27 L 25,17 L 8,17 z &quot; /&gt;
-        ///    &lt;!-- links oben rechts mitte --&gt;  
-        ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 20 [resto de la cadena truncado]&quot;;.
+        ///    &lt;path stroke=&quot;rgb(255,255,0)&quot; fill=&quot;rgb(255,255,0)&quot; d=&quot;M 8,14 L 25,14 L 41,25 L 39,27 L 25,17 L 8,17 z &quot; /&gt; [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B15_02_00_1 {
             get {
@@ -646,7 +640,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -654,8 +649,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- signal --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 1,5 L 4,2 L 15,2 L 18,5 L 18,6 L 15,9 L 4,9 L 1,6 z &quot; /&gt;
-        ///  &lt;!-- Gruene Lampe --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,255,0)&quot; fill=&quot;rgb(0,255,0)&quot; d=&quot;M 5,4 L 7,4 L 8,5 L 8,6 L 7 [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Gru [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B20_00_00_0 {
             get {
@@ -664,7 +658,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -672,8 +667,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- signal --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 1,5 L 4,2 L 15,2 L 18,5 L 18,6 L 15,9 L 4,9 L 1,6 z &quot; /&gt;
-        ///  &lt;!-- Gruene Lampe --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,90,0)&quot; fill=&quot;rgb(0,90,0)&quot; d=&quot;M 5,4 L 7,4 L 8,5 L 8,6 L 7,7 [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Gru [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B20_01_00_0 {
             get {
@@ -682,7 +676,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -690,8 +685,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(255,255,0)&quot; fill=&quot;rgb(255,255,0)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- signal --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 1,5 L 4,2 L 15,2 L 18,5 L 18,6 L 15,9 L 4,9 L 1,6 z &quot; /&gt;
-        ///  &lt;!-- Gruene Lampe --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,90,0)&quot; fill=&quot;rgb(0,90,0)&quot; d=&quot;M 5,4 L 7,4 L 8,5 L 8,6 L 7,7 L 5 [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Gruene  [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B20_01_00_1 {
             get {
@@ -700,7 +694,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -708,8 +703,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- signal --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 1,5 L 4,2 L 15,2 L 18,5 L 18,6 L 15,9 L 4,9 L 1,6 z &quot; /&gt;
-        ///  &lt;!-- Gruene Lampe --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,255,0)&quot; fill=&quot;rgb(0,255,0)&quot; d=&quot;M 5,4 L 7,4 L 8,5 L 8,6 L 7 [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Gru [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B20_02_00_0 {
             get {
@@ -718,7 +712,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -726,8 +721,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(255,255,0)&quot; fill=&quot;rgb(255,255,0)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- signal --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 1,5 L 4,2 L 15,2 L 18,5 L 18,6 L 15,9 L 4,9 L 1,6 z &quot; /&gt;
-        ///  &lt;!-- Gruene Lampe --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,255,0)&quot; fill=&quot;rgb(0,255,0)&quot; d=&quot;M 5,4 L 7,4 L 8,5 L 8,6 L 7,7 L [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Gruene  [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B20_02_00_1 {
             get {
@@ -736,7 +730,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -744,8 +739,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- signal --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 1,5 L 4,2 L 22,2 L 25,5 L 25,6 L 22,9 L 4,9 L 1,6 z &quot; /&gt;
-        ///  &lt;!-- Gruene Lampe --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,255,0)&quot; fill=&quot;rgb(0,255,0)&quot; d=&quot;M 5,4 L 7,4 L 8,5 L 8,6 L 7 [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Gru [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B21_00_00_0 {
             get {
@@ -754,7 +748,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -762,8 +757,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- signal --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 1,5 L 4,2 L 22,2 L 25,5 L 25,6 L 22,9 L 4,9 L 1,6 z &quot; /&gt;
-        ///  &lt;!-- Gruene Lampe --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,90,0)&quot; fill=&quot;rgb(0,90,0)&quot; d=&quot;M 5,4 L 7,4 L 8,5 L 8,6 L 7,7 [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Gru [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B21_01_00_0 {
             get {
@@ -772,7 +766,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -780,8 +775,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(255,255,0)&quot; fill=&quot;rgb(255,255,0)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- signal --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 1,5 L 4,2 L 22,2 L 25,5 L 25,6 L 22,9 L 4,9 L 1,6 z &quot; /&gt;
-        ///  &lt;!-- Gruene Lampe --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,90,0)&quot; fill=&quot;rgb(0,90,0)&quot; d=&quot;M 5,4 L 7,4 L 8,5 L 8,6 L 7,7 L 5 [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Gruene  [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B21_01_00_1 {
             get {
@@ -790,7 +784,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -798,8 +793,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- signal --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 1,5 L 4,2 L 22,2 L 25,5 L 25,6 L 22,9 L 4,9 L 1,6 z &quot; /&gt;
-        ///  &lt;!-- Gruene Lampe --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,255,0)&quot; fill=&quot;rgb(0,255,0)&quot; d=&quot;M 5,4 L 7,4 L 8,5 L 8,6 L 7 [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Gru [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B21_02_00_0 {
             get {
@@ -808,7 +802,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -816,8 +811,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(255,255,0)&quot; fill=&quot;rgb(255,255,0)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- signal --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 1,5 L 4,2 L 22,2 L 25,5 L 25,6 L 22,9 L 4,9 L 1,6 z &quot; /&gt;
-        ///  &lt;!-- Gruene Lampe --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,255,0)&quot; fill=&quot;rgb(0,255,0)&quot; d=&quot;M 5,4 L 7,4 L 8,5 L 8,6 L 7,7 L [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Gruene  [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B21_02_00_1 {
             get {
@@ -826,7 +820,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -834,8 +829,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- signal --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 1,5 L 4,2 L 22,2 L 25,5 L 25,6 L 22,9 L 4,9 L 1,6 z &quot; /&gt;
-        ///  &lt;!-- Gruene Lampe --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,255,0)&quot; fill=&quot;rgb(0,255,0)&quot; d=&quot;M 5,4 L 7,4 L 8,5 L 8,6 L 7 [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Gru [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B21_03_00_0 {
             get {
@@ -844,7 +838,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -852,8 +847,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(255,255,0)&quot; fill=&quot;rgb(255,255,0)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- signal --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 1,5 L 4,2 L 22,2 L 25,5 L 25,6 L 22,9 L 4,9 L 1,6 z &quot; /&gt;
-        ///  &lt;!-- Gruene Lampe --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,255,0)&quot; fill=&quot;rgb(0,255,0)&quot; d=&quot;M 5,4 L 7,4 L 8,5 L 8,6 L 7,7 L [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Gruene  [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B21_03_00_1 {
             get {
@@ -862,7 +856,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -870,8 +865,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- signal --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 1,1 L 11,1 L 15,5 L 16,6 L 16,10 L 6,10 L 1,5 z &quot; /&gt;
-        ///  &lt;!-- Gruene Lampe rechts --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,255,0)&quot; fill=&quot;rgb(0,255,0)&quot; d=&quot;M 3,2 L 5,2 L 5,4 L 3,4  [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Gruene  [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B22_00_00_0 {
             get {
@@ -880,7 +874,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -888,8 +883,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- signal --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 1,1 L 11,1 L 15,5 L 16,6 L 16,10 L 6,10 L 1,5 z &quot; /&gt;
-        ///  &lt;!-- Gruene Lampe rechts --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,255,0)&quot; fill=&quot;rgb(0,255,0)&quot; d=&quot;M 3,2 L 5,2 L 5,4 L 3,4  [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Gruene  [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B22_01_00_0 {
             get {
@@ -898,7 +892,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -906,8 +901,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(255,255,0)&quot; fill=&quot;rgb(255,255,0)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- signal --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 1,1 L 11,1 L 15,5 L 16,6 L 16,10 L 6,10 L 1,5 z &quot; /&gt;
-        ///  &lt;!-- Gruene Lampe rechts --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,255,0)&quot; fill=&quot;rgb(0,255,0)&quot; d=&quot;M 3,2 L 5,2 L 5,4 L 3,4 z &quot;  [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Gruene Lamp [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B22_01_00_1 {
             get {
@@ -916,7 +910,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -924,8 +919,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- signal --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 1,1 L 11,1 L 15,5 L 16,6 L 16,10 L 6,10 L 1,5 z &quot; /&gt;
-        ///  &lt;!-- Gruene Lampe rechts --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,255,0)&quot; fill=&quot;rgb(0,255,0)&quot; d=&quot;M 3,2 L 5,2 L 5,4 L 3,4  [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Gruene  [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B22_02_00_0 {
             get {
@@ -934,7 +928,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -942,8 +937,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(255,255,0)&quot; fill=&quot;rgb(255,255,0)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- signal --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 1,1 L 11,1 L 15,5 L 16,6 L 16,10 L 6,10 L 1,5 z &quot; /&gt;
-        ///  &lt;!-- Gruene Lampe rechts --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,255,0)&quot; fill=&quot;rgb(0,255,0)&quot; d=&quot;M 3,2 L 5,2 L 5,4 L 3,4 z &quot;  [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Gruene Lamp [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B22_02_00_1 {
             get {
@@ -952,7 +946,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -960,8 +955,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- signal --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 1,1 L 11,1 L 15,5 L 16,6 L 16,10 L 6,10 L 1,5 z &quot; /&gt;
-        ///  &lt;!-- Gruene Lampe rechts --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,90,0)&quot; fill=&quot;rgb(0,90,0)&quot; d=&quot;M 3,2 L 5,2 L 5,4 L 3,4 z  [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Gruene  [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B22_03_00_0 {
             get {
@@ -970,7 +964,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
@@ -978,8 +973,7 @@ namespace Rwm.Otc.Themes.Properties {
         ///    &lt;path stroke=&quot;rgb(255,255,0)&quot; fill=&quot;rgb(255,255,0)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- signal --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 1,1 L 11,1 L 15,5 L 16,6 L 16,10 L 6,10 L 1,5 z &quot; /&gt;
-        ///  &lt;!-- Gruene Lampe rechts --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,90,0)&quot; fill=&quot;rgb(0,90,0)&quot; d=&quot;M 3,2 L 5,2 L 5,4 L 3,4 z &quot; /&gt; [resto de la cadena truncado]&quot;;.
+        ///  &lt;!-- Gruene Lamp [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B22_03_00_1 {
             get {
@@ -988,16 +982,15 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
         ///  &lt;!-- Ausleuchtung grau --&gt;
         ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- signal --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 3,1 L 14,1 L 16,3 L 16,5 L 16,6 L 16,8 L 14,10 L 3,10 L 1,8 L 1,3 z &quot; /&gt;
-        ///  &lt;!-- Rote Lampe --&gt;
-        ///    &lt;path stroke=&quot;rgb(255,0,0)&quot; fill=&quot;rgb(255,0,0)&quot; d=&quot;M 4,3 L 5,3 L [resto de la cadena truncado]&quot;;.
+        ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 3,1 L 14,1 L 16,3 L 16,5 L 16,6 L 16,8 L 14,10 L 3,10 L 1,8 L 1,3 z  [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B23_00_00_0 {
             get {
@@ -1006,16 +999,15 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
         ///  &lt;!-- Ausleuchtung grau --&gt;
         ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- signal --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 3,1 L 14,1 L 16,3 L 16,5 L 16,6 L 16,8 L 14,10 L 3,10 L 1,8 L 1,3 z &quot; /&gt;
-        ///  &lt;!-- Rote Lampe --&gt;
-        ///    &lt;path stroke=&quot;rgb(255,0,0)&quot; fill=&quot;rgb(255,0,0)&quot; d=&quot;M 4,3 L 5,3 L [resto de la cadena truncado]&quot;;.
+        ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 3,1 L 14,1 L 16,3 L 16,5 L 16,6 L 16,8 L 14,10 L 3,10 L 1,8 L 1,3 z  [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B23_01_00_0 {
             get {
@@ -1024,16 +1016,15 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
         ///  &lt;!-- Ausleuchtung gelb --&gt;
         ///    &lt;path stroke=&quot;rgb(255,255,0)&quot; fill=&quot;rgb(255,255,0)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- signal --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 3,1 L 14,1 L 16,3 L 16,5 L 16,6 L 16,8 L 14,10 L 3,10 L 1,8 L 1,3 z &quot; /&gt;
-        ///  &lt;!-- Rote Lampe --&gt;
-        ///    &lt;path stroke=&quot;rgb(255,0,0)&quot; fill=&quot;rgb(255,0,0)&quot; d=&quot;M 4,3 L 5,3 L 5,8 [resto de la cadena truncado]&quot;;.
+        ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 3,1 L 14,1 L 16,3 L 16,5 L 16,6 L 16,8 L 14,10 L 3,10 L 1,8 L 1,3 z &quot; /&gt; [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B23_01_00_1 {
             get {
@@ -1042,16 +1033,15 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
         ///  &lt;!-- Ausleuchtung grau --&gt;
         ///    &lt;path stroke=&quot;rgb(192,192,192)&quot; fill=&quot;rgb(192,192,192)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- signal --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 3,1 L 14,1 L 16,3 L 16,5 L 16,6 L 16,8 L 14,10 L 3,10 L 1,8 L 1,3 z &quot; /&gt;
-        ///  &lt;!-- Rote Lampe --&gt;
-        ///    &lt;path stroke=&quot;rgb(90,0,0)&quot; fill=&quot;rgb(90,0,0)&quot; d=&quot;M 4,3 L 5,3 L 5 [resto de la cadena truncado]&quot;;.
+        ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 3,1 L 14,1 L 16,3 L 16,5 L 16,6 L 16,8 L 14,10 L 3,10 L 1,8 L 1,3 z  [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B23_02_00_0 {
             get {
@@ -1060,16 +1050,15 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///  &lt;!-- Track --&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot; /&gt;
         ///  &lt;!-- Ausleuchtung gelb --&gt;
         ///    &lt;path stroke=&quot;rgb(255,255,0)&quot; fill=&quot;rgb(255,255,0)&quot; d=&quot;M 8,14 L 23,14 L 23,17 L 8,17 z &quot; /&gt;
         ///  &lt;!-- signal --&gt;
-        ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 3,1 L 14,1 L 16,3 L 16,5 L 16,6 L 16,8 L 14,10 L 3,10 L 1,8 L 1,3 z &quot; /&gt;
-        ///  &lt;!-- Rote Lampe --&gt;
-        ///    &lt;path stroke=&quot;rgb(90,0,0)&quot; fill=&quot;rgb(90,0,0)&quot; d=&quot;M 4,3 L 5,3 L 5,8 L [resto de la cadena truncado]&quot;;.
+        ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 3,1 L 14,1 L 16,3 L 16,5 L 16,6 L 16,8 L 14,10 L 3,10 L 1,8 L 1,3 z &quot; /&gt; [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B23_02_00_1 {
             get {
@@ -1078,14 +1067,14 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///    &lt;path stroke=&quot;rgb(0, 38, 255)&quot; fill=&quot;rgb(0, 38, 255)&quot; d=&quot;M 0,0 L 31,0 L 31,31 L 0,31 z &quot; /&gt;
         ///    &lt;path stroke=&quot;rgb(0, 0, 0)&quot; fill=&quot;rgb(255, 255, 255)&quot; d=&quot;M 3,20 L 28,20 L 28,29 L 3,29 z &quot; /&gt;    
         ///    &lt;circle cx=&quot;16&quot; cy=&quot;10&quot; r=&quot;6&quot; stroke=&quot;rgb(0, 0, 0)&quot; fill=&quot;rgb(160, 160, 160)&quot; /&gt;
         ///    &lt;text x=&quot;5&quot; y=&quot;27&quot; font-family=&quot;sans-serif&quot; font-size=&quot;7px&quot; fill=&quot;black&quot;&gt;#NAME&lt;/text&gt;
-        ///  &lt;/g&gt;
-        ///&lt;/svg&gt;.
+        ///  [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string B30_00_00_0 {
             get {
@@ -1094,7 +1083,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///    &lt;path stroke=&quot;rgb(0, 38, 255)&quot; fill=&quot;rgb(0, 38, 255)&quot; d=&quot;M 0,0 L 31,0 L 31,31 L 0,31 z &quot; /&gt;
         ///    &lt;path stroke=&quot;rgb(0, 0, 0)&quot; fill=&quot;rgb(255, 255, 255)&quot; d=&quot;M 7,20 L 26,20 L 26,28 L 7,28 z &quot; /&gt;    
@@ -1109,7 +1099,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///    &lt;path stroke=&quot;rgb(0, 38, 255)&quot; fill=&quot;rgb(0, 38, 255)&quot; d=&quot;M 0,0 L 31,0 L 31,31 L 0,31 z &quot; /&gt;
         ///    &lt;path stroke=&quot;rgb(0, 0, 0)&quot; fill=&quot;rgb(255, 255, 255)&quot; d=&quot;M 7,20 L 26,20 L 26,28 L 7,28 z &quot; /&gt;    
@@ -1124,7 +1115,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///    &lt;path stroke=&quot;rgb(255, 0, 0)&quot; fill=&quot;rgb(255, 0, 0)&quot; d=&quot;M 0,0 L 31,0 L 31,31 L 0,31 z &quot; /&gt;
         ///    &lt;path stroke=&quot;rgb(0, 0, 0)&quot; fill=&quot;rgb(255, 255, 255)&quot; d=&quot;M 7,20 L 26,20 L 26,28 L 7,28 z &quot; /&gt;    
@@ -1139,7 +1131,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///    &lt;path stroke=&quot;rgb(255, 0, 0)&quot; fill=&quot;rgb(255, 0, 0)&quot; d=&quot;M 0,0 L 31,0 L 31,31 L 0,31 z &quot; /&gt;
         ///    &lt;path stroke=&quot;rgb(0, 0, 0)&quot; fill=&quot;rgb(255, 255, 255)&quot; d=&quot;M 7,20 L 26,20 L 26,28 L 7,28 z &quot; /&gt;
@@ -1154,7 +1147,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///    &lt;path stroke=&quot;rgb(255, 0, 0)&quot; fill=&quot;rgb(255, 0, 0)&quot; d=&quot;M 0,0 L 31,0 L 31,31 L 0,31 z &quot; /&gt;
         ///    &lt;path stroke=&quot;rgb(0, 0, 0)&quot; fill=&quot;rgb(255, 255, 255)&quot; d=&quot;M 7,20 L 26,20 L 26,28 L 7,28 z &quot; /&gt;    
@@ -1169,7 +1163,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///    &lt;path stroke=&quot;rgb(0, 255, 33)&quot; fill=&quot;rgb(0, 255, 33)&quot; d=&quot;M 0,0 L 31,0 L 31,31 L 0,31 z &quot; /&gt;
         ///    &lt;path stroke=&quot;rgb(0, 0, 0)&quot; fill=&quot;rgb(255, 255, 255)&quot; d=&quot;M 7,20 L 26,20 L 26,28 L 7,28 z &quot; /&gt;    
@@ -1184,7 +1179,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///    &lt;path stroke=&quot;rgb(0, 255, 33)&quot; fill=&quot;rgb(0, 255, 33)&quot; d=&quot;M 0,0 L 31,0 L 31,31 L 0,31 z &quot; /&gt;
         ///    &lt;path stroke=&quot;rgb(0, 0, 0)&quot; fill=&quot;rgb(255, 255, 255)&quot; d=&quot;M 7,20 L 26,20 L 26,28 L 7,28 z &quot; /&gt;    
@@ -1199,7 +1195,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///    &lt;path stroke=&quot;rgb(0, 255, 33)&quot; fill=&quot;rgb(0, 255, 33)&quot; d=&quot;M 0,0 L 31,0 L 31,31 L 0,31 z &quot; /&gt;
         ///    &lt;path stroke=&quot;rgb(0, 0, 0)&quot; fill=&quot;rgb(255, 255, 255)&quot; d=&quot;M 7,20 L 26,20 L 26,28 L 7,28 z &quot; /&gt;    
@@ -1214,7 +1211,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///    &lt;path stroke=&quot;rgb(255, 216, 0)&quot; fill=&quot;rgb(255, 216, 0)&quot; d=&quot;M 0,0 L 31,0 L 31,31 L 0,31 z &quot; /&gt;
         ///    &lt;path stroke=&quot;rgb(0, 0, 0)&quot; fill=&quot;rgb(255, 255, 255)&quot; d=&quot;M 7,20 L 26,20 L 26,28 L 7,28 z &quot; /&gt;    
@@ -1229,7 +1227,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///    &lt;path stroke=&quot;rgb(255, 216, 0)&quot; fill=&quot;rgb(255, 216, 0)&quot; d=&quot;M 0,0 L 31,0 L 31,31 L 0,31 z &quot; /&gt;
         ///    &lt;path stroke=&quot;rgb(0, 0, 0)&quot; fill=&quot;rgb(255, 255, 255)&quot; d=&quot;M 7,20 L 26,20 L 26,28 L 7,28 z &quot; /&gt;    
@@ -1244,7 +1243,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///    &lt;path stroke=&quot;rgb(255, 216, 0)&quot; fill=&quot;rgb(255, 216, 0)&quot; d=&quot;M 0,0 L 31,0 L 31,31 L 0,31 z &quot; /&gt;
         ///    &lt;path stroke=&quot;rgb(0, 0, 0)&quot; fill=&quot;rgb(255, 255, 255)&quot; d=&quot;M 7,20 L 26,20 L 26,28 L 7,28 z &quot; /&gt;    
@@ -1259,7 +1259,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///&lt;g&gt;
         ///&lt;!--  Track  --&gt;
         ///&lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot;/&gt;
@@ -1276,7 +1277,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///&lt;g&gt;
         ///&lt;!--  Track  --&gt;
         ///&lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot;/&gt;
@@ -1293,7 +1295,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///&lt;g&gt;
         ///&lt;!--  Track  --&gt;
         ///&lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot;/&gt;
@@ -1310,7 +1313,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;32&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;32&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///&lt;g&gt;
         ///&lt;!--  Track  --&gt;
         ///&lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(0,0,0)&quot; d=&quot;M 0,12 L 31,12 L 31,19 L 0,19 z &quot;/&gt;
@@ -1328,7 +1332,8 @@ namespace Rwm.Otc.Themes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &lt;svg width=&quot;64&quot; height=&quot;32&quot;&gt;
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;64&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
         ///  &lt;g&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;none&quot; d=&quot;M 0,4 L 64,4 L 64,28 L 0,28 z &quot; /&gt;
         ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(255,255,255)&quot; d=&quot;M 1,5 L 62,5 L 62,27 L 1,27 z &quot; /&gt;
@@ -1339,6 +1344,22 @@ namespace Rwm.Otc.Themes.Properties {
         internal static string B40_00_00_0 {
             get {
                 return ResourceManager.GetString("B40_00_00_0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;svg width=&quot;64&quot; height=&quot;32&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
+        ///  &lt;g&gt;
+        ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;none&quot; d=&quot;M 0,4 L 64,4 L 64,28 L 0,28 z &quot; /&gt;
+        ///    &lt;path stroke=&quot;rgb(0,0,0)&quot; fill=&quot;rgb(255,255,255)&quot; d=&quot;M 1,5 L 62,5 L 62,27 L 1,27 z &quot; /&gt;
+        ///  &lt;/g&gt;
+        ///&lt;/svg&gt;
+        ///.
+        /// </summary>
+        internal static string B41_00_00_0 {
+            get {
+                return ResourceManager.GetString("B41_00_00_0", resourceCulture);
             }
         }
         

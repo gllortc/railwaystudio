@@ -162,6 +162,9 @@
     <Compile Include="Layout\LayoutConfigurationException.cs" />
     <Compile Include="Layout\RouteActivationEventArgs.cs" />
     <Compile Include="Layout\Section.cs" />
+    <Compile Include="Layout\Traffic\ItineraryFeedbackPoint.cs" />
+    <Compile Include="Layout\Traffic\TrafficManager.cs" />
+    <Compile Include="Layout\Traffic\Itinerary.cs" />
     <Compile Include="Project.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -369,6 +372,8 @@
     <None Include="Resources\drive_light_16.png" />
     <None Include="Resources\drive_lightning_16.png" />
     <None Include="Resources\arrow_switch_stop_16.png" />
+    <None Include="Resources\ICO_ELEMENT_BLOCK_16.png" />
+    <None Include="Resources\ICO_ELEMENT_BLOCK_DEST_16.png" />
     <Content Include="Resources\signal-hs-0[1].png" />
     <Content Include="Resources\signal-hs-1[1].png" />
     <Content Include="Resources\signal-hs-2[1].png" />

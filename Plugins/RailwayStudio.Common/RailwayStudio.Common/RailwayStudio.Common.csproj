@@ -99,7 +99,7 @@
     <Compile Include="Controls\SectionImageComboBoxEdit.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\ElementImageComboBoxEdit.cs">
+    <Compile Include="Controls\BlockImageComboBoxEdit.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\HotkeyControl.cs">

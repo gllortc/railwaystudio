@@ -223,9 +223,9 @@ namespace Rwm.Otc.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ICO_DESIGN_BLOCK_16 {
+        internal static System.Drawing.Bitmap ICO_ELEMENT_BLOCK_16 {
             get {
-                object obj = ResourceManager.GetObject("ICO_DESIGN_BLOCK_16", resourceCulture);
+                object obj = ResourceManager.GetObject("ICO_ELEMENT_BLOCK_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -233,9 +233,9 @@ namespace Rwm.Otc.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ICO_DESIGN_BUFFER_16 {
+        internal static System.Drawing.Bitmap ICO_ELEMENT_BLOCK_DEST_16 {
             get {
-                object obj = ResourceManager.GetObject("ICO_DESIGN_BUFFER_16", resourceCulture);
+                object obj = ResourceManager.GetObject("ICO_ELEMENT_BLOCK_DEST_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,9 +243,9 @@ namespace Rwm.Otc.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ICO_DESIGN_CURVE_16 {
+        internal static System.Drawing.Bitmap ICO_ELEMENT_BUFFER_16 {
             get {
-                object obj = ResourceManager.GetObject("ICO_DESIGN_CURVE_16", resourceCulture);
+                object obj = ResourceManager.GetObject("ICO_ELEMENT_BUFFER_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -253,9 +253,9 @@ namespace Rwm.Otc.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ICO_DESIGN_SIGNAL2A_16 {
+        internal static System.Drawing.Bitmap ICO_ELEMENT_CURVE_16 {
             get {
-                object obj = ResourceManager.GetObject("ICO_DESIGN_SIGNAL2A_16", resourceCulture);
+                object obj = ResourceManager.GetObject("ICO_ELEMENT_CURVE_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -263,9 +263,9 @@ namespace Rwm.Otc.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ICO_DESIGN_SIGNAL3A_16 {
+        internal static System.Drawing.Bitmap ICO_ELEMENT_SIGNAL_2A_16 {
             get {
-                object obj = ResourceManager.GetObject("ICO_DESIGN_SIGNAL3A_16", resourceCulture);
+                object obj = ResourceManager.GetObject("ICO_ELEMENT_SIGNAL_2A_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -273,9 +273,9 @@ namespace Rwm.Otc.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ICO_DESIGN_SIGNALADV_16 {
+        internal static System.Drawing.Bitmap ICO_ELEMENT_SIGNAL_3A_16 {
             get {
-                object obj = ResourceManager.GetObject("ICO_DESIGN_SIGNALADV_16", resourceCulture);
+                object obj = ResourceManager.GetObject("ICO_ELEMENT_SIGNAL_3A_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -283,9 +283,9 @@ namespace Rwm.Otc.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ICO_DESIGN_SIGNALSHUNT_16 {
+        internal static System.Drawing.Bitmap ICO_ELEMENT_SIGNAL_ADV_16 {
             get {
-                object obj = ResourceManager.GetObject("ICO_DESIGN_SIGNALSHUNT_16", resourceCulture);
+                object obj = ResourceManager.GetObject("ICO_ELEMENT_SIGNAL_ADV_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -293,9 +293,9 @@ namespace Rwm.Otc.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ICO_DESIGN_STRIGHT_16 {
+        internal static System.Drawing.Bitmap ICO_ELEMENT_SIGNAL_SHUNT_16 {
             get {
-                object obj = ResourceManager.GetObject("ICO_DESIGN_STRIGHT_16", resourceCulture);
+                object obj = ResourceManager.GetObject("ICO_ELEMENT_SIGNAL_SHUNT_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -303,9 +303,9 @@ namespace Rwm.Otc.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ICO_DESIGN_STRIGHT_SENSOR_16 {
+        internal static System.Drawing.Bitmap ICO_ELEMENT_STRIGHT_16 {
             get {
-                object obj = ResourceManager.GetObject("ICO_DESIGN_STRIGHT_SENSOR_16", resourceCulture);
+                object obj = ResourceManager.GetObject("ICO_ELEMENT_STRIGHT_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -313,9 +313,9 @@ namespace Rwm.Otc.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ICO_DESIGN_SWITCH_BLUE_16 {
+        internal static System.Drawing.Bitmap ICO_ELEMENT_STRIGHT_FEEDBACK_16 {
             get {
-                object obj = ResourceManager.GetObject("ICO_DESIGN_SWITCH_BLUE_16", resourceCulture);
+                object obj = ResourceManager.GetObject("ICO_ELEMENT_STRIGHT_FEEDBACK_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -323,9 +323,9 @@ namespace Rwm.Otc.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ICO_DESIGN_SWITCH_FREEN_16 {
+        internal static System.Drawing.Bitmap ICO_ELEMENT_SWITCH_BLUE_16 {
             get {
-                object obj = ResourceManager.GetObject("ICO_DESIGN_SWITCH_FREEN_16", resourceCulture);
+                object obj = ResourceManager.GetObject("ICO_ELEMENT_SWITCH_BLUE_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -333,9 +333,9 @@ namespace Rwm.Otc.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ICO_DESIGN_SWITCH_RED_16 {
+        internal static System.Drawing.Bitmap ICO_ELEMENT_SWITCH_GREEN_16 {
             get {
-                object obj = ResourceManager.GetObject("ICO_DESIGN_SWITCH_RED_16", resourceCulture);
+                object obj = ResourceManager.GetObject("ICO_ELEMENT_SWITCH_GREEN_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -343,9 +343,9 @@ namespace Rwm.Otc.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ICO_DESIGN_SWITCH_YELLOW_16 {
+        internal static System.Drawing.Bitmap ICO_ELEMENT_SWITCH_RED_16 {
             get {
-                object obj = ResourceManager.GetObject("ICO_DESIGN_SWITCH_YELLOW_16", resourceCulture);
+                object obj = ResourceManager.GetObject("ICO_ELEMENT_SWITCH_RED_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -353,9 +353,9 @@ namespace Rwm.Otc.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ICO_DESIGN_TURNOUT_LEFT_16 {
+        internal static System.Drawing.Bitmap ICO_ELEMENT_SWITCH_YELLOW_16 {
             get {
-                object obj = ResourceManager.GetObject("ICO_DESIGN_TURNOUT_LEFT_16", resourceCulture);
+                object obj = ResourceManager.GetObject("ICO_ELEMENT_SWITCH_YELLOW_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -363,9 +363,9 @@ namespace Rwm.Otc.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ICO_DESIGN_TURNOUT_RIGHT_16 {
+        internal static System.Drawing.Bitmap ICO_ELEMENT_TURNOUT_LEFT_16 {
             get {
-                object obj = ResourceManager.GetObject("ICO_DESIGN_TURNOUT_RIGHT_16", resourceCulture);
+                object obj = ResourceManager.GetObject("ICO_ELEMENT_TURNOUT_LEFT_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -373,9 +373,9 @@ namespace Rwm.Otc.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ICO_DESIGN_TURNOUT_TRIPLE_16 {
+        internal static System.Drawing.Bitmap ICO_ELEMENT_TURNOUT_RIGHT_16 {
             get {
-                object obj = ResourceManager.GetObject("ICO_DESIGN_TURNOUT_TRIPLE_16", resourceCulture);
+                object obj = ResourceManager.GetObject("ICO_ELEMENT_TURNOUT_RIGHT_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -383,9 +383,19 @@ namespace Rwm.Otc.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ICO_DESIGN_TURNOUT_Y_16 {
+        internal static System.Drawing.Bitmap ICO_ELEMENT_TURNOUT_TRIPLE_16 {
             get {
-                object obj = ResourceManager.GetObject("ICO_DESIGN_TURNOUT_Y_16", resourceCulture);
+                object obj = ResourceManager.GetObject("ICO_ELEMENT_TURNOUT_TRIPLE_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_ELEMENT_TURNOUT_Y_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_ELEMENT_TURNOUT_Y_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -75,6 +75,9 @@ namespace Rwm.Studio.Plugins.Control.Modules
          rmaRoutes.RefreshRouteList();
          tscTrains.RefreshTrainList();
 
+         // Initialize the traffic manager
+         this.TrafficManager = new Otc.Layout.Traffic.TrafficManager();
+
          // Show module information
          StudioContext.LogInformation("{0} v{1} loaded", this.Description.Caption, Application.ProductVersion);
       }
@@ -118,6 +121,14 @@ namespace Rwm.Studio.Plugins.Control.Modules
          this.ResumeOperationsRequest();
       }
 
+      private void CmdCtrlTraffic_CheckedChanged(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      {
+         if (cmdControlTraffic.Checked)
+            trafficControl.Start();
+         else
+            trafficControl.Stop();
+      }
+
       private void CmdUtilsDigitalAddressCalculator_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          StudioContext.Utils.ShowDigitalAddressCalculator();
@@ -128,7 +139,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
          StudioContext.Utils.ShowThemeManager(this);
       }
 
-      #endregion
+        #endregion
 
-   }
+    }
 }
