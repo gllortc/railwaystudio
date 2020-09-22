@@ -154,7 +154,7 @@ namespace Rwm.Studio.Plugins.Collection.Controls
          {
             this.ImageList = new ImageList();
             this.ImageList.Images.Add(Collection.Properties.Resources.ICO_DECODER_OFF_16);
-            this.ImageList.Images.Add(Collection.Properties.Resources.ICO_DECODER_16);
+            this.ImageList.Images.Add(TrainDecoder.SmallIcon);
             this.Properties.SmallImages = this.ImageList;
          }
 

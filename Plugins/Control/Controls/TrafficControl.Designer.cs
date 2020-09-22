@@ -32,15 +32,16 @@
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrafficControl));
          this.barManager = new DevExpress.XtraBars.BarManager(this.components);
          this.barRoutes = new DevExpress.XtraBars.Bar();
-         this.cmdRouteActivate = new DevExpress.XtraBars.BarButtonItem();
-         this.cmdRouteClear = new DevExpress.XtraBars.BarButtonItem();
+         this.cmdTrafficStart = new DevExpress.XtraBars.BarButtonItem();
+         this.cmdTrafficPause = new DevExpress.XtraBars.BarButtonItem();
+         this.cmdTrafficStop = new DevExpress.XtraBars.BarButtonItem();
          this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
          this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
          this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
          this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
          this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
-         this.tvwTraffic = new DevExpress.XtraTreeList.TreeList();
          this.imageList = new System.Windows.Forms.ImageList(this.components);
+         this.tvwTraffic = new DevExpress.XtraTreeList.TreeList();
          ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.tvwTraffic)).BeginInit();
          this.SuspendLayout();
@@ -55,9 +56,10 @@
          this.barManager.DockControls.Add(this.barDockControlRight);
          this.barManager.Form = this;
          this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.cmdRouteActivate,
-            this.cmdRouteClear});
-         this.barManager.MaxItemId = 7;
+            this.cmdTrafficStart,
+            this.cmdTrafficPause,
+            this.cmdTrafficStop});
+         this.barManager.MaxItemId = 8;
          // 
          // barRoutes
          // 
@@ -66,8 +68,9 @@
          this.barRoutes.DockRow = 0;
          this.barRoutes.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
          this.barRoutes.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.cmdRouteActivate),
-            new DevExpress.XtraBars.LinkPersistInfo(this.cmdRouteClear)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.cmdTrafficStart),
+            new DevExpress.XtraBars.LinkPersistInfo(this.cmdTrafficPause),
+            new DevExpress.XtraBars.LinkPersistInfo(this.cmdTrafficStop)});
          this.barRoutes.OptionsBar.AllowQuickCustomization = false;
          this.barRoutes.OptionsBar.DisableClose = true;
          this.barRoutes.OptionsBar.DisableCustomization = true;
@@ -76,21 +79,34 @@
          this.barRoutes.OptionsBar.UseWholeRow = true;
          this.barRoutes.Text = "Route tools";
          // 
-         // cmdRouteActivate
+         // cmdTrafficStart
          // 
-         this.cmdRouteActivate.Caption = "Toggle route activation";
-         this.cmdRouteActivate.Id = 0;
-         this.cmdRouteActivate.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_ACTIVATE_16;
-         this.cmdRouteActivate.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_ACTIVATE_16;
-         this.cmdRouteActivate.Name = "cmdRouteActivate";
+         this.cmdTrafficStart.Caption = "Start traffic manager";
+         this.cmdTrafficStart.Id = 0;
+         this.cmdTrafficStart.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_EMERGENCY_RESUME_16;
+         this.cmdTrafficStart.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_EMERGENCY_RESUME_16;
+         this.cmdTrafficStart.Name = "cmdTrafficStart";
+         this.cmdTrafficStart.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdTrafficStart_ItemClick);
          // 
-         // cmdRouteClear
+         // cmdTrafficPause
          // 
-         this.cmdRouteClear.Caption = "Clear active routes";
-         this.cmdRouteClear.Id = 4;
-         this.cmdRouteClear.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_CLEAR_16;
-         this.cmdRouteClear.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_CLEAR_16;
-         this.cmdRouteClear.Name = "cmdRouteClear";
+         this.cmdTrafficPause.Caption = "Pause operations";
+         this.cmdTrafficPause.Enabled = false;
+         this.cmdTrafficPause.Id = 4;
+         this.cmdTrafficPause.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_TRAFFIC_PAUSE_16;
+         this.cmdTrafficPause.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_TRAFFIC_PAUSE_16;
+         this.cmdTrafficPause.Name = "cmdTrafficPause";
+         this.cmdTrafficPause.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdTrafficPause_ItemClick);
+         // 
+         // cmdTrafficStop
+         // 
+         this.cmdTrafficStop.Caption = "Stop all operations";
+         this.cmdTrafficStop.Enabled = false;
+         this.cmdTrafficStop.Id = 7;
+         this.cmdTrafficStop.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_TRAFFIC_STOP_16;
+         this.cmdTrafficStop.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_TRAFFIC_STOP_16;
+         this.cmdTrafficStop.Name = "cmdTrafficStop";
+         this.cmdTrafficStop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdTrafficStop_ItemClick);
          // 
          // barDockControlTop
          // 
@@ -131,15 +147,6 @@
          this.alertControl.ShowPinButton = false;
          this.alertControl.ShowToolTips = false;
          // 
-         // tvwTraffic
-         // 
-         this.tvwTraffic.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.tvwTraffic.Location = new System.Drawing.Point(0, 31);
-         this.tvwTraffic.Name = "tvwTraffic";
-         this.tvwTraffic.Size = new System.Drawing.Size(325, 467);
-         this.tvwTraffic.StateImageList = this.imageList;
-         this.tvwTraffic.TabIndex = 9;
-         // 
          // imageList
          // 
          this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
@@ -147,6 +154,26 @@
          this.imageList.Images.SetKeyName(0, "timeline_16.png");
          this.imageList.Images.SetKeyName(1, "arrow_switch_stop_16.png");
          this.imageList.Images.SetKeyName(2, "arrow_switch_go_16.png");
+         // 
+         // tvwTraffic
+         // 
+         this.tvwTraffic.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.tvwTraffic.Location = new System.Drawing.Point(0, 31);
+         this.tvwTraffic.Name = "tvwTraffic";
+         this.tvwTraffic.OptionsCustomization.AllowBandMoving = false;
+         this.tvwTraffic.OptionsCustomization.AllowBandResizing = false;
+         this.tvwTraffic.OptionsCustomization.AllowColumnMoving = false;
+         this.tvwTraffic.OptionsCustomization.AllowColumnResizing = false;
+         this.tvwTraffic.OptionsCustomization.AllowFilter = false;
+         this.tvwTraffic.OptionsCustomization.AllowQuickHideColumns = false;
+         this.tvwTraffic.OptionsCustomization.AllowSort = false;
+         this.tvwTraffic.OptionsMenu.EnableColumnMenu = false;
+         this.tvwTraffic.OptionsMenu.EnableFooterMenu = false;
+         this.tvwTraffic.OptionsMenu.ShowAutoFilterRowItem = false;
+         this.tvwTraffic.OptionsView.ShowIndicator = false;
+         this.tvwTraffic.Size = new System.Drawing.Size(325, 467);
+         this.tvwTraffic.StateImageList = this.imageList;
+         this.tvwTraffic.TabIndex = 4;
          // 
          // TrafficControl
          // 
@@ -169,14 +196,15 @@
       #endregion
       private DevExpress.XtraBars.BarManager barManager;
       private DevExpress.XtraBars.Bar barRoutes;
-      private DevExpress.XtraBars.BarButtonItem cmdRouteActivate;
+      private DevExpress.XtraBars.BarButtonItem cmdTrafficStart;
       private DevExpress.XtraBars.BarDockControl barDockControlTop;
       private DevExpress.XtraBars.BarDockControl barDockControlBottom;
       private DevExpress.XtraBars.BarDockControl barDockControlLeft;
       private DevExpress.XtraBars.BarDockControl barDockControlRight;
-      private DevExpress.XtraBars.BarButtonItem cmdRouteClear;
+      private DevExpress.XtraBars.BarButtonItem cmdTrafficPause;
         private DevExpress.XtraBars.Alerter.AlertControl alertControl;
-        private DevExpress.XtraTreeList.TreeList tvwTraffic;
         private System.Windows.Forms.ImageList imageList;
+        private DevExpress.XtraBars.BarButtonItem cmdTrafficStop;
+        private DevExpress.XtraTreeList.TreeList tvwTraffic;
     }
 }

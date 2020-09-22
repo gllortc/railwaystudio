@@ -24,7 +24,7 @@ namespace Rwm.Studio.Plugins.Designer.Views
 
       private void GrdAreasView_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
       {
-         StudioContext.UI.DrawRowIcon(Properties.Resources.ICO_SOUND_16, e);
+         StudioContext.UI.DrawRowIcon(Sound.SmallIcon, e);
       }
 
       private void CmdSoundAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

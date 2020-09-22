@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using DevExpress.XtraTreeList.Columns;
 using DevExpress.XtraTreeList.Nodes;
 using Rwm.Otc;
@@ -21,62 +20,70 @@ namespace Rwm.Studio.Plugins.Control.Controls
       public TrafficControl()
       {
          InitializeComponent();
+
+         // Initialize the tree list
+         tvwTraffic.BeginUpdate();
+         TreeListColumn col = tvwTraffic.Columns.Add();
+         col.Caption = "Info";
+         col.VisibleIndex = 0;
+         tvwTraffic.EndUpdate();
+
+         if (OTCContext.Project != null) 
+            OTCContext.Project.TrafficManager.TrafficStatusChanged += TrafficManager_TrafficStatusChanged;
       }
 
       #endregion
 
-      #region Properties
+      #region Event Handlers
 
-      private static System.Timers.Timer Timer { get; set; }
-
-      #endregion
-
-      #region Methods
-
-      public void Start()
-      {
-         if (TrafficControl.Timer == null)
-         {
-            TrafficControl.Timer = new System.Timers.Timer(2000);
-            TrafficControl.Timer.Elapsed += Timer_Elapsed;
-         }
-
-         TrafficControl.Timer.Start();
-      }
-
-      public void Stop()
-      {
-         TrafficControl.Timer.Stop();
-      }
-
-      public void RefreshTrafficList()
+      private void TrafficManager_TrafficStatusChanged(object sender, EventArgs e)
       {
          if (tvwTraffic.InvokeRequired)
          {
             tvwTraffic.Invoke((Action)delegate
             {
-               this.FillTrafficList();
+               this.RefreshTrafficList();
             });
          }
          else
-            this.FillTrafficList();
+         {
+            this.RefreshTrafficList();
+         }
       }
 
-      private void FillTrafficList()
+      private void CmdTrafficStart_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
-         TreeListColumn col;
+         cmdTrafficStart.Enabled = false;
+         cmdTrafficPause.Enabled = true;
+         cmdTrafficStop.Enabled = true;
 
-         if (tvwTraffic.Columns.Count <= 0)
-         {
-            tvwTraffic.BeginUpdate();
+         OTCContext.Project.TrafficManager.Start();
+      }
 
-            col = tvwTraffic.Columns.Add();
-            col.Caption = "INfo";
-            col.VisibleIndex = 0;
+      private void CmdTrafficPause_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      {
+         cmdTrafficStart.Enabled = true;
+         cmdTrafficPause.Enabled = false;
+         cmdTrafficStop.Enabled = true;
 
-            tvwTraffic.EndUpdate();
-         }
+         OTCContext.Project.TrafficManager.Pause();
+      }
 
+      private void CmdTrafficStop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      {
+         cmdTrafficStart.Enabled = true;
+         cmdTrafficPause.Enabled = false;
+         cmdTrafficStop.Enabled = false;
+
+         OTCContext.Project.TrafficManager.Stop();
+      }
+
+      #endregion
+
+      #region Private Members
+
+      private void RefreshTrafficList()
+      {
          tvwTraffic.BeginUnboundLoad();
 
          tvwTraffic.Nodes.Clear();
@@ -99,15 +106,6 @@ namespace Rwm.Studio.Plugins.Control.Controls
          }
 
          tvwTraffic.EndUnboundLoad();
-      }
-
-      #endregion
-
-      #region Event Handlers
-
-      private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
-      {
-         this.RefreshTrafficList();
       }
 
       #endregion

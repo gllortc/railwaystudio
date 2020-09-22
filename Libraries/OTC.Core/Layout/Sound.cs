@@ -51,6 +51,22 @@ namespace Rwm.Otc.Layout
       // [ORMProperty("FILEDATA")]
       public Stream SoundStream { get; set; } = null;
 
+      /// <summary>
+      /// Gets the associated small icon (16x16px).
+      /// </summary>
+      public static System.Drawing.Image SmallIcon
+      {
+         get { return Properties.Resources.ICO_SOUND_16; }
+      }
+
+      /// <summary>
+      /// Gets the associated large icon (32x32px).
+      /// </summary>
+      public static System.Drawing.Image LargeIcon
+      {
+         get { return Properties.Resources.ICO_SOUND_32; }
+      }
+
       #endregion
 
       #region Methods

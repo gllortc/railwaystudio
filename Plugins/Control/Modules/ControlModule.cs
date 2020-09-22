@@ -68,15 +68,12 @@ namespace Rwm.Studio.Plugins.Control.Modules
          chkOptionsManualSensorAllowed.Checked = OTCContext.Project.AllowManualSensorActivation;
 
          // Register project events
-         OTCContext.Project.DigitalSystem.OnInformationReceived += DigitalSystem_OnInformationReceived;
-         OTCContext.Project.DigitalSystem.OnCommandReceived += DigitalSystem_OnCommandReceived;
+         OTCContext.Project.DigitalSystem.InformationReceived += DigitalSystem_OnInformationReceived;
+         OTCContext.Project.DigitalSystem.CommandReceived += DigitalSystem_OnCommandReceived;
 
          // Initialize the management panels
          rmaRoutes.RefreshRouteList();
          tscTrains.RefreshTrainList();
-
-         // Initialize the traffic manager
-         this.TrafficManager = new Otc.Layout.Traffic.TrafficManager();
 
          // Show module information
          StudioContext.LogInformation("{0} v{1} loaded", this.Description.Caption, Application.ProductVersion);
@@ -88,7 +85,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
       private void ControlModule_FormClosed(object sender, FormClosedEventArgs e)
       {
-         Rwm.Otc.OTCContext.Settings.SaveSettings();
+         OTCContext.Settings.SaveSettings();
       }
 
       private void CmdSystemManage_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -123,15 +120,10 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
       private void CmdCtrlTraffic_CheckedChanged(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
-         if (cmdControlTraffic.Checked)
-            trafficControl.Start();
+         if (cmdCtrlTraffic.Checked)
+            dockPanelTraffic.Visibility = DevExpress.XtraBars.Docking.DockVisibility.Visible;
          else
-            trafficControl.Stop();
-      }
-
-      private void CmdUtilsDigitalAddressCalculator_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-      {
-         StudioContext.Utils.ShowDigitalAddressCalculator();
+            dockPanelTraffic.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
       }
 
       private void BbtnThemesManage_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -139,7 +131,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
          StudioContext.Utils.ShowThemeManager(this);
       }
 
-        #endregion
+      #endregion
 
-    }
+   }
 }

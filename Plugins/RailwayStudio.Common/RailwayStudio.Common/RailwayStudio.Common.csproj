@@ -172,17 +172,17 @@
     <Compile Include="Views\FindTrainView.Designer.cs">
       <DependentUpon>FindTrainView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\SystemManagerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SystemManagerView.Designer.cs">
+      <DependentUpon>SystemManagerView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ThemeManagerView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\ThemeManagerView.designer.cs">
       <DependentUpon>ThemeManagerView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\TrainAddressView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\TrainAddressView.Designer.cs">
-      <DependentUpon>TrainAddressView.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -216,11 +216,11 @@
     <EmbeddedResource Include="Views\FindTrainView.resx">
       <DependentUpon>FindTrainView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\SystemManagerView.resx">
+      <DependentUpon>SystemManagerView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ThemeManagerView.resx">
       <DependentUpon>ThemeManagerView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\TrainAddressView.resx">
-      <DependentUpon>TrainAddressView.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -267,6 +267,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\favicon.ico" />
+    <None Include="Resources\server_valid_16.png" />
+    <None Include="Resources\server_16.png" />
+    <None Include="Resources\server_configuration.png" />
+    <None Include="Resources\server_valid_32.png" />
+    <None Include="Resources\server_refresh_32.png" />
     <None Include="Resources\cart_delete_16.png" />
     <None Include="Resources\cart_16.png" />
     <None Include="Resources\factory_delete_bw_16.png" />

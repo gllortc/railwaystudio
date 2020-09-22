@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Rwm.Otc.Diagnostics;
 using Rwm.Otc.Systems;
+using Rwm.Otc.Systems.Protocol;
 
 namespace Rwm.Otc.Layout.Traffic
 {
@@ -11,6 +12,17 @@ namespace Rwm.Otc.Layout.Traffic
    /// </summary>
    public class TrafficManager
    {
+
+      #region Enumerations
+
+      public enum SystemStatus
+      {
+         Started,
+         Stopped,
+         Paused
+      }
+
+      #endregion
 
       #region Constructors
 
@@ -26,7 +38,15 @@ namespace Rwm.Otc.Layout.Traffic
 
       #region Properties
 
+      /// <summary>
+      /// Gets the list of current active itineraries managed by the traffic management system.
+      /// </summary>
       public static List<Itinerary> ActiveItineraries { get; private set; } = new List<Itinerary>();
+
+      /// <summary>
+      /// Gets the current status of the traffic manager system.
+      /// </summary>
+      public SystemStatus Status { get; private set; } = SystemStatus.Stopped;
 
       #endregion
 
@@ -42,28 +62,41 @@ namespace Rwm.Otc.Layout.Traffic
       #region Methods
 
       /// <summary>
-      /// Reset all planned or running traffic.
+      /// Start traffic manager.
       /// </summary>
-      public void Reset()
+      public void Start()
       {
-         Route.ClearAll();
-         TrafficManager.ActiveItineraries.Clear();
+         OTCContext.Project.DigitalSystem.CommandReceived += DigitalSystem_OnCommandReceived;
+         this.TrafficStatusChanged?.Invoke(this, new EventArgs());
+
+         this.Status = SystemStatus.Started;
       }
 
       /// <summary>
-      /// Inform the traffic manager of any feedback received from the layout.
+      /// Stop the traffic manager and cancel all planned or running traffic.
       /// </summary>
-      /// <param name="status">Feedback status received.</param>
-      /// <param name="element">Affected element.</param>
-      public void FeedbackReceived(FeedbackPointAddressStatus status, Element element)
+      public void Stop()
       {
-         Logger.LogDebug(this, "[CLASS].FeedbackReceived([{0}], [{1}])", status, element);
+         Route.ClearAll();
+         TrafficManager.ActiveItineraries.Clear();
 
-         foreach (Itinerary itinerary in TrafficManager.ActiveItineraries)
-         {
-            if (itinerary.FeedbackReceived(status, element))
-               break;
-         }
+         OTCContext.Project.DigitalSystem.CommandReceived -= DigitalSystem_OnCommandReceived;
+         this.TrafficStatusChanged?.Invoke(this, new EventArgs());
+
+         this.Status = SystemStatus.Stopped;
+      }
+
+      /// <summary>
+      /// Pause the traffic manager.
+      /// </summary>
+      /// <remarks>
+      /// During the pause, all feedback signals will be ignored.
+      /// </remarks>
+      public void Pause()
+      {
+         OTCContext.Project.DigitalSystem.CommandReceived -= DigitalSystem_OnCommandReceived;
+
+         this.Status = SystemStatus.Paused;
       }
 
       /// <summary>
@@ -132,7 +165,7 @@ namespace Rwm.Otc.Layout.Traffic
 
          // Run the itinerary
          if (automaticRun)
-            this.RunItinerary(itinerary);
+            itinerary.Run();
 
          this.TrafficStatusChanged?.Invoke(this, new EventArgs());
       }
@@ -162,14 +195,33 @@ namespace Rwm.Otc.Layout.Traffic
          }
       }
 
-      public void RunItinerary(Itinerary itinerary)
-      {
-         itinerary.PendingRoutes[0].Activate();
-      }
-
       #endregion
 
       #region Event Handlers
+
+      private void DigitalSystem_OnCommandReceived(object sender, SystemCommandEventArgs e)
+      {
+         if (!(e.CommandReceived is IFeedbackStatusChanged command)) return;
+
+         foreach (FeedbackPointAddressStatus status in command.ReportedStatuses)
+         {
+            Element element = Element.GetByFeedbackAddress(command.Address, status.PointAddress);
+            if (element != null && status.Active)
+            {
+               //if (element.FeedbackStatus == status.Active)
+               //{
+                  foreach (Itinerary itinerary in TrafficManager.ActiveItineraries)
+                  {
+                     if (itinerary.FeedbackReceived(status, element))
+                     {
+                        this.TrafficStatusChanged?.Invoke(this, new EventArgs());
+                        break;
+                     }
+                  }
+               //}
+            }
+         }
+      }
 
       #endregion
 

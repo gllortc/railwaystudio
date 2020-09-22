@@ -25,12 +25,12 @@ namespace Rwm.Studio.Plugins.Designer.Views
 
       private void GrdAccView_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
       {
-         StudioContext.UI.DrawRowIcon(Properties.Resources.ICO_DEVICE_ACC_16, e);
+         StudioContext.UI.DrawRowIcon(AccessoryDecoder.SmallIcon, e);
       }
 
       private void GrdFbView_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
       {
-         StudioContext.UI.DrawRowIcon(Properties.Resources.ICO_DEVICE_FB_16, e);
+         StudioContext.UI.DrawRowIcon(FeedbackEncoder.SmallIcon, e);
       }
 
       private void CmdDecoderAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

@@ -420,7 +420,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
             tabPanel.Name = "tabPanel" + panel.ID;
             tabPanel.Padding = new Padding(5);
             tabPanel.Text = panel.Name;
-            tabPanel.Image = Properties.Resources.ICO_SWITCHBOARD_16;
+            tabPanel.Image = Switchboard.SmallIcon;
             tabPanel.Tag = panel;
             tabPanel.Controls.Add(spcPanel);
          }

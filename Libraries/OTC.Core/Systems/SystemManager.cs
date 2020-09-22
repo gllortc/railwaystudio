@@ -59,7 +59,7 @@ namespace Rwm.Otc.Systems
       /// <summary>
       /// Sets the theme used to render the switchboard panels.
       /// </summary>
-      public void SetSystem(IDigitalSystem system)
+      public void SetSystem(DigitalSystem system)
       {
          this.SetSystem(system.GetType());
       }
@@ -93,10 +93,10 @@ namespace Rwm.Otc.Systems
       /// <summary>
       /// Sets the theme used to render the switchboard panels.
       /// </summary>
-      public IDigitalSystem GetSystem()
+      public DigitalSystem GetSystem()
       {
          XmlSettingsItem item = null;
-         IDigitalSystem system = null;
+         DigitalSystem system = null;
 
          Logger.LogDebug(this, "[CLASS].GetSystem()");
 
@@ -111,7 +111,7 @@ namespace Rwm.Otc.Systems
                Type type = assembly.GetType(item.GetString(SystemManager.SETTINGS_SYSTEM_CLASS));
                if (type == null) return null;
 
-               system = (IDigitalSystem)Activator.CreateInstance(type);
+               system = (DigitalSystem)Activator.CreateInstance(type);
             }
 
             return system;
@@ -127,11 +127,11 @@ namespace Rwm.Otc.Systems
       /// Get all theme instances included in the application directory.
       /// </summary>
       /// <returns>A lis of all theme instances.</returns>
-      public List<IDigitalSystem> GetAll()
+      public List<DigitalSystem> GetAll()
       {
          Assembly assembly;
-         IDigitalSystem system = null;
-         List<IDigitalSystem> systems = new List<IDigitalSystem>();
+         DigitalSystem system = null;
+         List<DigitalSystem> systems = new List<DigitalSystem>();
 
          Logger.LogDebug(this, "[CLASS].GetAll()");
 
@@ -144,9 +144,9 @@ namespace Rwm.Otc.Systems
                   assembly = Assembly.LoadFile(path);
                   foreach (Type type in assembly.GetTypes())
                   {
-                     if (typeof(IDigitalSystem).IsAssignableFrom(type) && !type.IsInterface)
+                     if (typeof(DigitalSystem).IsAssignableFrom(type) && !type.IsInterface)
                      {
-                        system = (IDigitalSystem)Activator.CreateInstance(type);
+                        system = (DigitalSystem)Activator.CreateInstance(type);
                         if (system != null)
                         {
                            systems.Add(system);

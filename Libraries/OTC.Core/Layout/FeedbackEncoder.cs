@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Drawing;
 using Rwm.Otc.Data;
 using Rwm.Otc.Diagnostics;
 using Rwm.Otc.Trains;
@@ -111,11 +110,19 @@ namespace Rwm.Otc.Layout
       }
 
       /// <summary>
-      /// Gets the associated icon.
+      /// Gets the associated small icon (16x16px).
       /// </summary>
-      public Image Icon
+      public static System.Drawing.Image SmallIcon
       {
-         get { return Properties.Resources.ICO_MODULE_SENSOR_16; }
+         get { return Properties.Resources.ICO_FEEDBACK_ENCODER_16; }
+      }
+
+      /// <summary>
+      /// Gets the associated large icon (32x32px).
+      /// </summary>
+      public static System.Drawing.Image LargeIcon
+      {
+         get { return Properties.Resources.ICO_FEEDBACK_ENCODER_32; }
       }
 
       #endregion

@@ -164,6 +164,12 @@
     <Compile Include="Controls\AccessoryConnectionsControl.Designer.cs">
       <DependentUpon>AccessoryConnectionsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\FeedbackTesterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\FeedbackTesterControl.Designer.cs">
+      <DependentUpon>FeedbackTesterControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\IActionParametersEditor.cs" />
     <Compile Include="Controls\PlaySoundActionControl.cs">
       <SubType>UserControl</SubType>
@@ -201,6 +207,14 @@
     </Compile>
     <Compile Include="Modules\RouteModule.Controller.Designer.cs" />
     <Compile Include="Modules\RouteModuleDescriptor.cs" />
+    <Compile Include="Modules\TesterModule.Controller.Designer.cs" />
+    <Compile Include="Modules\TesterModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\TesterModule.Designer.cs">
+      <DependentUpon>TesterModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\TesterModuleDescriptor.cs" />
     <Compile Include="PluginData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports\DigitalReport.cs">
@@ -329,6 +343,9 @@
     <EmbeddedResource Include="Controls\AccessoryConnectionsControl.resx">
       <DependentUpon>AccessoryConnectionsControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FeedbackTesterControl.resx">
+      <DependentUpon>FeedbackTesterControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\PlaySoundActionControl.resx">
       <DependentUpon>PlaySoundActionControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -343,6 +360,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\RouteModule.resx">
       <DependentUpon>RouteModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\TesterModule.resx">
+      <DependentUpon>TesterModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -456,6 +476,18 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\lightning_16.png" />
+    <None Include="Resources\server_connect.png" />
+    <None Include="Resources\server_connect_16.png" />
+    <None Include="Resources\server_delete_32.png" />
+    <None Include="Resources\servers.png" />
+    <None Include="Resources\servers_16.png" />
+    <None Include="Resources\server_configuration.png" />
+    <None Include="Resources\server_delete_16.png" />
+    <None Include="Resources\server_16.png" />
+    <None Include="Resources\table_heatmap_delete_16.png" />
+    <None Include="Resources\tester_white_16.png" />
+    <None Include="Resources\tester_red_16.png" />
     <None Include="Resources\signal_shot_16.png" />
     <None Include="Resources\signal_flash_16.png" />
     <None Include="Resources\signal_continuous_16.png" />
@@ -582,6 +614,16 @@
     <None Include="Resources\compile_16.png" />
     <None Include="Resources\edit_button_16.png" />
     <None Include="Resources\1__16_2.jpg" />
+    <None Include="Resources\control_panel_16.png" />
+    <None Include="Resources\control_panel_32.png" />
+    <None Include="Resources\exclamation_16.png" />
+    <None Include="Resources\exclamation.png" />
+    <None Include="Resources\control_play_blue_161.png" />
+    <None Include="Resources\control_play_blue_321.png" />
+    <None Include="Resources\calculator_16.png" />
+    <None Include="Resources\calculator_32.png" />
+    <None Include="Resources\arrow_right.png" />
+    <None Include="Resources\arrow_right_161.png" />
     <Content Include="Resources\favicon.ico" />
     <None Include="Resources\database_table_16.png" />
     <None Include="Resources\database_table.png" />

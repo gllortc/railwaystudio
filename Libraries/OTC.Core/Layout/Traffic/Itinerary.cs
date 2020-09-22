@@ -71,6 +71,16 @@ namespace Rwm.Otc.Layout.Traffic
       /// </summary>
       public List<ItineraryFeedbackPoint> FeedbackSequence { get; private set; } = null;
 
+      public static System.Drawing.Image SmallIcon
+      {
+         get { return Properties.Resources.ICO_ITINERARY_16; }
+      }
+
+      public static System.Drawing.Image LargeIcon
+      {
+         get { return Properties.Resources.ICO_ITINERARY_32; }
+      }
+
       #endregion
 
       #region Methods
@@ -158,6 +168,7 @@ namespace Rwm.Otc.Layout.Traffic
       /// </summary>
       public void Run()
       {
+         this.PendingRoutes[0].Activate();
          this.Enabled = true;
       }
 

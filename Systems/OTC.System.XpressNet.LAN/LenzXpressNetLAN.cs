@@ -12,7 +12,7 @@ using Rwm.Otc.Utils;
 
 namespace Rwm.Otc.Systems.XpressNet
 {
-   public class LenzXpressNetLAN : IDigitalSystem
+   public class LenzXpressNetLAN : DigitalSystem
    {
 
       #region Constants
@@ -62,17 +62,17 @@ namespace Rwm.Otc.Systems.XpressNet
 
       private System.Timers.Timer AcknowledgementTimer { get; set; } = null;
 
-      public string ID
+      public override string ID
       {
          get { return "C8C14D2E-AA15-4ED4-B5D9-71190E82791E"; }
       }
 
-      public string Name
+      public override string Name
       {
          get { return "Lenz XpressNet LAN"; }
       }
 
-      public string Description
+      public override string Description
       {
          get { return "Lenz XpressNet implementation using TCP/IP connected interface"; }
       }
@@ -80,30 +80,25 @@ namespace Rwm.Otc.Systems.XpressNet
       /// <summary>
       /// Gets the current implementation version.
       /// </summary>
-      public string Version
+      public override string Version
       {
          get { return ReflectionUtils.GetAssemblyVersion(this.GetType()); }
       }
 
       /// <summary>
-      /// Gets the status of the system.
-      /// </summary>
-      public SystemStatus Status { get; private set; }
-
-      /// <summary>
       /// Gets the valid accessory address range.
       /// </summary>
-      public Range AccessoryAddressRange { get; } = new Range(1, 1024);
+      public override Range AccessoryAddressRange { get; } = new Range(1, 1024);
 
       /// <summary>
       /// Gets the valid feedback address range.
       /// </summary>
-      public Range FeedbackAddressRange { get; } = new Range(1, 128);
+      public override Range FeedbackAddressRange { get; } = new Range(1, 128);
 
       /// <summary>
       /// Gets the number of associated outputs by sensor address.
       /// </summary>
-      public int PointAddressesByFeedbackAddress
+      public override int PointAddressesByFeedbackAddress
       {
          get { return SENSOR_OUTPUTS_ADDRESS; }
       }
@@ -165,7 +160,7 @@ namespace Rwm.Otc.Systems.XpressNet
       /// <summary>
       /// Initialize and connect the disigtal system.
       /// </summary>
-      public bool Connect()
+      public override bool Connect()
       {
          Logger.LogDebug(this, "[CLASS].Connect()");
 
@@ -178,7 +173,7 @@ namespace Rwm.Otc.Systems.XpressNet
          catch (Exception ex)
          {
             Logger.LogError(this, ex);
-            this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Error, ex.Message));
+            this.OnInformationReceived(new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Error, ex.Message));
 
             return false;
          }
@@ -187,7 +182,7 @@ namespace Rwm.Otc.Systems.XpressNet
       /// <summary>
       /// Disconnect the digital system and release all resources.
       /// </summary>
-      public bool Disconnect()
+      public override bool Disconnect()
       {
          Logger.LogDebug(this, "[CLASS].Disconnect()");
 
@@ -212,7 +207,7 @@ namespace Rwm.Otc.Systems.XpressNet
          }
          finally
          {
-            this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Information, "System disconnected"));
+            this.OnInformationReceived(new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Information, "System disconnected"));
 
             this.Status = SystemStatus.Disconnected;
          }
@@ -222,7 +217,7 @@ namespace Rwm.Otc.Systems.XpressNet
       /// Show the configuration dialogue of the implemented system.
       /// </summary>
       /// <rereturns>A value indicating if the user has been accepted the settings or not.</rereturns>
-      public DialogResult ShowSettingsDialog()
+      public override DialogResult ShowSettingsDialog()
       {
          SettingsView view = new SettingsView(this);
          return view.ShowDialog();
@@ -231,7 +226,7 @@ namespace Rwm.Otc.Systems.XpressNet
       /// <summary>
       /// Request the system information.
       /// </summary>
-      public void SystemInformation()
+      public override void SystemInformation()
       {
          try
          {
@@ -263,7 +258,7 @@ namespace Rwm.Otc.Systems.XpressNet
       /// <summary>
       /// Request power off the layout.
       /// </summary>
-      public void EmergencyOff()
+      public override void EmergencyOff()
       {
          try
          {
@@ -279,7 +274,7 @@ namespace Rwm.Otc.Systems.XpressNet
       /// <summary>
       /// Request stopping all locomotives.
       /// </summary>
-      public void EmergencyStop()
+      public override void EmergencyStop()
       {
          try
          {
@@ -295,7 +290,7 @@ namespace Rwm.Otc.Systems.XpressNet
       /// <summary>
       /// Request cancelling emergency off/stop and go to normal operation status.
       /// </summary>
-      public void ResumeOperations()
+      public override void ResumeOperations()
       {
          try
          {
@@ -313,7 +308,7 @@ namespace Rwm.Otc.Systems.XpressNet
       /// </summary>
       /// <param name="address">Accessory address.</param>
       /// <param name="activeOutput">Pin to activate (1/2).</param>
-      public void OperateAccessory(int address, int activeOutput)
+      public override void OperateAccessory(int address, int activeOutput)
       {
          try
          {
@@ -339,7 +334,7 @@ namespace Rwm.Otc.Systems.XpressNet
       /// Gets an accessory status information.
       /// </summary>
       /// <param name="address">Accessory address.</param>
-      public void GetAccessoryStatus(int address)
+      public override void GetAccessoryStatus(int address)
       {
          throw new NotImplementedException();
       }
@@ -348,7 +343,7 @@ namespace Rwm.Otc.Systems.XpressNet
       /// Set an accessory output.
       /// </summary>
       /// <param name="element">Element.</param>
-      public void SetAccessoryStatus(int address, bool turned, bool activate)
+      public override void SetAccessoryStatus(int address, bool turned, bool activate)
       {
          try
          {
@@ -383,7 +378,7 @@ namespace Rwm.Otc.Systems.XpressNet
       /// </summary>
       /// <param name="element">Affected element.</param>
       /// <param name="status">Status.</param>
-      public void SetSensorStatus(Element element, FeedbackStatus status)
+      public override void SetSensorStatus(Element element, FeedbackStatus status)
       {
          throw new NotImplementedException();
       }
@@ -392,15 +387,15 @@ namespace Rwm.Otc.Systems.XpressNet
 
       #region Events
 
-      /// <summary>
-      /// Event raised when any operation is requested or received by the digital system.
-      /// </summary>
-      public event EventHandler<SystemConsoleEventArgs> OnInformationReceived;
+      protected override void OnInformationReceived(SystemConsoleEventArgs e)
+      {
+         base.OnInformationReceived(e);
+      }
 
-      /// <summary>
-      /// Event raised when any operation is requested or received by the digital system.
-      /// </summary>
-      public event EventHandler<SystemCommandEventArgs> OnCommandReceived;
+      protected override void OnCommandReceived(SystemCommandEventArgs e)
+      {
+         base.OnCommandReceived(e);
+      }
 
       #endregion
 
@@ -439,9 +434,9 @@ namespace Rwm.Otc.Systems.XpressNet
 
          if (this.DebugMode)
          {
-            this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Debug,
-                                                                                "TX -> {0}",
-                                                                                BinaryUtils.ToString(bytes)));
+            this.OnInformationReceived(new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Debug,
+                                                                  "TX -> {0}",
+                                                                  BinaryUtils.ToString(bytes)));
          }
       }
 

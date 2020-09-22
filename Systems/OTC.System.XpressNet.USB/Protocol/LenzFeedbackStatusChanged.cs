@@ -95,15 +95,15 @@ namespace Rwm.Otc.Systems.XpressNet.Protocol
          this.Address = receivedData[1] + 1;
          this.IsFeedback = ((receivedData[2] & 0b10000000) == 0b0); // Should be always 0 for feedback modules
          this.AddressType = (FeedbackAddressType)((receivedData[2] & 0b01100000) >> 5); 
-         this.InputGroup = (receivedData[2] & 0b00010000);
+         this.InputGroup = (receivedData[2] & 0b00010000) >> 4;
          this.IsValidResponse = (this.IsFeedback && (this.AddressType == FeedbackAddressType.FeedbackEncoder));
 
          if (this.IsValidResponse)
          {
-            this.ReportedStatuses.Add(new FeedbackPointAddressStatus(this.Address, 1 + (this.InputGroup * 4), ((receivedData[2] & 0b00000001) == 1)));
-            this.ReportedStatuses.Add(new FeedbackPointAddressStatus(this.Address, 2 + (this.InputGroup * 4), ((receivedData[2] & 0b00000010) == 1)));
-            this.ReportedStatuses.Add(new FeedbackPointAddressStatus(this.Address, 3 + (this.InputGroup * 4), ((receivedData[2] & 0b00000100) == 1)));
-            this.ReportedStatuses.Add(new FeedbackPointAddressStatus(this.Address, 4 + (this.InputGroup * 4), ((receivedData[2] & 0b00001000) == 1)));
+            this.ReportedStatuses.Add(new FeedbackPointAddressStatus(this.Address, 1 + (this.InputGroup * 4), ((receivedData[2] & 0b00000001) == 0b00000001)));
+            this.ReportedStatuses.Add(new FeedbackPointAddressStatus(this.Address, 2 + (this.InputGroup * 4), ((receivedData[2] & 0b00000010) == 0b00000010)));
+            this.ReportedStatuses.Add(new FeedbackPointAddressStatus(this.Address, 3 + (this.InputGroup * 4), ((receivedData[2] & 0b00000100) == 0b00000100)));
+            this.ReportedStatuses.Add(new FeedbackPointAddressStatus(this.Address, 4 + (this.InputGroup * 4), ((receivedData[2] & 0b00001000) == 0b00001000)));
          }
 
          return this.IsValidResponse;

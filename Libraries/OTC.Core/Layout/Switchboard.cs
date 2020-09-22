@@ -85,6 +85,22 @@ namespace Rwm.Otc.Layout
       [ORMForeignCollection(OnDeleteActionTypes.DeleteInCascade)]
       public List<Element> Elements { get; set; }
 
+      /// <summary>
+      /// Gets the associated small icon (16x16px).
+      /// </summary>
+      public static Image SmallIcon
+      {
+         get { return Properties.Resources.ICO_SWITCHBOARD_16; }
+      }
+
+      /// <summary>
+      /// Gets the associated large icon (32x32px).
+      /// </summary>
+      public static Image LargeIcon
+      {
+         get { return Properties.Resources.ICO_SWITCHBOARD_32; }
+      }
+
       #endregion
 
       #region Methods

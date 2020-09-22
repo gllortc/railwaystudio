@@ -80,6 +80,11 @@ namespace Rwm.Otc.Layout
       [ORMProperty("DELAYTIME")]
       public int DelayTime { get; set; } = 0;
 
+      public static System.Drawing.Image SmallIcon
+      {
+         get { return Properties.Resources.ICO_FEEDBACK_16; }
+      }
+
       #endregion
 
       #region Methods

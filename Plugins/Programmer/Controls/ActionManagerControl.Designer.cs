@@ -114,7 +114,7 @@
          // cmdActionSound
          // 
          this.cmdActionSound.Caption = "Play sound";
-         this.cmdActionSound.Glyph = Properties.Resources.ICO_SOUND_16;
+         this.cmdActionSound.Glyph = Otc.Layout.Sound.SmallIcon;
          this.cmdActionSound.Id = 5;
          this.cmdActionSound.Name = "cmdActionSound";
          this.cmdActionSound.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdActionSound_ItemClick);

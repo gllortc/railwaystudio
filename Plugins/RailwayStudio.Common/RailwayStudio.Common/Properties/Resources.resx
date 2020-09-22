@@ -166,34 +166,28 @@
   <data name="ICO_INFORMATION_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\information_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_SECTION_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\layer_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ICO_SECTION_GLOBAL_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\layer_resize_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ICO_THEME_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\table_heatmap_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ICO_THEME_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\table_heatmap_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ICO_THEME_SELECT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\table_heatmap_check_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_THEME_SELECT_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\table_heatmap_check_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_MANUFACTURER_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\factory_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ICO_MANUFACTURER_OFF_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\factory_delete_bw_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_STORE_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cart_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ICO_STORE_OFF_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cart_delete_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICO_SYSTEM_REFRESH_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\server_refresh_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICO_SYSTEM_SELECT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\server_valid_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICO_SYSTEM_SELECT_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\server_valid_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICO_SYSTEM_SETUP_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\server_configuration.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

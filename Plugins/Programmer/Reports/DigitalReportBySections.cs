@@ -30,30 +30,27 @@ namespace Rwm.Studio.Plugins.Designer.Reports
 
       private void DigitalReport_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
       {
-         this.ReportData = AccessoryDecoder.FindByConnection();
+         // this.ReportData = AccessoryDecoder.FindByConnection();
 
-         this.DataSource = ReportData;
-         this.DataMember = "Switchboards";
+         this.DataSource = Section.FindAll();
+         // this.DataMember = Section.TableName;
       }
 
-      private void imgSwitchboardImage_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+      private void ImgSwitchboardImage_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
       {
-         // Get the switchboard to obtain the image
-         Switchboard sb = Switchboard.Get(NumericUtils.ToInteger(lblSwitchboardId.Text));
-         if (sb == null) return;
+         //// Get the switchboard to obtain the image
+         //Switchboard sb = Switchboard.Get(NumericUtils.ToInteger(lblSectionId.Text));
+         //if (sb == null) return;
 
-         // Paint group switchboard
-         imgSwitchboardImage.Image = sb.GetImage();
+         //// Paint group switchboard
+         //imgSwitchboardImage.Image = sb.GetImage();
       }
 
       private void DigitalConnectionsReport_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
       {
-         int i = NumericUtils.ToInteger(lblSwitchboardId.Text);
-
-         // DigitalConnectionsGroup.GroupFields.Add(new GroupField("Name"));
-
-         DigitalConnectionsReport.DataSource = AccessoryDecoder.FindBySwitchboard(i);
-         DigitalConnectionsReport.DataMember = "AccessoryConnections";
+         int i = NumericUtils.ToInteger(lblSectionId.Text);
+         DigitalConnectionsReport.DataSource = AccessoryDecoder.FindBy("SECTIONID", i);
+         // DigitalConnectionsReport.DataMember = AccessoryDecoder.TableName;
       }
 
       #endregion
@@ -65,8 +62,8 @@ namespace Rwm.Studio.Plugins.Designer.Reports
          lblProjectName.Text = OTCContext.Project.Name;
 
          // Data bindings
-         lblSwitchboardId.DataBindings.Add(new XRBinding("Text", null, "Switchboards.SwitchboardID"));
-         lblSwitchboardTitle.DataBindings.Add(new XRBinding("Text", null, "Switchboards.Switchboard"));
+         lblSectionId.DataBindings.Add(new XRBinding("Text", null, "ID"));
+         lblSectionTitle.DataBindings.Add(new XRBinding("Text", null, "Name"));
 
          lblDecoderName.DataBindings.Add(new XRBinding("Text", null, "AccessoryConnections.Name"));
          lblDecoderModel.DataBindings.Add(new XRBinding("Text", null, "AccessoryConnections.Decoder"));

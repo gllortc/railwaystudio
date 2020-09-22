@@ -154,7 +154,7 @@ namespace Rwm.Studio.Plugins.Common.Controls
          {
             this.ImageList = new ImageList();
             this.ImageList.Images.Add(Common.Properties.Resources.ICO_MANUFACTURER_OFF_16);
-            this.ImageList.Images.Add(Common.Properties.Resources.ICO_MANUFACTURER_16);
+            this.ImageList.Images.Add(Manufacturer.SmallIcon);
             this.Properties.SmallImages = this.ImageList;
          }
 

@@ -54,7 +54,7 @@ namespace Rwm.Studio.Plugins.Designer.Views
 
       private void GrdConnectView_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
       {
-         StudioContext.UI.DrawRowIcon(Properties.Resources.ICO_CONNECTION_16, e);
+         StudioContext.UI.DrawRowIcon(AccessoryDecoderConnection.SmallIcon, e);
       }
 
       private void GrdConnectView_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)

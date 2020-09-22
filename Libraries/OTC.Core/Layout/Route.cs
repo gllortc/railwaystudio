@@ -99,19 +99,27 @@ namespace Rwm.Otc.Layout
       public List<RouteElement> Elements { get; set; } = new List<RouteElement>();
 
       /// <summary>
-      /// Gets the type description.
-      /// </summary>
-      public string TypeDescription
-      {
-         get { return (this.IsBlock ? "Traffic route" : "Accessory group"); }
-      }
-
-      /// <summary>
       /// Gets a value indicating if the current route has been activated in current project.
       /// </summary>
       public bool IsActive
       {
          get { return OTCContext.Project.ActiveRoutes.ContainsKey(this.ID); }
+      }
+
+      /// <summary>
+      /// Gets the associated small icon (16x16px).
+      /// </summary>
+      public static System.Drawing.Image SmallIcon
+      {
+         get { return Properties.Resources.ICO_ROUTE_16; }
+      }
+
+      /// <summary>
+      /// Gets the associated large icon (32x32px).
+      /// </summary>
+      public static System.Drawing.Image LargeIcon
+      {
+         get { return Properties.Resources.ICO_ROUTE_32; }
       }
 
       #endregion

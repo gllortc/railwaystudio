@@ -44,7 +44,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
       /// </summary>
       public Image SmallIcon
       {
-         get { return Properties.Resources.ICO_ROUTE_16; }
+         get { return Otc.Layout.Route.SmallIcon; }
       }
 
       #endregion

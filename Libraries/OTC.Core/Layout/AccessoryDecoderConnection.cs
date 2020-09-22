@@ -70,12 +70,28 @@ namespace Rwm.Otc.Layout
       [ORMProperty("INVERTED")]
       public bool Inverted { get; set; } = false;
 
+      ///// <summary>
+      ///// Gets a value indicating if the connection is used by an element.
+      ///// </summary>
+      //public bool IsUsed
+      //{
+      //   get { return (this.Element != null); }
+      //}
+
       /// <summary>
-      /// Gets a value indicating if the connection is used by an element.
+      /// Gets the associated small icon (16x16px).
       /// </summary>
-      public bool IsUsed
+      public static System.Drawing.Image SmallIcon
       {
-         get { return (this.Element != null); }
+         get { return Properties.Resources.ICO_CONNECTION_16; }
+      }
+
+      /// <summary>
+      /// Gets the associated large icon (32x32px).
+      /// </summary>
+      public static System.Drawing.Image LargeIcon
+      {
+         get { return Properties.Resources.ICO_CONNECTION_32; }
       }
 
       #endregion

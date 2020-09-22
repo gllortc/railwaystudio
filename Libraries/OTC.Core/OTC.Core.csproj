@@ -179,6 +179,7 @@
     <Compile Include="Systems\Dummy\DummyEmergencyStop.cs" />
     <Compile Include="Systems\Dummy\DummyAccessoryOperation.cs" />
     <Compile Include="Systems\FeedbackPointAddressStatus.cs" />
+    <Compile Include="Systems\DigitalSystem.cs" />
     <Compile Include="Systems\Protocol\IAccessoryOperation.cs" />
     <Compile Include="Systems\Protocol\IFeedbackStatusChanged.cs" />
     <Compile Include="Systems\Protocol\IResumeOperations.cs" />
@@ -189,7 +190,6 @@
     <Compile Include="Systems\Dummy\DummySystemInformation.cs" />
     <Compile Include="Systems\AccessoryEventArgs.cs" />
     <Compile Include="Systems\OccupationEventArgs.cs" />
-    <Compile Include="Systems\IDigitalSystem.cs" />
     <Compile Include="Systems\DigitalSystemException.cs" />
     <Compile Include="Systems\Protocol\ISystemInformation.cs" />
     <Compile Include="Systems\Protocol\IResponse.cs" />
@@ -202,6 +202,7 @@
     <Compile Include="Internationalization\OTCLanguage.cs" />
     <Compile Include="Trains\TrainDigitalAddress.cs" />
     <Compile Include="Utils\EnumItemImage.cs" />
+    <Compile Include="Utils\Icons.cs" />
     <Compile Include="Utils\NumericUtils.cs" />
     <Compile Include="Help\OTCHelpIndex.cs" />
     <Compile Include="Trains\Company.cs" />
@@ -272,6 +273,16 @@
     <None Include="Resources\turnout_turned.gif" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\train_metro_32.png" />
+    <None Include="Resources\train_metro_16.png" />
+    <None Include="Resources\sound1.png" />
+    <None Include="Resources\sound_16.png" />
+    <None Include="Resources\timeline.png" />
+    <None Include="Resources\timeline_16.png" />
+    <None Include="Resources\table.png" />
+    <None Include="Resources\table_16.png" />
+    <None Include="Resources\table_heatmap_32.png" />
+    <None Include="Resources\table_heatmap_16.png" />
     <None Include="Resources\toolbar.png" />
     <None Include="Resources\TwoAspect.png" />
     <None Include="Resources\ThreeAspect.png" />
@@ -374,6 +385,31 @@
     <None Include="Resources\arrow_switch_stop_16.png" />
     <None Include="Resources\ICO_ELEMENT_BLOCK_16.png" />
     <None Include="Resources\ICO_ELEMENT_BLOCK_DEST_16.png" />
+    <None Include="Resources\server_16.png" />
+    <None Include="Resources\server.png" />
+    <None Include="Resources\lightning_16.png" />
+    <None Include="Resources\report.png" />
+    <None Include="Resources\report_32.png" />
+    <None Include="Resources\arrow_switch_161.png" />
+    <None Include="Resources\arrow_switch.png" />
+    <None Include="Resources\layer_16.png" />
+    <None Include="Resources\layer_32.png" />
+    <None Include="Resources\layer_resize_16.png" />
+    <None Include="Resources\factory_16.png" />
+    <None Include="Resources\cart_16.png" />
+    <None Include="Resources\factory.png" />
+    <None Include="Resources\cart_full.png" />
+    <None Include="Resources\building_16.png" />
+    <None Include="Resources\building.png" />
+    <None Include="Resources\drive_light_161.png" />
+    <None Include="Resources\drive_bulb_32.png" />
+    <None Include="Resources\drive_lightning_161.png" />
+    <None Include="Resources\drive_light_32.png" />
+    <None Include="Resources\processor_32.png" />
+    <None Include="Resources\processor_16.png" />
+    <None Include="Resources\connect_16.png" />
+    <None Include="Resources\connect_32.png" />
+    <None Include="Resources\cog_32.png" />
     <Content Include="Resources\signal-hs-0[1].png" />
     <Content Include="Resources\signal-hs-1[1].png" />
     <Content Include="Resources\signal-hs-2[1].png" />

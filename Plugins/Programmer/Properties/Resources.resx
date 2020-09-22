@@ -124,23 +124,14 @@
   <data name="ICO_DEVICE_FOLDER_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\drive_folder_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_DEVICE_FB_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\drive_lightning_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ICO_REPORT_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\report_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_SAVE_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\diskette_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_DEVICE_FB_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\drive_light_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ICO_ELEMENT_UP_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow_up_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ICO_PRINT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\printer_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_ROUTE_DELETE_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow_switch_delete_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,14 +139,17 @@
   <data name="ICO_REPORT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\report_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ICO_SOUND_PLAY_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\control_play_blue_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ICO_ELEMENT_DELETE_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\shape_square_delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_THEME_SELECT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\table_heatmap_check_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_THEME_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\table_heatmap_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ICO_EDIT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\edit_button_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_ROUTE_ADD_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow_switch_add_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,14 +160,14 @@
   <data name="ICO_LIGHT_ON" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lightbulb_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_DEVICE_ACC_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\drive_light_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ICO_SOUND_DELETE_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sound_delete_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DCC_DECODER_H" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DCC_Decoder.h;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ICO_SAVE_CLOSE_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\disk_close_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_MODULE_DESIGN_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\train_design_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,14 +193,11 @@
   <data name="ICO_DEVICE_DELETE_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\drive_delete_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_SOUND_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sound_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ICO_SWITCHBOARD_EDIT_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\table_edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_CLOSE_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cross_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ICO_EMERGENCY_RESUME_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\control_play_blue_161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_DATA_DELETE_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -217,20 +208,17 @@
   <data name="ICO_DATA_ADD_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_AREA_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\layer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ICO_SWITCHBOARD_ADD_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\table_add_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_DESIGN_CURSOR_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cursor_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="1__16_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1__16_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ICO_MODE_SHOT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\signal_shot_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ICO_DECODER_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\processor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_ACTION_EDIT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cog_edit_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -247,9 +235,6 @@
   <data name="ICO_CLOSE_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cross_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_SWITCHBOARD_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\table_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ICO_MODULE_DESIGN_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\table_design_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -262,23 +247,29 @@
   <data name="ICO_MODULE_DEVICE_EDITOR_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\page_white_drive_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ICO_SYSTEM_DISCONNECT_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\server_delete_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ICO_ACTION_DELETE_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cog_delete_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_DECODER_DELETE_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\processor_delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ICO_THEME_UNSELECTED_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\table_heatmap_delete_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_SOUND_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sound.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ICO_ELEMENT_RIGHT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow_right_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_APP_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\train_metro_161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ICO_DATA_ADD_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_SAVEAS_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\save_as_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_SOUND_ADD_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sound_add_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICO_SYSTEM_SETUP_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\server_configuration.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_DESIGN_CURSOR_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cursor_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -295,14 +286,8 @@
   <data name="ICO_AREA_ADD_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\layer_add_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_DECODER_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\processor_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ICO_SWITCHBOARD_DELETE_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\table_delete_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ICO_AREA_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\layer_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_SAVE_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\diskette.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -313,17 +298,14 @@
   <data name="ICO_APP" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\app.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_DATA_ADD_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ICO_PRINT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\printer_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_MODE_FLASH_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\signal_flash_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_EDIT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\edit_button_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ICO_DEVICE_ACC_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\drive_bulb_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ICO_DEVICE_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\drive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_DECODER_ADD_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\processor_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -334,14 +316,23 @@
   <data name="ICO_CONNECTION_OFF_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\disconnect_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ICO_SYSTEMS_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\servers_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICO_AREA_EDIT_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\layer_edit_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ICO_ACTION_ADD_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cog_add_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICO_ELEMENT_ROTATE_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shape_rotate_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_MODE_CONTINUOUS_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\signal_continuous_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_DEVICE_FOLDER_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\drive_folder_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ICO_MODULE_TESTER_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\control_panel_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_ROUTE_DELETE_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow_switch_delete_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -355,11 +346,14 @@
   <data name="ICO_MODULE_ROUTES_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\train_route_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_ELEMENT_RIGHT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrow_right_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ICO_SYSTEM_CONNECT_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\server_connect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_DECODER_PROGRAM_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\compile_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICO_DECODER_DELETE_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\processor_delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_DEVICE_ADD_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\drive_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -373,8 +367,17 @@
   <data name="ICO_APP_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\folder_processor_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_THEME_SELECT_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\table_heatmap_check_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ICO_EMERGENCY_RESUME_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\control_play_blue_321.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICO_MODULE_TESTER_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\control_panel_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICO_SYSTEM_DISCONNECT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\server_delete_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICO_SYSTEM_CONNECT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\server_connect_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_AREA_FOLDER_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\layers_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -382,20 +385,23 @@
   <data name="ICO_DATA_EDIT_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pencil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ICO_THEME_SELECT_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\table_heatmap_check_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICO_TESTER_WHITE_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tester_white_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ICO_BLOCK_GO_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\zone_go_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_SOUND_PLAY_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\control_play_blue_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ICO_AREA_EDIT_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\layer_edit_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ICO_ROUTE_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrow_switch_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ICO_EXCLAMATION_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exclamation_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_ROUTE_ADD_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow_switch_add_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICO_CLOSE_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cross_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_SOUND_EDIT_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sound_edit_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -403,11 +409,11 @@
   <data name="ICO_SOUND_FOLDER_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sound_folder_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_DEVICE_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\drive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ICO_TESTER_RED_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tester_red_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_SAVE_CLOSE_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\disk_close_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ICO_EXCLAMATION_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exclamation.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_AREA_DELETE_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\layer_delete_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -415,11 +421,8 @@
   <data name="ICO_ROUTE_EDIT_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow_switch_edit_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_ELEMENT_ROTATE_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\shape_rotate_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ICO_CONNECTION_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\connect_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ICO_DEVICE_FOLDER_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\drive_folder_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_PRINT_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\printer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -433,11 +436,14 @@
   <data name="ICO_MODULE_DEVICE_MANAGER_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\folder_drive_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_ACTION_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cog_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ICO_BLOCK_CLEAR_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\zone_clear_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICO_SYSTEMS_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\servers.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICO_SOUND_FOLDER_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sound_folder_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -448,13 +454,10 @@
   <data name="ICO_ROUTE_EDIT_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow_switch_edit_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICO_THEME_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\table_heatmap_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ICO_SWITCHBOARD_DELETE_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\table_delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1__16_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1__16_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="arrow_right_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow_right_161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

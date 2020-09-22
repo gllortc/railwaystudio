@@ -154,7 +154,7 @@ namespace Rwm.Studio.Plugins.Collection.Controls
          {
             this.ImageList = new ImageList();
             this.ImageList.Images.Add(Collection.Properties.Resources.ICO_ADMIN_OFF_16);
-            this.ImageList.Images.Add(Collection.Properties.Resources.ICO_ADMIN_16);
+            this.ImageList.Images.Add(Company.SmallIcon);
             this.Properties.SmallImages = this.ImageList;
          }
 

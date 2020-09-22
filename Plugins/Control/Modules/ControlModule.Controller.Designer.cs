@@ -3,13 +3,12 @@ using System.Windows.Forms;
 using DevExpress.XtraTab;
 using Rwm.Otc;
 using Rwm.Otc.Layout;
-using Rwm.Otc.Layout.Traffic;
 using Rwm.Otc.Systems;
 using Rwm.Otc.Systems.Protocol;
 using Rwm.Otc.UI;
 using Rwm.Otc.UI.Controls;
 using Rwm.Studio.Plugins.Common;
-using Rwm.Studio.Plugins.Control.Views;
+using Rwm.Studio.Plugins.Common.Views;
 
 namespace Rwm.Studio.Plugins.Control.Modules
 {
@@ -21,12 +20,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
       /// <summary>
       /// Gets the current digital command system.
       /// </summary>
-      public IDigitalSystem DigitalSystem { get; private set; }
-
-      /// <summary>
-      /// Gets the traffic manager used to guide train routes.
-      /// </summary>
-      public TrafficManager TrafficManager { get; private set; }
+      public DigitalSystem DigitalSystem { get; private set; }
 
       #endregion
 
@@ -38,15 +32,15 @@ namespace Rwm.Studio.Plugins.Control.Modules
       internal void SystemsManage()
       {
          // Unregister project events
-         OTCContext.Project.DigitalSystem.OnInformationReceived -= DigitalSystem_OnInformationReceived;
-         OTCContext.Project.DigitalSystem.OnCommandReceived -= DigitalSystem_OnCommandReceived;
+         OTCContext.Project.DigitalSystem.InformationReceived -= DigitalSystem_OnInformationReceived;
+         OTCContext.Project.DigitalSystem.CommandReceived -= DigitalSystem_OnCommandReceived;
 
          SystemManagerView form = new SystemManagerView();
          form.ShowDialog(this);
 
          // Register project events
-         OTCContext.Project.DigitalSystem.OnInformationReceived += DigitalSystem_OnInformationReceived;
-         OTCContext.Project.DigitalSystem.OnCommandReceived += DigitalSystem_OnCommandReceived;
+         OTCContext.Project.DigitalSystem.InformationReceived += DigitalSystem_OnInformationReceived;
+         OTCContext.Project.DigitalSystem.CommandReceived += DigitalSystem_OnCommandReceived;
 
          // Refresh the current digital system
          this.RefreshStatus();
@@ -80,7 +74,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
       {
          Cursor.Current = Cursors.WaitCursor;
 
-         OTCContext.Project.TrafficManager?.Reset();
+         OTCContext.Project.TrafficManager?.Stop();
          OTCContext.Project.DigitalSystem?.Disconnect();
 
          this.RefreshStatus();
@@ -129,11 +123,11 @@ namespace Rwm.Studio.Plugins.Control.Modules
 
          // Show theme information
          bbtnThemesManage.Caption = (OTCContext.Project.Theme == null ? "[No theme]" : OTCContext.Project.Theme.Name);
-         bbtnThemesManage.Glyph = (OTCContext.Project.Theme == null ? Control.Properties.Resources.ICO_THEME_UNSELECTED_16 : Control.Properties.Resources.ICO_THEME_16);
+         bbtnThemesManage.Glyph = (OTCContext.Project.Theme == null ? Control.Properties.Resources.ICO_THEME_UNSELECTED_16 : Otc.Utils.Icons.Theme16);
 
          // Show system information
          bbtnSystemsManage.Caption = (OTCContext.Project.DigitalSystem == null ? "[No system]" : OTCContext.Project.DigitalSystem.Name);
-         bbtnSystemsManage.Glyph = (OTCContext.Project.DigitalSystem == null ? Control.Properties.Resources.ICO_SYSTEM_DISCONNECT_16 : Control.Properties.Resources.ICO_SYSTEM_16);
+         bbtnSystemsManage.Glyph = (OTCContext.Project.DigitalSystem == null ? Control.Properties.Resources.ICO_SYSTEM_DISCONNECT_16 : DigitalSystem.SmallIcon);
 
          // Update system controls
          cmdSystemSettings.Enabled = (OTCContext.Project.DigitalSystem != null);
@@ -292,7 +286,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
             tabPanel.Name = "tabPanel" + panel.ID;
             tabPanel.Padding = new System.Windows.Forms.Padding(5);
             tabPanel.Text = panel.Name;
-            tabPanel.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_PANEL_16;
+            tabPanel.Image = Switchboard.SmallIcon;
             tabPanel.Tag = panel;
             tabPanel.Controls.Add(spcPanel);
          }
@@ -338,9 +332,6 @@ namespace Rwm.Studio.Plugins.Control.Modules
                {
                   element.SetFeedbackStatus(status.Active);
                   StudioContext.LogInformation("Accessory {0:D4}:{1} changed to status {2}", command.Address, status.PointAddress, (status.Active ? "HIGH" : "LOW"));
-
-                  // Inform traffic manager
-                  OTCContext.Project.TrafficManager.FeedbackReceived(status, element);
                }
             }
          }

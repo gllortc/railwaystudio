@@ -20,7 +20,7 @@ namespace Rwm.Studio.Plugins.Designer
 
       public override System.Drawing.Image SmallIcon
       {
-         get { return Properties.Resources.ICO_APP_16; }
+         get { return Otc.Trains.Train.SmallIcon; }
       }
 
       public override System.Drawing.Image LargeIcon

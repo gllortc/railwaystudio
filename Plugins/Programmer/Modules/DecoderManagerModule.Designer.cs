@@ -112,7 +112,7 @@
          // 
          this.cmdAccessoryDecoderAdd.Caption = "Generic accessory decoder";
          this.cmdAccessoryDecoderAdd.Id = 43;
-         this.cmdAccessoryDecoderAdd.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_DEVICE_ACC_16;
+         this.cmdAccessoryDecoderAdd.ImageOptions.Image = Otc.Layout.AccessoryDecoder.SmallIcon;
          this.cmdAccessoryDecoderAdd.Name = "cmdAccessoryDecoderAdd";
          this.cmdAccessoryDecoderAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdAccessoryDecoderAdd_ItemClick);
          // 
@@ -128,7 +128,7 @@
          // 
          this.cmdDeviceAddGenericFb.Caption = "Generic feedbacl encoder";
          this.cmdDeviceAddGenericFb.Id = 28;
-         this.cmdDeviceAddGenericFb.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_DEVICE_FB_16;
+         this.cmdDeviceAddGenericFb.ImageOptions.Image = Otc.Layout.FeedbackEncoder.SmallIcon;
          this.cmdDeviceAddGenericFb.Name = "cmdDeviceAddGenericFb";
          this.cmdDeviceAddGenericFb.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdDeviceAddGenericFb_ItemClick);
          // 
@@ -158,8 +158,8 @@
          this.cmdViewByArea.Caption = "Group by area";
          this.cmdViewByArea.GroupIndex = 1;
          this.cmdViewByArea.Id = 33;
-         this.cmdViewByArea.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_AREA_16;
-         this.cmdViewByArea.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_AREA_32;
+         this.cmdViewByArea.ImageOptions.Image = Otc.Layout.Section.SmallIcon;
+         this.cmdViewByArea.ImageOptions.LargeImage = Otc.Layout.Section.LargeIcon;
          this.cmdViewByArea.Name = "cmdViewByArea";
          this.cmdViewByArea.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
          this.cmdViewByArea.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdViewByArea_CheckedChanged);

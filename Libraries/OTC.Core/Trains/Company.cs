@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using Rwm.Otc.Data;
+﻿using Rwm.Otc.Data;
 
 namespace Rwm.Otc.Trains
 {
@@ -55,7 +54,23 @@ namespace Rwm.Otc.Trains
       /// Gets or sets la imagen correspondiente al logotipo (imagen) de la administración.
       /// </summary>
       [ORMProperty("LOGOIMAGE")]
-      public Image LogoImage { get; set; } = null;
+      public System.Drawing.Image LogoImage { get; set; } = null;
+
+      /// <summary>
+      /// Gets the associated small icon (16x16px).
+      /// </summary>
+      public static System.Drawing.Image SmallIcon
+      {
+         get { return Properties.Resources.ICO_COMPANY_16; }
+      }
+
+      /// <summary>
+      /// Gets the associated large icon (32x32px).
+      /// </summary>
+      public static System.Drawing.Image LargeIcon
+      {
+         get { return Properties.Resources.ICO_COMPANY_32; }
+      }
 
       #endregion
 

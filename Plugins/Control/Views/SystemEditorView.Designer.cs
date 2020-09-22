@@ -96,7 +96,7 @@
          // 
          this.tabSystemGeneral.Controls.Add(this.grpDriver);
          this.tabSystemGeneral.Controls.Add(this.groupControl1);
-         this.tabSystemGeneral.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_16;
+         this.tabSystemGeneral.Image = Otc.Systems.DigitalSystem.SmallIcon;
          this.tabSystemGeneral.Name = "tabSystemGeneral";
          this.tabSystemGeneral.Padding = new System.Windows.Forms.Padding(10);
          this.tabSystemGeneral.Size = new System.Drawing.Size(349, 274);

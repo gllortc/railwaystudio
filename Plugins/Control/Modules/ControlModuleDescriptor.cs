@@ -36,7 +36,7 @@ namespace Rwm.Studio.Plugins.Control.Modules
       /// </summary>
       public Image LargeIcon
       {
-         get { return Properties.Resources.ICO_APP_32; }
+         get { return Properties.Resources.ICO_MODULE_CONTROL_32; }
       }
 
       /// <summary>

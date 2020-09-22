@@ -153,8 +153,8 @@ namespace Rwm.Studio.Plugins.Common.Controls
          if (this.Properties.SmallImages == null)
          {
             this.ImageList = new ImageList();
-            this.ImageList.Images.Add(Common.Properties.Resources.ICO_SECTION_GLOBAL_16);
-            this.ImageList.Images.Add(Common.Properties.Resources.ICO_SECTION_16);
+            this.ImageList.Images.Add(Section.GlobalSmallIcon);
+            this.ImageList.Images.Add(Section.SmallIcon);
             this.Properties.SmallImages = this.ImageList;
          }
 

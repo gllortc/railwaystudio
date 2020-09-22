@@ -193,9 +193,39 @@ namespace Rwm.Otc.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ICO_ACCESSORY_DECODER_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_ACCESSORY_DECODER_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_ACCESSORY_DECODER_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_ACCESSORY_DECODER_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ICO_ACTION_16 {
             get {
                 object obj = ResourceManager.GetObject("ICO_ACTION_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_ACTION_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_ACTION_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -216,6 +246,66 @@ namespace Rwm.Otc.Properties {
         internal static System.Drawing.Bitmap ICO_BLOCK_UNKNOWN_32 {
             get {
                 object obj = ResourceManager.GetObject("ICO_BLOCK_UNKNOWN_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_COMPANY_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_COMPANY_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_COMPANY_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_COMPANY_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_CONNECTION_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_CONNECTION_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_CONNECTION_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_CONNECTION_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_DECODER_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_DECODER_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_DECODER_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_DECODER_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -401,6 +491,36 @@ namespace Rwm.Otc.Properties {
         }
         
         /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_FEEDBACK_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_FEEDBACK_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_FEEDBACK_ENCODER_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_FEEDBACK_ENCODER_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_FEEDBACK_ENCODER_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_FEEDBACK_ENCODER_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
         /// </summary>
         internal static System.Drawing.Icon ICO_FORMS {
@@ -413,9 +533,9 @@ namespace Rwm.Otc.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ICO_MODULE_ACC_16 {
+        internal static System.Drawing.Bitmap ICO_ITINERARY_16 {
             get {
-                object obj = ResourceManager.GetObject("ICO_MODULE_ACC_16", resourceCulture);
+                object obj = ResourceManager.GetObject("ICO_ITINERARY_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -423,9 +543,29 @@ namespace Rwm.Otc.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ICO_MODULE_SENSOR_16 {
+        internal static System.Drawing.Bitmap ICO_ITINERARY_32 {
             get {
-                object obj = ResourceManager.GetObject("ICO_MODULE_SENSOR_16", resourceCulture);
+                object obj = ResourceManager.GetObject("ICO_ITINERARY_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_MANUFACTURER_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_MANUFACTURER_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_MANUFACTURER_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_MANUFACTURER_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -443,9 +583,39 @@ namespace Rwm.Otc.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ICO_PROJECT_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_PROJECT_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_PROJECT_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_PROJECT_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ICO_ROUTE_16 {
             get {
                 object obj = ResourceManager.GetObject("ICO_ROUTE_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_ROUTE_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_ROUTE_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -463,9 +633,149 @@ namespace Rwm.Otc.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ICO_SECTION_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_SECTION_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_SECTION_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_SECTION_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_SECTION_GLOBAL_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_SECTION_GLOBAL_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ICO_SOUND_16 {
             get {
                 object obj = ResourceManager.GetObject("ICO_SOUND_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_SOUND_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_SOUND_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_STORE_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_STORE_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_STORE_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_STORE_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_SWITCHBOARD_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_SWITCHBOARD_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_SWITCHBOARD_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_SWITCHBOARD_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_SYSTEM_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_SYSTEM_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_SYSTEM_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_SYSTEM_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_THEME_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_THEME_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_THEME_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_THEME_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_TRAIN_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_TRAIN_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_TRAIN_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_TRAIN_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

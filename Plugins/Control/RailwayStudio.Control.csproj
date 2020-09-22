@@ -170,12 +170,6 @@
     <Compile Include="Views\SystemEditorView.Designer.cs">
       <DependentUpon>SystemEditorView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\SystemManagerView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\SystemManagerView.Designer.cs">
-      <DependentUpon>SystemManagerView.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Controls\TrafficControl.resx">
       <DependentUpon>TrafficControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,9 +199,6 @@
     <EmbeddedResource Include="Views\SystemEditorView.resx">
       <DependentUpon>SystemEditorView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\SystemManagerView.resx">
-      <DependentUpon>SystemManagerView.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -221,6 +212,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\tester_white_16.png" />
+    <None Include="Resources\tester_red_16.png" />
+    <None Include="Resources\lightning_16.png" />
     <None Include="Resources\timeline.png" />
     <None Include="Resources\timeline_16.png" />
     <None Include="Resources\train_edit_16.png" />
@@ -283,7 +277,6 @@
     <None Include="Resources\sound_add_32.png" />
     <None Include="Resources\sound_folder_32.png" />
     <None Include="Resources\sound_folder_16.png" />
-    <None Include="Resources\lightning_16.png" />
     <None Include="Resources\lightbulb.png" />
     <None Include="Resources\server_property.png" />
     <None Include="Resources\server.png" />
@@ -391,6 +384,10 @@
     <None Include="Resources\cog_delete_161.png" />
     <None Include="Resources\cog_delete1.png" />
     <None Include="Resources\cog_edit_161.png" />
+    <None Include="Resources\control_pause_blue_16.png" />
+    <None Include="Resources\control_stop_blue_16.png" />
+    <None Include="Resources\control_panel_16.png" />
+    <None Include="Resources\control_panel_32.png" />
     <Content Include="Resources\favicon.ico" />
     <None Include="Resources\processor_error_16.png" />
     <None Include="Resources\processor_edit_16.png" />

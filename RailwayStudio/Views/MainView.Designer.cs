@@ -237,8 +237,8 @@
          this.cmdBarButtonProject.Caption = "<no project>";
          this.cmdBarButtonProject.Hint = "Project properties";
          this.cmdBarButtonProject.Id = 6;
-         this.cmdBarButtonProject.ImageOptions.Image = global::Rwm.Studio.Properties.Resources.ICO_PROJECT_16;
-         this.cmdBarButtonProject.ImageOptions.LargeImage = global::Rwm.Studio.Properties.Resources.ICO_PROJECT_16;
+         this.cmdBarButtonProject.ImageOptions.Image = Otc.Project.SmallIcon;
+         this.cmdBarButtonProject.ImageOptions.LargeImage = Otc.Project.SmallIcon;
          this.cmdBarButtonProject.Name = "cmdBarButtonProject";
          this.cmdBarButtonProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdProjectEdit_ItemClick);
          // 

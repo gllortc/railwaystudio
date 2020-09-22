@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using Rwm.Otc.Data;
 using Rwm.Otc.Diagnostics;
 
@@ -97,7 +96,7 @@ namespace Rwm.Otc.Layout
       /// <summary>
       /// Gets an icon associated to the type of action.
       /// </summary>
-      public Image Icon
+      public System.Drawing.Image Icon
       {
          get
          {
@@ -110,6 +109,22 @@ namespace Rwm.Otc.Layout
                default: return Rwm.Otc.Properties.Resources.ICO_PROHIBITED_16;
             }
          }
+      }
+
+      /// <summary>
+      /// Gets the associated small icon (16x16px).
+      /// </summary>
+      public static System.Drawing.Image SmallIcon
+      {
+         get { return Properties.Resources.ICO_ACTION_16; }
+      }
+
+      /// <summary>
+      /// Gets the associated large icon (32x32px).
+      /// </summary>
+      public static System.Drawing.Image LargeIcon
+      {
+         get { return Properties.Resources.ICO_ACTION_32; }
       }
 
       #endregion

@@ -81,7 +81,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
 
       private void GrdDataView_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
       {
-         StudioContext.UI.DrawRowIcon(Properties.Resources.ICO_ROUTE_16, e);
+         StudioContext.UI.DrawRowIcon(Otc.Layout.Route.SmallIcon, e);
       }
 
       private void GrdData_DoubleClick(object sender, System.EventArgs e)

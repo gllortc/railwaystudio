@@ -218,7 +218,7 @@
          // tabDecoderAcc
          // 
          this.tabDecoderAcc.Controls.Add(this.grdAcc);
-         this.tabDecoderAcc.Image = Properties.Resources.ICO_DEVICE_ACC_16;
+         this.tabDecoderAcc.Image = Otc.Layout.AccessoryDecoder.SmallIcon;
          this.tabDecoderAcc.Name = "tabDecoderAcc";
          this.tabDecoderAcc.Size = new System.Drawing.Size(531, 340);
          this.tabDecoderAcc.Text = "Accessory decoders";
@@ -226,7 +226,7 @@
          // tabDecoderFb
          // 
          this.tabDecoderFb.Controls.Add(this.grdFb);
-         this.tabDecoderFb.Image = Properties.Resources.ICO_DEVICE_FB_16;
+         this.tabDecoderFb.Image = Otc.Layout.FeedbackEncoder.SmallIcon;
          this.tabDecoderFb.Name = "tabDecoderFb";
          this.tabDecoderFb.Size = new System.Drawing.Size(531, 340);
          this.tabDecoderFb.Text = "Feedback encoders";

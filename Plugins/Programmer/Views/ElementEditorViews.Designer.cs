@@ -225,7 +225,7 @@
          // tabAccessoryConnections
          // 
          this.tabAccessoryConnections.Controls.Add(this.eccAccessoryConnections);
-         this.tabAccessoryConnections.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_DEVICE_ACC_16;
+         this.tabAccessoryConnections.Image = Otc.Layout.AccessoryDecoder.SmallIcon;
          this.tabAccessoryConnections.Name = "tabAccessoryConnections";
          this.tabAccessoryConnections.Padding = new System.Windows.Forms.Padding(10);
          this.tabAccessoryConnections.Size = new System.Drawing.Size(441, 370);
@@ -242,7 +242,7 @@
          // tabFeedbackConnections
          // 
          this.tabFeedbackConnections.Controls.Add(this.fccFeedbackConnections);
-         this.tabFeedbackConnections.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_DEVICE_FB_16;
+         this.tabFeedbackConnections.Image = Otc.Layout.FeedbackEncoder.SmallIcon;
          this.tabFeedbackConnections.Name = "tabFeedbackConnections";
          this.tabFeedbackConnections.Padding = new System.Windows.Forms.Padding(10);
          this.tabFeedbackConnections.Size = new System.Drawing.Size(441, 370);
@@ -259,7 +259,7 @@
          // tabBlockActions
          // 
          this.tabBlockActions.Controls.Add(this.amcActions);
-         this.tabBlockActions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_ACTION_16;
+         this.tabBlockActions.Image = Otc.Layout.ElementAction.SmallIcon;
          this.tabBlockActions.Name = "tabBlockActions";
          this.tabBlockActions.Padding = new System.Windows.Forms.Padding(10);
          this.tabBlockActions.Size = new System.Drawing.Size(441, 370);

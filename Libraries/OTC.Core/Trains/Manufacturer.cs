@@ -38,6 +38,22 @@ namespace Rwm.Otc.Trains
       [ORMProperty("WEB")]
       public string URL { get; set; } = string.Empty;
 
+      /// <summary>
+      /// Gets the associated small icon (16x16px).
+      /// </summary>
+      public static System.Drawing.Image SmallIcon
+      {
+         get { return Properties.Resources.ICO_MANUFACTURER_16; }
+      }
+
+      /// <summary>
+      /// Gets the associated large icon (32x32px).
+      /// </summary>
+      public static System.Drawing.Image LargeIcon
+      {
+         get { return Properties.Resources.ICO_MANUFACTURER_32; }
+      }
+
       #endregion
 
    }

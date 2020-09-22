@@ -83,6 +83,27 @@ namespace Rwm.Otc.Layout
          get { return "-"; }
       }
 
+      /// <summary>
+      /// Gets the associated small icon (16x16px).
+      /// </summary>
+      public static System.Drawing.Image SmallIcon
+      {
+         get { return Properties.Resources.ICO_SECTION_16; }
+      }
+
+      /// <summary>
+      /// Gets the associated large icon (32x32px).
+      /// </summary>
+      public static System.Drawing.Image LargeIcon
+      {
+         get { return Properties.Resources.ICO_SECTION_32; }
+      }
+
+      public static System.Drawing.Image GlobalSmallIcon
+      {
+         get { return Properties.Resources.ICO_SECTION_GLOBAL_16; }
+      }
+
       #endregion
 
       #region Methods

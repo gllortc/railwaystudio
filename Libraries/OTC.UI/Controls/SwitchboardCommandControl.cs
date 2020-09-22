@@ -283,7 +283,7 @@ namespace Rwm.Otc.UI.Controls
             this.BlockMenu.Items.Add("&Unassign train (remove)", Properties.Resources.ICO_BLOCK_CLEAR_16, new EventHandler(CmdBlockUnassign_ItemClick));
             this.BlockMenu.Items.Add("Set &destination", Properties.Resources.ICO_BLOCK_GO_16);
             this.BlockMenu.Items.Add("-");
-            this.BlockMenu.Items.Add("Activate &sensor", Properties.Resources.ICO_SENSORS_16, new EventHandler(CmdBlockSensorActivated_ItemClick));
+            this.BlockMenu.Items.Add("Activate &sensor", FeedbackEncoderInput.SmallIcon, new EventHandler(CmdBlockSensorActivated_ItemClick));
          }
       }
 

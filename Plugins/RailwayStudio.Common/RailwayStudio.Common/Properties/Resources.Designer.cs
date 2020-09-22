@@ -113,16 +113,6 @@ namespace Rwm.Studio.Plugins.Common.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ICO_MANUFACTURER_16 {
-            get {
-                object obj = ResourceManager.GetObject("ICO_MANUFACTURER_16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap ICO_MANUFACTURER_OFF_16 {
             get {
                 object obj = ResourceManager.GetObject("ICO_MANUFACTURER_OFF_16", resourceCulture);
@@ -213,39 +203,49 @@ namespace Rwm.Studio.Plugins.Common.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ICO_SECTION_16 {
-            get {
-                object obj = ResourceManager.GetObject("ICO_SECTION_16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ICO_SECTION_GLOBAL_16 {
-            get {
-                object obj = ResourceManager.GetObject("ICO_SECTION_GLOBAL_16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ICO_STORE_16 {
-            get {
-                object obj = ResourceManager.GetObject("ICO_STORE_16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap ICO_STORE_OFF_16 {
             get {
                 object obj = ResourceManager.GetObject("ICO_STORE_OFF_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_SYSTEM_REFRESH_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_SYSTEM_REFRESH_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_SYSTEM_SELECT_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_SYSTEM_SELECT_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_SYSTEM_SELECT_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_SYSTEM_SELECT_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_SYSTEM_SETUP_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_SYSTEM_SETUP_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -266,26 +266,6 @@ namespace Rwm.Studio.Plugins.Common.Properties {
         internal static System.Drawing.Bitmap ICO_TEXTEDITOR_32 {
             get {
                 object obj = ResourceManager.GetObject("ICO_TEXTEDITOR_32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ICO_THEME_16 {
-            get {
-                object obj = ResourceManager.GetObject("ICO_THEME_16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ICO_THEME_32 {
-            get {
-                object obj = ResourceManager.GetObject("ICO_THEME_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -5,30 +5,30 @@ using Rwm.Otc.Utils;
 namespace Rwm.Otc.Systems
 {
 
-   #region Enumerations
+   //#region Enumerations
 
-   /// <summary>
-   /// Contains all system statuses.
-   /// </summary>
-   public enum SystemStatus : int
-   {
-      Disconnected = 0,
-      Connecting = 1,
-      Connected = 2
-   }
+   ///// <summary>
+   ///// Contains all system statuses.
+   ///// </summary>
+   //public enum SystemStatus : int
+   //{
+   //   Disconnected = 0,
+   //   Connecting = 1,
+   //   Connected = 2
+   //}
 
-   /// <summary>
-   /// Contains all feedback statuses.
-   /// </summary>
-   public enum FeedbackStatus : int
-   {
-      /// <summary>Accessory control module.</summary>
-      Deactivated = 0,
-      /// <summary>Accessory control module.</summary>
-      Activated = 1
-   }
+   ///// <summary>
+   ///// Contains all feedback statuses.
+   ///// </summary>
+   //public enum FeedbackStatus : int
+   //{
+   //   /// <summary>Accessory control module.</summary>
+   //   Deactivated = 0,
+   //   /// <summary>Accessory control module.</summary>
+   //   Activated = 1
+   //}
 
-   #endregion
+   //#endregion
 
    /// <summary>
    /// Interface implementable by all digital systems.

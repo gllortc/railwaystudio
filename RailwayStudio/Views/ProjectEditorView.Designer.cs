@@ -93,7 +93,7 @@
          this.tabPluginGeneral.Controls.Add(this.txtVersion);
          this.tabPluginGeneral.Controls.Add(this.lblName);
          this.tabPluginGeneral.Controls.Add(this.txtName);
-         this.tabPluginGeneral.Image = global::Rwm.Studio.Properties.Resources.ICO_PROJECT_16;
+         this.tabPluginGeneral.Image = Otc.Project.SmallIcon;
          this.tabPluginGeneral.Name = "tabPluginGeneral";
          this.tabPluginGeneral.Padding = new System.Windows.Forms.Padding(15);
          this.tabPluginGeneral.Size = new System.Drawing.Size(397, 374);

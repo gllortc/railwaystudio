@@ -27,7 +27,7 @@ namespace Rwm.Studio.Plugins.Common.Views
          ITheme theme = grdThemesView.GetRow(e.RowHandle) as ITheme;
 
          if (theme == null || !theme.ID.Equals(OTCContext.Project.Theme.ID))
-            StudioContext.UI.DrawRowIcon(Properties.Resources.ICO_THEME_16, e);
+            StudioContext.UI.DrawRowIcon(Otc.Utils.Icons.Theme16, e);
          else
             StudioContext.UI.DrawRowIcon(Properties.Resources.ICO_THEME_SELECT_16, e);
       }

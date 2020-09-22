@@ -45,6 +45,22 @@ namespace Rwm.Otc.Layout
       [ORMProperty("INDEX")]
       public int ElementPinIndex { get; set; } = 0;
 
+      /// <summary>
+      /// Gets the associated small icon (16x16px).
+      /// </summary>
+      public static System.Drawing.Image SmallIcon
+      {
+         get { return Properties.Resources.ICO_CONNECTION_16; }
+      }
+
+      /// <summary>
+      /// Gets the associated large icon (32x32px).
+      /// </summary>
+      public static System.Drawing.Image LargeIcon
+      {
+         get { return Properties.Resources.ICO_CONNECTION_32; }
+      }
+
       #endregion
 
       #region Methods

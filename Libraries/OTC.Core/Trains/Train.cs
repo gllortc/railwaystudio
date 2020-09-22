@@ -477,10 +477,21 @@ namespace Rwm.Otc.Trains
       [ORMProperty("modaxisdisp")]
       public string WheelDisposition { get; set; }
 
-      ///// <summary>
-      ///// Gets or sets la lista de archivos adjuntos al modelo.
-      ///// </summary>
-      //public List<ModelFileAttachment> Attachments { get; set; }
+      /// <summary>
+      /// Gets the associated small icon (16x16px).
+      /// </summary>
+      public static System.Drawing.Image SmallIcon
+      {
+         get { return Properties.Resources.ICO_TRAIN_16; }
+      }
+
+      /// <summary>
+      /// Gets the associated large icon (32x32px).
+      /// </summary>
+      public static System.Drawing.Image LargeIcon
+      {
+         get { return Properties.Resources.ICO_TRAIN_32; }
+      }
 
       #endregion
 

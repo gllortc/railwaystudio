@@ -156,19 +156,50 @@ namespace Rwm.Studio.Plugins.Designer.Modules
 
       internal void PrintDigitalReport()
       {
-         // Generate the report
-         DigitalReport rpt = new DigitalReport();
-         rpt.CreateDocument();
+         try
+         {
+            // Generate the report
+            DigitalReport rpt = new DigitalReport();
+            rpt.CreateDocument();
 
-         // Generate the cover
-         CoverReport cover = new CoverReport(rpt.DisplayName);
-         cover.CreateDocument();
+            // Generate the cover
+            CoverReport cover = new CoverReport(rpt.DisplayName);
+            cover.CreateDocument();
 
-         // Merge the documents
-         rpt.Pages.Insert(0, cover.Pages[0]);
+            // Merge the documents
+            rpt.Pages.Insert(0, cover.Pages[0]);
 
-         // Open the document into the repport viewer plug-in
-         StudioContext.OpenPluginModule(PluginManager.PLUGIN_REPORTVIEWER, rpt);
+            // Open the document into the repport viewer plug-in
+            StudioContext.OpenPluginModule(PluginManager.PLUGIN_REPORTVIEWER, rpt);
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+         }
+      }
+
+      internal void PrintDigitalReportBySections()
+      {
+         try
+         {
+            // Generate the report
+            DigitalReportBySections rpt = new DigitalReportBySections();
+            rpt.CreateDocument();
+
+            // Generate the cover
+            CoverReport cover = new CoverReport(rpt.DisplayName);
+            cover.CreateDocument();
+
+            // Merge the documents
+            rpt.Pages.Insert(0, cover.Pages[0]);
+
+            // Open the document into the repport viewer plug-in
+            StudioContext.OpenPluginModule(PluginManager.PLUGIN_REPORTVIEWER, rpt);
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+         }
       }
 
       /// <summary>
@@ -305,7 +336,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
             tabPanel.Name = "tabPanel" + panel.ID;
             tabPanel.Padding = new Padding(5);
             tabPanel.Text = panel.Name;
-            tabPanel.Image = Properties.Resources.ICO_SWITCHBOARD_16;
+            tabPanel.Image = Switchboard.SmallIcon;
             tabPanel.Tag = panel;
             tabPanel.Controls.Add(spcPanel);
          }

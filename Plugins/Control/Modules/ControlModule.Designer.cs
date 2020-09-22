@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControlModule));
          this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
          this.cmdSystemSettings = new DevExpress.XtraBars.BarButtonItem();
@@ -36,22 +35,20 @@
          this.chkOptionsManualSensorAllowed = new DevExpress.XtraBars.BarCheckItem();
          this.chkOptionsExecuteActions = new DevExpress.XtraBars.BarCheckItem();
          this.cmdCtrlEmergencyStop = new DevExpress.XtraBars.BarButtonItem();
-         this.cmdUtilsDigitalAddressCalculator = new DevExpress.XtraBars.BarButtonItem();
          this.cmdSystemDisconnect = new DevExpress.XtraBars.BarButtonItem();
          this.cmdSystemConnect = new DevExpress.XtraBars.BarButtonItem();
          this.cmdCtrlResumeOps = new DevExpress.XtraBars.BarButtonItem();
          this.bbtnSystemsManage = new DevExpress.XtraBars.BarButtonItem();
          this.bbtnThemesManage = new DevExpress.XtraBars.BarButtonItem();
-         this.cmdControlTraffic = new DevExpress.XtraBars.BarCheckItem();
+         this.cmdCtrlTraffic = new DevExpress.XtraBars.BarCheckItem();
          this.rptControl = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.rpgSystem = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.rpgControl = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.rpgUtils = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
          this.pnlContainer = new DevExpress.XtraEditors.PanelControl();
          this.tabPanels = new DevExpress.XtraTab.XtraTabControl();
          this.tabPanel1 = new DevExpress.XtraTab.XtraTabPage();
-         this.dockManager = new DevExpress.XtraBars.Docking.DockManager(this.components);
+         this.dockManager = new DevExpress.XtraBars.Docking.DockManager();
          this.hideContainerRight = new DevExpress.XtraBars.Docking.AutoHideContainer();
          this.dockPanelRoutes = new DevExpress.XtraBars.Docking.DockPanel();
          this.dockPanelsContainer = new DevExpress.XtraBars.Docking.ControlContainer();
@@ -87,13 +84,12 @@
             this.chkOptionsManualSensorAllowed,
             this.chkOptionsExecuteActions,
             this.cmdCtrlEmergencyStop,
-            this.cmdUtilsDigitalAddressCalculator,
             this.cmdSystemDisconnect,
             this.cmdSystemConnect,
             this.cmdCtrlResumeOps,
             this.bbtnSystemsManage,
             this.bbtnThemesManage,
-            this.cmdControlTraffic});
+            this.cmdCtrlTraffic});
          this.ribbonControl.Location = new System.Drawing.Point(0, 0);
          this.ribbonControl.MaxItemId = 25;
          this.ribbonControl.Name = "ribbonControl";
@@ -147,16 +143,6 @@
          this.cmdCtrlEmergencyStop.Name = "cmdCtrlEmergencyStop";
          this.cmdCtrlEmergencyStop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdCtrlEmergencyStop_ItemClick);
          // 
-         // cmdUtilsDigitalAddressCalculator
-         // 
-         this.cmdUtilsDigitalAddressCalculator.Caption = "Digital address calculator";
-         this.cmdUtilsDigitalAddressCalculator.Id = 17;
-         this.cmdUtilsDigitalAddressCalculator.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_CALCULATOR_16;
-         this.cmdUtilsDigitalAddressCalculator.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_CALCULATOR_32;
-         this.cmdUtilsDigitalAddressCalculator.Name = "cmdUtilsDigitalAddressCalculator";
-         this.cmdUtilsDigitalAddressCalculator.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
-         this.cmdUtilsDigitalAddressCalculator.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdUtilsDigitalAddressCalculator_ItemClick);
-         // 
          // cmdSystemDisconnect
          // 
          this.cmdSystemDisconnect.Caption = "Disconnect";
@@ -190,7 +176,7 @@
          // 
          this.bbtnSystemsManage.Caption = "<no system>";
          this.bbtnSystemsManage.Id = 22;
-         this.bbtnSystemsManage.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_SYSTEM_16;
+         this.bbtnSystemsManage.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbtnSystemsManage.ImageOptions.Image")));
          this.bbtnSystemsManage.Name = "bbtnSystemsManage";
          this.bbtnSystemsManage.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdSystemManage_ItemClick);
          // 
@@ -198,25 +184,24 @@
          // 
          this.bbtnThemesManage.Caption = "<no theme>";
          this.bbtnThemesManage.Id = 23;
-         this.bbtnThemesManage.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_THEME_16;
+         this.bbtnThemesManage.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbtnThemesManage.ImageOptions.Image")));
          this.bbtnThemesManage.Name = "bbtnThemesManage";
          this.bbtnThemesManage.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BbtnThemesManage_ItemClick);
          // 
-         // cmdControlTraffic
+         // cmdCtrlTraffic
          // 
-         this.cmdControlTraffic.Caption = "Auto-traffic";
-         this.cmdControlTraffic.Id = 24;
-         this.cmdControlTraffic.ImageOptions.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_TRAFFIC_16;
-         this.cmdControlTraffic.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_TRAFFIC_32;
-         this.cmdControlTraffic.Name = "cmdControlTraffic";
-         this.cmdControlTraffic.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdCtrlTraffic_CheckedChanged);
+         this.cmdCtrlTraffic.Caption = "Auto-traffic";
+         this.cmdCtrlTraffic.Id = 24;
+         this.cmdCtrlTraffic.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdCtrlTraffic.ImageOptions.Image")));
+         this.cmdCtrlTraffic.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("cmdCtrlTraffic.ImageOptions.LargeImage")));
+         this.cmdCtrlTraffic.Name = "cmdCtrlTraffic";
+         this.cmdCtrlTraffic.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdCtrlTraffic_CheckedChanged);
          // 
          // rptControl
          // 
          this.rptControl.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpgSystem,
-            this.rpgControl,
-            this.rpgUtils});
+            this.rpgControl});
          this.rptControl.Name = "rptControl";
          this.rptControl.Text = "Control";
          // 
@@ -235,19 +220,12 @@
          this.rpgControl.Enabled = false;
          this.rpgControl.ItemLinks.Add(this.cmdCtrlEmergencyStop);
          this.rpgControl.ItemLinks.Add(this.cmdCtrlResumeOps);
-         this.rpgControl.ItemLinks.Add(this.cmdControlTraffic, true);
+         this.rpgControl.ItemLinks.Add(this.cmdCtrlTraffic, true);
          this.rpgControl.ItemLinks.Add(this.chkOptionsManualSensorAllowed);
          this.rpgControl.ItemLinks.Add(this.chkOptionsExecuteActions);
          this.rpgControl.Name = "rpgControl";
          this.rpgControl.ShowCaptionButton = false;
          this.rpgControl.Text = "Control";
-         // 
-         // rpgUtils
-         // 
-         this.rpgUtils.ItemLinks.Add(this.cmdUtilsDigitalAddressCalculator);
-         this.rpgUtils.Name = "rpgUtils";
-         this.rpgUtils.ShowCaptionButton = false;
-         this.rpgUtils.Text = "Tools";
          // 
          // ribbonStatusBar
          // 
@@ -320,7 +298,7 @@
          this.dockPanelRoutes.Controls.Add(this.dockPanelsContainer);
          this.dockPanelRoutes.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
          this.dockPanelRoutes.ID = new System.Guid("d7730765-2068-42f9-90cd-5cdd0afaff72");
-         this.dockPanelRoutes.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_ROUTE_16;
+         this.dockPanelRoutes.Image = ((System.Drawing.Image)(resources.GetObject("dockPanelRoutes.Image")));
          this.dockPanelRoutes.Location = new System.Drawing.Point(0, 0);
          this.dockPanelRoutes.Name = "dockPanelRoutes";
          this.dockPanelRoutes.OriginalSize = new System.Drawing.Size(200, 200);
@@ -352,7 +330,7 @@
          this.dockPanelTrains.Controls.Add(this.controlContainer1);
          this.dockPanelTrains.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
          this.dockPanelTrains.ID = new System.Guid("8316fd95-f956-4c38-a22d-76c29a432a48");
-         this.dockPanelTrains.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_TRAIN_16;
+         this.dockPanelTrains.Image = Otc.Trains.Train.SmallIcon;
          this.dockPanelTrains.Location = new System.Drawing.Point(0, 0);
          this.dockPanelTrains.Name = "dockPanelTrains";
          this.dockPanelTrains.OriginalSize = new System.Drawing.Size(200, 200);
@@ -383,7 +361,7 @@
          this.dockPanelTraffic.Controls.Add(this.controlContainer2);
          this.dockPanelTraffic.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
          this.dockPanelTraffic.ID = new System.Guid("39e9ef60-e2c0-43c2-a01e-c4c026ae8d93");
-         this.dockPanelTraffic.Image = global::Rwm.Studio.Plugins.Control.Properties.Resources.ICO_TRAFFIC_16;
+         this.dockPanelTraffic.Image = ((System.Drawing.Image)(resources.GetObject("dockPanelTraffic.Image")));
          this.dockPanelTraffic.Location = new System.Drawing.Point(0, 0);
          this.dockPanelTraffic.Name = "dockPanelTraffic";
          this.dockPanelTraffic.OriginalSize = new System.Drawing.Size(200, 200);
@@ -457,8 +435,6 @@
       private DevExpress.XtraBars.BarCheckItem chkOptionsManualSensorAllowed;
       private DevExpress.XtraBars.BarCheckItem chkOptionsExecuteActions;
       private DevExpress.XtraBars.BarButtonItem cmdCtrlEmergencyStop;
-      private DevExpress.XtraBars.BarButtonItem cmdUtilsDigitalAddressCalculator;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgUtils;
       private DevExpress.XtraBars.BarButtonItem cmdSystemDisconnect;
       private DevExpress.XtraBars.BarButtonItem cmdSystemConnect;
       private DevExpress.XtraBars.BarButtonItem cmdCtrlResumeOps;
@@ -475,7 +451,7 @@
       private DevExpress.XtraBars.Docking.DockPanel dockPanelTraffic;
       private DevExpress.XtraBars.Docking.ControlContainer controlContainer2;
       private Controls.TrafficControl trafficControl;
-      private DevExpress.XtraBars.BarCheckItem cmdControlTraffic;
+      private DevExpress.XtraBars.BarCheckItem cmdCtrlTraffic;
    }
 }
 

@@ -24,7 +24,7 @@ namespace Rwm.Studio.Plugins.Designer.Views
 
       private void GrdAreasView_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
       {
-         StudioContext.UI.DrawRowIcon(Properties.Resources.ICO_AREA_16, e);
+         StudioContext.UI.DrawRowIcon(Section.SmallIcon, e);
       }
 
       private void CmdAreaAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

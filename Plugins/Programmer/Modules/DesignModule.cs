@@ -92,6 +92,11 @@ namespace Rwm.Studio.Plugins.Designer.Modules
          this.PrintDigitalReport();
       }
 
+      private void CmdPrintDigitalReportBySection_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      {
+         this.PrintDigitalReportBySections();
+      }
+
       private void ChkBlockPointer_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          chkBlockPointer.Checked = true;
@@ -169,7 +174,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
          this.ManageLayoutAreas();
       }
 
-      private void cmdResourcesDecoders_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      private void CmdResourcesDecoders_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          this.ManageDecoders();
       }

@@ -1,5 +1,4 @@
-﻿using System;
-using Rwm.Otc.Diagnostics;
+﻿using Rwm.Otc.Diagnostics;
 using Rwm.Otc.Layout;
 using Rwm.Otc.Utils;
 
@@ -8,7 +7,7 @@ namespace Rwm.Otc.Systems.Dummy
    /// <summary>
    /// Implementation of a dummy digital system.
    /// </summary>
-   public class DummySystem : IDigitalSystem
+   public class DummySystem : DigitalSystem
    {
 
       #region Constants
@@ -41,7 +40,7 @@ namespace Rwm.Otc.Systems.Dummy
       /// <summary>
       /// Gets the system unique identifier (GUID).
       /// </summary>
-      public string ID
+      public override string ID
       {
          get { return DummySystem.SYSTEM_GUID; }
       }
@@ -49,7 +48,7 @@ namespace Rwm.Otc.Systems.Dummy
       /// <summary>
       /// Gets the name of the system.
       /// </summary>
-      public string Name
+      public override string Name
       {
          get { return "Test Digital System"; }
       }
@@ -57,7 +56,7 @@ namespace Rwm.Otc.Systems.Dummy
       /// <summary>
       /// Gets a brief description of the system.
       /// </summary>
-      public string Description
+      public override string Description
       {
          get { return "Dummy system to test layout without any connection."; }
       }
@@ -65,30 +64,25 @@ namespace Rwm.Otc.Systems.Dummy
       /// <summary>
       /// Gets the current implementation version.
       /// </summary>
-      public string Version
+      public override string Version
       {
          get { return ReflectionUtils.GetAssemblyVersion(this.GetType()); }
       }
 
       /// <summary>
-      /// Gets the status of the system.
-      /// </summary>
-      public SystemStatus Status { get; private set; }
-
-      /// <summary>
       /// Gets the valid accessory address range.
       /// </summary>
-      public Range AccessoryAddressRange { get; } = new Range(1, 1024);
+      public override Range AccessoryAddressRange { get; } = new Range(1, 1024);
 
       /// <summary>
       /// Gets the valid feedback address range.
       /// </summary>
-      public Range FeedbackAddressRange { get; } = new Range(1, 128);
+      public override Range FeedbackAddressRange { get; } = new Range(1, 128);
 
       /// <summary>
       /// Gets the number of associated outputs by sensor address.
       /// </summary>
-      public int PointAddressesByFeedbackAddress
+      public override int PointAddressesByFeedbackAddress
       {
          get { return DummySystem.SENSOR_OUTPUTS_ADDRESS; }
       }
@@ -100,31 +94,17 @@ namespace Rwm.Otc.Systems.Dummy
 
       #endregion
 
-      #region Events
-
-      /// <summary>
-      /// Event raised when any operation is requested or received by the digital system.
-      /// </summary>
-      public event EventHandler<SystemConsoleEventArgs> OnInformationReceived;
-
-      /// <summary>
-      /// Event raised when any operation is requested or received by the digital system.
-      /// </summary>
-      public event EventHandler<SystemCommandEventArgs> OnCommandReceived;
-
-      #endregion
-
       #region Methods
 
-      public bool Connect()
+      public override bool Connect()
       {
          Logger.LogDebug(this, "[CLASS].Connect()");
 
          this.Status = SystemStatus.Connecting;
 
-         this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs("{0} connected", this.Name));
-         this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Warning,
-                                                                             "System is not connected to any physical system and must be used for testing purposes only"));
+         base.OnInformationReceived(new SystemConsoleEventArgs("{0} connected", this.Name));
+         this.OnInformationReceived(new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Warning,
+                                                               "System is not connected to any physical system and must be used for testing purposes only"));
 
          this.Status = SystemStatus.Connected;
 
@@ -136,11 +116,11 @@ namespace Rwm.Otc.Systems.Dummy
       /// <summary>
       /// Disconnect the digital system and release all resources.
       /// </summary>
-      public bool Disconnect()
+      public override bool Disconnect()
       {
          Logger.LogDebug(this, "[CLASS].Disconnect()");
 
-         this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs("Digital system disconnected"));
+         this.OnInformationReceived(new SystemConsoleEventArgs("Digital system disconnected"));
 
          this.Status = SystemStatus.Disconnected;
 
@@ -153,16 +133,17 @@ namespace Rwm.Otc.Systems.Dummy
       /// Get the digital system information.
       /// </summary>
       /// <returns>A <see cref="System.String"/> containing information about the digital system.</returns>
-      public void SystemInformation()
+      public override void SystemInformation()
       {
          Logger.LogDebug(this, "[CLASS].SystemInformation()");
 
          DummySystemInformation command = new DummySystemInformation();
 
-         this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Warning,
-                                                                             "{0} ver. {1}", command.SystemName, command.SystemVersion));
+         this.OnInformationReceived(new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Warning,
+                                                               "{0} ver. {1}", 
+                                                               command.SystemName, command.SystemVersion));
 
-         this.OnCommandReceived?.Invoke(this, new SystemCommandEventArgs(command));
+         this.OnCommandReceived(new SystemCommandEventArgs(command));
 
          System.Windows.Forms.Application.DoEvents();
       }
@@ -170,14 +151,14 @@ namespace Rwm.Otc.Systems.Dummy
       /// <summary>
       /// Request power off the layout.
       /// </summary>
-      public void EmergencyOff()
+      public override void EmergencyOff()
       {
          Logger.LogDebug(this, "[CLASS].EmergencyOff()");
 
          this.EmergencyStopEnabled = true;
 
          DummyEmergencyOff command = new DummyEmergencyOff();
-         this.OnCommandReceived?.Invoke(this, new SystemCommandEventArgs(command));
+         this.OnCommandReceived(new SystemCommandEventArgs(command));
 
          System.Windows.Forms.Application.DoEvents();
       }
@@ -185,14 +166,14 @@ namespace Rwm.Otc.Systems.Dummy
       /// <summary>
       /// Request stopping all locomotives.
       /// </summary>
-      public void EmergencyStop()
+      public override void EmergencyStop()
       {
          Logger.LogDebug(this, "[CLASS].EmergencyStop()");
          
          this.EmergencyStopEnabled = true;
 
          DummyEmergencyStop command = new DummyEmergencyStop();
-         this.OnCommandReceived?.Invoke(this, new SystemCommandEventArgs(command));
+         this.OnCommandReceived(new SystemCommandEventArgs(command));
 
          System.Windows.Forms.Application.DoEvents();
       }
@@ -200,14 +181,14 @@ namespace Rwm.Otc.Systems.Dummy
       /// <summary>
       /// Request cancelling emergency off/stop and go to normal operation status.
       /// </summary>
-      public void ResumeOperations()
+      public override void ResumeOperations()
       {
          Logger.LogDebug(this, "[CLASS].ResumeOperations()");
 
          this.EmergencyStopEnabled = false;
 
          DummyResumeOperations command = new DummyResumeOperations();
-         this.OnCommandReceived?.Invoke(this, new SystemCommandEventArgs(command));
+         this.OnCommandReceived(new SystemCommandEventArgs(command));
 
          System.Windows.Forms.Application.DoEvents();
       }
@@ -217,14 +198,14 @@ namespace Rwm.Otc.Systems.Dummy
       /// </summary>
       /// <param name="address">Accessory address.</param>
       /// <param name="activatePin">Pin to activate (1/2).</param>
-      public void OperateAccessory(int address, int activatePin)
+      public override void OperateAccessory(int address, int activatePin)
       {
          Logger.LogDebug(this, "[CLASS].ResumeOperations(#{0:D4}, {1})", address, activatePin);
 
          this.EmergencyStopEnabled = false;
 
          DummyAccessoryOperation command = new DummyAccessoryOperation(address, activatePin);
-         this.OnCommandReceived?.Invoke(this, new SystemCommandEventArgs(command));
+         this.OnCommandReceived(new SystemCommandEventArgs(command));
 
          System.Windows.Forms.Application.DoEvents();
       }
@@ -234,7 +215,7 @@ namespace Rwm.Otc.Systems.Dummy
       /// </summary>
       /// <param name="address">Accessory address.</param>
       /// <returns>An instance of <see cref="AccessoryInformation"/> filled with the information requested, otherwise returns <c>null</c>.</returns>
-      public void GetAccessoryStatus(int address)
+      public override void GetAccessoryStatus(int address)
       {
          
       }
@@ -244,12 +225,12 @@ namespace Rwm.Otc.Systems.Dummy
       /// </summary>
       /// <param name="address">DecoderInput address.</param>
       /// <param name="status">Value to set.</param>
-      public void SetAccessoryStatus(int address, bool turned, bool activate)
+      public override void SetAccessoryStatus(int address, bool turned, bool activate)
       {
          Logger.LogDebug(this, "[CLASS].SetAccessoryStatus(#{0:D4}, {1}, {2})", address, turned, activate);
 
          DummyEmergencyStop command = new DummyEmergencyStop();
-         this.OnCommandReceived?.Invoke(this, new SystemCommandEventArgs(command));
+         this.OnCommandReceived(new SystemCommandEventArgs(command));
 
          System.Windows.Forms.Application.DoEvents();
       }
@@ -259,14 +240,15 @@ namespace Rwm.Otc.Systems.Dummy
       /// </summary>
       /// <param name="element">Affected element.</param>
       /// <param name="status">Status.</param>
-      public void SetSensorStatus(Element element, FeedbackStatus status)
+      public override void SetSensorStatus(Element element, FeedbackStatus status)
       {
          Logger.LogDebug(this, "[CLASS].SetSensorStatus([{0}], {1})", element, status);
 
          if (element.AccessoryConnections?.Count <= 0)
          {
-            this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Warning,
-                                                                                "Feedback sensor {0} not connected: command discarded", element));
+            this.OnInformationReceived(new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Warning,
+                                                                  "Feedback sensor {0} not connected: command discarded", 
+                                                                  element));
             return;
          }
 
@@ -275,16 +257,16 @@ namespace Rwm.Otc.Systems.Dummy
             if (connection != null)
             {
                // Execute the command to set the accessory
-               this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Information,
-                                                                                   "SetSensorStatus: {0:0000} → T:{1}",
-                                                                                   connection.EncoderInput.Address,
-                                                                                   status));
+               this.OnInformationReceived(new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Information,
+                                                                     "SetSensorStatus: {0:0000} → T:{1}",
+                                                                     connection.EncoderInput.Address,
+                                                                     status));
             }
             else
             {
-               this.OnInformationReceived?.Invoke(this, new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Warning,
-                                                                                   "Sensor {0:0000} not connected: signal discarded",
-                                                                                   element.ToString()));
+               this.OnInformationReceived(new SystemConsoleEventArgs(SystemConsoleEventArgs.MessageType.Warning,
+                                                                     "Sensor {0:0000} not connected: signal discarded",
+                                                                     element.ToString()));
             }
          }
 
@@ -295,7 +277,7 @@ namespace Rwm.Otc.Systems.Dummy
       /// Show the configuration dialogue of the implemented system.
       /// </summary>
       /// <rereturns>A value indicating if the user has been changed the settings or not.</rereturns>
-      public System.Windows.Forms.DialogResult ShowSettingsDialog()
+      public override System.Windows.Forms.DialogResult ShowSettingsDialog()
       {
          Logger.LogDebug(this, "[CLASS].ShowSettingsDialog()");
 
@@ -309,7 +291,17 @@ namespace Rwm.Otc.Systems.Dummy
 
       #endregion
 
-      #region Event Handlers
+      #region Events
+
+      protected override void OnInformationReceived(SystemConsoleEventArgs e)
+      {
+         base.OnInformationReceived(e);
+      }
+
+      protected override void OnCommandReceived(SystemCommandEventArgs e)
+      {
+         base.OnCommandReceived(e);
+      }
 
       #endregion
 

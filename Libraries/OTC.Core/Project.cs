@@ -76,7 +76,7 @@ namespace Rwm.Otc
       /// <summary>
       /// Gets the active digital system.
       /// </summary>
-      public IDigitalSystem DigitalSystem { get; private set; }
+      public DigitalSystem DigitalSystem { get; private set; }
 
       /// <summary>
       /// Gets the manager for the themes.
@@ -222,6 +222,16 @@ namespace Rwm.Otc
       {
          get { return OTCContext.Settings.GetBoolean(Project.SETTING_KEY_SENSOR_MANUAL, true); }
          set { OTCContext.Settings.AddSetting(Project.SETTING_KEY_SENSOR_MANUAL, value); }
+      }
+
+      public static System.Drawing.Image SmallIcon
+      {
+         get { return Properties.Resources.ICO_PROJECT_16; }
+      }
+
+      public static System.Drawing.Image LargeIcon
+      {
+         get { return Properties.Resources.ICO_PROJECT_32; }
       }
 
       #endregion

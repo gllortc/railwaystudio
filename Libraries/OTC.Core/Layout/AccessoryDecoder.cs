@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Drawing;
 using Rwm.Otc.Data;
 using Rwm.Otc.Diagnostics;
 using Rwm.Otc.Trains;
@@ -92,11 +91,19 @@ namespace Rwm.Otc.Layout
       public List<AccessoryDecoderOutput> Outputs { get; set; } = new List<AccessoryDecoderOutput>();
 
       /// <summary>
-      /// Gets the associated icon.
+      /// Gets the associated small icon (16x16px).
       /// </summary>
-      public Image Icon
+      public static System.Drawing.Image SmallIcon
       {
-         get { return Properties.Resources.ICO_MODULE_ACC_16; }
+         get { return Properties.Resources.ICO_ACCESSORY_DECODER_16; }
+      }
+
+      /// <summary>
+      /// Gets the associated large icon (32x32px).
+      /// </summary>
+      public static System.Drawing.Image LargeIcon
+      {
+         get { return Properties.Resources.ICO_ACCESSORY_DECODER_32; }
       }
 
       #endregion
@@ -128,7 +135,7 @@ namespace Rwm.Otc.Layout
       /// <returns>An instance of <see cref="DataTable"/> filled with the requested data.</returns>
       public static DataSet FindByConnection()
       {
-         string sql = string.Empty;
+         string sql;
          DataSet ds = new DataSet();
 
          Logger.LogDebug("Rwm.Otc.Layout.AccessoryDecoder.FindByConnection()");
@@ -180,8 +187,7 @@ namespace Rwm.Otc.Layout
          catch (Exception ex)
          {
             Logger.LogError(ex);
-
-            throw;
+            throw ex;
          }
          finally
          {
@@ -195,7 +201,7 @@ namespace Rwm.Otc.Layout
       /// <returns>An instance of <see cref="DataTable"/> filled with the requested data.</returns>
       public static DataSet FindBySwitchboard(int switchboardId)
       {
-         string sql = string.Empty;
+         string sql;
          DataSet ds = new DataSet();
 
          Logger.LogDebug("Rwm.Otc.Layout.Device.FindBySwitchboard(" + switchboardId + ")");
@@ -238,8 +244,80 @@ namespace Rwm.Otc.Layout
          catch (Exception ex)
          {
             Logger.LogError(ex);
+            throw ex;
+         }
+         finally
+         {
+            Disconnect();
+         }
+      }
 
-            throw;
+      /// <summary>
+      /// Get all decoders information organized by section.
+      /// </summary>
+      /// <returns>An instance of <see cref="DataSet"/> filled with the requested data.</returns>
+      public static DataSet FindBySection()
+      {
+         string sql;
+         DataSet ds = new DataSet();
+
+         Logger.LogDebug("Rwm.Otc.Layout.Device.FindBySection()");
+
+         try
+         {
+            Connect();
+
+            sql = @"SELECT 
+                        s.id    as ""ID"",
+                        s.name  as ""Name""
+                    FROM 
+                        " + Section.TableName + @" s
+                    ORDER BY 
+                        s.name  Asc";
+
+            ds.Tables.Add(AccessoryDecoder.ExecuteDataTable(sql));
+            ds.Tables[0].TableName = Section.TableName;
+
+            sql = @"SELECT 
+                       s.id                      as ""SectionID"",
+                       --s.name                    as ""Section"",
+                       ad.name                   as ""Name"", 
+                       m.name || ' ' || ad.model as ""Decoder"",
+                       ado.""INDEX""             as ""Output"",
+                       ado.ADDRESS               as ""Address"",
+                       CASE
+                          WHEN(e.name <> '') THEN e.name
+                          ELSE('X:' || (e.x + 1) || ' Y:' || (e.y + 1))
+                       END as ""ConnectTo""
+                    FROM
+                        " + Section.TableName + @" s
+                        Inner Join " + AccessoryDecoder.TableName + @" ad            On (ad.SECTIONID = s.ID)
+                        Inner Join " + AccessoryDecoderOutput.TableName + @" ado     On (ado.DECODERID = ad.id)
+                        Inner Join " + AccessoryDecoderConnection.TableName + @" adc On (adc.DECODEROUTPUT = ado.ID)
+                        Left Join " + Element.TableName + @" e                       On (e.ID = adc.ELEMENTID)
+                        Left Join " + Manufacturer.TableName + @" m                  On (ad.MANUFACTURERID = m.ID)
+                    --WHERE
+                    --    s.id = @sbid
+                    ORDER BY
+                        s.name        Asc,
+                        ad.name       Asc,
+                        ado.""INDEX"" Asc";
+
+            ds.Tables.Add(AccessoryDecoder.ExecuteDataTable(sql));
+            ds.Tables[0].TableName = AccessoryDecoder.TableName;
+
+            // Create a relation to be used in reports
+            ds.Relations.Add(new DataRelation("SectionDecoder",
+                                              ds.Tables[Section.TableName].Columns["ID"],
+                                              ds.Tables[AccessoryDecoder.TableName].Columns["SECTIONID"]));
+
+
+            return ds;
+         }
+         catch (Exception ex)
+         {
+            Logger.LogError(ex);
+            throw ex;
          }
          finally
          {

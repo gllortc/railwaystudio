@@ -45,7 +45,7 @@ namespace Rwm.Studio.Plugins.Control.Controls
          if (route.IsActive)
             StudioContext.UI.DrawRowIcon(Properties.Resources.ICO_ROUTE_ACTIVE_16, e);
          else
-            StudioContext.UI.DrawRowIcon(Properties.Resources.ICO_ROUTE_16, e);
+            StudioContext.UI.DrawRowIcon(Route.SmallIcon, e);
       }
 
       private void GrdRouteView_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)

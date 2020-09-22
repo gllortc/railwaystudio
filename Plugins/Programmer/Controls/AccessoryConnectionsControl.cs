@@ -47,7 +47,7 @@ namespace Rwm.Studio.Plugins.Designer.Controls
             buttonsEdit.Buttons.Add(new DevExpress.XtraEditors.Controls.EditorButton());
             buttonsEdit.Buttons[0].Caption = "Connect";
             buttonsEdit.Buttons[0].Kind = DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph;
-            buttonsEdit.Buttons[0].ImageOptions.Image = Properties.Resources.ICO_CONNECTION_16;
+            buttonsEdit.Buttons[0].ImageOptions.Image = Otc.Layout.AccessoryDecoderConnection.SmallIcon;
             buttonsEdit.Buttons.Add(new DevExpress.XtraEditors.Controls.EditorButton());
             buttonsEdit.Buttons[1].Caption = "Disconnect";
             buttonsEdit.Buttons[1].Kind = DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph;
