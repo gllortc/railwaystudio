@@ -79,6 +79,13 @@ namespace Rwm.Studio.Plugins.Collection.Modules
 
       #region Event Handlers
 
+      private void TabModel_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
+      {
+         rpgEditClipboard.Visible = (tabModel.SelectedTabPage == tabModelMaintenance);
+         rpgEditFormat.Visible = (tabModel.SelectedTabPage == tabModelMaintenance);
+         rpgEditParagraph.Visible = (tabModel.SelectedTabPage == tabModelMaintenance);
+      }
+
       private void PicImage_EditValueChanged(object sender, EventArgs e)
       {
          this.UpdatePicture = true;
