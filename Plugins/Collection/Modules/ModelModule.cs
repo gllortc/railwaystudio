@@ -91,14 +91,14 @@ namespace Rwm.Studio.Plugins.Collection.Modules
          this.UpdatePicture = true;
       }
 
+      private void PictogramRelatedControl_SelectedIndexChanged(object sender, EventArgs e)
+      {
+         this.UpdatePictograms();
+      }
+
       private void CmdFileSave_ItemClick(object sender, ItemClickEventArgs e)
       {
          this.Save();
-      }
-
-      private void CmdProperties_Click(object sender, EventArgs e)
-      {
-         pmnProperties.ShowPopup(MousePosition);
       }
 
       #endregion

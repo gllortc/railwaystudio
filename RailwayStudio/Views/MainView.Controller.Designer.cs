@@ -92,11 +92,15 @@ namespace Rwm.Studio.Views
             return;
          }
 
+         beiProgress.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+
          await OTCContext.OpenProject(StudioContext.LastOpenedProjectFile);
          this.RefreshViewStatus();
 
          // Show information in console
          StudioContext.LogInformation("Project {0} loaded (from {1})", OTCContext.Project.Name, StudioContext.LastOpenedProjectFile);
+
+         beiProgress.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
 
          return;
       }

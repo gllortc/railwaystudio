@@ -28,10 +28,11 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Rwm.Studio.Views.SplashView), true, true);
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
          this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
-         this.applicationMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu();
+         this.applicationMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
          this.cmdFileNew = new DevExpress.XtraBars.BarButtonItem();
          this.cmdFileOpen = new DevExpress.XtraBars.BarButtonItem();
          this.cmdFileSettings = new DevExpress.XtraBars.BarButtonItem();
@@ -44,14 +45,17 @@
          this.cmdProjectEdit = new DevExpress.XtraBars.BarButtonItem();
          this.cmdProjectClose = new DevExpress.XtraBars.BarButtonItem();
          this.cmdBarButtonProject = new DevExpress.XtraBars.BarButtonItem();
+         this.beiProgress = new DevExpress.XtraBars.BarEditItem();
+         this.repoMarquee = new DevExpress.XtraEditors.Repository.RepositoryItemMarqueeProgressBar();
          this.rbpMain = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.rpgProjects = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.rpgView = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.repositoryItemImageComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
          this.riCboProjectSelect = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
-         this.imageList = new System.Windows.Forms.ImageList();
+         this.imageList = new System.Windows.Forms.ImageList(this.components);
+         this.repoProgress = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
          this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-         this.dockManager = new DevExpress.XtraBars.Docking.DockManager();
+         this.dockManager = new DevExpress.XtraBars.Docking.DockManager(this.components);
          this.hideContainerBottom = new DevExpress.XtraBars.Docking.AutoHideContainer();
          this.dockPanelConsole = new DevExpress.XtraBars.Docking.DockPanel();
          this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
@@ -59,14 +63,16 @@
          this.dockPanelToolbox = new DevExpress.XtraBars.Docking.DockPanel();
          this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
          this.nbcPlugins = new DevExpress.XtraNavBar.NavBarControl();
-         this.docManager = new DevExpress.XtraBars.Docking2010.DocumentManager();
-         this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
-         this.defaultLookAndFeel = new DevExpress.LookAndFeel.DefaultLookAndFeel();
-         this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl();
+         this.docManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
+         this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
+         this.defaultLookAndFeel = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+         this.alertControl = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
          ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.applicationMenu)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repoMarquee)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.riCboProjectSelect)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repoProgress)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.dockManager)).BeginInit();
          this.hideContainerBottom.SuspendLayout();
          this.dockPanelConsole.SuspendLayout();
@@ -99,9 +105,10 @@
             this.cmdFileNew,
             this.cmdProjectEdit,
             this.cmdProjectClose,
-            this.cmdBarButtonProject});
+            this.cmdBarButtonProject,
+            this.beiProgress});
          this.ribbon.Location = new System.Drawing.Point(0, 0);
-         this.ribbon.MaxItemId = 7;
+         this.ribbon.MaxItemId = 9;
          this.ribbon.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
          this.ribbon.Name = "ribbon";
          this.ribbon.PageHeaderItemLinks.Add(this.cmdFileAbout);
@@ -109,7 +116,9 @@
             this.rbpMain});
          this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemImageComboBox1,
-            this.riCboProjectSelect});
+            this.riCboProjectSelect,
+            this.repoProgress,
+            this.repoMarquee});
          this.ribbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
          this.ribbon.Size = new System.Drawing.Size(707, 144);
          this.ribbon.StatusBar = this.ribbonStatusBar;
@@ -237,10 +246,24 @@
          this.cmdBarButtonProject.Caption = "<no project>";
          this.cmdBarButtonProject.Hint = "Project properties";
          this.cmdBarButtonProject.Id = 6;
-         this.cmdBarButtonProject.ImageOptions.Image = Otc.Project.SmallIcon;
-         this.cmdBarButtonProject.ImageOptions.LargeImage = Otc.Project.SmallIcon;
+         this.cmdBarButtonProject.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdBarButtonProject.ImageOptions.Image")));
+         this.cmdBarButtonProject.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("cmdBarButtonProject.ImageOptions.LargeImage")));
          this.cmdBarButtonProject.Name = "cmdBarButtonProject";
          this.cmdBarButtonProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdProjectEdit_ItemClick);
+         // 
+         // beiProgress
+         // 
+         this.beiProgress.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+         this.beiProgress.Caption = "Loading last project ";
+         this.beiProgress.Edit = this.repoMarquee;
+         this.beiProgress.EditWidth = 100;
+         this.beiProgress.Id = 8;
+         this.beiProgress.Name = "beiProgress";
+         this.beiProgress.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+         // 
+         // repoMarquee
+         // 
+         this.repoMarquee.Name = "repoMarquee";
          // 
          // rbpMain
          // 
@@ -289,9 +312,14 @@
          this.imageList.ImageSize = new System.Drawing.Size(16, 16);
          this.imageList.TransparentColor = System.Drawing.Color.Transparent;
          // 
+         // repoProgress
+         // 
+         this.repoProgress.Name = "repoProgress";
+         // 
          // ribbonStatusBar
          // 
          this.ribbonStatusBar.ItemLinks.Add(this.cmdBarButtonProject);
+         this.ribbonStatusBar.ItemLinks.Add(this.beiProgress);
          this.ribbonStatusBar.Location = new System.Drawing.Point(0, 529);
          this.ribbonStatusBar.Name = "ribbonStatusBar";
          this.ribbonStatusBar.Ribbon = this.ribbon;
@@ -442,8 +470,10 @@
          this.Shown += new System.EventHandler(this.MainView_Shown);
          ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.applicationMenu)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repoMarquee)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.riCboProjectSelect)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repoProgress)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.dockManager)).EndInit();
          this.hideContainerBottom.ResumeLayout(false);
          this.dockPanelConsole.ResumeLayout(false);
@@ -493,5 +523,8 @@
         private DevExpress.XtraBars.BarButtonItem cmdProjectClose;
         private DevExpress.XtraBars.BarButtonItem cmdBarButtonProject;
         private DevExpress.XtraBars.Alerter.AlertControl alertControl;
-    }
+      private DevExpress.XtraBars.BarEditItem beiProgress;
+      private DevExpress.XtraEditors.Repository.RepositoryItemMarqueeProgressBar repoMarquee;
+      private DevExpress.XtraEditors.Repository.RepositoryItemProgressBar repoProgress;
+   }
 }

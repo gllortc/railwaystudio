@@ -47,6 +47,8 @@
          this.txtFbStartAddr = new DevExpress.XtraEditors.SpinEdit();
          this.txtFbEndAddr = new DevExpress.XtraEditors.SpinEdit();
          this.grpDigitalAcc = new DevExpress.XtraEditors.GroupControl();
+         this.tabSchema = new DevExpress.XtraTab.XtraTabPage();
+         this.picSchema = new DevExpress.XtraEditors.PictureEdit();
          ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtAccStartAddr.Properties)).BeginInit();
@@ -61,6 +63,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.txtFbEndAddr.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.grpDigitalAcc)).BeginInit();
          this.grpDigitalAcc.SuspendLayout();
+         this.tabSchema.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.picSchema.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // cmdOk
@@ -179,7 +183,8 @@
          this.tabArea.TabIndex = 201;
          this.tabArea.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabAreaGeneral,
-            this.tabAreaDigital});
+            this.tabAreaDigital,
+            this.tabSchema});
          // 
          // tabAreaGeneral
          // 
@@ -279,6 +284,26 @@
          this.grpDigitalAcc.TabIndex = 0;
          this.grpDigitalAcc.Text = "Allowed accessory address range";
          // 
+         // tabSchema
+         // 
+         this.tabSchema.Controls.Add(this.picSchema);
+         this.tabSchema.Name = "tabSchema";
+         this.tabSchema.Padding = new System.Windows.Forms.Padding(10);
+         this.tabSchema.Size = new System.Drawing.Size(516, 325);
+         this.tabSchema.Text = "Schema";
+         // 
+         // picSchema
+         // 
+         this.picSchema.Cursor = System.Windows.Forms.Cursors.Default;
+         this.picSchema.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.picSchema.Location = new System.Drawing.Point(10, 10);
+         this.picSchema.Name = "picSchema";
+         this.picSchema.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+         this.picSchema.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+         this.picSchema.Properties.ZoomAccelerationFactor = 1D;
+         this.picSchema.Size = new System.Drawing.Size(496, 305);
+         this.picSchema.TabIndex = 1;
+         // 
          // AreaEditorView
          // 
          this.AcceptButton = this.cmdOk;
@@ -315,6 +340,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.grpDigitalAcc)).EndInit();
          this.grpDigitalAcc.ResumeLayout(false);
          this.grpDigitalAcc.PerformLayout();
+         this.tabSchema.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.picSchema.Properties)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -340,5 +367,7 @@
         private DevExpress.XtraEditors.SpinEdit txtFbStartAddr;
         private DevExpress.XtraEditors.SpinEdit txtFbEndAddr;
         private DevExpress.XtraEditors.GroupControl grpDigitalAcc;
-    }
+      private DevExpress.XtraTab.XtraTabPage tabSchema;
+      private DevExpress.XtraEditors.PictureEdit picSchema;
+   }
 }

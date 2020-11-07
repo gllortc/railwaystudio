@@ -82,8 +82,8 @@
          // 
          this.cmdAreaAdd.Caption = "Add new area";
          this.cmdAreaAdd.Id = 0;
-         this.cmdAreaAdd.ImageOptions.Image = Properties.Resources.ICO_AREA_ADD_32;
-         this.cmdAreaAdd.ImageOptions.LargeImage = Properties.Resources.ICO_AREA_ADD_32;
+         this.cmdAreaAdd.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_AREA_ADD_32;
+         this.cmdAreaAdd.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_AREA_ADD_32;
          this.cmdAreaAdd.Name = "cmdAreaAdd";
          this.cmdAreaAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdAreaAdd_ItemClick);
          // 
@@ -91,8 +91,8 @@
          // 
          this.cmdAreaEdit.Caption = "Edit area";
          this.cmdAreaEdit.Id = 2;
-         this.cmdAreaEdit.ImageOptions.Image = Properties.Resources.ICO_AREA_EDIT_32;
-         this.cmdAreaEdit.ImageOptions.LargeImage = Properties.Resources.ICO_AREA_EDIT_32;
+         this.cmdAreaEdit.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_AREA_EDIT_32;
+         this.cmdAreaEdit.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_AREA_EDIT_32;
          this.cmdAreaEdit.Name = "cmdAreaEdit";
          this.cmdAreaEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdAreaEdit_ItemClick);
          // 
@@ -100,8 +100,8 @@
          // 
          this.cmdAreaDelete.Caption = "Delete area";
          this.cmdAreaDelete.Id = 3;
-         this.cmdAreaDelete.ImageOptions.Image = Properties.Resources.ICO_AREA_DELETE_32;
-         this.cmdAreaDelete.ImageOptions.LargeImage = Properties.Resources.ICO_AREA_DELETE_32;
+         this.cmdAreaDelete.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_AREA_DELETE_32;
+         this.cmdAreaDelete.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_AREA_DELETE_32;
          this.cmdAreaDelete.Name = "cmdAreaDelete";
          this.cmdAreaDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdAreaDelete_ItemClick);
          // 
@@ -171,6 +171,7 @@
          this.grdAreasView.OptionsView.ShowGroupPanel = false;
          this.grdAreasView.OptionsView.ShowIndicator = false;
          this.grdAreasView.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.GrdAreasView_CustomDrawCell);
+         this.grdAreasView.DoubleClick += new System.EventHandler(this.GrdAreasView_DoubleClick);
          // 
          // cmdClose
          // 
@@ -182,7 +183,7 @@
          this.cmdClose.Text = "Close";
          this.cmdClose.Click += new System.EventHandler(this.CmdClose_Click);
          // 
-         // SectionManagerView
+         // AreasManagerView
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -197,7 +198,7 @@
          this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
          this.MaximizeBox = false;
          this.MinimizeBox = false;
-         this.Name = "SectionManagerView";
+         this.Name = "AreasManagerView";
          this.ShowIcon = false;
          this.ShowInTaskbar = false;
          this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

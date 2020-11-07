@@ -50,6 +50,7 @@
          this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
          this.imlIcons = new System.Windows.Forms.ImageList(this.components);
          this.tlsDecoders = new DevExpress.XtraTreeList.TreeList();
+         this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
          ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.tlsDecoders)).BeginInit();
          this.SuspendLayout();
@@ -70,13 +71,14 @@
             this.cmdRefreshView,
             this.bsiElementCounter,
             this.cmdDecoderProgram,
-            this.cmdAccessoryDecoderAdd});
+            this.cmdAccessoryDecoderAdd,
+            this.barButtonItem1});
          this.ribbon.Location = new System.Drawing.Point(0, 0);
-         this.ribbon.MaxItemId = 44;
+         this.ribbon.MaxItemId = 45;
          this.ribbon.Name = "ribbon";
          this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpData});
-         this.ribbon.Size = new System.Drawing.Size(840, 144);
+         this.ribbon.Size = new System.Drawing.Size(840, 143);
          this.ribbon.StatusBar = this.ribbonStatusBar;
          // 
          // cmdDeviceEdit
@@ -105,14 +107,15 @@
          this.barLinkContainerItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.cmdAccessoryDecoderAdd),
             new DevExpress.XtraBars.LinkPersistInfo(this.cmdDeviceAddRwmAcc),
-            new DevExpress.XtraBars.LinkPersistInfo(this.cmdDeviceAddGenericFb, true)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.cmdDeviceAddGenericFb, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1, true)});
          this.barLinkContainerItem1.Name = "barLinkContainerItem1";
          // 
          // cmdAccessoryDecoderAdd
          // 
          this.cmdAccessoryDecoderAdd.Caption = "Generic accessory decoder";
          this.cmdAccessoryDecoderAdd.Id = 43;
-         this.cmdAccessoryDecoderAdd.ImageOptions.Image = Otc.Layout.AccessoryDecoder.SmallIcon;
+         this.cmdAccessoryDecoderAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdAccessoryDecoderAdd.ImageOptions.Image")));
          this.cmdAccessoryDecoderAdd.Name = "cmdAccessoryDecoderAdd";
          this.cmdAccessoryDecoderAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdAccessoryDecoderAdd_ItemClick);
          // 
@@ -128,7 +131,7 @@
          // 
          this.cmdDeviceAddGenericFb.Caption = "Generic feedbacl encoder";
          this.cmdDeviceAddGenericFb.Id = 28;
-         this.cmdDeviceAddGenericFb.ImageOptions.Image = Otc.Layout.FeedbackEncoder.SmallIcon;
+         this.cmdDeviceAddGenericFb.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdDeviceAddGenericFb.ImageOptions.Image")));
          this.cmdDeviceAddGenericFb.Name = "cmdDeviceAddGenericFb";
          this.cmdDeviceAddGenericFb.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdDeviceAddGenericFb_ItemClick);
          // 
@@ -158,8 +161,8 @@
          this.cmdViewByArea.Caption = "Group by area";
          this.cmdViewByArea.GroupIndex = 1;
          this.cmdViewByArea.Id = 33;
-         this.cmdViewByArea.ImageOptions.Image = Otc.Layout.Section.SmallIcon;
-         this.cmdViewByArea.ImageOptions.LargeImage = Otc.Layout.Section.LargeIcon;
+         this.cmdViewByArea.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdViewByArea.ImageOptions.Image")));
+         this.cmdViewByArea.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("cmdViewByArea.ImageOptions.LargeImage")));
          this.cmdViewByArea.Name = "cmdViewByArea";
          this.cmdViewByArea.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
          this.cmdViewByArea.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdViewByArea_CheckedChanged);
@@ -228,10 +231,10 @@
          // ribbonStatusBar
          // 
          this.ribbonStatusBar.ItemLinks.Add(this.bsiElementCounter);
-         this.ribbonStatusBar.Location = new System.Drawing.Point(0, 501);
+         this.ribbonStatusBar.Location = new System.Drawing.Point(0, 502);
          this.ribbonStatusBar.Name = "ribbonStatusBar";
          this.ribbonStatusBar.Ribbon = this.ribbon;
-         this.ribbonStatusBar.Size = new System.Drawing.Size(840, 32);
+         this.ribbonStatusBar.Size = new System.Drawing.Size(840, 31);
          // 
          // imlIcons
          // 
@@ -246,7 +249,7 @@
          // 
          this.tlsDecoders.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.tlsDecoders.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.tlsDecoders.Location = new System.Drawing.Point(0, 144);
+         this.tlsDecoders.Location = new System.Drawing.Point(0, 143);
          this.tlsDecoders.Name = "tlsDecoders";
          this.tlsDecoders.OptionsBehavior.Editable = false;
          this.tlsDecoders.OptionsBehavior.ReadOnly = true;
@@ -257,11 +260,18 @@
          this.tlsDecoders.OptionsView.ShowHorzLines = false;
          this.tlsDecoders.OptionsView.ShowIndicator = false;
          this.tlsDecoders.OptionsView.ShowVertLines = false;
-         this.tlsDecoders.Size = new System.Drawing.Size(840, 357);
+         this.tlsDecoders.Size = new System.Drawing.Size(840, 359);
          this.tlsDecoders.StateImageList = this.imlIcons;
          this.tlsDecoders.TabIndex = 0;
          this.tlsDecoders.Click += new System.EventHandler(this.TlsDecoders_Click);
          this.tlsDecoders.DoubleClick += new System.EventHandler(this.TlsDecoders_DoubleClick);
+         // 
+         // barButtonItem1
+         // 
+         this.barButtonItem1.Caption = "Railwaymania EasyConnect Light Effects";
+         this.barButtonItem1.Id = 44;
+         this.barButtonItem1.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_ARDUINO_16;
+         this.barButtonItem1.Name = "barButtonItem1";
          // 
          // DecoderManagerModule
          // 
@@ -304,5 +314,6 @@
       private DevExpress.XtraBars.BarStaticItem bsiElementCounter;
       private DevExpress.XtraBars.BarButtonItem cmdDecoderProgram;
       private DevExpress.XtraBars.BarButtonItem cmdAccessoryDecoderAdd;
+      private DevExpress.XtraBars.BarButtonItem barButtonItem1;
    }
 }

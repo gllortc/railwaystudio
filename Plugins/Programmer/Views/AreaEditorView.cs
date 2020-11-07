@@ -85,6 +85,7 @@ namespace Rwm.Studio.Plugins.Designer.Views
          txtAccEndAddr.Value = this.Section.AccessoryEndAddress;
          txtFbStartAddr.Value = this.Section.FeedbackStartAddress;
          txtFbEndAddr.Value = this.Section.FeedbackEndAddress;
+         picSchema.Image = this.Section.Picture;
       }
 
       private bool MapViewToModel()
@@ -123,6 +124,7 @@ namespace Rwm.Studio.Plugins.Designer.Views
          this.Section.AccessoryEndAddress = (int)txtAccEndAddr.Value;
          this.Section.FeedbackStartAddress = (int)txtFbStartAddr.Value;
          this.Section.FeedbackEndAddress = (int)txtFbEndAddr.Value;
+         this.Section.Picture = picSchema.Image;
 
          return true;
       }

@@ -25,19 +25,19 @@ namespace Rwm.Otc.Trains
       /// </summary>
       public enum Epoche : int
       {
-         [Description("Sin época definida o no aplicable")]
+         [Description("N/A")]
          NotDefined = 0,
-         [Description("Época I: desde el inicio hasta 1920")]
+         [Description("Era I (1835 to 1925)")]
          EpocheI = 1,
-         [Description("Época II: desde 1921 hasta 1950")]
+         [Description("Era II (1925 to 1945)")]
          EpocheII = 2,
-         [Description("Época III: desde 1951 hasta 1970")]
+         [Description("Era III (1945 to 1970)")]
          EpocheIII = 3,
-         [Description("Época IV: desde 1971 hasta 1990")]
+         [Description("Era IV (1970 to 1990)")]
          EpocheIV = 4,
-         [Description("Época V: desde 1991 hasta 2006")]
+         [Description("Era V (1990-2006)")]
          EpocheV = 5,
-         [Description("Época VI: desde 2007")]
+         [Description("Era VI (2006 to the present)")]
          EpocheVI = 6
       }
 
@@ -46,13 +46,13 @@ namespace Rwm.Otc.Trains
       /// </summary>
       public enum FrameType : int
       {
-         [Description("No definido o no aplicable")]
+         [Description("N/A")]
          NotDefined = 0,
-         [Description("Bastidor metálico y carcasa de plástico")]
+         [Description("Metal frame")]
          Metall_Plastic = 1,
-         [Description("Bastidor metálico y carcasa de plástico y metal")]
+         [Description("Metal frame and mostly metal body.")]
          Metall_PlasticMetall = 2,
-         [Description("bastidor y carcasa de metal")]
+         [Description("Metal frame and body")]
          AllMetall = 3
       }
 
@@ -61,27 +61,42 @@ namespace Rwm.Otc.Trains
       /// </summary>
       public enum LightFrontType : int
       {
-         [Description("Sin iluminación o no aplicable")]
-         [EnumItemImage("ICO_LIGHT_OFF")]
+         // [EnumItemImage("ICO_LIGHT_OFF")]
+
+         [Description("N/A")]
          WithoutLight = 0,
-         [Description("Iluminación fija en un sólo sentido")]
-         [EnumItemImage("ICO_LIGHT_ON")]
-         FixedFrontLights = 4,
-         [Description("Un foco según sentido de la marcha")]
-         [EnumItemImage("ICO_LIGHT_ON")]
-         OneLightDependingSense = 6,
-         [Description("Dos focos según sentido de la marcha")]
-         [EnumItemImage("ICO_LIGHT_ON")]
-         TwoLightDependingSense = 3,
-         [Description("Tres focos según sentido de la marcha")]
-         [EnumItemImage("ICO_LIGHT_ON")]
-         ThreeLightDependingSense = 1,
-         [Description("Tres focos hacia adelante y uno hacia atrás")]
-         [EnumItemImage("ICO_LIGHT_ON")]
-         ThreeLightsForwardOneFocusBack = 5,
-         [Description("Tres focos hacia adelante y dos rojos hacia atrás")]
-         [EnumItemImage("ICO_LIGHT_ON")]
-         WhiteLightsForwardRedFocusBack = 2
+         [Description("Single headlight at the front")]
+         FixedFrontLights = 1,
+         [Description("Single headlights that change over with the direction of travel")]
+         OneLightDependingSense = 2,
+         [Description("Dual headlights at the front")]
+         TwoFixedFrontLights = 3,
+         [Description("Dual headlights front and rear")]
+         TwoFixedLightsFrontAndRear = 4,
+         [Description("Dual headlights that change over with the direction of travel")]
+         TwoLightDependingSense = 5,
+         [Description("Triple headlights at the front")]
+         ThreeFixedFrontLights = 6,
+         [Description("Triple headlights front and rear")]
+         ThreeFixedFrontAndRearLights = 7,
+         [Description("Triple headlights that change over with the direction of the travel")]
+         ThreeLightDependingSense = 8,
+         [Description("Triple white headlights in front, dual lights at the rear, each change with the direction of travel")]
+         ThreeFrontAndTwoRearDependingSense = 9,
+         [Description("Four-light headlights that change over with the direction of travel")]
+         FourLightsDependingSense = 10,
+         [Description("One red marker light")]
+         OneRedLight = 11,
+         [Description("Dual red marker lights")]
+         TwoRedLights = 12,
+         [Description("Dual headlights and dual red marker lights that change over with the direction of travel")]
+         TwoWhiteLightsForwardTwoRedFocusBack = 13,
+         [Description("Triple headlights and two red marker lights that change over with the direction of travel")]
+         ThreeWhiteLightsForwardTwoRedFocusBack = 14,
+         [Description("Triple headlights and a red marker light that change over with the direction of travel")]
+         ThreeWhiteLightsForwardOneRedFocusBack = 15,
+         [Description("Triple headlights and a white marker light that change over with the direction of travel")]
+         ThreeLightsForwardOneFocusBack = 16
       }
 
       /// <summary>
@@ -89,13 +104,13 @@ namespace Rwm.Otc.Trains
       /// </summary>
       public enum LightInteriorType : int
       {
-         [Description("Sin iluminación interior o no aplicable")]
+         [Description("Without interior lighting")]
          [EnumItemImage("ICO_LIGHT_OFF")]
          WithoutLight = 0,
-         [Description("Iluminación interior")]
+         [Description("Interior lighting")]
          [EnumItemImage("ICO_LIGHT_ON")]
          NormalLight = 1,
-         [Description("Iluminación interior LED")]
+         [Description("LED interior lighting")]
          [EnumItemImage("ICO_LIGHT_ON")]
          LedLight = 2
       }
@@ -116,9 +131,9 @@ namespace Rwm.Otc.Trains
       /// </summary>
       public enum InteriorEquipmentType : int
       {
-         [Description("Sin decoración interior o no aplicable")]
+         [Description("Without interior details")]
          WithoutDecoration = 0,
-         [Description("Modelo con decoración interior")]
+         [Description("Built-in interior details")]
          WithDecoration = 1
       }
 
@@ -491,6 +506,77 @@ namespace Rwm.Otc.Trains
       public static System.Drawing.Image LargeIcon
       {
          get { return Properties.Resources.ICO_TRAIN_32; }
+      }
+
+      /// <summary>
+      /// Gets a string that represents the pictograms for the current model.
+      /// </summary>
+      /// <remarks>It should be used with <strong>Maerklin Piktos</strong> truetype font.</remarks>
+      public string Pictograms 
+      {
+         get
+         {
+            string picto = string.Empty;
+
+            if (this.IsLimited) picto += "!";
+
+            switch (this.Era)
+            {
+               case Epoche.EpocheI: picto += "1"; break;
+               case Epoche.EpocheII: picto += "2"; break;
+               case Epoche.EpocheIII: picto += "3"; break;
+               case Epoche.EpocheIV: picto += "4"; break;
+               case Epoche.EpocheV: picto += "5"; break;
+               case Epoche.EpocheVI: picto += "8"; break;
+               default: break;
+            }
+
+            if (this.DigitalDecoder != null) picto += "b";
+            if (this.HaveSound) picto += "h";
+
+            switch (this.LightFront)
+            {
+               case LightFrontType.FixedFrontLights: picto += "A"; break;
+               case LightFrontType.OneLightDependingSense: picto += "B"; break;
+               case LightFrontType.TwoFixedFrontLights: picto += "C"; break;
+               case LightFrontType.TwoFixedLightsFrontAndRear: picto += "D"; break;
+               case LightFrontType.TwoLightDependingSense: picto += "E"; break;
+               case LightFrontType.ThreeFixedFrontLights: picto += "F"; break;
+               case LightFrontType.ThreeFixedFrontAndRearLights: picto += "G"; break;
+               case LightFrontType.ThreeLightDependingSense: picto += "H"; break;
+               case LightFrontType.ThreeFrontAndTwoRearDependingSense: picto += "I"; break;
+               case LightFrontType.FourLightsDependingSense: picto += "J"; break;
+               case LightFrontType.OneRedLight: picto += "K"; break;
+               case LightFrontType.TwoRedLights: picto += "L"; break;
+               case LightFrontType.TwoWhiteLightsForwardTwoRedFocusBack: picto += "M"; break;
+               case LightFrontType.ThreeWhiteLightsForwardTwoRedFocusBack: picto += "N"; break;
+               case LightFrontType.ThreeWhiteLightsForwardOneRedFocusBack: picto += "O"; break;
+               case LightFrontType.ThreeLightsForwardOneFocusBack: picto += "P"; break;
+               default: break;
+            }
+
+            switch (this.LightInterior)
+            {
+               case LightInteriorType.NormalLight: picto += "k"; break;
+               case LightInteriorType.LedLight: picto += "+"; break;
+               default: break;
+            }
+
+            switch (this.InteriorEquipment)
+            {
+               case InteriorEquipmentType.WithDecoration: picto += "j"; break;
+               default: break;
+            }
+
+            switch (this.CouplersType)
+            {
+               case CouplerTypes.StandardCouplersNEMPocket: picto += "T"; break;
+               case CouplerTypes.CloseCouplersNEMPocket: picto += "U"; break;
+               default: break;
+            }
+
+            return picto;
+         }
       }
 
       #endregion

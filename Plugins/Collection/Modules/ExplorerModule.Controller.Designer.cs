@@ -5,10 +5,12 @@ using DevExpress.XtraTreeList.Columns;
 using DevExpress.XtraTreeList.Nodes;
 using Rwm.Otc.Data;
 using Rwm.Otc.Trains;
+using Rwm.Studio.Plugins.Collection.Model;
 using Rwm.Studio.Plugins.Collection.Reports;
 using Rwm.Studio.Plugins.Collection.Views;
 using Rwm.Studio.Plugins.Common;
 using Rwm.Studio.Plugins.Common.Reports;
+using static Rwm.Otc.Trains.Train;
 
 namespace Rwm.Studio.Plugins.Collection.Modules
 {
@@ -23,7 +25,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
          Manufacturers = 0,
          Stores = 1,
          Gauges = 2,
-         Administrations = 3,
+         RailwayCompanies = 3,
          Decoders = 4,
          Categories = 5
       }
@@ -71,7 +73,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
                   formDecoder.ShowDialog();
                   break;
 
-               case FileType.Administrations:
+               case FileType.RailwayCompanies:
                   AdministrationEditorView formAdmin = new AdministrationEditorView();
                   formAdmin.ShowDialog();
                   break;
@@ -154,7 +156,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
                   }
                   break;
 
-               case FileType.Administrations:
+               case FileType.RailwayCompanies:
                   Company admin = Company.Get(row.ID);
                   if (admin != null)
                   {
@@ -222,7 +224,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
                   TrainDecoder.Delete(row.ID);
                   break;
 
-               case FileType.Administrations:
+               case FileType.RailwayCompanies:
                   Company.Delete(row.ID);
                   break;
 
@@ -285,7 +287,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
             {
                return;
             }
-            else if (tlsFolders.Selection[0].Tag.GetType() == typeof(FileType))
+            else if (tlsFolders.Selection[0].Tag?.GetType() == typeof(FileType))
             {
                this.CurrentFileType = (FileType)tlsFolders.Selection[0].Tag;
 
@@ -326,7 +328,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
                      grdData.DataSource = Rwm.Otc.Trains.Gauge.FindAll();
                      break;
 
-                  case FileType.Administrations:
+                  case FileType.RailwayCompanies:
                      grdDataView.OptionsBehavior.AutoPopulateColumns = false;
                      grdDataView.Columns.Add(new GridColumn() { Caption = "ID", Visible = false, FieldName = "ID" });
                      grdDataView.Columns.Add(new GridColumn() { Caption = "Name", Visible = true, FieldName = "Name", Width = 250 });
@@ -343,18 +345,24 @@ namespace Rwm.Studio.Plugins.Collection.Modules
                      break;
                }
             }
-            else if (tlsFolders.Selection[0].Tag.GetType() == typeof(Category))
+            else if (tlsFolders.Selection[0].Tag?.GetType() == typeof(Category))
             {
                this.CurrentCategory = (Category)tlsFolders.Selection[0].Tag;
 
                grdDataView.RowHeight = 35;
                grdDataView.OptionsBehavior.AutoPopulateColumns = false;
                grdDataView.Columns.Add(new GridColumn() { Caption = "ID", Visible = false, FieldName = "ID" });
-               grdDataView.Columns.Add(new GridColumn() { Caption = "Image", Visible = true, FieldName = "Picture", Width = 120 });
+               grdDataView.Columns.Add(new GridColumn() { Caption = "Image", Visible = true, FieldName = "Picture", Width = 130 });
                grdDataView.Columns.Add(new GridColumn() { Caption = "Name", Visible = true, FieldName = "Name", Width = 150 });
+               grdDataView.Columns.Add(new GridColumn() { Caption = "Company", Visible = true, FieldName = "Company.Name", Width = 220 });
                grdDataView.Columns.Add(new GridColumn() { Caption = "Manufacturer", Visible = true, FieldName = "Manufacturer.Name", Width = 120 });
-               grdDataView.Columns.Add(new GridColumn() { Caption = "Art.No.", Visible = true, FieldName = "Reference", Width = 50 });
-               grdDataView.Columns.Add(new GridColumn() { Caption = "Qty.", Visible = true, FieldName = "Units", Width = 40 });
+               grdDataView.Columns.Add(new GridColumn() { Caption = "Art.No.", Visible = true, FieldName = "Reference", Width = 100 });
+               grdDataView.Columns.Add(new GridColumn() { Caption = "Units", Visible = true, FieldName = "Units", Width = 50 });
+               grdDataView.Columns.Add(new GridColumn() { Caption = "Properties", Visible = true, FieldName = "Pictograms", Width = 200 });
+
+               grdDataView.Columns[6].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+               grdDataView.Columns[6].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+               grdDataView.Columns[7].AppearanceCell.Font = new System.Drawing.Font("Maerklin Piktos", 20);
 
                if (this.CurrentCategory.ID > 0)
                   grdData.DataSource = Train.FindBy("Category", this.CurrentCategory);
@@ -382,6 +390,45 @@ namespace Rwm.Studio.Plugins.Collection.Modules
       #endregion
 
       #region Private Members
+
+      private Folder CreateFolders()
+      {
+         Folder root = new Folder("Collection");
+         Folder collection = root.AddFolder("Models", true);
+
+         foreach (Category cat in Category.FindAll())
+            collection.AddFolder(cat.Name, false, true, cat);
+         collection.AddFolder("All");
+
+         Folder data = root.AddFolder("Data", false, true, new Category());
+         data.AddFolder("Categories", false, true, FileType.Categories);
+         data.AddFolder("Manufacturers", false, true, FileType.Manufacturers);
+         data.AddFolder("Stores", false, true, FileType.Stores);
+         data.AddFolder("Railway companies", false, true, FileType.RailwayCompanies);
+         data.AddFolder("Decoders", false, true, FileType.Decoders);
+         data.AddFolder("Scales / Gauges", false, true, FileType.Gauges);
+
+         return root;
+      }
+
+      private void FillTreeList(Folder folder, Folder root)
+      {
+         // Configure the list columns
+         if (root == null)
+         {
+            tlsFolders.BeginUpdate();
+            TreeListColumn col = tlsFolders.Columns.Add();
+            col.Caption = "Folder";
+            col.VisibleIndex = 0;
+            tlsFolders.EndUpdate();
+         }
+
+         tlsFolders.BeginUnboundLoad();
+
+
+
+         tlsFolders.EndUnboundLoad();
+      }
 
       private void CreateTreeList()
       {
@@ -434,7 +481,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
          node.Tag = FileType.Gauges;
          node.StateImageIndex = 6;
          node = tlsFolders.AppendNode(new object[] { "Railway companies" }, parentNode);
-         node.Tag = FileType.Administrations;
+         node.Tag = FileType.RailwayCompanies;
          node.StateImageIndex = 7;
          node = tlsFolders.AppendNode(new object[] { "Manufacturers" }, parentNode);
          node.Tag = FileType.Manufacturers;

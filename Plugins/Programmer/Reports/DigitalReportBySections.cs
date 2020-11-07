@@ -38,18 +38,18 @@ namespace Rwm.Studio.Plugins.Designer.Reports
 
       private void ImgSwitchboardImage_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
       {
-         //// Get the switchboard to obtain the image
-         //Switchboard sb = Switchboard.Get(NumericUtils.ToInteger(lblSectionId.Text));
-         //if (sb == null) return;
+         // Get the switchboard to obtain the image
+         Section sb = Section.Get(NumericUtils.ToInteger(lblShemaId.Text));
+         if (sb == null) return;
 
-         //// Paint group switchboard
-         //imgSwitchboardImage.Image = sb.GetImage();
+         // Paint section schema
+         imgSchemaImage.Image = sb.Picture;
       }
 
       private void DigitalConnectionsReport_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
       {
-         int i = NumericUtils.ToInteger(lblSectionId.Text);
-         DigitalConnectionsReport.DataSource = AccessoryDecoder.FindBy("SECTIONID", i);
+         int i = NumericUtils.ToInteger(lblShemaId.Text);
+         DigitalConnectionsReport.DataSource = AccessoryDecoder.FindBy("Section", i);
          // DigitalConnectionsReport.DataMember = AccessoryDecoder.TableName;
       }
 
@@ -59,11 +59,13 @@ namespace Rwm.Studio.Plugins.Designer.Reports
 
       private void Initialize()
       {
-         lblProjectName.Text = OTCContext.Project.Name;
-
          // Data bindings
-         lblSectionId.DataBindings.Add(new XRBinding("Text", null, "ID"));
+         lblShemaId.DataBindings.Add(new XRBinding("Text", null, "ID"));
          lblSectionTitle.DataBindings.Add(new XRBinding("Text", null, "Name"));
+         lblAddRangeStart.DataBindings.Add(new XRBinding("Text", null, "AccessoryStartAddress"));
+         lblAddRangeEnd.DataBindings.Add(new XRBinding("Text", null, "AccessoryEndAddress"));
+         lblFbRangeStart.DataBindings.Add(new XRBinding("Text", null, "FeedbackStartAddress"));
+         lblFbRangeEnd.DataBindings.Add(new XRBinding("Text", null, "FeedbackEndAddress"));
 
          lblDecoderName.DataBindings.Add(new XRBinding("Text", null, "AccessoryConnections.Name"));
          lblDecoderModel.DataBindings.Add(new XRBinding("Text", null, "AccessoryConnections.Decoder"));

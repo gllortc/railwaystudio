@@ -29,115 +29,151 @@
       private void InitializeComponent()
       {
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DigitalReportBySections));
+         DevExpress.XtraPrinting.Shape.ShapeRectangle shapeRectangle1 = new DevExpress.XtraPrinting.Shape.ShapeRectangle();
          this.Detail = new DevExpress.XtraReports.UI.DetailBand();
          this.lblSectionTitle = new DevExpress.XtraReports.UI.XRLabel();
-         this.imgSwitchboardImage = new DevExpress.XtraReports.UI.XRPictureBox();
-         this.lblSectionId = new DevExpress.XtraReports.UI.XRLabel();
+         this.imgSchemaImage = new DevExpress.XtraReports.UI.XRPictureBox();
+         this.lblShemaId = new DevExpress.XtraReports.UI.XRLabel();
+         this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
          this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
-         this.lblProjectName = new DevExpress.XtraReports.UI.XRLabel();
          this.imgLogo = new DevExpress.XtraReports.UI.XRPictureBox();
          this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
+         this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
          this.SectionHeader = new DevExpress.XtraReports.UI.GroupHeaderBand();
          this.DigitalConnectionsReport = new DevExpress.XtraReports.UI.DetailReportBand();
          this.DigitalConnectionsDetail = new DevExpress.XtraReports.UI.DetailBand();
+         this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
          this.lblConnectedTo = new DevExpress.XtraReports.UI.XRLabel();
          this.lblDecoderAddress = new DevExpress.XtraReports.UI.XRLabel();
          this.lblDecoderOutput = new DevExpress.XtraReports.UI.XRLabel();
-         this.lblDecoderName = new DevExpress.XtraReports.UI.XRLabel();
-         this.lblDecoderModel = new DevExpress.XtraReports.UI.XRLabel();
          this.DigitalConnectionsHead = new DevExpress.XtraReports.UI.ReportHeaderBand();
+         this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
+         this.lblDecoderDescription = new DevExpress.XtraReports.UI.XRLabel();
+         this.lblDecoderModel = new DevExpress.XtraReports.UI.XRLabel();
+         this.lblDecoderName = new DevExpress.XtraReports.UI.XRLabel();
          this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
          this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
          this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
          this.xrControlStyle2 = new DevExpress.XtraReports.UI.XRControlStyle();
-         this.lblDecoderDescription = new DevExpress.XtraReports.UI.XRLabel();
-         this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
-         this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
+         this.xrShape1 = new DevExpress.XtraReports.UI.XRShape();
+         this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
+         this.xrLabel8 = new DevExpress.XtraReports.UI.XRLabel();
+         this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
+         this.lblAddRangeStart = new DevExpress.XtraReports.UI.XRLabel();
+         this.lblAddRangeEnd = new DevExpress.XtraReports.UI.XRLabel();
+         this.lblFbRangeStart = new DevExpress.XtraReports.UI.XRLabel();
+         this.lblFbRangeEnd = new DevExpress.XtraReports.UI.XRLabel();
          ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
          // 
          // Detail
          // 
          this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.lblFbRangeStart,
+            this.lblFbRangeEnd,
+            this.lblAddRangeEnd,
+            this.lblAddRangeStart,
+            this.xrLabel9,
             this.lblSectionTitle,
-            this.imgSwitchboardImage,
-            this.lblSectionId});
-         this.Detail.HeightF = 414.5833F;
+            this.imgSchemaImage,
+            this.lblShemaId,
+            this.xrPictureBox1,
+            this.xrShape1,
+            this.xrLabel7,
+            this.xrLabel8});
+         this.Detail.HeightF = 547.9167F;
          this.Detail.Name = "Detail";
          this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
          this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
          // 
          // lblSectionTitle
          // 
-         this.lblSectionTitle.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-         this.lblSectionTitle.BorderWidth = 2F;
-         this.lblSectionTitle.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.lblSectionTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.lblSectionTitle.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
+         this.lblSectionTitle.BorderWidth = 3F;
+         this.lblSectionTitle.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lblSectionTitle.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
          this.lblSectionTitle.Name = "lblSectionTitle";
-         this.lblSectionTitle.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-         this.lblSectionTitle.SizeF = new System.Drawing.SizeF(627F, 34.45834F);
+         this.lblSectionTitle.Padding = new DevExpress.XtraPrinting.PaddingInfo(7, 2, 0, 3, 100F);
+         this.lblSectionTitle.SizeF = new System.Drawing.SizeF(627F, 59.45835F);
+         this.lblSectionTitle.StylePriority.UseBackColor = false;
          this.lblSectionTitle.StylePriority.UseBorders = false;
          this.lblSectionTitle.StylePriority.UseBorderWidth = false;
          this.lblSectionTitle.StylePriority.UseFont = false;
+         this.lblSectionTitle.StylePriority.UsePadding = false;
+         this.lblSectionTitle.StylePriority.UseTextAlignment = false;
          this.lblSectionTitle.Text = "lblSectionTitle";
+         this.lblSectionTitle.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
          // 
-         // imgSwitchboardImage
+         // imgSchemaImage
          // 
-         this.imgSwitchboardImage.LocationFloat = new DevExpress.Utils.PointFloat(0F, 34.45835F);
-         this.imgSwitchboardImage.Name = "imgSwitchboardImage";
-         this.imgSwitchboardImage.SizeF = new System.Drawing.SizeF(627F, 365.5417F);
-         this.imgSwitchboardImage.Sizing = DevExpress.XtraPrinting.ImageSizeMode.ZoomImage;
-         this.imgSwitchboardImage.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.ImgSwitchboardImage_BeforePrint);
+         this.imgSchemaImage.BorderWidth = 1F;
+         this.imgSchemaImage.LocationFloat = new DevExpress.Utils.PointFloat(21.45831F, 74.04169F);
+         this.imgSchemaImage.Name = "imgSchemaImage";
+         this.imgSchemaImage.SizeF = new System.Drawing.SizeF(684.1251F, 321.7916F);
+         this.imgSchemaImage.Sizing = DevExpress.XtraPrinting.ImageSizeMode.ZoomImage;
+         this.imgSchemaImage.StylePriority.UseBorderWidth = false;
+         this.imgSchemaImage.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.ImgSwitchboardImage_BeforePrint);
          // 
-         // lblSectionId
+         // lblShemaId
          // 
-         this.lblSectionId.LocationFloat = new DevExpress.Utils.PointFloat(663.5417F, 11.45833F);
-         this.lblSectionId.Name = "lblSectionId";
-         this.lblSectionId.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-         this.lblSectionId.SizeF = new System.Drawing.SizeF(33.33337F, 23F);
-         this.lblSectionId.Text = "lblSectionId";
-         this.lblSectionId.Visible = false;
+         this.lblShemaId.LocationFloat = new DevExpress.Utils.PointFloat(732.2917F, 13.54167F);
+         this.lblShemaId.Name = "lblShemaId";
+         this.lblShemaId.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+         this.lblShemaId.SizeF = new System.Drawing.SizeF(33.33337F, 23F);
+         this.lblShemaId.Text = "lblShemaId";
+         this.lblShemaId.Visible = false;
+         // 
+         // xrPictureBox1
+         // 
+         this.xrPictureBox1.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Top | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
+         this.xrPictureBox1.BorderWidth = 3F;
+         this.xrPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("xrPictureBox1.Image")));
+         this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(626.9999F, 0F);
+         this.xrPictureBox1.Name = "xrPictureBox1";
+         this.xrPictureBox1.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 5, 5, 100F);
+         this.xrPictureBox1.SizeF = new System.Drawing.SizeF(100F, 59.45835F);
+         this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.ZoomImage;
+         this.xrPictureBox1.StylePriority.UseBorders = false;
+         this.xrPictureBox1.StylePriority.UseBorderWidth = false;
+         this.xrPictureBox1.StylePriority.UsePadding = false;
          // 
          // TopMargin
          // 
-         this.TopMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.lblProjectName,
-            this.imgLogo});
-         this.TopMargin.HeightF = 101.0417F;
+         this.TopMargin.HeightF = 48F;
          this.TopMargin.Name = "TopMargin";
          this.TopMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
          this.TopMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
          // 
-         // lblProjectName
-         // 
-         this.lblProjectName.AnchorHorizontal = DevExpress.XtraReports.UI.HorizontalAnchorStyles.Right;
-         this.lblProjectName.Borders = DevExpress.XtraPrinting.BorderSide.None;
-         this.lblProjectName.BorderWidth = 2F;
-         this.lblProjectName.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.lblProjectName.LocationFloat = new DevExpress.Utils.PointFloat(222.9167F, 49.37F);
-         this.lblProjectName.Name = "lblProjectName";
-         this.lblProjectName.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-         this.lblProjectName.SizeF = new System.Drawing.SizeF(404.0833F, 23.96167F);
-         this.lblProjectName.StylePriority.UseBorders = false;
-         this.lblProjectName.StylePriority.UseBorderWidth = false;
-         this.lblProjectName.StylePriority.UseFont = false;
-         this.lblProjectName.StylePriority.UseTextAlignment = false;
-         this.lblProjectName.Text = "lblProjectName";
-         this.lblProjectName.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-         // 
          // imgLogo
          // 
          this.imgLogo.Image = ((System.Drawing.Image)(resources.GetObject("imgLogo.Image")));
-         this.imgLogo.LocationFloat = new DevExpress.Utils.PointFloat(1F, 49.37F);
+         this.imgLogo.LocationFloat = new DevExpress.Utils.PointFloat(70.83344F, 9.999995F);
          this.imgLogo.Name = "imgLogo";
-         this.imgLogo.SizeF = new System.Drawing.SizeF(208.3624F, 23.96168F);
-         this.imgLogo.Sizing = DevExpress.XtraPrinting.ImageSizeMode.AutoSize;
+         this.imgLogo.SizeF = new System.Drawing.SizeF(97.94566F, 15.47686F);
+         this.imgLogo.Sizing = DevExpress.XtraPrinting.ImageSizeMode.ZoomImage;
          // 
          // BottomMargin
          // 
+         this.BottomMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.imgLogo,
+            this.xrLabel6});
          this.BottomMargin.HeightF = 100F;
          this.BottomMargin.Name = "BottomMargin";
          this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
          this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+         // 
+         // xrLabel6
+         // 
+         this.xrLabel6.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(0.000133849F, 9.999995F);
+         this.xrLabel6.Name = "xrLabel6";
+         this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+         this.xrLabel6.SizeF = new System.Drawing.SizeF(70.83333F, 15.47685F);
+         this.xrLabel6.StylePriority.UseFont = false;
+         this.xrLabel6.Text = "Created with";
          // 
          // SectionHeader
          // 
@@ -164,6 +200,16 @@
          this.DigitalConnectionsDetail.EvenStyleName = "xrControlStyle2";
          this.DigitalConnectionsDetail.HeightF = 16.75002F;
          this.DigitalConnectionsDetail.Name = "DigitalConnectionsDetail";
+         // 
+         // xrLabel5
+         // 
+         this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(125.6513F, 0F);
+         this.xrLabel5.Name = "xrLabel5";
+         this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+         this.xrLabel5.SizeF = new System.Drawing.SizeF(386.7656F, 16.75002F);
+         this.xrLabel5.StylePriority.UseTextAlignment = false;
+         this.xrLabel5.Text = "lblDecoderOutput";
+         this.xrLabel5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
          // 
          // lblConnectedTo
          // 
@@ -195,6 +241,61 @@
          this.lblDecoderOutput.Text = "lblDecoderOutput";
          this.lblDecoderOutput.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
          // 
+         // DigitalConnectionsHead
+         // 
+         this.DigitalConnectionsHead.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel1,
+            this.lblDecoderDescription,
+            this.lblDecoderModel,
+            this.lblDecoderName,
+            this.xrLabel4,
+            this.xrLabel3,
+            this.xrLabel2});
+         this.DigitalConnectionsHead.HeightF = 119.0261F;
+         this.DigitalConnectionsHead.Name = "DigitalConnectionsHead";
+         // 
+         // xrLabel1
+         // 
+         this.xrLabel1.BackColor = System.Drawing.Color.Gainsboro;
+         this.xrLabel1.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
+         this.xrLabel1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(125.6513F, 98.81774F);
+         this.xrLabel1.Name = "xrLabel1";
+         this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+         this.xrLabel1.SizeF = new System.Drawing.SizeF(386.7656F, 20.20836F);
+         this.xrLabel1.StylePriority.UseBackColor = false;
+         this.xrLabel1.StylePriority.UseBorders = false;
+         this.xrLabel1.StylePriority.UseFont = false;
+         this.xrLabel1.StylePriority.UseTextAlignment = false;
+         this.xrLabel1.Text = "Settings";
+         this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+         // 
+         // lblDecoderDescription
+         // 
+         this.lblDecoderDescription.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
+         this.lblDecoderDescription.LocationFloat = new DevExpress.Utils.PointFloat(7.947285E-05F, 48.8646F);
+         this.lblDecoderDescription.Name = "lblDecoderDescription";
+         this.lblDecoderDescription.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+         this.lblDecoderDescription.SizeF = new System.Drawing.SizeF(626.9999F, 49.95314F);
+         this.lblDecoderDescription.StylePriority.UseBorders = false;
+         this.lblDecoderDescription.StylePriority.UseTextAlignment = false;
+         this.lblDecoderDescription.Text = "lblDecoderDescription";
+         this.lblDecoderDescription.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopJustify;
+         // 
+         // lblDecoderModel
+         // 
+         this.lblDecoderModel.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
+         this.lblDecoderModel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 28.20833F);
+         this.lblDecoderModel.Name = "lblDecoderModel";
+         this.lblDecoderModel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+         this.lblDecoderModel.SizeF = new System.Drawing.SizeF(626.9999F, 20.65627F);
+         this.lblDecoderModel.StylePriority.UseBorders = false;
+         this.lblDecoderModel.StylePriority.UseTextAlignment = false;
+         this.lblDecoderModel.Text = "lblDecoderModel";
+         this.lblDecoderModel.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+         // 
          // lblDecoderName
          // 
          this.lblDecoderName.BackColor = System.Drawing.Color.Silver;
@@ -213,32 +314,6 @@
          this.lblDecoderName.StylePriority.UseTextAlignment = false;
          this.lblDecoderName.Text = "lblDecoderName";
          this.lblDecoderName.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-         // 
-         // lblDecoderModel
-         // 
-         this.lblDecoderModel.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
-            | DevExpress.XtraPrinting.BorderSide.Bottom)));
-         this.lblDecoderModel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 28.20833F);
-         this.lblDecoderModel.Name = "lblDecoderModel";
-         this.lblDecoderModel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-         this.lblDecoderModel.SizeF = new System.Drawing.SizeF(626.9999F, 20.65627F);
-         this.lblDecoderModel.StylePriority.UseBorders = false;
-         this.lblDecoderModel.StylePriority.UseTextAlignment = false;
-         this.lblDecoderModel.Text = "lblDecoderModel";
-         this.lblDecoderModel.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-         // 
-         // DigitalConnectionsHead
-         // 
-         this.DigitalConnectionsHead.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel1,
-            this.lblDecoderDescription,
-            this.lblDecoderModel,
-            this.lblDecoderName,
-            this.xrLabel4,
-            this.xrLabel3,
-            this.xrLabel2});
-         this.DigitalConnectionsHead.HeightF = 119.0261F;
-         this.DigitalConnectionsHead.Name = "DigitalConnectionsHead";
          // 
          // xrLabel4
          // 
@@ -295,44 +370,116 @@
          this.xrControlStyle2.Name = "xrControlStyle2";
          this.xrControlStyle2.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
          // 
-         // lblDecoderDescription
+         // xrShape1
          // 
-         this.lblDecoderDescription.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
+         this.xrShape1.LineWidth = 3;
+         this.xrShape1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 57F);
+         this.xrShape1.Name = "xrShape1";
+         this.xrShape1.Shape = shapeRectangle1;
+         this.xrShape1.SizeF = new System.Drawing.SizeF(728F, 357.62F);
+         // 
+         // xrLabel7
+         // 
+         this.xrLabel7.AutoWidth = true;
+         this.xrLabel7.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(9.999974F, 426F);
+         this.xrLabel7.Name = "xrLabel7";
+         this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+         this.xrLabel7.SizeF = new System.Drawing.SizeF(77.10965F, 23F);
+         this.xrLabel7.StylePriority.UseFont = false;
+         this.xrLabel7.Text = "Control";
+         // 
+         // xrLabel8
+         // 
+         this.xrLabel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.xrLabel8.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-         this.lblDecoderDescription.LocationFloat = new DevExpress.Utils.PointFloat(7.947285E-05F, 48.8646F);
-         this.lblDecoderDescription.Name = "lblDecoderDescription";
-         this.lblDecoderDescription.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-         this.lblDecoderDescription.SizeF = new System.Drawing.SizeF(626.9999F, 49.95314F);
-         this.lblDecoderDescription.StylePriority.UseBorders = false;
-         this.lblDecoderDescription.StylePriority.UseTextAlignment = false;
-         this.lblDecoderDescription.Text = "lblDecoderDescription";
-         this.lblDecoderDescription.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopJustify;
+         this.xrLabel8.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(0.0001271566F, 462.4583F);
+         this.xrLabel8.Name = "xrLabel8";
+         this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+         this.xrLabel8.SizeF = new System.Drawing.SizeF(200F, 23F);
+         this.xrLabel8.StylePriority.UseBackColor = false;
+         this.xrLabel8.StylePriority.UseBorders = false;
+         this.xrLabel8.StylePriority.UseFont = false;
+         this.xrLabel8.StylePriority.UseTextAlignment = false;
+         this.xrLabel8.Text = " Rang adr. accessoris";
+         this.xrLabel8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
          // 
-         // xrLabel1
+         // xrLabel9
          // 
-         this.xrLabel1.BackColor = System.Drawing.Color.Gainsboro;
-         this.xrLabel1.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
-         this.xrLabel1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(125.6513F, 98.81774F);
-         this.xrLabel1.Name = "xrLabel1";
-         this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-         this.xrLabel1.SizeF = new System.Drawing.SizeF(386.7656F, 20.20836F);
-         this.xrLabel1.StylePriority.UseBackColor = false;
-         this.xrLabel1.StylePriority.UseBorders = false;
-         this.xrLabel1.StylePriority.UseFont = false;
-         this.xrLabel1.StylePriority.UseTextAlignment = false;
-         this.xrLabel1.Text = "Settings";
-         this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+         this.xrLabel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.xrLabel9.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
+         this.xrLabel9.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(0F, 484.46F);
+         this.xrLabel9.Name = "xrLabel9";
+         this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+         this.xrLabel9.SizeF = new System.Drawing.SizeF(200F, 23F);
+         this.xrLabel9.StylePriority.UseBackColor = false;
+         this.xrLabel9.StylePriority.UseBorders = false;
+         this.xrLabel9.StylePriority.UseFont = false;
+         this.xrLabel9.StylePriority.UseTextAlignment = false;
+         this.xrLabel9.Text = " Rang adr. retrosenyalització";
+         this.xrLabel9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
          // 
-         // xrLabel5
+         // lblAddRangeStart
          // 
-         this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(125.6513F, 0F);
-         this.xrLabel5.Name = "xrLabel5";
-         this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-         this.xrLabel5.SizeF = new System.Drawing.SizeF(386.7656F, 16.75002F);
-         this.xrLabel5.StylePriority.UseTextAlignment = false;
-         this.xrLabel5.Text = "lblDecoderOutput";
-         this.xrLabel5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+         this.lblAddRangeStart.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
+         this.lblAddRangeStart.LocationFloat = new DevExpress.Utils.PointFloat(200.0001F, 462.4583F);
+         this.lblAddRangeStart.Name = "lblAddRangeStart";
+         this.lblAddRangeStart.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+         this.lblAddRangeStart.SizeF = new System.Drawing.SizeF(99.99988F, 22.99997F);
+         this.lblAddRangeStart.StylePriority.UseBorders = false;
+         this.lblAddRangeStart.StylePriority.UseTextAlignment = false;
+         this.lblAddRangeStart.Text = "lblAddRangeStart";
+         this.lblAddRangeStart.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+         // 
+         // lblAddRangeEnd
+         // 
+         this.lblAddRangeEnd.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
+         this.lblAddRangeEnd.LocationFloat = new DevExpress.Utils.PointFloat(300F, 462.4583F);
+         this.lblAddRangeEnd.Name = "lblAddRangeEnd";
+         this.lblAddRangeEnd.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+         this.lblAddRangeEnd.SizeF = new System.Drawing.SizeF(426.9999F, 22.99997F);
+         this.lblAddRangeEnd.StylePriority.UseBorders = false;
+         this.lblAddRangeEnd.StylePriority.UseTextAlignment = false;
+         this.lblAddRangeEnd.Text = "lblAddRangeEnd";
+         this.lblAddRangeEnd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+         // 
+         // lblFbRangeStart
+         // 
+         this.lblFbRangeStart.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
+         this.lblFbRangeStart.LocationFloat = new DevExpress.Utils.PointFloat(200F, 484.46F);
+         this.lblFbRangeStart.Name = "lblFbRangeStart";
+         this.lblFbRangeStart.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+         this.lblFbRangeStart.SizeF = new System.Drawing.SizeF(99.99988F, 22.99997F);
+         this.lblFbRangeStart.StylePriority.UseBorders = false;
+         this.lblFbRangeStart.StylePriority.UseTextAlignment = false;
+         this.lblFbRangeStart.Text = "lblFbRangeStart";
+         this.lblFbRangeStart.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+         // 
+         // lblFbRangeEnd
+         // 
+         this.lblFbRangeEnd.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
+         this.lblFbRangeEnd.LocationFloat = new DevExpress.Utils.PointFloat(300F, 484.46F);
+         this.lblFbRangeEnd.Name = "lblFbRangeEnd";
+         this.lblFbRangeEnd.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+         this.lblFbRangeEnd.SizeF = new System.Drawing.SizeF(426.9999F, 22.99997F);
+         this.lblFbRangeEnd.StylePriority.UseBorders = false;
+         this.lblFbRangeEnd.StylePriority.UseTextAlignment = false;
+         this.lblFbRangeEnd.Text = "lblFbRangeEnd";
+         this.lblFbRangeEnd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
          // 
          // DigitalReportBySections
          // 
@@ -344,7 +491,7 @@
             this.DigitalConnectionsReport});
          this.DisplayName = "Digital Report";
          this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.Margins = new System.Drawing.Printing.Margins(100, 100, 101, 100);
+         this.Margins = new System.Drawing.Printing.Margins(49, 50, 48, 100);
          this.PageHeight = 1169;
          this.PageWidth = 827;
          this.PaperKind = System.Drawing.Printing.PaperKind.A4;
@@ -363,7 +510,7 @@
       private DevExpress.XtraReports.UI.BottomMarginBand BottomMargin;
       private DevExpress.XtraReports.UI.GroupHeaderBand SectionHeader;
       private DevExpress.XtraReports.UI.XRLabel lblSectionTitle;
-      private DevExpress.XtraReports.UI.XRPictureBox imgSwitchboardImage;
+      private DevExpress.XtraReports.UI.XRPictureBox imgSchemaImage;
       private DevExpress.XtraReports.UI.DetailReportBand DigitalConnectionsReport;
       private DevExpress.XtraReports.UI.DetailBand DigitalConnectionsDetail;
       private DevExpress.XtraReports.UI.XRLabel lblConnectedTo;
@@ -372,15 +519,24 @@
       private DevExpress.XtraReports.UI.XRLabel lblDecoderModel;
       private DevExpress.XtraReports.UI.XRLabel lblDecoderName;
       private DevExpress.XtraReports.UI.ReportHeaderBand DigitalConnectionsHead;
-      private DevExpress.XtraReports.UI.XRLabel lblSectionId;
+      private DevExpress.XtraReports.UI.XRLabel lblShemaId;
       private DevExpress.XtraReports.UI.XRControlStyle xrControlStyle2;
       private DevExpress.XtraReports.UI.XRLabel xrLabel4;
       private DevExpress.XtraReports.UI.XRLabel xrLabel3;
       private DevExpress.XtraReports.UI.XRLabel xrLabel2;
       private DevExpress.XtraReports.UI.XRPictureBox imgLogo;
-      private DevExpress.XtraReports.UI.XRLabel lblProjectName;
       private DevExpress.XtraReports.UI.XRLabel lblDecoderDescription;
       private DevExpress.XtraReports.UI.XRLabel xrLabel1;
       private DevExpress.XtraReports.UI.XRLabel xrLabel5;
+      private DevExpress.XtraReports.UI.XRPictureBox xrPictureBox1;
+      private DevExpress.XtraReports.UI.XRLabel xrLabel6;
+      private DevExpress.XtraReports.UI.XRShape xrShape1;
+      private DevExpress.XtraReports.UI.XRLabel lblFbRangeStart;
+      private DevExpress.XtraReports.UI.XRLabel lblFbRangeEnd;
+      private DevExpress.XtraReports.UI.XRLabel lblAddRangeEnd;
+      private DevExpress.XtraReports.UI.XRLabel lblAddRangeStart;
+      private DevExpress.XtraReports.UI.XRLabel xrLabel9;
+      private DevExpress.XtraReports.UI.XRLabel xrLabel7;
+      private DevExpress.XtraReports.UI.XRLabel xrLabel8;
    }
 }

@@ -7,6 +7,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using Rwm.Otc.Trains;
 using Rwm.Studio.Plugins.Collection.Controls;
+using static Rwm.Otc.Trains.Train;
 
 namespace Rwm.Studio.Plugins.Collection.Modules
 {
@@ -85,11 +86,14 @@ namespace Rwm.Studio.Plugins.Collection.Modules
          cboDigitalDecoder.SetSelectedElement(this.CurrentModel.DigitalDecoder);
          txtDigitalAddress.EditValue = this.CurrentModel.DigitalAddress;
          this.SetID(cboDigitalPlug, this.CurrentModel.DigitalConnector);
+         chkDigitalSound.EditValue = this.CurrentModel.HaveSound;
 
          this.SetID(cboPropertiesLights, this.CurrentModel.LightFront);
          this.SetID(cboPropertiesIntLights, this.CurrentModel.LightInterior);
          this.SetID(cboPropertiesCouplers, this.CurrentModel.CouplersType);
          this.SetID(cboPropertiesIntEq, this.CurrentModel.InteriorEquipment);
+
+         txtProtoExpNum.Text = this.CurrentModel.RegistrationNumber;
 
          rtfDescription.RtfText = this.CurrentModel.Description;
 
@@ -137,11 +141,14 @@ namespace Rwm.Studio.Plugins.Collection.Modules
             this.CurrentModel.DigitalDecoder = cboDigitalDecoder.SelectedDecoder;
             this.CurrentModel.DigitalAddress = Int32.Parse(txtDigitalAddress.EditValue.ToString());
             this.CurrentModel.DigitalConnector = (Train.DigitalConnectorType)this.GetEnum(cboDigitalPlug);
+            this.CurrentModel.HaveSound = chkDigitalSound.Checked;
 
             this.CurrentModel.LightFront = (Train.LightFrontType)this.GetEnum(cboPropertiesLights);
             this.CurrentModel.LightInterior = (Train.LightInteriorType)this.GetEnum(cboPropertiesIntLights);
             this.CurrentModel.CouplersType = (Train.CouplerTypes)this.GetEnum(cboPropertiesCouplers);
             this.CurrentModel.InteriorEquipment = (Train.InteriorEquipmentType)this.GetEnum(cboPropertiesIntEq);
+
+            this.CurrentModel.RegistrationNumber = txtProtoExpNum.Text;
 
             this.CurrentModel.Description = rtfDescription.RtfText;
 
@@ -245,6 +252,86 @@ namespace Rwm.Studio.Plugins.Collection.Modules
          }
 
          return -1;
+      }
+
+      private void UpdatePictograms()
+      {
+         string picto = string.Empty;
+
+         if (chkLimitedModel.Checked) picto += "! ";
+
+         if (cboEra.EditValue != null)
+         {
+            switch ((Epoche)cboEra.EditValue)
+            {
+               case Epoche.EpocheI: picto += "1"; break;
+               case Epoche.EpocheII: picto += "2"; break;
+               case Epoche.EpocheIII: picto += "3"; break;
+               case Epoche.EpocheIV: picto += "4"; break;
+               case Epoche.EpocheV: picto += "5"; break;
+               case Epoche.EpocheVI: picto += "8"; break;
+               default: break;
+            }
+         }
+
+         if (cboDigitalDecoder.SelectedDecoder != null) picto += "b";
+         if (chkDigitalSound.Checked) picto += "h";
+
+         if (cboPropertiesLights.EditValue != null)
+         {
+            switch ((LightFrontType)cboPropertiesLights.EditValue)
+            {
+               case LightFrontType.FixedFrontLights: picto += "A"; break;
+               case LightFrontType.OneLightDependingSense: picto += "B"; break;
+               case LightFrontType.TwoFixedFrontLights: picto += "C"; break;
+               case LightFrontType.TwoFixedLightsFrontAndRear: picto += "D"; break;
+               case LightFrontType.TwoLightDependingSense: picto += "E"; break;
+               case LightFrontType.ThreeFixedFrontLights: picto += "F"; break;
+               case LightFrontType.ThreeFixedFrontAndRearLights: picto += "G"; break;
+               case LightFrontType.ThreeLightDependingSense: picto += "H"; break;
+               case LightFrontType.ThreeFrontAndTwoRearDependingSense: picto += "I"; break;
+               case LightFrontType.FourLightsDependingSense: picto += "J"; break;
+               case LightFrontType.OneRedLight: picto += "K"; break;
+               case LightFrontType.TwoRedLights: picto += "L"; break;
+               case LightFrontType.TwoWhiteLightsForwardTwoRedFocusBack: picto += "M"; break;
+               case LightFrontType.ThreeWhiteLightsForwardTwoRedFocusBack: picto += "N"; break;
+               case LightFrontType.ThreeWhiteLightsForwardOneRedFocusBack: picto += "O"; break;
+               case LightFrontType.ThreeLightsForwardOneFocusBack: picto += "P"; break;
+               default: break;
+            }
+         }
+
+         if (cboPropertiesIntLights.EditValue != null)
+         {
+            switch ((LightInteriorType)cboPropertiesIntLights.EditValue)
+            {
+               case LightInteriorType.NormalLight: picto += "k"; break;
+               case LightInteriorType.LedLight: picto += "+"; break;
+               default: break;
+            }
+         }
+
+         if (cboPropertiesIntEq.EditValue != null)
+         {
+            switch ((InteriorEquipmentType)cboPropertiesIntEq.EditValue)
+            {
+               case InteriorEquipmentType.WithDecoration: picto += "j"; break;
+               default: break;
+            }
+         }
+
+         if (cboPropertiesCouplers.EditValue != null)
+         {
+            switch ((CouplerTypes)cboPropertiesCouplers.EditValue)
+            {
+               case CouplerTypes.StandardCouplers: picto += "S"; break;
+               case CouplerTypes.StandardCouplersNEMPocket: picto += "T"; break;
+               case CouplerTypes.CloseCouplersNEMPocket: picto += "U"; break;
+               default: break;
+            }
+         }
+
+         lblPictograms.Text = picto;
       }
 
       #endregion

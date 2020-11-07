@@ -30,7 +30,7 @@
       {
          this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModelModule));
-         DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+         DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
          this.rtfDescription = new DevExpress.XtraRichEdit.RichEditControl();
          this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
          this.cmdFileSave = new DevExpress.XtraBars.BarButtonItem();
@@ -117,7 +117,6 @@
          this.repositoryItemFontEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemFontEdit();
          this.repositoryItemRichEditFontSizeEdit1 = new DevExpress.XtraRichEdit.Design.RepositoryItemRichEditFontSizeEdit();
          this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-         this.cmdProperties = new DevExpress.XtraEditors.SimpleButton();
          this.pmnProperties = new DevExpress.XtraBars.PopupMenu(this.components);
          this.tabModel = new DevExpress.XtraTab.XtraTabControl();
          this.tabModelGeneral = new DevExpress.XtraTab.XtraTabPage();
@@ -126,6 +125,7 @@
          this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
          this.grpProperties = new DevExpress.XtraEditors.GroupControl();
          this.cboEra = new Rwm.Studio.Plugins.Collection.Controls.EraImageComboBoxEdit();
+         this.lblPictograms = new DevExpress.XtraEditors.LabelControl();
          this.cboCompany = new Rwm.Studio.Plugins.Collection.Controls.CompanyImageComboBoxEdit();
          this.cboCategory = new Rwm.Studio.Plugins.Collection.Controls.CategoryImageComboBoxEdit();
          this.lblPaintScheme = new DevExpress.XtraEditors.LabelControl();
@@ -148,7 +148,6 @@
          this.lblPropertiesIntLights = new DevExpress.XtraEditors.LabelControl();
          this.cboPropertiesLights = new DevExpress.XtraEditors.ImageComboBoxEdit();
          this.lblPropertiesLights = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
          this.grpDigital = new DevExpress.XtraEditors.GroupControl();
          this.cboDigitalDecoder = new Rwm.Studio.Plugins.Collection.Controls.DecoderImageComboBoxEdit();
@@ -181,6 +180,9 @@
          this.lblItems = new DevExpress.XtraEditors.LabelControl();
          this.lblManufacturer = new DevExpress.XtraEditors.LabelControl();
          this.tabModelReal = new DevExpress.XtraTab.XtraTabPage();
+         this.grpProtoGeneral = new DevExpress.XtraEditors.GroupControl();
+         this.txtProtoExpNum = new DevExpress.XtraEditors.TextEdit();
+         this.lblProtoExpNum = new DevExpress.XtraEditors.LabelControl();
          this.tabModelMaintenance = new DevExpress.XtraTab.XtraTabPage();
          this.imlEpoch = new System.Windows.Forms.ImageList(this.components);
          this.imlLargeObjects = new System.Windows.Forms.ImageList(this.components);
@@ -232,6 +234,7 @@
          this.galleryChangeStyleItem2 = new DevExpress.XtraRichEdit.UI.GalleryChangeStyleItem();
          this.findItem2 = new DevExpress.XtraRichEdit.UI.FindItem();
          this.replaceItem2 = new DevExpress.XtraRichEdit.UI.ReplaceItem();
+         this.chkDigitalSound = new DevExpress.XtraEditors.CheckEdit();
          ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEdit2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichEditFontSizeEdit2)).BeginInit();
@@ -284,10 +287,15 @@
          ((System.ComponentModel.ISupportInitialize)(this.cboManufacturer.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtReference.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtItems.Properties)).BeginInit();
+         this.tabModelReal.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.grpProtoGeneral)).BeginInit();
+         this.grpProtoGeneral.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.txtProtoExpNum.Properties)).BeginInit();
          this.tabModelMaintenance.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.pnlContainer)).BeginInit();
          this.pnlContainer.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.richEditBarController)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.chkDigitalSound.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // rtfDescription
@@ -980,15 +988,6 @@
          this.ribbonStatusBar.Ribbon = this.ribbon;
          this.ribbonStatusBar.Size = new System.Drawing.Size(1079, 31);
          // 
-         // cmdProperties
-         // 
-         this.cmdProperties.Location = new System.Drawing.Point(479, 133);
-         this.cmdProperties.Name = "cmdProperties";
-         this.cmdProperties.Size = new System.Drawing.Size(75, 23);
-         this.cmdProperties.TabIndex = 9;
-         this.cmdProperties.Text = "Properties";
-         this.cmdProperties.Click += new System.EventHandler(this.CmdProperties_Click);
-         // 
          // pmnProperties
          // 
          this.pmnProperties.Name = "pmnProperties";
@@ -1061,6 +1060,7 @@
          // grpProperties
          // 
          this.grpProperties.Controls.Add(this.cboEra);
+         this.grpProperties.Controls.Add(this.lblPictograms);
          this.grpProperties.Controls.Add(this.cboCompany);
          this.grpProperties.Controls.Add(this.cboCategory);
          this.grpProperties.Controls.Add(this.lblPaintScheme);
@@ -1081,13 +1081,29 @@
          // cboEra
          // 
          this.cboEra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.cboEra.Location = new System.Drawing.Point(900, 85);
+         this.cboEra.Location = new System.Drawing.Point(726, 85);
          this.cboEra.MenuManager = this.ribbon;
          this.cboEra.Name = "cboEra";
          this.cboEra.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
          this.cboEra.Size = new System.Drawing.Size(128, 20);
          this.cboEra.TabIndex = 12;
+         this.cboEra.SelectedIndexChanged += new System.EventHandler(this.PictogramRelatedControl_SelectedIndexChanged);
+         // 
+         // lblPictograms
+         // 
+         this.lblPictograms.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.lblPictograms.Appearance.Font = new System.Drawing.Font("Maerklin Piktos", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.lblPictograms.Appearance.Options.UseFont = true;
+         this.lblPictograms.Appearance.Options.UseTextOptions = true;
+         this.lblPictograms.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.lblPictograms.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+         this.lblPictograms.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.lblPictograms.Location = new System.Drawing.Point(860, 32);
+         this.lblPictograms.Name = "lblPictograms";
+         this.lblPictograms.Size = new System.Drawing.Size(168, 99);
+         this.lblPictograms.TabIndex = 8;
          // 
          // cboCompany
          // 
@@ -1098,7 +1114,7 @@
          this.cboCompany.Name = "cboCompany";
          this.cboCompany.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.cboCompany.Size = new System.Drawing.Size(755, 20);
+         this.cboCompany.Size = new System.Drawing.Size(581, 20);
          this.cboCompany.TabIndex = 11;
          // 
          // cboCategory
@@ -1110,7 +1126,7 @@
          this.cboCategory.Name = "cboCategory";
          this.cboCategory.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.cboCategory.Size = new System.Drawing.Size(929, 20);
+         this.cboCategory.Size = new System.Drawing.Size(755, 20);
          this.cboCategory.TabIndex = 10;
          // 
          // lblPaintScheme
@@ -1130,13 +1146,13 @@
          this.cboPaintScheme.Name = "cboPaintScheme";
          this.cboPaintScheme.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.cboPaintScheme.Size = new System.Drawing.Size(929, 20);
+         this.cboPaintScheme.Size = new System.Drawing.Size(755, 20);
          this.cboPaintScheme.TabIndex = 8;
          // 
          // lblEra
          // 
          this.lblEra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.lblEra.Location = new System.Drawing.Point(875, 88);
+         this.lblEra.Location = new System.Drawing.Point(701, 88);
          this.lblEra.Name = "lblEra";
          this.lblEra.Size = new System.Drawing.Size(16, 13);
          this.lblEra.TabIndex = 6;
@@ -1157,7 +1173,7 @@
          this.txtName.Location = new System.Drawing.Point(99, 33);
          this.txtName.MenuManager = this.ribbon;
          this.txtName.Name = "txtName";
-         this.txtName.Size = new System.Drawing.Size(929, 20);
+         this.txtName.Size = new System.Drawing.Size(755, 20);
          this.txtName.TabIndex = 1;
          // 
          // lblName
@@ -1203,13 +1219,11 @@
          this.grpScaleProperties.Controls.Add(this.lblPropertiesIntLights);
          this.grpScaleProperties.Controls.Add(this.cboPropertiesLights);
          this.grpScaleProperties.Controls.Add(this.lblPropertiesLights);
-         this.grpScaleProperties.Controls.Add(this.cmdProperties);
-         this.grpScaleProperties.Controls.Add(this.labelControl1);
          this.grpScaleProperties.Dock = System.Windows.Forms.DockStyle.Top;
          this.grpScaleProperties.Location = new System.Drawing.Point(10, 350);
          this.grpScaleProperties.Name = "grpScaleProperties";
          this.grpScaleProperties.Padding = new System.Windows.Forms.Padding(10);
-         this.grpScaleProperties.Size = new System.Drawing.Size(1043, 184);
+         this.grpScaleProperties.Size = new System.Drawing.Size(1026, 184);
          this.grpScaleProperties.TabIndex = 4;
          this.grpScaleProperties.Text = "Model properties";
          // 
@@ -1223,6 +1237,7 @@
          this.cboPropertiesIntEq.Properties.SmallImages = this.imlObjects;
          this.cboPropertiesIntEq.Size = new System.Drawing.Size(258, 20);
          this.cboPropertiesIntEq.TabIndex = 18;
+         this.cboPropertiesIntEq.SelectedIndexChanged += new System.EventHandler(this.PictogramRelatedControl_SelectedIndexChanged);
          // 
          // imlObjects
          // 
@@ -1256,6 +1271,7 @@
          this.cboPropertiesFrame.Properties.SmallImages = this.imlObjects;
          this.cboPropertiesFrame.Size = new System.Drawing.Size(263, 20);
          this.cboPropertiesFrame.TabIndex = 16;
+         this.cboPropertiesFrame.SelectedIndexChanged += new System.EventHandler(this.PictogramRelatedControl_SelectedIndexChanged);
          // 
          // lblPropertiesFrame
          // 
@@ -1275,6 +1291,7 @@
          this.cboPropertiesCouplers.Properties.SmallImages = this.imlObjects;
          this.cboPropertiesCouplers.Size = new System.Drawing.Size(263, 20);
          this.cboPropertiesCouplers.TabIndex = 13;
+         this.cboPropertiesCouplers.SelectedIndexChanged += new System.EventHandler(this.PictogramRelatedControl_SelectedIndexChanged);
          // 
          // lblPropertiesCouplers
          // 
@@ -1294,6 +1311,7 @@
          this.cboPropertiesIntLights.Properties.SmallImages = this.imlObjects;
          this.cboPropertiesIntLights.Size = new System.Drawing.Size(258, 20);
          this.cboPropertiesIntLights.TabIndex = 11;
+         this.cboPropertiesIntLights.SelectedIndexChanged += new System.EventHandler(this.PictogramRelatedControl_SelectedIndexChanged);
          // 
          // lblPropertiesIntLights
          // 
@@ -1313,6 +1331,7 @@
          this.cboPropertiesLights.Properties.SmallImages = this.imlObjects;
          this.cboPropertiesLights.Size = new System.Drawing.Size(258, 20);
          this.cboPropertiesLights.TabIndex = 9;
+         this.cboPropertiesLights.SelectedIndexChanged += new System.EventHandler(this.PictogramRelatedControl_SelectedIndexChanged);
          // 
          // lblPropertiesLights
          // 
@@ -1321,16 +1340,6 @@
          this.lblPropertiesLights.Size = new System.Drawing.Size(28, 13);
          this.lblPropertiesLights.TabIndex = 8;
          this.lblPropertiesLights.Text = "Lights";
-         // 
-         // labelControl1
-         // 
-         this.labelControl1.Appearance.Font = new System.Drawing.Font("Maerklin Piktos", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.labelControl1.Appearance.Options.UseFont = true;
-         this.labelControl1.Location = new System.Drawing.Point(569, 133);
-         this.labelControl1.Name = "labelControl1";
-         this.labelControl1.Size = new System.Drawing.Size(210, 30);
-         this.labelControl1.TabIndex = 8;
-         this.labelControl1.Text = "label";
          // 
          // panelControl4
          // 
@@ -1342,11 +1351,12 @@
          this.panelControl4.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.panelControl4.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl4.Name = "panelControl4";
-         this.panelControl4.Size = new System.Drawing.Size(1043, 10);
+         this.panelControl4.Size = new System.Drawing.Size(1026, 10);
          this.panelControl4.TabIndex = 11;
          // 
          // grpDigital
          // 
+         this.grpDigital.Controls.Add(this.chkDigitalSound);
          this.grpDigital.Controls.Add(this.cboDigitalDecoder);
          this.grpDigital.Controls.Add(this.cboDigitalPlug);
          this.grpDigital.Controls.Add(this.lblDigitalPlug);
@@ -1357,7 +1367,7 @@
          this.grpDigital.Location = new System.Drawing.Point(10, 245);
          this.grpDigital.Name = "grpDigital";
          this.grpDigital.Padding = new System.Windows.Forms.Padding(10);
-         this.grpDigital.Size = new System.Drawing.Size(1043, 95);
+         this.grpDigital.Size = new System.Drawing.Size(1026, 95);
          this.grpDigital.TabIndex = 8;
          this.grpDigital.Text = "Digital";
          // 
@@ -1370,7 +1380,7 @@
          this.cboDigitalDecoder.Name = "cboDigitalDecoder";
          this.cboDigitalDecoder.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.cboDigitalDecoder.Size = new System.Drawing.Size(784, 20);
+         this.cboDigitalDecoder.Size = new System.Drawing.Size(767, 20);
          this.cboDigitalDecoder.TabIndex = 8;
          // 
          // cboDigitalPlug
@@ -1408,7 +1418,7 @@
             0,
             0,
             0});
-         this.txtDigitalAddress.Location = new System.Drawing.Point(963, 34);
+         this.txtDigitalAddress.Location = new System.Drawing.Point(946, 34);
          this.txtDigitalAddress.MenuManager = this.ribbon;
          this.txtDigitalAddress.Name = "txtDigitalAddress";
          this.txtDigitalAddress.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1421,7 +1431,7 @@
          // lblDigitalAddress
          // 
          this.lblDigitalAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.lblDigitalAddress.Location = new System.Drawing.Point(912, 37);
+         this.lblDigitalAddress.Location = new System.Drawing.Point(895, 37);
          this.lblDigitalAddress.Name = "lblDigitalAddress";
          this.lblDigitalAddress.Size = new System.Drawing.Size(39, 13);
          this.lblDigitalAddress.TabIndex = 2;
@@ -1437,7 +1447,7 @@
          this.panelControl3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.panelControl3.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl3.Name = "panelControl3";
-         this.panelControl3.Size = new System.Drawing.Size(1043, 10);
+         this.panelControl3.Size = new System.Drawing.Size(1026, 10);
          this.panelControl3.TabIndex = 10;
          // 
          // grpScaleSales
@@ -1457,7 +1467,7 @@
          this.grpScaleSales.Location = new System.Drawing.Point(10, 115);
          this.grpScaleSales.Name = "grpScaleSales";
          this.grpScaleSales.Padding = new System.Windows.Forms.Padding(10);
-         this.grpScaleSales.Size = new System.Drawing.Size(1043, 120);
+         this.grpScaleSales.Size = new System.Drawing.Size(1026, 120);
          this.grpScaleSales.TabIndex = 8;
          this.grpScaleSales.Text = "Comercial";
          // 
@@ -1470,7 +1480,7 @@
          this.cboStore.Name = "cboStore";
          this.cboStore.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.cboStore.Size = new System.Drawing.Size(636, 20);
+         this.cboStore.Size = new System.Drawing.Size(619, 20);
          this.cboStore.TabIndex = 13;
          // 
          // chkPurchasePending
@@ -1489,7 +1499,7 @@
          this.txtLimitedModel.Location = new System.Drawing.Point(576, 59);
          this.txtLimitedModel.MenuManager = this.ribbon;
          this.txtLimitedModel.Name = "txtLimitedModel";
-         this.txtLimitedModel.Size = new System.Drawing.Size(452, 20);
+         this.txtLimitedModel.Size = new System.Drawing.Size(435, 20);
          this.txtLimitedModel.TabIndex = 11;
          // 
          // chkLimitedModel
@@ -1547,7 +1557,7 @@
          // 
          this.dtePurchaseDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.dtePurchaseDate.EditValue = null;
-         this.dtePurchaseDate.Location = new System.Drawing.Point(832, 33);
+         this.dtePurchaseDate.Location = new System.Drawing.Point(815, 33);
          this.dtePurchaseDate.MenuManager = this.ribbon;
          this.dtePurchaseDate.Name = "dtePurchaseDate";
          this.dtePurchaseDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1560,7 +1570,7 @@
          // lblBuyDate
          // 
          this.lblBuyDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.lblBuyDate.Location = new System.Drawing.Point(757, 36);
+         this.lblBuyDate.Location = new System.Drawing.Point(740, 36);
          this.lblBuyDate.Name = "lblBuyDate";
          this.lblBuyDate.Size = new System.Drawing.Size(69, 13);
          this.lblBuyDate.TabIndex = 3;
@@ -1584,7 +1594,7 @@
          this.panelControl2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.panelControl2.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl2.Name = "panelControl2";
-         this.panelControl2.Size = new System.Drawing.Size(1043, 10);
+         this.panelControl2.Size = new System.Drawing.Size(1026, 10);
          this.panelControl2.TabIndex = 9;
          // 
          // grpScaleGeneral
@@ -1601,14 +1611,14 @@
          this.grpScaleGeneral.Location = new System.Drawing.Point(10, 10);
          this.grpScaleGeneral.Name = "grpScaleGeneral";
          this.grpScaleGeneral.Padding = new System.Windows.Forms.Padding(10);
-         this.grpScaleGeneral.Size = new System.Drawing.Size(1043, 95);
+         this.grpScaleGeneral.Size = new System.Drawing.Size(1026, 95);
          this.grpScaleGeneral.TabIndex = 0;
          this.grpScaleGeneral.Text = "General";
          // 
          // cboGauge
          // 
          this.cboGauge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.cboGauge.Location = new System.Drawing.Point(899, 59);
+         this.cboGauge.Location = new System.Drawing.Point(882, 59);
          this.cboGauge.MenuManager = this.ribbon;
          this.cboGauge.Name = "cboGauge";
          this.cboGauge.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1625,13 +1635,13 @@
          this.cboManufacturer.Name = "cboManufacturer";
          this.cboManufacturer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.cboManufacturer.Size = new System.Drawing.Size(744, 20);
+         this.cboManufacturer.Size = new System.Drawing.Size(727, 20);
          this.cboManufacturer.TabIndex = 8;
          // 
          // lblScale
          // 
          this.lblScale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.lblScale.Location = new System.Drawing.Point(859, 62);
+         this.lblScale.Location = new System.Drawing.Point(842, 62);
          this.lblScale.Name = "lblScale";
          this.lblScale.Size = new System.Drawing.Size(31, 13);
          this.lblScale.TabIndex = 6;
@@ -1644,7 +1654,7 @@
          this.txtReference.Location = new System.Drawing.Point(110, 59);
          this.txtReference.MenuManager = this.ribbon;
          this.txtReference.Name = "txtReference";
-         this.txtReference.Size = new System.Drawing.Size(729, 20);
+         this.txtReference.Size = new System.Drawing.Size(712, 20);
          this.txtReference.TabIndex = 5;
          // 
          // lblReference
@@ -1663,7 +1673,7 @@
             0,
             0,
             0});
-         this.txtItems.Location = new System.Drawing.Point(963, 33);
+         this.txtItems.Location = new System.Drawing.Point(946, 33);
          this.txtItems.MenuManager = this.ribbon;
          this.txtItems.Name = "txtItems";
          this.txtItems.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1676,7 +1686,7 @@
          // lblItems
          // 
          this.lblItems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.lblItems.Location = new System.Drawing.Point(873, 36);
+         this.lblItems.Location = new System.Drawing.Point(856, 36);
          this.lblItems.Name = "lblItems";
          this.lblItems.Size = new System.Drawing.Size(78, 13);
          this.lblItems.TabIndex = 2;
@@ -1692,9 +1702,41 @@
          // 
          // tabModelReal
          // 
+         this.tabModelReal.Controls.Add(this.grpProtoGeneral);
          this.tabModelReal.Name = "tabModelReal";
+         this.tabModelReal.Padding = new System.Windows.Forms.Padding(10);
          this.tabModelReal.Size = new System.Drawing.Size(1063, 495);
          this.tabModelReal.Text = "Prototipe";
+         // 
+         // grpProtoGeneral
+         // 
+         this.grpProtoGeneral.Controls.Add(this.txtProtoExpNum);
+         this.grpProtoGeneral.Controls.Add(this.lblProtoExpNum);
+         this.grpProtoGeneral.Dock = System.Windows.Forms.DockStyle.Top;
+         this.grpProtoGeneral.Location = new System.Drawing.Point(10, 10);
+         this.grpProtoGeneral.Name = "grpProtoGeneral";
+         this.grpProtoGeneral.Padding = new System.Windows.Forms.Padding(10);
+         this.grpProtoGeneral.Size = new System.Drawing.Size(1043, 95);
+         this.grpProtoGeneral.TabIndex = 1;
+         this.grpProtoGeneral.Text = "General";
+         // 
+         // txtProtoExpNum
+         // 
+         this.txtProtoExpNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.txtProtoExpNum.Location = new System.Drawing.Point(114, 33);
+         this.txtProtoExpNum.MenuManager = this.ribbon;
+         this.txtProtoExpNum.Name = "txtProtoExpNum";
+         this.txtProtoExpNum.Size = new System.Drawing.Size(914, 20);
+         this.txtProtoExpNum.TabIndex = 5;
+         // 
+         // lblProtoExpNum
+         // 
+         this.lblProtoExpNum.Location = new System.Drawing.Point(15, 36);
+         this.lblProtoExpNum.Name = "lblProtoExpNum";
+         this.lblProtoExpNum.Size = new System.Drawing.Size(93, 13);
+         this.lblProtoExpNum.TabIndex = 0;
+         this.lblProtoExpNum.Text = "Explotation number";
          // 
          // tabModelMaintenance
          // 
@@ -2053,7 +2095,7 @@
          // 
          this.galleryChangeStyleItem2.Gallery.ColumnCount = 10;
          this.galleryChangeStyleItem2.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup1});
+            galleryItemGroup2});
          this.galleryChangeStyleItem2.Gallery.ImageSize = new System.Drawing.Size(65, 46);
          this.galleryChangeStyleItem2.Id = -1;
          this.galleryChangeStyleItem2.Name = "galleryChangeStyleItem2";
@@ -2067,6 +2109,15 @@
          // 
          this.replaceItem2.Id = -1;
          this.replaceItem2.Name = "replaceItem2";
+         // 
+         // chkDigitalSound
+         // 
+         this.chkDigitalSound.Location = new System.Drawing.Point(392, 60);
+         this.chkDigitalSound.MenuManager = this.ribbon;
+         this.chkDigitalSound.Name = "chkDigitalSound";
+         this.chkDigitalSound.Properties.Caption = "Equiped with sound";
+         this.chkDigitalSound.Size = new System.Drawing.Size(164, 19);
+         this.chkDigitalSound.TabIndex = 9;
          // 
          // ModelModule
          // 
@@ -2137,10 +2188,16 @@
          ((System.ComponentModel.ISupportInitialize)(this.cboManufacturer.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtReference.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtItems.Properties)).EndInit();
+         this.tabModelReal.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.grpProtoGeneral)).EndInit();
+         this.grpProtoGeneral.ResumeLayout(false);
+         this.grpProtoGeneral.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.txtProtoExpNum.Properties)).EndInit();
          this.tabModelMaintenance.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.pnlContainer)).EndInit();
          this.pnlContainer.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.richEditBarController)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.chkDigitalSound.Properties)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -2193,8 +2250,7 @@
       private DevExpress.XtraEditors.LabelControl lblDigitalDecoder;
       private DevExpress.XtraEditors.ImageComboBoxEdit cboDigitalPlug;
       private DevExpress.XtraEditors.LabelControl lblDigitalPlug;
-      private DevExpress.XtraEditors.LabelControl labelControl1;
-      private DevExpress.XtraEditors.SimpleButton cmdProperties;
+      private DevExpress.XtraEditors.LabelControl lblPictograms;
       private DevExpress.XtraBars.PopupMenu pmnProperties;
       private DevExpress.XtraEditors.PanelControl panelControl4;
       private DevExpress.XtraEditors.PanelControl panelControl3;
@@ -2348,5 +2404,9 @@
       private DevExpress.XtraRichEdit.UI.ClipboardRibbonPageGroup rpgEditClipboard;
       private DevExpress.XtraRichEdit.UI.FontRibbonPageGroup rpgEditFormat;
       private DevExpress.XtraRichEdit.UI.ParagraphRibbonPageGroup rpgEditParagraph;
+      private DevExpress.XtraEditors.GroupControl grpProtoGeneral;
+      private DevExpress.XtraEditors.TextEdit txtProtoExpNum;
+      private DevExpress.XtraEditors.LabelControl lblProtoExpNum;
+      private DevExpress.XtraEditors.CheckEdit chkDigitalSound;
    }
 }

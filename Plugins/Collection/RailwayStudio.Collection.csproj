@@ -154,6 +154,7 @@
     <Compile Include="Controls\CompanyImageComboBoxEdit.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Model\Folder.cs" />
     <Compile Include="Modules\ExplorerModule.cs">
       <SubType>Form</SubType>
     </Compile>

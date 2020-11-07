@@ -50,6 +50,12 @@ namespace Rwm.Otc.Layout
       public string Description { get; set; } = string.Empty;
 
       /// <summary>
+      /// Gets or sets the section schema picture.
+      /// </summary>
+      [ORMProperty("IMAGE")]
+      public System.Drawing.Image Picture { get; set; }
+
+      /// <summary>
       /// Gets the group of the type of the bloc.
       /// </summary>
       [ORMProperty("ACCSTARTADDRESS")]
