@@ -223,11 +223,11 @@
     <Compile Include="Reports\DigitalReport.Designer.cs">
       <DependentUpon>DigitalReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\DigitalReportBySections.cs">
+    <Compile Include="Reports\DigitalReportByModule.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\DigitalReportBySections.Designer.cs">
-      <DependentUpon>DigitalReportBySections.cs</DependentUpon>
+    <Compile Include="Reports\DigitalReportByModule.Designer.cs">
+      <DependentUpon>DigitalReportByModule.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FeedbackEncoderWizardView.cs">
       <SubType>Form</SubType>
@@ -283,17 +283,17 @@
     <Compile Include="Views\ActionEditorView.Designer.cs">
       <DependentUpon>ActionEditorView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\AreaEditorView.cs">
+    <Compile Include="Views\ModuleEditorView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\AreaEditorView.Designer.cs">
-      <DependentUpon>AreaEditorView.cs</DependentUpon>
+    <Compile Include="Views\ModuleEditorView.Designer.cs">
+      <DependentUpon>ModuleEditorView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\AreasManagerView.cs">
+    <Compile Include="Views\ModulesManagerView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\AreasManagerView.Designer.cs">
-      <DependentUpon>AreasManagerView.cs</DependentUpon>
+    <Compile Include="Views\ModulesManagerView.Designer.cs">
+      <DependentUpon>ModulesManagerView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\ElementEditorViews.cs">
       <SubType>Form</SubType>
@@ -378,8 +378,8 @@
     <EmbeddedResource Include="Reports\DigitalReport.resx">
       <DependentUpon>DigitalReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\DigitalReportBySections.resx">
-      <DependentUpon>DigitalReportBySections.cs</DependentUpon>
+    <EmbeddedResource Include="Reports\DigitalReportByModule.resx">
+      <DependentUpon>DigitalReportByModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FeedbackEncoderWizardView.resx">
       <DependentUpon>FeedbackEncoderWizardView.cs</DependentUpon>
@@ -408,11 +408,11 @@
     <EmbeddedResource Include="Views\ActionEditorView.resx">
       <DependentUpon>ActionEditorView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\AreaEditorView.resx">
-      <DependentUpon>AreaEditorView.cs</DependentUpon>
+    <EmbeddedResource Include="Views\ModuleEditorView.resx">
+      <DependentUpon>ModuleEditorView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\AreasManagerView.resx">
-      <DependentUpon>AreasManagerView.cs</DependentUpon>
+    <EmbeddedResource Include="Views\ModulesManagerView.resx">
+      <DependentUpon>ModulesManagerView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ElementEditorViews.resx">
       <DependentUpon>ElementEditorViews.cs</DependentUpon>

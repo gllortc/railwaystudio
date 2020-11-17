@@ -138,7 +138,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
 
       internal void ManageLayoutAreas()
       {
-         AreasManagerView form = new AreasManagerView();
+         ModulesManagerView form = new ModulesManagerView();
          form.ShowDialog(this);
       }
 
@@ -183,7 +183,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
          try
          {
             // Generate the report
-            DigitalReportBySections rpt = new DigitalReportBySections();
+            DigitalReportByModule rpt = new DigitalReportByModule();
             rpt.CreateDocument();
 
             // Generate the cover

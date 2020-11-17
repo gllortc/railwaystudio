@@ -273,7 +273,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
 
          tlsDecoders.BeginUnboundLoad();
 
-         foreach (Section area in OTCContext.Project.Sections)
+         foreach (Module area in OTCContext.Project.Sections)
          {
             rootNode = tlsDecoders.AppendNode(new object[] { area.Name }, null);
             rootNode.StateImageIndex = 0;
@@ -285,7 +285,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
 
             foreach (AccessoryDecoder accDecoder in OTCContext.Project.AccessoryDecoders)
             {
-               if (accDecoder.Section == area)
+               if (accDecoder.Module == area)
                {
                   node = tlsDecoders.AppendNode(new object[] { accDecoder.Name, "Generic", accDecoder.Model, accDecoder.Outputs.Count, accDecoder.Outputs.Count }, parentNode);
                   node.Tag = accDecoder;
@@ -304,7 +304,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
 
             foreach (FeedbackEncoder fbEncoder in OTCContext.Project.FeedbackEncoders)
             {
-               if (fbEncoder.Section == area)
+               if (fbEncoder.Module == area)
                {
                   node = tlsDecoders.AppendNode(new object[] { fbEncoder.Name, "Generic", fbEncoder.Model, fbEncoder.Inputs.Count, fbEncoder.ConnectionsCount }, parentNode);
                   node.Tag = fbEncoder;
@@ -330,7 +330,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
 
          foreach (AccessoryDecoder accDecoder in OTCContext.Project.AccessoryDecoders)
          {
-            if (accDecoder.Section == null)
+            if (accDecoder.Module == null)
             {
                node = tlsDecoders.AppendNode(new object[] { accDecoder.Name, "Generic", accDecoder.Model, accDecoder.Outputs.Count, accDecoder.Outputs.Count }, parentNode);
                node.Tag = accDecoder;
@@ -351,7 +351,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
 
          foreach (FeedbackEncoder fbEncoder in OTCContext.Project.FeedbackEncoders)
          {
-            if (fbEncoder.Section == null)
+            if (fbEncoder.Module == null)
             {
                node = tlsDecoders.AppendNode(new object[] { fbEncoder.Name, fbEncoder.Model, fbEncoder.Inputs.Count, fbEncoder.ConnectionsCount }, parentNode);
                node.Tag = fbEncoder;

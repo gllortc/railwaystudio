@@ -158,10 +158,11 @@ namespace Rwm.Otc.Data
       /// <summary>
       /// Gets all instances.
       /// </summary>
+      /// <param name="sortProperties">A list of property names that will be used to sort all entities returned.</param>
       /// <returns>The requested list of instances.</returns>
-      public static ICollection<T> FindAll()
+      public static ICollection<T> FindAll(ICollection<String> sortProperties = null)
       {
-         return ORMEntity<T>.ReadAllRecords();
+         return ORMEntity<T>.ReadAllRecords(sortProperties);
       }
 
       /// <summary>
@@ -370,11 +371,11 @@ namespace Rwm.Otc.Data
       /// </summary>
       /// <param name="id">Instance primary key.</param>
       /// <returns>The specified instance.</returns>
-      private static ICollection<T> ReadAllRecords()
+      private static ICollection<T> ReadAllRecords(ICollection<String> sortProperties = null)
       {
          List<long> ids = new List<long>();
          List<T> list = new List<T>();
-         ORMSqlCommand cmd = ORMEntity<T>.SqlDialect.GetSelectAllCommand();
+         ORMSqlCommand cmd = ORMEntity<T>.SqlDialect.GetSelectAllCommand(sortProperties);
 
          // Connecto to database
          ORMEntity<T>.Connect();

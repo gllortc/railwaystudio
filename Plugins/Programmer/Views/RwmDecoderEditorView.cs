@@ -121,7 +121,7 @@ namespace Rwm.Studio.Plugins.Designer.Views
          txtName.Text = this.Decoder.Name;
          cboModel.Text = "DM.CTRL.DECO";
          // cboManufacturer.Text = "Railwaymania"; // TODO: Use created manufacturer
-         cboSection.SetSelectedElement(this.Decoder.Section);
+         cboSection.SetSelectedElement(this.Decoder.Module);
          txtNotes.Text = this.Decoder.Notes;
 
          output = this.Decoder.GetOutputByIndex(1);
@@ -148,7 +148,7 @@ namespace Rwm.Studio.Plugins.Designer.Views
          this.Decoder.Name = txtName.Text.Trim();
          this.Decoder.Manufacturer = cboManufacturer.EditValue as Manufacturer;
          this.Decoder.Model = cboModel.Text.Trim();
-         this.Decoder.Section = cboSection.SelectedSection;
+         this.Decoder.Module = cboSection.SelectedSection;
          this.Decoder.Notes = txtNotes.Text.Trim();
 
          return true;

@@ -79,16 +79,30 @@ namespace Rwm.Otc.Layout
       public int StartAddress { get; set; } = 0;
 
       /// <summary>
-      /// Gets or sets the owner section of the layout where the decoder is installed.
+      /// Gets or sets the owner layout module where the decoder is installed.
       /// </summary>
-      [ORMProperty("SECTIONID")]
-      public Section Section { get; set; } = null;
+      [ORMProperty("MODULEID")]
+      public Module Module { get; set; } = null;
 
       /// <summary>
       /// Gets or sets the list of device outputs.
       /// </summary>
       [ORMForeignCollection(OnDeleteActionTypes.DeleteInCascade)]
       public List<AccessoryDecoderOutput> Outputs { get; set; } = new List<AccessoryDecoderOutput>();
+
+      /// <summary>
+      /// Gets a string describing the manufacturer and model of the current accessory decoder.
+      /// </summary>
+      public string ModelDescription
+      {
+         get
+         {
+            if (string.IsNullOrWhiteSpace(this.Model) && string.IsNullOrWhiteSpace(this.Manufacturer?.Name))
+               return "Sense dades";
+            else
+               return (this.Manufacturer?.Name + " " + this.Model).Trim();
+         }
+      }
 
       /// <summary>
       /// Gets the associated small icon (16x16px).
@@ -271,12 +285,12 @@ namespace Rwm.Otc.Layout
                         s.id    as ""ID"",
                         s.name  as ""Name""
                     FROM 
-                        " + Section.TableName + @" s
+                        " + Module.TableName + @" s
                     ORDER BY 
                         s.name  Asc";
 
             ds.Tables.Add(AccessoryDecoder.ExecuteDataTable(sql));
-            ds.Tables[0].TableName = Section.TableName;
+            ds.Tables[0].TableName = Module.TableName;
 
             sql = @"SELECT 
                        s.id                      as ""SectionID"",
@@ -290,7 +304,7 @@ namespace Rwm.Otc.Layout
                           ELSE('X:' || (e.x + 1) || ' Y:' || (e.y + 1))
                        END as ""ConnectTo""
                     FROM
-                        " + Section.TableName + @" s
+                        " + Module.TableName + @" s
                         Inner Join " + AccessoryDecoder.TableName + @" ad            On (ad.SECTIONID = s.ID)
                         Inner Join " + AccessoryDecoderOutput.TableName + @" ado     On (ado.DECODERID = ad.id)
                         Inner Join " + AccessoryDecoderConnection.TableName + @" adc On (adc.DECODEROUTPUT = ado.ID)
@@ -308,7 +322,7 @@ namespace Rwm.Otc.Layout
 
             // Create a relation to be used in reports
             ds.Relations.Add(new DataRelation("SectionDecoder",
-                                              ds.Tables[Section.TableName].Columns["ID"],
+                                              ds.Tables[Module.TableName].Columns["ID"],
                                               ds.Tables[AccessoryDecoder.TableName].Columns["SECTIONID"]));
 
 

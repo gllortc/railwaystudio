@@ -141,7 +141,7 @@ namespace Rwm.Studio.Plugins.Designer.Views
          cboManufacturer.EditValue = this.Decoder.Manufacturer;
          lblInputsCount.Text = this.Decoder.Inputs.Count.ToString();
          txtNotes.Text = this.Decoder.Notes;
-         cboSection.SetSelectedElement(this.Decoder.Section);
+         cboSection.SetSelectedElement(this.Decoder.Module);
       }
 
       private bool MapViewToModel()
@@ -160,7 +160,7 @@ namespace Rwm.Studio.Plugins.Designer.Views
          this.Decoder.Manufacturer = cboManufacturer.EditValue as Manufacturer;
          this.Decoder.Model = cboModel.Text.Trim();
          this.Decoder.Notes = txtNotes.Text.Trim();
-         this.Decoder.Section = cboSection.SelectedSection;
+         this.Decoder.Module = cboSection.SelectedSection;
 
          return true;
       }

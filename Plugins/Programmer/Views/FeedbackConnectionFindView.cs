@@ -42,7 +42,7 @@ namespace Rwm.Studio.Plugins.Designer.Views
                e.Appearance.BackColor2 = Color.LightSalmon;
             }
          }
-         else if (e.Node.Tag == null || e.Node.Tag is Section)
+         else if (e.Node.Tag == null || e.Node.Tag is Module)
          {
             e.Appearance.FontStyleDelta = FontStyle.Bold;
          }
@@ -136,7 +136,7 @@ namespace Rwm.Studio.Plugins.Designer.Views
 
          foreach (FeedbackEncoder encoder in OTCContext.Project.FeedbackEncoders)
          {
-            if (encoder.Section == null)
+            if (encoder.Module == null)
             {
                foreach (FeedbackEncoderInput input in encoder.Inputs)
                {
@@ -149,14 +149,14 @@ namespace Rwm.Studio.Plugins.Designer.Views
             }
          }
 
-         foreach (Section section in OTCContext.Project.Sections)
+         foreach (Module section in OTCContext.Project.Sections)
          {
             nodeSection = tvwOutputs.AppendNode(new object[] { section.Name }, null);
             nodeSection.Tag = section;
 
             foreach (FeedbackEncoder encoder in OTCContext.Project.FeedbackEncoders)
             {
-               if (encoder.Section == section)
+               if (encoder.Module == section)
                {
                   foreach (FeedbackEncoderInput inputs in encoder.Inputs)
                   {

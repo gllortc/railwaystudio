@@ -126,7 +126,7 @@
          this.grpProperties = new DevExpress.XtraEditors.GroupControl();
          this.cboEra = new Rwm.Studio.Plugins.Collection.Controls.EraImageComboBoxEdit();
          this.lblPictograms = new DevExpress.XtraEditors.LabelControl();
-         this.cboCompany = new Rwm.Studio.Plugins.Collection.Controls.CompanyImageComboBoxEdit();
+         this.cboCompany = new Common.Controls.CompanyImageComboBoxEdit();
          this.cboCategory = new Rwm.Studio.Plugins.Collection.Controls.CategoryImageComboBoxEdit();
          this.lblPaintScheme = new DevExpress.XtraEditors.LabelControl();
          this.cboPaintScheme = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -2270,7 +2270,7 @@
         private Common.Controls.ManufacturerImageComboBoxEdit cboManufacturer;
         private Common.Controls.StoreImageComboBoxEdit cboStore;
         private Controls.CategoryImageComboBoxEdit cboCategory;
-        private Controls.CompanyImageComboBoxEdit cboCompany;
+        private Common.Controls.CompanyImageComboBoxEdit cboCompany;
         private Controls.GaugeImageComboBoxEdit cboGauge;
         private Controls.EraImageComboBoxEdit cboEra;
         private Controls.DecoderImageComboBoxEdit cboDigitalDecoder;

@@ -10,6 +10,8 @@
          InitializeComponent();
 
          lblReportTitle.Text = title;
+         lblProjectName.Text = Otc.OTCContext.Project?.Name;
+         picCompanyLogo.Image = Otc.OTCContext.Project?.CompanyLogo;
       }
 
       #endregion

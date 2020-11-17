@@ -28,16 +28,16 @@
       /// </summary>
       private void InitializeComponent()
       {
-         DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup3 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem9 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem10 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem11 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem12 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup4 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem13 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem14 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem15 = new DevExpress.XtraBars.Ribbon.GalleryItem();
-         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem16 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem1 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem2 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem3 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem4 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem5 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem6 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem7 = new DevExpress.XtraBars.Ribbon.GalleryItem();
+         DevExpress.XtraBars.Ribbon.GalleryItem galleryItem8 = new DevExpress.XtraBars.Ribbon.GalleryItem();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DesignModule));
          this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
          this.cmdPanelAdd = new DevExpress.XtraBars.BarButtonItem();
@@ -62,6 +62,7 @@
          this.cmdResourcesAreas = new DevExpress.XtraBars.BarButtonItem();
          this.cmdResourcesSounds = new DevExpress.XtraBars.BarButtonItem();
          this.cmdResourcesDecoders = new DevExpress.XtraBars.BarButtonItem();
+         this.cmdPrintDigitalReportBySection = new DevExpress.XtraBars.BarButtonItem();
          this.rbpDesign = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.rpgPanels = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.rpgBlocks = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -71,7 +72,6 @@
          this.tabPanels = new DevExpress.XtraTab.XtraTabControl();
          this.tabPanel1 = new DevExpress.XtraTab.XtraTabPage();
          this.pnlContainer = new DevExpress.XtraEditors.PanelControl();
-         this.cmdPrintDigitalReportBySection = new DevExpress.XtraBars.BarButtonItem();
          ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.tabPanels)).BeginInit();
          this.tabPanels.SuspendLayout();
@@ -162,29 +162,29 @@
          // 
          // 
          // 
-         galleryItemGroup3.Caption = "Group1";
-         galleryItem9.Caption = "Item5";
-         galleryItem10.Caption = "Item6";
-         galleryItem11.Caption = "Item7";
-         galleryItem12.Caption = "Item8";
-         galleryItemGroup3.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
-            galleryItem9,
-            galleryItem10,
-            galleryItem11,
-            galleryItem12});
-         galleryItemGroup4.Caption = "Group2";
-         galleryItem13.Caption = "Item1";
-         galleryItem14.Caption = "Item2";
-         galleryItem15.Caption = "Item3";
-         galleryItem16.Caption = "Item4";
-         galleryItemGroup4.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
-            galleryItem13,
-            galleryItem14,
-            galleryItem15,
-            galleryItem16});
+         galleryItemGroup1.Caption = "Group1";
+         galleryItem1.Caption = "Item5";
+         galleryItem2.Caption = "Item6";
+         galleryItem3.Caption = "Item7";
+         galleryItem4.Caption = "Item8";
+         galleryItemGroup1.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
+            galleryItem1,
+            galleryItem2,
+            galleryItem3,
+            galleryItem4});
+         galleryItemGroup2.Caption = "Group2";
+         galleryItem5.Caption = "Item1";
+         galleryItem6.Caption = "Item2";
+         galleryItem7.Caption = "Item3";
+         galleryItem8.Caption = "Item4";
+         galleryItemGroup2.Items.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItem[] {
+            galleryItem5,
+            galleryItem6,
+            galleryItem7,
+            galleryItem8});
          this.ribbonGalleryBarItem1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup3,
-            galleryItemGroup4});
+            galleryItemGroup1,
+            galleryItemGroup2});
          this.ribbonGalleryBarItem1.Id = 7;
          this.ribbonGalleryBarItem1.Name = "ribbonGalleryBarItem1";
          // 
@@ -319,7 +319,7 @@
          // 
          // cmdResourcesAreas
          // 
-         this.cmdResourcesAreas.Caption = "Layout areas";
+         this.cmdResourcesAreas.Caption = "Layout modules";
          this.cmdResourcesAreas.Id = 39;
          this.cmdResourcesAreas.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_AREA_FOLDER_16;
          this.cmdResourcesAreas.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_AREA_FOLDER_32;
@@ -343,6 +343,15 @@
          this.cmdResourcesDecoders.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_DEVICE_FOLDER_32;
          this.cmdResourcesDecoders.Name = "cmdResourcesDecoders";
          this.cmdResourcesDecoders.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdResourcesDecoders_ItemClick);
+         // 
+         // cmdPrintDigitalReportBySection
+         // 
+         this.cmdPrintDigitalReportBySection.Caption = "Digital report by modules";
+         this.cmdPrintDigitalReportBySection.Id = 42;
+         this.cmdPrintDigitalReportBySection.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_REPORT_16;
+         this.cmdPrintDigitalReportBySection.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_REPORT_32;
+         this.cmdPrintDigitalReportBySection.Name = "cmdPrintDigitalReportBySection";
+         this.cmdPrintDigitalReportBySection.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdPrintDigitalReportBySection_ItemClick);
          // 
          // rbpDesign
          // 
@@ -427,15 +436,6 @@
          this.pnlContainer.Padding = new System.Windows.Forms.Padding(5);
          this.pnlContainer.Size = new System.Drawing.Size(1002, 530);
          this.pnlContainer.TabIndex = 4;
-         // 
-         // cmdPrintDigitalReportBySection
-         // 
-         this.cmdPrintDigitalReportBySection.Caption = "Digital report by section";
-         this.cmdPrintDigitalReportBySection.Id = 42;
-         this.cmdPrintDigitalReportBySection.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_REPORT_16;
-         this.cmdPrintDigitalReportBySection.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_REPORT_32;
-         this.cmdPrintDigitalReportBySection.Name = "cmdPrintDigitalReportBySection";
-         this.cmdPrintDigitalReportBySection.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdPrintDigitalReportBySection_ItemClick);
          // 
          // DesignModule
          // 

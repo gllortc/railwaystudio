@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Rwm.Otc.Data;
 
 namespace Rwm.Otc.Layout
@@ -154,6 +155,16 @@ namespace Rwm.Otc.Layout
       #endregion
 
       #region Methods
+
+      /// <summary>
+      /// Gets all decoder outputs related to all specified module decoders.
+      /// </summary>
+      /// <param name="moduleId">Layout module unique identifier.</param>
+      /// <returns>The requested list.</returns>
+      public static ICollection<AccessoryDecoderOutput> FindByModule(long moduleId)
+      {
+         return AccessoryDecoderOutput.FindByQuery("DECODERID In (SELECT ID FROM ACC_DECODERS WHERE MODULEID=" + moduleId + " )");
+      }
 
       /// <summary>
       /// Compare the current instance with other.

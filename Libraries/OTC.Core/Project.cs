@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using Rwm.Otc.Data;
 using Rwm.Otc.Diagnostics;
 using Rwm.Otc.Layout;
@@ -144,6 +145,18 @@ namespace Rwm.Otc
       public string Version { get; set; } = "1.0";
 
       /// <summary>
+      /// Gets or sets the project company name.
+      /// </summary>
+      [ORMProperty("COMPANY")]
+      public string CompanyName { get; set; } = string.Empty;
+
+      /// <summary>
+      /// Gets or sets the project company logo picture.
+      /// </summary>
+      [ORMProperty("LOGO")]
+      public Image CompanyLogo { get; set; }
+
+      /// <summary>
       /// Gets the switchboard list inlcuded in the project.
       /// </summary>
       [ORMForeignCollection(OnDeleteActionTypes.NoAction)]
@@ -177,7 +190,7 @@ namespace Rwm.Otc
       /// Gets the layout sections list.
       /// </summary>
       [ORMForeignCollection(OnDeleteActionTypes.NoAction)]
-      public List<Section> Sections { get; private set; } = null;
+      public List<Module> Sections { get; private set; } = null;
 
       /// <summary>
       /// Gets a value indicating if layout areas are in use in the current project.
@@ -189,11 +202,11 @@ namespace Rwm.Otc
             if (this.Sections.Count > 0)
             {
                foreach (AccessoryDecoder decoder in this.AccessoryDecoders)
-                  if (decoder.Section != null)
+                  if (decoder.Module != null)
                      return true;
 
                foreach (FeedbackEncoder encoder in this.FeedbackEncoders)
-                  if (encoder.Section != null)
+                  if (encoder.Module != null)
                      return true;
             }
 

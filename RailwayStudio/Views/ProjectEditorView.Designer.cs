@@ -28,36 +28,47 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
+         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectEditorView));
          this.tabPlugin = new DevExpress.XtraTab.XtraTabControl();
          this.tabPluginGeneral = new DevExpress.XtraTab.XtraTabPage();
+         this.lblLastAccess = new DevExpress.XtraEditors.LabelControl();
+         this.lblLastAccessLabel = new DevExpress.XtraEditors.LabelControl();
+         this.lblCreated = new DevExpress.XtraEditors.LabelControl();
+         this.lblCreatedLabel = new DevExpress.XtraEditors.LabelControl();
+         this.separatorControl2 = new DevExpress.XtraEditors.SeparatorControl();
+         this.lblSize = new DevExpress.XtraEditors.LabelControl();
+         this.lblSizeLabel = new DevExpress.XtraEditors.LabelControl();
+         this.lblPath = new DevExpress.XtraEditors.LabelControl();
+         this.lblPathLabel = new DevExpress.XtraEditors.LabelControl();
+         this.lblFilename = new DevExpress.XtraEditors.LabelControl();
+         this.lblFilenameLabel = new DevExpress.XtraEditors.LabelControl();
+         this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
          this.lblDescription = new DevExpress.XtraEditors.LabelControl();
          this.txtDescription = new DevExpress.XtraEditors.MemoEdit();
          this.lblVersion = new DevExpress.XtraEditors.LabelControl();
          this.txtVersion = new DevExpress.XtraEditors.TextEdit();
          this.lblName = new DevExpress.XtraEditors.LabelControl();
          this.txtName = new DevExpress.XtraEditors.TextEdit();
+         this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+         this.txtCompany = new DevExpress.XtraEditors.TextEdit();
+         this.lblCompany = new DevExpress.XtraEditors.LabelControl();
+         this.lblLogo = new DevExpress.XtraEditors.LabelControl();
+         this.picLogo = new DevExpress.XtraEditors.PictureEdit();
+         this.imlIcons = new System.Windows.Forms.ImageList(this.components);
          this.cmdAccept = new DevExpress.XtraEditors.SimpleButton();
          this.cmdCancel = new DevExpress.XtraEditors.SimpleButton();
-         this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
-         this.lblFilenameLabel = new DevExpress.XtraEditors.LabelControl();
-         this.lblFilename = new DevExpress.XtraEditors.LabelControl();
-         this.lblPath = new DevExpress.XtraEditors.LabelControl();
-         this.lblPathLabel = new DevExpress.XtraEditors.LabelControl();
-         this.lblSize = new DevExpress.XtraEditors.LabelControl();
-         this.lblSizeLabel = new DevExpress.XtraEditors.LabelControl();
-         this.separatorControl2 = new DevExpress.XtraEditors.SeparatorControl();
-         this.lblLastAccess = new DevExpress.XtraEditors.LabelControl();
-         this.lblLastAccessLabel = new DevExpress.XtraEditors.LabelControl();
-         this.lblCreated = new DevExpress.XtraEditors.LabelControl();
-         this.lblCreatedLabel = new DevExpress.XtraEditors.LabelControl();
          ((System.ComponentModel.ISupportInitialize)(this.tabPlugin)).BeginInit();
          this.tabPlugin.SuspendLayout();
          this.tabPluginGeneral.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtVersion.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).BeginInit();
+         this.xtraTabPage1.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.txtCompany.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.picLogo.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // tabPlugin
@@ -71,7 +82,8 @@
          this.tabPlugin.Size = new System.Drawing.Size(403, 405);
          this.tabPlugin.TabIndex = 5;
          this.tabPlugin.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.tabPluginGeneral});
+            this.tabPluginGeneral,
+            this.xtraTabPage1});
          // 
          // tabPluginGeneral
          // 
@@ -93,11 +105,105 @@
          this.tabPluginGeneral.Controls.Add(this.txtVersion);
          this.tabPluginGeneral.Controls.Add(this.lblName);
          this.tabPluginGeneral.Controls.Add(this.txtName);
-         this.tabPluginGeneral.Image = Otc.Project.SmallIcon;
+         this.tabPluginGeneral.Image = ((System.Drawing.Image)(resources.GetObject("tabPluginGeneral.Image")));
          this.tabPluginGeneral.Name = "tabPluginGeneral";
          this.tabPluginGeneral.Padding = new System.Windows.Forms.Padding(15);
          this.tabPluginGeneral.Size = new System.Drawing.Size(397, 374);
          this.tabPluginGeneral.Text = "General";
+         // 
+         // lblLastAccess
+         // 
+         this.lblLastAccess.Location = new System.Drawing.Point(86, 346);
+         this.lblLastAccess.Name = "lblLastAccess";
+         this.lblLastAccess.Size = new System.Drawing.Size(56, 13);
+         this.lblLastAccess.TabIndex = 17;
+         this.lblLastAccess.Text = "10/10/2000";
+         // 
+         // lblLastAccessLabel
+         // 
+         this.lblLastAccessLabel.Location = new System.Drawing.Point(18, 346);
+         this.lblLastAccessLabel.Name = "lblLastAccessLabel";
+         this.lblLastAccessLabel.Size = new System.Drawing.Size(55, 13);
+         this.lblLastAccessLabel.TabIndex = 16;
+         this.lblLastAccessLabel.Text = "Last access";
+         // 
+         // lblCreated
+         // 
+         this.lblCreated.Location = new System.Drawing.Point(86, 327);
+         this.lblCreated.Name = "lblCreated";
+         this.lblCreated.Size = new System.Drawing.Size(56, 13);
+         this.lblCreated.TabIndex = 15;
+         this.lblCreated.Text = "10/10/2000";
+         // 
+         // lblCreatedLabel
+         // 
+         this.lblCreatedLabel.Location = new System.Drawing.Point(18, 327);
+         this.lblCreatedLabel.Name = "lblCreatedLabel";
+         this.lblCreatedLabel.Size = new System.Drawing.Size(39, 13);
+         this.lblCreatedLabel.TabIndex = 14;
+         this.lblCreatedLabel.Text = "Created";
+         // 
+         // separatorControl2
+         // 
+         this.separatorControl2.Location = new System.Drawing.Point(18, 298);
+         this.separatorControl2.Name = "separatorControl2";
+         this.separatorControl2.Size = new System.Drawing.Size(361, 23);
+         this.separatorControl2.TabIndex = 13;
+         // 
+         // lblSize
+         // 
+         this.lblSize.Location = new System.Drawing.Point(86, 279);
+         this.lblSize.Name = "lblSize";
+         this.lblSize.Size = new System.Drawing.Size(33, 13);
+         this.lblSize.TabIndex = 12;
+         this.lblSize.Text = "2.3 MB";
+         // 
+         // lblSizeLabel
+         // 
+         this.lblSizeLabel.Location = new System.Drawing.Point(18, 279);
+         this.lblSizeLabel.Name = "lblSizeLabel";
+         this.lblSizeLabel.Size = new System.Drawing.Size(19, 13);
+         this.lblSizeLabel.TabIndex = 11;
+         this.lblSizeLabel.Text = "Size";
+         // 
+         // lblPath
+         // 
+         this.lblPath.Location = new System.Drawing.Point(86, 260);
+         this.lblPath.Name = "lblPath";
+         this.lblPath.Size = new System.Drawing.Size(53, 13);
+         this.lblPath.TabIndex = 10;
+         this.lblPath.Text = "c:\\layouts\\";
+         // 
+         // lblPathLabel
+         // 
+         this.lblPathLabel.Location = new System.Drawing.Point(18, 260);
+         this.lblPathLabel.Name = "lblPathLabel";
+         this.lblPathLabel.Size = new System.Drawing.Size(40, 13);
+         this.lblPathLabel.TabIndex = 9;
+         this.lblPathLabel.Text = "Location";
+         // 
+         // lblFilename
+         // 
+         this.lblFilename.Location = new System.Drawing.Point(86, 241);
+         this.lblFilename.Name = "lblFilename";
+         this.lblFilename.Size = new System.Drawing.Size(49, 13);
+         this.lblFilename.TabIndex = 8;
+         this.lblFilename.Text = "layout.orc";
+         // 
+         // lblFilenameLabel
+         // 
+         this.lblFilenameLabel.Location = new System.Drawing.Point(18, 241);
+         this.lblFilenameLabel.Name = "lblFilenameLabel";
+         this.lblFilenameLabel.Size = new System.Drawing.Size(16, 13);
+         this.lblFilenameLabel.TabIndex = 7;
+         this.lblFilenameLabel.Text = "File";
+         // 
+         // separatorControl1
+         // 
+         this.separatorControl1.Location = new System.Drawing.Point(18, 212);
+         this.separatorControl1.Name = "separatorControl1";
+         this.separatorControl1.Size = new System.Drawing.Size(361, 23);
+         this.separatorControl1.TabIndex = 6;
          // 
          // lblDescription
          // 
@@ -152,6 +258,57 @@
          this.txtName.Size = new System.Drawing.Size(293, 20);
          this.txtName.TabIndex = 1;
          // 
+         // xtraTabPage1
+         // 
+         this.xtraTabPage1.Controls.Add(this.txtCompany);
+         this.xtraTabPage1.Controls.Add(this.lblCompany);
+         this.xtraTabPage1.Controls.Add(this.lblLogo);
+         this.xtraTabPage1.Controls.Add(this.picLogo);
+         this.xtraTabPage1.Name = "xtraTabPage1";
+         this.xtraTabPage1.Padding = new System.Windows.Forms.Padding(10);
+         this.xtraTabPage1.Size = new System.Drawing.Size(397, 374);
+         this.xtraTabPage1.Text = "Details";
+         // 
+         // txtCompany
+         // 
+         this.txtCompany.Location = new System.Drawing.Point(93, 13);
+         this.txtCompany.Name = "txtCompany";
+         this.txtCompany.Size = new System.Drawing.Size(291, 20);
+         this.txtCompany.TabIndex = 3;
+         // 
+         // lblCompany
+         // 
+         this.lblCompany.Location = new System.Drawing.Point(13, 16);
+         this.lblCompany.Name = "lblCompany";
+         this.lblCompany.Size = new System.Drawing.Size(74, 13);
+         this.lblCompany.TabIndex = 2;
+         this.lblCompany.Text = "Company name";
+         // 
+         // lblLogo
+         // 
+         this.lblLogo.Location = new System.Drawing.Point(13, 42);
+         this.lblLogo.Name = "lblLogo";
+         this.lblLogo.Size = new System.Drawing.Size(59, 13);
+         this.lblLogo.TabIndex = 1;
+         this.lblLogo.Text = "Logo picture";
+         // 
+         // picLogo
+         // 
+         this.picLogo.Cursor = System.Windows.Forms.Cursors.Default;
+         this.picLogo.Location = new System.Drawing.Point(93, 39);
+         this.picLogo.Name = "picLogo";
+         this.picLogo.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+         this.picLogo.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
+         this.picLogo.Properties.ZoomAccelerationFactor = 1D;
+         this.picLogo.Size = new System.Drawing.Size(291, 197);
+         this.picLogo.TabIndex = 0;
+         // 
+         // imlIcons
+         // 
+         this.imlIcons.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+         this.imlIcons.ImageSize = new System.Drawing.Size(32, 32);
+         this.imlIcons.TransparentColor = System.Drawing.Color.Transparent;
+         // 
          // cmdAccept
          // 
          this.cmdAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -172,100 +329,6 @@
          this.cmdCancel.TabIndex = 200;
          this.cmdCancel.Text = "Cancel";
          this.cmdCancel.Click += new System.EventHandler(this.CmdCancel_Click);
-         // 
-         // separatorControl1
-         // 
-         this.separatorControl1.Location = new System.Drawing.Point(18, 212);
-         this.separatorControl1.Name = "separatorControl1";
-         this.separatorControl1.Size = new System.Drawing.Size(361, 23);
-         this.separatorControl1.TabIndex = 6;
-         // 
-         // lblFilenameLabel
-         // 
-         this.lblFilenameLabel.Location = new System.Drawing.Point(18, 241);
-         this.lblFilenameLabel.Name = "lblFilenameLabel";
-         this.lblFilenameLabel.Size = new System.Drawing.Size(16, 13);
-         this.lblFilenameLabel.TabIndex = 7;
-         this.lblFilenameLabel.Text = "File";
-         // 
-         // lblFilename
-         // 
-         this.lblFilename.Location = new System.Drawing.Point(86, 241);
-         this.lblFilename.Name = "lblFilename";
-         this.lblFilename.Size = new System.Drawing.Size(49, 13);
-         this.lblFilename.TabIndex = 8;
-         this.lblFilename.Text = "layout.orc";
-         // 
-         // lblPath
-         // 
-         this.lblPath.Location = new System.Drawing.Point(86, 260);
-         this.lblPath.Name = "lblPath";
-         this.lblPath.Size = new System.Drawing.Size(53, 13);
-         this.lblPath.TabIndex = 10;
-         this.lblPath.Text = "c:\\layouts\\";
-         // 
-         // lblPathLabel
-         // 
-         this.lblPathLabel.Location = new System.Drawing.Point(18, 260);
-         this.lblPathLabel.Name = "lblPathLabel";
-         this.lblPathLabel.Size = new System.Drawing.Size(40, 13);
-         this.lblPathLabel.TabIndex = 9;
-         this.lblPathLabel.Text = "Location";
-         // 
-         // lblSize
-         // 
-         this.lblSize.Location = new System.Drawing.Point(86, 279);
-         this.lblSize.Name = "lblSize";
-         this.lblSize.Size = new System.Drawing.Size(33, 13);
-         this.lblSize.TabIndex = 12;
-         this.lblSize.Text = "2.3 MB";
-         // 
-         // lblSizeLabel
-         // 
-         this.lblSizeLabel.Location = new System.Drawing.Point(18, 279);
-         this.lblSizeLabel.Name = "lblSizeLabel";
-         this.lblSizeLabel.Size = new System.Drawing.Size(19, 13);
-         this.lblSizeLabel.TabIndex = 11;
-         this.lblSizeLabel.Text = "Size";
-         // 
-         // separatorControl2
-         // 
-         this.separatorControl2.Location = new System.Drawing.Point(18, 298);
-         this.separatorControl2.Name = "separatorControl2";
-         this.separatorControl2.Size = new System.Drawing.Size(361, 23);
-         this.separatorControl2.TabIndex = 13;
-         // 
-         // lblLastAccess
-         // 
-         this.lblLastAccess.Location = new System.Drawing.Point(86, 346);
-         this.lblLastAccess.Name = "lblLastAccess";
-         this.lblLastAccess.Size = new System.Drawing.Size(56, 13);
-         this.lblLastAccess.TabIndex = 17;
-         this.lblLastAccess.Text = "10/10/2000";
-         // 
-         // lblLastAccessLabel
-         // 
-         this.lblLastAccessLabel.Location = new System.Drawing.Point(18, 346);
-         this.lblLastAccessLabel.Name = "lblLastAccessLabel";
-         this.lblLastAccessLabel.Size = new System.Drawing.Size(55, 13);
-         this.lblLastAccessLabel.TabIndex = 16;
-         this.lblLastAccessLabel.Text = "Last access";
-         // 
-         // lblCreated
-         // 
-         this.lblCreated.Location = new System.Drawing.Point(86, 327);
-         this.lblCreated.Name = "lblCreated";
-         this.lblCreated.Size = new System.Drawing.Size(56, 13);
-         this.lblCreated.TabIndex = 15;
-         this.lblCreated.Text = "10/10/2000";
-         // 
-         // lblCreatedLabel
-         // 
-         this.lblCreatedLabel.Location = new System.Drawing.Point(18, 327);
-         this.lblCreatedLabel.Name = "lblCreatedLabel";
-         this.lblCreatedLabel.Size = new System.Drawing.Size(39, 13);
-         this.lblCreatedLabel.TabIndex = 14;
-         this.lblCreatedLabel.Text = "Created";
          // 
          // ProjectEditorView
          // 
@@ -289,11 +352,15 @@
          this.tabPlugin.ResumeLayout(false);
          this.tabPluginGeneral.ResumeLayout(false);
          this.tabPluginGeneral.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtVersion.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.separatorControl2)).EndInit();
+         this.xtraTabPage1.ResumeLayout(false);
+         this.xtraTabPage1.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.txtCompany.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.picLogo.Properties)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -322,5 +389,11 @@
         private DevExpress.XtraEditors.LabelControl lblCreated;
         private DevExpress.XtraEditors.LabelControl lblCreatedLabel;
         private DevExpress.XtraEditors.SeparatorControl separatorControl2;
-    }
+      private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
+      private System.Windows.Forms.ImageList imlIcons;
+      private DevExpress.XtraEditors.LabelControl lblLogo;
+      private DevExpress.XtraEditors.PictureEdit picLogo;
+      private DevExpress.XtraEditors.TextEdit txtCompany;
+      private DevExpress.XtraEditors.LabelControl lblCompany;
+   }
 }

@@ -82,6 +82,21 @@ namespace Rwm.Otc.Trains
          get { return Properties.Resources.ICO_DECODER_32; }
       }
 
+      public string DisplayName
+      {
+         get
+         {
+            if (string.IsNullOrWhiteSpace(this.Name) && this.Manufacturer == null)
+               return "NS";
+            else if (string.IsNullOrWhiteSpace(this.Name))
+               return this.Manufacturer.Name;
+            else if (this.Manufacturer == null)
+               return this.Name;
+            else
+               return (this.Manufacturer.Name + " " + this.Name).Trim();
+         }
+      }
+
       #endregion
 
       #region Static Members

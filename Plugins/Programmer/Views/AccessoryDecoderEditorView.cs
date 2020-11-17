@@ -122,7 +122,7 @@ namespace Rwm.Studio.Plugins.Designer.Views
 
          txtName.Text = this.Decoder.Name;
          cboManufacturer.SetSelectedElement(this.Decoder.Manufacturer);
-         cboSection.SetSelectedElement(this.Decoder.Section);
+         cboSection.SetSelectedElement(this.Decoder.Module);
          lblOutputsCount.Text = this.Decoder.Outputs.Count.ToString();
          txtNotes.Text = this.Decoder.Notes;
 
@@ -147,7 +147,7 @@ namespace Rwm.Studio.Plugins.Designer.Views
          this.Decoder.Name = txtName.Text.Trim();
          this.Decoder.Manufacturer = cboManufacturer.SelectedManufacturer;
          this.Decoder.Model = cboModel.Text.Trim();
-         this.Decoder.Section = cboSection.SelectedSection;
+         this.Decoder.Module = cboSection.SelectedSection;
          this.Decoder.Notes = txtNotes.Text.Trim();
 
          // TODO: get all outputs??

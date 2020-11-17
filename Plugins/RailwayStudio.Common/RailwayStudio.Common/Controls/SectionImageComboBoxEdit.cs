@@ -93,12 +93,12 @@ namespace Rwm.Studio.Plugins.Common.Controls
       /// <summary>
       /// Gets the selected item in the list.
       /// </summary>
-      public Section SelectedSection
+      public Module SelectedSection
       {
          get
          {
             if (this.EditValue == null) return null;
-            return this.EditValue as Section;
+            return this.EditValue as Module;
          }
       }
 
@@ -131,7 +131,7 @@ namespace Rwm.Studio.Plugins.Common.Controls
       /// Sets the selected element in the editor.
       /// </summary>
       /// <param name="selected">Selected item.</param>
-      public void SetSelectedElement(Section selected)
+      public void SetSelectedElement(Module selected)
       {
          this.FillItems(selected);
       }
@@ -145,7 +145,7 @@ namespace Rwm.Studio.Plugins.Common.Controls
 
       #region Private Members
 
-      private void FillItems(Section selected)
+      private void FillItems(Module selected)
       {
          ImageComboBoxItem item;
 
@@ -153,8 +153,8 @@ namespace Rwm.Studio.Plugins.Common.Controls
          if (this.Properties.SmallImages == null)
          {
             this.ImageList = new ImageList();
-            this.ImageList.Images.Add(Section.GlobalSmallIcon);
-            this.ImageList.Images.Add(Section.SmallIcon);
+            this.ImageList.Images.Add(Module.GlobalSmallIcon);
+            this.ImageList.Images.Add(Module.SmallIcon);
             this.Properties.SmallImages = this.ImageList;
          }
 
@@ -165,7 +165,7 @@ namespace Rwm.Studio.Plugins.Common.Controls
             item = new ImageComboBoxItem("Not specified", null, 0);
             this.Properties.Items.Add(item);
 
-            foreach (Section section in OTCContext.Project.Sections)
+            foreach (Module section in OTCContext.Project.Sections)
             {
                item = new ImageComboBoxItem(section.Name, section, 1);
                this.Properties.Items.Add(item);

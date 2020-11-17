@@ -161,7 +161,7 @@
     <Compile Include="Layout\AccessoryDecoder.cs" />
     <Compile Include="Layout\LayoutConfigurationException.cs" />
     <Compile Include="Layout\RouteActivationEventArgs.cs" />
-    <Compile Include="Layout\Section.cs" />
+    <Compile Include="Layout\Module.cs" />
     <Compile Include="Layout\Traffic\ItineraryFeedbackPoint.cs" />
     <Compile Include="Layout\Traffic\TrafficManager.cs" />
     <Compile Include="Layout\Traffic\Itinerary.cs" />

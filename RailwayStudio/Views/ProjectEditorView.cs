@@ -106,6 +106,8 @@ namespace Rwm.Studio.Views
          txtName.Text = this.Project.Name;
          txtDescription.Text = this.Project.Description;
          txtVersion.Text = this.Project.Version;
+         txtCompany.Text = this.Project.CompanyName;
+         picLogo.Image = this.Project.CompanyLogo;
 
          if (!this.Project.IsNew)
          {
@@ -131,6 +133,8 @@ namespace Rwm.Studio.Views
          this.Project.Name = txtName.Text.Trim();
          this.Project.Description = txtDescription.Text.Trim();
          this.Project.Version = txtVersion.Text.Trim();
+         this.Project.CompanyName = txtCompany.Text.Trim();
+         this.Project.CompanyLogo = picLogo.Image;
       }
 
       #endregion

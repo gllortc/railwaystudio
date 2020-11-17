@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Rwm.Otc.Data;
 using Rwm.Otc.Systems;
 
@@ -73,6 +74,30 @@ namespace Rwm.Otc.Layout
       /// </summary>
       [ORMProperty("POINT")]
       public int PointAddress { get; set; } = 0;
+
+      /// <summary>
+      /// Gets a string containing the address to display in UI dialogues.
+      /// </summary>
+      public string DisplayAddress
+      {
+         get
+         {
+            if (this.Address <= 0)
+               return "Not assigned";
+            else
+               return this.Address.ToString("0000");
+         }
+      }
+
+      /// <summary>
+      /// Gets all encoder inputs related placed in the specified layout module.
+      /// </summary>
+      /// <param name="moduleId">Layout module unique identifier.</param>
+      /// <returns>The requested list.</returns>
+      public static ICollection<FeedbackEncoderInput> FindByModule(int moduleId)
+      {
+         return FeedbackEncoderInput.FindByQuery("DECODERID In (SELECT ID FROM FB_DECODERS WHERE MODULEID=" + moduleId + " )");
+      }
 
       /// <summary>
       /// Gets or sets the time (in milliseconds) to switch.

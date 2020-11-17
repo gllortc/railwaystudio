@@ -90,16 +90,30 @@ namespace Rwm.Otc.Layout
       public string Model { get; set; } = string.Empty;
 
       /// <summary>
-      /// Gets or sets the owner section of the layout where the decoder is installed.
+      /// Gets or sets the owner layout module where the decoder is placed.
       /// </summary>
-      [ORMProperty("SECTIONID")]
-      public Section Section { get; set; } = null;
+      [ORMProperty("MODULEID")]
+      public Module Module { get; set; } = null;
 
       /// <summary>
       /// Gets or sets the list of connections for the device.
       /// </summary>
       [ORMForeignCollection(OnDeleteActionTypes.DeleteInCascade)]
       public List<FeedbackEncoderInput> Inputs { get; set; } = new List<FeedbackEncoderInput>();
+
+      /// <summary>
+      /// Gets a string describing the manufacturer and model of the current feedback encoder.
+      /// </summary>
+      public string ModelDescription
+      {
+         get
+         {
+            if (string.IsNullOrWhiteSpace(this.Model) && string.IsNullOrWhiteSpace(this.Manufacturer?.Name))
+               return "Sense dades";
+            else
+               return (this.Manufacturer?.Name + " " + this.Model).Trim();
+         }
+      }
 
       /// <summary>
       /// Gets the number of used inputs by connections.

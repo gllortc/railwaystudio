@@ -509,9 +509,23 @@ namespace Rwm.Otc.Trains
       }
 
       /// <summary>
+      /// Gets the train digital address in the standarized format.
+      /// </summary>
+      public string DisplayDigitalAddress
+      {
+         get 
+         {
+            if (this.DigitalAddress <= 0)
+               return "NS";
+            else
+               return this.DigitalAddress.ToString("0000");
+         }
+      }
+
+      /// <summary>
       /// Gets a string that represents the pictograms for the current model.
       /// </summary>
-      /// <remarks>It should be used with <strong>Maerklin Piktos</strong> truetype font.</remarks>
+      /// <remarks>The string returned should be used with <strong>Maerklin Piktos</strong> truetype font.</remarks>
       public string Pictograms 
       {
          get

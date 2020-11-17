@@ -74,7 +74,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
                   break;
 
                case FileType.RailwayCompanies:
-                  AdministrationEditorView formAdmin = new AdministrationEditorView();
+                  CompanyEditorView formAdmin = new CompanyEditorView();
                   formAdmin.ShowDialog();
                   break;
 
@@ -160,7 +160,7 @@ namespace Rwm.Studio.Plugins.Collection.Modules
                   Company admin = Company.Get(row.ID);
                   if (admin != null)
                   {
-                     AdministrationEditorView formAdmin = new AdministrationEditorView(admin);
+                     CompanyEditorView formAdmin = new CompanyEditorView(admin);
                      formAdmin.ShowDialog();
                   }
                   break;
@@ -329,9 +329,12 @@ namespace Rwm.Studio.Plugins.Collection.Modules
                      break;
 
                   case FileType.RailwayCompanies:
+                     grdDataView.RowHeight = 35;
                      grdDataView.OptionsBehavior.AutoPopulateColumns = false;
                      grdDataView.Columns.Add(new GridColumn() { Caption = "ID", Visible = false, FieldName = "ID" });
-                     grdDataView.Columns.Add(new GridColumn() { Caption = "Name", Visible = true, FieldName = "Name", Width = 250 });
+                     grdDataView.Columns.Add(new GridColumn() { Caption = "Logo", Visible = true, FieldName = "LogoImage", Width = 100 });
+                     grdDataView.Columns.Add(new GridColumn() { Caption = "Name", Visible = true, FieldName = "Name", Width = 300 });
+                     grdDataView.Columns.Add(new GridColumn() { Caption = "Acronym", Visible = true, FieldName = "Acronym", Width = 100 });
                      grdDataView.Columns.Add(new GridColumn() { Caption = "URL", Visible = true, FieldName = "URL", Width = 350 });
                      grdData.DataSource = Company.FindAll();
                      break;

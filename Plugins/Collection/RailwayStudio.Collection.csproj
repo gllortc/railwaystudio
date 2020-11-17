@@ -151,9 +151,6 @@
     <Compile Include="Controls\CategoryImageComboBoxEdit.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\CompanyImageComboBoxEdit.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Model\Folder.cs" />
     <Compile Include="Modules\ExplorerModule.cs">
       <SubType>Form</SubType>
@@ -197,11 +194,11 @@
     <Compile Include="Views\CategoryEditorView.Designer.cs">
       <DependentUpon>CategoryEditorView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\AdministrationEditorView.cs">
+    <Compile Include="Views\CompanyEditorView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\AdministrationEditorView.Designer.cs">
-      <DependentUpon>AdministrationEditorView.cs</DependentUpon>
+    <Compile Include="Views\CompanyEditorView.Designer.cs">
+      <DependentUpon>CompanyEditorView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\GaugeEditorView.cs">
       <SubType>Form</SubType>
@@ -244,8 +241,8 @@
     <EmbeddedResource Include="Views\CategoryEditorView.resx">
       <DependentUpon>CategoryEditorView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\AdministrationEditorView.resx">
-      <DependentUpon>AdministrationEditorView.cs</DependentUpon>
+    <EmbeddedResource Include="Views\CompanyEditorView.resx">
+      <DependentUpon>CompanyEditorView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\GaugeEditorView.resx">
       <DependentUpon>GaugeEditorView.cs</DependentUpon>

@@ -1,9 +1,10 @@
-﻿using Rwm.Otc.Data;
+﻿using System;
+using Rwm.Otc.Data;
 
 namespace Rwm.Otc.Trains
 {
    /// <summary>
-   /// Implementa una administración o operadora ferroviaria.
+   /// Implements a railway company.
    /// </summary>
    [ORMTable("COMPANIES")]
    public class Company : ORMEntity<Company>
@@ -27,31 +28,38 @@ namespace Rwm.Otc.Trains
       public override long ID { get; set; } = 0;
 
       /// <summary>
-      /// Gets or sets el nombre.
+      /// Gets or sets the name of the railway company.
       /// </summary>
       [ORMProperty("NAME")]
       public string Name { get; set; } = string.Empty;
 
       /// <summary>
-      /// Gets or sets la descripción.
+      /// Gets or sets the company acronym.
+      /// </summary>
+      [ORMProperty("ACRONYM")]
+      public string Acronym { get; set; } = string.Empty;
+
+      /// <summary>
+      /// Gets or sets the description.
       /// </summary>
       [ORMProperty("DESCRIPTION")]
       public string Description { get; set; } = string.Empty;
 
       /// <summary>
-      /// Gets or sets la URL correspondiente a la página web oficial.
+      /// Gets or sets the companywebsite URL.
       /// </summary>
       [ORMProperty("WEB")]
       public string URL { get; set; } = string.Empty;
 
       /// <summary>
-      /// Gets or sets el nombre de archivo (sin ruta) correspondiente al logotipo (imagen) de la administración.
+      /// Gets or sets the logo image filename.
       /// </summary>
       [ORMProperty("LOGOFILE")]
+      [Obsolete]
       public string LogoFilename { get; set; } = string.Empty;
 
       /// <summary>
-      /// Gets or sets la imagen correspondiente al logotipo (imagen) de la administración.
+      /// Gets or sets the company logo image.
       /// </summary>
       [ORMProperty("LOGOIMAGE")]
       public System.Drawing.Image LogoImage { get; set; } = null;

@@ -73,6 +73,16 @@ namespace Rwm.Studio.Plugins.Common.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ICO_COMPANY_OFF_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_COMPANY_OFF_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ICO_COPY_16 {
             get {
                 object obj = ResourceManager.GetObject("ICO_COPY_16", resourceCulture);
@@ -106,16 +116,6 @@ namespace Rwm.Studio.Plugins.Common.Properties {
         internal static System.Drawing.Bitmap ICO_INFORMATION_32 {
             get {
                 object obj = ResourceManager.GetObject("ICO_INFORMATION_32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ICO_MANUFACTURER_OFF_16 {
-            get {
-                object obj = ResourceManager.GetObject("ICO_MANUFACTURER_OFF_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

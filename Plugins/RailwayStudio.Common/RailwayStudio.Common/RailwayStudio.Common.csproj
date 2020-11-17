@@ -78,6 +78,9 @@
     <Compile Include="Controls\AddressEdit.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\CompanyImageComboBoxEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\ConsoleControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -266,7 +269,9 @@
     <None Include="Resources\rwm_logo_black.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\factory_delete_bw_16.png" />
     <Content Include="Resources\favicon.ico" />
+    <Content Include="Resources\report_cover_bg.jpg" />
     <None Include="Resources\server_valid_16.png" />
     <None Include="Resources\server_16.png" />
     <None Include="Resources\server_configuration.png" />
@@ -274,7 +279,6 @@
     <None Include="Resources\server_refresh_32.png" />
     <None Include="Resources\cart_delete_16.png" />
     <None Include="Resources\cart_16.png" />
-    <None Include="Resources\factory_delete_bw_16.png" />
     <None Include="Resources\factory_16.png" />
     <None Include="Resources\table_heatmap_check_32.png" />
     <None Include="Resources\table_heatmap_32.png" />

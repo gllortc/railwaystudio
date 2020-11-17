@@ -1,5 +1,4 @@
-﻿using System.Data;
-using DevExpress.XtraReports.UI;
+﻿using DevExpress.XtraReports.UI;
 using Rwm.Otc;
 using Rwm.Otc.Trains;
 
@@ -19,20 +18,14 @@ namespace Rwm.Studio.Plugins.Collection.Reports
 
       #endregion
 
-      #region Properties
-
-      internal DataSet ReportData { get; private set; }
-
-      #endregion
-
       #region Event Handlers
 
       private void DigitalReport_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
       {
-         this.ReportData = Train.FindAllDigitalAddresses();
+         System.Collections.Generic.ICollection<Train> data = Train.FindByQuery("moddigitaladd > 0");
+         this.DataSource = data;
 
-         this.DataSource = ReportData;
-         this.DataMember = "Trains";
+         Detail.SortFields.Add(new GroupField("Name"));
       }
 
       #endregion
@@ -42,16 +35,19 @@ namespace Rwm.Studio.Plugins.Collection.Reports
       private void Initialize()
       {
          lblProjectName.Text = OTCContext.Project.Name;
+         lblProjectCompany.Text = OTCContext.Project.CompanyName;
+         picProjectCompanyLogo.Image = OTCContext.Project.CompanyLogo;
 
          // Data bindings
-         lblTrainName.DataBindings.Add(new XRBinding("Text", null, "Trains.Name"));
-         lblTrainManufacturer.DataBindings.Add(new XRBinding("Text", null, "Trains.ModelManufacturer"));
-         lblDecoderModel.DataBindings.Add(new XRBinding("Text", null, "Trains.Decoder"));
-         lblDecoderManufacturer.DataBindings.Add(new XRBinding("Text", null, "Trains.DecoderManufacturer"));
-         lblDecoderAddress.DataBindings.Add(new XRBinding("Text", null, "Trains.Address"));
+         lblTrainName.DataBindings.Add(new XRBinding("Text", null, "Name"));
+         lblTrainManufacturer.DataBindings.Add(new XRBinding("Text", null, "Manufacturer.Name"));
+         lblDecoderModel.DataBindings.Add(new XRBinding("Text", null, "DigitalDecoder.DisplayName"));
+         lblDecoderAddress.DataBindings.Add(new XRBinding("Text", null, "DisplayDigitalAddress"));
+         picTrainImage.DataBindings.Add(new XRBinding("Image", null, "Picture"));
       }
 
       #endregion
 
+      
    }
 }

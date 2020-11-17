@@ -147,14 +147,15 @@ namespace Rwm.Studio.Plugins.Collection.Controls
 
       private void FillItems(Company selected)
       {
+         int imageIndex;
          ImageComboBoxItem item;
 
          // Create an image collection
          if (this.Properties.SmallImages == null)
          {
             this.ImageList = new ImageList();
-            this.ImageList.Images.Add(Collection.Properties.Resources.ICO_ADMIN_OFF_16);
-            this.ImageList.Images.Add(Company.SmallIcon);
+            this.ImageList.Images.Add(Collection.Properties.Resources.ICO_ADMIN_OFF_16);  // No company selected
+            this.ImageList.Images.Add(Company.SmallIcon);                                 // Company selected
             this.Properties.SmallImages = this.ImageList;
          }
 
@@ -167,7 +168,15 @@ namespace Rwm.Studio.Plugins.Collection.Controls
 
             foreach (Company company in Company.FindAll())
             {
-               item = new ImageComboBoxItem(company.Name, company, 1);
+               imageIndex = 1;
+
+               if (company.LogoImage != null)
+               {
+                  this.ImageList.Images.Add(company.LogoImage);
+                  imageIndex = this.ImageList.Images.Count + 1;
+               }
+
+               item = new ImageComboBoxItem(company.Name, company, imageIndex);
                this.Properties.Items.Add(item);
 
                if (selected != null && company == selected) 

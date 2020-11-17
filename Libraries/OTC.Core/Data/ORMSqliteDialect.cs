@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Rwm.Otc.Diagnostics;
 
 namespace Rwm.Otc.Data
@@ -235,7 +236,11 @@ namespace Rwm.Otc.Data
          }
       }
 
-      public ORMSqlCommand GetSelectAllCommand()
+      /// <summary>
+      /// Gets the SQL sentence to get all entities.
+      /// </summary>
+      /// <returns>A string containing the requested SQL sentence.</returns>
+      public ORMSqlCommand GetSelectAllCommand(ICollection<String> sortProperties = null)
       {
          try
          {
@@ -244,7 +249,7 @@ namespace Rwm.Otc.Data
             else
                this.SelectAllCommand = new ORMSqlCommand();
 
-            // Generate DELETE clause
+            // Generate SELECT clause
             this.SelectAllCommand.SqlCommand += " select ";
             this.SelectAllCommand.SqlCommand += ORMEntity<T>.ORMStructure.PrimaryKey.Attribute.FieldName;
             this.SelectAllCommand.SqlCommand += " as ID ";
@@ -252,6 +257,20 @@ namespace Rwm.Otc.Data
             // Generate FROM clause
             this.SelectAllCommand.SqlCommand += " from ";
             this.SelectAllCommand.SqlCommand += ORMEntity<T>.ORMStructure.Table.TableName;
+
+            // Generate ORDER BY clause
+            if (sortProperties != null && sortProperties.Count > 0)
+            {
+               this.SelectAllCommand.SqlCommand += " order by ";
+
+               bool isFirst = true;
+               foreach (string propName in sortProperties)
+               {
+                  this.SelectAllCommand.SqlCommand += (isFirst ? string.Empty :  ", ");
+                  this.SelectAllCommand.SqlCommand += ORMEntity<T>.ORMStructure.GetByPropertyName(propName)?.Attribute.FieldName;
+                  isFirst = false;
+               }
+            }
 
             return this.SelectAllCommand;
          }
