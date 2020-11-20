@@ -78,6 +78,7 @@
     <Compile Include="Controls\AddressEdit.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\CellClickEventArgs.cs" />
     <Compile Include="Controls\CompanyImageComboBoxEdit.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -115,6 +116,9 @@
       <DependentUpon>PluginManagementControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\AddressButtonEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\SwitchboardControlBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\TrainEdit.cs">
@@ -195,6 +199,9 @@
     <EmbeddedResource Include="Controls\PluginManagementControl.resx">
       <DependentUpon>PluginManagementControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SwitchboardControlBase.resx">
+      <DependentUpon>SwitchboardControlBase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modules\TextEditorModule.resx">
       <DependentUpon>TextEditorModule.cs</DependentUpon>
     </EmbeddedResource>
@@ -269,6 +276,7 @@
     <None Include="Resources\rwm_logo_black.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\server_configuration_16.png" />
     <None Include="Resources\factory_delete_bw_16.png" />
     <Content Include="Resources\favicon.ico" />
     <Content Include="Resources\report_cover_bg.jpg" />

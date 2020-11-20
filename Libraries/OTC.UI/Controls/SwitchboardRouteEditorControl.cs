@@ -150,7 +150,7 @@ namespace Rwm.Otc.UI.Controls
 
       #region Private Members
 
-      internal override void BeforePaint()
+      public override void BeforePaint()
       {
          if (this.Route != null)
          {

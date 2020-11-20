@@ -5,8 +5,8 @@ using DevExpress.XtraTab;
 using Rwm.Otc;
 using Rwm.Otc.Diagnostics;
 using Rwm.Otc.Layout;
-using Rwm.Otc.UI;
-using Rwm.Otc.UI.Controls;
+using Rwm.Studio.Plugins.Common.Controls;
+using Rwm.Studio.Plugins.Designer.Controls;
 
 namespace Rwm.Studio.Plugins.Designer.Modules
 {

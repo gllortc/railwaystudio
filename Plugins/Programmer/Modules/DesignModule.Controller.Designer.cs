@@ -6,10 +6,10 @@ using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraTab;
 using Rwm.Otc;
 using Rwm.Otc.Layout;
-using Rwm.Otc.UI;
-using Rwm.Otc.UI.Controls;
 using Rwm.Studio.Plugins.Common;
+using Rwm.Studio.Plugins.Common.Controls;
 using Rwm.Studio.Plugins.Common.Reports;
+using Rwm.Studio.Plugins.Designer.Controls;
 using Rwm.Studio.Plugins.Designer.Reports;
 using Rwm.Studio.Plugins.Designer.Views;
 

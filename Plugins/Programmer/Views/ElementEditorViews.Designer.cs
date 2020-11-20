@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ElementEditorViews));
          this.tabBlock = new DevExpress.XtraTab.XtraTabControl();
          this.tabBlockGeneral = new DevExpress.XtraTab.XtraTabPage();
          this.grpInfo = new DevExpress.XtraEditors.GroupControl();
@@ -49,9 +50,9 @@
          this.tabFeedbackConnections = new DevExpress.XtraTab.XtraTabPage();
          this.fccFeedbackConnections = new Rwm.Studio.Plugins.Designer.Controls.FeedbackConnectionsControl();
          this.tabBlockActions = new DevExpress.XtraTab.XtraTabPage();
+         this.amcActions = new Rwm.Studio.Plugins.Designer.Controls.ActionManagerControl();
          this.cmdCancel = new DevExpress.XtraEditors.SimpleButton();
          this.cmdOK = new DevExpress.XtraEditors.SimpleButton();
-         this.amcActions = new Rwm.Studio.Plugins.Designer.Controls.ActionManagerControl();
          ((System.ComponentModel.ISupportInitialize)(this.tabBlock)).BeginInit();
          this.tabBlock.SuspendLayout();
          this.tabBlockGeneral.SuspendLayout();
@@ -211,6 +212,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
          this.txtName.Location = new System.Drawing.Point(79, 34);
          this.txtName.Name = "txtName";
+         this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.txtName.Properties.Appearance.Options.UseFont = true;
          this.txtName.Size = new System.Drawing.Size(327, 20);
          this.txtName.TabIndex = 1;
          // 
@@ -225,7 +228,7 @@
          // tabAccessoryConnections
          // 
          this.tabAccessoryConnections.Controls.Add(this.eccAccessoryConnections);
-         this.tabAccessoryConnections.Image = Otc.Layout.AccessoryDecoder.SmallIcon;
+         this.tabAccessoryConnections.Image = ((System.Drawing.Image)(resources.GetObject("tabAccessoryConnections.Image")));
          this.tabAccessoryConnections.Name = "tabAccessoryConnections";
          this.tabAccessoryConnections.Padding = new System.Windows.Forms.Padding(10);
          this.tabAccessoryConnections.Size = new System.Drawing.Size(441, 370);
@@ -242,7 +245,7 @@
          // tabFeedbackConnections
          // 
          this.tabFeedbackConnections.Controls.Add(this.fccFeedbackConnections);
-         this.tabFeedbackConnections.Image = Otc.Layout.FeedbackEncoder.SmallIcon;
+         this.tabFeedbackConnections.Image = ((System.Drawing.Image)(resources.GetObject("tabFeedbackConnections.Image")));
          this.tabFeedbackConnections.Name = "tabFeedbackConnections";
          this.tabFeedbackConnections.Padding = new System.Windows.Forms.Padding(10);
          this.tabFeedbackConnections.Size = new System.Drawing.Size(441, 370);
@@ -250,6 +253,7 @@
          // 
          // fccFeedbackConnections
          // 
+         this.fccFeedbackConnections.AllowManageConnections = false;
          this.fccFeedbackConnections.Dock = System.Windows.Forms.DockStyle.Fill;
          this.fccFeedbackConnections.Location = new System.Drawing.Point(10, 10);
          this.fccFeedbackConnections.Name = "fccFeedbackConnections";
@@ -259,11 +263,19 @@
          // tabBlockActions
          // 
          this.tabBlockActions.Controls.Add(this.amcActions);
-         this.tabBlockActions.Image = Otc.Layout.ElementAction.SmallIcon;
+         this.tabBlockActions.Image = ((System.Drawing.Image)(resources.GetObject("tabBlockActions.Image")));
          this.tabBlockActions.Name = "tabBlockActions";
          this.tabBlockActions.Padding = new System.Windows.Forms.Padding(10);
          this.tabBlockActions.Size = new System.Drawing.Size(441, 370);
          this.tabBlockActions.Text = "Actions";
+         // 
+         // amcActions
+         // 
+         this.amcActions.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.amcActions.Location = new System.Drawing.Point(10, 10);
+         this.amcActions.Name = "amcActions";
+         this.amcActions.Size = new System.Drawing.Size(421, 350);
+         this.amcActions.TabIndex = 0;
          // 
          // cmdCancel
          // 
@@ -285,14 +297,6 @@
          this.cmdOK.TabIndex = 2;
          this.cmdOK.Text = "OK";
          this.cmdOK.Click += new System.EventHandler(this.CmdOK_Click);
-         // 
-         // amcActions
-         // 
-         this.amcActions.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.amcActions.Location = new System.Drawing.Point(10, 10);
-         this.amcActions.Name = "amcActions";
-         this.amcActions.Size = new System.Drawing.Size(421, 350);
-         this.amcActions.TabIndex = 0;
          // 
          // ElementEditorViews
          // 

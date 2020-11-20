@@ -48,12 +48,12 @@ namespace Rwm.Otc.UI.Controls
       /// <summary>
       /// Gets or sets the switchboards selected cells color.
       /// </summary>
-      public Color SelectedCellColor { get; set; } = SwitchboardCommandControl.COLOR_SELECTED;
+      public Color SelectedCellColor { get; set; } = SwitchboardControlBase.COLOR_SELECTED;
 
       /// <summary>
       /// Gets or sets the switchboards background color.
       /// </summary>
-      public Color SwitchboardPanelBackgroundColor { get; set; } = SwitchboardCommandControl.COLOR_PANEL;
+      public Color SwitchboardPanelBackgroundColor { get; set; } = SwitchboardControlBase.COLOR_PANEL;
 
       /// <summary>
       /// Gets or sets the active route in the layout.
@@ -63,7 +63,7 @@ namespace Rwm.Otc.UI.Controls
       /// <summary>
       /// Gets the coordinates of the current selected cell.
       /// </summary>
-      public Point SelectedCell { get; internal set; }
+      public Point SelectedCell { get; set; }
 
       /// <summary>
       /// Gets a value indicating if the switchboard is in design mode.
@@ -202,7 +202,7 @@ namespace Rwm.Otc.UI.Controls
       /// <summary>
       /// Remove all cell drawings.
       /// </summary>
-      internal void RemoveCellImage(Graphics g, Rectangle rect)
+      public void RemoveCellImage(Graphics g, Rectangle rect)
       {
          using (Brush brush = new SolidBrush(SystemColors.Control))
          {
@@ -218,7 +218,7 @@ namespace Rwm.Otc.UI.Controls
       /// <summary>
       /// Draw a cell overlay (with alpha blend) to hihlight the cell.
       /// </summary>
-      internal void DrawCellHighlight(Graphics g, Rectangle rect)
+      public void DrawCellHighlight(Graphics g, Rectangle rect)
       {
          Color color = this.SelectedCellColor;
 
@@ -237,18 +237,18 @@ namespace Rwm.Otc.UI.Controls
       /// <summary>
       /// Draw the element image on the cell.
       /// </summary>
-      internal void DrawCellImage(Graphics g, Point point, Element element, RouteElement routeElement = null)
+      public void DrawCellImage(Graphics g, Point point, Element element, RouteElement routeElement = null)
       {
          g.DrawImage(element.GetImage(OTCContext.Project.Theme, this.DesignModeEnabled), point);
       }
 
-      internal Point GetElementPosition(Point coords)
+      public Point GetElementPosition(Point coords)
       {
          return new Point(coords.X * OTCContext.Project.Theme.ElementSize.Width,
                           coords.Y * OTCContext.Project.Theme.ElementSize.Height);
       }
 
-      internal virtual void BeforePaint() { }
+      public virtual void BeforePaint() { }
 
       internal virtual void OnPaint(object sender, PaintEventArgs e)
       {
@@ -324,7 +324,7 @@ namespace Rwm.Otc.UI.Controls
       /// </summary>
       /// <param name="coords">Selected coordinates.</param>
       /// <returns>The real origina coordinates.</returns>
-      internal Point GetRealCoordinates(Point coords)
+      public Point GetRealCoordinates(Point coords)
       {
          Element element = this.Switchboard.GetBlock(coords);
          if (element == null)

@@ -1,5 +1,5 @@
-﻿using Rwm.Otc.UI.Controls;
-using Rwm.Studio.Plugins.Common;
+﻿using Rwm.Studio.Plugins.Common;
+using Rwm.Studio.Plugins.Designer.Controls;
 
 namespace Rwm.Studio.Plugins.Designer.Modules
 {

@@ -126,7 +126,7 @@ namespace Rwm.Otc.Systems
       /// <summary>
       /// Get all theme instances included in the application directory.
       /// </summary>
-      /// <returns>A lis of all theme instances.</returns>
+      /// <returns>A list of all systems found.</returns>
       public List<DigitalSystem> GetAll()
       {
          Assembly assembly;
@@ -142,9 +142,10 @@ namespace Rwm.Otc.Systems
                try
                {
                   assembly = Assembly.LoadFile(path);
-                  foreach (Type type in assembly.GetTypes())
+                  Type[] types = assembly.GetTypes();
+                  foreach (Type type in types)
                   {
-                     if (typeof(DigitalSystem).IsAssignableFrom(type) && !type.IsInterface)
+                     if (typeof(DigitalSystem).IsAssignableFrom(type) && !type.IsInterface && !type.IsAbstract)
                      {
                         system = (DigitalSystem)Activator.CreateInstance(type);
                         if (system != null)

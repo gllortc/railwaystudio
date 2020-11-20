@@ -183,6 +183,18 @@
     <Compile Include="Controls\SetAccessoryStatusActionControl.Designer.cs">
       <DependentUpon>SetAccessoryStatusActionControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\SwitchboardDesignControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\SwitchboardDesignControl.Designer.cs">
+      <DependentUpon>SwitchboardDesignControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SwitchboardRouteEditorControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\SwitchboardRouteEditorControl.Designer.cs">
+      <DependentUpon>SwitchboardRouteEditorControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\DecoderManagerModule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -352,6 +364,12 @@
     <EmbeddedResource Include="Controls\SetAccessoryStatusActionControl.resx">
       <DependentUpon>SetAccessoryStatusActionControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SwitchboardDesignControl.resx">
+      <DependentUpon>SwitchboardDesignControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SwitchboardRouteEditorControl.resx">
+      <DependentUpon>SwitchboardRouteEditorControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modules\DecoderManagerModule.resx">
       <DependentUpon>DecoderManagerModule.cs</DependentUpon>
     </EmbeddedResource>
@@ -448,10 +466,6 @@
     <ProjectReference Include="..\..\Libraries\OTC.Core\OTC.Core.csproj">
       <Project>{6a159ab3-7d3d-4128-85c0-b65bdd73a68f}</Project>
       <Name>OTC.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Libraries\OTC.UI\OTC.UI.csproj">
-      <Project>{d34ba3ab-ecaf-4a21-8168-95872a8ac3ba}</Project>
-      <Name>OTC.UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\RailwayStudio.Common\RailwayStudio.Common\RailwayStudio.Common.csproj">
       <Project>{930ba765-ec32-47e2-985d-cbf987fdb049}</Project>

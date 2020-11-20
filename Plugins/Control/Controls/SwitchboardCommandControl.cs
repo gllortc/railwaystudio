@@ -1,12 +1,14 @@
-﻿using RailwayStudio.Common;
-using Rwm.Otc;
-using Rwm.Otc.Layout;
-using Rwm.Otc.Layout.Actions;
-using Rwm.Otc.Layout.Elements;
-using Rwm.Otc.Systems;
-using Rwm.Otc.Utils;
-using System;
+﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
+using Rwm.Otc;
+using Rwm.Otc.Diagnostics;
+using Rwm.Otc.Layout;
+using Rwm.Otc.Layout.Traffic;
+using Rwm.Otc.Systems;
+using Rwm.Otc.Trains;
+using Rwm.Studio.Plugins.Common;
+using Rwm.Studio.Plugins.Common.Controls;
 
 namespace Rwm.Studio.Plugins.Control.Controls
 {
@@ -17,11 +19,6 @@ namespace Rwm.Studio.Plugins.Control.Controls
    {
 
       #region Constructors
-
-      /// <summary>
-      /// Returns a new instance of <see cref="SwitchboardCommandControl"/>.
-      /// </summary>
-      public SwitchboardCommandControl() : base(false) { }
 
       /// <summary>
       /// Returns a new instance of <see cref="SwitchboardCommandControl"/>.
@@ -40,16 +37,6 @@ namespace Rwm.Studio.Plugins.Control.Controls
       #region Properties
 
       /// <summary>
-      /// Gets or sets a value indicating if the actions must be disabled or not.
-      /// </summary>
-      public bool ActionsDisabled { get; set; }
-
-      /// <summary>
-      /// Gets or sets a value indicating if sensorscan be manually activated or not.
-      /// </summary>
-      public bool AllowManualSensorActivation { get; set; }
-
-      /// <summary>
       /// Gets the pop-up menu for the IBlock elements.
       /// </summary>
       internal ContextMenuStrip BlockMenu { get; private set; }
@@ -58,13 +45,12 @@ namespace Rwm.Studio.Plugins.Control.Controls
 
       #region Methods
 
-      public void SetSensorStatus(Coordinates coords, FeedbackStatus status)
+      public void SetSensorStatus(Point coords, bool status)
       {
-         ElementBase element = OTCContext.Project.Elements.Get(this.Switchboard, coords);
+         Element element = this.Switchboard.GetBlock(coords);
          if (element != null)
          {
-            IFeedback fbBlock = element as IFeedback;
-            fbBlock.SetFeedbackStatus(status);
+            element.SetFeedbackStatus(status);
 
             this.RepaintCoordinates(coords);
          }
@@ -74,29 +60,11 @@ namespace Rwm.Studio.Plugins.Control.Controls
 
       #region Events
 
-      // A delegate type for hooking up change notifications.
-      //public delegate void BlockClickEventHandler(object sender, Rwm.Otc.Controls.CellClickEventArgs e);
-
-      //// An event that clients can use to be notified whenever the elements of the list change.
-      //public event BlockClickEventHandler BlockClick;
-
       // An event that clients can use to be notified whenever the elements of the list change.
-      public event BlockAssignTrainEventHandler BlockAssignTrain;
+      public event BlockAssignmentChangedEventHandler BlockAssignmentChanged;
 
       // A delegate type for hooking up change notifications.
-      public delegate void BlockAssignTrainEventHandler(object sender, IBlock e);
-
-      // An event that clients can use to be notified whenever the elements of the list change.
-      public event BlockUnassignTrainEventHandler BlockUnassignTrain;
-
-      // A delegate type for hooking up change notifications.
-      public delegate void BlockUnassignTrainEventHandler(object sender, IBlock e);
-
-      // An event that clients can use to be notified whenever the elements of the list change.
-      public event SensorManuallyActivatedEventHandler SensorManuallyActivated;
-
-      // A delegate type for hooking up change notifications.
-      public delegate void SensorManuallyActivatedEventHandler(object sender, CellClickEventArgs e, FeedbackStatus status);
+      public delegate void BlockAssignmentChangedEventHandler(object sender, EventArgs e);
 
       #endregion
 
@@ -104,147 +72,188 @@ namespace Rwm.Studio.Plugins.Control.Controls
 
       protected override void OnMouseDown(MouseEventArgs e)
       {
-         Coordinates coords = new Coordinates((e.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
-                                              (e.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
-
-         // Get the affected element
-         ElementBase element = OTCContext.Project.Elements.Get(this.Switchboard, coords);
-         if (element == null)
+         try
          {
-            return;
+            Point coords = new Point((e.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
+                                     (e.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
+
+            // Get the affected element
+            Element element = this.Switchboard.GetBlock(coords);
+            if (element == null) return;
+
+            if (OTCContext.Project.AllowManualSensorActivation && element.Properties.IsFeedback && !element.Properties.IsBlock)
+            {
+               element.SetFeedbackStatus(true);
+
+               this.ExecuteActions(element,
+                                   ElementAction.EventType.OnSensorStatusChange,
+                                   (int)FeedbackStatus.Activated);
+            }
          }
-
-         if (ElementBase.IsFeedbackElement(element) && !ElementBase.IsBlockElement(element))
+         catch (Exception ex)
          {
-            IFeedback fbBlock = element as IFeedback;
-
-            fbBlock.SetFeedbackStatus(FeedbackStatus.Activated);
-
-            this.ExecuteActions(element,
-                                ElementAction.ExecutionEventType.OnSensorStatusChange,
-                                (int)FeedbackStatus.Activated);
+            Logger.LogError(this, ex);
          }
       }
 
       protected override void OnMouseUp(MouseEventArgs e)
       {
-         // Adapt click coordinates to an element click
-         Coordinates coords = new Coordinates((e.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
-                                              (e.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
-
-         // Get the clicked element
-         ElementBase element = OTCContext.Project.Elements.Get(this.Switchboard, coords);
-         if (element == null) return;
-
-         // Accessory element clicked
-         if (ElementBase.IsAccessoryElement(element))
+         try
          {
-            // Update the element status
-            IAccessory accElement = element as IAccessory;
-            accElement.SetAccessoryNextStatus(true);
+            // Adapt click coordinates to an element click
+            Point coords = new Point((e.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
+                                     (e.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
 
-            // Store the new status
-            OTCContext.Project.Update(element);
+            // Get the clicked element
+            Element element = this.Switchboard.GetBlock(coords);
+            if (element == null) return;
 
-            // Execute element associated actions
-            this.ExecuteActions(element,
-                                ElementAction.ExecutionEventType.OnAccessoryStatusChange,
-                                ElementBase.GetAccessoryStatus(element));
+            // Accessory element clicked
+            if (element.Properties.IsAccessory)
+            {
+               // Request the next status to the command station
+               element.RequestAccessoryNextStatus();
+
+               // Store the new status
+               Element.Save(element);
+
+               // Execute element associated actions
+               this.ExecuteActions(element,
+                                   ElementAction.EventType.OnAccessoryStatusChange,
+                                   element.AccessoryStatus);
+            }
+
+            // Feedback element clicked (manual activation)
+            if (element.Properties.IsFeedback && OTCContext.Project.AllowManualSensorActivation && !element.Properties.IsBlock)
+            {
+               element.SetFeedbackStatus(false);
+
+               this.ExecuteActions(element,
+                                   ElementAction.EventType.OnSensorStatusChange,
+                                   (int)FeedbackStatus.Deactivated);
+            }
+
+            // Block element clicked
+            if (element.Properties.IsBlock)
+            {
+               this.ShowBlockMenu(element);
+            }
          }
-
-         // Feedback element clicked (manual activation)
-         if (ElementBase.IsFeedbackElement(element) && !ElementBase.IsBlockElement(element))
+         catch (Exception ex)
          {
-            IFeedback fbElement = element as IFeedback;
-
-            fbElement.SetFeedbackStatus((int)FeedbackStatus.Deactivated);
-
-            this.ExecuteActions(element,
-                                ElementAction.ExecutionEventType.OnSensorStatusChange,
-                                (int)FeedbackStatus.Deactivated);
-         }
-
-         // Block element clicked
-         if (ElementBase.IsBlockElement(element))
-         {
-            this.ShowBlockMenu(element as IBlock);
+            Logger.LogError(this, ex);
          }
       }
 
-      void Project_FeedbackStatusChanged(object sender, FeedbackEventArgs e)
+      private void OnDragOver(object sender, DragEventArgs e)
       {
-         ElementBase element = sender as ElementBase;
-         if (element != null && element.Switchboard.Equals(this.Switchboard))
+         e.Effect = DragDropEffects.None;
+
+         if (this.Enabled)
          {
-            StudioContext.LogInformation("Feedback signal received in element {0} (status {1})",
-                                         element.Name, e.NewStatus);
+            Point point = this.PointToClient(new Point(e.X, e.Y));
+            Point coords = new Point((point.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
+                                     (point.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
+
+            if (this.Switchboard.GetBlock(coords) is Element element)
+            {
+               if (element.Properties.IsBlock)
+               {
+                  e.Effect = DragDropEffects.All;
+               }
+            }
          }
       }
 
-      void Project_BlockImageChanged(object sender, ElementEventArgs e)
+      private void OnDragDrop(object sender, DragEventArgs e)
+      {
+         if (e.Data.GetDataPresent(typeof(Train)))
+         {
+            Point point = this.PointToClient(new Point(e.X, e.Y));
+            Point coords = new Point((point.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
+                                     (point.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
+
+            if (this.Switchboard.GetBlock(coords) is Element element)
+            {
+               if (element.Properties.IsBlock)
+               {
+                  if (!(e.Data.GetData(typeof(Train)) is Train train)) return;
+
+                  Element.AssignTrain(train, element);
+
+                  this.BlockAssignmentChanged?.Invoke(this, new EventArgs());
+               }
+            }
+         }
+      }
+
+      /// <summary>
+      /// Handle all project elements image changed event to repaint affected elements.
+      /// </summary>
+      void Project_OnElementImageChanged(object sender, ElementEventArgs e)
       {
          // Repaint cell picture
-         if (e.Element != null && e.Element.Switchboard.Equals(this.Switchboard))
+         if (e.Element != null)
          {
             this.RepaintCoordinates(e.Element.Coordinates);
          }
       }
 
-      void cmdBlockAssign_ItemClick(object sender, EventArgs e)
+      void CmdBlockAssign_ItemClick(object sender, EventArgs e)
       {
-         if (this.BlockAssignTrain != null)
+         if (!(((ToolStripItem)sender).Tag is Element blockElement))
+            return;
+
+         Train selectedTrain = StudioContext.Find.Train("Assign train to block");
+         if (selectedTrain == null)
+            return;
+
+         // Unassign previous train(s)
+         Element.UnassignBlock(blockElement);
+
+         // Assign selected train
+         Element.AssignTrain(selectedTrain, blockElement);
+
+         // Raise events
+         this.BlockAssignmentChanged?.Invoke(this, new EventArgs());
+      }
+
+      void CmdBlockUnassign_ItemClick(object sender, EventArgs e)
+      {
+         if (((ToolStripItem)sender).Tag is Element blockElement)
          {
-            IBlock blockElement = ((ToolStripItem)sender).Tag as IBlock;
-            if (blockElement != null)
-            {
-               this.BlockAssignTrain(this, blockElement);
-            }
+            Element.UnassignBlock(blockElement);
+
+            this.BlockAssignmentChanged?.Invoke(this, new EventArgs());
          }
       }
 
-      void cmdBlockUnassign_ItemClick(object sender, EventArgs e)
-      {
-         if (this.BlockUnassignTrain != null)
-         {
-            IBlock blockElement = ((ToolStripItem)sender).Tag as IBlock;
-            if (blockElement != null)
-            {
-               this.BlockUnassignTrain(this, blockElement);
-            }
-         }
-      }
-
-      void cmdBlockRouteAssign_ItemClick(object sender, EventArgs e)
+      void CmdBlockRouteAssign_ItemClick(object sender, EventArgs e)
       {
          // Get the toolstrip
-         ToolStripMenuItem item = sender as ToolStripMenuItem;
-         if (item == null) return;
+         if (!(sender is ToolStripMenuItem item)) return;
 
          // Get the route to activate
-         Route route = item.Tag as Route;
-         if (route == null) return;
+         if (!(item.Tag is Itinerary troute)) return;
 
-         // Activate the route
-         OTCContext.Project.ActivateRoute(route);
+         try
+         {
+            OTCContext.Project.TrafficManager.AddItinerary(troute);
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+         }
       }
 
-      void cmdBlockSensorActivated_ItemClick(object sender, EventArgs e)
+      void CmdBlockSensorActivated_ItemClick(object sender, EventArgs e)
       {
-         ElementBase element = ((ToolStripItem)sender).Tag as ElementBase;
-         if (element != null)
+         if (((ToolStripItem)sender).Tag is Element element)
          {
-            IBlock blockElement = element as IBlock;
-            if (blockElement != null)
-            {
-               // Simulate a feedback impulse
-               this.SensorManuallyActivated(this,
-                                            new CellClickEventArgs(this, element.Coordinates, element),
-                                            FeedbackStatus.Activated);
-               System.Threading.Thread.Sleep(500);
-               this.SensorManuallyActivated(this,
-                                            new CellClickEventArgs(this, element.Coordinates, element),
-                                            FeedbackStatus.Deactivated);
-            }
+            // Simulate a feedback impulse
+            OTCContext.Project.DigitalSystem.SetSensorStatus(element, FeedbackStatus.Activated);
+            System.Threading.Thread.Sleep(500);
+            OTCContext.Project.DigitalSystem.SetSensorStatus(element, FeedbackStatus.Deactivated);
          }
       }
 
@@ -254,32 +263,32 @@ namespace Rwm.Studio.Plugins.Control.Controls
 
       private void Initialize()
       {
-         this.ActionsDisabled = false;
-         this.AllowManualSensorActivation = false;
-
          // Create the context menu for the control
          this.CreateContextMenu();
 
-         // Register project events
-         OTCContext.Project.ElementImageChanged += Project_BlockImageChanged;
-         OTCContext.Project.FeedbackStatusChanged += Project_FeedbackStatusChanged;
+         // Suscribe to project events
+         OTCContext.Project.OnElementImageChanged += Project_OnElementImageChanged;
+
+         // Enable drag&drop for the trains in block elements
+         this.AllowDrop = true;
+         this.DragOver += OnDragOver;
+         this.DragDrop += OnDragDrop;
       }
 
       /// <summary>
       /// Execute actions for the specified element.
       /// </summary>
-      private void ExecuteActions(ElementBase element, ElementAction.ExecutionEventType eventType, int elementStatus)
+      private void ExecuteActions(Element element, ElementAction.EventType eventType, int elementStatus)
       {
-         if (element.Actions == null || element.Actions.Count <= 0) return;
+         if (!OTCContext.Project.ExecuteBlockActions || element.Actions == null || element.Actions.Count <= 0) return;
 
          foreach (ElementAction action in element.Actions)
          {
-            if (action.EventType == eventType)
+            if (action.Event == eventType)
             {
-               if (action.ConditionParentStatus == ElementAction.CONDITION_DISABLED ||
-                  (action.ConditionParentStatus != ElementAction.CONDITION_DISABLED && action.ConditionParentStatus == elementStatus))
+               if (action.IsConditionStatusDisabled || (!action.IsConditionStatusDisabled && action.ConditionStatus == elementStatus))
                {
-                  action.Execute(element, OTCContext.Project);
+                  action.Execute();
                }
             }
          }
@@ -293,26 +302,26 @@ namespace Rwm.Studio.Plugins.Control.Controls
          if (this.BlockMenu == null)
          {
             this.BlockMenu = new ContextMenuStrip();
-            this.BlockMenu.Items.Add("&Assign train...", Properties.Resources.ICO_BLOCK_ASSIGN_16, new EventHandler(cmdBlockAssign_ItemClick));
-            this.BlockMenu.Items.Add("&Unassign train (remove)", Properties.Resources.ICO_BLOCK_CLEAR_16, new EventHandler(cmdBlockUnassign_ItemClick));
+            this.BlockMenu.Items.Add("&Aassign train", Properties.Resources.ICO_BLOCK_ASSIGN_16, new EventHandler(CmdBlockAssign_ItemClick));
+            this.BlockMenu.Items.Add("&Unassign train (remove)", Properties.Resources.ICO_BLOCK_CLEAR_16, new EventHandler(CmdBlockUnassign_ItemClick));
             this.BlockMenu.Items.Add("Set &destination", Properties.Resources.ICO_BLOCK_GO_16);
             this.BlockMenu.Items.Add("-");
-            this.BlockMenu.Items.Add("Activate &sensor", Properties.Resources.ICO_SENSORS_16, new EventHandler(cmdBlockSensorActivated_ItemClick));
+            this.BlockMenu.Items.Add("Activate &sensor", FeedbackEncoderInput.SmallIcon, new EventHandler(CmdBlockSensorActivated_ItemClick));
          }
       }
 
       /// <summary>
       /// Create the block elements pop-up menu.
       /// </summary>
-      private void ShowBlockMenu(IBlock blockElement)
+      private void ShowBlockMenu(Element blockElement)
       {
          ToolStripMenuItem destItem = null;
 
          this.BlockMenu.Items[0].Enabled = true;
          this.BlockMenu.Items[0].Tag = blockElement;
-         this.BlockMenu.Items[1].Enabled = blockElement.IsOccupied;
+         this.BlockMenu.Items[1].Enabled = blockElement.IsBlockOccupied;
          this.BlockMenu.Items[1].Tag = blockElement;
-         this.BlockMenu.Items[2].Enabled = blockElement.IsOccupied;
+         this.BlockMenu.Items[2].Enabled = blockElement.IsBlockOccupied;
 
          destItem = this.BlockMenu.Items[2] as ToolStripMenuItem;
 
@@ -321,18 +330,21 @@ namespace Rwm.Studio.Plugins.Control.Controls
          destItem.DropDownItems.Clear();
 
          // Get all destinations
-         foreach (Route dest in OTCContext.Project.GetDestinations(blockElement))
+         foreach (Element block in OTCContext.Project.TrafficManager.GetDestinationsFromBlock(blockElement))
          {
-            if (dest.FromBlock.ID != blockElement.ID)
-            {
-               destItem.DropDownItems.Add(string.Format("{0} (route {1})", dest.FromBlock, dest), null, new EventHandler(cmdBlockRouteAssign_ItemClick));
-               destItem.DropDownItems[destItem.DropDownItems.Count - 1].Tag = dest;
-            }
-            else if (dest.ToBlock.ID != blockElement.ID)
-            {
-               destItem.DropDownItems.Add(string.Format("{0} (route {1})", dest.ToBlock.Name, dest), null, new EventHandler(cmdBlockRouteAssign_ItemClick));
-               destItem.DropDownItems[destItem.DropDownItems.Count - 1].Tag = dest;
-            }
+            destItem.DropDownItems.Add(string.Format("{0}", block.DisplayName), null, new EventHandler(CmdBlockRouteAssign_ItemClick));
+            destItem.DropDownItems[destItem.DropDownItems.Count - 1].Tag = new Itinerary(blockElement.Train, blockElement, block);
+
+            //if (dest.FromBlock.ID != blockElement.ID)
+            //{
+            //   destItem.DropDownItems.Add(string.Format("{0} (route {1})", dest.FromBlock, dest), null, new EventHandler(CmdBlockRouteAssign_ItemClick));
+            //   destItem.DropDownItems[destItem.DropDownItems.Count - 1].Tag = dest;
+            //}
+            //else if (dest.ToBlock.ID != blockElement.ID)
+            //{
+            //   destItem.DropDownItems.Add(string.Format("{0} (route {1})", dest.ToBlock.Name, dest), null, new EventHandler(CmdBlockRouteAssign_ItemClick));
+            //   destItem.DropDownItems[destItem.DropDownItems.Count - 1].Tag = dest;
+            //}
          }
 
          // Add an empty item in case of no destinations was found

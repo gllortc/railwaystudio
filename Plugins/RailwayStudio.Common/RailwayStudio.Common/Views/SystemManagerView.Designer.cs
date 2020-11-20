@@ -29,6 +29,12 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
+         DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
          this.barManager = new DevExpress.XtraBars.BarManager(this.components);
          this.barSystems = new DevExpress.XtraBars.Bar();
          this.cmdSystemSelect = new DevExpress.XtraBars.BarButtonItem();
@@ -80,28 +86,45 @@
          // 
          // cmdSystemSelect
          // 
-         this.cmdSystemSelect.Caption = "Add system";
          this.cmdSystemSelect.Id = 0;
-         this.cmdSystemSelect.ImageOptions.Image = Properties.Resources.ICO_SYSTEM_SELECT_32;
-         this.cmdSystemSelect.ImageOptions.LargeImage = Properties.Resources.ICO_SYSTEM_SELECT_32;
+         this.cmdSystemSelect.ImageOptions.Image = global::Rwm.Studio.Plugins.Common.Properties.Resources.ICO_SYSTEM_SELECT_32;
+         this.cmdSystemSelect.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Common.Properties.Resources.ICO_SYSTEM_SELECT_32;
          this.cmdSystemSelect.Name = "cmdSystemSelect";
+         toolTipTitleItem1.Appearance.Image = global::Rwm.Studio.Plugins.Common.Properties.Resources.ICO_SYSTEM_SELECT_16;
+         toolTipTitleItem1.Appearance.Options.UseImage = true;
+         toolTipTitleItem1.Image = global::Rwm.Studio.Plugins.Common.Properties.Resources.ICO_SYSTEM_SELECT_16;
+         toolTipTitleItem1.Text = "Select system";
+         toolTipItem1.LeftIndent = 6;
+         toolTipItem1.Text = "Sets the digital system selected in the list as the digital system of the layout." +
+    "";
+         superToolTip1.Items.Add(toolTipTitleItem1);
+         superToolTip1.Items.Add(toolTipItem1);
+         this.cmdSystemSelect.SuperTip = superToolTip1;
          this.cmdSystemSelect.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdSystemSelect_ItemClick);
          // 
          // cmdSystemSetup
          // 
-         this.cmdSystemSetup.Caption = "Settings";
          this.cmdSystemSetup.Id = 2;
-         this.cmdSystemSetup.ImageOptions.Image = Properties.Resources.ICO_SYSTEM_SETUP_32;
-         this.cmdSystemSetup.ImageOptions.LargeImage = Properties.Resources.ICO_SYSTEM_SETUP_32;
+         this.cmdSystemSetup.ImageOptions.Image = global::Rwm.Studio.Plugins.Common.Properties.Resources.ICO_SYSTEM_SETUP_32;
+         this.cmdSystemSetup.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Common.Properties.Resources.ICO_SYSTEM_SETUP_32;
          this.cmdSystemSetup.Name = "cmdSystemSetup";
+         toolTipTitleItem2.Appearance.Image = global::Rwm.Studio.Plugins.Common.Properties.Resources.ICO_SYSTEM_SETUP_16;
+         toolTipTitleItem2.Appearance.Options.UseImage = true;
+         toolTipTitleItem2.Image = global::Rwm.Studio.Plugins.Common.Properties.Resources.ICO_SYSTEM_SETUP_16;
+         toolTipTitleItem2.Text = "System settings";
+         toolTipItem2.LeftIndent = 6;
+         toolTipItem2.Text = "Open the digital system settings dialogue.";
+         superToolTip2.Items.Add(toolTipTitleItem2);
+         superToolTip2.Items.Add(toolTipItem2);
+         this.cmdSystemSetup.SuperTip = superToolTip2;
          this.cmdSystemSetup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdSystemSetup_ItemClick);
          // 
          // cmdRefresh
          // 
          this.cmdRefresh.Caption = "Refresh";
          this.cmdRefresh.Id = 3;
-         this.cmdRefresh.ImageOptions.Image = Properties.Resources.ICO_SYSTEM_REFRESH_32;
-         this.cmdRefresh.ImageOptions.LargeImage = Properties.Resources.ICO_SYSTEM_REFRESH_32;
+         this.cmdRefresh.ImageOptions.Image = global::Rwm.Studio.Plugins.Common.Properties.Resources.ICO_SYSTEM_REFRESH_32;
+         this.cmdRefresh.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Common.Properties.Resources.ICO_SYSTEM_REFRESH_32;
          this.cmdRefresh.Name = "cmdRefresh";
          this.cmdRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdRefresh_ItemClick);
          // 

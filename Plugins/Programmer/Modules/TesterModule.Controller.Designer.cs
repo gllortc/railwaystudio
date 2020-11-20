@@ -2,13 +2,11 @@
 using System.Data;
 using System.Windows.Forms;
 using DevExpress.XtraGrid.Columns;
-using DevExpress.XtraTab;
 using Rwm.Otc;
 using Rwm.Otc.Layout;
 using Rwm.Otc.Systems;
 using Rwm.Otc.Systems.Protocol;
 using Rwm.Otc.Trains;
-using Rwm.Otc.UI.Controls;
 using Rwm.Studio.Plugins.Common;
 using Rwm.Studio.Plugins.Common.Views;
 
@@ -173,8 +171,6 @@ namespace Rwm.Studio.Plugins.Designer.Modules
       /// </summary>
       public void RefreshStatus()
       {
-         SwitchboardCommandControl ctrl = null;
-
          // Show theme information
          bbtnThemesManage.Caption = (OTCContext.Project.Theme == null ? "[No theme]" : OTCContext.Project.Theme.Name);
          bbtnThemesManage.Glyph = (OTCContext.Project.Theme == null ? Properties.Resources.ICO_THEME_UNSELECTED_16 : Otc.Utils.Icons.Theme16);
@@ -188,17 +184,6 @@ namespace Rwm.Studio.Plugins.Designer.Modules
          rpgControl.Enabled = !(OTCContext.Project.DigitalSystem == null || OTCContext.Project.DigitalSystem.Status != SystemStatus.Connected);
          cmdSystemConnect.Enabled = (OTCContext.Project.DigitalSystem != null && OTCContext.Project.DigitalSystem.Status != SystemStatus.Connected);
          cmdSystemDisconnect.Enabled = !cmdSystemConnect.Enabled;
-
-         // Update the switchboard status
-         foreach (XtraTabPage page in tabTest.TabPages)
-         {
-            ctrl = page.Controls[0] as SwitchboardCommandControl;
-            if (ctrl != null)
-            {
-               ctrl.Enabled = rpgControl.Enabled;
-               page.Cursor = (ctrl.Enabled ? Cursors.Default : Cursors.No);
-            }
-         }
       }
 
       #endregion

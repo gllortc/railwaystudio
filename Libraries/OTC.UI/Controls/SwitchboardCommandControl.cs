@@ -12,6 +12,7 @@ namespace Rwm.Otc.UI.Controls
    /// <summary>
    /// Control to command a switchboard.
    /// </summary>
+   [Obsolete]
    public partial class SwitchboardCommandControl : SwitchboardControlBase
    {
 
@@ -196,6 +197,17 @@ namespace Rwm.Otc.UI.Controls
          }
       }
 
+      void CmdBlockAssign_ItemClick(object sender, EventArgs e)
+      {
+         if (!(((ToolStripItem)sender).Tag is Element blockElement))
+            return;
+
+         // TODO: Invoke the train selection finder
+         Element.UnassignBlock(blockElement);
+
+         this.BlockAssignmentChanged?.Invoke(this, new EventArgs());
+      }
+
       void CmdBlockUnassign_ItemClick(object sender, EventArgs e)
       {
          if (((ToolStripItem)sender).Tag is Element blockElement)
@@ -280,6 +292,7 @@ namespace Rwm.Otc.UI.Controls
          if (this.BlockMenu == null)
          {
             this.BlockMenu = new ContextMenuStrip();
+            this.BlockMenu.Items.Add("&Aassign train", Properties.Resources.ICO_BLOCK_ASSIGN_16, new EventHandler(CmdBlockAssign_ItemClick));
             this.BlockMenu.Items.Add("&Unassign train (remove)", Properties.Resources.ICO_BLOCK_CLEAR_16, new EventHandler(CmdBlockUnassign_ItemClick));
             this.BlockMenu.Items.Add("Set &destination", Properties.Resources.ICO_BLOCK_GO_16);
             this.BlockMenu.Items.Add("-");
