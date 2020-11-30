@@ -57,6 +57,15 @@ namespace Rwm.Studio.Plugins.Designer.Modules
       {
          this.Text = this.Description.Caption;
 
+         // Set the default view (last selected view)
+         this.CurrentViewType = (ViewType)Otc.OTCContext.Settings.GetInteger(SETTING_LIST_TYPE, (int)ViewType.GroupByType);
+
+         this.cmdViewByType.Checked = (this.CurrentViewType == ViewType.GroupByType);
+         this.cmdViewByArea.Checked = (this.CurrentViewType == ViewType.GroupByArea);
+
+         this.cmdViewByType.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdViewByType_CheckedChanged);
+         this.cmdViewByArea.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdViewByArea_CheckedChanged);
+
          // Create the main tree list
          this.InitializeTreeList();
          this.RefreshTreeList();
@@ -132,6 +141,11 @@ namespace Rwm.Studio.Plugins.Designer.Modules
       private void CmdReportsDigitalAddresses_ItemClick(object sender, ItemClickEventArgs e)
       {
          this.ReportsDigitalAddresses();
+      }
+
+      private void cmdResourcesAreas_ItemClick(object sender, ItemClickEventArgs e)
+      {
+         this.ManageLayoutAreas();
       }
 
       #endregion

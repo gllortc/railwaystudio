@@ -6,6 +6,9 @@ using Rwm.Otc.Layout;
 
 namespace Rwm.Studio.Plugins.Designer.Views
 {
+   /// <summary>
+   /// Wizard to helps creating and configuring a new instance to edit in the editor.
+   /// </summary>
    public partial class AccessoryDecoderWizardView : DevExpress.XtraEditors.XtraForm
    {
 

@@ -351,6 +351,37 @@ namespace Rwm.Otc.Layout
       }
 
       /// <summary>
+      /// Operates an accessory.
+      /// </summary>
+      public void AccessoryOperate()
+      {
+         if (!this.Properties.IsAccessory)
+            return;
+
+         // Request the next status 
+         this.RequestAccessoryNextStatus();
+
+         // Store the new status
+         Element.Save(this);
+
+         // Execute associated element actions
+         this.ExecuteActions(ElementAction.EventType.OnAccessoryStatusChange, this.AccessoryStatus);
+      }
+
+      /// <summary>
+      /// Operated a feedback sensor.
+      /// </summary>
+      public void FeedbackOperate(Systems.FeedbackStatus status)
+      {
+         if (this.Properties.IsFeedback && OTCContext.Project.AllowManualSensorActivation && !this.Properties.IsBlock)
+            return;
+
+         this.SetFeedbackStatus(status == Systems.FeedbackStatus.Enabled);
+
+         this.ExecuteActions(ElementAction.EventType.OnSensorStatusChange, (int)status);
+      }
+
+      /// <summary>
       /// Return a <see cref="System.String"/> representing the name of the element.
       /// </summary>
       /// <returns>The name of the element.</returns>
@@ -574,6 +605,25 @@ namespace Rwm.Otc.Layout
             newStatus = currentStatus + 1;
 
          return newStatus;
+      }
+
+      /// <summary>
+      /// Execute the actions associated to current element.
+      /// </summary>
+      private void ExecuteActions(ElementAction.EventType eventType, int elementStatus)
+      {
+         if (!OTCContext.Project.ExecuteBlockActions || this.Actions == null || this.Actions.Count <= 0) return;
+
+         foreach (ElementAction action in this.Actions)
+         {
+            if (action.Event == eventType)
+            {
+               if (action.IsConditionStatusDisabled || (!action.IsConditionStatusDisabled && action.ConditionStatus == elementStatus))
+               {
+                  action.Execute();
+               }
+            }
+         }
       }
 
       #endregion

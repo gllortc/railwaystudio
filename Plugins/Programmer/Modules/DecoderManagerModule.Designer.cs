@@ -37,6 +37,7 @@
          this.cmdAccessoryDecoderAdd = new DevExpress.XtraBars.BarButtonItem();
          this.cmdDeviceAddRwmAcc = new DevExpress.XtraBars.BarButtonItem();
          this.cmdDeviceAddGenericFb = new DevExpress.XtraBars.BarButtonItem();
+         this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
          this.cmdResourcesAreas = new DevExpress.XtraBars.BarButtonItem();
          this.cmdViewByType = new DevExpress.XtraBars.BarCheckItem();
          this.cmdViewByArea = new DevExpress.XtraBars.BarCheckItem();
@@ -50,7 +51,6 @@
          this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
          this.imlIcons = new System.Windows.Forms.ImageList(this.components);
          this.tlsDecoders = new DevExpress.XtraTreeList.TreeList();
-         this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
          ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.tlsDecoders)).BeginInit();
          this.SuspendLayout();
@@ -135,6 +135,13 @@
          this.cmdDeviceAddGenericFb.Name = "cmdDeviceAddGenericFb";
          this.cmdDeviceAddGenericFb.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdDeviceAddGenericFb_ItemClick);
          // 
+         // barButtonItem1
+         // 
+         this.barButtonItem1.Caption = "Railwaymania EasyConnect Light Effects";
+         this.barButtonItem1.Id = 44;
+         this.barButtonItem1.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_ARDUINO_16;
+         this.barButtonItem1.Name = "barButtonItem1";
+         // 
          // cmdResourcesAreas
          // 
          this.cmdResourcesAreas.Caption = "Layout areas";
@@ -142,6 +149,7 @@
          this.cmdResourcesAreas.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_AREA_FOLDER_16;
          this.cmdResourcesAreas.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_AREA_FOLDER_32;
          this.cmdResourcesAreas.Name = "cmdResourcesAreas";
+         this.cmdResourcesAreas.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdResourcesAreas_ItemClick);
          // 
          // cmdViewByType
          // 
@@ -154,18 +162,16 @@
          this.cmdViewByType.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_DEVICE_32;
          this.cmdViewByType.Name = "cmdViewByType";
          this.cmdViewByType.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-         this.cmdViewByType.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdViewByType_CheckedChanged);
          // 
          // cmdViewByArea
          // 
-         this.cmdViewByArea.Caption = "Group by area";
+         this.cmdViewByArea.Caption = "Group by module";
          this.cmdViewByArea.GroupIndex = 1;
          this.cmdViewByArea.Id = 33;
          this.cmdViewByArea.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdViewByArea.ImageOptions.Image")));
          this.cmdViewByArea.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("cmdViewByArea.ImageOptions.LargeImage")));
          this.cmdViewByArea.Name = "cmdViewByArea";
          this.cmdViewByArea.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-         this.cmdViewByArea.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdViewByArea_CheckedChanged);
          // 
          // cmdRefreshView
          // 
@@ -265,13 +271,6 @@
          this.tlsDecoders.TabIndex = 0;
          this.tlsDecoders.Click += new System.EventHandler(this.TlsDecoders_Click);
          this.tlsDecoders.DoubleClick += new System.EventHandler(this.TlsDecoders_DoubleClick);
-         // 
-         // barButtonItem1
-         // 
-         this.barButtonItem1.Caption = "Railwaymania EasyConnect Light Effects";
-         this.barButtonItem1.Id = 44;
-         this.barButtonItem1.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_ARDUINO_16;
-         this.barButtonItem1.Name = "barButtonItem1";
          // 
          // DecoderManagerModule
          // 

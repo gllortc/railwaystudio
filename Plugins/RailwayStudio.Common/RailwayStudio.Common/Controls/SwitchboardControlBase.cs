@@ -75,11 +75,19 @@ namespace Rwm.Studio.Plugins.Common.Controls
 
       #region Methods
 
+      /// <summary>
+      /// Repaints the switchboard specified coordinates.
+      /// </summary>
+      /// <param name="coords">A list of switchboard coordinates to repaint.</param>
       public void RepaintCoordinates(IEnumerable<Point> coords)
       {
          foreach (Point c in coords) this.RepaintCoordinates(c);
       }
 
+      /// <summary>
+      /// Repaints the switchboard specified coordinates.
+      /// </summary>
+      /// <param name="coords">The to repaint.</param>
       public void RepaintCoordinates(Point coords)
       {
          int widthInBlocks;
@@ -243,19 +251,10 @@ namespace Rwm.Studio.Plugins.Common.Controls
          g.DrawImage(element.GetImage(OTCContext.Project.Theme, this.DesignModeEnabled), point);
       }
 
-      public Point GetElementPosition(Point coords)
-      {
-         return new Point(coords.X * OTCContext.Project.Theme.ElementSize.Width,
-                          coords.Y * OTCContext.Project.Theme.ElementSize.Height);
-      }
-
       public virtual void BeforePaint() { }
 
       internal virtual void OnPaint(object sender, PaintEventArgs e)
       {
-         Point startP = new Point();
-         Point endP = new Point();
-
          // Avoid trying painting null switchboards
          if (this.Switchboard == null) return;
 
@@ -287,8 +286,11 @@ namespace Rwm.Studio.Plugins.Common.Controls
             e.Graphics.TranslateTransform(this.AutoScrollPosition.X,
                                           this.AutoScrollPosition.Y);
 
-            // Draw horizontal lines
             Point origin = new Point(0, 0);
+            Point startP = new Point();
+            Point endP = new Point();
+
+            // Draw horizontal lines
             startP.X = origin.X;
             endP.X = origin.X + this.Switchboard.Width * OTCContext.Project.Theme.ElementSize.Width;
             for (int i = 0; i <= this.Switchboard.Height; i++)
@@ -340,6 +342,48 @@ namespace Rwm.Studio.Plugins.Common.Controls
          {
             return element.Coordinates;
          }
+      }
+
+      /// <summary>
+      /// gets a <see cref="Point"/> corresponding to a real screen position (in pixels).
+      /// </summary>
+      /// <param name="elementCoordinates">Switchboard coordinates (element grid position).</param>
+      /// <returns>The requested <see cref="Point"/> screen pixel coordinates.</returns>
+      public Point GetElementPosition(Point elementCoordinates)
+      {
+         return new Point(elementCoordinates.X * OTCContext.Project.Theme.ElementSize.Width,
+                          elementCoordinates.Y * OTCContext.Project.Theme.ElementSize.Height);
+      }
+
+      /// <summary>
+      /// Gets the element in the mouse click point.
+      /// </summary>
+      /// <param name="e">The <see cref="MouseEventArgs"/> instance provided by click event.</param>
+      /// <returns>The <see cref="Element"/> in the mouse position, otherwise returns <c>null</c>.</returns>
+      public Element GetElementByMouseCoordinates(MouseEventArgs e)
+      {
+         // Adapt click coordinates to an element click
+         Point coords = new Point((e.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
+                                  (e.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
+
+         // Get the clicked element
+         return this.Switchboard.GetBlock(coords);
+      }
+
+      /// <summary>
+      /// Gets the element in the mouse drag & drop point.
+      /// </summary>
+      /// <param name="e">The <see cref="DragEventArgs"/> instance provided by click event.</param>
+      /// <returns>The <see cref="Element"/> in the mouse position, otherwise returns <c>null</c>.</returns>
+      public Element GetElementByMouseCoordinates(DragEventArgs e)
+      {
+         // Adapt drag & drop coordinates to an element click
+         Point point = this.PointToClient(new Point(e.X, e.Y));
+         Point coords = new Point((point.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
+                                  (point.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
+
+         // Get the clicked element
+         return this.Switchboard.GetBlock(coords);
       }
 
       #endregion

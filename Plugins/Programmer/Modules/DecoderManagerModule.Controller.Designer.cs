@@ -24,6 +24,12 @@ namespace Rwm.Studio.Plugins.Designer.Modules
 
       #endregion
 
+      #region Constants
+
+      private const string SETTING_LIST_TYPE = "DecoderManagerModule.list.type";
+
+      #endregion
+
       #region Properties
 
       public ViewType CurrentViewType { get; private set; } = ViewType.GroupByType;
@@ -146,12 +152,18 @@ namespace Rwm.Studio.Plugins.Designer.Modules
       {
          this.CurrentViewType = ViewType.GroupByType;
          this.RefreshTreeList();
+
+         OTCContext.Settings.AddSetting(SETTING_LIST_TYPE, (int)ViewType.GroupByType);
+         OTCContext.Settings.SaveSettings();
       }
 
       internal void SetListByArea()
       {
          this.CurrentViewType = ViewType.GroupByArea;
          this.RefreshTreeList();
+
+         OTCContext.Settings.AddSetting(SETTING_LIST_TYPE, (int)ViewType.GroupByArea);
+         OTCContext.Settings.SaveSettings();
       }
 
       internal void RefreshTreeList()
@@ -177,6 +189,12 @@ namespace Rwm.Studio.Plugins.Designer.Modules
       internal void ReportsDigitalAddresses()
       {
 
+      }
+
+      internal void ManageLayoutAreas()
+      {
+         ModulesManagerView form = new ModulesManagerView();
+         form.ShowDialog(this);
       }
 
       #endregion

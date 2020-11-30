@@ -119,11 +119,11 @@ namespace Rwm.Studio.Plugins.Designer.Views
             return false;
          }
 
-         this.Output.Address = (int)spnAddress.EditValue;
+         this.Output.Address = Decimal.ToInt32((Decimal)spnAddress.EditValue);
          this.Output.Mode = (AccessoryDecoderOutput.OutputMode)(cboMode.SelectedItem as ImageComboBoxItem).Value;
-         this.Output.DurationA = (int)spnParameter1.EditValue;
-         this.Output.DurationB = (int)spnParameter2.EditValue;
-         this.Output.ServoSpeed = (int)spnParameter3.EditValue;
+         this.Output.DurationA = Decimal.ToInt32((Decimal)spnParameter1.EditValue);
+         this.Output.DurationB = Decimal.ToInt32((Decimal)spnParameter2.EditValue);
+         this.Output.ServoSpeed = Decimal.ToInt32((Decimal)spnParameter3.EditValue);
 
          return true;
       }

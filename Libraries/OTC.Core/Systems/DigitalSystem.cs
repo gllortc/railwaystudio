@@ -23,9 +23,9 @@ namespace Rwm.Otc.Systems
    public enum FeedbackStatus : int
    {
       /// <summary>Accessory control module.</summary>
-      Deactivated = 0,
+      Disabled = 0,
       /// <summary>Accessory control module.</summary>
-      Activated = 1
+      Enabled = 1
    }
 
    #endregion

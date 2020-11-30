@@ -85,7 +85,12 @@ namespace Rwm.Studio.Plugins.Designer.Views
 
          try
          {
+            // Save the decoder
             AccessoryDecoder.Save(this.Decoder);
+
+            // Save the decoder outputs
+            foreach (AccessoryDecoderOutput output in this.Decoder.Outputs)
+               AccessoryDecoderOutput.Save(output);
 
             // Add the decoder into the project
             if (!OTCContext.Project.AccessoryDecoders.Contains(this.Decoder))

@@ -74,21 +74,12 @@ namespace Rwm.Studio.Plugins.Control.Controls
       {
          try
          {
-            Point coords = new Point((e.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
-                                     (e.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
-
-            // Get the affected element
-            Element element = this.Switchboard.GetBlock(coords);
+            // Get the clicked element
+            Element element = this.GetElementByMouseCoordinates(e);
             if (element == null) return;
 
-            if (OTCContext.Project.AllowManualSensorActivation && element.Properties.IsFeedback && !element.Properties.IsBlock)
-            {
-               element.SetFeedbackStatus(true);
-
-               this.ExecuteActions(element,
-                                   ElementAction.EventType.OnSensorStatusChange,
-                                   (int)FeedbackStatus.Activated);
-            }
+            // Activate the element feedback sensor
+            element.FeedbackOperate(FeedbackStatus.Enabled);
          }
          catch (Exception ex)
          {
@@ -100,44 +91,18 @@ namespace Rwm.Studio.Plugins.Control.Controls
       {
          try
          {
-            // Adapt click coordinates to an element click
-            Point coords = new Point((e.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
-                                     (e.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
-
             // Get the clicked element
-            Element element = this.Switchboard.GetBlock(coords);
+            Element element = this.GetElementByMouseCoordinates(e);
             if (element == null) return;
 
             // Accessory element clicked
-            if (element.Properties.IsAccessory)
-            {
-               // Request the next status to the command station
-               element.RequestAccessoryNextStatus();
+            element.AccessoryOperate();
 
-               // Store the new status
-               Element.Save(element);
-
-               // Execute element associated actions
-               this.ExecuteActions(element,
-                                   ElementAction.EventType.OnAccessoryStatusChange,
-                                   element.AccessoryStatus);
-            }
-
-            // Feedback element clicked (manual activation)
-            if (element.Properties.IsFeedback && OTCContext.Project.AllowManualSensorActivation && !element.Properties.IsBlock)
-            {
-               element.SetFeedbackStatus(false);
-
-               this.ExecuteActions(element,
-                                   ElementAction.EventType.OnSensorStatusChange,
-                                   (int)FeedbackStatus.Deactivated);
-            }
+            // Deactivate the element feedback sensor
+            element.FeedbackOperate(FeedbackStatus.Disabled);
 
             // Block element clicked
-            if (element.Properties.IsBlock)
-            {
-               this.ShowBlockMenu(element);
-            }
+            if (element.Properties.IsBlock) this.ShowBlockMenu(element);
          }
          catch (Exception ex)
          {
@@ -151,16 +116,12 @@ namespace Rwm.Studio.Plugins.Control.Controls
 
          if (this.Enabled)
          {
-            Point point = this.PointToClient(new Point(e.X, e.Y));
-            Point coords = new Point((point.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
-                                     (point.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
+            Element element = this.GetElementByMouseCoordinates(e);
+            if (element == null) return;
 
-            if (this.Switchboard.GetBlock(coords) is Element element)
+            if (element.Properties.IsBlock)
             {
-               if (element.Properties.IsBlock)
-               {
-                  e.Effect = DragDropEffects.All;
-               }
+               e.Effect = DragDropEffects.All;
             }
          }
       }
@@ -169,20 +130,16 @@ namespace Rwm.Studio.Plugins.Control.Controls
       {
          if (e.Data.GetDataPresent(typeof(Train)))
          {
-            Point point = this.PointToClient(new Point(e.X, e.Y));
-            Point coords = new Point((point.X + this.HorizontalScroll.Value) / OTCContext.Project.Theme.ElementSize.Width,
-                                     (point.Y + this.VerticalScroll.Value) / OTCContext.Project.Theme.ElementSize.Height);
+            Element element = this.GetElementByMouseCoordinates(e);
+            if (element == null) return;
 
-            if (this.Switchboard.GetBlock(coords) is Element element)
+            if (element.Properties.IsBlock)
             {
-               if (element.Properties.IsBlock)
-               {
-                  if (!(e.Data.GetData(typeof(Train)) is Train train)) return;
+               if (!(e.Data.GetData(typeof(Train)) is Train train)) return;
 
-                  Element.AssignTrain(train, element);
+               Element.AssignTrain(train, element);
 
-                  this.BlockAssignmentChanged?.Invoke(this, new EventArgs());
-               }
+               this.BlockAssignmentChanged?.Invoke(this, new EventArgs());
             }
          }
       }
@@ -251,9 +208,9 @@ namespace Rwm.Studio.Plugins.Control.Controls
          if (((ToolStripItem)sender).Tag is Element element)
          {
             // Simulate a feedback impulse
-            OTCContext.Project.DigitalSystem.SetSensorStatus(element, FeedbackStatus.Activated);
+            OTCContext.Project.DigitalSystem.SetSensorStatus(element, FeedbackStatus.Enabled);
             System.Threading.Thread.Sleep(500);
-            OTCContext.Project.DigitalSystem.SetSensorStatus(element, FeedbackStatus.Deactivated);
+            OTCContext.Project.DigitalSystem.SetSensorStatus(element, FeedbackStatus.Disabled);
          }
       }
 
@@ -273,25 +230,6 @@ namespace Rwm.Studio.Plugins.Control.Controls
          this.AllowDrop = true;
          this.DragOver += OnDragOver;
          this.DragDrop += OnDragDrop;
-      }
-
-      /// <summary>
-      /// Execute actions for the specified element.
-      /// </summary>
-      private void ExecuteActions(Element element, ElementAction.EventType eventType, int elementStatus)
-      {
-         if (!OTCContext.Project.ExecuteBlockActions || element.Actions == null || element.Actions.Count <= 0) return;
-
-         foreach (ElementAction action in element.Actions)
-         {
-            if (action.Event == eventType)
-            {
-               if (action.IsConditionStatusDisabled || (!action.IsConditionStatusDisabled && action.ConditionStatus == elementStatus))
-               {
-                  action.Execute();
-               }
-            }
-         }
       }
 
       /// <summary>
