@@ -85,10 +85,10 @@ namespace Rwm.Studio.Plugins.Designer.Views
       {
          if (grdConnectView.GetRow(grdConnectView.FocusedRowHandle) is AccessoryDecoderOutput output)
          {
-            AccessoryDecoderOutputEditorView form = new AccessoryDecoderOutputEditorView(output);
+            //AccessoryDecoderOutputEditorView form = new AccessoryDecoderOutputEditorView(output);
             //if (form.ShowDialog(this) == DialogResult.OK)
             //{
-            //   this.ListOutputs();
+            //   this.ListInputs();
             //}
          }
       }
@@ -101,7 +101,17 @@ namespace Rwm.Studio.Plugins.Designer.Views
 
             Cursor.Current = Cursors.WaitCursor;
 
+            /// Save the decoder
             FeedbackEncoder.Save(this.Decoder);
+
+            // Save the inputs
+            if (this.Decoder.IsNew)
+            {
+               foreach (FeedbackEncoderInput input in this.Decoder.Inputs)
+               {
+                  FeedbackEncoderInput.Save(input);
+               }
+            }
 
             // Add the decoder into the project
             if (!OTCContext.Project.FeedbackEncoders.Contains(this.Decoder))

@@ -490,6 +490,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\layer_delete_321.png" />
+    <None Include="Resources\layer_delete.png" />
+    <None Include="Resources\layer_edit_321.png" />
+    <None Include="Resources\layer_edit.png" />
+    <None Include="Resources\layer_add_321.png" />
+    <None Include="Resources\layer_add_16.png" />
     <None Include="Resources\lightning_16.png" />
     <None Include="Resources\server_connect.png" />
     <None Include="Resources\server_connect_16.png" />

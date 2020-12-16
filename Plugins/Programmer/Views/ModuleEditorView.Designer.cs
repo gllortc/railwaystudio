@@ -33,7 +33,6 @@
          this.txtName = new DevExpress.XtraEditors.TextEdit();
          this.lblName = new DevExpress.XtraEditors.LabelControl();
          this.txtDescription = new DevExpress.XtraEditors.MemoEdit();
-         this.lblDescription = new DevExpress.XtraEditors.LabelControl();
          this.txtAccStartAddr = new DevExpress.XtraEditors.SpinEdit();
          this.txtAccEndAddr = new DevExpress.XtraEditors.SpinEdit();
          this.lblAccStartAddr = new DevExpress.XtraEditors.LabelControl();
@@ -41,6 +40,13 @@
          this.tabArea = new DevExpress.XtraTab.XtraTabControl();
          this.tabAreaGeneral = new DevExpress.XtraTab.XtraTabPage();
          this.tabAreaDigital = new DevExpress.XtraTab.XtraTabPage();
+         this.grpConnections = new DevExpress.XtraEditors.GroupControl();
+         this.lblConnectionHandRegler = new DevExpress.XtraEditors.LabelControl();
+         this.chkConnectionHandRegler = new DevExpress.XtraEditors.CheckEdit();
+         this.lblConnectionControlBus = new DevExpress.XtraEditors.LabelControl();
+         this.chkConnectionControlBus = new DevExpress.XtraEditors.CheckEdit();
+         this.lblConnectionPowerBus = new DevExpress.XtraEditors.LabelControl();
+         this.chkConnectionPowerBus = new DevExpress.XtraEditors.CheckEdit();
          this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
          this.lblFbStartAddr = new DevExpress.XtraEditors.LabelControl();
          this.lblFbEndAddr = new DevExpress.XtraEditors.LabelControl();
@@ -49,13 +55,6 @@
          this.grpDigitalAcc = new DevExpress.XtraEditors.GroupControl();
          this.tabSchema = new DevExpress.XtraTab.XtraTabPage();
          this.picSchema = new DevExpress.XtraEditors.PictureEdit();
-         this.grpConnections = new DevExpress.XtraEditors.GroupControl();
-         this.chkConnectionPowerBus = new DevExpress.XtraEditors.CheckEdit();
-         this.lblConnectionPowerBus = new DevExpress.XtraEditors.LabelControl();
-         this.lblConnectionControlBus = new DevExpress.XtraEditors.LabelControl();
-         this.chkConnectionControlBus = new DevExpress.XtraEditors.CheckEdit();
-         this.lblConnectionHandRegler = new DevExpress.XtraEditors.LabelControl();
-         this.chkConnectionHandRegler = new DevExpress.XtraEditors.CheckEdit();
          ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtAccStartAddr.Properties)).BeginInit();
@@ -64,6 +63,11 @@
          this.tabArea.SuspendLayout();
          this.tabAreaGeneral.SuspendLayout();
          this.tabAreaDigital.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.grpConnections)).BeginInit();
+         this.grpConnections.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.chkConnectionHandRegler.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.chkConnectionControlBus.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.chkConnectionPowerBus.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
          this.groupControl1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.txtFbStartAddr.Properties)).BeginInit();
@@ -72,17 +76,12 @@
          this.grpDigitalAcc.SuspendLayout();
          this.tabSchema.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.picSchema.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.grpConnections)).BeginInit();
-         this.grpConnections.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.chkConnectionPowerBus.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.chkConnectionControlBus.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.chkConnectionHandRegler.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // cmdOk
          // 
          this.cmdOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.cmdOk.Location = new System.Drawing.Point(378, 371);
+         this.cmdOk.Location = new System.Drawing.Point(378, 386);
          this.cmdOk.Name = "cmdOk";
          this.cmdOk.Size = new System.Drawing.Size(75, 23);
          this.cmdOk.TabIndex = 100;
@@ -93,7 +92,7 @@
          // 
          this.cmdCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-         this.cmdCancel.Location = new System.Drawing.Point(459, 371);
+         this.cmdCancel.Location = new System.Drawing.Point(459, 386);
          this.cmdCancel.Name = "cmdCancel";
          this.cmdCancel.Size = new System.Drawing.Size(75, 23);
          this.cmdCancel.TabIndex = 200;
@@ -104,9 +103,11 @@
          // 
          this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.txtName.Location = new System.Drawing.Point(79, 13);
+         this.txtName.Location = new System.Drawing.Point(58, 13);
          this.txtName.Name = "txtName";
-         this.txtName.Size = new System.Drawing.Size(424, 20);
+         this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+         this.txtName.Properties.Appearance.Options.UseFont = true;
+         this.txtName.Size = new System.Drawing.Size(445, 20);
          this.txtName.TabIndex = 1;
          // 
          // lblName
@@ -122,18 +123,10 @@
          this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.txtDescription.Location = new System.Drawing.Point(79, 39);
+         this.txtDescription.Location = new System.Drawing.Point(13, 13);
          this.txtDescription.Name = "txtDescription";
-         this.txtDescription.Size = new System.Drawing.Size(424, 273);
+         this.txtDescription.Size = new System.Drawing.Size(490, 314);
          this.txtDescription.TabIndex = 3;
-         // 
-         // lblDescription
-         // 
-         this.lblDescription.Location = new System.Drawing.Point(13, 41);
-         this.lblDescription.Name = "lblDescription";
-         this.lblDescription.Size = new System.Drawing.Size(53, 13);
-         this.lblDescription.TabIndex = 2;
-         this.lblDescription.Text = "Description";
          // 
          // txtAccStartAddr
          // 
@@ -148,7 +141,7 @@
          this.txtAccStartAddr.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
          this.txtAccStartAddr.Size = new System.Drawing.Size(71, 20);
-         this.txtAccStartAddr.TabIndex = 5;
+         this.txtAccStartAddr.TabIndex = 3;
          // 
          // txtAccEndAddr
          // 
@@ -163,7 +156,7 @@
          this.txtAccEndAddr.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
          this.txtAccEndAddr.Size = new System.Drawing.Size(71, 20);
-         this.txtAccEndAddr.TabIndex = 8;
+         this.txtAccEndAddr.TabIndex = 5;
          // 
          // lblAccStartAddr
          // 
@@ -171,7 +164,7 @@
          this.lblAccStartAddr.Location = new System.Drawing.Point(15, 36);
          this.lblAccStartAddr.Name = "lblAccStartAddr";
          this.lblAccStartAddr.Size = new System.Drawing.Size(65, 13);
-         this.lblAccStartAddr.TabIndex = 4;
+         this.lblAccStartAddr.TabIndex = 2;
          this.lblAccStartAddr.Text = "Start address";
          // 
          // lblAccEndAddr
@@ -180,7 +173,7 @@
          this.lblAccEndAddr.Location = new System.Drawing.Point(15, 62);
          this.lblAccEndAddr.Name = "lblAccEndAddr";
          this.lblAccEndAddr.Size = new System.Drawing.Size(59, 13);
-         this.lblAccEndAddr.TabIndex = 7;
+         this.lblAccEndAddr.TabIndex = 4;
          this.lblAccEndAddr.Text = "End address";
          // 
          // tabArea
@@ -190,170 +183,73 @@
             | System.Windows.Forms.AnchorStyles.Right)));
          this.tabArea.Location = new System.Drawing.Point(12, 12);
          this.tabArea.Name = "tabArea";
-         this.tabArea.SelectedTabPage = this.tabAreaGeneral;
-         this.tabArea.Size = new System.Drawing.Size(522, 353);
+         this.tabArea.SelectedTabPage = this.tabAreaDigital;
+         this.tabArea.Size = new System.Drawing.Size(522, 368);
          this.tabArea.TabIndex = 201;
          this.tabArea.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.tabAreaGeneral,
             this.tabAreaDigital,
-            this.tabSchema});
+            this.tabSchema,
+            this.tabAreaGeneral});
          // 
          // tabAreaGeneral
          // 
-         this.tabAreaGeneral.Controls.Add(this.txtName);
-         this.tabAreaGeneral.Controls.Add(this.lblName);
          this.tabAreaGeneral.Controls.Add(this.txtDescription);
-         this.tabAreaGeneral.Controls.Add(this.lblDescription);
          this.tabAreaGeneral.Name = "tabAreaGeneral";
          this.tabAreaGeneral.Padding = new System.Windows.Forms.Padding(10);
-         this.tabAreaGeneral.Size = new System.Drawing.Size(516, 325);
-         this.tabAreaGeneral.Text = "General";
+         this.tabAreaGeneral.Size = new System.Drawing.Size(516, 340);
+         this.tabAreaGeneral.Text = "Notes";
          // 
          // tabAreaDigital
          // 
+         this.tabAreaDigital.Controls.Add(this.txtName);
+         this.tabAreaDigital.Controls.Add(this.lblName);
          this.tabAreaDigital.Controls.Add(this.grpConnections);
          this.tabAreaDigital.Controls.Add(this.groupControl1);
          this.tabAreaDigital.Controls.Add(this.grpDigitalAcc);
          this.tabAreaDigital.Name = "tabAreaDigital";
          this.tabAreaDigital.Padding = new System.Windows.Forms.Padding(10);
-         this.tabAreaDigital.Size = new System.Drawing.Size(516, 325);
-         this.tabAreaDigital.Text = "Digital";
-         // 
-         // groupControl1
-         // 
-         this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.groupControl1.Controls.Add(this.lblFbStartAddr);
-         this.groupControl1.Controls.Add(this.lblFbEndAddr);
-         this.groupControl1.Controls.Add(this.txtFbStartAddr);
-         this.groupControl1.Controls.Add(this.txtFbEndAddr);
-         this.groupControl1.Location = new System.Drawing.Point(261, 13);
-         this.groupControl1.Name = "groupControl1";
-         this.groupControl1.Padding = new System.Windows.Forms.Padding(10);
-         this.groupControl1.Size = new System.Drawing.Size(242, 100);
-         this.groupControl1.TabIndex = 9;
-         this.groupControl1.Text = "Allowed feedback address range";
-         // 
-         // lblFbStartAddr
-         // 
-         this.lblFbStartAddr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-         this.lblFbStartAddr.Location = new System.Drawing.Point(15, 36);
-         this.lblFbStartAddr.Name = "lblFbStartAddr";
-         this.lblFbStartAddr.Size = new System.Drawing.Size(65, 13);
-         this.lblFbStartAddr.TabIndex = 9;
-         this.lblFbStartAddr.Text = "Start address";
-         // 
-         // lblFbEndAddr
-         // 
-         this.lblFbEndAddr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-         this.lblFbEndAddr.Location = new System.Drawing.Point(15, 62);
-         this.lblFbEndAddr.Name = "lblFbEndAddr";
-         this.lblFbEndAddr.Size = new System.Drawing.Size(59, 13);
-         this.lblFbEndAddr.TabIndex = 10;
-         this.lblFbEndAddr.Text = "End address";
-         // 
-         // txtFbStartAddr
-         // 
-         this.txtFbStartAddr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-         this.txtFbStartAddr.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-         this.txtFbStartAddr.Location = new System.Drawing.Point(97, 33);
-         this.txtFbStartAddr.Name = "txtFbStartAddr";
-         this.txtFbStartAddr.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.txtFbStartAddr.Size = new System.Drawing.Size(71, 20);
-         this.txtFbStartAddr.TabIndex = 5;
-         // 
-         // txtFbEndAddr
-         // 
-         this.txtFbEndAddr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-         this.txtFbEndAddr.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-         this.txtFbEndAddr.Location = new System.Drawing.Point(97, 59);
-         this.txtFbEndAddr.Name = "txtFbEndAddr";
-         this.txtFbEndAddr.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.txtFbEndAddr.Size = new System.Drawing.Size(71, 20);
-         this.txtFbEndAddr.TabIndex = 8;
-         // 
-         // grpDigitalAcc
-         // 
-         this.grpDigitalAcc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.grpDigitalAcc.Controls.Add(this.lblAccStartAddr);
-         this.grpDigitalAcc.Controls.Add(this.txtAccStartAddr);
-         this.grpDigitalAcc.Controls.Add(this.txtAccEndAddr);
-         this.grpDigitalAcc.Controls.Add(this.lblAccEndAddr);
-         this.grpDigitalAcc.Location = new System.Drawing.Point(13, 13);
-         this.grpDigitalAcc.Name = "grpDigitalAcc";
-         this.grpDigitalAcc.Padding = new System.Windows.Forms.Padding(10);
-         this.grpDigitalAcc.Size = new System.Drawing.Size(242, 100);
-         this.grpDigitalAcc.TabIndex = 0;
-         this.grpDigitalAcc.Text = "Allowed accessory address range";
-         // 
-         // tabSchema
-         // 
-         this.tabSchema.Controls.Add(this.picSchema);
-         this.tabSchema.Name = "tabSchema";
-         this.tabSchema.Padding = new System.Windows.Forms.Padding(10);
-         this.tabSchema.Size = new System.Drawing.Size(516, 325);
-         this.tabSchema.Text = "Schema";
-         // 
-         // picSchema
-         // 
-         this.picSchema.Cursor = System.Windows.Forms.Cursors.Default;
-         this.picSchema.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.picSchema.Location = new System.Drawing.Point(10, 10);
-         this.picSchema.Name = "picSchema";
-         this.picSchema.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-         this.picSchema.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-         this.picSchema.Properties.ZoomAccelerationFactor = 1D;
-         this.picSchema.Size = new System.Drawing.Size(496, 305);
-         this.picSchema.TabIndex = 1;
+         this.tabAreaDigital.Size = new System.Drawing.Size(516, 340);
+         this.tabAreaDigital.Text = "General";
          // 
          // grpConnections
          // 
+         this.grpConnections.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
          this.grpConnections.Controls.Add(this.lblConnectionHandRegler);
          this.grpConnections.Controls.Add(this.chkConnectionHandRegler);
          this.grpConnections.Controls.Add(this.lblConnectionControlBus);
          this.grpConnections.Controls.Add(this.chkConnectionControlBus);
          this.grpConnections.Controls.Add(this.lblConnectionPowerBus);
          this.grpConnections.Controls.Add(this.chkConnectionPowerBus);
-         this.grpConnections.Location = new System.Drawing.Point(13, 119);
+         this.grpConnections.Location = new System.Drawing.Point(13, 153);
          this.grpConnections.Name = "grpConnections";
          this.grpConnections.Padding = new System.Windows.Forms.Padding(10);
-         this.grpConnections.Size = new System.Drawing.Size(490, 193);
+         this.grpConnections.Size = new System.Drawing.Size(490, 174);
          this.grpConnections.TabIndex = 10;
          this.grpConnections.Text = "Connections";
          // 
-         // chkConnectionPowerBus
+         // lblConnectionHandRegler
          // 
-         this.chkConnectionPowerBus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+         this.lblConnectionHandRegler.Appearance.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+         this.lblConnectionHandRegler.Appearance.Options.UseForeColor = true;
+         this.lblConnectionHandRegler.Location = new System.Drawing.Point(33, 134);
+         this.lblConnectionHandRegler.Name = "lblConnectionHandRegler";
+         this.lblConnectionHandRegler.Size = new System.Drawing.Size(340, 13);
+         this.lblConnectionHandRegler.TabIndex = 7;
+         this.lblConnectionHandRegler.Text = "Has connector(s) to connect hand regulators and other control devices";
+         // 
+         // chkConnectionHandRegler
+         // 
+         this.chkConnectionHandRegler.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.chkConnectionPowerBus.Location = new System.Drawing.Point(15, 33);
-         this.chkConnectionPowerBus.Name = "chkConnectionPowerBus";
-         this.chkConnectionPowerBus.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-         this.chkConnectionPowerBus.Properties.Appearance.Options.UseFont = true;
-         this.chkConnectionPowerBus.Properties.Caption = "Connected to Power Bus";
-         this.chkConnectionPowerBus.Size = new System.Drawing.Size(460, 19);
-         this.chkConnectionPowerBus.TabIndex = 0;
-         // 
-         // lblConnectionPowerBus
-         // 
-         this.lblConnectionPowerBus.Appearance.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-         this.lblConnectionPowerBus.Appearance.Options.UseForeColor = true;
-         this.lblConnectionPowerBus.Location = new System.Drawing.Point(33, 54);
-         this.lblConnectionPowerBus.Name = "lblConnectionPowerBus";
-         this.lblConnectionPowerBus.Size = new System.Drawing.Size(411, 13);
-         this.lblConnectionPowerBus.TabIndex = 3;
-         this.lblConnectionPowerBus.Text = "Module is connected to a bus that allows to power accessories, switches, signals," +
-    " etc.";
+         this.chkConnectionHandRegler.Location = new System.Drawing.Point(15, 113);
+         this.chkConnectionHandRegler.Name = "chkConnectionHandRegler";
+         this.chkConnectionHandRegler.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+         this.chkConnectionHandRegler.Properties.Appearance.Options.UseFont = true;
+         this.chkConnectionHandRegler.Properties.Caption = "Allows connecting hand controllers";
+         this.chkConnectionHandRegler.Size = new System.Drawing.Size(460, 19);
+         this.chkConnectionHandRegler.TabIndex = 12;
          // 
          // lblConnectionControlBus
          // 
@@ -376,29 +272,127 @@
          this.chkConnectionControlBus.Properties.Appearance.Options.UseFont = true;
          this.chkConnectionControlBus.Properties.Caption = "Connected to Control Bus";
          this.chkConnectionControlBus.Size = new System.Drawing.Size(460, 19);
-         this.chkConnectionControlBus.TabIndex = 4;
+         this.chkConnectionControlBus.TabIndex = 11;
          // 
-         // lblConnectionHandRegler
+         // lblConnectionPowerBus
          // 
-         this.lblConnectionHandRegler.Appearance.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-         this.lblConnectionHandRegler.Appearance.Options.UseForeColor = true;
-         this.lblConnectionHandRegler.Location = new System.Drawing.Point(33, 134);
-         this.lblConnectionHandRegler.Name = "lblConnectionHandRegler";
-         this.lblConnectionHandRegler.Size = new System.Drawing.Size(340, 13);
-         this.lblConnectionHandRegler.TabIndex = 7;
-         this.lblConnectionHandRegler.Text = "Has connector(s) to connect hand regulators and other control devices";
+         this.lblConnectionPowerBus.Appearance.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+         this.lblConnectionPowerBus.Appearance.Options.UseForeColor = true;
+         this.lblConnectionPowerBus.Location = new System.Drawing.Point(33, 54);
+         this.lblConnectionPowerBus.Name = "lblConnectionPowerBus";
+         this.lblConnectionPowerBus.Size = new System.Drawing.Size(411, 13);
+         this.lblConnectionPowerBus.TabIndex = 3;
+         this.lblConnectionPowerBus.Text = "Module is connected to a bus that allows to power accessories, switches, signals," +
+    " etc.";
          // 
-         // chkConnectionHandRegler
+         // chkConnectionPowerBus
          // 
-         this.chkConnectionHandRegler.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+         this.chkConnectionPowerBus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.chkConnectionHandRegler.Location = new System.Drawing.Point(15, 113);
-         this.chkConnectionHandRegler.Name = "chkConnectionHandRegler";
-         this.chkConnectionHandRegler.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-         this.chkConnectionHandRegler.Properties.Appearance.Options.UseFont = true;
-         this.chkConnectionHandRegler.Properties.Caption = "Allows connecting hand controllers";
-         this.chkConnectionHandRegler.Size = new System.Drawing.Size(460, 19);
-         this.chkConnectionHandRegler.TabIndex = 6;
+         this.chkConnectionPowerBus.Location = new System.Drawing.Point(15, 33);
+         this.chkConnectionPowerBus.Name = "chkConnectionPowerBus";
+         this.chkConnectionPowerBus.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+         this.chkConnectionPowerBus.Properties.Appearance.Options.UseFont = true;
+         this.chkConnectionPowerBus.Properties.Caption = "Connected to Power Bus";
+         this.chkConnectionPowerBus.Size = new System.Drawing.Size(460, 19);
+         this.chkConnectionPowerBus.TabIndex = 10;
+         // 
+         // groupControl1
+         // 
+         this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.groupControl1.Controls.Add(this.lblFbStartAddr);
+         this.groupControl1.Controls.Add(this.lblFbEndAddr);
+         this.groupControl1.Controls.Add(this.txtFbStartAddr);
+         this.groupControl1.Controls.Add(this.txtFbEndAddr);
+         this.groupControl1.Location = new System.Drawing.Point(261, 47);
+         this.groupControl1.Name = "groupControl1";
+         this.groupControl1.Padding = new System.Windows.Forms.Padding(10);
+         this.groupControl1.Size = new System.Drawing.Size(242, 100);
+         this.groupControl1.TabIndex = 9;
+         this.groupControl1.Text = "Allowed feedback address range";
+         // 
+         // lblFbStartAddr
+         // 
+         this.lblFbStartAddr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.lblFbStartAddr.Location = new System.Drawing.Point(15, 36);
+         this.lblFbStartAddr.Name = "lblFbStartAddr";
+         this.lblFbStartAddr.Size = new System.Drawing.Size(65, 13);
+         this.lblFbStartAddr.TabIndex = 6;
+         this.lblFbStartAddr.Text = "Start address";
+         // 
+         // lblFbEndAddr
+         // 
+         this.lblFbEndAddr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.lblFbEndAddr.Location = new System.Drawing.Point(15, 62);
+         this.lblFbEndAddr.Name = "lblFbEndAddr";
+         this.lblFbEndAddr.Size = new System.Drawing.Size(59, 13);
+         this.lblFbEndAddr.TabIndex = 8;
+         this.lblFbEndAddr.Text = "End address";
+         // 
+         // txtFbStartAddr
+         // 
+         this.txtFbStartAddr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.txtFbStartAddr.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+         this.txtFbStartAddr.Location = new System.Drawing.Point(97, 33);
+         this.txtFbStartAddr.Name = "txtFbStartAddr";
+         this.txtFbStartAddr.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.txtFbStartAddr.Size = new System.Drawing.Size(71, 20);
+         this.txtFbStartAddr.TabIndex = 7;
+         // 
+         // txtFbEndAddr
+         // 
+         this.txtFbEndAddr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.txtFbEndAddr.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+         this.txtFbEndAddr.Location = new System.Drawing.Point(97, 59);
+         this.txtFbEndAddr.Name = "txtFbEndAddr";
+         this.txtFbEndAddr.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.txtFbEndAddr.Size = new System.Drawing.Size(71, 20);
+         this.txtFbEndAddr.TabIndex = 9;
+         // 
+         // grpDigitalAcc
+         // 
+         this.grpDigitalAcc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.grpDigitalAcc.Controls.Add(this.lblAccStartAddr);
+         this.grpDigitalAcc.Controls.Add(this.txtAccStartAddr);
+         this.grpDigitalAcc.Controls.Add(this.txtAccEndAddr);
+         this.grpDigitalAcc.Controls.Add(this.lblAccEndAddr);
+         this.grpDigitalAcc.Location = new System.Drawing.Point(13, 47);
+         this.grpDigitalAcc.Name = "grpDigitalAcc";
+         this.grpDigitalAcc.Padding = new System.Windows.Forms.Padding(10);
+         this.grpDigitalAcc.Size = new System.Drawing.Size(242, 100);
+         this.grpDigitalAcc.TabIndex = 0;
+         this.grpDigitalAcc.Text = "Allowed accessory address range";
+         // 
+         // tabSchema
+         // 
+         this.tabSchema.Controls.Add(this.picSchema);
+         this.tabSchema.Name = "tabSchema";
+         this.tabSchema.Padding = new System.Windows.Forms.Padding(10);
+         this.tabSchema.Size = new System.Drawing.Size(516, 340);
+         this.tabSchema.Text = "Schema";
+         // 
+         // picSchema
+         // 
+         this.picSchema.Cursor = System.Windows.Forms.Cursors.Default;
+         this.picSchema.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.picSchema.Location = new System.Drawing.Point(10, 10);
+         this.picSchema.Name = "picSchema";
+         this.picSchema.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+         this.picSchema.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+         this.picSchema.Properties.ZoomAccelerationFactor = 1D;
+         this.picSchema.Size = new System.Drawing.Size(496, 320);
+         this.picSchema.TabIndex = 1;
          // 
          // ModuleEditorView
          // 
@@ -406,7 +400,7 @@
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.CancelButton = this.cmdCancel;
-         this.ClientSize = new System.Drawing.Size(546, 406);
+         this.ClientSize = new System.Drawing.Size(546, 421);
          this.Controls.Add(this.tabArea);
          this.Controls.Add(this.cmdCancel);
          this.Controls.Add(this.cmdOk);
@@ -426,8 +420,14 @@
          ((System.ComponentModel.ISupportInitialize)(this.tabArea)).EndInit();
          this.tabArea.ResumeLayout(false);
          this.tabAreaGeneral.ResumeLayout(false);
-         this.tabAreaGeneral.PerformLayout();
          this.tabAreaDigital.ResumeLayout(false);
+         this.tabAreaDigital.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.grpConnections)).EndInit();
+         this.grpConnections.ResumeLayout(false);
+         this.grpConnections.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.chkConnectionHandRegler.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.chkConnectionControlBus.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.chkConnectionPowerBus.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
          this.groupControl1.ResumeLayout(false);
          this.groupControl1.PerformLayout();
@@ -438,12 +438,6 @@
          this.grpDigitalAcc.PerformLayout();
          this.tabSchema.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.picSchema.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.grpConnections)).EndInit();
-         this.grpConnections.ResumeLayout(false);
-         this.grpConnections.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.chkConnectionPowerBus.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.chkConnectionControlBus.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.chkConnectionHandRegler.Properties)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -455,7 +449,6 @@
       private DevExpress.XtraEditors.TextEdit txtName;
       private DevExpress.XtraEditors.LabelControl lblName;
       private DevExpress.XtraEditors.MemoEdit txtDescription;
-      private DevExpress.XtraEditors.LabelControl lblDescription;
       private DevExpress.XtraEditors.SpinEdit txtAccStartAddr;
       private DevExpress.XtraEditors.SpinEdit txtAccEndAddr;
       private DevExpress.XtraEditors.LabelControl lblAccStartAddr;

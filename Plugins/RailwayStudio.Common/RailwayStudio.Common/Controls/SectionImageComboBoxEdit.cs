@@ -165,7 +165,7 @@ namespace Rwm.Studio.Plugins.Common.Controls
             item = new ImageComboBoxItem("Not specified", null, 0);
             this.Properties.Items.Add(item);
 
-            foreach (Module section in OTCContext.Project.Sections)
+            foreach (Module section in OTCContext.Project.Modules)
             {
                item = new ImageComboBoxItem(section.Name, section, 1);
                this.Properties.Items.Add(item);

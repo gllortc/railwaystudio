@@ -112,6 +112,8 @@ namespace Rwm.Studio.Plugins.Designer.Arduino
 
       public void Create(bool upload)
       {
+         Logger.LogDebug(this, "Create({0})", upload);
+
          try
          {
             this.AddSketchLibraries();
@@ -131,6 +133,8 @@ namespace Rwm.Studio.Plugins.Designer.Arduino
       /// <param name="outputControl">Control where the standard output will be redirected..</param>
       public void Build(System.Windows.Forms.Control outputControl)
       {
+         Logger.LogDebug(this, "Build([{0}])", outputControl);
+
          try
          {
             // Execute the BATCH file

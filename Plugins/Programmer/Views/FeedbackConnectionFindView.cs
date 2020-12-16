@@ -149,7 +149,7 @@ namespace Rwm.Studio.Plugins.Designer.Views
             }
          }
 
-         foreach (Module section in OTCContext.Project.Sections)
+         foreach (Module section in OTCContext.Project.Modules)
          {
             nodeSection = tvwOutputs.AppendNode(new object[] { section.Name }, null);
             nodeSection.Tag = section;

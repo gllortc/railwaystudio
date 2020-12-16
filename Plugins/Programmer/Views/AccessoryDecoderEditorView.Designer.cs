@@ -148,6 +148,15 @@
          // 
          this.grdOutView.GridControl = this.grdOut;
          this.grdOutView.Name = "grdOutView";
+         this.grdOutView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
+         this.grdOutView.OptionsCustomization.AllowColumnMoving = false;
+         this.grdOutView.OptionsCustomization.AllowColumnResizing = false;
+         this.grdOutView.OptionsCustomization.AllowGroup = false;
+         this.grdOutView.OptionsCustomization.AllowSort = false;
+         this.grdOutView.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.grdOutView.OptionsSelection.EnableAppearanceFocusedRow = false;
+         this.grdOutView.OptionsSelection.EnableAppearanceHideSelection = false;
+         this.grdOutView.OptionsView.ShowGroupPanel = false;
          this.grdOutView.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.GrdOutView_CustomDrawCell);
          this.grdOutView.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.GrdOutView_RowStyle);
          // 

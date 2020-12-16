@@ -93,6 +93,21 @@ namespace Rwm.Studio.Plugins.Designer.Modules
          }
       }
 
+      private void CmdModuleAdd_ItemClick(object sender, ItemClickEventArgs e)
+      {
+         this.LayoutModuleAdd();
+      }
+
+      private void CmdModuleEdit_ItemClick(object sender, ItemClickEventArgs e)
+      {
+         this.LayoutModuleEdit();
+      }
+
+      private void CmdModuleDelete_ItemClick(object sender, ItemClickEventArgs e)
+      {
+         this.LayoutModuleDelete();
+      }
+
       private void CmdAccessoryDecoderAdd_ItemClick(object sender, ItemClickEventArgs e)
       {
          this.AccessoryDecoderAdd();
@@ -141,11 +156,6 @@ namespace Rwm.Studio.Plugins.Designer.Modules
       private void CmdReportsDigitalAddresses_ItemClick(object sender, ItemClickEventArgs e)
       {
          this.ReportsDigitalAddresses();
-      }
-
-      private void cmdResourcesAreas_ItemClick(object sender, ItemClickEventArgs e)
-      {
-         this.ManageLayoutAreas();
       }
 
       #endregion

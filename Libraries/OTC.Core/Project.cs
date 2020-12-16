@@ -190,7 +190,7 @@ namespace Rwm.Otc
       /// Gets the layout sections list.
       /// </summary>
       [ORMForeignCollection(OnDeleteActionTypes.NoAction)]
-      public List<Module> Sections { get; private set; } = null;
+      public List<Module> Modules { get; private set; } = null;
 
       /// <summary>
       /// Gets a value indicating if layout areas are in use in the current project.
@@ -199,7 +199,7 @@ namespace Rwm.Otc
       {
          get
          {
-            if (this.Sections.Count > 0)
+            if (this.Modules.Count > 0)
             {
                foreach (AccessoryDecoder decoder in this.AccessoryDecoders)
                   if (decoder.Module != null)

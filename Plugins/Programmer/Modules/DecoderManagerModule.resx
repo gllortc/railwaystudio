@@ -118,6 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="cmdAccessoryDecoderAdd.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMzQDW3oAAAIqSURBVDhPpZNL
+        TxNRGIbP/2Cj4Sf4AzTGnZfqyoULE6I7F8SVSqg0BcFCL8yM09v0gk27oDdaaqvQ20wREkMUS6ExGgWm
+        bcJgbKImLIy+njMtGLSSGE/yzJvv/b73nJNMDgHwX/Q0/wXi9QWIy+MjHsnPwEwofCxshs2yDMvqH9Hl
+        JY+cbuyoDShLy0eQC1kUndeRnzyHvOWsrln7VZS5Syf1DdxeH3HwItRGkwZWdCrPOyjFHGTuPLRVjt72
+        12I188uc4QQ93TPb/tSGpu1B29WOIIvX8FG5AezXga+bwOf1jtKa+Qu2K/uEE0Rsbatwun1dpENkzgC8
+        NwJ7OWD3CWW+o6ymft56AcQ+zePN23cIhiJoNFpoqE2qjBYUnm6gOoAdAYuZcapSVwXdZ30yZXOgtlHH
+        bCyBrQ/biMbnEEukKGkUbAZoy0Y8S5lpSMRi2qQrq5lfsl8EmbBY8bpaQzqTw9paFSW5grKypBN1DUER
+        LmOlzAPNML6rIV1Zzfzp4QGQsXELXtFgoSTrt4jGk4dI/gBitgHUk4P4oWXwrTWnK6uzrlu4O2QEMY9N
+        oFrbxIvVlz1JpuYhT54BvihAu0D/goLK1Glkny6AZcmde8Pl+6ZRGEfMf2XUFYdZCMPMh/BAjMAixcAy
+        LEvo6qecOg5/uoR0ZQOJ4jocgQwGRwT6CPRef88H8jsPnY+D/EwMVk8INm8EN2+bgge9P4Z7QVdf98QD
+        +jo9kJ9mh9JP1GJ6OgAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="cmdDeviceAddGenericFb.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -164,22 +180,6 @@
         tMU6YO2zir6a7bSA4Fi2Wuyc4UVfTrfpJ5X6BR4ttfZAukHRAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="cmdAccessoryDecoderAdd.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4xMzQDW3oAAAIqSURBVDhPpZNL
-        TxNRGIbP/2Cj4Sf4AzTGnZfqyoULE6I7F8SVSqg0BcFCL8yM09v0gk27oDdaaqvQ20wREkMUS6ExGgWm
-        bcJgbKImLIy+njMtGLSSGE/yzJvv/b73nJNMDgHwX/Q0/wXi9QWIy+MjHsnPwEwofCxshs2yDMvqH9Hl
-        JY+cbuyoDShLy0eQC1kUndeRnzyHvOWsrln7VZS5Syf1DdxeH3HwItRGkwZWdCrPOyjFHGTuPLRVjt72
-        12I188uc4QQ93TPb/tSGpu1B29WOIIvX8FG5AezXga+bwOf1jtKa+Qu2K/uEE0Rsbatwun1dpENkzgC8
-        NwJ7OWD3CWW+o6ymft56AcQ+zePN23cIhiJoNFpoqE2qjBYUnm6gOoAdAYuZcapSVwXdZ30yZXOgtlHH
-        bCyBrQ/biMbnEEukKGkUbAZoy0Y8S5lpSMRi2qQrq5lfsl8EmbBY8bpaQzqTw9paFSW5grKypBN1DUER
-        LmOlzAPNML6rIV1Zzfzp4QGQsXELXtFgoSTrt4jGk4dI/gBitgHUk4P4oWXwrTWnK6uzrlu4O2QEMY9N
-        oFrbxIvVlz1JpuYhT54BvihAu0D/goLK1Glkny6AZcmde8Pl+6ZRGEfMf2XUFYdZCMPMh/BAjMAixcAy
-        LEvo6qecOg5/uoR0ZQOJ4jocgQwGRwT6CPRef88H8jsPnY+D/EwMVk8INm8EN2+bgge9P4Z7QVdf98QD
-        +jo9kJ9mh9JP1GJ6OgAAAABJRU5ErkJggg==
-</value>
-  </data>
   <metadata name="imlIcons.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -188,7 +188,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABE
-        CgAAAk1TRnQBSQFMAgEBBAEAAagBAQGoAQEBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        CgAAAk1TRnQBSQFMAgEBBAEAAeABAQHgAQEBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAASADAAEBAQABCAYAAQgYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA

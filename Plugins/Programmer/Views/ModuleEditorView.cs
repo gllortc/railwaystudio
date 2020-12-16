@@ -36,7 +36,8 @@ namespace Rwm.Studio.Plugins.Designer.Views
 
       private void FrmPanelEditor_Activated(object sender, EventArgs e)
       {
-         txtName.SelectAll();
+         txtName.SelectionStart = 0;
+         txtName.SelectionLength = txtName.Text.Length;
          txtName.Focus();
       }
 
