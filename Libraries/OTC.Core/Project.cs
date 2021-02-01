@@ -4,6 +4,7 @@ using System.Drawing;
 using Rwm.Otc.Data;
 using Rwm.Otc.Diagnostics;
 using Rwm.Otc.Layout;
+using Rwm.Otc.Layout.EasyConnect;
 using Rwm.Otc.Layout.Traffic;
 using Rwm.Otc.Systems;
 using Rwm.Otc.Themes;
@@ -173,6 +174,12 @@ namespace Rwm.Otc
       /// </summary>
       [ORMForeignCollection(OnDeleteActionTypes.DeleteInCascade)]
       public List<FeedbackEncoder> FeedbackEncoders { get; private set; } = null;
+
+      /// <summary>
+      /// Gets the EasyConnect modules used in the project.
+      /// </summary>
+      [ORMForeignCollection(OnDeleteActionTypes.DeleteInCascade)]
+      public List<EmotionModule> EasyConnectEmotionModules { get; private set; } = null;
 
       /// <summary>
       /// Gets all routes in the project.

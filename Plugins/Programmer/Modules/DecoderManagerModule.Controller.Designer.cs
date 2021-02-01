@@ -47,67 +47,6 @@ namespace Rwm.Studio.Plugins.Designer.Modules
          }
       }
 
-      internal void LayoutModuleEdit()
-      {
-         if (tlsDecoders.Selection.Count <= 0)
-         {
-            MessageBox.Show("No layout module has been selected from list.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            return;
-         }
-         else if (!(tlsDecoders.Selection[0].Tag is Module))
-         {
-            MessageBox.Show("The selected node doesn't correspond to any module.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            return;
-         }
-
-         try
-         {
-            TreeListNode node = tlsDecoders.Selection[0];
-            if (node.Tag is Module)
-            {
-               Module module = node.Tag as Module;
-
-               ModuleEditorView form = new ModuleEditorView(module);
-               if (form.ShowDialog(this) == DialogResult.OK)
-               {
-                  this.RefreshTreeList();
-               }
-            }
-         }
-         catch (Exception ex)
-         {
-            MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-         }
-      }
-
-      internal void LayoutModuleDelete()
-      {
-         if (tlsDecoders.Selection.Count <= 0)
-         {
-            MessageBox.Show("No layout module has been selected from list.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            return;
-         }
-
-         try
-         {
-            TreeListNode node = tlsDecoders.Selection[0];
-            if (node.Tag is Module)
-            {
-               Module module = node.Tag as Module;
-
-               if (MessageBox.Show("Are you sure you want to remove the layout module " + module.Name + "?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-               {
-                  Module.Delete(module);
-                  this.RefreshTreeList();
-               }
-            }
-         }
-         catch (Exception ex)
-         {
-            MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-         }
-      }
-
       internal void AccessoryDecoderAdd()
       {
          AccessoryDecoderWizardView wizard = new AccessoryDecoderWizardView();
@@ -126,6 +65,15 @@ namespace Rwm.Studio.Plugins.Designer.Modules
       internal void RwmAccessoryDecoderAdd()
       {
          RwmDecoderEditorView form = new RwmDecoderEditorView();
+         if (form.ShowDialog(this) == DialogResult.OK)
+         {
+            this.RefreshTreeList();
+         }
+      }
+
+      internal void RwmEMotionModuleAdd()
+      {
+         RwmEMotionEditorView form = new RwmEMotionEditorView();
          if (form.ShowDialog(this) == DialogResult.OK)
          {
             this.RefreshTreeList();
@@ -156,15 +104,40 @@ namespace Rwm.Studio.Plugins.Designer.Modules
          }
 
          TreeListNode node = tlsDecoders.Selection[0];
+         if (node == null) return;
+
          if (node.Tag is AccessoryDecoder)
          {
-            AccessoryDecoderEditorView form = new AccessoryDecoderEditorView((AccessoryDecoder)node.Tag);
-            form.ShowDialog(this);
+            AccessoryDecoder decoder = node.Tag as AccessoryDecoder;
+            if (decoder == null) return;
+
+            AccessoryDecoderEditorView form = new AccessoryDecoderEditorView(decoder);
+            if (form.ShowDialog(this) == DialogResult.OK)
+            {
+               this.RefreshTreeList();
+            }
          }
          else if (node.Tag is FeedbackEncoder)
          {
-            FeedbackEncoderEditorView form = new FeedbackEncoderEditorView((FeedbackEncoder)node.Tag);
-            form.ShowDialog(this);
+            FeedbackEncoder encoder = node.Tag as FeedbackEncoder;
+            if (encoder == null) return;
+
+            FeedbackEncoderEditorView form = new FeedbackEncoderEditorView(encoder);
+            if (form.ShowDialog(this) == DialogResult.OK)
+            {
+               this.RefreshTreeList();
+            }
+         }
+         else if (node.Tag is Module)
+         {
+            Module module = node.Tag as Module;
+            if (module == null) return;
+
+            ModuleEditorView form = new ModuleEditorView(module);
+            if (form.ShowDialog(this) == DialogResult.OK)
+            {
+               this.RefreshTreeList();
+            }
          }
       }
 
@@ -177,33 +150,47 @@ namespace Rwm.Studio.Plugins.Designer.Modules
          }
 
          TreeListNode node = tlsDecoders.Selection[0];
-
-         if (node == null)
-         {
-            return;
-         }
-         else if (MessageBox.Show("Are you sure you want to delete the device " + node[tlsDecoders.Columns[0]] + "?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
-         {
-            return;
-         }
+         if (node == null) return;
 
          try
          {
             if (node.Tag is AccessoryDecoder)
             {
-               AccessoryDecoder.Delete((AccessoryDecoder)node.Tag);
+               AccessoryDecoder decoder = node.Tag as AccessoryDecoder;
+               if (decoder == null) return;
+
+               if (MessageBox.Show("Are you sure you want to delete the accessory decoder " + decoder.Name + "?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+               {
+                  AccessoryDecoder.Delete(decoder);
+                  this.RefreshTreeList();
+               }
             }
             else if (node.Tag is FeedbackEncoder)
             {
-               FeedbackEncoder.Delete((FeedbackEncoder)node.Tag);
-            }
+               FeedbackEncoder encoder = node.Tag as FeedbackEncoder;
+               if (encoder == null) return;
 
-            this.RefreshTreeList();
+               if (MessageBox.Show("Are you sure you want to delete the feedback encoder " + encoder.Name + "?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+               {
+                  FeedbackEncoder.Delete(encoder);
+                  this.RefreshTreeList();
+               }
+            }
+            else if (node.Tag is Module)
+            {
+               Module module = node.Tag as Module;
+               if (module == null) return;
+
+               if (MessageBox.Show("Are you sure you want to remove the layout module " + module.Name + "?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+               {
+                  Module.Delete(module);
+                  this.RefreshTreeList();
+               }
+            }
          }
          catch (Exception ex)
          {
-            Logger.LogError(this, ex);
-            MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show(Logger.LogError(this, ex), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
          }
       }
 

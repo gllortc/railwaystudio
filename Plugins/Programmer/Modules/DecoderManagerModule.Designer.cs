@@ -35,17 +35,15 @@
          this.cmdDeviceDelete = new DevExpress.XtraBars.BarButtonItem();
          this.barLinkContainerItem1 = new DevExpress.XtraBars.BarLinkContainerItem();
          this.cmdAccessoryDecoderAdd = new DevExpress.XtraBars.BarButtonItem();
-         this.cmdDeviceAddRwmAcc = new DevExpress.XtraBars.BarButtonItem();
          this.cmdDeviceAddGenericFb = new DevExpress.XtraBars.BarButtonItem();
-         this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+         this.cmdDeviceAddRwmAcc = new DevExpress.XtraBars.BarButtonItem();
+         this.cmdDeviceAddRwmeMotion = new DevExpress.XtraBars.BarButtonItem();
          this.cmdViewByType = new DevExpress.XtraBars.BarCheckItem();
          this.cmdViewByArea = new DevExpress.XtraBars.BarCheckItem();
          this.cmdRefreshView = new DevExpress.XtraBars.BarButtonItem();
          this.bsiElementCounter = new DevExpress.XtraBars.BarStaticItem();
          this.cmdDecoderProgram = new DevExpress.XtraBars.BarButtonItem();
          this.cmdModuleAdd = new DevExpress.XtraBars.BarButtonItem();
-         this.cmdModuleEdit = new DevExpress.XtraBars.BarButtonItem();
-         this.cmdModuleDelete = new DevExpress.XtraBars.BarButtonItem();
          this.rbpData = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.rpgModules = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.rpgDecoders = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -73,10 +71,8 @@
             this.bsiElementCounter,
             this.cmdDecoderProgram,
             this.cmdAccessoryDecoderAdd,
-            this.barButtonItem1,
-            this.cmdModuleAdd,
-            this.cmdModuleEdit,
-            this.cmdModuleDelete});
+            this.cmdDeviceAddRwmeMotion,
+            this.cmdModuleAdd});
          this.ribbon.Location = new System.Drawing.Point(0, 0);
          this.ribbon.MaxItemId = 48;
          this.ribbon.Name = "ribbon";
@@ -112,9 +108,9 @@
          this.barLinkContainerItem1.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_DEVICE_ADD_32;
          this.barLinkContainerItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.cmdAccessoryDecoderAdd),
-            new DevExpress.XtraBars.LinkPersistInfo(this.cmdDeviceAddRwmAcc),
-            new DevExpress.XtraBars.LinkPersistInfo(this.cmdDeviceAddGenericFb, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1, true)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.cmdDeviceAddGenericFb),
+            new DevExpress.XtraBars.LinkPersistInfo(this.cmdDeviceAddRwmAcc, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.cmdDeviceAddRwmeMotion)});
          this.barLinkContainerItem1.Name = "barLinkContainerItem1";
          // 
          // cmdAccessoryDecoderAdd
@@ -125,28 +121,29 @@
          this.cmdAccessoryDecoderAdd.Name = "cmdAccessoryDecoderAdd";
          this.cmdAccessoryDecoderAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdAccessoryDecoderAdd_ItemClick);
          // 
-         // cmdDeviceAddRwmAcc
-         // 
-         this.cmdDeviceAddRwmAcc.Caption = "Railwaymania accessory decoder";
-         this.cmdDeviceAddRwmAcc.Id = 27;
-         this.cmdDeviceAddRwmAcc.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_ARDUINO_16;
-         this.cmdDeviceAddRwmAcc.Name = "cmdDeviceAddRwmAcc";
-         this.cmdDeviceAddRwmAcc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdDeviceAddRwmAcc_ItemClick);
-         // 
          // cmdDeviceAddGenericFb
          // 
-         this.cmdDeviceAddGenericFb.Caption = "Generic feedbacl encoder";
+         this.cmdDeviceAddGenericFb.Caption = "Generic feedback encoder";
          this.cmdDeviceAddGenericFb.Id = 28;
          this.cmdDeviceAddGenericFb.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("cmdDeviceAddGenericFb.ImageOptions.Image")));
          this.cmdDeviceAddGenericFb.Name = "cmdDeviceAddGenericFb";
          this.cmdDeviceAddGenericFb.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdDeviceAddGenericFb_ItemClick);
          // 
-         // barButtonItem1
+         // cmdDeviceAddRwmAcc
          // 
-         this.barButtonItem1.Caption = "Railwaymania EasyConnect Light Effects";
-         this.barButtonItem1.Id = 44;
-         this.barButtonItem1.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_ARDUINO_16;
-         this.barButtonItem1.Name = "barButtonItem1";
+         this.cmdDeviceAddRwmAcc.Caption = "RWM EasyConnect decoder";
+         this.cmdDeviceAddRwmAcc.Id = 27;
+         this.cmdDeviceAddRwmAcc.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_ARDUINO_16;
+         this.cmdDeviceAddRwmAcc.Name = "cmdDeviceAddRwmAcc";
+         this.cmdDeviceAddRwmAcc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdDeviceAddRwmAcc_ItemClick);
+         // 
+         // cmdDeviceAddRwmeMotion
+         // 
+         this.cmdDeviceAddRwmeMotion.Caption = "RWM EasyConnect eMotion";
+         this.cmdDeviceAddRwmeMotion.Id = 44;
+         this.cmdDeviceAddRwmeMotion.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_ARDUINO_16;
+         this.cmdDeviceAddRwmeMotion.Name = "cmdDeviceAddRwmeMotion";
+         this.cmdDeviceAddRwmeMotion.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.cmdDeviceAddRwmeMotion_ItemClick);
          // 
          // cmdViewByType
          // 
@@ -205,26 +202,6 @@
          this.cmdModuleAdd.Name = "cmdModuleAdd";
          this.cmdModuleAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdModuleAdd_ItemClick);
          // 
-         // cmdModuleEdit
-         // 
-         this.cmdModuleEdit.Caption = "Edit";
-         this.cmdModuleEdit.Id = 46;
-         this.cmdModuleEdit.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.layer_edit;
-         this.cmdModuleEdit.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Designer.Properties.Resources.layer_edit_32;
-         this.cmdModuleEdit.Name = "cmdModuleEdit";
-         this.cmdModuleEdit.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-         this.cmdModuleEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdModuleEdit_ItemClick);
-         // 
-         // cmdModuleDelete
-         // 
-         this.cmdModuleDelete.Caption = "Delete";
-         this.cmdModuleDelete.Id = 47;
-         this.cmdModuleDelete.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.layer_delete;
-         this.cmdModuleDelete.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Designer.Properties.Resources.layer_delete_32;
-         this.cmdModuleDelete.Name = "cmdModuleDelete";
-         this.cmdModuleDelete.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-         this.cmdModuleDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdModuleDelete_ItemClick);
-         // 
          // rbpData
          // 
          this.rbpData.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -237,17 +214,15 @@
          // rpgModules
          // 
          this.rpgModules.ItemLinks.Add(this.cmdModuleAdd);
-         this.rpgModules.ItemLinks.Add(this.cmdModuleEdit);
-         this.rpgModules.ItemLinks.Add(this.cmdModuleDelete);
+         this.rpgModules.ItemLinks.Add(this.barLinkContainerItem1);
+         this.rpgModules.ItemLinks.Add(this.cmdDeviceEdit);
+         this.rpgModules.ItemLinks.Add(this.cmdDeviceDelete);
          this.rpgModules.Name = "rpgModules";
          this.rpgModules.ShowCaptionButton = false;
-         this.rpgModules.Text = "Layout modules";
+         this.rpgModules.Text = "Manage";
          // 
          // rpgDecoders
          // 
-         this.rpgDecoders.ItemLinks.Add(this.barLinkContainerItem1);
-         this.rpgDecoders.ItemLinks.Add(this.cmdDeviceEdit);
-         this.rpgDecoders.ItemLinks.Add(this.cmdDeviceDelete);
          this.rpgDecoders.ItemLinks.Add(this.cmdDecoderProgram, true);
          this.rpgDecoders.Name = "rpgDecoders";
          this.rpgDecoders.ShowCaptionButton = false;
@@ -339,10 +314,8 @@
       private DevExpress.XtraBars.BarStaticItem bsiElementCounter;
       private DevExpress.XtraBars.BarButtonItem cmdDecoderProgram;
       private DevExpress.XtraBars.BarButtonItem cmdAccessoryDecoderAdd;
-      private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+      private DevExpress.XtraBars.BarButtonItem cmdDeviceAddRwmeMotion;
       private DevExpress.XtraBars.BarButtonItem cmdModuleAdd;
-      private DevExpress.XtraBars.BarButtonItem cmdModuleEdit;
-      private DevExpress.XtraBars.BarButtonItem cmdModuleDelete;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgModules;
    }
 }

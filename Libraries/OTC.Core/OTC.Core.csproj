@@ -148,6 +148,7 @@
     <Compile Include="Diagnostics\ILogger.cs" />
     <Compile Include="Diagnostics\LoggerSettingsManager.cs" />
     <Compile Include="Diagnostics\WinLogger.cs" />
+    <Compile Include="Layout\EasyConnect\EmotionModule.cs" />
     <Compile Include="Layout\FeedbackEncoderConnection.cs" />
     <Compile Include="Layout\AccessoryDecoderOutput.cs" />
     <Compile Include="Layout\FeedbackEncoderInput.cs" />

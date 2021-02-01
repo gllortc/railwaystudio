@@ -98,16 +98,6 @@ namespace Rwm.Studio.Plugins.Designer.Modules
          this.LayoutModuleAdd();
       }
 
-      private void CmdModuleEdit_ItemClick(object sender, ItemClickEventArgs e)
-      {
-         this.LayoutModuleEdit();
-      }
-
-      private void CmdModuleDelete_ItemClick(object sender, ItemClickEventArgs e)
-      {
-         this.LayoutModuleDelete();
-      }
-
       private void CmdAccessoryDecoderAdd_ItemClick(object sender, ItemClickEventArgs e)
       {
          this.AccessoryDecoderAdd();
@@ -116,6 +106,11 @@ namespace Rwm.Studio.Plugins.Designer.Modules
       private void CmdDeviceAddRwmAcc_ItemClick(object sender, ItemClickEventArgs e)
       {
          this.RwmAccessoryDecoderAdd();
+      }
+
+      private void cmdDeviceAddRwmeMotion_ItemClick(object sender, ItemClickEventArgs e)
+      {
+         this.RwmEMotionModuleAdd();
       }
 
       private void CmdDeviceAddGenericFb_ItemClick(object sender, ItemClickEventArgs e)

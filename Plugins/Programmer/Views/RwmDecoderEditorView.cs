@@ -119,7 +119,7 @@ namespace Rwm.Studio.Plugins.Designer.Views
          this.Decoder = decoder;
 
          txtName.Text = this.Decoder.Name;
-         cboModel.Text = "DM.CTRL.DECO";
+         cboModel.Text = "Railwaymania EasyConnect Decoder";
          // cboManufacturer.Text = "Railwaymania"; // TODO: Use created manufacturer
          cboSection.SetSelectedElement(this.Decoder.Module);
          txtNotes.Text = this.Decoder.Notes;

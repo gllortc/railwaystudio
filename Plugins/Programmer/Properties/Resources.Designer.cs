@@ -73,6 +73,16 @@ namespace Rwm.Studio.Plugins.Designer.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_16 {
+            get {
+                object obj = ResourceManager.GetObject("add_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arrow_right {
             get {
                 object obj = ResourceManager.GetObject("arrow_right", resourceCulture);
@@ -86,6 +96,16 @@ namespace Rwm.Studio.Plugins.Designer.Properties {
         internal static System.Drawing.Bitmap arrow_right_16 {
             get {
                 object obj = ResourceManager.GetObject("arrow_right_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cross_16 {
+            get {
+                object obj = ResourceManager.GetObject("cross_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1276,6 +1296,16 @@ namespace Rwm.Studio.Plugins.Designer.Properties {
         internal static System.Drawing.Bitmap layer_edit_32 {
             get {
                 object obj = ResourceManager.GetObject("layer_edit_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pencil_16 {
+            get {
+                object obj = ResourceManager.GetObject("pencil_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

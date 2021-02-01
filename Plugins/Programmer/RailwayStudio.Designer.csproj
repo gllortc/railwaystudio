@@ -277,6 +277,12 @@
     <Compile Include="Views\FindAddressView.Designer.cs">
       <DependentUpon>FindAddressView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\RwmEMotionEditorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RwmEMotionEditorView.Designer.cs">
+      <DependentUpon>RwmEMotionEditorView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\RwmDecoderEditorView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -417,6 +423,9 @@
     <EmbeddedResource Include="Views\FindAddressView.resx">
       <DependentUpon>FindAddressView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\RwmEMotionEditorView.resx">
+      <DependentUpon>RwmEMotionEditorView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\RwmDecoderEditorView.resx">
       <DependentUpon>RwmDecoderEditorView.cs</DependentUpon>
     </EmbeddedResource>
@@ -490,6 +499,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\pencil_161.png" />
     <None Include="Resources\layer_delete_321.png" />
     <None Include="Resources\layer_delete.png" />
     <None Include="Resources\layer_edit_321.png" />
@@ -644,6 +654,8 @@
     <None Include="Resources\calculator_32.png" />
     <None Include="Resources\arrow_right.png" />
     <None Include="Resources\arrow_right_161.png" />
+    <None Include="Resources\add_161.png" />
+    <None Include="Resources\cross_161.png" />
     <Content Include="Resources\favicon.ico" />
     <None Include="Resources\database_table_16.png" />
     <None Include="Resources\database_table.png" />
