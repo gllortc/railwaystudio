@@ -84,7 +84,7 @@
          this.wizardControl.Controls.Add(this.wzpMode);
          this.wizardControl.Dock = System.Windows.Forms.DockStyle.Fill;
          this.wizardControl.FinishText = "Finish";
-         this.wizardControl.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources._1__16_2;
+         this.wizardControl.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.IMG_SPLASH;
          this.wizardControl.ImageLayout = System.Windows.Forms.ImageLayout.Center;
          this.wizardControl.Location = new System.Drawing.Point(0, 0);
          this.wizardControl.Name = "wizardControl";

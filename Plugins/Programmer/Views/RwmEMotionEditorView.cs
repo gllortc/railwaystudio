@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Grid;
 using Rwm.Otc;
 using Rwm.Otc.Layout;
 using Rwm.Otc.Layout.EasyConnect;
-using Rwm.Otc.Trains;
 using Rwm.Studio.Plugins.Common;
 
 namespace Rwm.Studio.Plugins.Designer.Views
@@ -53,25 +54,49 @@ namespace Rwm.Studio.Plugins.Designer.Views
          txtName.Focus();
       }
 
-      private void GrdConnectView_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+      private void grdActionsView_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
       {
-         StudioContext.UI.DrawRowIcon(AccessoryDecoderConnection.SmallIcon, e);
-      }
-
-      private void GrdConnectView_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)
-      {
-         if (e.Row is AccessoryDecoderConnection connection)
+         if (sender is GridView gridView)
          {
-            try
+            if (gridView.GetRow(e.RowHandle) is IEMotionAction action)
             {
-               // TODO: Check if address is free!
-               AccessoryDecoderConnection.Save(connection);
-            }
-            catch (Exception ex)
-            {
-               MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+               StudioContext.UI.DrawRowIcon(action.SmallIcon, e);
             }
          }
+      }
+
+      private void CmdAddLampFailure_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      {
+         EMotionActionFailigLampEditorView view = new EMotionActionFailigLampEditorView();
+         if (view.ShowDialog(this) == DialogResult.OK)
+         {
+            this.Module.Actions.Add(view.Action);
+            RefreshActionsList();
+         }
+      }
+
+      private void CmdAddSirenLights_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      {
+         EMotionActionSirenLightsEditorView view = new EMotionActionSirenLightsEditorView();
+         if (view.ShowDialog(this) == DialogResult.OK)
+         {
+            this.Module.Actions.Add(view.Action);
+            RefreshActionsList();
+         }
+      }
+
+      private void ChkPushbutton1_CheckedChanged(object sender, EventArgs e)
+      {
+         lblPushbutton1.Enabled = chkPushbutton1.Checked;
+         lblPushbuttonTime1.Enabled = chkPushbutton1.Checked;
+         spinPushbuttonTime1.Enabled = chkPushbutton1.Checked;
+      }
+
+      private void ChkPushbutton2_CheckedChanged(object sender, EventArgs e)
+      {
+         lblPushbutton2.Enabled = chkPushbutton2.Checked;
+         lblPushbuttonTime2.Enabled = chkPushbutton2.Checked;
+         spinPushbuttonTime2.Enabled = chkPushbutton2.Checked;
       }
 
       private void CmdOk_Click(object sender, EventArgs e)
@@ -124,7 +149,14 @@ namespace Rwm.Studio.Plugins.Designer.Views
          cboSection.SetSelectedElement(this.Module.Module);
          txtNotes.Text = this.Module.Notes;
 
+         chkPushbutton1.Checked = this.Module.Button1Enabled;
+         spinPushbuttonTime1.Value = this.Module.Button1Interval;
+         chkPushbutton2.Checked = this.Module.Button2Enabled;
+         spinPushbuttonTime2.Value = this.Module.Button2Interval;
+
          cboModel.Enabled = false;
+
+         RefreshActionsList();
       }
 
       private bool MapViewToModel()
@@ -142,7 +174,34 @@ namespace Rwm.Studio.Plugins.Designer.Views
          this.Module.Module = cboSection.SelectedSection;
          this.Module.Notes = txtNotes.Text.Trim();
 
+         this.Module.Button1Enabled = chkPushbutton1.Checked;
+         this.Module.Button1Interval = Decimal.ToInt32(spinPushbuttonTime1.Value);
+         this.Module.Button2Enabled = chkPushbutton2.Checked;
+         this.Module.Button2Interval = Decimal.ToInt32(spinPushbuttonTime2.Value);
+
          return true;
+      }
+
+      private void RefreshActionsList()
+      {
+         try
+         {
+            grdActions.BeginUpdate();
+
+            grdActionsView.OptionsBehavior.AutoPopulateColumns = false;
+            grdActionsView.Columns.Clear();
+            grdActionsView.Columns.Add(new GridColumn() { Caption = "ID",              Visible = false,  FieldName = "ID" });
+            grdActionsView.Columns.Add(new GridColumn() { Caption = "Type",            Visible = true,   FieldName = "Name" });
+            grdActionsView.Columns.Add(new GridColumn() { Caption = "LED connections", Visible = true,   FieldName = "LedPins" });
+            grdActionsView.Columns.Add(new GridColumn() { Caption = "Activated by",    Visible = true,   FieldName = "ActivatedBy" });
+            grdActions.DataSource = this.Module.Actions;
+
+            grdActions.EndUpdate();
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+         }
       }
 
       #endregion

@@ -149,6 +149,9 @@
     <Compile Include="Diagnostics\LoggerSettingsManager.cs" />
     <Compile Include="Diagnostics\WinLogger.cs" />
     <Compile Include="Layout\EasyConnect\EmotionModule.cs" />
+    <Compile Include="Layout\EasyConnect\IEMotionAction.cs" />
+    <Compile Include="Layout\EasyConnect\SirenLightsAction.cs" />
+    <Compile Include="Layout\EasyConnect\LampFailureAction.cs" />
     <Compile Include="Layout\FeedbackEncoderConnection.cs" />
     <Compile Include="Layout\AccessoryDecoderOutput.cs" />
     <Compile Include="Layout\FeedbackEncoderInput.cs" />
@@ -411,6 +414,9 @@
     <None Include="Resources\connect_16.png" />
     <None Include="Resources\connect_32.png" />
     <None Include="Resources\cog_32.png" />
+    <None Include="Resources\draw_ring.png" />
+    <None Include="Resources\beacon_light_16.png" />
+    <None Include="Resources\lightbulb_off_16.png" />
     <Content Include="Resources\signal-hs-0[1].png" />
     <Content Include="Resources\signal-hs-1[1].png" />
     <Content Include="Resources\signal-hs-2[1].png" />

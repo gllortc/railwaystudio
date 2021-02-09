@@ -63,16 +63,6 @@ namespace Rwm.Studio.Plugins.Designer.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1__16_2 {
-            get {
-                object obj = ResourceManager.GetObject("1__16_2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap add_16 {
             get {
                 object obj = ResourceManager.GetObject("add_16", resourceCulture);
@@ -663,6 +653,36 @@ namespace Rwm.Studio.Plugins.Designer.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ICO_EMACTION_LAMPF_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_EMACTION_LAMPF_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_EMACTION_SERVO_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_EMACTION_SERVO_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_EMACTION_SIREN_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_EMACTION_SIREN_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ICO_EMERGENCY_RESUME_16 {
             get {
                 object obj = ResourceManager.GetObject("ICO_EMERGENCY_RESUME_16", resourceCulture);
@@ -753,6 +773,46 @@ namespace Rwm.Studio.Plugins.Designer.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ICO_MODULE_ADD_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_MODULE_ADD_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_MODULE_ADD_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_MODULE_ADD_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_MODULE_DELETE_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_MODULE_DELETE_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_MODULE_DELETE_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_MODULE_DELETE_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ICO_MODULE_DESIGN_16 {
             get {
                 object obj = ResourceManager.GetObject("ICO_MODULE_DESIGN_16", resourceCulture);
@@ -786,6 +846,26 @@ namespace Rwm.Studio.Plugins.Designer.Properties {
         internal static System.Drawing.Bitmap ICO_MODULE_DEVICE_MANAGER_32 {
             get {
                 object obj = ResourceManager.GetObject("ICO_MODULE_DEVICE_MANAGER_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_MODULE_EDIT_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_MODULE_EDIT_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_MODULE_EDIT_32 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_MODULE_EDIT_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1243,59 +1323,9 @@ namespace Rwm.Studio.Plugins.Designer.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap layer_add_16 {
+        internal static System.Drawing.Bitmap IMG_SPLASH {
             get {
-                object obj = ResourceManager.GetObject("layer_add_16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap layer_add_32 {
-            get {
-                object obj = ResourceManager.GetObject("layer_add_32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap layer_delete {
-            get {
-                object obj = ResourceManager.GetObject("layer_delete", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap layer_delete_32 {
-            get {
-                object obj = ResourceManager.GetObject("layer_delete_32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap layer_edit {
-            get {
-                object obj = ResourceManager.GetObject("layer_edit", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap layer_edit_32 {
-            get {
-                object obj = ResourceManager.GetObject("layer_edit_32", resourceCulture);
+                object obj = ResourceManager.GetObject("IMG_SPLASH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

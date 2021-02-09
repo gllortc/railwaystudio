@@ -139,7 +139,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Arduino\Sketch.cs" />
+    <Compile Include="Arduino\EMotionSketch.cs" />
+    <Compile Include="Arduino\DecoderSketch.cs" />
     <Compile Include="Controls\FeedbackConnectionsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -241,6 +242,12 @@
     <Compile Include="Reports\DigitalReportByModule.Designer.cs">
       <DependentUpon>DigitalReportByModule.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\EMotionActionSirenLightsEditorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EMotionActionSirenLightsEditorView.Designer.cs">
+      <DependentUpon>EMotionActionSirenLightsEditorView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FeedbackEncoderWizardView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -331,6 +338,12 @@
     <Compile Include="Views\FeedbackEncoderEditorView.Designer.cs">
       <DependentUpon>FeedbackEncoderEditorView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\EMotionActionFailigLampEditorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EMotionActionFailigLampEditorView.Designer.cs">
+      <DependentUpon>EMotionActionFailigLampEditorView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\SoundEditorView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -405,6 +418,9 @@
     <EmbeddedResource Include="Reports\DigitalReportByModule.resx">
       <DependentUpon>DigitalReportByModule.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\EMotionActionSirenLightsEditorView.resx">
+      <DependentUpon>EMotionActionSirenLightsEditorView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FeedbackEncoderWizardView.resx">
       <DependentUpon>FeedbackEncoderWizardView.cs</DependentUpon>
     </EmbeddedResource>
@@ -449,6 +465,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FeedbackEncoderEditorView.resx">
       <DependentUpon>FeedbackEncoderEditorView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EMotionActionFailigLampEditorView.resx">
+      <DependentUpon>EMotionActionFailigLampEditorView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SoundEditorView.resx">
       <DependentUpon>SoundEditorView.cs</DependentUpon>
@@ -499,6 +518,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\lightbulb_off_161.png" />
     <None Include="Resources\pencil_161.png" />
     <None Include="Resources\layer_delete_321.png" />
     <None Include="Resources\layer_delete.png" />
@@ -656,6 +676,8 @@
     <None Include="Resources\arrow_right_161.png" />
     <None Include="Resources\add_161.png" />
     <None Include="Resources\cross_161.png" />
+    <None Include="Resources\beacon_light_16.png" />
+    <None Include="Resources\draw_ring.png" />
     <Content Include="Resources\favicon.ico" />
     <None Include="Resources\database_table_16.png" />
     <None Include="Resources\database_table.png" />

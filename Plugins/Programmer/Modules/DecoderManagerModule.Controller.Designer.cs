@@ -5,6 +5,7 @@ using DevExpress.XtraTreeList.Nodes;
 using Rwm.Otc;
 using Rwm.Otc.Diagnostics;
 using Rwm.Otc.Layout;
+using Rwm.Otc.Layout.EasyConnect;
 using Rwm.Studio.Plugins.Common;
 using Rwm.Studio.Plugins.Designer.Arduino;
 using Rwm.Studio.Plugins.Designer.Views;
@@ -196,11 +197,45 @@ namespace Rwm.Studio.Plugins.Designer.Modules
 
       internal void DecoderProgram()
       {
+         if (tlsDecoders.Selection.Count <= 0)
+         {
+            MessageBox.Show("No items selected.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return;
+         }
+
+         TreeListNode node = tlsDecoders.Selection[0];
+         if (node == null) return;
+
          try
          {
-            Sketch sketch = new Sketch(new Otc.Layout.AccessoryDecoder());
-            sketch.Create(false);
-            sketch.Build(StudioContext.UI.LogConsoleControl);
+            if (node.Tag is AccessoryDecoder)
+            {
+               AccessoryDecoder decoder = node.Tag as AccessoryDecoder;
+               if (decoder != null)
+               {
+                  if (decoder.Manufacturer.ID != 0)
+                  {
+                     MessageBox.Show("Only Railwaymania accessory decoders can be programmed by this command.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                     return;
+                  }
+                  else
+                  { 
+                     DecoderSketch sketch = new DecoderSketch(decoder);
+                     sketch.Create(false);
+                     sketch.Build(StudioContext.UI.LogConsoleControl);
+                  }
+               }
+            }
+            else if (node.Tag is EmotionModule)
+            {
+               EmotionModule module = node.Tag as EmotionModule;
+               if (module != null)
+               {
+                  EMotionSketch sketch = new EMotionSketch(module);
+                  sketch.Create(false);
+                  sketch.Build(StudioContext.UI.LogConsoleControl);
+               }
+            }
          }
          catch (Exception ex)
          {
@@ -311,7 +346,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
          {
             node = tlsDecoders.AppendNode(new object[] { accDecoder.Name, "Generic", accDecoder.ModelDescription, accDecoder.Outputs.Count, accDecoder.Outputs.Count }, parentNode);
             node.Tag = accDecoder;
-            node.StateImageIndex = 2;
+            node.StateImageIndex = (accDecoder.Manufacturer?.ID != 0 ? 2 : 4);
             count++;
          }
 
@@ -328,9 +363,23 @@ namespace Rwm.Studio.Plugins.Designer.Modules
             count++;
          }
 
+         // Create feedback encoders nodes
+         parentNode = tlsDecoders.AppendNode(new object[] { "EasyConnect modules" }, rootNode);
+         parentNode.StateImageIndex = 1;
+         parentNode.Expanded = true;
+
+         foreach (EmotionModule module in OTCContext.Project.EasyConnectEmotionModules)
+         {
+            node = tlsDecoders.AppendNode(new object[] { module.Name, "eMotion module", module.ModelDescription, "-", "-" }, parentNode);
+            node.Tag = module;
+            node.StateImageIndex = 4;
+            count++;
+         }
+
          tlsDecoders.Nodes[0].Expanded = true;
          tlsDecoders.Nodes[0].Nodes[0].Expanded = true;
          tlsDecoders.Nodes[0].Nodes[1].Expanded = true;
+         tlsDecoders.Nodes[0].Nodes[2].Expanded = true;
 
          tlsDecoders.EndUnboundLoad();
 

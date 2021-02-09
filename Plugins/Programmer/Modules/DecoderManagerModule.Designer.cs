@@ -197,8 +197,8 @@
          // 
          this.cmdModuleAdd.Caption = "New module";
          this.cmdModuleAdd.Id = 45;
-         this.cmdModuleAdd.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.layer_add_16;
-         this.cmdModuleAdd.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Designer.Properties.Resources.layer_add_32;
+         this.cmdModuleAdd.ImageOptions.Image = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_MODULE_ADD_16;
+         this.cmdModuleAdd.ImageOptions.LargeImage = global::Rwm.Studio.Plugins.Designer.Properties.Resources.ICO_MODULE_ADD_32;
          this.cmdModuleAdd.Name = "cmdModuleAdd";
          this.cmdModuleAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CmdModuleAdd_ItemClick);
          // 
@@ -253,6 +253,7 @@
          this.imlIcons.Images.SetKeyName(1, "ICO_DECODER_FOLDER");
          this.imlIcons.Images.SetKeyName(2, "ICO_DECODER_ACC");
          this.imlIcons.Images.SetKeyName(3, "ICO_DECODER_FB");
+         this.imlIcons.Images.SetKeyName(4, "ICO_ARDUINO");
          // 
          // tlsDecoders
          // 

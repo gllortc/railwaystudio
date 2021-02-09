@@ -493,6 +493,36 @@ namespace Rwm.Otc.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ICO_EMACTION_LAMPF_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_EMACTION_LAMPF_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_EMACTION_SERVO_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_EMACTION_SERVO_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICO_EMACTION_SIREN_16 {
+            get {
+                object obj = ResourceManager.GetObject("ICO_EMACTION_SIREN_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ICO_FEEDBACK_16 {
             get {
                 object obj = ResourceManager.GetObject("ICO_FEEDBACK_16", resourceCulture);

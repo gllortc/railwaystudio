@@ -1,5 +1,7 @@
 ﻿using System;
 using DevExpress.XtraBars;
+using Rwm.Otc.Layout;
+using Rwm.Otc.Layout.EasyConnect;
 using Rwm.Studio.Plugins.Common;
 
 namespace Rwm.Studio.Plugins.Designer.Modules
@@ -82,14 +84,27 @@ namespace Rwm.Studio.Plugins.Designer.Modules
 
       private void TlsDecoders_Click(object sender, EventArgs e)
       {
-         cmdDecoderProgram.Enabled = false;
          if (tlsDecoders.Selection.Count > 0)
          {
             DevExpress.XtraTreeList.Nodes.TreeListNode node = tlsDecoders.Selection[0];
-            if (node.Tag != null && node.Tag is Otc.Layout.AccessoryDecoder)
+
+            if (node.Tag != null && node.Tag is AccessoryDecoder)
+            {
+               if (node?.Tag is AccessoryDecoder decoder)
+                  cmdDecoderProgram.Enabled = (decoder.Manufacturer?.ID == 0);
+            }
+            else if (node.Tag != null && node.Tag is EmotionModule)
             {
                cmdDecoderProgram.Enabled = true;
             }
+            else
+            {
+               cmdDecoderProgram.Enabled = false;
+            }
+         }
+         else
+         {
+            cmdDecoderProgram.Enabled = false;
          }
       }
 

@@ -108,8 +108,7 @@ namespace Rwm.Studio.Plugins.Common
       public long GetSelectedGridItemID(DevExpress.XtraGrid.Views.Grid.GridView view)
       {
          int[] rows = view.GetSelectedRows();
-         DataRowView drv = view.GetRow(rows[0]) as DataRowView;
-         if (drv != null)
+         if (view.GetRow(rows[0]) is DataRowView drv)
          {
             return (long)drv[0];
          }

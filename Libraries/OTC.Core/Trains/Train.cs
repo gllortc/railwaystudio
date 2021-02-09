@@ -316,25 +316,25 @@ namespace Rwm.Otc.Trains
       /// <summary>
       /// Indica si dispone de pantógrafos funcionales
       /// </summary>
-      [ORMProperty("modpant")]
+      [ORMProperty("MODPANT")]
       public bool HaveFunctionalPantos { get; set; }
 
       /// <summary>
       /// Indica si el modelo dispone de sonido
       /// </summary>
-      [ORMProperty("modsound")]
+      [ORMProperty("MODSOUND")]
       public bool HaveSound { get; set; }
 
       /// <summary>
       /// Indica si es un modelo de serie limitada
       /// </summary>
-      [ORMProperty("modlim")]
+      [ORMProperty("MODLIM")]
       public bool IsLimited { get; set; }
 
       /// <summary>
       /// Periodo de venta de la serie limitada
       /// </summary>
-      [ORMProperty("modlimyear")]
+      [ORMProperty("MODLIMYEAR")]
       public string LimitedYear { get; set; }
 
       /// <summary>
@@ -358,7 +358,7 @@ namespace Rwm.Otc.Trains
       /// <summary>
       /// Longitud (en mm.)
       /// </summary>
-      [ORMProperty("modlength")]
+      [ORMProperty("MODLENGTH")]
       public int Length { get; set; }
 
       /// <summary>
@@ -370,7 +370,7 @@ namespace Rwm.Otc.Trains
       /// <summary>
       /// Dirección digital asignada
       /// </summary>
-      [ORMProperty("moddigitaladd")]
+      [ORMProperty("MODDIGITALADD")]
       public int DigitalAddress { get; set; }
 
       /// <summary>
@@ -382,55 +382,55 @@ namespace Rwm.Otc.Trains
       /// <summary>
       /// Matricula del prototipo real
       /// </summary>
-      [ORMProperty("modregnumber")]
+      [ORMProperty("MODREGNUMBER")]
       public string RegistrationNumber { get; set; }
 
       /// <summary>
       /// Tipo del prototipo real
       /// </summary>
-      [ORMProperty("modtype")]
+      [ORMProperty("MODTYPE")]
       public string Type { get; set; }
 
       /// <summary>
       /// Tipo UIC del prototipo real
       /// </summary>
-      [ORMProperty("modtypeuic")]
+      [ORMProperty("MODTYPEUIC")]
       public string TypeUIC { get; set; }
 
       /// <summary>
       /// Tipo de materia de fabricación de chasis/bastidor.
       /// </summary>
-      [ORMProperty("modframe")]
+      [ORMProperty("MODFRAME")]
       public FrameType Frame { get; set; }
 
       /// <summary>
       /// Tipo de iluminación interior.
       /// </summary>
-      [ORMProperty("modlightinterior")]
+      [ORMProperty("MODLIGHTINTERIOR")]
       public LightInteriorType LightInterior { get; set; }
 
       /// <summary>
       /// Tipo de iluminación trasera.
       /// </summary>
-      [ORMProperty("modlightrear")]
+      [ORMProperty("MODLIGHTREAR")]
       public LightRearType LightRear { get; set; }
 
       /// <summary>
       /// Tipo de iluminación de marcha (focos).
       /// </summary>
-      [ORMProperty("modlightfront")]
+      [ORMProperty("MODLIGHTFRONT")]
       public LightFrontType LightFront { get; set; }
 
       /// <summary>
       /// Tipo de decoración interior.
       /// </summary>
-      [ORMProperty("moddecointerior")]
+      [ORMProperty("MODDECOINTERIOR")]
       public InteriorEquipmentType InteriorEquipment { get; set; }
 
       /// <summary>
       /// Tipo de conector digital.
       /// </summary>
-      [ORMProperty("moddigitalconn")]
+      [ORMProperty("MODDIGITALCONN")]
       public DigitalConnectorType DigitalConnector { get; set; }
 
       /// <summary>
@@ -447,49 +447,49 @@ namespace Rwm.Otc.Trains
       /// <summary>
       /// Gets or sets la fecha de la última revisión del modelo.
       /// </summary>
-      [ORMProperty("modsrvlastrev")]
+      [ORMProperty("MODSRVLASTREV")]
       public DateTime MaintenanceLastRevision { get; set; }
 
       /// <summary>
       /// Gets or sets el núemro de horas de servicio totales para el modelo.
       /// </summary>
-      [ORMProperty("modsrvtotalhours")]
+      [ORMProperty("MODSRVTOTALHOURS")]
       public int MaintenanceServiceHours { get; set; }
 
       /// <summary>
       /// Gets or sets el núemro de horas de servicio desde la última revisión.
       /// </summary>
-      [ORMProperty("modsrvrevhours")]
+      [ORMProperty("MODSRVREVHOURS")]
       public int MaintenanceRevisionHours { get; set; }
 
       /// <summary>
       /// Indica si el modelo dispone de caja original.
       /// </summary>
-      [ORMProperty("modoriginalbox")]
+      [ORMProperty("MODORIGINALBOX")]
       public bool HaveOriginalBox { get; set; }
 
       /// <summary>
       /// Tipo de motor (descripción).
       /// </summary>
-      [ORMProperty("modenginetype")]
+      [ORMProperty("MODENGINETYPE")]
       public string EngineType { get; set; }
 
       /// <summary>
       /// Número de ejes con tracción.
       /// </summary>
-      [ORMProperty("modaxistraction")]
+      [ORMProperty("MODAXISTRACTION")]
       public int AxisWithTraction { get; set; }
 
       /// <summary>
       /// Número de ruedas con aro de adherencia.
       /// </summary>
-      [ORMProperty("modaxistires")]
+      [ORMProperty("MODAXISTIRES")]
       public int AxisWithTractionTires { get; set; }
 
       /// <summary>
       /// Disposición de los ejes.
       /// </summary>
-      [ORMProperty("modaxisdisp")]
+      [ORMProperty("MODAXISDISP")]
       public string WheelDisposition { get; set; }
 
       /// <summary>

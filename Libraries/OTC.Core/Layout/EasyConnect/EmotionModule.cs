@@ -1,4 +1,5 @@
-﻿using Rwm.Otc.Data;
+﻿using System.Collections.Generic;
+using Rwm.Otc.Data;
 
 namespace Rwm.Otc.Layout.EasyConnect
 {
@@ -56,6 +57,41 @@ namespace Rwm.Otc.Layout.EasyConnect
       /// </summary>
       [ORMProperty("DESCRIPTION")]
       public string Notes { get; set; } = string.Empty;
+
+      /// <summary>
+      /// Gets or sets a value indicating if the push button 1 is enabled or not.
+      /// </summary>
+      [ORMProperty("BTN1_ENABLED")]
+      public bool Button1Enabled { get; set; }
+
+      /// <summary>
+      /// Gets or sets a value indicating the number of seconds that the action should be activated.
+      /// </summary>
+      [ORMProperty("BTN1_TIME")]
+      public int Button1Interval { get; set; }
+
+      /// <summary>
+      /// Gets or sets a value indicating if the push button 2 is enabled or not.
+      /// </summary>
+      [ORMProperty("BTN2_ENABLED")]
+      public bool Button2Enabled { get; set; }
+
+      /// <summary>
+      /// Gets or sets a value indicating the number of seconds that the action should be activated.
+      /// </summary>
+      [ORMProperty("BTN2_TIME")]
+      public int Button2Interval { get; set; }
+
+      /// <summary>
+      /// Gets or sets a value indicating if the generated source code should enable the debug tools.
+      /// </summary>
+      /// <remarks>This option create a bigger Arduino sketch.</remarks>
+      public bool DebugEnabled { get; set; } = false;
+
+      /// <summary>
+      /// Gets or sets the list of module actions.
+      /// </summary>
+      public List<IEMotionAction> Actions { get; set; } = new List<IEMotionAction>();
 
       /// <summary>
       /// Gets a string describing the manufacturer and model of the current accessory decoder.

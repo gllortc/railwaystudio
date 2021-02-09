@@ -247,6 +247,15 @@
   <data name="ICO_ELEMENT_TURNOUT_Y_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Design_Turnout_Y.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ICO_EMACTION_LAMPF_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lightbulb_off_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICO_EMACTION_SERVO_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\draw_ring.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICO_EMACTION_SIREN_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\beacon_light_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ICO_FEEDBACK_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lightning_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
