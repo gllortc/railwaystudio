@@ -116,6 +116,38 @@ namespace Rwm.Otc.Layout
       }
 
       /// <summary>
+      /// Gets a string describing the digital addresses used in the current encoder.
+      /// </summary>
+      public string AddressRangeDescription
+      {
+         get
+         {
+            bool isConsecutive = true;
+            int previousAdd = -1;
+            string range = string.Empty;
+
+            foreach (FeedbackEncoderInput input in this.Inputs)
+            {
+               if (previousAdd > 0 && previousAdd + 1 != input.Address)
+               {
+                  isConsecutive = false;
+                  break;
+               }
+
+               previousAdd = input.Address;
+            }
+
+            if (isConsecutive)
+               range = String.Format("{0:D3} - {1:D3}", this.Inputs[0].Address, this.Inputs[this.Inputs.Count - 1].Address);
+            else
+               foreach (FeedbackEncoderInput input in this.Inputs)
+                  range = (String.IsNullOrEmpty(range) ? string.Empty : ", ") + String.Format("{0:D3}", input.Address);
+
+            return range;
+         }
+      }
+
+      /// <summary>
       /// Gets the number of used inputs by connections.
       /// </summary>
       public int ConnectionsCount 

@@ -105,6 +105,40 @@ namespace Rwm.Otc.Layout
       }
 
       /// <summary>
+      /// Gets a string describing the digital addresses used in the current decoder.
+      /// </summary>
+      public string AddressRangeDescription
+      {
+         get
+         {
+            bool isConsecutive = true;
+            int previousAdd = -1;
+            string range = string.Empty;
+
+            foreach (AccessoryDecoderOutput output in this.Outputs)
+            {
+               if (previousAdd > 0 && previousAdd + 1 != output.Address)
+               {
+                  isConsecutive = false;
+                  break;
+               }
+
+               previousAdd = output.Address;
+            }
+
+            if (this.Outputs.Count <= 0)
+               range = "Not defined";
+            else if (isConsecutive)
+               range = String.Format("{0:D3} - {1:D3}", this.Outputs[0].Address, this.Outputs[this.Outputs.Count - 1].Address);
+            else
+               foreach (AccessoryDecoderOutput output in this.Outputs)
+                  range = (String.IsNullOrEmpty(range) ? string.Empty : ", ") + String.Format("{0:D3}", output.Address);
+
+            return range;
+         }
+      }
+
+      /// <summary>
       /// Gets the associated small icon (16x16px).
       /// </summary>
       public static System.Drawing.Image SmallIcon
