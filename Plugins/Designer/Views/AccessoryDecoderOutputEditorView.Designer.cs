@@ -35,6 +35,7 @@
          this.spnAddress = new DevExpress.XtraEditors.SpinEdit();
          this.lblAddress = new DevExpress.XtraEditors.LabelControl();
          this.cboMode = new DevExpress.XtraEditors.ImageComboBoxEdit();
+         this.imlIcons = new System.Windows.Forms.ImageList(this.components);
          this.lblMode = new DevExpress.XtraEditors.LabelControl();
          this.grpGeneral = new DevExpress.XtraEditors.GroupControl();
          this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
@@ -53,7 +54,6 @@
          this.lblConnectionInput = new DevExpress.XtraEditors.LabelControl();
          this.lblConnectionElement = new DevExpress.XtraEditors.LabelControl();
          this.lblConnection = new DevExpress.XtraEditors.LabelControl();
-         this.imlIcons = new System.Windows.Forms.ImageList(this.components);
          ((System.ComponentModel.ISupportInitialize)(this.spnAddress.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.cboMode.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.grpGeneral)).BeginInit();
@@ -100,7 +100,13 @@
          this.spnAddress.Properties.Appearance.Options.UseFont = true;
          this.spnAddress.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.spnAddress.Properties.Mask.EditMask = "4D";
+         this.spnAddress.Properties.DisplayFormat.FormatString = "0000";
+         this.spnAddress.Properties.Mask.EditMask = "0000";
+         this.spnAddress.Properties.MaxValue = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
          this.spnAddress.Size = new System.Drawing.Size(74, 20);
          this.spnAddress.TabIndex = 2;
          // 
@@ -125,6 +131,15 @@
          this.cboMode.Size = new System.Drawing.Size(156, 20);
          this.cboMode.TabIndex = 4;
          this.cboMode.EditValueChanged += new System.EventHandler(this.CboMode_EditValueChanged);
+         // 
+         // imlIcons
+         // 
+         this.imlIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imlIcons.ImageStream")));
+         this.imlIcons.TransparentColor = System.Drawing.Color.Transparent;
+         this.imlIcons.Images.SetKeyName(0, "signal_continuous_16.png");
+         this.imlIcons.Images.SetKeyName(1, "signal_shot_16.png");
+         this.imlIcons.Images.SetKeyName(2, "signal_flash_16.png");
+         this.imlIcons.Images.SetKeyName(3, "cog_go_16.png");
          // 
          // lblMode
          // 
@@ -188,7 +203,6 @@
          this.spnParameter3.Name = "spnParameter3";
          this.spnParameter3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.spnParameter3.Properties.Mask.EditMask = "4D";
          this.spnParameter3.Size = new System.Drawing.Size(74, 20);
          this.spnParameter3.TabIndex = 10;
          // 
@@ -219,7 +233,6 @@
          this.spnParameter2.Name = "spnParameter2";
          this.spnParameter2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.spnParameter2.Properties.Mask.EditMask = "4D";
          this.spnParameter2.Size = new System.Drawing.Size(74, 20);
          this.spnParameter2.TabIndex = 7;
          // 
@@ -250,7 +263,6 @@
          this.spnParameter1.Name = "spnParameter1";
          this.spnParameter1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.spnParameter1.Properties.Mask.EditMask = "4D";
          this.spnParameter1.Size = new System.Drawing.Size(74, 20);
          this.spnParameter1.TabIndex = 4;
          // 
@@ -326,15 +338,6 @@
          this.lblConnection.Size = new System.Drawing.Size(65, 13);
          this.lblConnection.TabIndex = 3;
          this.lblConnection.Text = "Connected to";
-         // 
-         // imlIcons
-         // 
-         this.imlIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imlIcons.ImageStream")));
-         this.imlIcons.TransparentColor = System.Drawing.Color.Transparent;
-         this.imlIcons.Images.SetKeyName(0, "signal_continuous_16.png");
-         this.imlIcons.Images.SetKeyName(1, "signal_shot_16.png");
-         this.imlIcons.Images.SetKeyName(2, "signal_flash_16.png");
-         this.imlIcons.Images.SetKeyName(3, "cog_go_16.png");
          // 
          // AccessoryDecoderOutputEditorView
          // 

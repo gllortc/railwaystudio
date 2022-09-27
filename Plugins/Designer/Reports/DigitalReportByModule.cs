@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Linq;
 using DevExpress.XtraReports.UI;
 using Rwm.Otc.Layout;
 using Rwm.Otc.Utils;
@@ -31,7 +32,7 @@ namespace Rwm.Studio.Plugins.Designer.Reports
       {
          // this.ReportData = AccessoryDecoder.FindByConnection();
 
-         this.DataSource = Module.FindAll();
+         this.DataSource = Module.FindAll().OrderBy(o => o.Name).ToList();
          // this.DataMember = Section.TableName;
       }
 
@@ -89,7 +90,7 @@ namespace Rwm.Studio.Plugins.Designer.Reports
          // Data bindings for accessory decoder outputs
          lblOutputIndex.DataBindings.Add(new XRBinding("Text", null, "Index"));
          lblOutputAddress.DataBindings.Add(new XRBinding("Text", null, "DisplayAddress"));
-         lblOutputConnection.DataBindings.Add(new XRBinding("Text", null, "AccessoryConnection.Element.Name"));
+         lblOutputConnection.DataBindings.Add(new XRBinding("Text", null, "AccessoryConnection.Element.DisplayName"));
          lblOutputSetup.DataBindings.Add(new XRBinding("Text", null, "DisplayConfiguration"));
 
          // Data bindings for feedback encoders
@@ -100,7 +101,7 @@ namespace Rwm.Studio.Plugins.Designer.Reports
          lblEncoderInputIndex.DataBindings.Add(new XRBinding("Text", null, "Index"));
          lblEncoderInputAddress.DataBindings.Add(new XRBinding("Text", null, "DisplayAddress"));
          lblEncoderInputGroup.DataBindings.Add(new XRBinding("Text", null, "PointAddress"));
-         lblEncoderInputConnection.DataBindings.Add(new XRBinding("Text", null, "FeedbackConnection.Element.Name"));
+         lblEncoderInputConnection.DataBindings.Add(new XRBinding("Text", null, "FeedbackConnection.Element.DisplayName"));
          // lblOutputSetup.DataBindings.Add(new XRBinding("Text", null, "DisplayConfiguration"));
       }
 

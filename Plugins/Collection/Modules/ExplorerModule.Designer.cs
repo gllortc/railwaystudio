@@ -38,8 +38,8 @@
          this.cmdReportsDigitalAddresses = new DevExpress.XtraBars.BarButtonItem();
          this.rbpData = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.rpgData = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.rpgPrint = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.rpgReports = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+         this.rpgPrint = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
          this.imlIcons = new System.Windows.Forms.ImageList(this.components);
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -121,8 +121,8 @@
          // 
          this.rbpData.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpgData,
-            this.rpgReports,
-            this.rpgPrint});
+            this.rpgPrint,
+            this.rpgReports});
          this.rbpData.Name = "rbpData";
          this.rbpData.Text = "Data";
          // 
@@ -135,19 +135,19 @@
          this.rpgData.ShowCaptionButton = false;
          this.rpgData.Text = "Data";
          // 
+         // rpgReports
+         // 
+         this.rpgReports.ItemLinks.Add(this.cmdReportsDigitalAddresses);
+         this.rpgReports.Name = "rpgReports";
+         this.rpgReports.ShowCaptionButton = false;
+         this.rpgReports.Text = "Documentation";
+         // 
          // rpgPrint
          // 
          this.rpgPrint.ItemLinks.Add(this.cmdPrintPreview);
          this.rpgPrint.Name = "rpgPrint";
          this.rpgPrint.ShowCaptionButton = false;
          this.rpgPrint.Text = "Print";
-         // 
-         // rpgReports
-         // 
-         this.rpgReports.ItemLinks.Add(this.cmdReportsDigitalAddresses);
-         this.rpgReports.Name = "rpgReports";
-         this.rpgReports.ShowCaptionButton = false;
-         this.rpgReports.Text = "Reports";
          // 
          // ribbonStatusBar
          // 
@@ -275,5 +275,5 @@
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgPrint;
         private DevExpress.XtraBars.BarButtonItem cmdReportsDigitalAddresses;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgReports;
-    }
+   }
 }

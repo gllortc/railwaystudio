@@ -306,32 +306,6 @@ namespace Rwm.Otc
          }
       }
 
-      ///// <summary>
-      ///// Get all destination blocks from the specified block.
-      ///// </summary>
-      ///// <param name="fromElement">Source block element.</param>
-      ///// <returns>The requested list of destination block elements.</returns>
-      //public List<Route> GetDestinations(Element fromElement)
-      //{
-      //   Logger.LogDebug(this, "[CLASS].GetDestinations([{0}])", fromElement);
-
-      //   List<Route> routes = new List<Route>();
-
-      //   foreach (Route route in this.Routes)
-      //   {
-      //      if (route.FromBlock != null && route.FromBlock.ID == fromElement.ID)
-      //      {
-      //         routes.Add(route);
-      //      }
-      //      else if (route.IsBidirectionl && (route.ToBlock != null && route.ToBlock.ID == fromElement.ID))
-      //      {
-      //         routes.Add(route);
-      //      }
-      //   }
-
-      //   return routes;
-      //}
-
       /// <summary>
       /// Force to raise the event <c>OnElementImageChanged</c>. Used by <see cref="Element"/> instances.
       /// </summary>
@@ -379,54 +353,6 @@ namespace Rwm.Otc
       ///// Event raised when an <see cref="Element"/> should be repainted.
       ///// </summary>
       //public event EventHandler<SystemConsoleEventArgs> OnDigitalSystemInfo;
-
-      #endregion
-
-      #region Event Handlers
-
-      ///// <summary>
-      ///// Handle all feedback events received from the digital system.
-      ///// </summary>
-      //private void DigitalSystem_SensorStatusChanged(object sender, FeedbackEventArgs e)
-      //{
-      //   Element element = Element.GetByConnectionAddress(e.Address);
-
-      //   // Check element
-      //   if (element == null)
-      //   {
-      //      this.DigitalSystemInfo(MessageType.Warning, 
-      //                             "Received feedback signal for address {0} output {1} (status: {2}) but is not assigned in current project. Signal discarded!",
-      //                             e.Address, e.Output, e.NewStatus);
-      //      return;
-      //   }
-      //   else if (!element.Properties.IsFeedback)
-      //   {
-      //      this.DigitalSystemInfo(MessageType.Warning,
-      //                             "Received feedback signal for address {0} output {1} (status: {2}) but associated element not accepting feedback. Signal discarded!",
-      //                             e.Address, e.Output, e.NewStatus);
-      //      return;
-      //   }
-
-      //   // Change the feedback status
-      //   element.SetFeedbackStatus(e.NewStatus);
-      //}
-
-      ///// <summary>
-      ///// Handler for the event <c>OccupationChanged</c>.
-      ///// </summary>
-      //void Layout_OccupationChanged(object sender, OccupationEventArgs e)
-      //{
-      //   if (e.IsOccupied)
-      //   {
-      //      e.Element.Train = e.Model;
-      //      Element.Save(e.Element);
-      //   }
-      //   else
-      //   {
-      //      e.Element.Train = null;
-      //      Element.Save(e.Element);
-      //   }
-      //}
 
       #endregion
 

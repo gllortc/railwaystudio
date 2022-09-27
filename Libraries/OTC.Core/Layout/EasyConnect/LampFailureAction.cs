@@ -70,6 +70,11 @@
       /// </summary>
       public int Output { get; set; } = 1;
 
+      /// <summary>
+      /// Gets the duration in milliseconds (0 means always active)
+      /// </summary>
+      public int Duration { get; set; } = 0;
+
 
       #endregion
 

@@ -82,7 +82,7 @@ namespace Rwm.Otc.Layout
       public int ActivationOrder { get; set; }
 
       /// <summary>
-      /// Gets or sets the number of rotations that can be applied to the blobk.
+      /// Gets or sets a value indicating if the block is acting as an accessory.
       /// </summary>
       [ORMProperty("ACCESSORY")]
       public bool IsAccessory { get; set; }
@@ -100,7 +100,7 @@ namespace Rwm.Otc.Layout
       public int NumberOfAccessoryConnections { get; set; } = 0;
 
       /// <summary>
-      /// Gets or sets the number of rotations that can be applied to the blobk.
+      /// Gets or sets a value indicating if the block is acting as a feedback sensor.
       /// </summary>
       [ORMProperty("FEEDBACK")]
       public bool IsFeedback { get; set; }

@@ -19,31 +19,6 @@ namespace Rwm.Studio.Plugins.Designer.Views
       {
          InitializeComponent();
          MapModelToView(element);
-
-
-         //this.Element = element;
-
-         //txtName.Text = element.Name;
-         //lblPosition.Text = element.Coordinates.ToString();
-         //lblType.Text = element.Properties.Description;
-         //lblID.Text = element.ID.ToString();
-         //picBlock.Size = OTCContext.Project.Theme.ElementSize;
-         //picBlock.Image = element.GetImage(OTCContext.Project.Theme, false);
-         //lblStatus.Text = "-";
-
-         //if (element.Properties.IsAccessory)
-         //{
-         //   lblStatus.Text = string.Format("{0} ({1})",
-         //                                  element.Properties.GetStatusDescription(element.AccessoryStatus),
-         //                                  element.AccessoryStatus);
-         //}
-
-         //// ListAccessoryConnections();
-         //// ListFeedbackConnections();
-         //ListActions();
-
-         //eccAccessoryConnections.SetElement(this.Element);
-         //fccFeedbackConnections.SetElement(this.Element);
       }
 
       #endregion

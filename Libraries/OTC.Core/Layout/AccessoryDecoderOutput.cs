@@ -122,7 +122,7 @@ namespace Rwm.Otc.Layout
          get
          {
             if (this.Address <= 0)
-               return "Not assigned";
+               return "N/A";
             else
                return this.Address.ToString("0000");
          }

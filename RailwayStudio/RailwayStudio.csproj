@@ -288,7 +288,7 @@
       <Project>{f5ecfbab-6237-42fd-89c3-1ad2ca020201}</Project>
       <Name>RailwayStudio.Control</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Plugins\Programmer\RailwayStudio.Designer.csproj">
+    <ProjectReference Include="..\Plugins\Designer\RailwayStudio.Designer.csproj">
       <Project>{d90ea763-e8eb-4a06-ba08-cb3c9308aa11}</Project>
       <Name>RailwayStudio.Designer</Name>
     </ProjectReference>

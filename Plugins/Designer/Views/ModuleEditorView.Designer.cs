@@ -38,7 +38,6 @@
          this.lblAccStartAddr = new DevExpress.XtraEditors.LabelControl();
          this.lblAccEndAddr = new DevExpress.XtraEditors.LabelControl();
          this.tabArea = new DevExpress.XtraTab.XtraTabControl();
-         this.tabAreaGeneral = new DevExpress.XtraTab.XtraTabPage();
          this.tabAreaDigital = new DevExpress.XtraTab.XtraTabPage();
          this.grpConnections = new DevExpress.XtraEditors.GroupControl();
          this.lblConnectionHandRegler = new DevExpress.XtraEditors.LabelControl();
@@ -55,13 +54,13 @@
          this.grpDigitalAcc = new DevExpress.XtraEditors.GroupControl();
          this.tabSchema = new DevExpress.XtraTab.XtraTabPage();
          this.picSchema = new DevExpress.XtraEditors.PictureEdit();
+         this.tabAreaGeneral = new DevExpress.XtraTab.XtraTabPage();
          ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtAccStartAddr.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.txtAccEndAddr.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.tabArea)).BeginInit();
          this.tabArea.SuspendLayout();
-         this.tabAreaGeneral.SuspendLayout();
          this.tabAreaDigital.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.grpConnections)).BeginInit();
          this.grpConnections.SuspendLayout();
@@ -76,6 +75,7 @@
          this.grpDigitalAcc.SuspendLayout();
          this.tabSchema.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.picSchema.Properties)).BeginInit();
+         this.tabAreaGeneral.SuspendLayout();
          this.SuspendLayout();
          // 
          // cmdOk
@@ -190,14 +190,6 @@
             this.tabAreaDigital,
             this.tabSchema,
             this.tabAreaGeneral});
-         // 
-         // tabAreaGeneral
-         // 
-         this.tabAreaGeneral.Controls.Add(this.txtDescription);
-         this.tabAreaGeneral.Name = "tabAreaGeneral";
-         this.tabAreaGeneral.Padding = new System.Windows.Forms.Padding(10);
-         this.tabAreaGeneral.Size = new System.Drawing.Size(516, 340);
-         this.tabAreaGeneral.Text = "Notes";
          // 
          // tabAreaDigital
          // 
@@ -389,10 +381,18 @@
          this.picSchema.Location = new System.Drawing.Point(10, 10);
          this.picSchema.Name = "picSchema";
          this.picSchema.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-         this.picSchema.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+         this.picSchema.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
          this.picSchema.Properties.ZoomAccelerationFactor = 1D;
          this.picSchema.Size = new System.Drawing.Size(496, 320);
          this.picSchema.TabIndex = 1;
+         // 
+         // tabAreaGeneral
+         // 
+         this.tabAreaGeneral.Controls.Add(this.txtDescription);
+         this.tabAreaGeneral.Name = "tabAreaGeneral";
+         this.tabAreaGeneral.Padding = new System.Windows.Forms.Padding(10);
+         this.tabAreaGeneral.Size = new System.Drawing.Size(516, 340);
+         this.tabAreaGeneral.Text = "Notes";
          // 
          // ModuleEditorView
          // 
@@ -419,7 +419,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.txtAccEndAddr.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.tabArea)).EndInit();
          this.tabArea.ResumeLayout(false);
-         this.tabAreaGeneral.ResumeLayout(false);
          this.tabAreaDigital.ResumeLayout(false);
          this.tabAreaDigital.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.grpConnections)).EndInit();
@@ -438,6 +437,7 @@
          this.grpDigitalAcc.PerformLayout();
          this.tabSchema.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.picSchema.Properties)).EndInit();
+         this.tabAreaGeneral.ResumeLayout(false);
          this.ResumeLayout(false);
 
       }

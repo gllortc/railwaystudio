@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using DevExpress.XtraTreeList.Columns;
 using DevExpress.XtraTreeList.Nodes;
@@ -399,7 +400,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
 
          tlsDecoders.BeginUnboundLoad();
 
-         foreach (Module module in OTCContext.Project.Modules)
+         foreach (Module module in OTCContext.Project.Modules.OrderBy(o => o.Name).ToList())
          {
             rootNode = tlsDecoders.AppendNode(new object[] { module.Name, string.Empty, module.AccessoryAddressRange }, null);
             rootNode.StateImageIndex = 0;
@@ -410,7 +411,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
             //parentNode.StateImageIndex = 1;
             //parentNode.Expanded = true;
 
-            foreach (AccessoryDecoder accDecoder in OTCContext.Project.AccessoryDecoders)
+            foreach (AccessoryDecoder accDecoder in OTCContext.Project.AccessoryDecoders.OrderBy(o => o.Name).ToList())
             {
                if (accDecoder.Module == module)
                {
@@ -429,7 +430,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
             //parentNode.StateImageIndex = 1;
             //parentNode.Expanded = true;
 
-            foreach (FeedbackEncoder fbEncoder in OTCContext.Project.FeedbackEncoders)
+            foreach (FeedbackEncoder fbEncoder in OTCContext.Project.FeedbackEncoders.OrderBy(o => o.Name).ToList())
             {
                if (fbEncoder.Module == module)
                {
@@ -455,7 +456,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
          parentNode.StateImageIndex = 1;
          parentNode.Expanded = true;
 
-         foreach (AccessoryDecoder accDecoder in OTCContext.Project.AccessoryDecoders)
+         foreach (AccessoryDecoder accDecoder in OTCContext.Project.AccessoryDecoders.OrderBy(o => o.Name).ToList())
          {
             if (accDecoder.Module == null)
             {
@@ -476,7 +477,7 @@ namespace Rwm.Studio.Plugins.Designer.Modules
          parentNode.StateImageIndex = 1;
          parentNode.Expanded = true;
 
-         foreach (FeedbackEncoder fbEncoder in OTCContext.Project.FeedbackEncoders)
+         foreach (FeedbackEncoder fbEncoder in OTCContext.Project.FeedbackEncoders.OrderBy(o => o.Name).ToList())
          {
             if (fbEncoder.Module == null)
             {

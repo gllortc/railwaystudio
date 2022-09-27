@@ -94,7 +94,7 @@ namespace Rwm.Studio.Plugins.Designer.Views
          spnParameter1.EditValue = 0;
          spnParameter1.EditValue = 0;
          cmdDisconnect.Enabled = (this.Output.AccessoryConnection != null);
-         spnAddress.Properties.Mask.EditMask = "4D";
+         spnAddress.Properties.Mask.EditMask = "0000";
          spnAddress.Properties.MaxValue = OTCContext.Project.DigitalSystem.AccessoryAddressRange.Maximum;
 
          spnAddress.EditValue = this.Output.Address;

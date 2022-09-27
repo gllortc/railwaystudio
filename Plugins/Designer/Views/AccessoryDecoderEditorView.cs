@@ -89,12 +89,10 @@ namespace Rwm.Studio.Plugins.Designer.Views
             AccessoryDecoder.Save(this.Decoder);
 
             // Save the decoder outputs
-            if (this.Decoder.IsNew)
+            foreach (AccessoryDecoderOutput output in this.Decoder.Outputs)
             {
-               foreach (AccessoryDecoderOutput output in this.Decoder.Outputs)
-               {
+               if (output.IsNew)
                   AccessoryDecoderOutput.Save(output);
-               }
             }
 
             // Add the decoder into the project
@@ -160,7 +158,11 @@ namespace Rwm.Studio.Plugins.Designer.Views
          this.Decoder.Module = cboSection.SelectedSection;
          this.Decoder.Notes = txtNotes.Text.Trim();
 
-         // TODO: get all outputs??
+         // Get outputs
+         foreach (AccessoryDecoderOutput output in this.Decoder.Outputs)
+         {
+
+         }
 
          return true;
       }

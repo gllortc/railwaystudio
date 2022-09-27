@@ -63,11 +63,22 @@ namespace Rwm.Studio.Plugins.Designer.Controls
 
       #region Methods
 
+      /// <summary>
+      /// Adds a new block into the switchboard.
+      /// </summary>
+      /// <param name="blockType">Type of the new block.</param>
+      /// <param name="col">Column index.</param>
+      /// <param name="row">Row index.</param>
       public void BlockAdd(ElementType blockType, int col, int row)
       {
          this.BlockAdd(blockType, new Point(col, row));
       }
 
+      /// <summary>
+      /// Adds a new block into the switchboard.
+      /// </summary>
+      /// <param name="blockType">Type of the new block.</param>
+      /// <param name="coords">Position coordinates.</param>
       public void BlockAdd(ElementType blockType, Point coords)
       {
          // Avoit adding blocks without predefined type
@@ -86,6 +97,12 @@ namespace Rwm.Studio.Plugins.Designer.Controls
                throw new ArgumentException("The element cannot be placed here. Possible causes:\n\n- Used position\n- No enough space");
             }
 
+            if (newBlock.Properties.IsAccessory)
+               newBlock.AccessoryConnections = new System.Collections.Generic.List<AccessoryDecoderConnection>();
+
+            if (newBlock.Properties.IsFeedback)
+               newBlock.FeedbackConnections = new System.Collections.Generic.List<FeedbackEncoderConnection>();
+
             Element.Save(newBlock);
             this.Switchboard.Elements.Add(newBlock);
          }
@@ -101,11 +118,20 @@ namespace Rwm.Studio.Plugins.Designer.Controls
          }
       }
 
+      /// <summary>
+      /// Delete the block in the specified position.
+      /// </summary>
+      /// <param name="col">Column index.</param>
+      /// <param name="row">Row index.</param>
       public void BlockDelete(int col, int row)
       {
          this.BlockDelete(new Point(col, row));
       }
 
+      /// <summary>
+      /// Delete the block in the specified position.
+      /// </summary>
+      /// <param name="coords">Block coordinates.</param>
       public void BlockDelete(Point coords)
       {
          Element element = null;

@@ -84,6 +84,11 @@
       /// </summary>
       public int ActionButtonIndex { get; set; } = 0;
 
+      /// <summary>
+      /// Gets the duration in milliseconds (0 means always active)
+      /// </summary>
+      public int Duration { get; set; } = 0;
+
       #endregion
 
    }

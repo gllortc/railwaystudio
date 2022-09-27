@@ -27,7 +27,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OTC.System.XpressNet.USB", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OTC.System.XpressNet.LAN", "Systems\OTC.System.XpressNet.LAN\OTC.System.XpressNet.LAN.csproj", "{38275F5C-E9FB-4989-938D-8DE7324CC7CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RailwayStudio.Designer", "Plugins\Programmer\RailwayStudio.Designer.csproj", "{D90EA763-E8EB-4A06-BA08-CB3C9308AA11}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RailwayStudio.Designer", "Plugins\Designer\RailwayStudio.Designer.csproj", "{D90EA763-E8EB-4A06-BA08-CB3C9308AA11}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -35,6 +35,11 @@ namespace Rwm.Otc.Layout.EasyConnect
       int ActionButtonIndex { get; }
 
       /// <summary>
+      /// Gets the duration in milliseconds (0 means always active)
+      /// </summary>
+      int Duration { get; }
+
+      /// <summary>
       /// Gets an icon (16x16) representing the action.
       /// </summary>
       System.Drawing.Image SmallIcon { get; }

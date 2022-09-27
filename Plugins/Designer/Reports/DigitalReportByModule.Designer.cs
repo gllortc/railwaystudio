@@ -47,7 +47,6 @@
          this.lblModuleId = new DevExpress.XtraReports.UI.XRLabel();
          this.picProjectLogo = new DevExpress.XtraReports.UI.XRPictureBox();
          this.xrShape1 = new DevExpress.XtraReports.UI.XRShape();
-         this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
          this.xrLabel8 = new DevExpress.XtraReports.UI.XRLabel();
          this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
          this.chkModulePowerBus = new DevExpress.XtraReports.UI.XRCheckBox();
@@ -56,6 +55,7 @@
          this.imgLogo = new DevExpress.XtraReports.UI.XRPictureBox();
          this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
          this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
+         this.lblProjectCompany = new DevExpress.XtraReports.UI.XRLabel();
          this.xrShape5 = new DevExpress.XtraReports.UI.XRShape();
          this.SectionHeader = new DevExpress.XtraReports.UI.GroupHeaderBand();
          this.AccessoryConnectionsReport = new DevExpress.XtraReports.UI.DetailReportBand();
@@ -91,7 +91,6 @@
          this.lblEncoderName = new DevExpress.XtraReports.UI.XRLabel();
          this.shpEncoderBackground = new DevExpress.XtraReports.UI.XRShape();
          this.ReportFooter1 = new DevExpress.XtraReports.UI.ReportFooterBand();
-         this.lblProjectCompany = new DevExpress.XtraReports.UI.XRLabel();
          ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
          // 
          // Detail
@@ -107,12 +106,11 @@
             this.lblModuleId,
             this.picProjectLogo,
             this.xrShape1,
-            this.xrLabel7,
             this.xrLabel8,
             this.xrLabel9,
             this.chkModulePowerBus,
             this.xrShape2});
-         this.Detail.HeightF = 588.3975F;
+         this.Detail.HeightF = 541.6476F;
          this.Detail.Name = "Detail";
          this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
          this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -120,7 +118,7 @@
          // chkModuleCommandBus
          // 
          this.chkModuleCommandBus.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
-         this.chkModuleCommandBus.LocationFloat = new DevExpress.Utils.PointFloat(200F, 553.46F);
+         this.chkModuleCommandBus.LocationFloat = new DevExpress.Utils.PointFloat(200.6124F, 512.5201F);
          this.chkModuleCommandBus.Name = "chkModuleCommandBus";
          this.chkModuleCommandBus.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 0, 0, 0, 100F);
          this.chkModuleCommandBus.SizeF = new System.Drawing.SizeF(517.9998F, 22.99997F);
@@ -131,7 +129,7 @@
          // chkModuleSystemBus
          // 
          this.chkModuleSystemBus.Borders = DevExpress.XtraPrinting.BorderSide.Right;
-         this.chkModuleSystemBus.LocationFloat = new DevExpress.Utils.PointFloat(200.0002F, 530.46F);
+         this.chkModuleSystemBus.LocationFloat = new DevExpress.Utils.PointFloat(200.6127F, 489.5202F);
          this.chkModuleSystemBus.Name = "chkModuleSystemBus";
          this.chkModuleSystemBus.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 0, 0, 0, 100F);
          this.chkModuleSystemBus.SizeF = new System.Drawing.SizeF(517.9998F, 22.99997F);
@@ -145,7 +143,7 @@
          this.xrLabel10.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
          this.xrLabel10.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(10.00027F, 507.46F);
+         this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(10.61271F, 466.5202F);
          this.xrLabel10.Name = "xrLabel10";
          this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 2, 0, 0, 100F);
          this.xrLabel10.SizeF = new System.Drawing.SizeF(190F, 68.99994F);
@@ -161,7 +159,7 @@
          // 
          this.lblModuleFbRange.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Top | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-         this.lblModuleFbRange.LocationFloat = new DevExpress.Utils.PointFloat(200F, 484.46F);
+         this.lblModuleFbRange.LocationFloat = new DevExpress.Utils.PointFloat(200.6124F, 443.5202F);
          this.lblModuleFbRange.Name = "lblModuleFbRange";
          this.lblModuleFbRange.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 2, 0, 0, 100F);
          this.lblModuleFbRange.SizeF = new System.Drawing.SizeF(517.9999F, 22.99997F);
@@ -175,7 +173,7 @@
          // 
          this.lblModuleAccRange.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Top | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-         this.lblModuleAccRange.LocationFloat = new DevExpress.Utils.PointFloat(200.0003F, 462.4583F);
+         this.lblModuleAccRange.LocationFloat = new DevExpress.Utils.PointFloat(200.6127F, 421.5184F);
          this.lblModuleAccRange.Name = "lblModuleAccRange";
          this.lblModuleAccRange.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 2, 0, 0, 100F);
          this.lblModuleAccRange.SizeF = new System.Drawing.SizeF(517.9997F, 22.99997F);
@@ -251,17 +249,6 @@
          this.xrShape1.StylePriority.UseBorders = false;
          this.xrShape1.StylePriority.UseBorderWidth = false;
          // 
-         // xrLabel7
-         // 
-         this.xrLabel7.AutoWidth = true;
-         this.xrLabel7.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(9.999977F, 427.4951F);
-         this.xrLabel7.Name = "xrLabel7";
-         this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-         this.xrLabel7.SizeF = new System.Drawing.SizeF(365.6514F, 22.99997F);
-         this.xrLabel7.StylePriority.UseFont = false;
-         this.xrLabel7.Text = "Properties";
-         // 
          // xrLabel8
          // 
          this.xrLabel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -269,7 +256,7 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
          this.xrLabel8.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(9.999993F, 462.4583F);
+         this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(10.61249F, 421.5184F);
          this.xrLabel8.Name = "xrLabel8";
          this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
          this.xrLabel8.SizeF = new System.Drawing.SizeF(190.0003F, 22.99997F);
@@ -286,7 +273,7 @@
          this.xrLabel9.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
          this.xrLabel9.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(9.999993F, 484.46F);
+         this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(10.61249F, 443.5202F);
          this.xrLabel9.Name = "xrLabel9";
          this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
          this.xrLabel9.SizeF = new System.Drawing.SizeF(190F, 22.99994F);
@@ -300,7 +287,7 @@
          // chkModulePowerBus
          // 
          this.chkModulePowerBus.Borders = DevExpress.XtraPrinting.BorderSide.Right;
-         this.chkModulePowerBus.LocationFloat = new DevExpress.Utils.PointFloat(200.0002F, 507.46F);
+         this.chkModulePowerBus.LocationFloat = new DevExpress.Utils.PointFloat(200.6127F, 466.5202F);
          this.chkModulePowerBus.Name = "chkModulePowerBus";
          this.chkModulePowerBus.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 0, 0, 0, 100F);
          this.chkModulePowerBus.SizeF = new System.Drawing.SizeF(517.9998F, 22.99997F);
@@ -318,7 +305,7 @@
          this.xrShape2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 412.6667F);
          this.xrShape2.Name = "xrShape2";
          this.xrShape2.Shape = shapeRectangle2;
-         this.xrShape2.SizeF = new System.Drawing.SizeF(728.0001F, 175.7308F);
+         this.xrShape2.SizeF = new System.Drawing.SizeF(728.0001F, 128.9809F);
          this.xrShape2.StylePriority.UseBorders = false;
          this.xrShape2.StylePriority.UseBorderWidth = false;
          // 
@@ -358,6 +345,15 @@
          this.xrLabel6.StylePriority.UseFont = false;
          this.xrLabel6.Text = "Created with";
          // 
+         // lblProjectCompany
+         // 
+         this.lblProjectCompany.Font = new System.Drawing.Font("Bahnschrift", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.lblProjectCompany.LocationFloat = new DevExpress.Utils.PointFloat(0F, 9.999974F);
+         this.lblProjectCompany.Name = "lblProjectCompany";
+         this.lblProjectCompany.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+         this.lblProjectCompany.SizeF = new System.Drawing.SizeF(495.8333F, 23F);
+         this.lblProjectCompany.StylePriority.UseFont = false;
+         // 
          // xrShape5
          // 
          this.xrShape5.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
@@ -367,7 +363,7 @@
          this.xrShape5.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
          this.xrShape5.Name = "xrShape5";
          this.xrShape5.Shape = shapeRectangle3;
-         this.xrShape5.SizeF = new System.Drawing.SizeF(727.9999F, 7.42187F);
+         this.xrShape5.SizeF = new System.Drawing.SizeF(727.9999F, 5F);
          this.xrShape5.StylePriority.UseBorders = false;
          this.xrShape5.StylePriority.UseBorderWidth = false;
          // 
@@ -810,17 +806,8 @@
          // 
          this.ReportFooter1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrShape5});
-         this.ReportFooter1.HeightF = 7.42187F;
+         this.ReportFooter1.HeightF = 5F;
          this.ReportFooter1.Name = "ReportFooter1";
-         // 
-         // lblProjectCompany
-         // 
-         this.lblProjectCompany.Font = new System.Drawing.Font("Bahnschrift", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.lblProjectCompany.LocationFloat = new DevExpress.Utils.PointFloat(0F, 9.999974F);
-         this.lblProjectCompany.Name = "lblProjectCompany";
-         this.lblProjectCompany.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-         this.lblProjectCompany.SizeF = new System.Drawing.SizeF(495.8333F, 23F);
-         this.lblProjectCompany.StylePriority.UseFont = false;
          // 
          // DigitalReportByModule
          // 
@@ -871,7 +858,6 @@
       private DevExpress.XtraReports.UI.XRLabel lblModuleFbRange;
       private DevExpress.XtraReports.UI.XRLabel lblModuleAccRange;
       private DevExpress.XtraReports.UI.XRLabel xrLabel9;
-      private DevExpress.XtraReports.UI.XRLabel xrLabel7;
       private DevExpress.XtraReports.UI.XRLabel xrLabel8;
       private DevExpress.XtraReports.UI.XRShape xrShape2;
       private DevExpress.XtraReports.UI.XRShape xrShape3;
